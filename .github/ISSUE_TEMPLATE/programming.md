@@ -2,7 +2,7 @@
 name: Programming Team
 about: Bug report, feature request, etc.
 title: ''
-labels: draft
+labels: discipline:programming
 assignees: ''
 
 ---
