@@ -1,6 +1,6 @@
 ---
-name: Art Asset
-about: Art Team Task
+name: Art Team
+about: Art Asset
 title: ''
 labels: discipline:art
 assignees: ''
