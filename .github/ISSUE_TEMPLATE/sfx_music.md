@@ -1,8 +1,8 @@
 ---
-name: SFX / Music
-about: Sound team task
+name: Sound Team
+about: Music or SFX asset
 title: ''
-labels: draft,discipline:sound
+labels: discipline:sound
 assignees: ''
 
 ---
