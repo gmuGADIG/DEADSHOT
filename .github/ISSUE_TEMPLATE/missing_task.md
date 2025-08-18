@@ -1,12 +1,8 @@
 ---
-name: Missing Task
-about: Something in the GDD doesn't have a task yet
+name: SFX / Music
+about: Sound team task
 title: ''
-labels: draft
+labels: draft,discipline:sound
 assignees: ''
 
 ---
-
-**Describe the feature. Include a link to the GDD or a relevant snippet from it.**
-
-...
