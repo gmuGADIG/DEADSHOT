@@ -1,8 +1,8 @@
 ---
 name: Task - Programming
 about: Bugs fixes or features for programmers to implement.
-title: ''
-labels: discipline:programming,awaiting:officer
+title: '[PROG] '
+labels: discipline:programming,needs-approval
 assignees: ''
 
 ---

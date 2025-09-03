@@ -1,8 +1,8 @@
 ---
 name: Task - Sound
 about: Music or SFX asset for sound team to make.
-title: ''
-labels: discipline:sound,awaiting:officer
+title: '[SOUND] '
+labels: discipline:sound,needs-approval
 assignees: ''
 
 ---
