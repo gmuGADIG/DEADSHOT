@@ -1,11 +1,11 @@
 **What issue does this close? For multiple, write a line for each.**
-
 Closes #...
 
-**Describe this PR's changes:**
-
+**Summarize what's new, especially anything not mentioned in the issue.**
 ...
 
-**If there's any remaining work needed, describe that here:**
+**If there's any remaining work needed, describe that here.**
+...
 
+**How should this be tested? Include what scene it's in, and any steps to test every feature.**
 ...

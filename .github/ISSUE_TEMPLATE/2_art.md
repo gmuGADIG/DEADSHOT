@@ -2,7 +2,7 @@
 name: Task - Art
 about: Visual asset for art team to make.
 title: '[ART] '
-labels: discipline:art,needs-approval
+labels: discipline:art
 assignees: ''
 
 ---

@@ -1,10 +1,14 @@
 ---
-name: Task Group - Design Team
+name: Task Group - Design
 about: Contains sub-tasks for other teams and User Stories.
 title: '[GROUP] '
-labels: discipline:design,needs-approval
+labels: discipline:design
 assignees: ''
 
 ---
 
-**Use the comments for User Stories and discussion.**
+**User Story:**
+
+
+**Description:**
+
