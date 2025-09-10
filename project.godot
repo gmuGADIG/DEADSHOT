@@ -14,6 +14,10 @@ config/name="DEADSHOT"
 config/features=PackedStringArray("4.4")
 config/icon="res://temp_art/icon.svg"
 
+[debug]
+
+gdscript/warnings/untyped_declaration=2
+
 [file_customization]
 
 folder_colors={
