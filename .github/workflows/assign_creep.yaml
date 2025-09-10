@@ -1,4 +1,4 @@
-name: Update Task Status
+name: Add Assignee to Parent Task
 
 on:
   issues:
