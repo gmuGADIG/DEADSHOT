@@ -1,0 +1,15 @@
+name: Update Task Status
+
+on:
+  issues:
+    types: [assigned]
+
+permissions:
+  issues: write
+
+jobs:
+  assign-creep:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: gmuGADIG/assign-creep@main
+          
