@@ -13,3 +13,15 @@ config_version=5
 config/name="DEADSHOT"
 config/features=PackedStringArray("4.4")
 config/icon="res://temp_art/icon.svg"
+
+[file_customization]
+
+folder_colors={
+"res://audio/": "red",
+"res://menu/": "orange",
+"res://temp_art/": "yellow",
+"res://test_scenes/": "green",
+"res://world/enemy/": "teal",
+"res://world/levels/": "blue",
+"res://world/player/": "purple"
+}
