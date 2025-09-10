@@ -12,4 +12,4 @@ config_version=5
 
 config/name="DEADSHOT"
 config/features=PackedStringArray("4.4")
-config/icon="res://icon.svg"
+config/icon="res://temp_art/icon.svg"
