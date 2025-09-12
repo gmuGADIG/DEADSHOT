@@ -1,13 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3o7riajla512"]
+[gd_scene load_steps=9 format=3 uid="uid://d3o7riajla512"]
 
 [ext_resource type="PackedScene" uid="uid://d1gunjkbicne3" path="res://world/floor/temp_floor.tscn" id="1_6ev0s"]
 [ext_resource type="Texture2D" uid="uid://cjbsq7rk6r3h4" path="res://temp_art/gartic/cactus.png" id="2_p5u37"]
 [ext_resource type="Texture2D" uid="uid://sxaysn4gqoxo" path="res://temp_art/gartic/coin.png" id="3_p5u37"]
 [ext_resource type="Texture2D" uid="uid://ccalgafhbfwhn" path="res://temp_art/gartic/raccoon_with_gun.png" id="4_wceyb"]
+[ext_resource type="Script" uid="uid://clb0juheesyl" path="res://world/player/player.gd" id="5_0u0ns"]
+[ext_resource type="Texture2D" uid="uid://ckv48omi8han7" path="res://temp_art/gartic/harry_potter_with_gun.png" id="6_byltu"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_plfsl"]
 height = 1.85699
 radius = 0.669922
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ppbhs"]
+height = 1.71478
 
 [node name="ExampleScene" type="Node3D"]
 
@@ -16,6 +21,7 @@ radius = 0.669922
 [node name="Floor" parent="World" instance=ExtResource("1_6ev0s")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.0301347, 4.76837e-07, -0.00351143)
 polygon = PackedVector2Array(-8, -5, -8, 5, 17, 4, 17, -5)
+depth = 0.75
 
 [node name="Cactus" type="Sprite3D" parent="World"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -6.08085, 1.35212, -2.54946)
@@ -43,3 +49,17 @@ shape = SubResource("CylinderShape3D_plfsl")
 [node name="Sprite3D" type="Sprite3D" parent="Enemy"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 1, 0)
 texture = ExtResource("4_wceyb")
+
+[node name="Player" type="CharacterBody3D" parent="."]
+script = ExtResource("5_0u0ns")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.883881, 0)
+shape = SubResource("CylinderShape3D_ppbhs")
+
+[node name="Sprite3D" type="Sprite3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 1.13809, 0)
+texture = ExtResource("6_byltu")
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 4.87998, 3.30283)
