@@ -8,10 +8,16 @@ func _on_curve_changed() -> void:
 	generate()
 
 func _get_configuration_warnings() -> PackedStringArray:
+	if curve == null: return ["Missing a curve. Press 'Create Curve' at the top."]
 	if not is_on_plane(): return ["Points must fall on a plane."]
 	else: return []
 
 func generate() -> void:
+	if curve == null:
+		%Floor.polygon = PackedVector2Array()
+		return
+		
+	
 	update_configuration_warnings()
 	
 	#- Generate Floor -#

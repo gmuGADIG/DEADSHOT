@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3o7riajla512"]
+[gd_scene load_steps=7 format=3 uid="uid://d3o7riajla512"]
 
 [ext_resource type="PackedScene" uid="uid://cr05xakri7lnw" path="res://world/floor/floor_gen.tscn" id="1_plfsl"]
 [ext_resource type="Texture2D" uid="uid://cjbsq7rk6r3h4" path="res://temp_art/gartic/cactus.png" id="2_p5u37"]
@@ -6,11 +6,20 @@
 [ext_resource type="PackedScene" uid="uid://dxdkwdigtcn43" path="res://world/enemy/test/enemy_test.tscn" id="4_wceyb"]
 [ext_resource type="PackedScene" uid="uid://nuqmhgq1e2lu" path="res://world/player/player.tscn" id="5_plfsl"]
 
+[sub_resource type="Curve3D" id="Curve3D_plfsl"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -8, 0, -4, 0, 0, 0, 0, 0, 0, 18, 0, -4, 0, 0, 0, 0, 0, 0, 18, 0, 6, 0, 0, 0, 0, 0, 0, -8, 0, 6),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
 [node name="ExampleScene" type="Node3D"]
 
 [node name="World" type="Node3D" parent="."]
 
 [node name="Floor" parent="World" instance=ExtResource("1_plfsl")]
+curve = SubResource("Curve3D_plfsl")
 
 [node name="Cactus" type="Sprite3D" parent="World"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -6.08085, 1.35212, -2.54946)
