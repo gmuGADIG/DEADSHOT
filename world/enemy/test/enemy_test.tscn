@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxdkwdigtcn43"]
+
+[ext_resource type="PackedScene" uid="uid://dx3l0wduat3tp" path="res://world/enemy/base/enemy_base.tscn" id="1_gbmv4"]
+[ext_resource type="Texture2D" uid="uid://ccalgafhbfwhn" path="res://temp_art/gartic/raccoon_with_gun.png" id="2_yh6x6"]
+
+[node name="EnemyTest" instance=ExtResource("1_gbmv4")]
+
+[node name="Sprite3D" parent="." index="1"]
+texture = ExtResource("2_yh6x6")
