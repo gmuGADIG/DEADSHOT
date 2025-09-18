@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://rberd5xw8srm"]
+
+[ext_resource type="Script" uid="uid://e10p87tj3p62" path="res://transition.gd" id="1_2gi1b"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1yi3g"]
+
+[node name="Node3D" type="Area3D"]
+script = ExtResource("1_2gi1b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_1yi3g")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
