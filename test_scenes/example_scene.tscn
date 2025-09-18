@@ -20,9 +20,9 @@ point_count = 4
 
 [node name="ExampleScene" type="Node3D"]
 
-[node name="EnemyTest" parent="." instance=ExtResource("4_wceyb")]
+[node name="EnemyTest" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_wceyb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.249423, 4.7683716e-07, -2.0285115)
-script = null
+player = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("5_plfsl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53553, 4.7683716e-07, 0.9444761)
