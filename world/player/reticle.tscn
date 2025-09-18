@@ -1,5 +1,8 @@
-[gd_scene format=3 uid="uid://d0gtg76d5sy"]
+[gd_scene load_steps=2 format=3 uid="uid://d0gtg76d5sy"]
+
+[ext_resource type="Script" uid="uid://dr6urajd1mhw3" path="res://world/player/reticle.gd" id="1_8fhrh"]
 
 [node name="reticle" type="Node3D"]
+script = ExtResource("1_8fhrh")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
