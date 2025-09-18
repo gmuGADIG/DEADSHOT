@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://by8y1gjlttw6g"]
+[gd_scene load_steps=2 format=3 uid="uid://by8y1gjlttw6g"]
+
+[ext_resource type="Script" uid="uid://bvc1y8sqr44gm" path="res://menu/new_save_script.gd" id="1_n42p6"]
 
 [node name="Canvas" type="Control"]
 layout_mode = 3
@@ -18,6 +20,7 @@ offset_right = 459.0
 offset_bottom = 261.0
 text = "NEW SAVE
 "
+script = ExtResource("1_n42p6")
 
 [node name="Button2" type="Button" parent="."]
 layout_mode = 0
