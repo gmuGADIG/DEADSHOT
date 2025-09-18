@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://by8y1gjlttw6g"]
+[gd_scene load_steps=2 format=3 uid="uid://by8y1gjlttw6g"]
+
+[ext_resource type="Script" uid="uid://bx3hgec07sjyk" path="res://menu/button_4.gd" id="1_n42p6"]
 
 [node name="Canvas" type="Control"]
 layout_mode = 3
@@ -43,6 +45,7 @@ offset_top = 186.0
 offset_right = 416.0
 offset_bottom = 247.0
 text = "QUIT"
+script = ExtResource("1_n42p6")
 
 [node name="TextEdit" type="TextEdit" parent="."]
 layout_mode = 0
