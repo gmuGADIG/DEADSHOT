@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://d3o7riajla512"]
+[gd_scene load_steps=11 format=3 uid="uid://d3o7riajla512"]
 
 [ext_resource type="PackedScene" uid="uid://cr05xakri7lnw" path="res://world/floor/floor_gen.tscn" id="1_plfsl"]
 [ext_resource type="Texture2D" uid="uid://cjbsq7rk6r3h4" path="res://temp_art/gartic/cactus.png" id="2_p5u37"]
 [ext_resource type="Texture2D" uid="uid://sxaysn4gqoxo" path="res://temp_art/gartic/coin.png" id="3_p5u37"]
+[ext_resource type="Script" uid="uid://8ymbd13fe423" path="res://test_scenes/collision_shape_3d.gd" id="4_ppbhs"]
 [ext_resource type="PackedScene" uid="uid://dxdkwdigtcn43" path="res://world/enemy/test/enemy_test.tscn" id="4_wceyb"]
 [ext_resource type="PackedScene" uid="uid://nuqmhgq1e2lu" path="res://world/player/player.tscn" id="5_plfsl"]
+[ext_resource type="Script" uid="uid://db48mxc48ejd1" path="res://test_scenes/area_3d.gd" id="7_byltu"]
 
 [sub_resource type="Curve3D" id="Curve3D_plfsl"]
 closed = true
@@ -14,11 +16,17 @@ _data = {
 }
 point_count = 4
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_a57sh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ppbhs"]
+size = Vector3(1, 1, 2.0401611)
+
 [node name="ExampleScene" type="Node3D"]
 
 [node name="World" type="Node3D" parent="."]
 
 [node name="Floor" parent="World" instance=ExtResource("1_plfsl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6378056, -0.2394557, -0.7456732)
 curve = SubResource("Curve3D_plfsl")
 
 [node name="Cactus" type="Sprite3D" parent="World"]
@@ -37,12 +45,29 @@ texture = ExtResource("2_p5u37")
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 11.5831, 1.00557, 0.341141)
 texture = ExtResource("3_p5u37")
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Coin"]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0.042464256, 0, 0)
+shape = SubResource("SphereShape3D_a57sh")
+script = ExtResource("4_ppbhs")
+
 [node name="EnemyTest" parent="." instance=ExtResource("4_wceyb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.249423, 4.7683716e-07, -2.0285115)
 script = null
 
 [node name="Player" parent="." instance=ExtResource("5_plfsl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53553, 4.7683716e-07, 0.9444761)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53553, 4.7683716e-07, 0.5935825)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.92473876, -0.25272667, 0.28458285, 0, 0.74771696, 0.66401756, -0.3806024, -0.61404276, 0.69144285, 0, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9035368, 0, 0)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("7_byltu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.63384247, 0.3742199, 0.52008057)
+shape = SubResource("BoxShape3D_ppbhs")
+
+[connection signal="body_shape_entered" from="Area3D" to="Area3D" method="_on_body_shape_entered"]

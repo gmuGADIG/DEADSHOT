@@ -1,0 +1,1 @@
+extends CollisionShape3D
