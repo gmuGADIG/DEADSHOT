@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://by8y1gjlttw6g"]
+
+[node name="Canvas" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1166.0
+offset_bottom = 660.0
+color = Color(0, 0.2365942, 0.6779701, 1)
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 736.0
+offset_top = 406.0
+offset_right = 1095.0
+offset_bottom = 467.0
+text = "NEW SAVE
+"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 387.0
+offset_right = 429.0
+offset_bottom = 448.0
+text = "LOAD SAVE
+"
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 719.0
+offset_top = 191.0
+offset_right = 1078.0
+offset_bottom = 252.0
+text = "OPTIONS"
+
+[node name="Button4" type="Button" parent="."]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 186.0
+offset_right = 416.0
+offset_bottom = 247.0
+text = "QUIT"
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 493.0
+offset_top = 76.0
+offset_right = 643.0
+offset_bottom = 126.0
+text = "MAIN MENU"
+editable = false
