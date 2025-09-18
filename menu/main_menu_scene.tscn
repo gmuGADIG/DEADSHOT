@@ -12,36 +12,36 @@ color = Color(0, 0.2365942, 0.6779701, 1)
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 736.0
-offset_top = 406.0
-offset_right = 1095.0
-offset_bottom = 467.0
+offset_left = 100.0
+offset_top = 200.0
+offset_right = 459.0
+offset_bottom = 261.0
 text = "NEW SAVE
 "
 
 [node name="Button2" type="Button" parent="."]
 layout_mode = 0
-offset_left = 70.0
-offset_top = 387.0
-offset_right = 429.0
-offset_bottom = 448.0
+offset_left = 650.0
+offset_top = 200.0
+offset_right = 1009.0
+offset_bottom = 261.0
 text = "LOAD SAVE
 "
 
 [node name="Button3" type="Button" parent="."]
 layout_mode = 0
-offset_left = 719.0
-offset_top = 191.0
-offset_right = 1078.0
-offset_bottom = 252.0
+offset_left = 100.0
+offset_top = 400.0
+offset_right = 459.0
+offset_bottom = 461.0
 text = "OPTIONS"
 
 [node name="Button4" type="Button" parent="."]
 layout_mode = 0
-offset_left = 57.0
-offset_top = 186.0
-offset_right = 416.0
-offset_bottom = 247.0
+offset_left = 650.0
+offset_top = 400.0
+offset_right = 1009.0
+offset_bottom = 461.0
 text = "QUIT"
 
 [node name="TextEdit" type="TextEdit" parent="."]
