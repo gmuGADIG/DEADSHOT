@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://d04oflxd57slp"]
+
+[ext_resource type="Script" path="res://world/player/bullet/bullet.gd" id="1_epp1i"]
+[ext_resource type="Texture2D" uid="uid://d3sodqao5sedc" path="res://temp_art/gartic/rock.png" id="1_fmsnv"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_epp1i"]
+
+[node name="Bullet" type="Area3D"]
+script = ExtResource("1_epp1i")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_epp1i")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.345459, 0, 0, 0, 0.535635, 0, 0, 0, 1, -0.0414816, 0.654809, -0.0392294)
+texture = ExtResource("1_fmsnv")
