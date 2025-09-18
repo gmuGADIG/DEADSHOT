@@ -7,8 +7,9 @@
 height = 1.85699
 radius = 0.669922
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("rollDurationTimer")]
 script = ExtResource("1_bvkkv")
+rollDurationTimer = NodePath("RollDurationTimer")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94693, 0)
@@ -21,3 +22,7 @@ texture = ExtResource("1_yynsy")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.7071068, 0.7071068, 0, -0.7071068, 0.7071068, 0, 5.194349, 4.9507103)
+
+[node name="RollDurationTimer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
