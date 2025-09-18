@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdo2hhkl4eici"]
+
+[ext_resource type="Texture2D" uid="uid://54e4esurd3xm" path="res://temp_art/gartic/gun.png" id="1_owfvo"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_akls5"]
+height = 0.8574219
+radius = 0.32080078
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = ExtResource("1_owfvo")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(-4.371139e-08, -1, 0, -4.371139e-08, 1.9106855e-15, -1, 1, -4.371139e-08, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_akls5")
