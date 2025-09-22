@@ -48,48 +48,50 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53553, 4.7683716e-07, 0.94
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.92473876, -0.25272667, 0.28458285, 0, 0.74771696, 0.66401756, -0.3806024, -0.61404276, 0.69144285, 0, 0, 0)
 
-[node name="Pause Menu" type="Control" parent="."]
+[node name="PauseMenu" type="Control" parent="."]
 process_mode = 2
 layout_mode = 3
-anchor_left = 0.26700002
-anchor_top = 0.45400003
-anchor_right = 0.26700002
-anchor_bottom = 0.45400003
-offset_left = -303.584
-offset_top = -290.19202
-offset_right = 1984.416
-offset_bottom = 860.808
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("6_0u0ns")
 
-[node name="Resume Button" type="Button" parent="Pause Menu"]
+[node name="Panel" type="Panel" parent="PauseMenu"]
 layout_mode = 0
-offset_left = 22.0
-offset_top = 93.0
-offset_right = 400.93945
-offset_bottom = 495.8396
-scale = Vector2(0.7679327, 0.7326622)
+offset_left = -213.0
+offset_top = -182.0
+offset_right = 243.0
+offset_bottom = 170.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GAME PAUSED" type="Label" parent="PauseMenu/Panel/VBoxContainer"]
+layout_mode = 2
+text = "GAME PAUSED"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="PauseMenu/Panel/VBoxContainer"]
+layout_mode = 2
 text = "RESUME"
 
-[node name="Options Button" type="Button" parent="Pause Menu"]
-layout_mode = 0
-offset_left = 328.0
-offset_top = 106.0
-offset_right = 553.0
-offset_bottom = 388.0
+[node name="OptionsButton" type="Button" parent="PauseMenu/Panel/VBoxContainer"]
+layout_mode = 2
 text = "OPTIONS"
 
-[node name="Quit to Menu Button" type="Button" parent="Pause Menu"]
-layout_mode = 0
-offset_left = 585.0
-offset_top = 117.0
-offset_right = 822.0
-offset_bottom = 378.0
+[node name="QuitToMenuButton" type="Button" parent="PauseMenu/Panel/VBoxContainer"]
+layout_mode = 2
 text = "QUIT TO MENU"
 
-[node name="Close Game Button" type="Button" parent="Pause Menu"]
-layout_mode = 0
-offset_left = 841.0
-offset_top = 108.0
-offset_right = 1109.0
-offset_bottom = 380.0
+[node name="CloseGameButton" type="Button" parent="PauseMenu/Panel/VBoxContainer"]
+layout_mode = 2
 text = "CLOSE GAME"

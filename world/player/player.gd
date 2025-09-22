@@ -13,9 +13,8 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 	
 func _pause_game() -> void:
-	if(Input.is_physical_key_pressed(KEY_ENTER)):
-		if(get_tree().paused == false):
-			get_tree().paused = true
+	if(Input.is_action_just_pressed("ui_cancel")):
+		get_tree().paused = true
 
 func _process(_delta: float) ->void:
 	_pause_game()
