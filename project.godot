@@ -17,7 +17,7 @@ config/icon="res://temp_art/icon.svg"
 
 [autoload]
 
-Global="*res://world/Global.gd"
+Global="*res://systems/globals.gd"
 
 [debug]
 

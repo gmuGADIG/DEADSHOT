@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://uw50kymbv61o"]
 
 [ext_resource type="PackedScene" uid="uid://nuqmhgq1e2lu" path="res://world/player/player.tscn" id="1_nxnt1"]
-[ext_resource type="PackedScene" uid="uid://nh502xx1aqq1" path="res://world/enemy/meat.tscn" id="2_6qqga"]
+[ext_resource type="PackedScene" uid="uid://nh502xx1aqq1" path="res://world/enemy/meat/meat.tscn" id="2_6qqga"]
 
-[node name="Node3D" type="Node3D"]
+[node name="TestMeatPickup" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_nxnt1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.56816185, 0, 1.7391888)
