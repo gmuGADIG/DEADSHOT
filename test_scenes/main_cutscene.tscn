@@ -1,0 +1,119 @@
+[gd_scene load_steps=9 format=3 uid="uid://fjrb7e5a1h3a"]
+
+[ext_resource type="Script" uid="uid://bly5q0qjg5cop" path="res://main_cutscene.gd" id="1_j7hhq"]
+[ext_resource type="Texture2D" uid="uid://bg142evknuep7" path="res://temp_art/gartic/batman.png" id="2_lk2oc"]
+[ext_resource type="Texture2D" uid="uid://owkl68s3lwrr" path="res://temp_art/gartic/duck.png" id="3_k5d6l"]
+[ext_resource type="Texture2D" uid="uid://bspns5244rj6v" path="res://temp_art/gartic/ghost_crying.png" id="4_upt7n"]
+
+[sub_resource type="Animation" id="Animation_k2yrb"]
+resource_name = "new_animation"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.0123208, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_lk2oc"), ExtResource("3_k5d6l"), ExtResource("4_upt7n")]
+}
+
+[sub_resource type="Animation" id="Animation_vehyx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_lk2oc")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/BlackTransitionScreen:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_j7hhq"]
+resource_name = "black_transition"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/BlackTransitionScreen:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1.6245066, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uh1q5"]
+_data = {
+&"RESET": SubResource("Animation_vehyx"),
+&"black_transition": SubResource("Animation_j7hhq"),
+&"new_animation": SubResource("Animation_k2yrb")
+}
+
+[node name="MainCutscene" type="Node2D"]
+script = ExtResource("1_j7hhq")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+z_index = 2
+offset_right = 1152.0
+offset_bottom = 648.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="TextureButton"]
+z_index = 10
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.86419755
+anchor_right = 1.0
+anchor_bottom = 0.89969134
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Press \"E\" to continue"
+horizontal_alignment = 1
+vertical_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_uh1q5")
+}
+
+[node name="TextureRect" type="TextureRect" parent="AnimationPlayer"]
+z_index = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("2_lk2oc")
+metadata/_edit_use_anchors_ = true
+
+[node name="BlackTransitionScreen" type="ColorRect" parent="AnimationPlayer"]
+z_index = 100
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 1
+color = Color(0, 0, 0, 0)
+metadata/_edit_use_anchors_ = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
