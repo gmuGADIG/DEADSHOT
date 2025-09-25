@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtojp4wp616tj"]
+
+[ext_resource type="Script" uid="uid://cni0mulkmr14v" path="res://Levels/TransitionArea.gd" id="1_8pjrs"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0hlc6"]
+
+[node name="TransitionArea" type="Area3D" groups=["Player"]]
+script = ExtResource("1_8pjrs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_0hlc6")
+debug_color = Color(0.19791389, 0.5866844, 0.71268404, 0.41960785)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

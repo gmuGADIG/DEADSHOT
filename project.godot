@@ -35,6 +35,10 @@ folder_colors={
 "res://world/player/": "purple"
 }
 
+[global_group]
+
+player=""
+
 [input]
 
 fire={
