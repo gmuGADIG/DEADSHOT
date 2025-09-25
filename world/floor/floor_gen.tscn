@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://cr05xakri7lnw"]
+
+[ext_resource type="Script" uid="uid://gphyiqgcgld" path="res://world/floor/floor_gen.gd" id="1_ub512"]
+
+[node name="Floor" type="Path3D"]
+script = ExtResource("1_ub512")
+
+[node name="Walls" type="CSGPolygon3D" parent="."]
+unique_name_in_owner = true
+visible = false
+use_collision = true
+polygon = PackedVector2Array(-1, 0, 0, 2, 0, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = false
+path_u_distance = 1.0
+path_joined = true
+
+[node name="Floor" type="CSGPolygon3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+use_collision = true
+polygon = PackedVector2Array()
+depth = 0.1
+
+[node name="Trim" type="CSGPolygon3D" parent="."]
+visible = false
+polygon = PackedVector2Array(0, 0, 0.1, 0.01, -0.5, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.9
+path_joined = true
+
+[connection signal="curve_changed" from="." to="." method="_on_curve_changed"]
