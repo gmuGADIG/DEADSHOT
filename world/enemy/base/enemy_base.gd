@@ -45,7 +45,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(_delta: float) -> void:
+func _process(_delta: float) -> void:
 	player_distance = global_position.distance_to(player.global_position);
 	if player_distance > smell_radius:
 		# Player is far away
@@ -58,13 +58,33 @@ func _physics_process(_delta: float) -> void:
 		aggro = AggroState.TRACKING;
 	pass
 
+func _physics_process(_delta: float) -> void:
+	match aggro:
+		AggroState.BENIGN when type == EnemyType.IDLE:
+			idle();
+		AggroState.BENIGN when type == EnemyType.PATROLLING:
+			patrol();
+		AggroState.SCOUTING:
+			scout();
+		AggroState.TRACKING:
+			track();
+
 ## Sets the movement target of this enemy agent.
 func set_movement_target(movement_target: Vector3) -> void:
 	navigation_agent.target_position = movement_target
 	pass
 
+func idle() -> void:
+	pass
+
+func patrol() -> void:
+	pass
+
+func scout() -> void:
+	pass
+
 ## Moves the enemy towards the player.
-func navigate() -> void:
+func track() -> void:
 	# TODO: figure out whether or not it's computationally worth it to set the
 	# target every physics frame.
 	set_movement_target(player.position)
