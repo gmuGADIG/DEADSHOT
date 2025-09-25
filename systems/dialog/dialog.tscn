@@ -13,6 +13,14 @@ script = ExtResource("1_luyus")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_right = 255.0
-offset_bottom = 82.0
-text = "this is a test"
+offset_right = 564.0
+offset_bottom = 294.0
+bbcode_enabled = true
+text = "this is a test
+this
+is
+a
+test"
+
+[node name="LineTimer" type="Timer" parent="."]
+one_shot = true
