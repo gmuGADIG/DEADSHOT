@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://d3o7riajla512"]
 
-[ext_resource type="PackedScene" uid="uid://cr05xakri7lnw" path="res://world/floor/floor_gen.tscn" id="1_plfsl"]
+[ext_resource type="PackedScene" path="res://world/floor/floor_gen.tscn" id="1_plfsl"]
 [ext_resource type="Texture2D" uid="uid://cjbsq7rk6r3h4" path="res://temp_art/gartic/cactus.png" id="2_p5u37"]
 [ext_resource type="Texture2D" uid="uid://sxaysn4gqoxo" path="res://temp_art/gartic/coin.png" id="3_p5u37"]
 [ext_resource type="PackedScene" uid="uid://dxdkwdigtcn43" path="res://world/enemy/test/enemy_test.tscn" id="4_wceyb"]
-[ext_resource type="PackedScene" uid="uid://nuqmhgq1e2lu" path="res://world/player/player.tscn" id="5_plfsl"]
+[ext_resource type="PackedScene" uid="uid://ddvs7q6wq2x24" path="res://world/player/player.tscn" id="5_plfsl"]
 
 [sub_resource type="Curve3D" id="Curve3D_plfsl"]
 closed = true
@@ -37,12 +37,11 @@ texture = ExtResource("2_p5u37")
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 11.5831, 1.00557, 0.341141)
 texture = ExtResource("3_p5u37")
 
-[node name="EnemyTest" parent="." instance=ExtResource("4_wceyb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.249423, 4.7683716e-07, -2.0285115)
-script = null
-
 [node name="Player" parent="." instance=ExtResource("5_plfsl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53553, 4.7683716e-07, 0.9444761)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.92473876, -0.25272667, 0.28458285, 0, 0.74771696, 0.66401756, -0.3806024, -0.61404276, 0.69144285, 0, 0, 0)
+
+[node name="EnemyTest" parent="." instance=ExtResource("4_wceyb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.967405, 0.21243383, -2.4229155)

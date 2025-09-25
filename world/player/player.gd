@@ -1,4 +1,4 @@
-extends CharacterBody3D
+class_name Player extends CharacterBody3D
 
 ## EXPORT VARIABLES
 @export var walk_speed: float = 8.0
@@ -7,11 +7,16 @@ extends CharacterBody3D
 @export var roll_duration: float = 0.4
 @export var roll_influence: float = 8 ## Controls how much player input affects steering when mid-roll. 
 
+@export var player_health: int = 10
+
 ## These are the states that the player can be in. States control what the player can do.
 enum PlayerState {
 	WALKING,
 	ROLLING
 }
+
+var invulnerable: bool = false
+var hurt_invuln_time: float = 1
 
 var current_state: PlayerState = PlayerState.WALKING
 
@@ -19,6 +24,8 @@ var current_state: PlayerState = PlayerState.WALKING
 func walking_dir() -> Vector3:
 	var input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	return Vector3(input.x, 0, input.y)
+	
+
 
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("roll"):
@@ -44,5 +51,20 @@ func begin_roll() -> void:
 	%RollDurationTimer.start()
 	await %RollDurationTimer.timeout
 	current_state = PlayerState.WALKING
+	
+func hurt(damage: int) -> void:
+	if invulnerable:  
+		print("Damage Nullified")
+		return
+		
+	print("HIT! " + str(player_health) + " HP left")
+	player_health -= damage
+	
+	invulnerable = true
+	$Sprite3D.modulate = Color(1,0,0,1)
+	await get_tree().create_timer(hurt_invuln_time).timeout
+	$Sprite3D.modulate = Color(1,1,1,1)
+	invulnerable = false
+	
 	
 	

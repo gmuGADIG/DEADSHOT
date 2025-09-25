@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://nuqmhgq1e2lu"]
+[gd_scene load_steps=4 format=3 uid="uid://ddvs7q6wq2x24"]
 
 [ext_resource type="Script" uid="uid://llqh4g6obmup" path="res://world/player/player.gd" id="1_bvkkv"]
 [ext_resource type="Texture2D" uid="uid://ckv48omi8han7" path="res://temp_art/gartic/harry_potter_with_gun.png" id="1_yynsy"]
