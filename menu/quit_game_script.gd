@@ -9,3 +9,4 @@ func _ready() -> void:
 func _button_pressed() -> void:
 	#Quit Game
 	print("Game Quit")
+	get_tree().quit()

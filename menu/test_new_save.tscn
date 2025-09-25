@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://ca5fx3hv5ahrh"]
+
+[ext_resource type="Texture2D" uid="uid://ckv48omi8han7" path="res://temp_art/gartic/harry_potter_with_gun.png" id="1_m8p2v"]
+
+[node name="TestNewSave" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = ExtResource("1_m8p2v")
+
+[node name="Label3D" type="Label3D" parent="Sprite3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.33009768, 1.4162372, -0.4235828)
+text = "Hello World"
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.1587083)

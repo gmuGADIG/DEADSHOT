@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bvc1y8sqr44gm" path="res://menu/new_save_script.gd" id="1_n42p6"]
 [ext_resource type="Script" uid="uid://xgccia8a8evb" path="res://menu/load_save_script.gd" id="2_exh6m"]
+[ext_resource type="Script" uid="uid://dxewvgmkb4v2r" path="res://menu/quit_game_script.gd" id="2_tmgc7"]
 [ext_resource type="Script" uid="uid://bw7bnulavssvn" path="res://menu/options_script.gd" id="3_55ds7"]
-[ext_resource type="Script" uid="uid://dxewvgmkb4v2r" path="res://menu/quit_game_script.gd" id="4_nm46m"]
 
 [node name="Canvas" type="Control"]
 layout_mode = 3
@@ -51,13 +51,13 @@ offset_top = 400.0
 offset_right = 1009.0
 offset_bottom = 461.0
 text = "QUIT"
-script = ExtResource("4_nm46m")
+script = ExtResource("2_tmgc7")
 
-[node name="TextEdit" type="TextEdit" parent="."]
+[node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 493.0
-offset_top = 76.0
-offset_right = 643.0
-offset_bottom = 126.0
+offset_left = 470.0
+offset_top = 50.0
+offset_right = 566.00006
+offset_bottom = 73.0
+scale = Vector2(2, 2)
 text = "MAIN MENU"
-editable = false

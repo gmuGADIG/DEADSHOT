@@ -9,3 +9,4 @@ func _ready() -> void:
 func _button_pressed() -> void:
 	#Load New Save
 	print("New Save Loaded")
+	get_tree().change_scene_to_file("res://menu/test_new_save.tscn")
