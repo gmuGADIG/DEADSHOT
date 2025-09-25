@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://rbtfmldbcopk"]
+[gd_scene load_steps=10 format=3 uid="uid://rbtfmldbcopk"]
 
 [ext_resource type="Script" uid="uid://dikd1otnngy3d" path="res://test_scenes/transition_targets.gd" id="1_hqdr7"]
 [ext_resource type="PackedScene" uid="uid://cr05xakri7lnw" path="res://world/floor/floor_gen.tscn" id="1_ydnt0"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://sxaysn4gqoxo" path="res://temp_art/gartic/coin.png" id="3_iqawi"]
 [ext_resource type="PackedScene" uid="uid://dxdkwdigtcn43" path="res://world/enemy/test/enemy_test.tscn" id="4_6kcg3"]
 [ext_resource type="PackedScene" uid="uid://nuqmhgq1e2lu" path="res://world/player/player.tscn" id="5_81o2v"]
+[ext_resource type="PackedScene" uid="uid://8wbfaicujxq3" path="res://test_scenes/entry_points.tscn" id="7_iqawi"]
+[ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://transition.tscn" id="8_81o2v"]
 
 [sub_resource type="Curve3D" id="Curve3D_plfsl"]
 closed = true
@@ -17,7 +19,7 @@ point_count = 4
 
 [node name="ExampleScene" type="Node3D" node_paths=PackedStringArray("targets")]
 script = ExtResource("1_hqdr7")
-targets = [NodePath("target")]
+targets = [NodePath("EntryPoints/EntryPoint1")]
 
 [node name="World" type="Node3D" parent="."]
 
@@ -50,5 +52,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53553, 4.7683716e-07, 0.94
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.92473876, -0.25272667, 0.28458285, 0, 0.74771696, 0.66401756, -0.3806024, -0.61404276, 0.69144285, 0, 0, 0)
 
-[node name="target" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.201149, 0, 1.4770632)
+[node name="Transition_scene" parent="." instance=ExtResource("8_81o2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.519407, 1.7572794, 3.698587)
+target_scene = "uid://d3o7riajla512"
+target_entry_point = "asdf"
+
+[node name="EntryPoints" parent="." instance=ExtResource("7_iqawi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1835585, -8.3775154e-07, 2.6520033)
+
+[node name="EntryPoint1" type="Node3D" parent="EntryPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.678, 0, 0.54132056)
+
+[node name="EntryPoint2" type="Node3D" parent="EntryPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.775555, 0, -2.8035536)

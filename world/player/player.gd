@@ -1,6 +1,11 @@
-extends CharacterBody3D
+class_name Player extends CharacterBody3D
+
+static var instance:Player
 
 const SPEED = 6.5
+
+func _init() -> void:
+	instance = self
 
 func _physics_process(_delta: float) -> void:
 	var input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
