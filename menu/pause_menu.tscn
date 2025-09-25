@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c2g1b6ojckef4" path="res://world/Pause Menu/pause_menu.gd" id="1_inj1j"]
 
-[node name="PauseMenu" type="Control"]
+[node name="PauseMenu" type="Control" node_paths=PackedStringArray("resume_button", "options_button", "quit_button", "close_button")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 8
@@ -13,6 +13,10 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_inj1j")
+resume_button = NodePath("Panel/VBoxContainer/ResumeButton")
+options_button = NodePath("Panel/VBoxContainer/OptionsButton")
+quit_button = NodePath("Panel/VBoxContainer/QuitToMenuButton")
+close_button = NodePath("Panel/VBoxContainer/CloseGameButton")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
