@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://sxaysn4gqoxo" path="res://temp_art/gartic/coin.png" id="3_p5u37"]
 [ext_resource type="PackedScene" uid="uid://dxdkwdigtcn43" path="res://world/enemy/test/enemy_test.tscn" id="4_wceyb"]
 [ext_resource type="PackedScene" uid="uid://nuqmhgq1e2lu" path="res://world/player/player.tscn" id="5_plfsl"]
-[ext_resource type="PackedScene" uid="uid://1s1a4b2buf1o" path="res://menu/pause_menu.tscn" id="6_0u0ns"]
+[ext_resource type="PackedScene" uid="uid://1s1a4b2buf1o" path="res://menu/pause_menu/pause_menu.tscn" id="6_0u0ns"]
 
 [sub_resource type="Curve3D" id="Curve3D_plfsl"]
 closed = true
