@@ -1,0 +1,62 @@
+[gd_scene load_steps=2 format=3 uid="uid://by8y1gjlttw6g"]
+
+[ext_resource type="Script" uid="uid://cg6umb86w26xh" path="res://menu/main_menu/main_menu.gd" id="1_winya"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_winya")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1166.0
+offset_bottom = 660.0
+color = Color(0, 0.2365942, 0.6779701, 1)
+
+[node name="NewSaveButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 200.0
+offset_right = 459.0
+offset_bottom = 261.0
+text = "NEW SAVE
+"
+
+[node name="LoadSaveButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 650.0
+offset_top = 200.0
+offset_right = 1009.0
+offset_bottom = 261.0
+text = "LOAD SAVE
+"
+
+[node name="OptionsButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 400.0
+offset_right = 459.0
+offset_bottom = 461.0
+text = "OPTIONS"
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 650.0
+offset_top = 400.0
+offset_right = 1009.0
+offset_bottom = 461.0
+text = "QUIT"
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 470.0
+offset_top = 50.0
+offset_right = 566.00006
+offset_bottom = 73.0
+scale = Vector2(2, 2)
+text = "MAIN MENU"
+
+[connection signal="pressed" from="NewSaveButton" to="." method="_on_new_save_button_pressed"]
+[connection signal="pressed" from="LoadSaveButton" to="." method="_on_load_save_button_pressed"]
+[connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
