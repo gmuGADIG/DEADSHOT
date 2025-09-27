@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://nuqmhgq1e2lu" path="res://world/player/player.tscn" id="5_plfsl"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_plfsl"]
-vertices = PackedVector3Array(-7.25, 0.39999983, -3.25, -7.25, 0.39999983, 5.25, -6.75, 0.39999983, 5.5, 17.5, 0.39999983, 5.25, 17.25, 0.39999983, -3.25)
-polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 4), PackedInt32Array(2, 4, 3)]
+vertices = PackedVector3Array(68.84153, 2.3999999, -23.946981, 69.09153, 2.3999999, -23.446981, 71.59153, 0.64999986, -23.446981, 71.09153, 0.64999986, -27.446981, -30.65847, 0.64999986, -28.946981, -33.40847, 0.89999986, -24.446981, -30.90847, 2.3999999, -23.696981, 65.84153, 0.64999986, -28.946981, -33.90847, 0.64999986, -23.696981, -33.90847, 0.64999986, 31.553019, -33.40847, 0.64999986, 35.303017, -30.90847, 2.3999999, 35.303017, -32.928074, 1.3999999, 27.540594, 69.09153, 2.3999999, 35.303017, 71.59153, 0.89999986, 35.303017, 72.09153, 0.64999986, 32.053017, 72.09153, 0.64999986, -20.196981, 70.56653, 1.1499999, -21.971981, 70.60154, 1.3999999, -20.460995, -29.90847, 0.39999983, -22.946981, -29.90847, 0.39999983, 34.803017, 68.09153, 0.39999983, 34.803017, 68.09153, 0.39999983, -22.946981, 68.84153, 2.1499999, 35.803017, 71.09153, 0.64999986, 39.303017, -30.65847, 2.3999999, 35.803017, -32.90847, 0.64999986, 39.303017, -27.40847, 0.64999986, 40.803017, 65.59153, 0.64999986, 40.803017, 67.592316, 1.1499999, 38.042175)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(6, 7, 0), PackedInt32Array(0, 7, 3), PackedInt32Array(10, 9, 11), PackedInt32Array(11, 12, 6), PackedInt32Array(6, 8, 5), PackedInt32Array(8, 12, 9), PackedInt32Array(9, 12, 11), PackedInt32Array(12, 8, 6), PackedInt32Array(16, 17, 2), PackedInt32Array(2, 17, 1), PackedInt32Array(1, 18, 13), PackedInt32Array(13, 15, 14), PackedInt32Array(15, 18, 16), PackedInt32Array(16, 18, 17), PackedInt32Array(17, 18, 1), PackedInt32Array(18, 15, 13), PackedInt32Array(22, 21, 19), PackedInt32Array(19, 21, 20), PackedInt32Array(13, 14, 23), PackedInt32Array(23, 14, 24), PackedInt32Array(11, 25, 10), PackedInt32Array(10, 25, 26), PackedInt32Array(28, 29, 24), PackedInt32Array(24, 29, 23), PackedInt32Array(23, 28, 25), PackedInt32Array(25, 27, 26), PackedInt32Array(27, 25, 28), PackedInt32Array(28, 23, 29)]
 
 [sub_resource type="Curve3D" id="Curve3D_plfsl"]
 closed = true
@@ -23,12 +23,12 @@ point_count = 4
 [node name="EnemyTest" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_wceyb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.249423, 4.7683716e-07, -2.0285115)
 player = NodePath("../Player")
-type = 1
 starting_pos = Vector3(9.249423, 4.7683716e-07, -2.0285115)
 patrol_path = Array[Vector3]([Vector3(0, 0, 0)])
 
 [node name="Player" parent="." instance=ExtResource("5_plfsl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53553, 4.7683716e-07, 0.9444761)
+walk_speed = 20.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.92473876, -0.25272667, 0.28458285, 0, 0.74771696, 0.66401756, -0.3806024, -0.61404276, 0.69144285, 0, 0, 0)
@@ -39,6 +39,7 @@ transform = Transform3D(0.92473876, -0.25272667, 0.28458285, 0, 0.74771696, 0.66
 navigation_mesh = SubResource("NavigationMesh_plfsl")
 
 [node name="Floor" parent="World/NavigationRegion3D" instance=ExtResource("1_plfsl")]
+transform = Transform3D(3.8231633, 0, 0, 0, 1, 0, 0, 0, 5.889396, 0, 0, 0)
 curve = SubResource("Curve3D_plfsl")
 
 [node name="Cactus" type="Sprite3D" parent="World/NavigationRegion3D"]
