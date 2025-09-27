@@ -18,6 +18,7 @@ config/icon="res://temp_art/icon.svg"
 [autoload]
 
 Global="*res://systems/globals.gd"
+Dialog="*res://systems/dialog/dialog.tscn"
 
 [debug]
 
