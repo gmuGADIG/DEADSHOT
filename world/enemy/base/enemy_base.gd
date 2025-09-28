@@ -37,6 +37,7 @@ enum AggroState {
 ## The amount of time (seconds) the enemy stays at the last known player 
 ## position before returning back to what it was doing.
 @export var patience : float = 5.0;
+var currentPatience : float;
 
 @export_subgroup("Idle-Only Settings")
 ## Does the enemy return to their original position after the player leaves?
@@ -54,13 +55,20 @@ var aggro : AggroState = AggroState.BENIGN;
 ## Current distance to the player
 var player_distance : float;
 
+## The navigation agent.
 @onready var navigation_agent : NavigationAgent3D = $NavigationAgent3D
 
 ## The last known position of the player.
 var last_known_player_position : Vector3;
 
+## Whether or not the enemy should move, used primarily to stop idle jittering.
 var shouldMove : bool = false;
+## Whether the enemy was previously tracking, used to scout for the player only
+## when the player was tracked and is outside of the range
 var wasTracking : bool = false;
+
+## How close the enemy is to the destination before being "basically there"
+var proximityTolerance : float = 1;
 
 #endregion
 
@@ -73,32 +81,31 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	player_distance = global_position.distance_to(player.global_position);
-	if player_distance > smell_radius:
-		# Player is far away
-		aggro = AggroState.BENIGN;
-	elif player_distance > sight_radius:
+	
+	if player_distance <= sight_radius:
+		# Player is within sight radius.
+		aggro = AggroState.TRACKING;
+	elif player_distance <= smell_radius:
 		# Player is within smell radius
 		if wasTracking:
 			aggro = AggroState.SCOUTING;
+		else:
+			aggro = AggroState.BENIGN;
 	else:
-		# Player is within sight radius
-		aggro = AggroState.TRACKING;
+		# Player is far away
+		aggro = AggroState.BENIGN;
+	
 	pass
 
-func _physics_process(_delta: float) -> void:
-	print(wasTracking)
+func _physics_process(delta: float) -> void:
 	match aggro:
 		AggroState.BENIGN when type == EnemyType.IDLE:
-			print("Idle!")
 			idle();
 		AggroState.BENIGN when type == EnemyType.PATROLLING:
-			print("Patrolling!")
 			patrol();
 		AggroState.SCOUTING:
-			print("Scouting!")
-			scout();
+			scout(delta);
 		AggroState.TRACKING:
-			print("TRACKING!")
 			track();
 	
 	# Get the position to the next path checkpoint, then point velocity towards
@@ -119,38 +126,45 @@ func set_movement_target(movement_target: Vector3) -> void:
 func idle() -> void:
 	
 	wasTracking = false
-	
-	# if the enemy returns to post,
-		# if the enemy aint there yet,
-			# the enemy should move
-		# else,
-			# the enemy should not move
-	# if the enemy does not return to post
-		# the enemy should not move
 		
+	# if the enemy returns to post,
 	if returns_to_post:
 		set_movement_target(starting_pos)
-		if (global_position.distance_to(starting_pos) > 5):
-			print("greater than tolerance, let's go")
+		# if the enemy isn't there yet,
+		if (not is_close_to_destination()):
+			# the enemy should move.
 			shouldMove = true
 		else:
+			# else, the enemy should not move.
 			shouldMove = false
+	# if the enemy does not return to post,
 	else:
+		# the enemy should not move.
 		shouldMove = false
 	pass
 
 func patrol() -> void:
+	## TODO: IMPLEMENT PATROLLING 
 	wasTracking = false
 	shouldMove = true
 	#if global_position.distance_to(patrol_path[patrol_index]) < 
 	pass
 
-func scout() -> void:
-	shouldMove = true
+func scout(delta : float) -> void:
+	# The enemy will go to the last place it saw the player.
 	set_movement_target(last_known_player_position)
-	# wait some amount of seconds
-	aggro = AggroState.BENIGN
-	pass
+	
+	# If it's already there, don't move. Otherwise, move.
+	shouldMove = not is_close_to_destination()
+	
+	# Once the enemy is at the last known player position, it'll linger there
+	# for the amount of seconds, set in patience
+	if (is_close_to_destination()):
+		if currentPatience > 0:
+			currentPatience -= delta;
+		else:
+			wasTracking = false
+		pass
 
 ## Moves the enemy towards the player.
 func track() -> void:
@@ -158,5 +172,11 @@ func track() -> void:
 	shouldMove = true
 	set_movement_target(player.position)
 	last_known_player_position = player.position
+	currentPatience = patience
 	pass
+
+## Whether the enemy is close to destination
+func is_close_to_destination() -> bool:
+	return global_position.distance_to(navigation_agent.target_position) < proximityTolerance
+
 #endregion

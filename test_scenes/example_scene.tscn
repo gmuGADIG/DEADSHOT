@@ -23,6 +23,7 @@ point_count = 4
 [node name="EnemyTest" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_wceyb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.249423, 4.7683716e-07, -2.0285115)
 player = NodePath("../Player")
+smell_radius = 20.0
 starting_pos = Vector3(9.249423, 4.7683716e-07, -2.0285115)
 patrol_path = Array[Vector3]([Vector3(0, 0, 0)])
 
