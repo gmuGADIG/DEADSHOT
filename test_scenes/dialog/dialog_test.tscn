@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://iqjqbj46lpwy"]
+
+[ext_resource type="Script" uid="uid://6n735nty52kt" path="res://test_scenes/dialog/dialog_test.gd" id="1_8mrki"]
+[ext_resource type="Resource" uid="uid://b8wj1pgnxn7d8" path="res://test_scenes/dialog/dialog.tres" id="2_c3xl0"]
+
+[node name="DialogTest" type="Node2D"]
+script = ExtResource("1_8mrki")
+timeline = ExtResource("2_c3xl0")

@@ -1,12 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://d3o7riajla512"]
+[gd_scene load_steps=8 format=3 uid="uid://d3o7riajla512"]
 
-[ext_resource type="Script" uid="uid://dikd1otnngy3d" path="res://test_scenes/transition_targets.gd" id="1_byltu"]
-[ext_resource type="PackedScene" uid="uid://cr05xakri7lnw" path="res://world/floor/floor_gen.tscn" id="1_plfsl"]
-[ext_resource type="Texture2D" uid="uid://cjbsq7rk6r3h4" path="res://temp_art/gartic/cactus.png" id="2_p5u37"]
-[ext_resource type="PackedScene" uid="uid://dxdkwdigtcn43" path="res://world/enemy/test/enemy_test.tscn" id="4_wceyb"]
-[ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://transition.tscn" id="5_0u0ns"]
-[ext_resource type="PackedScene" uid="uid://nuqmhgq1e2lu" path="res://world/player/player.tscn" id="5_plfsl"]
-[ext_resource type="PackedScene" uid="uid://8wbfaicujxq3" path="res://test_scenes/entry_points.tscn" id="8_ppbhs"]
+[ext_resource type="PackedScene" uid="uid://cr05xakri7lnw" path="res://world/floor/floor_gen.tscn" id="1_0u0ns"]
+[ext_resource type="Texture2D" uid="uid://cjbsq7rk6r3h4" path="res://temp_art/gartic/cactus.png" id="2_byltu"]
+[ext_resource type="Texture2D" uid="uid://sxaysn4gqoxo" path="res://temp_art/gartic/coin.png" id="3_ppbhs"]
+[ext_resource type="PackedScene" uid="uid://dxdkwdigtcn43" path="res://world/enemy/test/enemy_test.tscn" id="4_a57sh"]
+[ext_resource type="PackedScene" uid="uid://nuqmhgq1e2lu" path="res://world/player/player.tscn" id="5_440an"]
+[ext_resource type="PackedScene" uid="uid://1s1a4b2buf1o" path="res://menu/pause_menu/pause_menu.tscn" id="6_uixtt"]
 
 [sub_resource type="Curve3D" id="Curve3D_plfsl"]
 closed = true
@@ -17,47 +16,36 @@ _data = {
 point_count = 4
 
 [node name="ExampleScene" type="Node3D"]
-script = ExtResource("1_byltu")
 
 [node name="World" type="Node3D" parent="."]
 
-[node name="Floor" parent="World" instance=ExtResource("1_plfsl")]
+[node name="Floor" parent="World" instance=ExtResource("1_0u0ns")]
 curve = SubResource("Curve3D_plfsl")
 
 [node name="Cactus" type="Sprite3D" parent="World"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -6.08085, 1.35212, -2.54946)
-texture = ExtResource("2_p5u37")
+texture = ExtResource("2_byltu")
 
 [node name="Cactus2" type="Sprite3D" parent="World"]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 4.52835, 1.35212, -1.4432981)
-texture = ExtResource("2_p5u37")
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 4.52835, 1.35212, 2.91099)
+texture = ExtResource("2_byltu")
 
 [node name="Cactus3" type="Sprite3D" parent="World"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 14.5163, 1.35212, -2.19461)
-texture = ExtResource("2_p5u37")
+texture = ExtResource("2_byltu")
 
-[node name="EnemyTest" parent="." instance=ExtResource("4_wceyb")]
+[node name="Coin" type="Sprite3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 11.5831, 1.00557, 0.341141)
+texture = ExtResource("3_ppbhs")
+
+[node name="EnemyTest" parent="." instance=ExtResource("4_a57sh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.249423, 4.7683716e-07, -2.0285115)
 script = null
 
-[node name="Player" parent="." groups=["player"] instance=ExtResource("5_plfsl")]
+[node name="Player" parent="." instance=ExtResource("5_440an")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53553, 4.7683716e-07, 0.9444761)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.92473876, -0.25272667, 0.28458285, 0, 0.74771696, 0.66401756, -0.3806024, -0.61404276, 0.69144285, 0, 0, 0)
 
-[node name="Transition_scene" parent="." groups=["player"] instance=ExtResource("5_0u0ns")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5425396, 0.09012461, 0.5505233)
-target_scene = "uid://rbtfmldbcopk"
-target_entry_point = "EntryPoint1"
-
-[node name="Transition_scene2" parent="." instance=ExtResource("5_0u0ns")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.60303, 9.978644e-07, 1.0109501)
-target_scene = "uid://rbtfmldbcopk"
-target_entry_point = "EntryPoint2"
-
-[node name="EntryPoints" parent="." instance=ExtResource("8_ppbhs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9062752, -8.507878e-07, 1.8213406)
-
-[node name="asdf" type="Node3D" parent="EntryPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9843812, 0, 2.1339211)
+[node name="PauseMenu" parent="." instance=ExtResource("6_uixtt")]
