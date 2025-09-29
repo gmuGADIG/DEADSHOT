@@ -19,18 +19,22 @@ curve = SubResource("Curve3D_m15ci")
 
 [node name="Cactus" type="Sprite3D" parent="World" index="2"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -0.31956434, 1.3521191, 5.0705338)
+alpha_cut = 1
 texture = ExtResource("2_7te3a")
 
 [node name="Cactus2" type="Sprite3D" parent="World" index="3"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -6.585593, 1.3521205, -1.8700318)
+alpha_cut = 1
 texture = ExtResource("2_7te3a")
 
 [node name="Cactus3" type="Sprite3D" parent="World" index="4"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 6.5182443, 1.35212, -0.7042122)
+alpha_cut = 1
 texture = ExtResource("2_7te3a")
 
 [node name="Cactus4" type="Sprite3D" parent="World" index="5"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 8.573559, 1.35212, 5.04492)
+alpha_cut = 1
 texture = ExtResource("2_7te3a")
 
 [node name="Left" parent="." index="1" instance=ExtResource("4_l2hbl")]

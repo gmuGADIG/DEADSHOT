@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://btuw2i28k0axl"]
+[gd_scene load_steps=5 format=3 uid="uid://btuw2i28k0axl"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_p0tjl"]
 [ext_resource type="Texture2D" uid="uid://cjbsq7rk6r3h4" path="res://temp_art/gartic/cactus.png" id="2_yl5fl"]
-[ext_resource type="Texture2D" uid="uid://sxaysn4gqoxo" path="res://temp_art/gartic/coin.png" id="3_hxoc3"]
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="4_yl5fl"]
 
 [sub_resource type="Curve3D" id="Curve3D_lkd7d"]
@@ -20,19 +19,18 @@ curve = SubResource("Curve3D_lkd7d")
 
 [node name="Cactus" type="Sprite3D" parent="World" index="2"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -6.08085, 1.35212, -2.54946)
+alpha_cut = 1
 texture = ExtResource("2_yl5fl")
 
 [node name="Cactus2" type="Sprite3D" parent="World" index="3"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 4.52835, 1.35212, 2.91099)
+alpha_cut = 1
 texture = ExtResource("2_yl5fl")
 
 [node name="Cactus3" type="Sprite3D" parent="World" index="4"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 14.5163, 1.35212, -2.19461)
+alpha_cut = 1
 texture = ExtResource("2_yl5fl")
-
-[node name="Coin" type="Sprite3D" parent="World" index="5"]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 11.5831, 1.00557, 0.341141)
-texture = ExtResource("3_hxoc3")
 
 [node name="Exit" parent="." index="1" instance=ExtResource("4_yl5fl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.351158, 0, 0.9043428)

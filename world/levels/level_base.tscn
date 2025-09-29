@@ -11,6 +11,7 @@
 
 [node name="Sun" type="DirectionalLight3D" parent="World"]
 transform = Transform3D(0.9247388, -0.25272667, 0.28458288, 0, 0.74771696, 0.6640176, -0.38060242, -0.61404276, 0.6914429, 0, 0, 0)
+shadow_enabled = true
 
 [node name="Floor" parent="World" instance=ExtResource("1_8hxjk")]
 
