@@ -60,3 +60,42 @@ text = "QUIT TO MENU"
 [node name="CloseGameButton" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
 text = "CLOSE GAME"
+
+[node name="TestLabel" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -127.0
+offset_top = -70.0
+offset_right = 127.0
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "these buttons are just for testing"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -39.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 54
+alignment = 1
+
+[node name="SaveButton" type="Button" parent="Panel/HBoxContainer"]
+layout_mode = 2
+text = "Save"
+
+[node name="LoadButton" type="Button" parent="Panel/HBoxContainer"]
+layout_mode = 2
+text = "Load"
+
+[connection signal="pressed" from="Panel/HBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/LoadButton" to="." method="_on_load_button_pressed"]

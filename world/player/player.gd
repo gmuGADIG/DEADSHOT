@@ -1,4 +1,4 @@
-extends CharacterBody3D
+class_name Player extends CharacterBody3D
 
 ## EXPORT VARIABLES
 @export var walk_speed: float = 8.0
@@ -19,6 +19,12 @@ var current_state: PlayerState = PlayerState.WALKING
 func walking_dir() -> Vector3:
 	var input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	return Vector3(input.x, 0, input.y)
+
+static var instance : Player
+
+func _ready() -> void:
+	print("player ready")
+	instance = self
 
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("roll"):
