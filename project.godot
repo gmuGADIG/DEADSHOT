@@ -18,6 +18,7 @@ config/icon="res://temp_art/icon.svg"
 [autoload]
 
 Global="*res://systems/globals.gd"
+Dialog="*res://systems/dialog/dialog.tscn"
 
 [debug]
 
@@ -28,6 +29,8 @@ gdscript/warnings/untyped_declaration=2
 folder_colors={
 "res://audio/": "red",
 "res://menu/": "orange",
+"res://systems/": "teal",
+"res://systems/save/": "teal",
 "res://temp_art/": "yellow",
 "res://test_scenes/": "green",
 "res://world/enemy/": "teal",
