@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bk60c4813t663"]
+
+[ext_resource type="PackedScene" uid="uid://cr05xakri7lnw" path="res://world/floor/floor_gen.tscn" id="1_8hxjk"]
+[ext_resource type="PackedScene" uid="uid://nuqmhgq1e2lu" path="res://world/player/player.tscn" id="2_nnb1h"]
+[ext_resource type="Script" uid="uid://2uxmd0kth1s5" path="res://world/transitions/entry_points.gd" id="2_rsarx"]
+[ext_resource type="PackedScene" uid="uid://1s1a4b2buf1o" path="res://menu/pause_menu/pause_menu.tscn" id="3_uyrbk"]
+
+[node name="LevelBase" type="Node3D"]
+
+[node name="World" type="Node3D" parent="."]
+
+[node name="Sun" type="DirectionalLight3D" parent="World"]
+transform = Transform3D(0.9247388, -0.25272667, 0.28458288, 0, 0.74771696, 0.6640176, -0.38060242, -0.61404276, 0.6914429, 0, 0, 0)
+
+[node name="Floor" parent="World" instance=ExtResource("1_8hxjk")]
+
+[node name="EntryPoints" type="Node3D" parent="."]
+script = ExtResource("2_rsarx")
+
+[node name="Player" parent="." instance=ExtResource("2_nnb1h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53553, 4.7683716e-07, 0.9444761)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("3_uyrbk")]
+layout_mode = 1

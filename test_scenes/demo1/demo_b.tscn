@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://daq8dgkrqqghw"]
+
+[ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_m15ci"]
+[ext_resource type="Texture2D" uid="uid://cjbsq7rk6r3h4" path="res://temp_art/gartic/cactus.png" id="2_7te3a"]
+[ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="4_l2hbl"]
+
+[sub_resource type="Curve3D" id="Curve3D_m15ci"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -8, 0, -4, 0, 0, 0, 0, 0, 0, -1, 0, -4, 0, 0, 0, 0, 0, 0, -1, 0, -1, 0, 0, 0, 0, 0, 0, 5, 0, -1, 0, 0, 0, 0, 0, 0, 5, 0, -2, 0, 0, 0, 0, 0, 0, 18, 0, -2, 0, 0, 0, 0, 0, 0, 18, 0, 0, 0, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 0, 0, 21, 0, 2, 0, 0, 0, 0, 0, 0, 18, 0, 2, 0, 0, 0, 0, 0, 0, 18, 0, 3, 0, 0, 0, 0, 0, 0, 8, 0, 7, 0, 0, 0, 0, 0, 0, -3, 0, 7, 0, 0, 0, 0, 0, 0, -3, 0, 4, 0, 0, 0, 0, 0, 0, -8, 0, 4, 0, 0, 0, 0, 0, 0, -8, 0, 2, 0, 0, 0, 0, 0, 0, -11, 0, 2, 0, 0, 0, 0, 0, 0, -11, 0, 0, 0, 0, 0, 0, 0, 0, -8, 0, 0),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 19
+
+[node name="LevelBase" instance=ExtResource("1_m15ci")]
+
+[node name="Floor" parent="World" index="1"]
+curve = SubResource("Curve3D_m15ci")
+
+[node name="Cactus" type="Sprite3D" parent="World" index="2"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -0.31956434, 1.3521191, 5.0705338)
+texture = ExtResource("2_7te3a")
+
+[node name="Cactus2" type="Sprite3D" parent="World" index="3"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -6.585593, 1.3521205, -1.8700318)
+texture = ExtResource("2_7te3a")
+
+[node name="Cactus3" type="Sprite3D" parent="World" index="4"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 6.5182443, 1.35212, -0.7042122)
+texture = ExtResource("2_7te3a")
+
+[node name="Cactus4" type="Sprite3D" parent="World" index="5"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 8.573559, 1.35212, 5.04492)
+texture = ExtResource("2_7te3a")
+
+[node name="Left" parent="." index="1" instance=ExtResource("4_l2hbl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.630439, 0, 0.8172647)
+target_scene = "uid://btuw2i28k0axl"
+target_entry_point = "Right"
+
+[node name="Right" parent="." index="2" instance=ExtResource("4_l2hbl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.351158, 0, 0.9043428)
+target_entry_point = "TODO"
+
+[node name="Left" type="Marker3D" parent="EntryPoints" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9683146, 9.536743e-07, 0.95861363)
+
+[node name="Right" type="Marker3D" parent="EntryPoints" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.898302, 0, 0.96318436)
