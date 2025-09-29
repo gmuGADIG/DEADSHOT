@@ -22,6 +22,12 @@ func walking_dir() -> Vector3:
 	var input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	return Vector3(input.x, 0, input.y)
 
+## Returns the direction from the player to the reticle (Y = 0)
+func aim_dir() -> Vector3:
+	var dir: Vector3 = %Reticle.global_position - self.global_position
+	dir.y = 0
+	return dir.normalized()
+
 func _ready() -> void:
 	print("player ready")
 	instance = self
