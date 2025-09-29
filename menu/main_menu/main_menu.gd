@@ -3,7 +3,7 @@ extends Control
 func _on_new_save_button_pressed() -> void:
 	#Load New Save
 	print("New Save Loaded")
-	get_tree().change_scene_to_file("res://test_scenes/demo1/demo_a.tscn")
+	get_tree().change_scene_to_file("res://menu/cutscenes/intro/intro_cutscene.tscn")
 
 func _on_load_save_button_pressed() -> void:
 	#Load Save

@@ -12,7 +12,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	animator.play("black_transition")
 	await animator.animation_finished
 	await show_advance_prompt()
-	get_tree().change_scene_to_file("res://test_scenes/example_scene.tscn")
+	get_tree().change_scene_to_file("res://test_scenes/demo1/demo_a.tscn")
 	
 	print("the animation \"" + anim_name + "\" finished playing.")
 
