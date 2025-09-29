@@ -7,7 +7,6 @@ func _ready()->void:
 	tap_button.hide()
 	black_screen.hide()
 	animator.play("new_animation")
-	pass
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	animator.play("black_transition")
@@ -16,7 +15,6 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	get_tree().change_scene_to_file("res://test_scenes/example_scene.tscn")
 	
 	print("the animation \"" + anim_name + "\" finished playing.")
-	pass # Replace with function body.
 
 func show_advance_prompt() -> void:
 	tap_button.show()
