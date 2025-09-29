@@ -90,3 +90,11 @@ func reset_close_safety() -> void:
 	already_tried_to_close = false
 	#Resetting button label.
 	close_button.text = _initial_close_button_text
+
+func _on_save_button_pressed() -> void:
+	_on_resume_pressed()
+	Save.save_game()
+
+func _on_load_button_pressed() -> void:
+	_on_resume_pressed()
+	Save.load_game()
