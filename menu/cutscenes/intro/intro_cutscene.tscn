@@ -1,51 +1,123 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3o7riajla512"]
+[gd_scene load_steps=10 format=3 uid="uid://fjrb7e5a1h3a"]
 
-[ext_resource type="PackedScene" uid="uid://cr05xakri7lnw" path="res://world/floor/floor_gen.tscn" id="1_plfsl"]
-[ext_resource type="Texture2D" uid="uid://cjbsq7rk6r3h4" path="res://temp_art/gartic/cactus.png" id="2_p5u37"]
-[ext_resource type="Texture2D" uid="uid://sxaysn4gqoxo" path="res://temp_art/gartic/coin.png" id="3_p5u37"]
-[ext_resource type="PackedScene" uid="uid://dxdkwdigtcn43" path="res://world/enemy/test/enemy_test.tscn" id="4_wceyb"]
-[ext_resource type="PackedScene" uid="uid://nuqmhgq1e2lu" path="res://world/player/player.tscn" id="5_plfsl"]
-[ext_resource type="PackedScene" uid="uid://1s1a4b2buf1o" path="res://menu/pause_menu/pause_menu.tscn" id="6_0u0ns"]
+[ext_resource type="Script" uid="uid://bly5q0qjg5cop" path="res://menu/cutscenes/cutscene.gd" id="1_dw5bm"]
+[ext_resource type="Texture2D" uid="uid://cql7y5vsb68dv" path="res://temp_art/rough_drafts/cutscene/cutscene1.png" id="2_thulx"]
+[ext_resource type="Texture2D" uid="uid://d14m6jdmbadnh" path="res://temp_art/rough_drafts/cutscene/cutscene2.png" id="3_v6vo6"]
+[ext_resource type="Texture2D" uid="uid://ddhyw81vkbsyb" path="res://temp_art/rough_drafts/cutscene/cutscene3.png" id="4_heh3y"]
+[ext_resource type="Texture2D" uid="uid://boauxw7dvftyt" path="res://temp_art/rough_drafts/cutscene/cutscene4.png" id="5_vdm1o"]
 
-[sub_resource type="Curve3D" id="Curve3D_plfsl"]
-closed = true
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -8, 0, -4, 0, 0, 0, 0, 0, 0, 18, 0, -4, 0, 0, 0, 0, 0, 0, 18, 0, 6, 0, 0, 0, 0, 0, 0, -8, 0, 6),
-"tilts": PackedFloat32Array(0, 0, 0, 0)
+[sub_resource type="Animation" id="Animation_vehyx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_thulx")]
 }
-point_count = 4
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/BlackTransitionScreen:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
 
-[node name="ExampleScene" type="Node3D"]
+[sub_resource type="Animation" id="Animation_j7hhq"]
+resource_name = "black_transition"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/BlackTransitionScreen:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1.6245066, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
 
-[node name="World" type="Node3D" parent="."]
+[sub_resource type="Animation" id="Animation_k2yrb"]
+resource_name = "new_animation"
+length = 7.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_thulx"), ExtResource("3_v6vo6"), ExtResource("4_heh3y"), ExtResource("5_vdm1o")]
+}
 
-[node name="Floor" parent="World" instance=ExtResource("1_plfsl")]
-curve = SubResource("Curve3D_plfsl")
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uh1q5"]
+_data = {
+&"RESET": SubResource("Animation_vehyx"),
+&"black_transition": SubResource("Animation_j7hhq"),
+&"new_animation": SubResource("Animation_k2yrb")
+}
 
-[node name="Cactus" type="Sprite3D" parent="World"]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -6.08085, 1.35212, -2.54946)
-texture = ExtResource("2_p5u37")
+[node name="MainCutscene" type="Node2D"]
+script = ExtResource("1_dw5bm")
 
-[node name="Cactus2" type="Sprite3D" parent="World"]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 4.52835, 1.35212, 2.91099)
-texture = ExtResource("2_p5u37")
+[node name="TextureButton" type="TextureButton" parent="."]
+z_index = 2
+offset_right = 1152.0
+offset_bottom = 648.0
+metadata/_edit_use_anchors_ = true
 
-[node name="Cactus3" type="Sprite3D" parent="World"]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 14.5163, 1.35212, -2.19461)
-texture = ExtResource("2_p5u37")
+[node name="Label" type="Label" parent="TextureButton"]
+z_index = 10
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.86419755
+anchor_right = 1.0
+anchor_bottom = 0.89969134
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Press \"E\" to continue"
+horizontal_alignment = 1
+vertical_alignment = 2
+metadata/_edit_use_anchors_ = true
 
-[node name="Coin" type="Sprite3D" parent="World"]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 11.5831, 1.00557, 0.341141)
-texture = ExtResource("3_p5u37")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_uh1q5")
+}
 
-[node name="EnemyTest" parent="." instance=ExtResource("4_wceyb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.249423, 4.7683716e-07, -2.0285115)
-script = null
+[node name="TextureRect" type="TextureRect" parent="AnimationPlayer"]
+z_index = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("2_thulx")
+expand_mode = 1
+stretch_mode = 6
+metadata/_edit_use_anchors_ = true
 
-[node name="Player" parent="." instance=ExtResource("5_plfsl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53553, 4.7683716e-07, 0.9444761)
+[node name="BlackTransitionScreen" type="ColorRect" parent="AnimationPlayer"]
+z_index = 100
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 1
+color = Color(0, 0, 0, 0)
+metadata/_edit_use_anchors_ = true
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.92473876, -0.25272667, 0.28458285, 0, 0.74771696, 0.66401756, -0.3806024, -0.61404276, 0.69144285, 0, 0, 0)
-
-[node name="PauseMenu" parent="." instance=ExtResource("6_0u0ns")]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
