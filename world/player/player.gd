@@ -22,8 +22,6 @@ func walking_dir() -> Vector3:
 	var input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	return Vector3(input.x, 0, input.y)
 
-static var instance : Player
-
 func _ready() -> void:
 	print("player ready")
 	instance = self
