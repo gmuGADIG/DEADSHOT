@@ -123,6 +123,7 @@ func set_movement_target(movement_target: Vector3) -> void:
 	navigation_agent.target_position = movement_target
 	pass
 
+## Specifies behaviour during idling phase, when applicable
 func idle() -> void:
 	
 	wasTracking = false
@@ -143,13 +144,19 @@ func idle() -> void:
 		shouldMove = false
 	pass
 
+## Specifies patrolling behaviour
 func patrol() -> void:
-	## TODO: IMPLEMENT PATROLLING 
 	wasTracking = false
 	shouldMove = true
-	#if global_position.distance_to(patrol_path[patrol_index]) < 
+	set_movement_target(patrol_path[patrol_index])
+	if (is_close_to_destination()):
+		patrol_index += 1;
+		patrol_index %= patrol_path.size()
 	pass
 
+## When the player leaves tracking range, and enters smelling/scouting range,
+## the enemy goes to the last place it saw the player as a last effort to
+## investigate.
 func scout(delta : float) -> void:
 	# The enemy will go to the last place it saw the player.
 	set_movement_target(last_known_player_position)
@@ -175,7 +182,7 @@ func track() -> void:
 	currentPatience = patience
 	pass
 
-## Whether the enemy is close to destination
+## Returns whether the enemy is close to destination
 func is_close_to_destination() -> bool:
 	return global_position.distance_to(navigation_agent.target_position) < proximityTolerance
 
