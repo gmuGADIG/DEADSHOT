@@ -22,7 +22,7 @@ enum AggroState {
 
 #region Variables
 ## The player in the scene.
-@export var player : Node3D
+@onready var player : Player
 
 @export_group("Enemy Stats")
 ## Controls the speed of the enemy agent.
@@ -75,6 +75,8 @@ var proximityTolerance : float = 1;
 #region Builtin Functions
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	player = get_tree().get_first_node_in_group("player")
+	starting_pos = starting_pos if not starting_pos.is_equal_approx(Vector3.ZERO) else position
 	last_known_player_position = player.position
 	pass # Replace with function body.
 
