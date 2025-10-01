@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://cj5uuu7xjsprv"]
+[gd_scene load_steps=3 format=3 uid="uid://cj5uuu7xjsprv"]
 
 [ext_resource type="Script" uid="uid://c3imq3vfbop5k" path="res://world/player/weapon/basic_gun/basic_gun.gd" id="1_gjor4"]
+[ext_resource type="PackedScene" uid="uid://c34cmvuqfmuww" path="res://audio/streams/shoot_sound.tscn" id="2_jjk67"]
 
 [node name="BasicGun" type="Node3D"]
 script = ExtResource("1_gjor4")
+
+[node name="Sounds" type="Node3D" parent="."]
+
+[node name="ShootSound" parent="Sounds" instance=ExtResource("2_jjk67")]
+unique_name_in_owner = true

@@ -10,3 +10,5 @@ func fire() -> void:
 	var bullet: Bullet = preload("res://world/player/weapon/bullet/player_bullet.tscn").instantiate()
 	get_tree().current_scene.add_child(bullet)
 	bullet.fire(self, player.aim_dir())
+	
+	%ShootSound.play()
