@@ -24,6 +24,10 @@ Dialog="*res://systems/dialog/dialog.tscn"
 
 gdscript/warnings/untyped_declaration=2
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [file_customization]
 
 folder_colors={
