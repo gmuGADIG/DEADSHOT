@@ -44,6 +44,7 @@ target_entry_point = "Right"
 
 [node name="Right" parent="." index="2" instance=ExtResource("4_l2hbl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.351158, 0, 0.9043428)
+target_scene = "uid://iqjqbj46lpwy"
 target_entry_point = "TODO"
 
 [node name="Left" type="Marker3D" parent="EntryPoints" index="0"]
