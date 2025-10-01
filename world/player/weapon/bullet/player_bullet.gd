@@ -13,4 +13,6 @@ func _process(delta: float) -> void:
 	global_position += velocity * delta
 
 func _on_body_entered(body: Node3D) -> void:
-	print("Shot `%s`" % body.name)
+	print("Bullet hit `%s`" % body.name)
+	if body.has_method("hit"):
+		body.hit(self)
