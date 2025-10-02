@@ -19,7 +19,6 @@ shadow_enabled = true
 script = ExtResource("2_rsarx")
 
 [node name="Player" parent="." instance=ExtResource("2_nnb1h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53553, 4.7683716e-07, 0.9444761)
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3

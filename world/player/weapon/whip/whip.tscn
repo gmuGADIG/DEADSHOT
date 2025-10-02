@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://duf7ry1s34j7o"]
+
+[ext_resource type="Script" uid="uid://xcp2500ab7cg" path="res://whip.gd" id="1_ox2ft"]
+[ext_resource type="Texture2D" uid="uid://bwm425xkr0vcy" path="res://temp_art/icon.svg" id="2_u54gi"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ox2ft"]
+
+[node name="Whip" type="Node3D"]
+script = ExtResource("1_ox2ft")
+cooldown_time = 0.5
+
+[node name="Attack" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="Attack"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Attack/Area3D"]
+transform = Transform3D(6, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+shape = SubResource("SphereShape3D_ox2ft")
+
+[node name="Sprite3D" type="Sprite3D" parent="Attack"]
+transform = Transform3D(4.8273277, 0, 0, 0, -9.327091e-08, -1, 0, 2.1337898, -4.371139e-08, 0, 0, 0)
+texture = ExtResource("2_u54gi")
+
+[connection signal="body_entered" from="Attack/Area3D" to="." method="_on_area_3d_body_entered"]
