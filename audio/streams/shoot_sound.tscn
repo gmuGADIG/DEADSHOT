@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c34cmvuqfmuww"]
+
+[ext_resource type="AudioStream" uid="uid://bnq6ptoxqxvcc" path="res://audio/placeholders/test_explode_small.wav" id="1_nsvdi"]
+
+[node name="ShootSound" type="AudioStreamPlayer3D"]
+stream = ExtResource("1_nsvdi")

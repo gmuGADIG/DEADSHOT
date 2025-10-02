@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://nuqmhgq1e2lu"]
+
+[ext_resource type="Script" uid="uid://llqh4g6obmup" path="res://world/player/player.gd" id="1_bvkkv"]
+[ext_resource type="Texture2D" uid="uid://ckv48omi8han7" path="res://temp_art/gartic/harry_potter_with_gun.png" id="1_yynsy"]
+[ext_resource type="PackedScene" uid="uid://cj5uuu7xjsprv" path="res://world/player/weapon/basic_gun/basic_gun.tscn" id="3_et4on"]
+[ext_resource type="Script" uid="uid://c4s1ohnc08ecy" path="res://world/player/reticle/reticle.gd" id="4_40qjc"]
+[ext_resource type="Texture2D" uid="uid://bwm425xkr0vcy" path="res://temp_art/icon.svg" id="4_et4on"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_plfsl"]
+height = 1.85699
+radius = 0.669922
+
+[node name="Player" type="CharacterBody3D" groups=["player"]]
+script = ExtResource("1_bvkkv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94693, 0)
+shape = SubResource("CylinderShape3D_plfsl")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 1, 0)
+alpha_cut = 1
+texture = ExtResource("1_yynsy")
+
+[node name="CamHolder" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.65204537, 0.7581798, 0, -0.7581798, 0.65204537, 0, 0, 0.35582018)
+
+[node name="Camera3D" type="Camera3D" parent="CamHolder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.4505806e-08, 9.108398)
+fov = 72.4
+
+[node name="RollDurationTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.4
+one_shot = true
+
+[node name="BasicGun" parent="." instance=ExtResource("3_et4on")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2370036, 0)
+
+[node name="Aiming" type="Node" parent="."]
+
+[node name="Reticle" type="Node3D" parent="Aiming"]
+unique_name_in_owner = true
+script = ExtResource("4_40qjc")
+
+[node name="Sprite3D" type="Sprite3D" parent="Aiming/Reticle"]
+transform = Transform3D(0.34999996, 0, 0, 0, 0, 0.34999993, 0, -0.34999993, 0, 0, 0.051027596, 0)
+texture = ExtResource("4_et4on")

@@ -11,24 +11,40 @@ config_version=5
 [application]
 
 config/name="DEADSHOT"
-config/features=PackedStringArray("4.4")
+run/main_scene="uid://by8y1gjlttw6g"
+config/features=PackedStringArray("4.5")
 config/icon="res://temp_art/icon.svg"
+
+[autoload]
+
+Global="*res://systems/globals.gd"
+Dialog="*res://systems/dialog/dialog.tscn"
 
 [debug]
 
 gdscript/warnings/untyped_declaration=2
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [file_customization]
 
 folder_colors={
 "res://audio/": "red",
 "res://menu/": "orange",
+"res://systems/": "teal",
+"res://systems/save/": "teal",
 "res://temp_art/": "yellow",
 "res://test_scenes/": "green",
 "res://world/enemy/": "teal",
 "res://world/levels/": "blue",
 "res://world/player/": "purple"
 }
+
+[global_group]
+
+player=""
 
 [input]
 
@@ -73,7 +89,16 @@ move_down={
 ]
 }
 
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
 [layer_names]
 
 3d_physics/layer_1="World"
 3d_physics/layer_2="Player"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
