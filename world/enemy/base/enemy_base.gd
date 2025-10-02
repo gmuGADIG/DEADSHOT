@@ -1,4 +1,5 @@
-extends CharacterBody3D
+@abstract
+class_name EnemyBase extends CharacterBody3D
 
 #region Enumerations
 ## Controls what the enemy does when benign.
@@ -13,10 +14,10 @@ enum EnemyType {
 enum AggroState {
 	## The enemy has not noticed the player.
 	BENIGN,
-	## The enemy has detected a player within the smell range.
-	SCOUTING,
-	## The enemy has sighted the player and is actively tracking.
-	TRACKING
+	## The enemy has detected a player.
+	HOSTILE,
+	## The enemy is attacking.
+	ATTACKING
 }
 #endregion
 
@@ -25,19 +26,16 @@ enum AggroState {
 @onready var player : Player
 
 @export_group("Enemy Stats")
+## The starting amount of health.
+@export var max_hp : float = 10;
+## The amount of damage done in an attack.
+@export var damage : float = 1;
 ## Controls the speed of the enemy agent.
 @export var movement_speed : float = 10.0
-## The maximum distance at which the enemy will begin tracking the player.
-@export var sight_radius : float = 10.0
-## The maximum distance at which the enemy will begin scouting for the player
-## after having lost them.
-@export var smell_radius : float = 15.0
+
+# TODO: type is a subclass?
 ## Does the enemy remain still or move about on their own?
 @export var type : EnemyType = EnemyType.IDLE
-## The amount of time (seconds) the enemy stays at the last known player 
-## position before returning back to what it was doing.
-@export var patience : float = 5.0;
-var currentPatience : float;
 
 @export_subgroup("Idle-Only Settings")
 ## Does the enemy return to their original position after the player leaves?
@@ -80,35 +78,16 @@ func _ready() -> void:
 	last_known_player_position = player.position
 	pass # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	player_distance = global_position.distance_to(player.global_position);
-	
-	if player_distance <= sight_radius:
-		# Player is within sight radius.
-		aggro = AggroState.TRACKING;
-	elif player_distance <= smell_radius:
-		# Player is within smell radius
-		if wasTracking:
-			aggro = AggroState.SCOUTING;
-		else:
-			aggro = AggroState.BENIGN;
-	else:
-		# Player is far away
-		aggro = AggroState.BENIGN;
-	
-	pass
-
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	match aggro:
 		AggroState.BENIGN when type == EnemyType.IDLE:
 			idle();
 		AggroState.BENIGN when type == EnemyType.PATROLLING:
 			patrol();
-		AggroState.SCOUTING:
-			scout(delta);
-		AggroState.TRACKING:
-			track();
+		AggroState.HOSTILE:
+			hostile();
+		AggroState.ATTACKING:
+			attack();
 	
 	# Get the position to the next path checkpoint, then point velocity towards
 	# the checkpoint.
@@ -120,7 +99,7 @@ func _physics_process(delta: float) -> void:
 		
 ## Triggers when enemy is visible
 func _on_visible_on_screen_notifier_3d_screen_entered() -> void:
-	aggro = AggroState.TRACKING
+	aggro = AggroState.HOSTILE;
 
 #endregion
 
@@ -161,33 +140,11 @@ func patrol() -> void:
 		patrol_index %= patrol_path.size()
 	pass
 
-## When the player leaves tracking range, and enters smelling/scouting range,
-## the enemy goes to the last place it saw the player as a last effort to
-## investigate.
-func scout(delta : float) -> void:
-	# The enemy will go to the last place it saw the player.
-	set_movement_target(last_known_player_position)
-	
-	# If it's already there, don't move. Otherwise, move.
-	shouldMove = not is_close_to_destination()
-	
-	# Once the enemy is at the last known player position, it'll linger there
-	# for the amount of seconds, set in patience
-	if (is_close_to_destination()):
-		if currentPatience > 0:
-			currentPatience -= delta;
-		else:
-			wasTracking = false
-		pass
+## Finds the player.
+@abstract func hostile() -> void;
 
-## Moves the enemy towards the player.
-func track() -> void:
-	wasTracking = true
-	shouldMove = true
-	set_movement_target(player.position)
-	last_known_player_position = player.position
-	currentPatience = patience
-	pass
+## Attacks the player.
+@abstract func attack() -> void;
 
 ## Returns whether the enemy is close to destination
 func is_close_to_destination() -> bool:
