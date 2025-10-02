@@ -3,7 +3,7 @@ extends Node3D
 @onready var player: Player = get_parent()
 
 @export var base_damage : int = 1
-@export var bonus_knock
+@export var bonus_knockback : float = 0.7
 @export var cooldown_time : float
 @export var min_charge_time : float
 @export var time_per_charge : float
@@ -58,6 +58,6 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 	if not body is EnemyBase:
 		return
 	var enemy : EnemyBase = body
-	enemy.hurt(base_damage+charge_bonus)
-	
+	enemy.hit(base_damage+charge_bonus,player.aim_dir()*(1+charge_bonus*bonus_knockback))
+	enemy.stun(0.5)
 	pass # Replace with function body.
