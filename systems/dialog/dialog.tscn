@@ -27,4 +27,6 @@ grow_vertical = 0
 bbcode_enabled = true
 
 [node name="LineTimer" type="Timer" parent="."]
-one_shot = true
+wait_time = 0.05
+
+[connection signal="timeout" from="LineTimer" to="." method="show_character"]
