@@ -1,5 +1,6 @@
 class_name EnemyBase extends CharacterBody3D
 
+@export var health : int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -10,7 +11,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 	
-func hurt(damage: int) -> void:
+func hit(damage: int, knockback : Vector3) -> void:
+	health -= damage
 	pass
 
 func stun(time: float) -> void:
