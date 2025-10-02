@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bk60c4813t663"]
+[gd_scene load_steps=7 format=3 uid="uid://bk60c4813t663"]
 
 [ext_resource type="PackedScene" uid="uid://cr05xakri7lnw" path="res://world/floor/floor_gen.tscn" id="1_8hxjk"]
 [ext_resource type="PackedScene" uid="uid://nuqmhgq1e2lu" path="res://world/player/player.tscn" id="2_nnb1h"]
 [ext_resource type="Script" uid="uid://2uxmd0kth1s5" path="res://world/transitions/entry_points.gd" id="2_rsarx"]
+[ext_resource type="PackedScene" uid="uid://d1gunjkbicne3" path="res://world/floor/temp_floor.tscn" id="2_xskwq"]
 [ext_resource type="PackedScene" uid="uid://1s1a4b2buf1o" path="res://menu/pause_menu/pause_menu.tscn" id="3_uyrbk"]
+[ext_resource type="PackedScene" uid="uid://dx3l0wduat3tp" path="res://world/enemy/base/enemy_base.tscn" id="6_0lvvw"]
 
 [node name="LevelBase" type="Node3D"]
 
@@ -14,6 +16,8 @@ transform = Transform3D(0.9247388, -0.25272667, 0.28458288, 0, 0.74771696, 0.664
 shadow_enabled = true
 
 [node name="Floor" parent="World" instance=ExtResource("1_8hxjk")]
+
+[node name="temp_Floor2" parent="World" instance=ExtResource("2_xskwq")]
 
 [node name="EntryPoints" type="Node3D" parent="."]
 script = ExtResource("2_rsarx")
@@ -31,3 +35,6 @@ grow_vertical = 2
 
 [node name="PauseMenu" parent="UI" instance=ExtResource("3_uyrbk")]
 layout_mode = 1
+
+[node name="Enemy" parent="." instance=ExtResource("6_0lvvw")]
+fire_rate = 2.0

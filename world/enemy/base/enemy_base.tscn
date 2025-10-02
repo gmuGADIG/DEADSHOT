@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dx3l0wduat3tp"]
+[gd_scene load_steps=4 format=3 uid="uid://dx3l0wduat3tp"]
 
 [ext_resource type="Script" uid="uid://duwt050r1xw07" path="res://world/enemy/base/enemy_base.gd" id="1_1uty2"]
+[ext_resource type="Texture2D" uid="uid://ccalgafhbfwhn" path="res://temp_art/gartic/raccoon_with_gun.png" id="2_fsaya"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_plfsl"]
 height = 1.85699
@@ -8,6 +9,7 @@ radius = 0.669922
 
 [node name="Enemy" type="CharacterBody3D"]
 script = ExtResource("1_1uty2")
+fire_rate = 1.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94693, 0)
@@ -15,3 +17,8 @@ shape = SubResource("CylinderShape3D_plfsl")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 1, 0)
+texture = ExtResource("2_fsaya")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
