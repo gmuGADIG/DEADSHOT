@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://nuqmhgq1e2lu"]
+[gd_scene load_steps=8 format=3 uid="uid://nuqmhgq1e2lu"]
 
 [ext_resource type="Script" uid="uid://llqh4g6obmup" path="res://world/player/player.gd" id="1_bvkkv"]
 [ext_resource type="Texture2D" uid="uid://ckv48omi8han7" path="res://temp_art/gartic/harry_potter_with_gun.png" id="1_yynsy"]
+[ext_resource type="PackedScene" uid="uid://bas8xwk5nhlq0" path="res://world/player/HUD/hud.tscn" id="2_duds0"]
 [ext_resource type="PackedScene" uid="uid://cj5uuu7xjsprv" path="res://world/player/weapon/basic_gun/basic_gun.tscn" id="3_et4on"]
 [ext_resource type="Script" uid="uid://c4s1ohnc08ecy" path="res://world/player/reticle/reticle.gd" id="4_40qjc"]
 [ext_resource type="Texture2D" uid="uid://bwm425xkr0vcy" path="res://temp_art/icon.svg" id="4_et4on"]
@@ -12,6 +13,8 @@ radius = 0.669922
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_bvkkv")
+
+[node name="Hud" parent="." instance=ExtResource("2_duds0")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94693, 0)
