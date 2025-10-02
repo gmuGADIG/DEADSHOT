@@ -2,7 +2,7 @@ extends Area3D
 
 #variables
 @onready var damage_timer: Timer = %DamageTimer
-@export var puddle_multipler: float = 0.25
+@export var puddle_multiplier: float = 0.25
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 #starts the damage timer
 #TODO damage the player once health is added
 func _on_body_entered(body: Node3D) -> void:
-	Player.instance.speed_multiplier = puddle_multipler
+	Player.instance.speed_multiplier = puddle_multiplier
 	damage_timer.start()
 
 #reset damage timer
