@@ -1,12 +1,13 @@
 
 extends Node
 
-@onready var text_box:=$RichTextLabel
+@onready var text_box:=$Panel/VBoxContainer/Speech
+@onready var panel:=$Panel
 var dialog_lines: Array[String]=[]
 @onready var timer:=$LineTimer
+@onready var speaker_box:=$Panel/VBoxContainer/Speaker
 
 func _input(event: InputEvent) -> void:
-	
 	if (event.is_action_pressed("interact") or event.is_action_pressed("fire")) and (text_box.visible): 
 		if (is_text_being_rendered()):
 			timer.stop()
@@ -14,35 +15,29 @@ func _input(event: InputEvent) -> void:
 			
 		else:
 			if dialog_lines.is_empty():
-				text_box.visible = false
+				panel.visible = false
 				return
-			text_box.visible_ratio = 0
-			text_box.text = dialog_lines.pop_front()
-			timer.start()
+			show_line()
+			
 		
 func is_text_being_rendered() -> bool:
 	return text_box.visible_ratio != 1
-	
-	
 
-	
+
+
+
 
 #func _ready() -> void:
 	#if not is_inside_tree():
 		#get_tree().root.add_child(self)
 
 func play(timeline:DialogTimeline) -> void:
-	text_box.visible = true
-	timer.start()
-	text_box.visible_characters = 0
-	text_box.visible_ratio = 0
-	text_box.text = timeline.dialog
+	panel.visible = true
 	dialog_lines.assign(timeline.dialog.split("\n"))
-	text_box.text = dialog_lines.pop_front()
+	speaker_box.text = ""
 	
-	#show_character()
-	
-	
+	show_line()
+
 	print(timeline.dialog)
 
 func show_character() -> void:
@@ -51,5 +46,12 @@ func show_character() -> void:
 		#print("Test")
 		return
 	text_box.visible_characters += 1
-	
+
+func show_line() -> void:
+	#var chunks: PackedStringArray = dialog_lines.pop_front().split(":")
+	#if chunks.size() == 1:
+		#text_box.text = chunks[0]
+	timer.start()
+	text_box.visible_ratio = 0
+	text_box.text = dialog_lines.pop_front()
 	
