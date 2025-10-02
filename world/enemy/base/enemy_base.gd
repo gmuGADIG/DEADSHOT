@@ -117,6 +117,11 @@ func _physics_process(delta: float) -> void:
 		var direction : Vector3 = global_position.direction_to(next_position)
 		velocity = direction * movement_speed
 		move_and_slide()
+		
+## Triggers when enemy is visible
+func _on_visible_on_screen_notifier_3d_screen_entered() -> void:
+	aggro = AggroState.TRACKING
+
 #endregion
 
 #region Behaviour Functions
