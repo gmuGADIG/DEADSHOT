@@ -1,13 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dyhcprd0t3dxo"]
+[gd_scene load_steps=6 format=3 uid="uid://dyhcprd0t3dxo"]
 
 [ext_resource type="Texture2D" uid="uid://bg142evknuep7" path="res://temp_art/gartic/batman.png" id="1_ltyj4"]
 [ext_resource type="Texture2D" uid="uid://cjbsq7rk6r3h4" path="res://temp_art/gartic/cactus.png" id="2_rx1bo"]
-[ext_resource type="Texture2D" uid="uid://bspns5244rj6v" path="res://temp_art/gartic/ghost_crying.png" id="3_cy2q1"]
 [ext_resource type="Texture2D" uid="uid://sxaysn4gqoxo" path="res://temp_art/gartic/coin.png" id="4_oqh0l"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ltyj4"]
 content_margin_top = 20.0
-content_margin_bottom = 20.0
 bg_color = Color(0.73541117, 0.45856017, 0.90916985, 1)
 border_width_top = 5
 border_width_bottom = 5
@@ -26,99 +24,59 @@ grow_vertical = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_rx1bo")
+vertical_scroll_mode = 3
 metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
 
-[node name="VBoxContainer1" type="VBoxContainer" parent="ScrollContainer/HBoxContainer"]
+[node name="SkillsLvl1" type="VBoxContainer" parent="ScrollContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_vertical = 4
 
-[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/VBoxContainer1"]
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/SkillsLvl1"]
 layout_mode = 2
-size_flags_vertical = 3
 texture = ExtResource("1_ltyj4")
 
-[node name="TextureRect2" type="TextureRect" parent="ScrollContainer/HBoxContainer/VBoxContainer1"]
+[node name="TextureRect2" type="TextureRect" parent="ScrollContainer/HBoxContainer/SkillsLvl1"]
 layout_mode = 2
-size_flags_vertical = 3
 texture = ExtResource("2_rx1bo")
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer/HBoxContainer"]
+[node name="MiniSkillStats1" type="VBoxContainer" parent="ScrollContainer/HBoxContainer"]
+clip_contents = true
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_vertical = 4
 
-[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/MiniSkillStats1"]
 layout_mode = 2
-size_flags_vertical = 3
-texture = ExtResource("3_cy2q1")
-
-[node name="TextureRect2" type="TextureRect" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-size_flags_vertical = 3
 texture = ExtResource("4_oqh0l")
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="ScrollContainer/HBoxContainer"]
+[node name="TextureRect2" type="TextureRect" parent="ScrollContainer/HBoxContainer/MiniSkillStats1"]
 layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/VBoxContainer3"]
-layout_mode = 2
-size_flags_vertical = 3
-texture = ExtResource("3_cy2q1")
-
-[node name="TextureRect2" type="TextureRect" parent="ScrollContainer/HBoxContainer/VBoxContainer3"]
-layout_mode = 2
-size_flags_vertical = 3
 texture = ExtResource("4_oqh0l")
+stretch_mode = 3
 
-[node name="VBoxContainer4" type="VBoxContainer" parent="ScrollContainer/HBoxContainer"]
+[node name="TextureRect3" type="TextureRect" parent="ScrollContainer/HBoxContainer/MiniSkillStats1"]
 layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/VBoxContainer4"]
-layout_mode = 2
-size_flags_vertical = 3
-texture = ExtResource("3_cy2q1")
-
-[node name="TextureRect2" type="TextureRect" parent="ScrollContainer/HBoxContainer/VBoxContainer4"]
-layout_mode = 2
-size_flags_vertical = 3
 texture = ExtResource("4_oqh0l")
+stretch_mode = 3
 
-[node name="VBoxContainer5" type="VBoxContainer" parent="ScrollContainer/HBoxContainer"]
+[node name="TextureRect4" type="TextureRect" parent="ScrollContainer/HBoxContainer/MiniSkillStats1"]
 layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/VBoxContainer5"]
-layout_mode = 2
-size_flags_vertical = 3
-texture = ExtResource("3_cy2q1")
-
-[node name="TextureRect2" type="TextureRect" parent="ScrollContainer/HBoxContainer/VBoxContainer5"]
-layout_mode = 2
-size_flags_vertical = 3
 texture = ExtResource("4_oqh0l")
+stretch_mode = 3
 
-[node name="VBoxContainer6" type="VBoxContainer" parent="ScrollContainer/HBoxContainer"]
+[node name="TextureRect5" type="TextureRect" parent="ScrollContainer/HBoxContainer/MiniSkillStats1"]
 layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/VBoxContainer6"]
-layout_mode = 2
-size_flags_vertical = 3
-texture = ExtResource("3_cy2q1")
-
-[node name="TextureRect2" type="TextureRect" parent="ScrollContainer/HBoxContainer/VBoxContainer6"]
-layout_mode = 2
-size_flags_vertical = 3
 texture = ExtResource("4_oqh0l")
+stretch_mode = 3
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer/HBoxContainer"]
+layout_mode = 2
