@@ -7,15 +7,12 @@
 height = 1.85699
 radius = 0.669922
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_bvkkv"]
-size = Vector3(1.8210144, 2.3004913, 1.2746582)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bvkkv"]
+height = 0.27978516
+radius = 0.8881836
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_bvkkv")
-walk_speed = null
-roll_speed = null
-roll_duration = null
-roll_influence = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94693, 0)
@@ -34,8 +31,9 @@ unique_name_in_owner = true
 wait_time = 0.4
 one_shot = true
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="InteractionArea" type="Area3D" parent="."]
+unique_name_in_owner = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24310216, 0.9761261, -0.1471076)
-shape = SubResource("BoxShape3D_bvkkv")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8601074, 0)
+shape = SubResource("CylinderShape3D_bvkkv")
