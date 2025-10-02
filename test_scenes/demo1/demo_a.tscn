@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://btuw2i28k0axl"]
+[gd_scene load_steps=6 format=3 uid="uid://btuw2i28k0axl"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_p0tjl"]
 [ext_resource type="Texture2D" uid="uid://cjbsq7rk6r3h4" path="res://temp_art/gartic/cactus.png" id="2_yl5fl"]
+[ext_resource type="PackedScene" uid="uid://bb3qdjspo0kcq" path="res://world/Intereactables/Barrel.tscn" id="3_yl5fl"]
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="4_yl5fl"]
 
 [sub_resource type="Curve3D" id="Curve3D_lkd7d"]
@@ -31,6 +32,9 @@ texture = ExtResource("2_yl5fl")
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 14.5163, 1.35212, -2.19461)
 alpha_cut = 1
 texture = ExtResource("2_yl5fl")
+
+[node name="Barrel" parent="World" index="5" instance=ExtResource("3_yl5fl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="Exit" parent="." index="1" instance=ExtResource("4_yl5fl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.351158, 0, 0.9043428)

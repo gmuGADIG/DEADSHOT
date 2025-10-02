@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bb3qdjspo0kcq"]
+
+[ext_resource type="Script" uid="uid://16r5ouh3405d" path="res://world/Intereactables/Barrel.gd" id="1_wpcj3"]
+[ext_resource type="Texture2D" uid="uid://bffhswt8p3gcs" path="res://temp_art/gartic/lorax_kirby.png" id="2_polpe"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_polpe"]
+
+[node name="Barrel" type="CharacterBody3D"]
+script = ExtResource("1_wpcj3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_polpe")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = ExtResource("2_polpe")
