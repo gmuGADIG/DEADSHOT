@@ -54,7 +54,6 @@ func begin_roll() -> void:
 	
 func hurt(damage: int) -> void:
 	if invulnerable:  
-		print("Damage Nullified")
 		return
 		
 	print("HIT! " + str(player_health) + " HP left")
