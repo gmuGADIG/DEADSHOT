@@ -3,7 +3,8 @@ extends Node3D
 @onready var player: Player = get_parent()
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("fire"):
+	# No shooting if you're rolling!
+	if Input.is_action_just_pressed("fire") && !player.current_state==player.PlayerState.ROLLING:
 		fire()
 
 func fire() -> void:
