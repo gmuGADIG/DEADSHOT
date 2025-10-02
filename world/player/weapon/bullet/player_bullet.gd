@@ -1,6 +1,8 @@
 class_name Bullet
 extends Area3D
 
+@export var damage_component : DamageComponent
+
 const SPEED := 40.0
 
 var velocity: Vector3
@@ -14,5 +16,9 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	print("Bullet hit `%s`" % body.name)
-	if body.has_method("hit"):
-		body.hit(self)
+
+
+func _on_area_entered(area: Area3D) -> void:
+	if area is HurtboxComponent:
+		var hurtbox : HurtboxComponent = area
+		hurtbox.hit(damage_component)
