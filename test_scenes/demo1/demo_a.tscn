@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://btuw2i28k0axl"]
+[gd_scene load_steps=7 format=3 uid="uid://btuw2i28k0axl"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_p0tjl"]
 [ext_resource type="Texture2D" uid="uid://cjbsq7rk6r3h4" path="res://temp_art/gartic/cactus.png" id="2_yl5fl"]
+[ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://cover/cover_1.tscn" id="4_hxoc3"]
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="4_yl5fl"]
+[ext_resource type="PackedScene" uid="uid://c2bxn6p802s68" path="res://cover/cover_2.tscn" id="5_lkd7d"]
 
 [sub_resource type="Curve3D" id="Curve3D_lkd7d"]
 closed = true
@@ -39,3 +41,9 @@ target_entry_point = "Left"
 
 [node name="Right" type="Marker3D" parent="EntryPoints" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.214909, 0, 0.96318436)
+
+[node name="Cover" parent="." index="5" instance=ExtResource("4_hxoc3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5492904, 0.6311088, 2.9135442)
+
+[node name="Cover2" parent="." index="6" instance=ExtResource("5_lkd7d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.76658, 0.69281995, 3.6724815)
