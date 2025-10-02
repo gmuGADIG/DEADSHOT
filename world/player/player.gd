@@ -21,6 +21,8 @@ func walking_dir() -> Vector3:
 	return Vector3(input.x, 0, input.y)
 
 func _physics_process(_delta: float) -> void:
+	check_interactions()
+	
 	if Input.is_action_just_pressed("roll"):
 		begin_roll()
 	
@@ -37,6 +39,11 @@ func _physics_process(_delta: float) -> void:
 			# The previous facing direction should be considered. 
 			
 	move_and_slide()
+
+func check_interactions() -> void:
+	var area: Area3D = %InteractionArea
+	var overlaps := area.get_overlapping_bodies()
+	print(overlaps)
 
 func begin_roll() -> void:
 	#TODO: Play animation, do iframes.
