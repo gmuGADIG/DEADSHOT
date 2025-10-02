@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://7lrs6qjp01ku"]
+
+[ext_resource type="Texture2D" uid="uid://bwm425xkr0vcy" path="res://temp_art/icon.svg" id="1_tltrc"]
+[ext_resource type="Script" uid="uid://dnpj3weokw4ps" path="res://skill_button.gd" id="2_k43o4"]
+
+[node name="skillButton" type="TextureButton"]
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 127.0
+offset_bottom = 129.0
+texture_normal = ExtResource("1_tltrc")
+texture_disabled = ExtResource("1_tltrc")
+script = ExtResource("2_k43o4")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 102.0
+offset_right = 107.0
+offset_bottom = 125.0
+text = "Skill Name"
