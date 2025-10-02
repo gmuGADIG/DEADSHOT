@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://o72hyyjcmpll"]
+
+[ext_resource type="Script" uid="uid://cb3yu5tln4q1x" path="res://cover/cover.gd" id="1_wykub"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wykub"]
+size = Vector3(2.2208252, 1, 1)
+
+[node name="Cover" type="StaticBody3D"]
+script = ExtResource("1_wykub")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_wykub")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0, 0)
