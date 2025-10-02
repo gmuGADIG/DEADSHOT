@@ -1,4 +1,6 @@
-extends CharacterBody3D
+class_name Player extends CharacterBody3D
+
+static var instance:Player
 
 ## EXPORT VARIABLES
 @export var walk_speed: float = 8.0
@@ -19,6 +21,19 @@ var current_state: PlayerState = PlayerState.WALKING
 func walking_dir() -> Vector3:
 	var input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	return Vector3(input.x, 0, input.y)
+
+## Returns the direction from the player to the reticle (Y = 0)
+func aim_dir() -> Vector3:
+	var dir: Vector3 = %Reticle.global_position - self.global_position
+	dir.y = 0
+	return dir.normalized()
+
+func _ready() -> void:
+	print("player ready")
+	instance = self
+
+func _init() -> void:
+	instance = self
 
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("roll"):
