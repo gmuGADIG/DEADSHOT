@@ -7,7 +7,7 @@ class_name Player extends CharacterBody3D
 @export var roll_duration: float = 0.4
 @export var roll_influence: float = 8 ## Controls how much player input affects steering when mid-roll. 
 
-@export var player_health: int = 10
+@export var player_health: int = 3
 
 ## These are the states that the player can be in. States control what the player can do.
 enum PlayerState {
@@ -16,7 +16,7 @@ enum PlayerState {
 }
 
 var invulnerable: bool = false
-var hurt_invuln_time: float = 1
+var hurt_invuln_time: float = 0.5
 
 var current_state: PlayerState = PlayerState.WALKING
 
@@ -59,6 +59,11 @@ func hurt(damage: int) -> void:
 		
 	print("HIT! " + str(player_health) + " HP left")
 	player_health -= damage
+	
+	if player_health <= 0:
+		print("HEALTH IS 0! DYING...")
+		get_tree().reload_current_scene()
+		return
 	
 	invulnerable = true
 	$Sprite3D.modulate = Color(1,0,0,1)
