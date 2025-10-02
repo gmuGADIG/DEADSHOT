@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://byaykxt2bvhbf"]
+
+[ext_resource type="Script" uid="uid://ba2nm5caawopv" path="res://test_scenes/tumbleweed/tumbledemo.gd" id="1_cg13n"]
+[ext_resource type="PackedScene" uid="uid://ckbr1getgwitd" path="res://test_scenes/tumbleweed/tumbleweed.tscn" id="2_h051r"]
+
+[node name="Scene" type="Node3D"]
+script = ExtResource("1_cg13n")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.86602545, 0, -0.86602545, 0.49999997, 0, 15.291906, 2.4066672)
+
+[node name="Tumbleweed" parent="." instance=ExtResource("2_h051r")]
