@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dx3l0wduat3tp"]
+[gd_scene load_steps=5 format=3 uid="uid://dx3l0wduat3tp"]
 
 [ext_resource type="Script" uid="uid://duwt050r1xw07" path="res://world/enemy/base/enemy_base.gd" id="1_1uty2"]
+[ext_resource type="PackedScene" uid="uid://hiyp7n7uvc4m" path="res://systems/attacking/health/health_component.tscn" id="2_17eo5"]
+[ext_resource type="PackedScene" uid="uid://b7d3oiw27awag" path="res://systems/attacking/hurtbox/hurtbox_component.tscn" id="3_1tv51"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_plfsl"]
 height = 1.85699
@@ -15,3 +17,14 @@ shape = SubResource("CylinderShape3D_plfsl")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 1, 0)
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+[node name="HealthComponent" parent="." instance=ExtResource("2_17eo5")]
+max_health = 10
+
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_1tv51")]
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtboxComponent"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94693, 0)
+shape = SubResource("CylinderShape3D_plfsl")
