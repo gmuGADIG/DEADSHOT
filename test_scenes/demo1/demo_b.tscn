@@ -55,4 +55,5 @@ alpha_cut = 1
 texture = ExtResource("2_7te3a")
 
 [node name="EnemyTest" parent="." index="10" instance=ExtResource("5_7te3a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.584532, 0.21243405, 2.8016367)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.573572, 0.21243405, 0.4986601)
+movement_speed = 3.0

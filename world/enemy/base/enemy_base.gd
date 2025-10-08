@@ -27,9 +27,9 @@ enum AggroState {
 
 @export_group("Enemy Stats")
 ## The starting amount of health.
-@export var max_hp : float = 10;
+@export var max_hp : float = 10
 ## The amount of damage done in an attack.
-@export var damage : float = 1;
+@export var damage : float = 1
 ## Controls the speed of the enemy agent.
 @export var movement_speed : float = 10.0
 
@@ -39,59 +39,57 @@ enum AggroState {
 
 @export_subgroup("Idle-Only Settings")
 ## Does the enemy return to their original position after the player leaves?
-@export var returns_to_post : bool = true;
+@export var returns_to_post : bool = true
 ## The starting position of the enemy.
-@export var starting_pos : Vector3;
+@export var starting_pos : Vector3
 
 @export_subgroup("Patrol-Only Settings")
 ## The positions to cycle through when patrolling.
-@export var patrol_path : Array[Vector3];
-var patrol_index : int = 0;
+@export var patrol_path : Array[Vector3]
+var patrol_index : int = 0
 
 ## Current aggro state of the enemy
-var aggro : AggroState = AggroState.BENIGN;
+var aggro : AggroState = AggroState.BENIGN
 ## Current distance to the player
-var player_distance : float;
+var player_distance : float
 
 ## The navigation agent.
 @onready var navigation_agent : NavigationAgent3D = $NavigationAgent3D
 
-## The last known position of the player.
-var last_known_player_position : Vector3;
+## The last known global position of the player.
+var last_known_player_position : Vector3
 
 ## Whether or not the enemy should move, used primarily to stop idle jittering.
-var shouldMove : bool = false;
+var should_move : bool = false
 ## Whether the enemy was previously tracking, used to scout for the player only
 ## when the player was tracked and is outside of the range
-var wasTracking : bool = false;
+var was_tracking : bool = false
 
 ## How close the enemy is to the destination before being "basically there"
-var proximityTolerance : float = 1;
+var proximity_tolerance : float = 1
 
 #endregion
 
 #region Builtin Functions
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	starting_pos = starting_pos if not starting_pos.is_equal_approx(Vector3.ZERO) else position
-	last_known_player_position = player.position
-	pass # Replace with function body.
+	last_known_player_position = player.global_position
 
 func _physics_process(_delta: float) -> void:
 	match aggro:
 		AggroState.BENIGN when type == EnemyType.IDLE:
-			idle();
+			idle()
 		AggroState.BENIGN when type == EnemyType.PATROLLING:
-			patrol();
+			patrol()
 		AggroState.HOSTILE:
-			hostile();
+			hostile()
 		AggroState.ATTACKING:
-			attack();
+			attack()
 	
 	# Get the position to the next path checkpoint, then point velocity towards
 	# the checkpoint.
-	if (shouldMove):
+	if should_move:
 		var next_position : Vector3 = navigation_agent.get_next_path_position()
 		var direction : Vector3 = global_position.direction_to(next_position)
 		velocity = direction * movement_speed
@@ -99,7 +97,7 @@ func _physics_process(_delta: float) -> void:
 		
 ## Triggers when enemy is visible
 func _on_visible_on_screen_notifier_3d_screen_entered() -> void:
-	aggro = AggroState.HOSTILE;
+	aggro = AggroState.HOSTILE
 
 #endregion
 
@@ -107,47 +105,43 @@ func _on_visible_on_screen_notifier_3d_screen_entered() -> void:
 ## Sets the movement target of this enemy agent.
 func set_movement_target(movement_target: Vector3) -> void:
 	navigation_agent.target_position = movement_target
-	pass
 
 ## Specifies behaviour during idling phase, when applicable
 func idle() -> void:
+	was_tracking = false
 	
-	wasTracking = false
-		
 	# if the enemy returns to post,
 	if returns_to_post:
 		set_movement_target(starting_pos)
 		# if the enemy isn't there yet,
-		if (not is_close_to_destination()):
+		if not is_close_to_destination():
 			# the enemy should move.
-			shouldMove = true
+			should_move = true
 		else:
 			# else, the enemy should not move.
-			shouldMove = false
+			should_move = false
 	# if the enemy does not return to post,
 	else:
 		# the enemy should not move.
-		shouldMove = false
-	pass
+		should_move = false
 
 ## Specifies patrolling behaviour
 func patrol() -> void:
-	wasTracking = false
-	shouldMove = true
+	was_tracking = false
+	should_move = true
 	set_movement_target(patrol_path[patrol_index])
-	if (is_close_to_destination()):
-		patrol_index += 1;
+	if is_close_to_destination():
+		patrol_index += 1
 		patrol_index %= patrol_path.size()
-	pass
 
 ## Finds the player.
-@abstract func hostile() -> void;
+@abstract func hostile() -> void
 
 ## Attacks the player.
-@abstract func attack() -> void;
+@abstract func attack() -> void
 
 ## Returns whether the enemy is close to destination
 func is_close_to_destination() -> bool:
-	return global_position.distance_to(navigation_agent.target_position) < proximityTolerance
+	return global_position.distance_to(navigation_agent.target_position) < proximity_tolerance
 
 #endregion
