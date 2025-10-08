@@ -18,6 +18,7 @@ shape = SubResource("CylinderShape3D_plfsl")
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 1, 0)
 
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 [node name="HealthComponent" parent="." instance=ExtResource("2_17eo5")]
 max_health = 10
 

@@ -31,6 +31,7 @@ texture = ExtResource("1_yynsy")
 transform = Transform3D(1, 0, 0, 0, 0.65204537, 0.7581798, 0, -0.7581798, 0.65204537, 0, 0, 0.35582018)
 
 [node name="Camera3D" type="Camera3D" parent="CamHolder"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.4505806e-08, 9.108398)
 fov = 72.4
 
