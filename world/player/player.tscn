@@ -56,7 +56,7 @@ texture = ExtResource("4_et4on")
 [node name="HurtboxComponent" type="Area3D" parent="." node_paths=PackedStringArray("health_component")]
 script = ExtResource("7_d3e1v")
 health_component = NodePath("HealthComponent")
-is_player = true
+allowed_damage_sources = Array[int]([1, 2])
 metadata/_custom_type_script = "uid://lxg83i28nlul"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HurtboxComponent"]

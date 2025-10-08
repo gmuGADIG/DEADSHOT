@@ -2,9 +2,9 @@ class_name DamageInfo
 extends Resource
 
 enum Source {
-	PLAYER, ## Hurts enemies
-	ENEMY, ## Hurts players
-	NEUTRAL, ## Hurts both players and enemies
+	PLAYER,
+	ENEMY,
+	HAZARD,
 }
 
 enum KnockbackStrength {

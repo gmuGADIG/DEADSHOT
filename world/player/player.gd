@@ -1,10 +1,9 @@
 class_name Player extends CharacterBody3D
 
 static var instance:Player
-
+var speed_multiplier: float = 1.0;
 ## EXPORT VARIABLES
 @export var walk_speed: float = 8.0
-
 @export var roll_speed: float = 18.0
 @export var roll_duration: float = 0.4
 @export var roll_influence: float = 8 ## Controls how much player input affects steering when mid-roll. 
@@ -21,7 +20,7 @@ const STAMINA_RECHARGE_RATE: float = 0.666667
 ## These are the states that the player can be in. States control what the player can do.
 enum PlayerState {
 	WALKING,
-	ROLLING
+	ROLLING,
 }
 
 var current_state: PlayerState = PlayerState.WALKING
@@ -54,7 +53,7 @@ func _physics_process(_delta: float) -> void:
 	
 	match current_state:
 		PlayerState.WALKING:
-			velocity = walking_dir() * walk_speed
+			velocity = walking_dir() * walk_speed * speed_multiplier
 		PlayerState.ROLLING:
 			## We move the velocity vector towards the direction of the movement. 
 			## This means that velocity doesn't immediately become where we're pointing, but changes over time.

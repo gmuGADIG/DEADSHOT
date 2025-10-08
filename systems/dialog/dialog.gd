@@ -38,4 +38,3 @@ func show_line() -> void:
 	timer.start()
 	text_box.visible_ratio = 0
 	text_box.text = dialog_lines.pop_front()
-
