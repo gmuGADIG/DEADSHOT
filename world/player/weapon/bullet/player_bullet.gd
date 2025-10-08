@@ -1,7 +1,9 @@
 class_name Bullet
 extends Area3D
 
-@export var damage_component : DamageComponent
+@export var atk_damage: int = 0
+@export var atk_source: DamageInfo.Source
+@export var atk_knockback: DamageInfo.KnockbackStrength
 
 const SPEED := 40.0
 
@@ -17,8 +19,7 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node3D) -> void:
 	print("Bullet hit `%s`" % body.name)
 
-
 func _on_area_entered(area: Area3D) -> void:
 	if area is HurtboxComponent:
 		var hurtbox : HurtboxComponent = area
-		hurtbox.hit(damage_component)
+		hurtbox.hit(DamageInfo.new(atk_damage, atk_source, atk_knockback, velocity.normalized()))

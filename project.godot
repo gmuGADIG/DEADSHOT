@@ -32,7 +32,6 @@ window/stretch/mode="canvas_items"
 
 folder_colors={
 "res://audio/": "red",
-"res://components/": "blue",
 "res://menu/": "orange",
 "res://systems/": "teal",
 "res://systems/save/": "teal",
