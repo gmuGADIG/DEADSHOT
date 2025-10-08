@@ -42,7 +42,6 @@ func aim_dir() -> Vector3:
 	return dir.normalized()
 
 func _ready() -> void:
-	print("player ready - PRESS TAB TO TEST COMBAT ENCOUNTER MODE")
 	instance = self
 
 func _init() -> void:
@@ -68,24 +67,22 @@ func _physics_process(_delta: float) -> void:
 ## We use the proper process function to update stamina, since it appears on the HUD and that could be drawn faster than the physics tickrate.
 func _process(delta: float) -> void:
 	if is_in_combat: update_stamina(delta)
+	
 	# TEST COMBAT ENCOUNTER MODE FOR STAMINA
 	if Input.is_action_just_pressed("ui_focus_next"):
-		match is_in_combat:
-			true:
-				exit_combat()
-			false:
-				enter_combat()
+		if is_in_combat:
+			exit_combat()
+		else:
+			enter_combat()
 
 func begin_roll() -> void:
 	# This function only runs when the roll starts. Get out of here if you're already rolling!
 	if current_state == PlayerState.ROLLING: return
-	# We only handle stamina transactions if the player is in combat.
-		# In that case, if the player doesn't have at least one full stamina bar, give up.
-	if is_in_combat:
-		if stamina<1.0: 
-			print("Not enough stamina!")
-			return
-		stamina-=1.0
+	
+	# Factor in stamina
+	if stamina < 1.0: return
+	stamina -= 1.0
+	
 	#TODO: Play animation, do iframes.
 	current_state = PlayerState.ROLLING
 	%RollDurationTimer.start()
@@ -94,9 +91,12 @@ func begin_roll() -> void:
 
 ## Called every frame if the player is in combat.
 func update_stamina(delta: float) -> void:
-	stamina+=STAMINA_RECHARGE_RATE * delta
-	stamina = clampf(stamina, 0.0, 3.0)
-	$Hud.update_stamina_bar(stamina)
+	if is_in_combat:
+		stamina += STAMINA_RECHARGE_RATE * delta
+		stamina = clampf(stamina, 0.0, 3.0)
+		$Hud.update_stamina_bar(stamina)
+	else:
+		stamina = 3.0
 
 
 # COMBAT ENCOUNTERS
