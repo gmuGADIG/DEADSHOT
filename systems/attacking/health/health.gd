@@ -1,4 +1,4 @@
-class_name HealthComponent extends Node
+class_name Health extends Node
 
 signal killed
 
