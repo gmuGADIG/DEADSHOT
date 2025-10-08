@@ -19,7 +19,7 @@ func shoot_bullet() -> void:
 		bullet_reference.set_speed(fire_rate);
 		bullet_reference.set_target(Vector3(-1, 0, 1))
 		add_sibling(bullet_reference)
-		bullet_reference.global_position = global_position
+		bullet_reference.global_position = global_position + Vector3(0, 1, 0)
 		shooting = true
 
 func _on_timer_timeout() -> void:

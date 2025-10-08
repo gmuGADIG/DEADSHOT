@@ -18,12 +18,14 @@ shadow_enabled = true
 [node name="Floor" parent="World" instance=ExtResource("1_8hxjk")]
 
 [node name="temp_Floor2" parent="World" instance=ExtResource("2_xskwq")]
+collision_layer = 5
 
 [node name="EntryPoints" type="Node3D" parent="."]
 script = ExtResource("2_rsarx")
 
 [node name="Player" parent="." instance=ExtResource("2_nnb1h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53553, 4.7683716e-07, 0.9444761)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 3)
+collision_layer = 3
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3

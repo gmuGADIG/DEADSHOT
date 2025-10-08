@@ -14,7 +14,8 @@ func _process(delta: float) -> void:
 
 # if hits player or terrain, despawn
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	pass
+	# Deal damage to player
+	queue_free()
 
 func _on_timer_timeout() -> void:
 	queue_free()

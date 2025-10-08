@@ -15,6 +15,7 @@ despawn_after_seconds = 10.0
 texture = ExtResource("1_ydd17")
 
 [node name="Area3D" type="Area3D" parent="."]
+collision_mask = 6
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(-4.371139e-08, -1, 0, -4.371139e-08, 1.9106855e-15, -1, 1, -4.371139e-08, -4.371139e-08, 0, 0, 0)
