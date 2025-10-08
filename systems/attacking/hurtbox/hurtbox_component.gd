@@ -7,5 +7,10 @@ func _ready() -> void:
 	assert(health_component != null, "No health component added")
 
 func hit(damage: DamageInfo) -> void:
-	if damage.source != DamageInfo.Source.PLAYER or is_player:
-		health_component.hurt(damage.damage)
+	# check if sources allows damage
+	if is_player:
+		if damage.source == DamageInfo.Source.PLAYER: return
+	else:
+		if damage.source == DamageInfo.Source.ENEMY: return
+	
+	health_component.hurt(damage.damage)
