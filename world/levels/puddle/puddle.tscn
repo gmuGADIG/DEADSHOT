@@ -6,24 +6,22 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_cismt"]
 size = Vector3(1.5878906, 0.15454102, 1)
 
-[node name="Puddle" type="Node3D"]
-
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Puddle" type="Area3D"]
 script = ExtResource("1_2gbto")
+atk_damage = 1
 
-[node name="Sprite3D" type="Sprite3D" parent="Area3D"]
+[node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, -0.5, 0, 0.5, -2.1855694e-08, 0, 0, 0)
 texture = ExtResource("2_ijjwc")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.025390625, 0.010375977, 0)
 shape = SubResource("BoxShape3D_cismt")
 
-[node name="DamageTimer" type="Timer" parent="Area3D"]
+[node name="DamageTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 one_shot = true
 
-[connection signal="area_entered" from="Area3D" to="Area3D" method="_on_area_entered"]
-[connection signal="area_exited" from="Area3D" to="Area3D" method="_on_area_exited"]
-[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
-[connection signal="body_exited" from="Area3D" to="Area3D" method="_on_body_exited"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]

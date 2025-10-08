@@ -1,28 +1,30 @@
 extends Area3D
 
-#variables
+@export var player_speed_mult: float = 0.5
+@export var atk_damage: int
+
 @onready var damage_timer: Timer = %DamageTimer
-@export var puddle_multiplier: float = 0.25
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	print(Player.instance.speed_multiplier)
-	print(damage_timer.time_left)
-
-#lower player's movement multiplier 
-#starts the damage timer
-#TODO damage the player once health is added
 func _on_body_entered(body: Node3D) -> void:
-	Player.instance.speed_multiplier = puddle_multiplier
-	damage_timer.start()
+	# lower player's movement multiplier. starts the damage timer
+	if body is Player:
+		body.speed_multiplier = player_speed_mult
+		damage_timer.start()
 
-#reset damage timer
-#return player movement multiplier back to normal (1)
 func _on_body_exited(body: Node3D) -> void:
-	Player.instance.speed_multiplier = 1.0
-	damage_timer.stop()
-	
+	# reset damage timer. return player movement multiplier back to normal (1)
+	if body is Player:
+		body.speed_multiplier = 1.0
+		damage_timer.stop()
+
+func _on_damage_timer_timeout() -> void:
+	var overlaps := get_overlapping_areas()
+	print("Puddle damaging (overlaps = %s)" % overlaps)
+	for obj in overlaps:
+		if obj is HurtboxComponent:
+			obj.hit(DamageInfo.new(
+				atk_damage,
+				DamageInfo.Source.NEUTRAL,
+				DamageInfo.KnockbackStrength.NONE,
+				Vector3.ZERO
+			))
