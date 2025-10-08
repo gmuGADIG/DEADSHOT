@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://o72hyyjcmpll"]
 
 [ext_resource type="Script" uid="uid://cb3yu5tln4q1x" path="res://cover/cover.gd" id="1_wykub"]
-[ext_resource type="Script" uid="uid://do5vs8m1law7o" path="res://systems/attacking/health/health_component.gd" id="2_wkqpv"]
-[ext_resource type="Script" uid="uid://lxg83i28nlul" path="res://systems/attacking/hurtbox/hurtbox_component.gd" id="2_wykub"]
+[ext_resource type="Script" uid="uid://do5vs8m1law7o" path="res://systems/attacking/health/health.gd" id="2_wkqpv"]
+[ext_resource type="Script" uid="uid://lxg83i28nlul" path="res://systems/attacking/hurtbox/hurtbox.gd" id="2_wykub"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wykub"]
 size = Vector3(2.2208252, 1, 1)

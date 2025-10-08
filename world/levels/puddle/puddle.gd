@@ -21,10 +21,10 @@ func _on_damage_timer_timeout() -> void:
 	var overlaps := get_overlapping_areas()
 	print("Puddle damaging (overlaps = %s)" % overlaps)
 	for obj in overlaps:
-		if obj is HurtboxComponent:
+		if obj is Hurtbox:
 			obj.hit(DamageInfo.new(
 				atk_damage,
-				DamageInfo.Source.NEUTRAL,
+				DamageInfo.Source.HAZARD,
 				DamageInfo.KnockbackStrength.NONE,
 				Vector3.ZERO
 			))

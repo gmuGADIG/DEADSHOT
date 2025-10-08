@@ -75,6 +75,7 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	starting_pos = starting_pos if not starting_pos.is_equal_approx(Vector3.ZERO) else position
 	last_known_player_position = player.global_position
+	%Health.killed.connect(queue_free)
 
 func _physics_process(_delta: float) -> void:
 	match aggro:

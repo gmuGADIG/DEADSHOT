@@ -11,13 +11,28 @@
 vertices = PackedVector3Array(17.5, 0.48999983, 1.75, 20.25, 0.48999983, 1.25, 20.25, 0.48999983, 0.75, 17.5, 0.48999983, 0.25, 17.25, 0.48999983, -3.25, -7.25, 0.48999983, -3.25, -7.25, 0.48999983, 5.25, -6.75, 0.48999983, 5.5, 16.75, 0.48999983, 5.5, 17.5, 0.48999983, 5.25)
 polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(0, 8, 4), PackedInt32Array(4, 8, 7), PackedInt32Array(4, 7, 6), PackedInt32Array(4, 6, 5), PackedInt32Array(0, 9, 8), PackedInt32Array(4, 3, 0)]
 
-[node name="LevelBase2" instance=ExtResource("1_p0tjl")]
+[node name="DemoA" instance=ExtResource("1_p0tjl")]
 
 [node name="NavigationRegion3D" parent="." index="0"]
 navigation_mesh = SubResource("NavigationMesh_yl5fl")
 
 [node name="Floor" parent="NavigationRegion3D/World" index="1"]
 curve = ExtResource("2_hxoc3")
+
+[node name="Cactus" type="Sprite3D" parent="NavigationRegion3D/World" index="2"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -6.08085, 1.35212, -2.54946)
+alpha_cut = 1
+texture = ExtResource("2_yl5fl")
+
+[node name="Cactus2" type="Sprite3D" parent="NavigationRegion3D/World" index="3"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 4.52835, 1.35212, 2.91099)
+alpha_cut = 1
+texture = ExtResource("2_yl5fl")
+
+[node name="Cactus3" type="Sprite3D" parent="NavigationRegion3D/World" index="4"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 14.5163, 1.35212, -2.19461)
+alpha_cut = 1
+texture = ExtResource("2_yl5fl")
 
 [node name="Exit" parent="." index="1" instance=ExtResource("4_yl5fl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.351158, 0, 0.9043428)
@@ -27,23 +42,8 @@ target_entry_point = "Left"
 [node name="Right" type="Marker3D" parent="EntryPoints" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.214909, 0, 0.96318436)
 
-[node name="World#Cactus" type="Sprite3D" parent="." index="3"]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -6.08085, 1.35212, -2.54946)
-alpha_cut = 1
-texture = ExtResource("2_yl5fl")
-
-[node name="World#Cactus2" type="Sprite3D" parent="." index="4"]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 4.52835, 1.35212, 2.91099)
-alpha_cut = 1
-texture = ExtResource("2_yl5fl")
-
-[node name="World#Cactus3" type="Sprite3D" parent="." index="5"]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 14.5163, 1.35212, -2.19461)
-alpha_cut = 1
-texture = ExtResource("2_yl5fl")
-
-[node name="Cover" parent="." index="8" instance=ExtResource("6_7mnxm")]
+[node name="Cover" parent="." index="5" instance=ExtResource("6_7mnxm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07013404, 0, 2.9305902)
 
-[node name="Cover2" parent="." index="9" instance=ExtResource("5_lkd7d")]
+[node name="Cover2" parent="." index="6" instance=ExtResource("5_lkd7d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.767, 0, 3.672)

@@ -16,10 +16,11 @@ func fire(gun: Node3D, direction: Vector3) -> void:
 func _process(delta: float) -> void:
 	global_position += velocity * delta
 
-func _on_body_entered(body: Node3D) -> void:
-	print("Bullet hit `%s`" % body.name)
-
 func _on_area_entered(area: Area3D) -> void:
-	if area is HurtboxComponent:
-		var hurtbox : HurtboxComponent = area
-		hurtbox.hit(DamageInfo.new(atk_damage, atk_source, atk_knockback, velocity.normalized()))
+	if area is Hurtbox:
+		var hurtbox : Hurtbox = area
+		var dmg := DamageInfo.new(atk_damage, atk_source, atk_knockback, velocity.normalized())
+		var did_damage := hurtbox.hit(dmg)
+		
+		if did_damage:
+			queue_free()
