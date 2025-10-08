@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://btuw2i28k0axl"]
+[gd_scene load_steps=7 format=3 uid="uid://btuw2i28k0axl"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_p0tjl"]
 [ext_resource type="Curve3D" uid="uid://bocr00x5o6up7" path="res://test_scenes/demo1/curve_a.tres" id="2_hxoc3"]
 [ext_resource type="Texture2D" uid="uid://cjbsq7rk6r3h4" path="res://temp_art/gartic/cactus.png" id="2_yl5fl"]
+[ext_resource type="PackedScene" uid="uid://dxdkwdigtcn43" path="res://world/enemy/test/enemy_test.tscn" id="4_hxoc3"]
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="4_yl5fl"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_yl5fl"]
@@ -30,12 +31,15 @@ transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -6.08085, 
 alpha_cut = 1
 texture = ExtResource("2_yl5fl")
 
-[node name="World#Cactus2" type="Sprite3D" parent="." index="4"]
+[node name="EnemyTest" parent="." index="4" instance=ExtResource("4_hxoc3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.065703, 0.21243535, -0.2136469)
+
+[node name="World#Cactus2" type="Sprite3D" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 4.52835, 1.35212, 2.91099)
 alpha_cut = 1
 texture = ExtResource("2_yl5fl")
 
-[node name="World#Cactus3" type="Sprite3D" parent="." index="5"]
+[node name="World#Cactus3" type="Sprite3D" parent="." index="6"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 14.5163, 1.35212, -2.19461)
 alpha_cut = 1
 texture = ExtResource("2_yl5fl")
