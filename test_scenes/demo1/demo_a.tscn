@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://btuw2i28k0axl"]
+[gd_scene load_steps=9 format=3 uid="uid://btuw2i28k0axl"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_p0tjl"]
 [ext_resource type="Curve3D" uid="uid://bocr00x5o6up7" path="res://test_scenes/demo1/curve_a.tres" id="2_hxoc3"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="4_yl5fl"]
 [ext_resource type="PackedScene" uid="uid://c2bxn6p802s68" path="res://cover/cover_2.tscn" id="5_lkd7d"]
 [ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://cover/cover_1.tscn" id="6_7mnxm"]
+[ext_resource type="PackedScene" uid="uid://dxdkwdigtcn43" path="res://world/enemy/test/enemy_test.tscn" id="7_7mnxm"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_yl5fl"]
 vertices = PackedVector3Array(17.5, 0.48999983, 1.75, 20.25, 0.48999983, 1.25, 20.25, 0.48999983, 0.75, 17.5, 0.48999983, 0.25, 17.25, 0.48999983, -3.25, -7.25, 0.48999983, -3.25, -7.25, 0.48999983, 5.25, -6.75, 0.48999983, 5.5, 16.75, 0.48999983, 5.5, 17.5, 0.48999983, 5.25)
@@ -47,3 +48,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07013404, 0, 2.9305902)
 
 [node name="Cover2" parent="." index="6" instance=ExtResource("5_lkd7d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.767, 0, 3.672)
+
+[node name="EnemyTest" parent="." index="7" instance=ExtResource("7_7mnxm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.41674, 0.21243502, 3.1678457)

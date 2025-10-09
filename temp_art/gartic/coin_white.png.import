@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btpeenutso7eb"
-path.s3tc="res://.godot/imported/garfunkle.png-a49fb1c8a701e25eb6bf38bdf4c4d684.s3tc.ctex"
+uid="uid://gds0k2gwfygi"
+path.s3tc="res://.godot/imported/coin_white.png-907999ad18ee862ff647710cf1d01d7d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://temp_art/gartic/garfunkle.png"
-dest_files=["res://.godot/imported/garfunkle.png-a49fb1c8a701e25eb6bf38bdf4c4d684.s3tc.ctex"]
+source_file="res://temp_art/gartic/coin_white.png"
+dest_files=["res://.godot/imported/coin_white.png-907999ad18ee862ff647710cf1d01d7d.s3tc.ctex"]
 
 [params]
 

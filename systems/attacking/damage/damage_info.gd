@@ -13,10 +13,10 @@ enum KnockbackStrength {
 	STRONG
 }
 
-var damage: int
-var source: Source
-var knockback: KnockbackStrength
-var direction: Vector3
+@export var damage: int
+@export var source: Source
+@export var knockback: KnockbackStrength
+@export var direction: Vector3
 
 func _init(dmg: int, src: Source, knockback_str: KnockbackStrength, dir: Vector3) -> void:
 	self.damage = dmg
