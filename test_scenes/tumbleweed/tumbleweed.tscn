@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ckbr1getgwitd"]
 
 [ext_resource type="Texture2D" uid="uid://bffhswt8p3gcs" path="res://temp_art/gartic/lorax_kirby.png" id="1_deogu"]
-[ext_resource type="Script" uid="uid://cj7ahv37axi56" path="res://test_scenes/tumbleweed/tumbleweedrotate.gd" id="2_pwh0t"]
+[ext_resource type="Script" uid="uid://cj7ahv37axi56" path="res://test_scenes/tumbleweed/tumbleweedmovement.gd" id="2_pwh0t"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pwh0t"]
 
@@ -13,8 +13,11 @@ rotation_order = 0
 texture = ExtResource("1_deogu")
 script = ExtResource("2_pwh0t")
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Area3D" type="Area3D" parent="Sprite3D"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.07, 0, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sprite3D/Area3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 shape = SubResource("BoxShape3D_pwh0t")
+debug_color = Color(0, 0.6, 0.69803923, 1)
+
+[connection signal="area_entered" from="Sprite3D/Area3D" to="Sprite3D" method="_on_area_3d_area_entered"]
