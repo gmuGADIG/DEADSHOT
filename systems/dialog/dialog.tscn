@@ -39,6 +39,7 @@ grow_vertical = 2
 
 [node name="Speaker" type="RichTextLabel" parent="Panel/VBoxContainer"]
 layout_mode = 2
+bbcode_enabled = true
 text = "Sheriff"
 fit_content = true
 
