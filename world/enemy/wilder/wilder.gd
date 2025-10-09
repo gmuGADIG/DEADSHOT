@@ -7,9 +7,14 @@ extends EnemyBase
 
 #region Variables
 
+var rng: RandomNumberGenerator = RandomNumberGenerator.new()
+
 #endregion
 
 #region Behaviour Functions
+
+func _ready() -> void:
+	pass
 
 ## FIND A NICE POSITION TO RUN TO
 func enter_hostile() -> void:
