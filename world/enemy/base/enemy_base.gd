@@ -27,7 +27,7 @@ enum AggroState {
 
 @export_group("Enemy Stats")
 ## The starting amount of health.
-@export var max_hp : float = 10
+@export var max_hp : float = 10.0
 ## The amount of damage done in an attack.
 @export var damage : float = 1
 ## Controls the speed of the enemy agent.
