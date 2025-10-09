@@ -4,59 +4,63 @@
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_winya")
 
 [node name="Background" type="ColorRect" parent="."]
-layout_mode = 0
-offset_right = 1166.0
-offset_bottom = 660.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0, 0.2365942, 0.6779701, 1)
 
-[node name="NewSaveButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 100.0
-offset_top = 200.0
-offset_right = 459.0
-offset_bottom = 261.0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 385.0
+grow_vertical = 2
+
+[node name="NewSaveButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
 text = "NEW SAVE
 "
 
-[node name="LoadSaveButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 650.0
-offset_top = 200.0
-offset_right = 1009.0
-offset_bottom = 261.0
+[node name="LoadSaveButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
 text = "LOAD SAVE
 "
 
-[node name="OptionsButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 100.0
-offset_top = 400.0
-offset_right = 459.0
-offset_bottom = 461.0
+[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
 text = "OPTIONS"
 
-[node name="QuitButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 650.0
-offset_top = 400.0
-offset_right = 1009.0
-offset_bottom = 461.0
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
 text = "QUIT"
 
 [node name="Title" type="Label" parent="."]
-layout_mode = 0
-offset_left = 470.0
-offset_top = 50.0
-offset_right = 566.00006
-offset_bottom = 73.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -93.0
+offset_top = 3.0
+offset_right = 3.0
+offset_bottom = 26.0
+grow_horizontal = 2
 scale = Vector2(2, 2)
 text = "MAIN MENU"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[connection signal="pressed" from="NewSaveButton" to="." method="_on_new_save_button_pressed"]
-[connection signal="pressed" from="LoadSaveButton" to="." method="_on_load_save_button_pressed"]
-[connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/NewSaveButton" to="." method="_on_new_save_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/LoadSaveButton" to="." method="_on_load_save_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
