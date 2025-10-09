@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://daotk4j4cvrw"]
+
+[node name="in_game_ui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Health Bar" type="BoxContainer" parent="."]
+modulate = Color(0.9529412, 0, 0.3254902, 1)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -70.0
+offset_right = 531.0
+grow_vertical = 0
+
+[node name="Ammo count" type="VBoxContainer" parent="."]
+modulate = Color(1, 1, 0.53333336, 1)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -182.0
+offset_top = -88.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Gun graphic" type="BoxContainer" parent="."]
+layout_mode = 0
+offset_left = 973.0
+offset_top = 446.0
+offset_right = 1091.0
+offset_bottom = 526.0
+
+[node name="Meat" type="BoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -178.0
+offset_bottom = 147.0
+grow_horizontal = 0
+
+[node name="Boss Health bar" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -312.0
+offset_top = 20.0
+offset_right = 328.0
+offset_bottom = 50.0
+grow_horizontal = 2
+
+[node name="Stamina" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -135.0
+offset_top = 26.0
+offset_right = 145.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Reload" type="BoxContainer" parent="."]
+layout_mode = 0
+offset_left = 614.0
+offset_top = 283.0
+offset_right = 654.0
+offset_bottom = 323.0
