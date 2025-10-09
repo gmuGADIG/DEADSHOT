@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://nuqmhgq1e2lu"]
+[gd_scene load_steps=6 format=3 uid="uid://nuqmhgq1e2lu"]
 
 [ext_resource type="Script" uid="uid://llqh4g6obmup" path="res://world/player/player.gd" id="1_bvkkv"]
 [ext_resource type="Texture2D" uid="uid://ckv48omi8han7" path="res://temp_art/gartic/harry_potter_with_gun.png" id="1_yynsy"]
+[ext_resource type="Script" uid="uid://cwjxwkxciij4o" path="res://systems/interaction/interactor.gd" id="3_cvtd2"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_plfsl"]
 height = 1.85699
@@ -33,6 +34,8 @@ one_shot = true
 
 [node name="InteractionArea" type="Area3D" parent="."]
 unique_name_in_owner = true
+script = ExtResource("3_cvtd2")
+metadata/_custom_type_script = "uid://cwjxwkxciij4o"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8601074, 0)

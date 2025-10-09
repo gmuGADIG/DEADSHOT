@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3o7riajla512"]
+[gd_scene load_steps=9 format=3 uid="uid://d3o7riajla512"]
 
 [ext_resource type="PackedScene" uid="uid://cr05xakri7lnw" path="res://world/floor/floor_gen.tscn" id="1_plfsl"]
 [ext_resource type="Texture2D" uid="uid://cjbsq7rk6r3h4" path="res://temp_art/gartic/cactus.png" id="2_p5u37"]
+[ext_resource type="Script" uid="uid://duvasrdv76uic" path="res://test_scenes/test_coin.gd" id="3_0u0ns"]
 [ext_resource type="Texture2D" uid="uid://sxaysn4gqoxo" path="res://temp_art/gartic/coin.png" id="3_p5u37"]
 [ext_resource type="PackedScene" uid="uid://dxdkwdigtcn43" path="res://world/enemy/test/enemy_test.tscn" id="4_wceyb"]
 [ext_resource type="PackedScene" uid="uid://nuqmhgq1e2lu" path="res://world/player/player.tscn" id="5_plfsl"]
@@ -35,8 +36,9 @@ texture = ExtResource("2_p5u37")
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 14.5163, 1.35212, -2.19461)
 texture = ExtResource("2_p5u37")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="World"]
+[node name="StaticBody3D" type="Area3D" parent="World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38925886, 0.84841657, 0)
+script = ExtResource("3_0u0ns")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/StaticBody3D"]
 shape = SubResource("CapsuleShape3D_plfsl")
@@ -51,10 +53,8 @@ script = null
 
 [node name="Player" parent="." instance=ExtResource("5_plfsl")]
 transform = Transform3D(1, 0, 0, 0, 0.99979687, -0.020157188, 0, 0.020157188, 0.99979687, -2.5263681, -0.040326357, 0.95816326)
-walk_speed = null
-roll_speed = null
-roll_duration = null
-roll_influence = null
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.92473876, -0.25272667, 0.28458285, 0, 0.74771696, 0.66401756, -0.3806024, -0.61404276, 0.69144285, 0, 0, 0)
+
+[connection signal="interacted" from="World/StaticBody3D" to="World/StaticBody3D" method="_on_interacted"]

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cwjxwkxciij4o" path="res://systems/interaction/interactor.gd" id="1_3wvjw"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_smnib"]
+radius = 1.0
 
 [node name="Interactor" type="Area3D"]
 collision_layer = 0

@@ -42,11 +42,14 @@ func _physics_process(_delta: float) -> void:
 
 func check_interactions() -> void:
 	var area: Area3D = %InteractionArea
-	var overlaps := area.get_overlapping_bodies()
 	#print(overlaps.size())
-		
+	var closest : Interactable
 	if Input.is_action_just_pressed("interact"):
-		print('Interacted')
+		closest = %InteractionArea.get_closest_interactable()
+		if closest != null:
+			%InteractionArea.interact(closest);
+		
+		
 
 func begin_roll() -> void:
 	#TODO: Play animation, do iframes.
