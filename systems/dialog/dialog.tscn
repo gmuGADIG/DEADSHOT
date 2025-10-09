@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c1dar8odnyq6n"]
+[gd_scene load_steps=3 format=3 uid="uid://c1dar8odnyq6n"]
 
 [ext_resource type="Script" uid="uid://0ti8jktscn8w" path="res://systems/dialog/dialog.gd" id="1_luyus"]
+[ext_resource type="AudioStream" uid="uid://dc6lbunkflvv4" path="res://audio/placeholders/funny_bone_man.wav" id="2_qqm2g"]
 
 [node name="Dialog" type="Control"]
 layout_mode = 3
@@ -48,5 +49,9 @@ text = "Dialog"
 fit_content = true
 scroll_active = false
 metadata/_edit_lock_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_qqm2g")
+volume_db = -10.0
 
 [connection signal="timeout" from="LineTimer" to="." method="show_character"]

@@ -5,6 +5,7 @@ extends Node
 var dialog_lines: Array[String]=[]
 @onready var timer:=$LineTimer
 @onready var speaker_box:=$Panel/VBoxContainer/Speaker
+@onready var sound_effect:=$AudioStreamPlayer 
 
 func _input(event: InputEvent) -> void:
 	if (event.is_action_pressed("interact") or event.is_action_pressed("fire")) and text_box.visible: 
@@ -33,6 +34,7 @@ func show_character() -> void:
 		timer.stop()
 		return
 	text_box.visible_characters += 1
+	sound_effect.play()
 
 func show_line() -> void:
 	timer.start()
