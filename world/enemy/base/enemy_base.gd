@@ -77,6 +77,19 @@ func _ready() -> void:
 	last_known_player_position = player.global_position
 	%Health.killed.connect(queue_free)
 
+## Call when you want to switch a state. Handles what to do once when entering each state.
+func switch_state(target_state: AggroState) -> void:
+	aggro = target_state
+	match target_state:
+		AggroState.BENIGN when type == EnemyType.IDLE:
+			enter_idle()
+		AggroState.BENIGN when type == EnemyType.PATROLLING:
+			enter_patrol()
+		AggroState.HOSTILE:
+			enter_hostile()
+		AggroState.ATTACKING:
+			enter_attack()
+
 func _physics_process(_delta: float) -> void:
 	match aggro:
 		AggroState.BENIGN when type == EnemyType.IDLE:
@@ -107,6 +120,10 @@ func _on_visible_on_screen_notifier_3d_screen_entered() -> void:
 func set_movement_target(movement_target: Vector3) -> void:
 	navigation_agent.target_position = movement_target
 
+## Do once when entering idle
+func enter_idle() -> void:
+	pass
+
 ## Specifies behaviour during idling phase, when applicable
 func idle() -> void:
 	was_tracking = false
@@ -126,6 +143,9 @@ func idle() -> void:
 		# the enemy should not move.
 		should_move = false
 
+## Do once when entering patrol
+func enter_patrol() -> void:
+	pass
 ## Specifies patrolling behaviour
 func patrol() -> void:
 	was_tracking = false
@@ -135,8 +155,16 @@ func patrol() -> void:
 		patrol_index += 1
 		patrol_index %= patrol_path.size()
 
-## Finds the player.
+## Do once when entering hostile
+func enter_hostile() -> void:
+	pass
+
+## Handles movement when aggravated.
 @abstract func hostile() -> void
+
+## Do once when entering attack
+func enter_attack() -> void:
+	pass
 
 ## Attacks the player.
 @abstract func attack() -> void

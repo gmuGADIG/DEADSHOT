@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwdhuncnyfmcw"]
+
+[ext_resource type="Texture2D" uid="uid://dsyqcqueqayou" path="res://temp_art/gartic/the_gartic_phone.png" id="1_0ccam"]
+[ext_resource type="PackedScene" uid="uid://dx3l0wduat3tp" path="res://world/enemy/base/enemy_base.tscn" id="1_pw5bb"]
+[ext_resource type="Script" uid="uid://pewr3uke4fqt" path="res://world/enemy/wilder/wilder.gd" id="1_skiir"]
+
+[node name="Wilder" instance=ExtResource("1_pw5bb")]
+script = ExtResource("1_skiir")
+max_hp = 15.0
+
+[node name="Sprite3D" parent="." index="1"]
+texture = ExtResource("1_0ccam")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." index="3"]
+aabb = AABB(-0.5, 0, -0.5, 1, 1, 1)
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
