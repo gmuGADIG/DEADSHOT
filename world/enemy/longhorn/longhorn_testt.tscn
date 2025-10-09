@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bddo0jdnjocsn"]
+
+[ext_resource type="PackedScene" uid="uid://dx3l0wduat3tp" path="res://world/enemy/base/enemy_base.tscn" id="1_vtbis"]
+[ext_resource type="Script" uid="uid://b7so81jt06uiu" path="res://world/enemy/longhorn/longhorn.gd" id="2_8y75u"]
+[ext_resource type="Texture2D" uid="uid://chnnd6opa6df5" path="res://temp_art/gartic/fish_man.png" id="3_8y75u"]
+
+[node name="EnemyTest" instance=ExtResource("1_vtbis")]
+script = ExtResource("2_8y75u")
+
+[node name="Sprite3D" parent="." index="1"]
+texture = ExtResource("3_8y75u")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." index="3"]
+aabb = AABB(-0.5, 0, -0.5, 1, 1, 1)
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
