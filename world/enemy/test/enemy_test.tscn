@@ -8,6 +8,7 @@
 script = ExtResource("2_xuwp2")
 
 [node name="Sprite3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.99794334, 0.06409709, 0, -0.06409709, 0.99794334, 0, 1.6290603, 0.18859816)
 texture = ExtResource("2_yh6x6")
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." index="3"]
