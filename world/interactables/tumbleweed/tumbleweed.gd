@@ -1,7 +1,7 @@
-extends Sprite3D
+extends Node3D
 
 @export var max_vel_change := 0.025 # max vel change that can occur through randomization
-@export var knockback_resistance := 200 # how resistant tumbleweed is to getting shot (higher number = less movement)
+@export var knockback_multiplier := 2.0
 @export var rotate_speed := 3 # rotation speed in degrees per physics frame
 @export var max_velocity := 0.05 # max velocity for x and z directions
 
@@ -13,8 +13,8 @@ var hit := false # if tumbleweed was hit by bullet
 
 func _physics_process(delta: float) -> void:
 	#rotate on y-plane
-	rotate_z(deg_to_rad(rotate_speed))
-	rotate_y(deg_to_rad(rotate_speed))
+	%Sprite.rotate_z(deg_to_rad(rotate_speed))
+	%Sprite.rotate_y(deg_to_rad(rotate_speed))
 	
 	#bounce updates, then calcuate position y using some trig
 	bounce += delta * frequency
@@ -24,7 +24,7 @@ func _physics_process(delta: float) -> void:
 	if(position.y < -0.499):
 		#if it has been hit, restore velocity and reset hit
 		if(hit):
-			velocity /= (knockback_resistance * 2)
+			velocity /= 400.0
 			hit = false
 		
 		#add new force to velocity, clamp it to max velocity
@@ -33,10 +33,8 @@ func _physics_process(delta: float) -> void:
 		clampf(velocity.z, -max_velocity, max_velocity)
 
 	#move the tumbleweed using velocity
-	position += velocity
+	position += velocity * delta
 
-func _on_area_3d_area_entered(area: Area3D) -> void:
-	#when hit, print message, add bullet vel / knockback resistance to vel, and set hit to true
-	print("Tumbleweed has been shot...")
-	velocity += area.velocity / knockback_resistance
+func _on_hurtbox_was_hit(dmg: DamageInfo) -> void:
+	velocity += dmg.get_knockback() * knockback_multiplier
 	hit = true

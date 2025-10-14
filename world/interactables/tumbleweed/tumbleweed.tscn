@@ -1,23 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://ckbr1getgwitd"]
+[gd_scene load_steps=5 format=3 uid="uid://ckbr1getgwitd"]
 
 [ext_resource type="Texture2D" uid="uid://bffhswt8p3gcs" path="res://temp_art/gartic/lorax_kirby.png" id="1_deogu"]
-[ext_resource type="Script" uid="uid://cj7ahv37axi56" path="res://world/interactables/tumbleweed/tumbleweedmovement.gd" id="2_pwh0t"]
+[ext_resource type="Script" uid="uid://cj7ahv37axi56" path="res://world/interactables/tumbleweed/tumbleweed.gd" id="2_pwh0t"]
+[ext_resource type="PackedScene" uid="uid://b7d3oiw27awag" path="res://systems/attacking/hurtbox/hurtbox.tscn" id="3_sqqca"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_pwh0t"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_sqqca"]
+size = Vector3(2.0700684, 1.6738281, 1.6230469)
 
 [node name="Tumbleweed" type="Node3D"]
-
-[node name="Sprite3D" type="Sprite3D" parent="." groups=["tumbleweed"]]
-transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0, 0)
-rotation_order = 0
-texture = ExtResource("1_deogu")
 script = ExtResource("2_pwh0t")
 
-[node name="Area3D" type="Area3D" parent="Sprite3D"]
+[node name="Sprite" type="Sprite3D" parent="." groups=["tumbleweed"]]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0.9300569, 0)
+rotation_order = 0
+texture = ExtResource("1_deogu")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Sprite3D/Area3D"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
-shape = SubResource("BoxShape3D_pwh0t")
-debug_color = Color(0, 0.6, 0.69803923, 1)
+[node name="Hurtbox" parent="." instance=ExtResource("3_sqqca")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9300569, 0)
+allowed_damage_sources = Array[int]([0, 1])
 
-[connection signal="area_entered" from="Sprite3D/Area3D" to="Sprite3D" method="_on_area_3d_area_entered"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
+shape = SubResource("BoxShape3D_sqqca")
+
+[connection signal="was_hit" from="Hurtbox" to="." method="_on_hurtbox_was_hit"]
