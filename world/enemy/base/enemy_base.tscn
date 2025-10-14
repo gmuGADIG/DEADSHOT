@@ -1,7 +1,5 @@
 [gd_scene load_steps=4 format=3 uid="uid://dx3l0wduat3tp"]
 
-[ext_resource type="Script" uid="uid://duwt050r1xw07" path="res://world/enemy/base/enemy_base.gd" id="1_1uty2"]
-[ext_resource type="Texture2D" uid="uid://ccalgafhbfwhn" path="res://temp_art/gartic/raccoon_with_gun.png" id="2_fsaya"]
 [ext_resource type="PackedScene" uid="uid://hiyp7n7uvc4m" path="res://systems/attacking/health/health.tscn" id="2_17eo5"]
 [ext_resource type="PackedScene" uid="uid://b7d3oiw27awag" path="res://systems/attacking/hurtbox/hurtbox.tscn" id="3_1tv51"]
 
@@ -10,8 +8,6 @@ height = 1.85699
 radius = 0.669922
 
 [node name="Enemy" type="CharacterBody3D"]
-script = ExtResource("1_1uty2")
-fire_rate = 1.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94693, 0)
@@ -33,3 +29,6 @@ allowed_damage_sources = Array[int]([0, 2])
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94693, 0)
 shape = SubResource("CylinderShape3D_plfsl")
+
+[node name="FiringTimer" type="Timer" parent="."]
+unique_name_in_owner = true

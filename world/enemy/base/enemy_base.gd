@@ -24,7 +24,7 @@ enum AggroState {
 #region Variables
 ## The player in the scene.
 @onready var player : Player
-@onready var timer: Timer = $Timer
+@onready var firing_timer: Timer = %FiringTimer
 
 @export_group("Enemy Stats")
 ## The starting amount of health.
@@ -85,8 +85,12 @@ func _ready() -> void:
 	last_known_player_position = player.global_position
 	%Health.killed.connect(queue_free)
 
-	timer.wait_time = fire_rate
-	shoot_bullet()
+	if fire_rate == 0:
+		firing_timer.process_mode = PROCESS_MODE_DISABLED
+	else:
+		firing_timer.wait_time = fire_rate
+		firing_timer.timeout.connect(_on_firing_timer_timeout)
+		shoot_bullet()
 
 func _physics_process(_delta: float) -> void:
 	match aggro:
@@ -161,16 +165,16 @@ func is_close_to_destination() -> bool:
 func shoot_bullet() -> void:
 	if !can_shoot:
 		return
-	timer.start()
+	firing_timer.start()
 	if (!shooting):
 		var bullet_reference: Node3D = load("res://world/enemy/Enemy Bullets/enemy_bullet.tscn").instantiate()
-		bullet_reference.set_speed(fire_rate);
+		bullet_reference.set_speed(bullet_speed);
 		bullet_reference.set_target(Vector3(-1, 0, 1))
 		add_sibling(bullet_reference)
 		bullet_reference.global_position = global_position + Vector3(0, 1, 0)
 		shooting = true
 
-func _on_timer_timeout() -> void:
+func _on_firing_timer_timeout() -> void:
 	shooting = false
 	shoot_bullet()
 
