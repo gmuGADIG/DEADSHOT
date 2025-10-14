@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://nuqmhgq1e2lu"]
+[gd_scene load_steps=10 format=3 uid="uid://nuqmhgq1e2lu"]
 
 [ext_resource type="Script" uid="uid://llqh4g6obmup" path="res://world/player/player.gd" id="1_bvkkv"]
 [ext_resource type="Texture2D" uid="uid://ckv48omi8han7" path="res://temp_art/gartic/harry_potter_with_gun.png" id="1_yynsy"]
+[ext_resource type="PackedScene" uid="uid://bas8xwk5nhlq0" path="res://world/player/HUD/hud.tscn" id="2_duds0"]
 [ext_resource type="PackedScene" uid="uid://cj5uuu7xjsprv" path="res://world/player/weapon/basic_gun/basic_gun.tscn" id="3_et4on"]
 [ext_resource type="Script" uid="uid://c4s1ohnc08ecy" path="res://world/player/reticle/reticle.gd" id="4_40qjc"]
 [ext_resource type="Texture2D" uid="uid://bwm425xkr0vcy" path="res://temp_art/icon.svg" id="4_et4on"]
+[ext_resource type="Script" uid="uid://do5vs8m1law7o" path="res://systems/attacking/health/health.gd" id="6_thypd"]
+[ext_resource type="Script" uid="uid://lxg83i28nlul" path="res://systems/attacking/hurtbox/hurtbox.gd" id="7_d3e1v"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_plfsl"]
 height = 1.85699
@@ -12,6 +15,8 @@ radius = 0.669922
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_bvkkv")
+
+[node name="Hud" parent="." instance=ExtResource("2_duds0")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94693, 0)
@@ -26,6 +31,7 @@ texture = ExtResource("1_yynsy")
 transform = Transform3D(1, 0, 0, 0, 0.65204537, 0.7581798, 0, -0.7581798, 0.65204537, 0, 0, 0.35582018)
 
 [node name="Camera3D" type="Camera3D" parent="CamHolder"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.4505806e-08, 9.108398)
 fov = 72.4
 
@@ -46,3 +52,17 @@ script = ExtResource("4_40qjc")
 [node name="Sprite3D" type="Sprite3D" parent="Aiming/Reticle"]
 transform = Transform3D(0.34999996, 0, 0, 0, 0, 0.34999993, 0, -0.34999993, 0, 0, 0.051027596, 0)
 texture = ExtResource("4_et4on")
+
+[node name="HurtboxComponent" type="Area3D" parent="." node_paths=PackedStringArray("health_component")]
+script = ExtResource("7_d3e1v")
+health_component = NodePath("HealthComponent")
+allowed_damage_sources = Array[int]([1, 2])
+metadata/_custom_type_script = "uid://lxg83i28nlul"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtboxComponent"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94693, 0)
+shape = SubResource("CylinderShape3D_plfsl")
+
+[node name="HealthComponent" type="Node" parent="HurtboxComponent"]
+script = ExtResource("6_thypd")
+metadata/_custom_type_script = "uid://do5vs8m1law7o"
