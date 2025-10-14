@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://duwt050r1xw07" path="res://world/enemy/base/enemy_base.gd" id="1_1uty2"]
 [ext_resource type="Texture2D" uid="uid://ccalgafhbfwhn" path="res://temp_art/gartic/raccoon_with_gun.png" id="2_fsaya"]
+[ext_resource type="PackedScene" uid="uid://hiyp7n7uvc4m" path="res://systems/attacking/health/health.tscn" id="2_17eo5"]
+[ext_resource type="PackedScene" uid="uid://b7d3oiw27awag" path="res://systems/attacking/hurtbox/hurtbox.tscn" id="3_1tv51"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_plfsl"]
 height = 1.85699
@@ -17,8 +19,17 @@ shape = SubResource("CylinderShape3D_plfsl")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 1, 0)
-texture = ExtResource("2_fsaya")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="Health" parent="." instance=ExtResource("2_17eo5")]
+unique_name_in_owner = true
+max_health = 10
+
+[node name="Hurtbox" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_1tv51")]
+health_component = NodePath("../Health")
+allowed_damage_sources = Array[int]([0, 2])
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94693, 0)
+shape = SubResource("CylinderShape3D_plfsl")

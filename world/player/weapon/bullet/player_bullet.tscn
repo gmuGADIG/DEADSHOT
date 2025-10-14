@@ -8,6 +8,8 @@ radius = 0.2795053
 
 [node name="PlayerBullet" type="Area3D"]
 script = ExtResource("1_0g3v8")
+atk_damage = 2
+atk_knockback = 1
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.41249996, 0, 0, 0, 0.2916815, 0.2916815, 0, -0.2916815, 0.2916815, 0, 0, 0)
@@ -16,4 +18,4 @@ texture = ExtResource("1_bnpoh")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_0g3v8")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

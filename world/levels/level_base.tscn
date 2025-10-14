@@ -7,15 +7,17 @@
 [ext_resource type="PackedScene" uid="uid://1s1a4b2buf1o" path="res://menu/pause_menu/pause_menu.tscn" id="3_uyrbk"]
 [ext_resource type="PackedScene" uid="uid://dx3l0wduat3tp" path="res://world/enemy/base/enemy_base.tscn" id="6_0lvvw"]
 
-[node name="LevelBase" type="Node3D"]
+[node name="LevelBase2" type="Node3D"]
 
-[node name="World" type="Node3D" parent="."]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 
-[node name="Sun" type="DirectionalLight3D" parent="World"]
+[node name="World" type="Node3D" parent="NavigationRegion3D"]
+
+[node name="Sun" type="DirectionalLight3D" parent="NavigationRegion3D/World"]
 transform = Transform3D(0.9247388, -0.25272667, 0.28458288, 0, 0.74771696, 0.6640176, -0.38060242, -0.61404276, 0.6914429, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Floor" parent="World" instance=ExtResource("1_8hxjk")]
+[node name="Floor" parent="NavigationRegion3D/World" instance=ExtResource("1_8hxjk")]
 
 [node name="temp_Floor2" parent="World" instance=ExtResource("2_xskwq")]
 collision_layer = 5
