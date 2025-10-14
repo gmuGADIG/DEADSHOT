@@ -1,18 +1,8 @@
 extends Area3D
-
 class_name Interactor
 
 var controller: Node3D
 
-func interact(interactable: Interactable) -> void:
-	interactable.interacted.emit(self)
-
-func focus(interactable: Interactable) -> void:
-	interactable.focused.emit(self)
-
-func unfocus(interactable: Interactable) -> void:
-	interactable.unfocused.emit(self)
-	
 func get_closest_interactable() -> Interactable:
 	var list: Array[Area3D] = get_overlapping_areas()
 	var distance: float
@@ -27,5 +17,10 @@ func get_closest_interactable() -> Interactable:
 			closest_distance = distance
 			
 	return closest
-			
+
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("interact"):
+		var closest := get_closest_interactable()
+		if closest != null:
+			closest.interact()
 			

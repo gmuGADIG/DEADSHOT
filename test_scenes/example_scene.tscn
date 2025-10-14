@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d3o7riajla512"]
+[gd_scene load_steps=10 format=3 uid="uid://d3o7riajla512"]
 
 [ext_resource type="PackedScene" uid="uid://cr05xakri7lnw" path="res://world/floor/floor_gen.tscn" id="1_plfsl"]
 [ext_resource type="Texture2D" uid="uid://cjbsq7rk6r3h4" path="res://temp_art/gartic/cactus.png" id="2_p5u37"]
@@ -67,6 +67,7 @@ texture = ExtResource("2_p5u37")
 
 [node name="StaticBody3D" type="Area3D" parent="World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38925886, 0.84841657, 0)
+collision_layer = 4
 script = ExtResource("3_0u0ns")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/StaticBody3D"]
@@ -75,5 +76,3 @@ shape = SubResource("CapsuleShape3D_plfsl")
 [node name="Coin" type="Sprite3D" parent="World/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0)
 texture = ExtResource("3_p5u37")
-
-[connection signal="interacted" from="World/StaticBody3D" to="World/StaticBody3D" method="_on_interacted"]

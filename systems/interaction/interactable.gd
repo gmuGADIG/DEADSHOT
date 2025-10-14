@@ -1,9 +1,10 @@
+@abstract
 extends Area3D
-
 class_name Interactable 
 
-signal focused(interactor: Interactor)
+# these aren't implemented
+#func focus() -> void
+#func unfocus() -> void
 
-signal unfocused(interactor: Interactor)
-
-signal interacted(interactor: Interactor)
+@abstract
+func interact() -> void
