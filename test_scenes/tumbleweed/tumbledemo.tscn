@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://byaykxt2bvhbf"]
 
 [ext_resource type="Script" uid="uid://ba2nm5caawopv" path="res://test_scenes/tumbleweed/tumbledemo.gd" id="1_cg13n"]
-[ext_resource type="PackedScene" uid="uid://ckbr1getgwitd" path="res://test_scenes/tumbleweed/tumbleweed.tscn" id="2_h051r"]
+[ext_resource type="PackedScene" uid="uid://ckbr1getgwitd" path="res://world/interactables/tumbleweed/tumbleweed.tscn" id="2_h051r"]
 [ext_resource type="PackedScene" uid="uid://nuqmhgq1e2lu" path="res://world/player/player.tscn" id="3_h051r"]
 
 [node name="Scene" type="Node3D"]

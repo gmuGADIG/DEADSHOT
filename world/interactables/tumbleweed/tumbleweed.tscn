@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ckbr1getgwitd"]
 
 [ext_resource type="Texture2D" uid="uid://bffhswt8p3gcs" path="res://temp_art/gartic/lorax_kirby.png" id="1_deogu"]
-[ext_resource type="Script" uid="uid://cj7ahv37axi56" path="res://test_scenes/tumbleweed/tumbleweedmovement.gd" id="2_pwh0t"]
+[ext_resource type="Script" uid="uid://cj7ahv37axi56" path="res://world/interactables/tumbleweed/tumbleweedmovement.gd" id="2_pwh0t"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pwh0t"]
 
