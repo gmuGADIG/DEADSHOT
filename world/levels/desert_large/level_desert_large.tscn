@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://crgv6bkolrlyy"]
+
+[ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_b00wy"]
+[ext_resource type="Resource" uid="uid://q24ustx30otu" path="res://world/floor/sand/sand.tres" id="2_5t0jw"]
+[ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="2_8watp"]
+
+[sub_resource type="Curve3D" id="Curve3D_5t0jw"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -8.175397, 0, -2.0046453, 0, 0, 0, 0, 0, 0, -1.8235376, 0, -3.607317, 0, 0, 0, 0, 0, 0, 17.640003, 0, -4.3420367, 0, 0, 0, 0, 0, 0, 23.598804, 0, 0.7041577, 0, 0, 0, 0, 0, 0, 26, 0, 1, 0, 0, 0, 0, 0, 0, 25.998333, 0, 3.2853825, 0, 0, 0, 0, 0, 0, 23.33039, 0, 3.1735713, 0, 0, 0, 0, 0, 0, 16.620026, 0, 8.3808155, 0, 0, 0, 0, 0, 0, -2.2226782, 0, 7.9513507, 0, 0, 0, 0, 0, 0, -8.310715, 0, 4.3552685, 0, 0, 0, 0, 0, 0, -8.378373, 0, 1.9533852, 0, 0, 0, 0, 0, 0, -10.205158, 0, 1.9533852, 0, 0, 0, 0, 0, 0, -10.374305, 0, -0.042545125, 0, 0, 0, 0, 0, 0, -8.209228, 0, -0.042545125),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 14
+
+[node name="LevelDesertLarge" instance=ExtResource("1_b00wy")]
+
+[node name="Floor" parent="World" index="0"]
+curve = SubResource("Curve3D_5t0jw")
+material = ExtResource("2_5t0jw")
+
+[node name="Left" type="Node3D" parent="EntryPoints" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.832652, 0, 1.019488)
+
+[node name="Right" type="Node3D" parent="EntryPoints" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.919891, 0, 2.091728)
+
+[node name="Left" parent="TransitionAreas" index="0" instance=ExtResource("2_8watp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.896492, 0, 0.87029505)
+target_scene = "uid://blppqsxslhh07"
+target_entry_point = "Right"
+
+[node name="Right" parent="TransitionAreas" index="1" instance=ExtResource("2_8watp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.526169, 0, 1.9138561)
+target_scene = "uid://d0lbvne2ofk7c"
+target_entry_point = "Left"

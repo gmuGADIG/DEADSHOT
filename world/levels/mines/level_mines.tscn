@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0lbvne2ofk7c"]
+
+[ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_nthvq"]
+[ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="2_ohr83"]
+[ext_resource type="Resource" uid="uid://ebi2mrpur7b6" path="res://world/floor/rock/rock.tres" id="2_tlwcp"]
+
+[sub_resource type="Curve3D" id="Curve3D_nthvq"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -6.7175913, 0, -0.12551165, 0, 0, 0, 0, 0, 0, 12.774919, 0, 0.15069783, 0, 0, 0, 0, 0, 0, 12.814378, 0, 7.687276, 0, 0, 0, 0, 0, 0, -7.30947, 0, 7.292691, 0, 0, 0, 0, 0, 0, -7.1579475, 0, 4.5826178, 0, 0, 0, 0, 0, 0, -9.724448, 0, 4.4156156, 0, 0, 0, 0, 0, 0, -9.893596, 0, 2.0137343, 0, 0, 0, 0, 0, 0, -7.0181017, 0, 2.0813932),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 8
+
+[node name="LevelMines" instance=ExtResource("1_nthvq")]
+
+[node name="Floor" parent="World" index="0"]
+curve = SubResource("Curve3D_nthvq")
+material = ExtResource("2_tlwcp")
+
+[node name="Left" type="Node3D" parent="EntryPoints" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1861486, 0, 3.257389)
+
+[node name="Left" parent="TransitionAreas" index="0" instance=ExtResource("2_ohr83")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.001334, 0, 3.182792)
+target_scene = "uid://crgv6bkolrlyy"
+target_entry_point = "Right"
