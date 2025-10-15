@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://btuw2i28k0axl"]
+[gd_scene load_steps=9 format=3 uid="uid://btuw2i28k0axl"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_p0tjl"]
 [ext_resource type="Texture2D" uid="uid://cjbsq7rk6r3h4" path="res://temp_art/gartic/cactus.png" id="2_yl5fl"]
+[ext_resource type="Resource" uid="uid://ebi2mrpur7b6" path="res://world/floor/rock/rock.tres" id="3_lkd7d"]
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="4_yl5fl"]
 [ext_resource type="PackedScene" uid="uid://c2bxn6p802s68" path="res://world/interactables/cover/cover_2.tscn" id="5_lkd7d"]
 [ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://world/interactables/cover/cover_1.tscn" id="6_7mnxm"]
@@ -30,6 +31,7 @@ navigation_mesh = SubResource("NavigationMesh_hxoc3")
 
 [node name="Floor" parent="World" index="0"]
 curve = SubResource("Curve3D_hxoc3")
+material = ExtResource("3_lkd7d")
 
 [node name="Cactus3" type="Sprite3D" parent="World" index="1"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -6.08085, 1.35212, -2.54946)
