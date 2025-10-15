@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://x0yh4numjl12"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_rd1ne"]
+
+[resource]
+script = ExtResource("1_rd1ne")
+dialog = "[Garfunkle] hey it's me garfunkle
+[Garfunkle] welcome to the desert
+you ponder the funkle...
+{speed=.1}..."
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"
