@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://blppqsxslhh07"]
+[gd_scene load_steps=6 format=3 uid="uid://blppqsxslhh07"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_j5c1u"]
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="2_83i12"]
 [ext_resource type="Resource" uid="uid://q24ustx30otu" path="res://world/floor/sand/sand.tres" id="2_suwgb"]
+[ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="4_0hyq2"]
 
 [sub_resource type="Curve3D" id="Curve3D_j5c1u"]
 _data = {
@@ -32,3 +33,15 @@ target_entry_point = "Right"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.483023, 0, 3.247616)
 target_scene = "uid://crgv6bkolrlyy"
 target_entry_point = "Left"
+
+[node name="Notes" type="Node3D" parent="." index="5"]
+
+[node name="Comment" parent="Notes" index="0" instance=ExtResource("4_0hyq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39030218, 0, 3.104404)
+text = "this is the town.
+it should have several houses."
+
+[node name="Comment2" parent="Notes" index="1" instance=ExtResource("4_0hyq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.7641077, 0, 3.1090455)
+text = "eventually it'll be split into a few scenes:
+(1) initial, (2) peaceful, (3) corrupted, (4) sheriff."
