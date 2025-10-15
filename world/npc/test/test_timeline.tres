@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_rd1ne")
-dialog = "[Garfunkle] hey it's me garfunkle
+dialog = "[Garfunkle] hey it's me [wave]garfunkle
 [Garfunkle] welcome to the desert
-you ponder the funkle...
+[Narration] you ponder the funkle...
 {speed=.1}..."
 metadata/_custom_type_script = "uid://rvaetvwo5p3h"

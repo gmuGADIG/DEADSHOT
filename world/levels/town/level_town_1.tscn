@@ -1,9 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://blppqsxslhh07"]
+[gd_scene load_steps=10 format=3 uid="uid://blppqsxslhh07"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_j5c1u"]
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="2_83i12"]
 [ext_resource type="Resource" uid="uid://q24ustx30otu" path="res://world/floor/sand/sand.tres" id="2_suwgb"]
 [ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="4_0hyq2"]
+[ext_resource type="PackedScene" uid="uid://d3stqami0urg7" path="res://world/npc/test/npc_test.tscn" id="5_jrcoc"]
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="6_qoiyb"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_jsebj"]
+vertices = PackedVector3Array(12.672548, 0.49, 3.7185097, 12.672548, 0.49, 2.7185097, 10.922548, 0.49, 2.7185097, 10.172548, 0.49, 4.4685097, -4.5774517, 0.49, 0.71850955, -4.5774517, 0.49, 2.4685097, -4.3274517, 0.49, 6.2185097, 0.6725483, 0.49, 6.4685097, 10.422548, 0.49, 0.96850955, -6.5774517, 0.49, 2.9685097, -6.5774517, 0.49, 3.7185097, -4.5774517, 0.49, 3.9685097, 10.422548, 0.49, 6.4685097, 10.422548, 0.49, 2.2185097)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(7, 4, 3), PackedInt32Array(3, 4, 8), PackedInt32Array(10, 9, 11), PackedInt32Array(11, 9, 5), PackedInt32Array(3, 12, 7), PackedInt32Array(3, 13, 2), PackedInt32Array(8, 13, 3), PackedInt32Array(6, 11, 5)]
 
 [sub_resource type="Curve3D" id="Curve3D_j5c1u"]
 _data = {
@@ -12,7 +18,15 @@ _data = {
 }
 point_count = 12
 
+[sub_resource type="Resource" id="Resource_1ab8i"]
+script = ExtResource("6_qoiyb")
+dialog = "[Garfunkle] where is my house :("
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"
+
 [node name="LevelTown1" instance=ExtResource("1_j5c1u")]
+
+[node name="World" parent="." index="1"]
+navigation_mesh = SubResource("NavigationMesh_jsebj")
 
 [node name="Floor" parent="World" index="0"]
 curve = SubResource("Curve3D_j5c1u")
@@ -45,3 +59,9 @@ it should have several houses."
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.7641077, 0, 3.1090455)
 text = "eventually it'll be split into a few scenes:
 (1) initial, (2) peaceful, (3) corrupted, (4) sheriff."
+
+[node name="NPCs" type="Node3D" parent="." index="6"]
+
+[node name="NPCTest" parent="NPCs" index="0" instance=ExtResource("5_jrcoc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.444736, 0, 1.1609888)
+timelime = SubResource("Resource_1ab8i")

@@ -11,7 +11,7 @@ script = ExtResource("1_2gbto")
 atk_damage = 1
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, -0.5, 0, 0.5, -2.1855694e-08, 0, 0, 0)
+transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, -0.5, 0, 0.5, -2.1855694e-08, 0, 0.032779217, 0)
 texture = ExtResource("2_ijjwc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

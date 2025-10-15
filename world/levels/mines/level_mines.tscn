@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0lbvne2ofk7c"]
+[gd_scene load_steps=6 format=3 uid="uid://d0lbvne2ofk7c"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_nthvq"]
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="2_ohr83"]
 [ext_resource type="Resource" uid="uid://ebi2mrpur7b6" path="res://world/floor/rock/rock.tres" id="2_tlwcp"]
+[ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="4_svmac"]
 
 [sub_resource type="Curve3D" id="Curve3D_nthvq"]
 _data = {
@@ -24,3 +25,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1861486, 0, 3.257389)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.001334, 0, 3.182792)
 target_scene = "uid://crgv6bkolrlyy"
 target_entry_point = "Right"
+
+[node name="Notes" type="Node3D" parent="." index="5"]
+
+[node name="Comment" parent="Notes" index="0" instance=ExtResource("4_svmac")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0744767, 4.7683716e-07, 4.3966303)
+text = "Welcome to the mines :)"
