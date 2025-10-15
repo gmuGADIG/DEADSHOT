@@ -24,4 +24,6 @@ func set_speed(speed: float) -> void:
 	bullet_speed = speed
 
 func set_target(target: Vector3) -> void:
-	direction = global_position.direction_to(target)
+	var dir := target - position
+	dir.y = 0
+	direction = dir.normalized()

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c8a3ul47e6b2y"]
 
-[ext_resource type="PackedScene" uid="uid://o72hyyjcmpll" path="res://cover/cover_base.tscn" id="1_tjdp8"]
+[ext_resource type="PackedScene" uid="uid://o72hyyjcmpll" path="res://world/interactables/cover/cover_base.tscn" id="1_tjdp8"]
 [ext_resource type="Texture2D" uid="uid://d3sodqao5sedc" path="res://temp_art/gartic/rock.png" id="2_4f4eh"]
 
 [node name="Cover" instance=ExtResource("1_tjdp8")]

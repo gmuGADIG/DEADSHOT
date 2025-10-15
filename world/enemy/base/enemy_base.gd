@@ -90,7 +90,7 @@ func _ready() -> void:
 	else:
 		firing_timer.wait_time = fire_rate
 		firing_timer.timeout.connect(_on_firing_timer_timeout)
-		shoot_bullet()
+		firing_timer.start()
 
 func _physics_process(_delta: float) -> void:
 	match aggro:
@@ -168,10 +168,10 @@ func shoot_bullet() -> void:
 	firing_timer.start()
 	if (!shooting):
 		var bullet_reference: Node3D = load("res://world/enemy/Enemy Bullets/enemy_bullet.tscn").instantiate()
-		bullet_reference.set_speed(bullet_speed);
-		bullet_reference.set_target(Vector3(-1, 0, 1))
 		add_sibling(bullet_reference)
 		bullet_reference.global_position = global_position + Vector3(0, 1, 0)
+		bullet_reference.set_speed(bullet_speed)
+		bullet_reference.set_target(get_tree().get_first_node_in_group("player").global_position)
 		shooting = true
 
 func _on_firing_timer_timeout() -> void:

@@ -6,6 +6,7 @@
 
 [node name="EnemyTest" instance=ExtResource("1_gbmv4")]
 script = ExtResource("2_xuwp2")
+movement_speed = 3.0
 fire_rate = 1.0
 bullet_speed = 20.0
 

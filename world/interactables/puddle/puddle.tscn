@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://3o8nbg2v248a"]
 
-[ext_resource type="Script" uid="uid://bpfbqraltsta0" path="res://world/levels/puddle/puddle.gd" id="1_2gbto"]
+[ext_resource type="Script" uid="uid://bpfbqraltsta0" path="res://world/interactables/puddle/puddle.gd" id="1_2gbto"]
 [ext_resource type="Texture2D" uid="uid://chnnd6opa6df5" path="res://temp_art/gartic/fish_man.png" id="2_ijjwc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cismt"]
