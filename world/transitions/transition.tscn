@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://e10p87tj3p62" path="res://world/transitions/transition.gd" id="1_2gi1b"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1yi3g"]
-size = Vector3(1.8884277, 3.5175781, 2.696289)
+size = Vector3(1.8884277, 3.5175781, 4.6188965)
 
 [node name="Transition" type="Area3D"]
 script = ExtResource("1_2gi1b")
