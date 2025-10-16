@@ -175,8 +175,6 @@ func drop_tonic() -> void:
 		dropped_tonic.position = self.position;
 		$/root.add_child(dropped_tonic);
 
-#endregion
-
 func shoot_bullet() -> void:
 	if !can_shoot:
 		return
@@ -195,3 +193,5 @@ func _on_firing_timer_timeout() -> void:
 
 func stop_shooting() -> void:
 	can_shoot = false
+
+#endregion
