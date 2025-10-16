@@ -1,7 +1,35 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1dar8odnyq6n"]
+[gd_scene load_steps=27 format=3 uid="uid://c1dar8odnyq6n"]
 
 [ext_resource type="Script" uid="uid://0ti8jktscn8w" path="res://systems/dialog/dialog.gd" id="1_luyus"]
+[ext_resource type="AudioStream" uid="uid://bdsxandq2bhjy" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkA.wav" id="2_clngm"]
 [ext_resource type="AudioStream" uid="uid://dc6lbunkflvv4" path="res://audio/placeholders/funny_bone_man.wav" id="2_qqm2g"]
+[ext_resource type="AudioStream" uid="uid://b5lhglep41wwx" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkB.wav" id="3_3edpr"]
+[ext_resource type="AudioStream" uid="uid://db7o75hm7770g" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkC.wav" id="4_d8ird"]
+[ext_resource type="AudioStream" uid="uid://ccdtwcvjao0e3" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkD.wav" id="5_b5a57"]
+[ext_resource type="AudioStream" uid="uid://c36ioygkjd8d4" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkE.wav" id="6_g3aw5"]
+[ext_resource type="AudioStream" uid="uid://ctn0h6ho7loaq" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkF.wav" id="7_c3yfu"]
+[ext_resource type="AudioStream" uid="uid://c2atlji5w1043" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkG.wav" id="8_rx78u"]
+[ext_resource type="AudioStream" uid="uid://ceadyai3wuwek" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkH.wav" id="9_8dijw"]
+[ext_resource type="AudioStream" uid="uid://e4rpw44v5pu2" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkI.wav" id="10_n0y2v"]
+[ext_resource type="AudioStream" uid="uid://4gota7gomsgo" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkJ.wav" id="11_xh5wg"]
+[ext_resource type="AudioStream" uid="uid://bm8yxchl11gif" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkK.wav" id="12_3vydk"]
+[ext_resource type="AudioStream" uid="uid://33l2kmcwu7pt" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkL.wav" id="13_u5vpv"]
+[ext_resource type="AudioStream" uid="uid://jfs1a70mdybg" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkM.wav" id="14_n7pwu"]
+[ext_resource type="AudioStream" uid="uid://b6mf1o20f3k3k" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkN.wav" id="15_a7m4a"]
+[ext_resource type="AudioStream" uid="uid://ca60lnr856xri" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkO.wav" id="16_lt5gy"]
+[ext_resource type="AudioStream" uid="uid://dk3petmqtwhcl" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkP.wav" id="17_jriru"]
+[ext_resource type="AudioStream" uid="uid://dq1sadbsq3kco" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkQ.wav" id="19_1cmqs"]
+[ext_resource type="AudioStream" uid="uid://c1gefgndd3jk" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkR.wav" id="20_a8fr3"]
+[ext_resource type="AudioStream" uid="uid://cwttj4drnd4r8" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkT.wav" id="21_1h77j"]
+[ext_resource type="AudioStream" uid="uid://b35g8ijf21h15" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkU.wav" id="22_3qou2"]
+[ext_resource type="AudioStream" uid="uid://dxn806b3l8hmt" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkW.wav" id="23_6gu7l"]
+[ext_resource type="AudioStream" uid="uid://cs4qt0nkxm26g" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkY.wav" id="24_t5xj8"]
+[ext_resource type="Script" uid="uid://qxwm2k0huy5n" path="res://systems/dialog/voicebank.gd" id="25_ge1t5"]
+
+[sub_resource type="Resource" id="Resource_yftcr"]
+script = ExtResource("25_ge1t5")
+charToSteam = Array[AudioStream]([ExtResource("2_clngm"), ExtResource("3_3edpr"), ExtResource("4_d8ird"), ExtResource("5_b5a57"), ExtResource("6_g3aw5"), ExtResource("7_c3yfu"), ExtResource("8_rx78u"), ExtResource("9_8dijw"), ExtResource("10_n0y2v"), ExtResource("11_xh5wg"), ExtResource("12_3vydk"), ExtResource("13_u5vpv"), ExtResource("14_n7pwu"), ExtResource("15_a7m4a"), ExtResource("16_lt5gy"), ExtResource("17_jriru"), ExtResource("19_1cmqs"), ExtResource("20_a8fr3"), ExtResource("21_1h77j"), ExtResource("22_3qou2"), ExtResource("23_6gu7l"), ExtResource("24_t5xj8")])
+metadata/_custom_type_script = "uid://qxwm2k0huy5n"
 
 [node name="Dialog" type="Control"]
 layout_mode = 3
@@ -11,6 +39,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_luyus")
+sfx = SubResource("Resource_yftcr")
+skip_n_characters = 2
 
 [node name="LineTimer" type="Timer" parent="."]
 wait_time = 0.05
