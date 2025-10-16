@@ -32,6 +32,8 @@ enum AggroState {
 @export var damage : float = 1
 ## Controls the speed of the enemy agent.
 @export var movement_speed : float = 10.0
+## Rate of the tonic dropping, from 0 to 1.
+@export_range(0.0, 1.0, 0.01) var tonic_drop_rate : float = 0.5
 
 # TODO: type is a subclass?
 ## Does the enemy remain still or move about on their own?
@@ -72,10 +74,12 @@ var proximity_tolerance : float = 1
 
 #region Builtin Functions
 func _ready() -> void:
+	randomize()
 	player = get_tree().get_first_node_in_group("player")
 	starting_pos = starting_pos if not starting_pos.is_equal_approx(Vector3.ZERO) else position
 	last_known_player_position = player.global_position
 	%Health.killed.connect(queue_free)
+	#%Health.killed.connect(drop_tonic)
 
 func _physics_process(_delta: float) -> void:
 	match aggro:
@@ -145,4 +149,8 @@ func patrol() -> void:
 func is_close_to_destination() -> bool:
 	return global_position.distance_to(navigation_agent.target_position) < proximity_tolerance
 
+## Chance to drop tonic on enemy death.
+func drop_tonic() -> void:
+	pass
+	
 #endregion
