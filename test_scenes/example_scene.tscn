@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://d3o7riajla512"]
+[gd_scene load_steps=11 format=3 uid="uid://d3o7riajla512"]
 
 [ext_resource type="PackedScene" uid="uid://cr05xakri7lnw" path="res://world/floor/floor_gen.tscn" id="1_plfsl"]
+[ext_resource type="PackedScene" uid="uid://nh502xx1aqq1" path="res://world/enemy/drops/meat/meat.tscn" id="2_byltu"]
 [ext_resource type="Texture2D" uid="uid://cjbsq7rk6r3h4" path="res://temp_art/gartic/cactus.png" id="2_p5u37"]
 [ext_resource type="Script" uid="uid://duvasrdv76uic" path="res://test_scenes/test_coin.gd" id="3_0u0ns"]
 [ext_resource type="Texture2D" uid="uid://sxaysn4gqoxo" path="res://temp_art/gartic/coin.png" id="3_p5u37"]
@@ -25,6 +26,7 @@ point_count = 4
 
 [node name="EnemyTest" parent="." instance=ExtResource("4_wceyb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.249423, 4.7683716e-07, -2.0285115)
+drop_item = ExtResource("2_byltu")
 
 [node name="EnemyTest2" parent="." instance=ExtResource("4_wceyb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.517376, 4.7683716e-07, 10.03973)

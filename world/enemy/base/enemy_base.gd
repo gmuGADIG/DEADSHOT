@@ -33,7 +33,8 @@ enum AggroState {
 @export var damage : float = 1
 ## Controls the speed of the enemy agent.
 @export var movement_speed : float = 10.0
-
+## Dictates the enemy drops.
+@export var drop_item : PackedScene 
 # TODO: type is a subclass?
 ## Does the enemy remain still or move about on their own?
 @export var type : EnemyType = EnemyType.IDLE
@@ -180,3 +181,8 @@ func _on_firing_timer_timeout() -> void:
 
 func stop_shooting() -> void:
 	can_shoot = false
+
+func spawn_item() -> void: # bare bones of the drop system for right now
+	var item_reference : Node3D = drop_item.instantiate()
+	item_reference.global_postion = global_position
+	add_sibling(item_reference)
