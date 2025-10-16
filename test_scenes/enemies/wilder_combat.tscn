@@ -57,5 +57,4 @@ texture = ExtResource("5_r5g3j")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.249423, 4.7683716e-07, -2.0285115)
 
 [node name="Wilder" parent="." instance=ExtResource("5_0k626")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.573513, -4.3039012e-07, 6.2579813)
-max_hp = 10.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.058258, 0.008919061, 8.141982)
