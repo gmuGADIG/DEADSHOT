@@ -24,6 +24,7 @@ enum AggroState {
 #region Variables
 ## The player in the scene.
 @onready var player : Player
+@onready var tonic : Tonic
 
 @export_group("Enemy Stats")
 ## The starting amount of health.
@@ -79,7 +80,7 @@ func _ready() -> void:
 	starting_pos = starting_pos if not starting_pos.is_equal_approx(Vector3.ZERO) else position
 	last_known_player_position = player.global_position
 	%Health.killed.connect(queue_free)
-	#%Health.killed.connect(drop_tonic)
+	%Health.killed.connect(drop_tonic)
 
 func _physics_process(_delta: float) -> void:
 	match aggro:
@@ -151,6 +152,7 @@ func is_close_to_destination() -> bool:
 
 ## Chance to drop tonic on enemy death.
 func drop_tonic() -> void:
-	pass
+	if (tonic_drop_rate >= randf_range(0.0, 1.0)):
+		print("woke")
 	
 #endregion
