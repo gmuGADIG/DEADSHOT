@@ -9,6 +9,7 @@ var is_paused: bool = false
 @export var quit_button: TextureButton
 
 
+
 ## Has the player hit the quit button once since they last paused? Used to safeguard against accidental closing.
 var already_tried_to_quit: bool = false
 ## See above, but for the close button.
@@ -38,6 +39,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	#Makes ESC key toggle pause menu visibility
 	if(Input.is_action_just_pressed("ui_cancel")):
+		print("PAUSED")
 		match is_paused:
 			true:
 				_on_resume_pressed()
@@ -56,7 +58,10 @@ func _on_resume_pressed() -> void:
 
 func _on_locker_pressed() -> void:
 		reset_quit_safety()
-		print("Enter Skill Tree Menu")
+		#Load Meat Locker
+		var meat_locker_scene := load("res://test_scenes/example_scene.tscn")
+		add_child(meat_locker_scene.instantiate())
+
 
 func _on_options_pressed() -> void:
 		reset_quit_safety()
@@ -69,7 +74,7 @@ func _on_restart_pressed() -> void:
 
 func _on_menu_pressed() -> void:
 		reset_quit_safety()
-		print("Return to Main Menu")
+		get_tree().change_scene_to_file("res://menu/main_menu/main_menu.tscn")
 	
 func _on_quit_pressed() -> void:
 		# Reset the opposite button's safety, for aesthetics and safety.
@@ -79,7 +84,7 @@ func _on_quit_pressed() -> void:
 			print("Returning to Main Menu...")
 			get_tree().quit()
 		else: 
-			quit_button.get_child(0).text = "Are you sure? Game will not save."
+			quit_button.get_child(0).text = "Are you sure?\nGame will not save."
 			already_tried_to_quit=true
 
 	
