@@ -28,6 +28,10 @@ gdscript/warnings/untyped_declaration=2
 
 window/stretch/mode="canvas_items"
 
+[dotnet]
+
+project/assembly_name="DEADSHOT"
+
 [file_customization]
 
 folder_colors={
