@@ -11,6 +11,7 @@ offset_bottom = 129.0
 texture_normal = ExtResource("1_tltrc")
 texture_disabled = ExtResource("1_tltrc")
 script = ExtResource("2_k43o4")
+skillName = "Gun Big"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -19,3 +20,9 @@ offset_top = 102.0
 offset_right = 107.0
 offset_bottom = 125.0
 text = "Skill Name"
+
+[node name="Skill_Branch" type="Line2D" parent="."]
+position = Vector2(130, 72)
+points = PackedVector2Array(0, 0)
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
