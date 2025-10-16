@@ -23,17 +23,17 @@ point_count = 4
 
 [node name="EnemyTest" parent="." instance=ExtResource("1_1iwc8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.249423, 4.7683716e-07, -2.0285115)
-visible = false
+tonic_drop_rate = 0.25
 
 [node name="EnemyTest2" parent="." instance=ExtResource("1_1iwc8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.517376, 4.7683716e-07, 10.03973)
-visible = false
+tonic_drop_rate = 0.25
 starting_pos = Vector3(34, 0, 10)
 patrol_path = Array[Vector3]([Vector3(10, 1, 10), Vector3(-10, 1, 0), Vector3(-10, 1, -10), Vector3(10, 1, -10)])
 
 [node name="EnemyTest3" parent="." instance=ExtResource("1_1iwc8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.313042, 4.7683716e-07, 31.40265)
-visible = false
+tonic_drop_rate = 0.25
 type = 1
 starting_pos = Vector3(34, 0, 10)
 patrol_path = Array[Vector3]([Vector3(10, 1, 10), Vector3(-10, 1, 0), Vector3(-10, 1, -10), Vector3(10, 1, -10)])
@@ -72,3 +72,4 @@ texture = ExtResource("5_0jvbu")
 
 [node name="TonicTest" parent="." instance=ExtResource("6_27c8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.311534, 0, -7.866324)
+visible = false
