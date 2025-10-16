@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://0ndhmibsve8k"]
+
+[ext_resource type="Script" uid="uid://cruanncjgke0" path="res://world/comment/comment.gd" id="1_mkrbc"]
+
+[node name="Comment" type="Node3D"]
+script = ExtResource("1_mkrbc")
+size = 1.0
+
+[node name="Label" type="Label3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.71914846, 0)
+billboard = 1
+text = "Hello!"

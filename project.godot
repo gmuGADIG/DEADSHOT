@@ -98,6 +98,7 @@ pointing/emulate_touch_from_mouse=true
 
 3d_physics/layer_1="World"
 3d_physics/layer_2="Player"
+3d_physics/layer_3="Interactable"
 
 [rendering]
 

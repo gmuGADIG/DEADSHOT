@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="FloorMaterial" load_steps=4 format=3 uid="uid://ebi2mrpur7b6"]
+
+[ext_resource type="Texture2D" uid="uid://dre3fuqp6wu6g" path="res://world/floor/rock/rock_edge.png" id="1_ti2x0"]
+[ext_resource type="Script" uid="uid://cxrc4v6ga561p" path="res://world/floor/floor_material.gd" id="1_uuhka"]
+[ext_resource type="Texture2D" uid="uid://dehkbo3ehmx5u" path="res://world/floor/rock/rock_fill.png" id="2_obr2w"]
+
+[resource]
+script = ExtResource("1_uuhka")
+fill = ExtResource("2_obr2w")
+edge = ExtResource("1_ti2x0")
+metadata/_custom_type_script = "uid://cxrc4v6ga561p"

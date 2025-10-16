@@ -1,6 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://cr05xakri7lnw"]
+[gd_scene load_steps=4 format=3 uid="uid://cr05xakri7lnw"]
 
 [ext_resource type="Script" uid="uid://gphyiqgcgld" path="res://world/floor/floor_gen.gd" id="1_ub512"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lma22"]
+resource_local_to_scene = true
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lofne"]
+resource_local_to_scene = true
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+uv1_scale = Vector3(1, 2, 1)
+uv1_offset = Vector3(0, 1.705, 0)
 
 [node name="Floor" type="Path3D"]
 script = ExtResource("1_ub512")
@@ -28,9 +41,10 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 
 use_collision = true
 polygon = PackedVector2Array()
 depth = 0.01
+material = SubResource("StandardMaterial3D_lma22")
 
 [node name="Trim" type="CSGPolygon3D" parent="."]
-visible = false
+unique_name_in_owner = true
 polygon = PackedVector2Array(0, 0, 0.1, 0.01, -0.5, 0)
 mode = 2
 path_node = NodePath("..")
@@ -43,5 +57,6 @@ path_local = true
 path_continuous_u = true
 path_u_distance = 1.9
 path_joined = true
+material = SubResource("StandardMaterial3D_lofne")
 
 [connection signal="curve_changed" from="." to="." method="_on_curve_changed"]
