@@ -1,14 +1,20 @@
-[gd_scene load_steps=9 format=3 uid="uid://duf7ry1s34j7o"]
+[gd_scene load_steps=14 format=3 uid="uid://duf7ry1s34j7o"]
 
 [ext_resource type="Script" uid="uid://xcp2500ab7cg" path="res://world/player/weapon/whip/whip.gd" id="1_ox2ft"]
-[ext_resource type="Script" uid="uid://dprtuautgwqbv" path="res://world/player/weapon/whip/whip_attack.gd" id="2_kmd03"]
+[ext_resource type="Script" uid="uid://dprtuautgwqbv" path="res://world/player/weapon/whip/whip_attack_data.gd" id="2_kmd03"]
 [ext_resource type="Texture2D" uid="uid://sxaysn4gqoxo" path="res://temp_art/gartic/coin.png" id="2_u54gi"]
+[ext_resource type="AudioStream" uid="uid://bcq5fl3n4wrqd" path="res://audio/placeholders/whip_placeholders/whip_charge_1.wav" id="3_60w6d"]
+[ext_resource type="AudioStream" uid="uid://cde0auk30of0r" path="res://audio/placeholders/whip_placeholders/whip_charge_2.wav" id="4_kksg7"]
 [ext_resource type="Texture2D" uid="uid://gds0k2gwfygi" path="res://temp_art/gartic/coin_white.png" id="4_lyq0n"]
+[ext_resource type="AudioStream" uid="uid://cydwp5pqthorp" path="res://audio/placeholders/whip_placeholders/whip_charge_3.wav" id="5_nn6fm"]
+[ext_resource type="AudioStream" uid="uid://bsxp7603mjq0x" path="res://audio/placeholders/test_unlock.wav" id="5_w5dsa"]
+[ext_resource type="AudioStream" uid="uid://ducaacaocxjru" path="res://audio/placeholders/whip_placeholders/whip_swing.wav" id="9_kksg7"]
 
 [sub_resource type="Resource" id="Resource_kmd03"]
 script = ExtResource("2_kmd03")
 damage = 1
 knockback = 1
+sound = ExtResource("3_60w6d")
 metadata/_custom_type_script = "uid://dprtuautgwqbv"
 
 [sub_resource type="Resource" id="Resource_lyq0n"]
@@ -16,6 +22,7 @@ script = ExtResource("2_kmd03")
 damage = 2
 knockback = 1
 sprite_glow_brightness = 0.5
+sound = ExtResource("4_kksg7")
 metadata/_custom_type_script = "uid://dprtuautgwqbv"
 
 [sub_resource type="Resource" id="Resource_w5dsa"]
@@ -23,6 +30,7 @@ script = ExtResource("2_kmd03")
 damage = 3
 knockback = 2
 sprite_glow_brightness = 1.0
+sound = ExtResource("5_nn6fm")
 metadata/_custom_type_script = "uid://dprtuautgwqbv"
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ox2ft"]
@@ -63,6 +71,12 @@ one_shot = true
 
 [node name="CooldownTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="WhipChargeSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_w5dsa")
+
+[node name="WhipSwingSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("9_kksg7")
 
 [connection signal="timeout" from="WindupTimer" to="." method="swing"]
 [connection signal="timeout" from="CooldownTimer" to="." method="swing"]

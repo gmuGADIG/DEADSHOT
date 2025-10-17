@@ -11,12 +11,12 @@ class_name Whip extends Node3D
 
 @export var charge_levels : Array[WhipAttackData] ##The values of different charge levels for the whip
 
-var charge_time : float = 0:
+var charge_time : float = -1:
 	set(new_val):
 		var old_charge : int = int(charge_time/time_per_charge)
 		var new_charge : int = int(new_val/time_per_charge)
 		if old_charge != new_charge:
-			update_charge_visuals(new_charge)
+			update_charge_fx(new_charge)
 		charge_time = new_val
 
 enum WhipState { OFF, CHARGING, ATTACKING }
@@ -36,12 +36,13 @@ var whip_state : WhipState = WhipState.OFF:
 				$Attack/SwingSprite3D.show()
 		
 
-func update_charge_visuals(charge_index : float) -> void:
-	if charge_index >= charge_levels.size():
+func update_charge_fx(charge_index : float) -> void:
+	if charge_index < 0 or charge_index >= charge_levels.size():
 		return
-	print("charg")
 	var whip_charge_info : WhipAttackData = charge_levels[charge_index]
 	$Attack/ChargeUpSprite3D/ChargeUpOutline.modulate.a = whip_charge_info.sprite_glow_brightness
+	$WhipChargeSound.stream = whip_charge_info.sound
+	$WhipChargeSound.play()
 
 
 func _ready() -> void:
@@ -60,6 +61,7 @@ func _process(delta: float) -> void:
 		charge_time += delta
 		if not Input.is_action_pressed("whip"):
 			whip_state = WhipState.ATTACKING
+			$WhipSwingSound.play()
 			$WindupTimer.start(windup_time)
 
 
@@ -73,4 +75,5 @@ func attack() -> void:
 		print(area)
 		if area is Hurtbox:
 			area.hit(DamageInfo.new(damage,DamageInfo.Source.PLAYER,kb,kb_dir))
+	charge_time = -100
 	$CooldownTimer.start(cooldown_time)
