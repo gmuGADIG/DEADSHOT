@@ -2,6 +2,7 @@ class_name Whip extends Node3D
 
 @onready var player : Player = get_parent()
 
+
 @export_category("Whip Settings")
 @export var windup_time : float ##Time in seconds after the whip swing to deal damage
 @export var cooldown_time : float ##Time in seconds after dealing damage for the whip to be put away
@@ -38,6 +39,7 @@ var whip_state : WhipState = WhipState.OFF:
 func update_charge_visuals(charge_index : float) -> void:
 	if charge_index >= charge_levels.size():
 		return
+	print("charg")
 	var whip_charge_info : WhipAttackData = charge_levels[charge_index]
 	$Attack/ChargeUpSprite3D/ChargeUpOutline.modulate.a = whip_charge_info.sprite_glow_brightness
 
@@ -67,7 +69,6 @@ func attack() -> void:
 	var damage : int= whip_attack_data.damage
 	var kb := whip_attack_data.knockback
 	var kb_dir := Vector3.RIGHT.rotated(Vector3.UP,self.rotation.y)
-	print("att")
 	for area : Area3D in $Attack/Area3D.get_overlapping_areas():
 		print(area)
 		if area is Hurtbox:
