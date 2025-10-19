@@ -21,12 +21,13 @@ shader = ExtResource("1_6e8bx")
 material = SubResource("ShaderMaterial_hvqcw")
 
 [node name="FinalBurst" type="GPUParticles3D"]
-layers = 2
 emitting = false
 amount = 50
+lifetime = 3.0
 one_shot = true
 explosiveness = 1.0
 collision_base_size = 1.0
+visibility_aabb = AABB(-10, -2, -10, 20, 6, 20)
 process_material = SubResource("ParticleProcessMaterial_5roo4")
 draw_pass_1 = SubResource("QuadMesh_vve5n")
 script = ExtResource("2_g4mrv")

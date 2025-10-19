@@ -90,6 +90,6 @@ cull_mask = 4294966274
 radius = 50.0
 
 [node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="."]
-transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -0.41281465, 0.41942382, 0.036452644)
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -0.4213004, 0.76894426, 0.16874915)
 cull_mask = 4294966274
-size = Vector3(0.72959137, 3.3686328, 0.7362304)
+size = Vector3(2.0436769, 4.2347975, 2.0017486)

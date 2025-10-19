@@ -5,13 +5,14 @@
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5roo4"]
 emission_shape = 1
-emission_sphere_radius = 1.0
+emission_sphere_radius = 1.5
 direction = Vector3(0, 1, 0)
 spread = 90.0
-initial_velocity_min = 5.0
-initial_velocity_max = 10.0
+initial_velocity_min = 2.0
+initial_velocity_max = 5.0
 gravity = Vector3(0, -15, 0)
 collision_mode = 2
+collision_use_scale = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hvqcw"]
 render_priority = 0
@@ -20,13 +21,14 @@ shader = ExtResource("1_oto7a")
 [sub_resource type="QuadMesh" id="QuadMesh_vve5n"]
 material = SubResource("ShaderMaterial_hvqcw")
 
-[node name="BloodBurst" type="GPUParticles3D"]
+[node name="GPUParticles3D" type="GPUParticles3D"]
 layers = 2
 emitting = false
 amount = 200
 lifetime = 3.0
 one_shot = true
 collision_base_size = 1.0
+visibility_aabb = AABB(-10, -2, -10, 20, 6, 20)
 process_material = SubResource("ParticleProcessMaterial_5roo4")
 draw_pass_1 = SubResource("QuadMesh_vve5n")
 script = ExtResource("2_fdees")

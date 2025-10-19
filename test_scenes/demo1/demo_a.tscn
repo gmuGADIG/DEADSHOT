@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://btuw2i28k0axl"]
+[gd_scene load_steps=11 format=3 uid="uid://btuw2i28k0axl"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_p0tjl"]
 [ext_resource type="PackedScene" uid="uid://b0ttk38sufgur" path="res://world/pickups/corrupt_heart/corrupt_heart.tscn" id="2_7mnxm"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="4_yl5fl"]
 [ext_resource type="PackedScene" uid="uid://c2bxn6p802s68" path="res://world/interactables/cover/cover_2.tscn" id="5_lkd7d"]
 [ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://world/interactables/cover/cover_1.tscn" id="6_7mnxm"]
+[ext_resource type="PackedScene" uid="uid://dtqb8q8qomq31" path="res://world/pickups/corrupt_heart/blood_particles/blood_burst.tscn" id="8_v2m6r"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_hxoc3"]
 vertices = PackedVector3Array(0, 0.5, 4.5, 0, 0.5, 4, -1.75, 0.5, 3.75, -7.25, 0.5, 4.5, -1.75, 0.5, 2, 0, 0.5, 1.75, 0, 0.25, -3.25, -7.25, 0.25, -3.25, 1.75, 0.5, 3.75, 7, 0.5, 4.5, 1.75, 0.5, 2, 7, 0.5, 2.75, 8.75, 0.5, 2.5, 8.75, 0.25, -3.25, 15.75, 0.5, 1.5, 20.5, 0.5, 1.5, 20.5, 0.5, 0.75, 15.75, 0.5, 0.75, 10.5, 0.5, 2.75, 15.5, 0.25, -3.25, 15.5, 0.5, 4.5, 10.5, 0.5, 4.5)
@@ -59,3 +60,6 @@ texture = ExtResource("2_yl5fl")
 
 [node name="Right" type="Marker3D" parent="EntryPoints" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.214909, 0, 0.96318436)
+
+[node name="BloodBurst" parent="." index="8" instance=ExtResource("8_v2m6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.812037, 4.0206768e-08, 0.9198234)
