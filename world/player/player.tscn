@@ -81,3 +81,15 @@ shape = SubResource("CylinderShape3D_plfsl")
 [node name="HealthComponent" type="Node" parent="HurtboxComponent"]
 script = ExtResource("6_thypd")
 metadata/_custom_type_script = "uid://do5vs8m1law7o"
+
+[node name="GPUParticlesAttractorSphere3D" type="GPUParticlesAttractorSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.44795907, 1.4558618, 0)
+strength = 100.0
+attenuation = 0.2
+cull_mask = 4294966274
+radius = 50.0
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="."]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -0.41281465, 0.41942382, 0.036452644)
+cull_mask = 4294966274
+size = Vector3(0.72959137, 3.3686328, 0.7362304)

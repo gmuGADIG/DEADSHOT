@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://btuw2i28k0axl"]
+[gd_scene load_steps=10 format=3 uid="uid://btuw2i28k0axl"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_p0tjl"]
+[ext_resource type="PackedScene" uid="uid://b0ttk38sufgur" path="res://world/pickups/corrupt_heart/corrupt_heart.tscn" id="2_7mnxm"]
 [ext_resource type="Texture2D" uid="uid://cjbsq7rk6r3h4" path="res://temp_art/gartic/cactus.png" id="2_yl5fl"]
 [ext_resource type="Resource" uid="uid://ebi2mrpur7b6" path="res://world/floor/rock/rock.tres" id="3_lkd7d"]
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="4_yl5fl"]
@@ -21,12 +22,14 @@ point_count = 8
 
 [node name="DemoA" instance=ExtResource("1_p0tjl")]
 
-[node name="Exit" parent="." index="1" instance=ExtResource("4_yl5fl")]
+[node name="CorruptHeart" parent="." index="0" instance=ExtResource("2_7mnxm")]
+
+[node name="Exit" parent="." index="2" instance=ExtResource("4_yl5fl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.351158, 0, 0.9043428)
 target_scene = "uid://daq8dgkrqqghw"
 target_entry_point = "Left"
 
-[node name="World" parent="." index="2"]
+[node name="World" parent="." index="3"]
 navigation_mesh = SubResource("NavigationMesh_hxoc3")
 
 [node name="Floor" parent="World" index="0"]
