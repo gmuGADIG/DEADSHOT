@@ -45,5 +45,6 @@ func on_death() -> void:
 	add_sibling(final_burst)
 	final_burst.global_position = $BloodEmitCenter.global_position
 	final_burst.emitting = true
+	Player.instance.health_component.modify_max_health(1)
 	queue_free()
 	
