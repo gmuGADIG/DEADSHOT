@@ -18,8 +18,9 @@ radius = 0.669922
 height = 0.27978516
 radius = 0.8881836
 
-[node name="Player" type="CharacterBody3D" groups=["player"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("health_component") groups=["player"]]
 script = ExtResource("1_bvkkv")
+health_component = NodePath("HurtboxComponent/HealthComponent")
 
 [node name="Hud" parent="." instance=ExtResource("2_duds0")]
 
@@ -80,6 +81,7 @@ shape = SubResource("CylinderShape3D_plfsl")
 
 [node name="HealthComponent" type="Node" parent="HurtboxComponent"]
 script = ExtResource("6_thypd")
+max_health = 3
 metadata/_custom_type_script = "uid://do5vs8m1law7o"
 
 [node name="GPUParticlesAttractorSphere3D" type="GPUParticlesAttractorSphere3D" parent="."]

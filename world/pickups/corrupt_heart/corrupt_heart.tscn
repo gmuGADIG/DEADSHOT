@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b0ttk38sufgur"]
+[gd_scene load_steps=16 format=3 uid="uid://b0ttk38sufgur"]
 
 [ext_resource type="Texture2D" uid="uid://di2fa8ln64nqe" path="res://world/pickups/corrupt_heart/corrupt_heart.png" id="1_sj4sw"]
 [ext_resource type="Script" uid="uid://1vuuexllss1q" path="res://world/pickups/corrupt_heart/corrupt_heart.gd" id="1_vve5n"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://7ghh0vndiuvx" path="res://world/pickups/corrupt_heart/blood_particle_spawner.gd" id="5_e76c2"]
 [ext_resource type="Script" uid="uid://lxg83i28nlul" path="res://systems/attacking/hurtbox/hurtbox.gd" id="5_uxcdq"]
 [ext_resource type="Script" uid="uid://do5vs8m1law7o" path="res://systems/attacking/health/health.gd" id="6_5roo4"]
+[ext_resource type="AudioStream" uid="uid://de23avhh4wkr3" path="res://audio/placeholders/heart_beat1.wav" id="6_kyt37"]
+[ext_resource type="AudioStream" uid="uid://ftg5bow5xo32" path="res://audio/placeholders/heart_beat2.wav" id="7_1n52r"]
 
 [sub_resource type="Animation" id="Animation_vve5n"]
 length = 0.001
@@ -65,15 +67,56 @@ tracks/3/keys = {
 "method": &"spawn"
 }]
 }
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer3D")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_kyt37")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("7_1n52r")
+}],
+"times": PackedFloat32Array(0.125, 0.45)
+}
+tracks/4/use_blend = true
 
-[sub_resource type="Animation" id="Animation_e8xih"]
+[sub_resource type="Animation" id="Animation_xipv6"]
 resource_name = "death"
+length = 0.4
+loop_mode = 1
+step = 0.05
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_kyt37")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("7_1n52r")
+}],
+"times": PackedFloat32Array(0, 0.15)
+}
+tracks/0/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uxcdq"]
 _data = {
 &"RESET": SubResource("Animation_vve5n"),
 &"corrupt_heart": SubResource("Animation_hvqcw"),
-&"death": SubResource("Animation_e8xih")
+&"death": SubResource("Animation_xipv6")
 }
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_5roo4"]
@@ -86,7 +129,7 @@ blood_burst_packed = ExtResource("4_uxcdq")
 final_burst_packed = ExtResource("2_e8xih")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.43301263, 0.25000012, 0, -0.25000012, 0.43301263, 0, 0.82869124, 0)
+transform = Transform3D(0.5425574, 0, 0, 0, 0.46986842, 0.27127883, 0, -0.27127883, 0.46986842, 0, 0.82869124, 0)
 alpha_cut = 1
 texture = ExtResource("1_sj4sw")
 
@@ -96,6 +139,9 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8038194, 0)
+attenuation_model = 2
+volume_db = 5.0
 
 [node name="BloodValve1" type="Node3D" parent="."]
 transform = Transform3D(0.93969256, -0.3420201, 0, 0.29619807, 0.8137976, 0.5, -0.17101005, -0.46984628, 0.8660254, -0.37806785, 2.0317316, -0.5496088)

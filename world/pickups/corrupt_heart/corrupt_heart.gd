@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 
 func on_death() -> void:
 	dying = true
-	$AnimationPlayer.pause()
+	$AnimationPlayer.play("death")
 	
 	##Steady stream of blood
 	var blood_burst : GPUParticles3D = blood_burst_packed.instantiate()
