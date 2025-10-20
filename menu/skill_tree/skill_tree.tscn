@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://fkmkprnxsrpf"]
+[gd_scene load_steps=3 format=3 uid="uid://fkmkprnxsrpf"]
 
 [ext_resource type="Script" uid="uid://c6cng071rfahe" path="res://menu/skill_tree/skill_tree.gd" id="1_dnamn"]
+[ext_resource type="PackedScene" uid="uid://7lrs6qjp01ku" path="res://menu/skill_tree/skill_button.tscn" id="2_3f6vw"]
 
 [node name="Skill_Tree" type="Control"]
 layout_mode = 3
@@ -8,6 +9,7 @@ anchors_preset = 0
 script = ExtResource("1_dnamn")
 
 [node name="Background" type="ColorRect" parent="."]
+visible = false
 layout_mode = 0
 offset_right = 1166.0
 offset_bottom = 660.0
@@ -15,45 +17,210 @@ color = Color(0, 0.2365942, 0.6779701, 1)
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 96.0
-offset_top = 323.0
-offset_right = 455.0
-offset_bottom = 384.0
+offset_left = 770.0
+offset_top = 496.0
+offset_right = 1129.0
+offset_bottom = 557.0
 text = "Confirm Upgrade"
 
 [node name="PurchaseButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 100.0
-offset_top = 400.0
-offset_right = 459.0
-offset_bottom = 461.0
+offset_left = 772.0
+offset_top = 567.0
+offset_right = 1131.0
+offset_bottom = 628.0
 text = "Exit"
 
 [node name="ExitButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 90.0
-offset_top = 254.0
-offset_right = 449.0
-offset_bottom = 315.0
+offset_left = 771.0
+offset_top = 422.0
+offset_right = 1130.0
+offset_bottom = 483.0
 text = "PLACEHOLDER"
 
 [node name="Meat Tree" type="Label" parent="."]
 layout_mode = 0
-offset_left = 363.0
-offset_top = 48.0
-offset_right = 459.00006
-offset_bottom = 71.0
+offset_left = 945.0
+offset_top = 12.0
+offset_right = 1041.0
+offset_bottom = 35.0
 scale = Vector2(2, 2)
 text = "Meat Tree"
 
-[node name="Meat Tree2" type="Label" parent="."]
+[node name="skillButton" parent="." node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
 layout_mode = 0
-offset_left = 363.0
-offset_top = 48.0
-offset_right = 459.00006
-offset_bottom = 71.0
-scale = Vector2(2, 2)
-text = "Meat Tree"
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 59.0
+offset_bottom = 66.0
+disabled = true
+dependencies = [NodePath("skillButton2"), NodePath("skillButton"), NodePath("skillButton3")]
+
+[node name="skillButton2" parent="skillButton" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 20.0
+offset_right = 308.0
+offset_bottom = 79.0
+dependencies = [NodePath("skillButton4"), NodePath("skillButton5")]
+
+[node name="skillButton4" parent="skillButton/skillButton2" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+layout_mode = 0
+offset_left = 175.0
+offset_top = -21.0
+offset_right = 227.0
+offset_bottom = 38.0
+dependencies = [NodePath("../skillButton5/skillButton")]
+
+[node name="skillButton5" parent="skillButton/skillButton2" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+layout_mode = 0
+offset_left = 179.0
+offset_top = 98.0
+offset_right = 231.0
+offset_bottom = 157.0
+dependencies = [NodePath("skillButton")]
+
+[node name="skillButton" parent="skillButton/skillButton2/skillButton5" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+layout_mode = 0
+offset_left = 111.0
+offset_top = -57.0
+offset_right = 163.0
+offset_bottom = 2.0
+dependencies = [NodePath("skillButton"), NodePath("skillButton2")]
+
+[node name="skillButton" parent="skillButton/skillButton2/skillButton5/skillButton" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+layout_mode = 0
+offset_left = 118.0
+offset_top = -32.0
+offset_right = 170.0
+offset_bottom = 27.0
+dependencies = [NodePath("skillButton")]
+
+[node name="skillButton" parent="skillButton/skillButton2/skillButton5/skillButton/skillButton" instance=ExtResource("2_3f6vw")]
+layout_mode = 0
+offset_left = 146.0
+offset_top = 57.0
+offset_right = 198.0
+offset_bottom = 116.0
+
+[node name="skillButton2" parent="skillButton/skillButton2/skillButton5/skillButton" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 89.0
+offset_right = 172.0
+offset_bottom = 148.0
+dependencies = [NodePath("../skillButton/skillButton")]
+
+[node name="skillButton" parent="skillButton" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+layout_mode = 0
+offset_left = 189.0
+offset_top = 145.0
+offset_right = 241.0
+offset_bottom = 204.0
+dependencies = [NodePath("skillButton2"), NodePath("skillButton")]
+
+[node name="skillButton2" parent="skillButton/skillButton" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 111.0
+offset_right = 112.0
+offset_bottom = 170.0
+dependencies = [NodePath("../skillButton/skillButton")]
+
+[node name="skillButton" parent="skillButton/skillButton" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 36.0
+offset_right = 188.0
+offset_bottom = 95.0
+dependencies = [NodePath("skillButton")]
+
+[node name="skillButton" parent="skillButton/skillButton/skillButton" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 117.0
+offset_right = 105.0
+offset_bottom = 176.0
+dependencies = [NodePath("skillButton"), NodePath("skillButton2")]
+
+[node name="skillButton" parent="skillButton/skillButton/skillButton/skillButton" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 28.0
+offset_right = 172.0
+offset_bottom = 87.0
+dependencies = [NodePath("skillButton")]
+
+[node name="skillButton" parent="skillButton/skillButton/skillButton/skillButton/skillButton" instance=ExtResource("2_3f6vw")]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 116.0
+offset_right = 91.0
+offset_bottom = 175.0
+
+[node name="skillButton2" parent="skillButton/skillButton/skillButton/skillButton" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 121.0
+offset_right = 89.0
+offset_bottom = 180.0
+dependencies = [NodePath("../skillButton/skillButton")]
+
+[node name="skillButton3" parent="skillButton" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 202.0
+offset_right = 119.0
+offset_bottom = 261.0
+dependencies = [NodePath("skillButton4"), NodePath("skillButton")]
+
+[node name="skillButton4" parent="skillButton/skillButton3" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+layout_mode = 0
+offset_left = -67.0
+offset_top = 97.0
+offset_right = -15.0
+offset_bottom = 156.0
+dependencies = [NodePath("../skillButton/skillButton2")]
+
+[node name="skillButton" parent="skillButton/skillButton3" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 97.0
+offset_right = 118.0
+offset_bottom = 156.0
+dependencies = [NodePath("skillButton2")]
+
+[node name="skillButton2" parent="skillButton/skillButton3/skillButton" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+layout_mode = 0
+offset_left = -71.0
+offset_top = 95.0
+offset_right = -19.0
+offset_bottom = 154.0
+dependencies = [NodePath("skillButton"), NodePath("skillButton2")]
+
+[node name="skillButton" parent="skillButton/skillButton3/skillButton/skillButton2" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+layout_mode = 0
+offset_left = -62.0
+offset_top = 85.0
+offset_right = -10.0
+offset_bottom = 144.0
+dependencies = [NodePath("../skillButton2/skillButton")]
+
+[node name="skillButton2" parent="skillButton/skillButton3/skillButton/skillButton2" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 80.0
+offset_right = 135.0
+offset_bottom = 139.0
+dependencies = [NodePath("skillButton")]
+
+[node name="skillButton" parent="skillButton/skillButton3/skillButton/skillButton2/skillButton2" instance=ExtResource("2_3f6vw")]
+layout_mode = 0
+offset_left = -72.0
+offset_top = 87.0
+offset_right = -20.0
+offset_bottom = 146.0
 
 [connection signal="pressed" from="Button" to="." method="_on_load_save_button_pressed"]
 [connection signal="pressed" from="PurchaseButton" to="." method="_on_options_button_pressed"]
