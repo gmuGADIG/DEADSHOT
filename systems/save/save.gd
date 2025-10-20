@@ -16,6 +16,7 @@ static func save_game() -> void: ## Saves the game
 		Save.create()
 	
 	save_data.location_save_data.save()
+	save_data.health_save_data.save()
 	
 	ResourceSaver.save(save_data, SAVE_FILE)
 
@@ -26,6 +27,7 @@ static func load_game() -> void: ## Loads the game
 	save_data = ResourceLoader.load(SAVE_FILE)
 	
 	save_data.location_save_data.load()
+	save_data.health_save_data.load()
 
 static func save_file_exists() -> void:
 	ResourceLoader.exists(SAVE_FILE)
