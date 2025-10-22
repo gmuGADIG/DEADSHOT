@@ -1,0 +1,76 @@
+[gd_scene load_steps=12 format=3 uid="uid://crgv6bkolrlyy"]
+
+[ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_b00wy"]
+[ext_resource type="Resource" uid="uid://q24ustx30otu" path="res://world/floor/sand/sand.tres" id="2_5t0jw"]
+[ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="2_8watp"]
+[ext_resource type="PackedScene" uid="uid://dxdkwdigtcn43" path="res://world/enemy/test/enemy_test.tscn" id="4_eowj5"]
+[ext_resource type="PackedScene" uid="uid://3o8nbg2v248a" path="res://world/interactables/puddle/puddle.tscn" id="5_xa3ak"]
+[ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="6_a3scf"]
+[ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://world/interactables/cover/cover_1.tscn" id="7_afdcq"]
+[ext_resource type="PackedScene" uid="uid://c2bxn6p802s68" path="res://world/interactables/cover/cover_2.tscn" id="8_bu2xb"]
+[ext_resource type="PackedScene" uid="uid://ckbr1getgwitd" path="res://world/interactables/tumbleweed/tumbleweed.tscn" id="9_bu2xb"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_afdcq"]
+vertices = PackedVector3Array(25.443497, 0.48999983, 2.6911688, 25.443497, 0.48999983, 1.6911688, 22.943497, 0.48999983, 1.1911688, 22.193497, 0.48999983, 2.9411688, 17.443497, 0.48999983, -3.5588312, 1.9434967, 0.48999983, -3.0588312, 1.9434967, 0.48999983, 7.441169, 16.443497, 0.48999983, 7.691169, -9.556503, 0.48999983, 0.6911688, -9.556503, 0.48999983, 1.1911688, -7.8065033, 0.48999983, 1.6911688, -7.5565033, 0.48999983, 0.44116879, -5.5565033, 0.48999983, 4.941169, -1.5565033, 0.48999983, 7.441169, -1.5565033, 0.48999983, -3.0588312, -7.5565033, 0.48999983, -1.5588312, -7.8065033, 0.48999983, 3.4411688, -7.0565033, 0.48999983, 4.441169, -2.8065033, 0.48999983, 6.941169)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(2, 3, 4), PackedInt32Array(4, 3, 7), PackedInt32Array(4, 7, 6), PackedInt32Array(4, 6, 5), PackedInt32Array(9, 8, 10), PackedInt32Array(10, 8, 11), PackedInt32Array(13, 12, 6), PackedInt32Array(6, 12, 15), PackedInt32Array(6, 15, 14), PackedInt32Array(6, 14, 5), PackedInt32Array(17, 16, 12), PackedInt32Array(12, 16, 10), PackedInt32Array(12, 10, 11), PackedInt32Array(12, 11, 15), PackedInt32Array(13, 18, 12)]
+
+[sub_resource type="Curve3D" id="Curve3D_5t0jw"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -8.175397, 0, -2.0046453, 0, 0, 0, 0, 0, 0, -1.8235376, 0, -3.607317, 0, 0, 0, 0, 0, 0, 17.640003, 0, -4.3420367, 0, 0, 0, 0, 0, 0, 23.598804, 0, 0.7041577, 0, 0, 0, 0, 0, 0, 26, 0, 1, 0, 0, 0, 0, 0, 0, 25.998333, 0, 3.2853825, 0, 0, 0, 0, 0, 0, 23.33039, 0, 3.1735713, 0, 0, 0, 0, 0, 0, 16.620026, 0, 8.3808155, 0, 0, 0, 0, 0, 0, -2.2226782, 0, 7.9513507, 0, 0, 0, 0, 0, 0, -8.310715, 0, 4.3552685, 0, 0, 0, 0, 0, 0, -8.378373, 0, 1.9533852, 0, 0, 0, 0, 0, 0, -10.205158, 0, 1.9533852, 0, 0, 0, 0, 0, 0, -10.374305, 0, -0.042545125, 0, 0, 0, 0, 0, 0, -8.209228, 0, -0.042545125),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 14
+
+[node name="LevelDesertLarge" instance=ExtResource("1_b00wy")]
+
+[node name="World" parent="." index="1"]
+navigation_mesh = SubResource("NavigationMesh_afdcq")
+
+[node name="Floor" parent="World" index="0"]
+curve = SubResource("Curve3D_5t0jw")
+material = ExtResource("2_5t0jw")
+
+[node name="Left" type="Node3D" parent="EntryPoints" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.832652, 0, 1.019488)
+
+[node name="Right" type="Node3D" parent="EntryPoints" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.919891, 0, 2.091728)
+
+[node name="Left" parent="TransitionAreas" index="0" instance=ExtResource("2_8watp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.896492, 0, 0.87029505)
+target_scene = "uid://blppqsxslhh07"
+target_entry_point = "Right"
+
+[node name="Right" parent="TransitionAreas" index="1" instance=ExtResource("2_8watp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.526169, 0, 1.9138561)
+target_scene = "uid://d0lbvne2ofk7c"
+target_entry_point = "Left"
+
+[node name="Enemies" type="Node3D" parent="." index="4"]
+
+[node name="EnemyTest" parent="Enemies" index="0" instance=ExtResource("4_eowj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1210566, 0, 0.50487185)
+
+[node name="EnemyTest2" parent="Enemies" index="1" instance=ExtResource("4_eowj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7624645, 0, 4.589473)
+
+[node name="Puddle" parent="Enemies" index="2" instance=ExtResource("5_xa3ak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.607033, 0, 3.1020565)
+
+[node name="Comment" parent="Enemies/Puddle" index="3" instance=ExtResource("6_a3scf")]
+text = "this is a puddle :)"
+
+[node name="Cover" parent="Enemies" index="3" instance=ExtResource("7_afdcq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1681108, 0, 5.748684)
+
+[node name="Cover2" parent="Enemies" index="4" instance=ExtResource("7_afdcq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3376637, -4.7683716e-07, 0.95670986)
+
+[node name="Cover3" parent="Enemies" index="5" instance=ExtResource("8_bu2xb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.570309, -4.7683716e-07, 5.761856)
+
+[node name="Cover4" parent="Enemies" index="6" instance=ExtResource("8_bu2xb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.756679, -4.7683716e-07, -0.054550648)
+
+[node name="Tumbleweed" parent="Enemies" index="7" instance=ExtResource("9_bu2xb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.22028, 0, 1.8608103)

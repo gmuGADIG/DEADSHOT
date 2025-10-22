@@ -24,6 +24,7 @@ enum AggroState {
 #region Variables
 ## The player in the scene.
 @onready var player : Player
+@onready var firing_timer: Timer = %FiringTimer
 
 @export_group("Enemy Stats")
 ## The starting amount of health.
@@ -48,6 +49,10 @@ enum AggroState {
 @export var patrol_path : Array[Vector3]
 var patrol_index : int = 0
 
+@export_subgroup("Bullet Settings")
+@export var fire_rate: float
+@export var bullet_speed: float
+
 ## Current aggro state of the enemy
 var aggro : AggroState = AggroState.BENIGN
 ## Current distance to the player
@@ -68,6 +73,9 @@ var was_tracking : bool = false
 ## How close the enemy is to the destination before being "basically there"
 var proximity_tolerance : float = 1
 
+var shooting := false
+var can_shoot := true
+
 #endregion
 
 #region Builtin Functions
@@ -76,6 +84,13 @@ func _ready() -> void:
 	starting_pos = starting_pos if not starting_pos.is_equal_approx(Vector3.ZERO) else position
 	last_known_player_position = player.global_position
 	%Health.killed.connect(queue_free)
+
+	if fire_rate == 0:
+		firing_timer.process_mode = PROCESS_MODE_DISABLED
+	else:
+		firing_timer.wait_time = fire_rate
+		firing_timer.timeout.connect(_on_firing_timer_timeout)
+		firing_timer.start()
 
 ## Call when you want to switch a state. Handles what to do once when entering each state.
 func switch_state(target_state: AggroState) -> void:
@@ -174,3 +189,22 @@ func is_close_to_destination() -> bool:
 	return global_position.distance_to(navigation_agent.target_position) < proximity_tolerance
 
 #endregion
+
+func shoot_bullet() -> void:
+	if !can_shoot:
+		return
+	firing_timer.start()
+	if (!shooting):
+		var bullet_reference: Node3D = load("res://world/enemy/Enemy Bullets/enemy_bullet.tscn").instantiate()
+		add_sibling(bullet_reference)
+		bullet_reference.global_position = global_position + Vector3(0, 1, 0)
+		bullet_reference.set_speed(bullet_speed)
+		bullet_reference.set_target(get_tree().get_first_node_in_group("player").global_position)
+		shooting = true
+
+func _on_firing_timer_timeout() -> void:
+	shooting = false
+	shoot_bullet()
+
+func stop_shooting() -> void:
+	can_shoot = false

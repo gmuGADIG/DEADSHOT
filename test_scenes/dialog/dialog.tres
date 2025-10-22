@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_22tyn")
-dialog = "(Testing the dialogue)
-You're awesome :)
-This is a test for a longer sentence. Hello. I am putting in dummy text. Goodbye.
+dialog = "[sherif] (Testing the dialogue)
+{speed=0.2}You're awesome :]
+[sherrif 2]This is a test for a longer sentence.{speed=2} Hello. I am putting in dummy text. Goodbye.
 Crazy? I was crazy once. They locked me in a room. A rubber room. A rubber room with rats, and rats make me crazy. Crazy? I was crazy once. They locked me in a room. A rubber room. A rubber room with rats, and rats make me crazy.Crazy? I was crazy once. They locked me in a room. A rubber room. A rubber room with rats, and rats make me crazy. Crazy? I was crazy once. They locked me in a room. A rubber room. A rubber room with rats, and rats make me crazy."
 metadata/_custom_type_script = "uid://rvaetvwo5p3h"

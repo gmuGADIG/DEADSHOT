@@ -1,12 +1,24 @@
 class_name Player extends CharacterBody3D
 
+class PlayerPersistingData:
+	var max_health : int
+	var health : int
+	
+static var persisting_data : PlayerPersistingData
+
 static var instance:Player
 var speed_multiplier: float = 1.0;
 ## EXPORT VARIABLES
+@export_category("Movement")
 @export var walk_speed: float = 8.0
 @export var roll_speed: float = 18.0
 @export var roll_duration: float = 0.4
-@export var roll_influence: float = 8 ## Controls how much player input affects steering when mid-roll. 
+@export var roll_influence: float = 8 ## Controls how much player input affects steering when mid-roll.
+
+@export_category("Dependencies")
+@export var health_component : Health
+@export var whip : Whip
+
 var previous_facing_direction: Vector2 = Vector2.RIGHT ## Roll this way if you roll while not holding any directions. Updated every time the player makes a movement input.
 
 ## Is the player currently in combat? If so, HUD will be shown and dashing will cost stamina.
@@ -20,10 +32,17 @@ const STAMINA_RECHARGE_RATE: float = 0.666667
 ## These are the states that the player can be in. States control what the player can do.
 enum PlayerState {
 	WALKING,
-	ROLLING,
+	ROLLING
 }
 
 var current_state: PlayerState = PlayerState.WALKING
+
+static func update_persisting_data() -> void:
+	if persisting_data == null:
+		persisting_data = PlayerPersistingData.new()
+	
+	persisting_data.max_health = Player.instance.health_component.max_health
+	persisting_data.health = Player.instance.health_component.health
 
 ## Returns the inputted walking direction on the XZ plane (Y = 0)
 func walking_dir() -> Vector3:
@@ -34,35 +53,39 @@ func walking_dir() -> Vector3:
 	if input == Vector2.ZERO && current_state == PlayerState.ROLLING: input = previous_facing_direction
 	return Vector3(input.x, 0, input.y)
 
+func _ready() -> void:
+	instance = self
+	if persisting_data != null:
+		health_component.max_health = persisting_data.max_health
+		health_component.health = persisting_data.health
+
+func _init() -> void:
+	instance = self
+
+
 ## Returns the direction from the player to the reticle (Y = 0)
 func aim_dir() -> Vector3:
 	var dir: Vector3 = %Reticle.global_position - self.global_position
 	dir.y = 0
 	return dir.normalized()
 
-func _ready() -> void:
-	instance = self
-
-func _init() -> void:
-	instance = self
-
 
 func _physics_process(_delta: float) -> void:
-	if Input.is_action_just_pressed("roll"):
+	
+	if Input.is_action_just_pressed("roll") and whip.whip_state == Whip.WhipState.OFF:
 		begin_roll()
 	
-	match current_state:
-		PlayerState.WALKING:
-			velocity = walking_dir() * walk_speed * speed_multiplier
-		PlayerState.ROLLING:
-			## We move the velocity vector towards the direction of the movement. 
-			## This means that velocity doesn't immediately become where we're pointing, but changes over time.
-			## We normalize the shit out of everything so we can multiply it by a consistent speed.
-			## This way there's no weird acceleration or slowdown.
-			velocity = velocity.move_toward(walking_dir().normalized(), roll_influence).normalized() * roll_speed
+	if current_state == PlayerState.WALKING:
+		velocity = walking_dir() * walk_speed * speed_multiplier
+	elif current_state == PlayerState.ROLLING && whip.whip_state == Whip.WhipState.OFF:
+		## We move the velocity vector towards the direction of the movement. 
+		## This means that velocity doesn't immediately become where we're pointing, but changes over time.
+		## We normalize the shit out of everything so we can multiply it by a consistent speed.
+		## This way there's no weird acceleration or slowdown.
+		velocity = velocity.move_toward(walking_dir().normalized(), roll_influence).normalized() * roll_speed
 			
 	move_and_slide()
-
+		
 ## We use the proper process function to update stamina, since it appears on the HUD and that could be drawn faster than the physics tickrate.
 func _process(delta: float) -> void:
 	if is_in_combat: update_stamina(delta)
@@ -73,6 +96,15 @@ func _process(delta: float) -> void:
 			exit_combat()
 		else:
 			enter_combat()
+
+func can_shoot() -> bool:
+	if current_state == PlayerState.ROLLING:
+		return false
+	
+	if whip.whip_state != Whip.WhipState.OFF:
+		return false
+	
+	return true
 
 func begin_roll() -> void:
 	# This function only runs when the roll starts. Get out of here if you're already rolling!
