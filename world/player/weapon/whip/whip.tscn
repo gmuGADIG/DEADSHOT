@@ -7,8 +7,8 @@
 [ext_resource type="AudioStream" uid="uid://cde0auk30of0r" path="res://audio/placeholders/whip_placeholders/whip_charge_2.wav" id="4_kksg7"]
 [ext_resource type="Texture2D" uid="uid://gds0k2gwfygi" path="res://temp_art/gartic/coin_white.png" id="4_lyq0n"]
 [ext_resource type="AudioStream" uid="uid://cydwp5pqthorp" path="res://audio/placeholders/whip_placeholders/whip_charge_3.wav" id="5_nn6fm"]
-[ext_resource type="AudioStream" uid="uid://bsxp7603mjq0x" path="res://audio/placeholders/test_unlock.wav" id="5_w5dsa"]
-[ext_resource type="AudioStream" uid="uid://ducaacaocxjru" path="res://audio/placeholders/whip_placeholders/whip_swing.wav" id="9_kksg7"]
+[ext_resource type="PackedScene" uid="uid://cuf4m7g7i2wdk" path="res://audio/streams/whip_charge_sound.tscn" id="8_kksg7"]
+[ext_resource type="PackedScene" uid="uid://c04no3yhhwjuw" path="res://audio/streams/whip_swing_sound.tscn" id="9_nn6fm"]
 
 [sub_resource type="Resource" id="Resource_kmd03"]
 script = ExtResource("2_kmd03")
@@ -72,11 +72,9 @@ one_shot = true
 [node name="CooldownTimer" type="Timer" parent="."]
 one_shot = true
 
-[node name="WhipChargeSound" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("5_w5dsa")
+[node name="WhipChargeSound" parent="." instance=ExtResource("8_kksg7")]
 
-[node name="WhipSwingSound" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("9_kksg7")
+[node name="WhipSwingSound" parent="." instance=ExtResource("9_nn6fm")]
 
 [connection signal="timeout" from="WindupTimer" to="." method="swing"]
 [connection signal="timeout" from="CooldownTimer" to="." method="swing"]
