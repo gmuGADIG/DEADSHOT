@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://nuqmhgq1e2lu"]
+[gd_scene load_steps=11 format=3 uid="uid://nuqmhgq1e2lu"]
 
 [ext_resource type="Script" uid="uid://llqh4g6obmup" path="res://world/player/player.gd" id="1_bvkkv"]
 [ext_resource type="Texture2D" uid="uid://ckv48omi8han7" path="res://temp_art/gartic/harry_potter_with_gun.png" id="1_yynsy"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://cwjxwkxciij4o" path="res://systems/interaction/interactor.gd" id="3_cvtd2"]
 [ext_resource type="PackedScene" uid="uid://cj5uuu7xjsprv" path="res://world/player/weapon/basic_gun/basic_gun.tscn" id="3_et4on"]
 [ext_resource type="Script" uid="uid://c4s1ohnc08ecy" path="res://world/player/reticle/reticle.gd" id="4_40qjc"]
+[ext_resource type="PackedScene" uid="uid://duf7ry1s34j7o" path="res://world/player/weapon/whip/whip.tscn" id="4_duds0"]
 [ext_resource type="Texture2D" uid="uid://bwm425xkr0vcy" path="res://temp_art/icon.svg" id="4_et4on"]
 [ext_resource type="Script" uid="uid://do5vs8m1law7o" path="res://systems/attacking/health/health.gd" id="6_thypd"]
 [ext_resource type="Script" uid="uid://lxg83i28nlul" path="res://systems/attacking/hurtbox/hurtbox.gd" id="7_d3e1v"]
@@ -18,8 +19,9 @@ radius = 0.669922
 height = 0.27978516
 radius = 0.8881836
 
-[node name="Player" type="CharacterBody3D" groups=["player"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("whip") groups=["player"]]
 script = ExtResource("1_bvkkv")
+whip = NodePath("Whip")
 
 [node name="Hud" parent="." instance=ExtResource("2_duds0")]
 
@@ -81,3 +83,6 @@ shape = SubResource("CylinderShape3D_plfsl")
 [node name="HealthComponent" type="Node" parent="HurtboxComponent"]
 script = ExtResource("6_thypd")
 metadata/_custom_type_script = "uid://do5vs8m1law7o"
+
+[node name="Whip" parent="." instance=ExtResource("4_duds0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.54808617, 0)
