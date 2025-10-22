@@ -1,9 +1,9 @@
-extends Node3D
+class_name EnemyBullet extends Node3D
 
 @export var despawn_after_seconds := 5.0
 @onready var area_3d: Area3D = $Area3D
 @onready var timer: Timer = $Timer
-var bullet_speed := 50.0
+@export var bullet_speed := 50.0
 var direction: Vector3
 
 func _ready() -> void:

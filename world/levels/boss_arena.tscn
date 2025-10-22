@@ -1,11 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://0t033skh7re0"]
+[gd_scene load_steps=8 format=3 uid="uid://0t033skh7re0"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_m7nrf"]
 [ext_resource type="Resource" uid="uid://ebi2mrpur7b6" path="res://world/floor/rock/rock.tres" id="2_ne3pg"]
 [ext_resource type="PackedScene" uid="uid://d0sdri7hlk5i3" path="res://world/enemy/bosses/mass/the_mass.tscn" id="3_ne3pg"]
+[ext_resource type="Script" uid="uid://d2wxipl4px3iw" path="res://world/levels/arena_area.gd" id="4_yi0vy"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_yi0vy"]
-vertices = PackedVector3Array(-7.53308, 0.48999965, -7.303426, -7.53308, 0.48999965, 7.196574, 7.21692, 0.48999965, 7.196574, 7.21692, 0.48999965, -7.303426)
+vertices = PackedVector3Array(-19.534193, 0.48999965, -7.307107, -19.534193, 0.48999965, 15.192893, 19.215807, 0.48999965, 15.192893, 19.215807, 0.48999965, -7.307107)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
 [sub_resource type="Curve3D" id="Curve3D_ronks"]
@@ -14,6 +15,9 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0)
 }
 point_count = 4
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ne3pg"]
+size = Vector3(38.901546, 1.9389648, 23.009075)
 
 [node name="BossArena" instance=ExtResource("1_m7nrf")]
 
@@ -27,5 +31,11 @@ material = ExtResource("2_ne3pg")
 [node name="Player" parent="." index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.202965, 0, 8.371207)
 
-[node name="TheMass" parent="." index="6" instance=ExtResource("3_ne3pg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+[node name="TheMass" parent="." index="6" node_paths=PackedStringArray("arena_area") instance=ExtResource("3_ne3pg")]
+arena_area = NodePath("../ArenaArea")
+phase_1_action_names = Array[StringName]([&"phase_1_spit_enemy"])
+
+[node name="ArenaArea" type="CollisionShape3D" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11643028, -0.05883789, 4.01169)
+shape = SubResource("BoxShape3D_ne3pg")
+script = ExtResource("4_yi0vy")
