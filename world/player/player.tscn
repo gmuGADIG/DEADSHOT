@@ -83,7 +83,7 @@ shape = SubResource("CylinderShape3D_plfsl")
 
 [node name="HealthComponent" type="Node" parent="HurtboxComponent"]
 script = ExtResource("6_thypd")
-max_health = 3
+max_health = 6
 metadata/_custom_type_script = "uid://do5vs8m1law7o"
 
 [node name="GPUParticlesAttractorSphere3D" type="GPUParticlesAttractorSphere3D" parent="."]

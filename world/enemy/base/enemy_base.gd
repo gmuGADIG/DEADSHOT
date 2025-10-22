@@ -26,6 +26,10 @@ enum AggroState {
 @onready var player : Player
 @onready var firing_timer: Timer = %FiringTimer
 
+# TODO: change this to the real tonic scene eventually
+## The tonic scene to drop.
+@onready var tonic := preload("res://world/items/tonic/tonic_test.tscn");
+
 @export_group("Enemy Stats")
 ## The starting amount of health.
 @export var max_hp : float = 10
@@ -33,6 +37,8 @@ enum AggroState {
 @export var damage : float = 1
 ## Controls the speed of the enemy agent.
 @export var movement_speed : float = 10.0
+## Rate of the tonic dropping, from 0 to 1.
+@export_range(0.0, 1.0, 0.01) var tonic_drop_rate : float = 0.5
 
 # TODO: type is a subclass?
 ## Does the enemy remain still or move about on their own?
@@ -80,10 +86,12 @@ var can_shoot := true
 
 #region Builtin Functions
 func _ready() -> void:
+	randomize()
 	player = get_tree().get_first_node_in_group("player")
 	starting_pos = starting_pos if not starting_pos.is_equal_approx(Vector3.ZERO) else position
 	last_known_player_position = player.global_position
 	%Health.killed.connect(queue_free)
+	%Health.killed.connect(drop_tonic)
 
 	if fire_rate == 0:
 		firing_timer.process_mode = PROCESS_MODE_DISABLED
@@ -188,7 +196,12 @@ func enter_attack() -> void:
 func is_close_to_destination() -> bool:
 	return global_position.distance_to(navigation_agent.target_position) < proximity_tolerance
 
-#endregion
+## Chance to drop tonic on enemy death.
+func drop_tonic() -> void:
+	if (tonic_drop_rate >= randf_range(0.0, 1.0)):
+		var dropped_tonic : Node3D = tonic.instantiate();
+		dropped_tonic.position = self.position;
+		$/root.add_child(dropped_tonic);
 
 func shoot_bullet() -> void:
 	if !can_shoot:
@@ -208,3 +221,5 @@ func _on_firing_timer_timeout() -> void:
 
 func stop_shooting() -> void:
 	can_shoot = false
+
+#endregion
