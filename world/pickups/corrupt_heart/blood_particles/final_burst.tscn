@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://vqmkg8wor6fr"]
+
+[ext_resource type="Shader" uid="uid://buxykrqlibd21" path="res://world/pickups/corrupt_heart/blood_particles/corrupt_heart_blood.gdshader" id="1_6e8bx"]
+[ext_resource type="Script" uid="uid://m385t8gvrw2f" path="res://world/pickups/corrupt_heart/blood_particles/kill_finished_particle.gd" id="2_g4mrv"]
+[ext_resource type="PackedScene" uid="uid://dtw08j1hawd8p" path="res://audio/streams/heart_burst_sound.tscn" id="3_0cb3d"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5roo4"]
+emission_shape = 1
+emission_sphere_radius = 1.5
+direction = Vector3(0, 1, 0)
+spread = 90.0
+initial_velocity_min = 5.0
+initial_velocity_max = 15.0
+gravity = Vector3(0, -15, 0)
+collision_mode = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hvqcw"]
+render_priority = 0
+shader = ExtResource("1_6e8bx")
+
+[sub_resource type="QuadMesh" id="QuadMesh_vve5n"]
+material = SubResource("ShaderMaterial_hvqcw")
+
+[node name="FinalBurst" type="GPUParticles3D"]
+emitting = false
+amount = 200
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+collision_base_size = 1.0
+visibility_aabb = AABB(-10, -2, -10, 20, 6, 20)
+process_material = SubResource("ParticleProcessMaterial_5roo4")
+draw_pass_1 = SubResource("QuadMesh_vve5n")
+script = ExtResource("2_g4mrv")
+
+[node name="HeartBurstSound" parent="." instance=ExtResource("3_0cb3d")]
+
+[connection signal="finished" from="." to="." method="_on_finished"]
