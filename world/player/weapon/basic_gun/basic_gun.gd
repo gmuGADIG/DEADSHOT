@@ -4,7 +4,9 @@ extends Node3D
 
 func _process(_delta: float) -> void:
 	# No shooting if you're rolling!
-	if Input.is_action_just_pressed("fire") && player.current_state != player.PlayerState.ROLLING:
+	if Input.is_action_just_pressed("fire"):
+		if not player.can_shoot():
+			return
 		fire()
 
 func fire() -> void:

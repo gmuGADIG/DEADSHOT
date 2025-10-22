@@ -1,6 +1,6 @@
 extends Node3D
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var cam := get_viewport().get_camera_3d()
 	var mouse := get_viewport().get_mouse_position()
 	var ray_origin := cam.project_ray_origin(mouse)
