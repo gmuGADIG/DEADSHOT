@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtw08j1hawd8p"]
+
+[ext_resource type="AudioStream" uid="uid://btq4usey4ba53" path="res://audio/placeholders/explosion.wav" id="1_mf0rg"]
+
+[node name="HeartBurstSound" type="AudioStreamPlayer3D"]
+stream = ExtResource("1_mf0rg")
+autoplay = true

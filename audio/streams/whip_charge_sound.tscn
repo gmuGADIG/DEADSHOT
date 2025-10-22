@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cuf4m7g7i2wdk"]
+
+[ext_resource type="AudioStream" uid="uid://bsxp7603mjq0x" path="res://audio/placeholders/test_unlock.wav" id="1_0fnpp"]
+
+[node name="WhipChargeSound" type="AudioStreamPlayer3D"]
+stream = ExtResource("1_0fnpp")
