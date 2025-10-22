@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0sdri7hlk5i3"]
+
+[ext_resource type="PackedScene" uid="uid://cqo1iwd2arvfk" path="res://world/enemy/bosses/boss_enemy.tscn" id="1_0ojq6"]
+[ext_resource type="Script" uid="uid://bvjxmtoqmx4bg" path="res://world/enemy/bosses/mass/the_mass.gd" id="2_0ojq6"]
+[ext_resource type="Texture2D" uid="uid://bsjg2jy70gbkw" path="res://temp_art/rough_drafts/mass_temp.png" id="3_we0e7"]
+
+[sub_resource type="Animation" id="Animation_we0e7"]
+resource_name = "spike"
+length = 4.0
+step = 0.5
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"spike_attack"
+}, {
+"args": [],
+"method": &"spike_attack"
+}, {
+"args": [],
+"method": &"spike_attack"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k1noq"]
+_data = {
+&"spike": SubResource("Animation_we0e7")
+}
+
+[node name="TheMass" instance=ExtResource("1_0ojq6")]
+script = ExtResource("2_0ojq6")
+phase_1_action_names = Array[StringName]([&"spike"])
+returns_to_post = true
+
+[node name="Sprite3D" parent="." index="1"]
+transform = Transform3D(0.305, 0, 0, 0, 0.26413772, 0.15250008, 0, -0.15250008, 0.26413772, 0, 1, 0)
+offset = Vector2(0, 400)
+texture = ExtResource("3_we0e7")
+
+[node name="ActionPlayer" parent="." index="6"]
+libraries = {
+&"": SubResource("AnimationLibrary_k1noq")
+}

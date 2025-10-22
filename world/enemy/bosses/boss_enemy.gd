@@ -1,0 +1,25 @@
+@abstract class_name BossEnemy extends EnemyBase
+
+#region Variables
+@export var phase_1_action_names : Array[StringName]
+@export var phase_2_action_names : Array[StringName] ## Might end up unused
+
+@export var action_player : AnimationPlayer
+#endregion
+
+#region Behaviour Functions
+func _ready() -> void:
+	pick_action()
+
+@abstract func pick_action() -> void
+	
+func action_finished(anim_name: StringName) -> void:
+	pick_action()
+
+func hostile() -> void:
+	pass
+
+func attack() -> void:
+	pass
+
+#endregion

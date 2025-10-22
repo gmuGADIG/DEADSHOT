@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqo1iwd2arvfk"]
+
+[ext_resource type="PackedScene" uid="uid://dx3l0wduat3tp" path="res://world/enemy/base/enemy_base.tscn" id="1_ktb5c"]
+[ext_resource type="Script" uid="uid://7b0himm6r8el" path="res://world/enemy/bosses/boss_enemy.gd" id="2_eboog"]
+
+[node name="BossEnemy" node_paths=PackedStringArray("action_player") instance=ExtResource("1_ktb5c")]
+script = ExtResource("2_eboog")
+action_player = NodePath("ActionPlayer")
+returns_to_post = false
+
+[node name="ActionPlayer" type="AnimationPlayer" parent="." index="6"]
