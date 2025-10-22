@@ -1,24 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://bk60c4813t663"]
+[gd_scene load_steps=6 format=3 uid="uid://bk60c4813t663"]
 
 [ext_resource type="PackedScene" uid="uid://cr05xakri7lnw" path="res://world/floor/floor_gen.tscn" id="1_8hxjk"]
 [ext_resource type="PackedScene" uid="uid://nuqmhgq1e2lu" path="res://world/player/player.tscn" id="2_nnb1h"]
 [ext_resource type="Script" uid="uid://2uxmd0kth1s5" path="res://world/transitions/entry_points.gd" id="2_rsarx"]
 [ext_resource type="PackedScene" uid="uid://1s1a4b2buf1o" path="res://menu/pause_menu/pause_menu.tscn" id="3_uyrbk"]
 
-[node name="LevelBase2" type="Node3D"]
+[sub_resource type="NavigationMesh" id="NavigationMesh_xskwq"]
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+[node name="LevelBase" type="Node3D"]
 
-[node name="World" type="Node3D" parent="NavigationRegion3D"]
-
-[node name="Sun" type="DirectionalLight3D" parent="NavigationRegion3D/World"]
-transform = Transform3D(0.9247388, -0.25272667, 0.28458288, 0, 0.74771696, 0.6640176, -0.38060242, -0.61404276, 0.6914429, 0, 0, 0)
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.9247388, -0.25272667, 0.2845829, 0, 0.74771696, 0.66401756, -0.38060242, -0.61404276, 0.69144297, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Floor" parent="NavigationRegion3D/World" instance=ExtResource("1_8hxjk")]
+[node name="World" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_xskwq")
+
+[node name="Floor" parent="World" instance=ExtResource("1_8hxjk")]
 
 [node name="EntryPoints" type="Node3D" parent="."]
 script = ExtResource("2_rsarx")
+
+[node name="TransitionAreas" type="Node3D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("2_nnb1h")]
 
