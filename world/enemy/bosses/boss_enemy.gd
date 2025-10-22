@@ -1,4 +1,4 @@
-@abstract class_name BossEnemy extends EnemyBase
+class_name BossEnemy extends EnemyBase
 
 #region Variables
 @export var phase_1_action_names : Array[StringName]
@@ -11,7 +11,8 @@
 func _ready() -> void:
 	pick_action()
 
-@abstract func pick_action() -> void
+func pick_action() -> void: ##TODO: Override this
+	pass
 	
 func action_finished(anim_name: StringName) -> void:
 	pick_action()

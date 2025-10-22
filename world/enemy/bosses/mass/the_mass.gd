@@ -6,5 +6,8 @@ func pick_action() -> void:
 	else:
 		action_player.play(phase_2_action_names.pick_random())
 
+func idle() -> void:
+	pass
+
 func spike_attack() -> void:
 	print("spiker")

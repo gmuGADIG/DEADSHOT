@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://wymnegbjwok0"]
+[gd_scene load_steps=6 format=3 uid="uid://0t033skh7re0"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_m7nrf"]
 [ext_resource type="Resource" uid="uid://ebi2mrpur7b6" path="res://world/floor/rock/rock.tres" id="2_ne3pg"]
@@ -23,6 +23,9 @@ navigation_mesh = SubResource("NavigationMesh_yi0vy")
 [node name="Floor" parent="World" index="0"]
 curve = SubResource("Curve3D_ronks")
 material = ExtResource("2_ne3pg")
+
+[node name="Player" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.202965, 0, 8.371207)
 
 [node name="TheMass" parent="." index="6" instance=ExtResource("3_ne3pg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)

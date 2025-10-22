@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://d0sdri7hlk5i3"]
+[gd_scene load_steps=7 format=3 uid="uid://d0sdri7hlk5i3"]
 
 [ext_resource type="PackedScene" uid="uid://cqo1iwd2arvfk" path="res://world/enemy/bosses/boss_enemy.tscn" id="1_0ojq6"]
 [ext_resource type="Script" uid="uid://bvjxmtoqmx4bg" path="res://world/enemy/bosses/mass/the_mass.gd" id="2_0ojq6"]
 [ext_resource type="Texture2D" uid="uid://bsjg2jy70gbkw" path="res://temp_art/rough_drafts/mass_temp.png" id="3_we0e7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_we0e7"]
+size = Vector3(11.355682, 5.3653564, 3.9311523)
 
 [sub_resource type="Animation" id="Animation_we0e7"]
 resource_name = "spike"
@@ -34,17 +37,23 @@ _data = {
 &"spike": SubResource("Animation_we0e7")
 }
 
-[node name="TheMass" instance=ExtResource("1_0ojq6")]
+[node name="TheMass" node_paths=PackedStringArray("action_player") instance=ExtResource("1_0ojq6")]
 script = ExtResource("2_0ojq6")
 phase_1_action_names = Array[StringName]([&"spike"])
-returns_to_post = true
+action_player = NodePath("ActionPlayer")
 
 [node name="Sprite3D" parent="." index="1"]
 transform = Transform3D(0.305, 0, 0, 0, 0.26413772, 0.15250008, 0, -0.15250008, 0.26413772, 0, 1, 0)
 offset = Vector2(0, 400)
 texture = ExtResource("3_we0e7")
 
+[node name="CollisionShape3D" parent="Hurtbox" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16773987, 3.1296082, -0.58862305)
+shape = SubResource("BoxShape3D_we0e7")
+
 [node name="ActionPlayer" parent="." index="6"]
 libraries = {
 &"": SubResource("AnimationLibrary_k1noq")
 }
+
+[connection signal="animation_finished" from="ActionPlayer" to="." method="action_finished"]
