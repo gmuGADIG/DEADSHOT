@@ -64,4 +64,7 @@ transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0)
 texture = ExtResource("3_p5u37")
 
 [node name="Enemy" parent="." instance=ExtResource("7_byltu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.126128, 1, 6.3707905)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.796852, 1, 6.3707905)
+damage = 5.0
+movement_speed = 25.0
+patrol_path = Array[Vector3]([Vector3(10.126128, 1, 6.3707905), Vector3(20.796852, 1, 6.3707905)])
