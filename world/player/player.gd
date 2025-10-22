@@ -1,12 +1,22 @@
 class_name Player extends CharacterBody3D
 
+class PlayerPersistingData:
+	var max_health : int
+	var health : int
+	
+static var persisting_data : PlayerPersistingData
+
 static var instance:Player
 var speed_multiplier: float = 1.0;
 ## EXPORT VARIABLES
+@export_category("Movement")
 @export var walk_speed: float = 8.0
 @export var roll_speed: float = 18.0
 @export var roll_duration: float = 0.4
 @export var roll_influence: float = 8 ## Controls how much player input affects steering when mid-roll.
+
+@export_category("Dependencies")
+@export var health_component : Health
 @export var whip : Whip
 
 var previous_facing_direction: Vector2 = Vector2.RIGHT ## Roll this way if you roll while not holding any directions. Updated every time the player makes a movement input.
@@ -27,6 +37,13 @@ enum PlayerState {
 
 var current_state: PlayerState = PlayerState.WALKING
 
+static func update_persisting_data() -> void:
+	if persisting_data == null:
+		persisting_data = PlayerPersistingData.new()
+	
+	persisting_data.max_health = Player.instance.health_component.max_health
+	persisting_data.health = Player.instance.health_component.health
+
 ## Returns the inputted walking direction on the XZ plane (Y = 0)
 func walking_dir() -> Vector3:
 	var input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -36,17 +53,21 @@ func walking_dir() -> Vector3:
 	if input == Vector2.ZERO && current_state == PlayerState.ROLLING: input = previous_facing_direction
 	return Vector3(input.x, 0, input.y)
 
+func _ready() -> void:
+	instance = self
+	if persisting_data != null:
+		health_component.max_health = persisting_data.max_health
+		health_component.health = persisting_data.health
+
+func _init() -> void:
+	instance = self
+
+
 ## Returns the direction from the player to the reticle (Y = 0)
 func aim_dir() -> Vector3:
 	var dir: Vector3 = %Reticle.global_position - self.global_position
 	dir.y = 0
 	return dir.normalized()
-
-func _ready() -> void:
-	instance = self
-
-func _init() -> void:
-	instance = self
 
 
 func _physics_process(_delta: float) -> void:
