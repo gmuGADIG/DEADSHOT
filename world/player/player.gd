@@ -17,8 +17,7 @@ var speed_multiplier: float = 1.0;
 
 @export_category("Dependencies")
 @export var health_component : Health
-
-
+@export var whip : Whip
 
 var previous_facing_direction: Vector2 = Vector2.RIGHT ## Roll this way if you roll while not holding any directions. Updated every time the player makes a movement input.
 
@@ -33,7 +32,7 @@ const STAMINA_RECHARGE_RATE: float = 0.666667
 ## These are the states that the player can be in. States control what the player can do.
 enum PlayerState {
 	WALKING,
-	ROLLING,
+	ROLLING
 }
 
 var current_state: PlayerState = PlayerState.WALKING
@@ -72,18 +71,18 @@ func aim_dir() -> Vector3:
 
 
 func _physics_process(_delta: float) -> void:
-	if Input.is_action_just_pressed("roll"):
+	
+	if Input.is_action_just_pressed("roll") and whip.whip_state == Whip.WhipState.OFF:
 		begin_roll()
 	
-	match current_state:
-		PlayerState.WALKING:
-			velocity = walking_dir() * walk_speed * speed_multiplier
-		PlayerState.ROLLING:
-			## We move the velocity vector towards the direction of the movement. 
-			## This means that velocity doesn't immediately become where we're pointing, but changes over time.
-			## We normalize the shit out of everything so we can multiply it by a consistent speed.
-			## This way there's no weird acceleration or slowdown.
-			velocity = velocity.move_toward(walking_dir().normalized(), roll_influence).normalized() * roll_speed
+	if current_state == PlayerState.WALKING:
+		velocity = walking_dir() * walk_speed * speed_multiplier
+	elif current_state == PlayerState.ROLLING && whip.whip_state == Whip.WhipState.OFF:
+		## We move the velocity vector towards the direction of the movement. 
+		## This means that velocity doesn't immediately become where we're pointing, but changes over time.
+		## We normalize the shit out of everything so we can multiply it by a consistent speed.
+		## This way there's no weird acceleration or slowdown.
+		velocity = velocity.move_toward(walking_dir().normalized(), roll_influence).normalized() * roll_speed
 			
 	move_and_slide()
 		
@@ -97,6 +96,15 @@ func _process(delta: float) -> void:
 			exit_combat()
 		else:
 			enter_combat()
+
+func can_shoot() -> bool:
+	if current_state == PlayerState.ROLLING:
+		return false
+	
+	if whip.whip_state != Whip.WhipState.OFF:
+		return false
+	
+	return true
 
 func begin_roll() -> void:
 	# This function only runs when the roll starts. Get out of here if you're already rolling!
