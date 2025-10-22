@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bspns5244rj6v"
-path.s3tc="res://.godot/imported/ghost_crying.png-72c555e22c396dc79b84e07961821de9.s3tc.ctex"
+uid="uid://di2fa8ln64nqe"
+path.s3tc="res://.godot/imported/corrupt_heart.png-71427d3fb36e0ed5b6b3a5ec4f653dc4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://temp_art/gartic/ghost_crying.png"
-dest_files=["res://.godot/imported/ghost_crying.png-72c555e22c396dc79b84e07961821de9.s3tc.ctex"]
+source_file="res://world/pickups/corrupt_heart/corrupt_heart.png"
+dest_files=["res://.godot/imported/corrupt_heart.png-71427d3fb36e0ed5b6b3a5ec4f653dc4.s3tc.ctex"]
 
 [params]
 

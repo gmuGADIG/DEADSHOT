@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://cldpmxcx2sdmd"]
+
+[ext_resource type="Shader" uid="uid://buxykrqlibd21" path="res://world/pickups/corrupt_heart/blood_particles/corrupt_heart_blood.gdshader" id="1_u64mv"]
+[ext_resource type="Script" uid="uid://m385t8gvrw2f" path="res://world/pickups/corrupt_heart/blood_particles/kill_finished_particle.gd" id="2_aimip"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5roo4"]
+direction = Vector3(0, 1, 0)
+spread = 20.0
+initial_velocity_min = 3.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, -15, 0)
+collision_mode = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hvqcw"]
+render_priority = 0
+shader = ExtResource("1_u64mv")
+
+[sub_resource type="QuadMesh" id="QuadMesh_vve5n"]
+material = SubResource("ShaderMaterial_hvqcw")
+
+[node name="BloodSpurt" type="GPUParticles3D"]
+emitting = false
+amount = 5
+one_shot = true
+explosiveness = 1.0
+collision_base_size = 1.0
+process_material = SubResource("ParticleProcessMaterial_5roo4")
+draw_pass_1 = SubResource("QuadMesh_vve5n")
+script = ExtResource("2_aimip")
+
+[connection signal="finished" from="." to="." method="_on_finished"]
