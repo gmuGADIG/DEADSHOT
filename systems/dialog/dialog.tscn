@@ -40,10 +40,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_luyus")
 sfx = SubResource("Resource_yftcr")
-skip_n_characters = 2
 
 [node name="LineTimer" type="Timer" parent="."]
-wait_time = 0.05
+wait_time = 0.1
 
 [node name="Panel" type="Panel" parent="."]
 visible = false
@@ -84,5 +83,6 @@ metadata/_edit_lock_ = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_qqm2g")
 volume_db = -10.0
+max_polyphony = 2
 
 [connection signal="timeout" from="LineTimer" to="." method="show_character"]
