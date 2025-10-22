@@ -9,7 +9,7 @@
 script = ExtResource("1_0eps3")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.305, 0, 0, 0, 0.305, 0, 0, 0, 0.305, 0, 0.4678592, 0)
+transform = Transform3D(0.30500004, 0, 0, 0, 0.26413777, 0.15250002, 0, -0.15250002, 0.26413777, 0, 0.4678592, 0)
 texture = ExtResource("2_imkur")
 
 [node name="Area3D" type="Area3D" parent="."]
