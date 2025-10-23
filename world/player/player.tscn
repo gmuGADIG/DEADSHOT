@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://nuqmhgq1e2lu"]
+[gd_scene load_steps=14 format=3 uid="uid://nuqmhgq1e2lu"]
 
 [ext_resource type="Script" uid="uid://llqh4g6obmup" path="res://world/player/player.gd" id="1_bvkkv"]
 [ext_resource type="Texture2D" uid="uid://ckv48omi8han7" path="res://temp_art/gartic/harry_potter_with_gun.png" id="1_yynsy"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bwm425xkr0vcy" path="res://temp_art/icon.svg" id="4_et4on"]
 [ext_resource type="Script" uid="uid://do5vs8m1law7o" path="res://systems/attacking/health/health.gd" id="6_thypd"]
 [ext_resource type="Script" uid="uid://lxg83i28nlul" path="res://systems/attacking/hurtbox/hurtbox.gd" id="7_d3e1v"]
+[ext_resource type="Script" uid="uid://c1g7056xgtqys" path="res://systems/camera/camera_tracked.gd" id="11_2x47q"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_plfsl"]
 height = 1.85699
@@ -32,17 +33,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94693, 0)
 shape = SubResource("CylinderShape3D_plfsl")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0.385961, 1, 0)
 alpha_cut = 1
 texture = ExtResource("1_yynsy")
-
-[node name="CamHolder" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.65204537, 0.7581798, 0, -0.7581798, 0.65204537, 0, 0, 0.35582018)
-
-[node name="Camera3D" type="Camera3D" parent="CamHolder"]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.4505806e-08, 9.108398)
-fov = 72.4
 
 [node name="RollDurationTimer" type="Timer" parent="."]
 unique_name_in_owner = true
@@ -71,6 +64,11 @@ script = ExtResource("4_40qjc")
 [node name="Sprite3D" type="Sprite3D" parent="Aiming/Reticle"]
 transform = Transform3D(0.34999996, 0, 0, 0, 0, 0.34999993, 0, -0.34999993, 0, 0, 0.051027596, 0)
 texture = ExtResource("4_et4on")
+
+[node name="CameraTracked" type="Node3D" parent="Aiming/Reticle"]
+script = ExtResource("11_2x47q")
+weight = 0.1
+metadata/_custom_type_script = "uid://c1g7056xgtqys"
 
 [node name="HurtboxComponent" type="Area3D" parent="." node_paths=PackedStringArray("health_component")]
 script = ExtResource("7_d3e1v")
@@ -101,3 +99,8 @@ size = Vector3(2.0436769, 4.2347975, 2.0017486)
 
 [node name="Whip" parent="." instance=ExtResource("4_duds0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.54808617, 0)
+
+[node name="CameraTracked" type="Node3D" parent="."]
+script = ExtResource("11_2x47q")
+weight = 2.0
+metadata/_custom_type_script = "uid://c1g7056xgtqys"

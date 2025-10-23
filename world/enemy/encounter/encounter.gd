@@ -56,6 +56,7 @@ func start_encounter() -> void:
 	print("Encounter START")
 	progress = EncounterProgress.IN_PROGRESS
 	active_encounter = self
+	%CameraTracked.enabled = true
 	for obj in get_encounter_objects():
 		obj.start()
 		await get_tree().create_timer(0.1, false).timeout
@@ -63,6 +64,7 @@ func start_encounter() -> void:
 func end_encounter() -> void:
 	print("Encounter END")
 	progress = EncounterProgress.DONE
+	%CameraTracked.enabled = false
 	active_encounter = null
 
 func _is_encounter_done() -> bool:
