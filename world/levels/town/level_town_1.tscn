@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://blppqsxslhh07"]
+[gd_scene load_steps=13 format=3 uid="uid://blppqsxslhh07"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_j5c1u"]
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="2_83i12"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="4_0hyq2"]
 [ext_resource type="PackedScene" uid="uid://d3stqami0urg7" path="res://world/npc/test/npc_test.tscn" id="5_jrcoc"]
 [ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="6_qoiyb"]
+[ext_resource type="PackedScene" uid="uid://8er7o8byf7v1" path="res://world/decoration/well/well.tscn" id="7_f3sn8"]
+[ext_resource type="PackedScene" uid="uid://cgj018oscuhf6" path="res://world/decoration/buildings/house.tscn" id="7_qoiyb"]
+[ext_resource type="PackedScene" uid="uid://crroyl2puavcb" path="res://world/decoration/floor_lantern/floor_lantern.tscn" id="9_ycak7"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_jsebj"]
 vertices = PackedVector3Array(12.672548, 0.49, 3.7185097, 12.672548, 0.49, 2.7185097, 10.922548, 0.49, 2.7185097, 10.172548, 0.49, 4.4685097, -4.5774517, 0.49, 0.71850955, -4.5774517, 0.49, 2.4685097, -4.3274517, 0.49, 6.2185097, 0.6725483, 0.49, 6.4685097, 10.422548, 0.49, 0.96850955, -6.5774517, 0.49, 2.9685097, -6.5774517, 0.49, 3.7185097, -4.5774517, 0.49, 3.9685097, 10.422548, 0.49, 6.4685097, 10.422548, 0.49, 2.2185097)
@@ -32,16 +35,15 @@ navigation_mesh = SubResource("NavigationMesh_jsebj")
 curve = SubResource("Curve3D_j5c1u")
 material = ExtResource("2_suwgb")
 
-[node name="Saloon" type="CSGBox3D" parent="." index="2"]
-transform = Transform3D(2.0004485, 0, 0, 0, 1.5672383, 0, 0, 0, 1.5981263, -12.562617, 0.7766113, -10.65599)
+[node name="EncounterPlaceholder" type="CSGBox3D" parent="." index="2"]
+transform = Transform3D(4.45, 0, 0, 0, -2.560613e-07, 1.497, 0, -5.858, -6.543595e-08, -22.049597, -0.072, 0.35922477)
 use_collision = true
-size = Vector3(3.676, 2.553, 0.1)
+size = Vector3(6.500116, 2.553, 0.1)
 
-[node name="Sheriff\'s Office" type="CSGBox3D" parent="." index="3"]
-editor_description = "Sheriff's Office"
-transform = Transform3D(1.6531699, 0, 0, 0, 1.2202348, 0, 0, 0, 1.3296973, 30.593292, 1.5532227, -9.857863)
+[node name="EncounterPlaceholder" type="CSGBox3D" parent="EncounterPlaceholder" index="0"]
+transform = Transform3D(4.45, 0, 0, 0, 5.8580008, 6.467729e-08, 0, -3.517373e-07, 1.497, 14.916029, 0.0489756, -0.012945548)
 use_collision = true
-size = Vector3(3.676, 2.553, 0.1)
+size = Vector3(1.5559372, 0.3750664, 0.1)
 
 [node name="Left" type="Node3D" parent="EntryPoints" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.51223, 0, 0.56269884)
@@ -59,7 +61,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.177208, 0, -0.065726995)
 target_scene = "uid://crgv6bkolrlyy"
 target_entry_point = "Left"
 
-[node name="Notes" type="Node3D" parent="." index="7"]
+[node name="Notes" type="Node3D" parent="." index="6"]
 
 [node name="Comment" parent="Notes" index="0" instance=ExtResource("4_0hyq2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39030218, 0, 3.104404)
@@ -71,8 +73,115 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.7641077, 0, 3.1090455)
 text = "eventually it'll be split into a few scenes:
 (1) initial, (2) peaceful, (3) corrupted, (4) sheriff."
 
-[node name="NPCs" type="Node3D" parent="." index="8"]
+[node name="NPCs" type="Node3D" parent="." index="7"]
 
 [node name="NPCTest" parent="NPCs" index="0" instance=ExtResource("5_jrcoc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.444736, 0, 1.1609888)
 timelime = SubResource("Resource_1ab8i")
+
+[node name="Comment" parent="." index="9" instance=ExtResource("4_0hyq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.247622, 0.020611577, -0.72196484)
+text = "town encounter #1
+"
+
+[node name="House" parent="." index="10" instance=ExtResource("7_qoiyb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1851654, 0, -9.456607)
+
+[node name="House2" parent="." index="11" instance=ExtResource("7_qoiyb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.697407, 0, -9.255409)
+
+[node name="House3" parent="." index="12" instance=ExtResource("7_qoiyb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.801994, 0, -9.322165)
+
+[node name="House4" parent="." index="13" instance=ExtResource("7_qoiyb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.080996, 0, -9.161853)
+
+[node name="House5" parent="." index="14" instance=ExtResource("7_qoiyb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.335035, 0, -9.78521)
+
+[node name="House6" parent="." index="15" instance=ExtResource("7_qoiyb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.324898, 0, -10.264383)
+
+[node name="House7" parent="." index="16" instance=ExtResource("7_qoiyb")]
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -2.9453688, 0, 14.81582)
+
+[node name="House8" parent="." index="17" instance=ExtResource("7_qoiyb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0133495, 0, 30.855556)
+
+[node name="House9" parent="." index="18" instance=ExtResource("7_qoiyb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.416681, 0, 14.947302)
+
+[node name="House10" parent="." index="19" instance=ExtResource("7_qoiyb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.085875, 0, 31.056675)
+
+[node name="House11" parent="." index="20" instance=ExtResource("7_qoiyb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4736514, 0, -16.997604)
+
+[node name="House12" parent="." index="21" instance=ExtResource("7_qoiyb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.930201, 0, -32.848045)
+
+[node name="House13" parent="." index="22" instance=ExtResource("7_qoiyb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.704462, 0, -32.856525)
+
+[node name="House14" parent="." index="23" instance=ExtResource("7_qoiyb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.870256, 0, -16.99298)
+
+[node name="FloorLantern" parent="." index="24" instance=ExtResource("9_ycak7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026645184, 0.059490204, 7.5032425)
+
+[node name="FloorLantern2" parent="." index="25" instance=ExtResource("9_ycak7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3611474, 9.536743e-07, -8.45751)
+
+[node name="FloorLantern3" parent="." index="26" instance=ExtResource("9_ycak7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.951942, -9.536743e-07, 7.2849736)
+
+[node name="FloorLantern4" parent="." index="27" instance=ExtResource("9_ycak7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.73373, 0, -8.143075)
+
+[node name="Well" parent="." index="28" instance=ExtResource("7_f3sn8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.871329, -1.9345382e-06, -0.6220263)
+
+[node name="NPCTest" parent="." index="29" instance=ExtResource("5_jrcoc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9888, 0.06661462, -0.24382162)
+
+[node name="NPCTest2" parent="." index="30" instance=ExtResource("5_jrcoc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0644188, 0, 18.85057)
+
+[node name="NPCTest3" parent="." index="31" instance=ExtResource("5_jrcoc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2126114, 0, -29.987091)
+
+[node name="NPCTest4" parent="." index="32" instance=ExtResource("5_jrcoc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.766342, 0, -9.108655)
+
+[node name="NPCTest5" parent="." index="33" instance=ExtResource("5_jrcoc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.568152, 0.06661421, -20.492699)
+
+[node name="NPCTest6" parent="." index="34" instance=ExtResource("5_jrcoc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.430821, 0, -9.557451)
+
+[node name="NPCTest7" parent="." index="35" instance=ExtResource("5_jrcoc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.523659, 0, 32.32901)
+
+[node name="Comment2" parent="." index="36" instance=ExtResource("4_0hyq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.202072, 2.05485, 0.24540901)
+text = "Buildings on this left side named from left to right: Outhouse, bank, saloon, house"
+size = 2.0
+
+[node name="Comment3" parent="." index="37" instance=ExtResource("4_0hyq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.70354, 0, -6.11769)
+text = "buildings on the right side, the sheriff office and the jail."
+size = 2.0
+
+[node name="Comment4" parent="." index="38" instance=ExtResource("4_0hyq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.095308, 2.127441, -23.150051)
+text = "planned to put general store, water tower, most likely another house and a outhouse"
+size = 2.0
+
+[node name="Comment5" parent="." index="39" instance=ExtResource("4_0hyq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.546692, 1.8184146e-06, 19.782948)
+text = "the buildings down here will be a gun store, a abandoned stable with fences, (showen with the two houses on the side). and another house."
+size = 2.0
+
+[node name="Comment6" parent="." index="40" instance=ExtResource("4_0hyq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.8584, 0.98787177, 0.89964545)
+text = "town encounter #2"
