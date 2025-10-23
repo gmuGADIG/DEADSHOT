@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bwm425xkr0vcy" path="res://temp_art/icon.svg" id="1_2msmg"]
 [ext_resource type="Script" uid="uid://c2rh58lkl0gwo" path="res://world/player/HUD/hud.gd" id="1_cuqld"]
 
-[node name="Hud" type="Control" node_paths=PackedStringArray("stamina_bar", "stamina_container")]
+[node name="Hud" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,8 +11,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cuqld")
-stamina_bar = NodePath("StaminaContainer/ProgressBar")
-stamina_container = NodePath("StaminaContainer")
 
 [node name="StaminaContainer" type="PanelContainer" parent="."]
 custom_minimum_size = Vector2(0, 30)
