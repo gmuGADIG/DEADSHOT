@@ -90,8 +90,11 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	starting_pos = starting_pos if not starting_pos.is_equal_approx(Vector3.ZERO) else position
 	last_known_player_position = player.global_position
-	%Health.killed.connect(queue_free)
+	if not is_in_group("remaining_enemies"):
+		queue_free()
 	%Health.killed.connect(drop_tonic)
+	%Health.killed.connect(death)
+	add_to_group("remaining_enemies")
 
 	if fire_rate == 0:
 		firing_timer.process_mode = PROCESS_MODE_DISABLED
@@ -202,6 +205,11 @@ func drop_tonic() -> void:
 		var dropped_tonic : Node3D = tonic.instantiate();
 		dropped_tonic.position = self.position;
 		$/root.add_child(dropped_tonic);
+		
+func death() -> void:
+	remove_from_group("remaining_enemies")
+	print("Enemies left in group:", get_tree().get_nodes_in_group("remaining_enemies"))
+	queue_free()
 
 func shoot_bullet() -> void:
 	if !can_shoot:
