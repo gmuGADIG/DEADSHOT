@@ -1,12 +1,13 @@
 extends Camera3D
 
 @export var offset: Vector3
+@export var smoothing: float
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	var target := average_position()
 	target += offset
 	
-	global_position = target
+	global_position = lerp(global_position, target, 1.0 - exp(-smoothing * delta))
 
 func average_position() -> Vector3:
 	# Do a weighted average on all "camera_tracked" nodes
