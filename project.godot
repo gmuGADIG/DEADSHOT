@@ -47,6 +47,7 @@ folder_colors={
 [global_group]
 
 player=""
+camera_tracked=""
 
 [input]
 

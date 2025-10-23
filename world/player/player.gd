@@ -21,9 +21,6 @@ var speed_multiplier: float = 1.0;
 
 var previous_facing_direction: Vector2 = Vector2.RIGHT ## Roll this way if you roll while not holding any directions. Updated every time the player makes a movement input.
 
-## Is the player currently in combat? If so, HUD will be shown and dashing will cost stamina.
-var is_in_combat: bool = false
-
 ## Stamina. Consumed by rolling. Up to 3. We use a float so we can smoothly recharge it partially over time.
 var stamina: float = 3.0
 ## How much stamina recharges every second. It should take 1.5 seconds for 1 bar to recover.
@@ -88,14 +85,7 @@ func _physics_process(_delta: float) -> void:
 		
 ## We use the proper process function to update stamina, since it appears on the HUD and that could be drawn faster than the physics tickrate.
 func _process(delta: float) -> void:
-	if is_in_combat: update_stamina(delta)
-	
-	# TEST COMBAT ENCOUNTER MODE FOR STAMINA
-	if Input.is_action_just_pressed("ui_focus_next"):
-		if is_in_combat:
-			exit_combat()
-		else:
-			enter_combat()
+	update_stamina(delta)
 
 func can_shoot() -> bool:
 	if current_state == PlayerState.ROLLING:
@@ -122,29 +112,9 @@ func begin_roll() -> void:
 
 ## Called every frame if the player is in combat.
 func update_stamina(delta: float) -> void:
-	if is_in_combat:
+	if Encounter.is_encounter_active():
 		stamina += STAMINA_RECHARGE_RATE * delta
 		stamina = clampf(stamina, 0.0, 3.0)
 		$Hud.update_stamina_bar(stamina)
 	else:
 		stamina = 3.0
-
-
-# COMBAT ENCOUNTERS
-# According to the GDD, the player will enter Combat Encounters. These involve:
-# - The camera locking
-# - Enemies spawning in a group
-# - Rolling becomes stamina-dependent
-# To handle all of this, some other object should just tell the player about combat encounters with signals.
-# These next two functions are provided to hook your signals into.
-## Call this to tell the player that a combat encounter is beginning.
-func enter_combat() -> void:
-	if is_in_combat: return
-	is_in_combat = true
-	$Hud.fade_stamina_in()
-## Call this to tell the player that a combat encounter is done.
-func exit_combat() -> void:
-	if !is_in_combat: return
-	is_in_combat = false
-	stamina = 3.0
-	$Hud.fade_stamina_out()
