@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://nuqmhgq1e2lu"]
+[gd_scene load_steps=13 format=3 uid="uid://nuqmhgq1e2lu"]
 
 [ext_resource type="Script" uid="uid://llqh4g6obmup" path="res://world/player/player.gd" id="1_bvkkv"]
 [ext_resource type="Texture2D" uid="uid://ckv48omi8han7" path="res://temp_art/gartic/harry_potter_with_gun.png" id="1_yynsy"]
@@ -19,10 +19,10 @@ radius = 0.669922
 height = 0.27978516
 radius = 0.8881836
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("whip", "health_component") groups=["player"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("health_component", "whip") groups=["player"]]
 script = ExtResource("1_bvkkv")
-whip = NodePath("Whip")
 health_component = NodePath("HurtboxComponent/HealthComponent")
+whip = NodePath("Whip")
 
 [node name="Hud" parent="." instance=ExtResource("2_duds0")]
 
