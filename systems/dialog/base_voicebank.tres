@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Voicebank" load_steps=24 format=3 uid="uid://n3l866akthk8"]
+
+[ext_resource type="AudioStream" uid="uid://bdsxandq2bhjy" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkA.wav" id="1_ce2oe"]
+[ext_resource type="Script" uid="uid://qxwm2k0huy5n" path="res://systems/dialog/voicebank.gd" id="1_lnsqf"]
+[ext_resource type="AudioStream" uid="uid://b5lhglep41wwx" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkB.wav" id="2_q53wm"]
+[ext_resource type="AudioStream" uid="uid://db7o75hm7770g" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkC.wav" id="3_td5if"]
+[ext_resource type="AudioStream" uid="uid://ccdtwcvjao0e3" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkD.wav" id="4_hcip4"]
+[ext_resource type="AudioStream" uid="uid://c36ioygkjd8d4" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkE.wav" id="5_p0vnt"]
+[ext_resource type="AudioStream" uid="uid://ctn0h6ho7loaq" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkF.wav" id="6_ye5i1"]
+[ext_resource type="AudioStream" uid="uid://c2atlji5w1043" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkG.wav" id="7_6wp5l"]
+[ext_resource type="AudioStream" uid="uid://ceadyai3wuwek" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkH.wav" id="8_e1x7y"]
+[ext_resource type="AudioStream" uid="uid://e4rpw44v5pu2" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkI.wav" id="9_6cr7a"]
+[ext_resource type="AudioStream" uid="uid://4gota7gomsgo" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkJ.wav" id="10_lvs31"]
+[ext_resource type="AudioStream" uid="uid://bm8yxchl11gif" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkK.wav" id="11_3v2mg"]
+[ext_resource type="AudioStream" uid="uid://33l2kmcwu7pt" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkL.wav" id="12_26ncn"]
+[ext_resource type="AudioStream" uid="uid://jfs1a70mdybg" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkM.wav" id="13_64xtm"]
+[ext_resource type="AudioStream" uid="uid://b6mf1o20f3k3k" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkN.wav" id="14_y4bst"]
+[ext_resource type="AudioStream" uid="uid://ca60lnr856xri" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkO.wav" id="15_5cruw"]
+[ext_resource type="AudioStream" uid="uid://dk3petmqtwhcl" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkP.wav" id="16_wr8pc"]
+[ext_resource type="AudioStream" uid="uid://dq1sadbsq3kco" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkQ.wav" id="17_oorlq"]
+[ext_resource type="AudioStream" uid="uid://c1gefgndd3jk" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkR.wav" id="18_mymi4"]
+[ext_resource type="AudioStream" uid="uid://cwttj4drnd4r8" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkT.wav" id="19_4cu3u"]
+[ext_resource type="AudioStream" uid="uid://b35g8ijf21h15" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkU.wav" id="20_ypg6j"]
+[ext_resource type="AudioStream" uid="uid://dxn806b3l8hmt" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkW.wav" id="21_2jmc6"]
+[ext_resource type="AudioStream" uid="uid://cs4qt0nkxm26g" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkY.wav" id="22_5rjj2"]
+
+[resource]
+script = ExtResource("1_lnsqf")
+charToSteam = Array[AudioStream]([ExtResource("1_ce2oe"), ExtResource("2_q53wm"), ExtResource("3_td5if"), ExtResource("4_hcip4"), ExtResource("5_p0vnt"), ExtResource("6_ye5i1"), ExtResource("7_6wp5l"), ExtResource("8_e1x7y"), ExtResource("9_6cr7a"), ExtResource("10_lvs31"), ExtResource("11_3v2mg"), ExtResource("12_26ncn"), ExtResource("13_64xtm"), ExtResource("14_y4bst"), ExtResource("15_5cruw"), ExtResource("16_wr8pc"), ExtResource("17_oorlq"), ExtResource("18_mymi4"), ExtResource("19_4cu3u"), ExtResource("20_ypg6j"), ExtResource("21_2jmc6"), ExtResource("22_5rjj2")])
+metadata/_custom_type_script = "uid://qxwm2k0huy5n"
