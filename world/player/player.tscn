@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cj5uuu7xjsprv" path="res://world/player/weapon/basic_gun/basic_gun.tscn" id="3_et4on"]
 [ext_resource type="Script" uid="uid://c4s1ohnc08ecy" path="res://world/player/reticle/reticle.gd" id="4_40qjc"]
 [ext_resource type="Texture2D" uid="uid://bwm425xkr0vcy" path="res://temp_art/icon.svg" id="4_et4on"]
-[ext_resource type="Script" path="res://systems/attacking/health/health.gd" id="6_thypd"]
+[ext_resource type="Script" uid="uid://do5vs8m1law7o" path="res://systems/attacking/health/health.gd" id="6_thypd"]
 [ext_resource type="Script" uid="uid://lxg83i28nlul" path="res://systems/attacking/hurtbox/hurtbox.gd" id="7_d3e1v"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_plfsl"]
@@ -56,6 +56,7 @@ texture = ExtResource("4_et4on")
 [node name="HurtboxComponent" type="Area3D" parent="." node_paths=PackedStringArray("health_component")]
 script = ExtResource("7_d3e1v")
 health_component = NodePath("HealthComponent")
+allowed_damage_sources = Array[int]([1, 2])
 metadata/_custom_type_script = "uid://lxg83i28nlul"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HurtboxComponent"]
