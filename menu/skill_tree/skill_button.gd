@@ -6,6 +6,7 @@ class_name Skill_Button
 @export var meatCost:int
 @onready var Skill_Branch : Line2D = $Skill_Branch
 @export var dependencies : Array[Skill_Button]
+@export var itemDesc : Resource
 
 func _ready() -> void:
 	$Label.text = skillName
