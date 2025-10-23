@@ -4,13 +4,14 @@
 [ext_resource type="Script" uid="uid://dqw3rnmgfv6r7" path="res://world/enemy/longhorn/longhorn.gd" id="2_efxix"]
 [ext_resource type="Texture2D" uid="uid://chnnd6opa6df5" path="res://temp_art/gartic/fish_man.png" id="3_g07qo"]
 
-[node name="Enemy" node_paths=PackedStringArray("timer", "hurtbox") instance=ExtResource("1_qriva")]
+[node name="Enemy" node_paths=PackedStringArray("timer", "hurtbox", "health") instance=ExtResource("1_qriva")]
 script = ExtResource("2_efxix")
 timer = NodePath("ChargeTimer")
-charge_time = 1.0
-cooldown_time = 2.0
+charge_time = 3.0
+cooldown_time = 3.0
 hurtbox = NodePath("Hurtbox")
-type = 1
+health = NodePath("Health")
+proximity_tolerance = 1.5
 
 [node name="Sprite3D" parent="." index="1"]
 texture = ExtResource("3_g07qo")

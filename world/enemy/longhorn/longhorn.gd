@@ -5,6 +5,7 @@ extends EnemyBase
 @export var charge_time:float
 @export var cooldown_time:float
 @export var hurtbox:Hurtbox
+@export var health:Health
 var player_damage_source:DamageInfo.Source = DamageInfo.Source.PLAYER
 var target:Vector3
 
@@ -15,7 +16,8 @@ var target:Vector3
 func hostile() -> void:
 	if timer.is_stopped():
 		print("Charging")
-		hurtbox.allowed_damage_sources.pop_front()
+		health.vulnerable = false
+		#hurtbox.allowed_damage_sources.pop_front()
 		timer.start(charge_time)
 		
 
@@ -29,7 +31,8 @@ func attack() -> void:
 			if timer.is_stopped():
 				timer.start(cooldown_time)
 				print("I'm vulny")
-				hurtbox.allowed_damage_sources.insert(0, player_damage_source)
+				health.vulnerable = true
+				#hurtbox.allowed_damage_sources.insert(0, player_damage_source)
 		
 #endregion
 
