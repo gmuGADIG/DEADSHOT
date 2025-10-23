@@ -36,107 +36,86 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.811764, 0, 5.346299)
 [node name="Cover3" parent="World" index="5" instance=ExtResource("3_ab4dd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.36438, 0, 11.959286)
 
-[node name="Cover15" parent="World" index="6" instance=ExtResource("3_ab4dd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.42501, 0, 8.983976)
-
-[node name="Cover16" parent="World" index="7" instance=ExtResource("3_ab4dd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.46827, 0, 10.5535555)
-
-[node name="Cover17" parent="World" index="8" instance=ExtResource("3_ab4dd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.897522, 0, 11.891842)
-
-[node name="Cover28" parent="World" index="9" instance=ExtResource("3_ab4dd")]
+[node name="Cover28" parent="World" index="6" instance=ExtResource("3_ab4dd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7182827, 0, 8.983976)
 
-[node name="Cover29" parent="World" index="10" instance=ExtResource("3_ab4dd")]
+[node name="Cover29" parent="World" index="7" instance=ExtResource("3_ab4dd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.675026, 0, 10.5535555)
 
-[node name="Cover34" parent="World" index="11" instance=ExtResource("3_ab4dd")]
+[node name="Cover34" parent="World" index="8" instance=ExtResource("3_ab4dd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.928534, 0, 2.1283236)
 
-[node name="Cover37" parent="World" index="12" instance=ExtResource("3_ab4dd")]
+[node name="Cover37" parent="World" index="9" instance=ExtResource("3_ab4dd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.928534, 0, 0.83330536)
 
-[node name="Cover35" parent="World" index="13" instance=ExtResource("3_ab4dd")]
+[node name="Cover35" parent="World" index="10" instance=ExtResource("3_ab4dd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.800724, 0, 3.6979027)
 
-[node name="Cover36" parent="World" index="14" instance=ExtResource("3_ab4dd")]
+[node name="Cover36" parent="World" index="11" instance=ExtResource("3_ab4dd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.800724, 0, 4.9153037)
 
-[node name="Cover30" parent="World" index="15" instance=ExtResource("3_ab4dd")]
+[node name="Cover30" parent="World" index="12" instance=ExtResource("3_ab4dd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2457714, 0, 11.891842)
 
-[node name="Cover31" parent="World" index="16" instance=ExtResource("3_ab4dd")]
+[node name="Cover31" parent="World" index="13" instance=ExtResource("3_ab4dd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7182827, 0, -4.098715)
 
-[node name="Cover32" parent="World" index="17" instance=ExtResource("3_ab4dd")]
+[node name="Cover32" parent="World" index="14" instance=ExtResource("3_ab4dd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.675026, 0, -2.5291357)
 
-[node name="Cover33" parent="World" index="18" instance=ExtResource("3_ab4dd")]
+[node name="Cover33" parent="World" index="15" instance=ExtResource("3_ab4dd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2457714, 0, -1.1908493)
 
-[node name="Cover22" parent="World" index="19" instance=ExtResource("3_ab4dd")]
+[node name="Cover22" parent="World" index="16" instance=ExtResource("3_ab4dd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.955898, 0, 8.983976)
 
-[node name="Cover23" parent="World" index="20" instance=ExtResource("3_ab4dd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.31265, 0, 10.5535555)
-
-[node name="Cover24" parent="World" index="21" instance=ExtResource("3_ab4dd")]
+[node name="Cover24" parent="World" index="17" instance=ExtResource("3_ab4dd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.733109, 0, 12.37442)
 
-[node name="Cover25" parent="World" index="22" instance=ExtResource("3_ab4dd")]
+[node name="Cover25" parent="World" index="18" instance=ExtResource("3_ab4dd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.774868, 0, -4.490033)
 
-[node name="Cover26" parent="World" index="23" instance=ExtResource("3_ab4dd")]
+[node name="Cover26" parent="World" index="19" instance=ExtResource("3_ab4dd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.398027, 0, -1.0391006)
 
-[node name="Cover27" parent="World" index="24" instance=ExtResource("3_ab4dd")]
+[node name="Cover27" parent="World" index="20" instance=ExtResource("3_ab4dd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.76265, 0, 2.0924482)
 
-[node name="Cover18" parent="World" index="25" instance=ExtResource("3_ab4dd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.42501, 0, -6.4272585)
-
-[node name="Cover19" parent="World" index="26" instance=ExtResource("3_ab4dd")]
+[node name="Cover19" parent="World" index="21" instance=ExtResource("3_ab4dd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.610886, 0, -4.8576794)
 
-[node name="Cover21" parent="World" index="27" instance=ExtResource("3_ab4dd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.88666, 0, -5.1935043)
-
-[node name="Cover20" parent="World" index="28" instance=ExtResource("3_ab4dd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.897522, 0, -3.519393)
-
-[node name="Cover2" parent="World" index="29" instance=ExtResource("3_ab4dd")]
+[node name="Cover2" parent="World" index="22" instance=ExtResource("3_ab4dd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.811764, 0, 13.397232)
 
-[node name="Cover7" parent="World" index="30" instance=ExtResource("3_ab4dd")]
+[node name="Cover7" parent="World" index="23" instance=ExtResource("3_ab4dd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.72017, 0, 0.81287956)
 
-[node name="Cover8" parent="World" index="31" instance=ExtResource("3_ab4dd")]
+[node name="Cover8" parent="World" index="24" instance=ExtResource("3_ab4dd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.46646, 0, -0.66427994)
 
-[node name="Cover9" parent="World" index="32" instance=ExtResource("3_ab4dd")]
+[node name="Cover9" parent="World" index="25" instance=ExtResource("3_ab4dd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.317463, 0, -2.3697777)
 
-[node name="Cover10" parent="World" index="33" instance=ExtResource("3_ab4dd")]
+[node name="Cover10" parent="World" index="26" instance=ExtResource("3_ab4dd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.520504, 0, -4.230528)
 
-[node name="Cover13" parent="World" index="34" instance=ExtResource("3_ab4dd")]
+[node name="Cover13" parent="World" index="27" instance=ExtResource("3_ab4dd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.398483, 0, -5.6140976)
 
-[node name="Cover14" parent="World" index="35" instance=ExtResource("3_ab4dd")]
+[node name="Cover14" parent="World" index="28" instance=ExtResource("3_ab4dd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.811764, 0, -7.474848)
 
-[node name="Cover11" parent="World" index="36" instance=ExtResource("3_ab4dd")]
+[node name="Cover11" parent="World" index="29" instance=ExtResource("3_ab4dd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.64122, 0, 2.382)
 
-[node name="Cover12" parent="World" index="37" instance=ExtResource("3_ab4dd")]
+[node name="Cover12" parent="World" index="30" instance=ExtResource("3_ab4dd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.222847, 0, 3.820405)
 
 [node name="Right" type="Node3D" parent="EntryPoints" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.99756, 0, 2.9849052)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.366405, 0, 2.9849052)
 
 [node name="Right" parent="TransitionAreas" index="0" instance=ExtResource("3_vhe22")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.162662, 0, 3.148212)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.841705, 0, 3.148212)
 target_scene = "uid://blppqsxslhh07"
 target_entry_point = "Left"
 
@@ -157,7 +136,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.840607, 0, 14.135367)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.981382, 0, 14.3921585)
 
 [node name="CursedPlant4" parent="Decorations" index="2" instance=ExtResource("6_f6ib5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6024475, 0, -8.19335)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6024475, 0, -8.81553)
 
 [node name="CursedPlant5" parent="Decorations" index="3" instance=ExtResource("6_f6ib5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.922581, 0, -8.826532)
