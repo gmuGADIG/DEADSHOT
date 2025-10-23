@@ -40,18 +40,11 @@ func attack() -> void:
 		return
 		
 	var distance_to_player: float = global_position.distance_to(player.global_position)
-	
-	if distance_to_player <= MELEE_RANGE:
-		print("BirdSwarm launches melee attack!") 
-		
-		if player.has_method("take_damage"):
-			player.take_damage(10)
-			print("Melee attack! Deal 10 damage")
-		elif player.has_method("damage"):
-			player.damage(10)
-			print("Melee attack! Deal 10 damage")	
-		elif player.has_method("hurt"):
-			player.hurt(10)
-			print("Melee attack! Deal 10 damage")
-		else:
-			push_warning("BirdSwarm: Player has no damage method")
+
+func _on_damagebox_area_entered(area: Area3D) -> void:
+	if area is Hurtbox:
+		print("Hit")
+		var hurtbox : Hurtbox = area
+		var dmg := DamageInfo.new(damage, DamageInfo.Source.ENEMY, 0, velocity.normalized())
+		hurtbox.hit(dmg)
+		 # Replace with function body.

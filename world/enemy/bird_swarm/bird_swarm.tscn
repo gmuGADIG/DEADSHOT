@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://by1e10t6ksd64"]
+
+[ext_resource type="Script" uid="uid://dxqyfeho7h847" path="res://world/enemy/bird_swarm/bird_swarm_enemy.gd" id="1_bpewx"]
+[ext_resource type="Texture2D" uid="uid://chnnd6opa6df5" path="res://temp_art/gartic/fish_man.png" id="1_qlioi"]
+[ext_resource type="PackedScene" uid="uid://hiyp7n7uvc4m" path="res://systems/attacking/health/health.tscn" id="1_tkxs4"]
+[ext_resource type="PackedScene" uid="uid://b7d3oiw27awag" path="res://systems/attacking/hurtbox/hurtbox.tscn" id="2_tib35"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_plfsl"]
+height = 1.85699
+radius = 0.669922
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bpewx"]
+
+[node name="BirdSwarm" type="CharacterBody3D"]
+script = ExtResource("1_bpewx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94693, 0)
+shape = SubResource("CylinderShape3D_plfsl")
+disabled = true
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 1, 0)
+texture = ExtResource("1_qlioi")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+aabb = AABB(-0.5, 0, -0.5, 1, 1, 1)
+
+[node name="Health" parent="." instance=ExtResource("1_tkxs4")]
+unique_name_in_owner = true
+max_health = 10
+
+[node name="Hurtbox" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("2_tib35")]
+health_component = NodePath("../Health")
+allowed_damage_sources = Array[int]([0, 2])
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94693, 0)
+shape = SubResource("CylinderShape3D_plfsl")
+
+[node name="Damagebox" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Damagebox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94, 0)
+shape = SubResource("CylinderShape3D_bpewx")
+
+[connection signal="area_entered" from="Damagebox" to="." method="_on_damagebox_area_entered"]
