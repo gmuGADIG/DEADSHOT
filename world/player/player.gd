@@ -110,9 +110,10 @@ func begin_roll() -> void:
 	# This function only runs when the roll starts. Get out of here if you're already rolling!
 	if current_state == PlayerState.ROLLING: return
 	
-	# Factor in stamina
-	if stamina < 1.0: return
-	stamina -= 1.0
+	# Factor in stamina only if player is in combat:
+	if is_in_combat:
+		if stamina < 1.0: return
+		stamina -= 1.0
 	
 	#TODO: Play animation, do iframes.
 	current_state = PlayerState.ROLLING
@@ -122,13 +123,9 @@ func begin_roll() -> void:
 
 ## Called every frame if the player is in combat.
 func update_stamina(delta: float) -> void:
-	if is_in_combat:
-		stamina += STAMINA_RECHARGE_RATE * delta
-		stamina = clampf(stamina, 0.0, 3.0)
-		$Hud.update_stamina_bar(stamina)
-	else:
-		stamina = 3.0
-
+	stamina += STAMINA_RECHARGE_RATE * delta
+	stamina = clampf(stamina, 0.0, 3.0)
+	$Hud.update_stamina_bar(stamina)
 
 # COMBAT ENCOUNTERS
 # According to the GDD, the player will enter Combat Encounters. These involve:
