@@ -18,6 +18,7 @@ var speed_multiplier: float = 1.0;
 @export_category("Dependencies")
 @export var health_component : Health
 @export var whip : Whip
+@onready var interactor : Interactor = %InteractionArea
 
 var previous_facing_direction: Vector2 = Vector2.RIGHT ## Roll this way if you roll while not holding any directions. Updated every time the player makes a movement input.
 
@@ -31,8 +32,12 @@ const STAMINA_RECHARGE_RATE: float = 0.666667
 
 ## These are the states that the player can be in. States control what the player can do.
 enum PlayerState {
+	## The player is moving around at a normal speed.
 	WALKING,
-	ROLLING
+	## The player is executing a dodge-roll.
+	ROLLING,
+	## The player is interacting with a NPC.
+	INTERACTING
 }
 
 var current_state: PlayerState = PlayerState.WALKING
@@ -98,23 +103,25 @@ func _process(delta: float) -> void:
 			enter_combat()
 
 func can_shoot() -> bool:
-	if current_state == PlayerState.ROLLING:
+	# The player should only be able to shoot from the walking state.
+	if current_state != PlayerState.WALKING:
 		return false
-	
+	# The player can't shoot if they are using the whip either.
 	if whip.whip_state != Whip.WhipState.OFF:
 		return false
 	
 	return true
 
 func begin_roll() -> void:
-	# This function only runs when the roll starts. Get out of here if you're already rolling!
+	# This function only runs when the roll starts.
+	# Get out of here if you're already rolling!
 	if current_state == PlayerState.ROLLING: return
 	
 	# Factor in stamina
 	if stamina < 1.0: return
 	stamina -= 1.0
 	
-	#TODO: Play animation, do iframes.
+	# TODO: Play animation, do iframes.
 	current_state = PlayerState.ROLLING
 	%RollDurationTimer.start()
 	await %RollDurationTimer.timeout
