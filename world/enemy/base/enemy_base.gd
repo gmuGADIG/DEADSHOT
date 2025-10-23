@@ -28,7 +28,7 @@ enum AggroState {
 
 # TODO: change this to the real tonic scene eventually
 ## The tonic scene to drop.
-@onready var tonic := preload("res://world/items/tonic/tonic_test.tscn");
+@onready var tonic := preload("res://world/items/tonic/tonic.tscn");
 
 @export_group("Enemy Stats")
 ## The starting amount of health.
@@ -199,8 +199,8 @@ func is_close_to_destination() -> bool:
 ## Chance to drop tonic on enemy death.
 func drop_tonic() -> void:
 	if (tonic_drop_rate >= randf_range(0.0, 1.0)):
-		var dropped_tonic : Node3D = tonic.instantiate();
-		dropped_tonic.position = self.position;
+		var dropped_tonic : Node3D = tonic.instantiate()
+		dropped_tonic.global_position = self.global_position
 		$/root.add_child(dropped_tonic);
 
 func shoot_bullet() -> void:
