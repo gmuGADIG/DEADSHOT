@@ -12,6 +12,9 @@ var previous_facing_direction: Vector2 = Vector2.RIGHT ## Roll this way if you r
 ## Is the player currently in combat? If so, HUD will be shown and dashing will cost stamina.
 var is_in_combat: bool = false
 
+## This is how much health the player has
+
+
 ## Stamina. Consumed by rolling. Up to 3. We use a float so we can smoothly recharge it partially over time.
 var stamina: float = 3.0
 ## How much stamina recharges every second. It should take 1.5 seconds for 1 bar to recover.
@@ -116,3 +119,6 @@ func exit_combat() -> void:
 	is_in_combat = false
 	stamina = 3.0
 	$Hud.fade_stamina_out()
+
+
+	

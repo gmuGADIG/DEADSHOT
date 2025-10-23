@@ -18,6 +18,36 @@ offset_top = -70.0
 offset_right = 531.0
 grow_vertical = 0
 
+[node name="Heart 1" type="TextureRect" parent="Health Bar"]
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Health Bar/Heart 1"]
+
+[node name="Heart 2" type="TextureRect" parent="Health Bar"]
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Health Bar/Heart 2"]
+
+[node name="Heart 3" type="TextureRect" parent="Health Bar"]
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Health Bar/Heart 3"]
+
+[node name="Heart 4" type="TextureRect" parent="Health Bar"]
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Health Bar/Heart 4"]
+
+[node name="Heart 5" type="TextureRect" parent="Health Bar"]
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Health Bar/Heart 5"]
+
+[node name="Heart 6" type="TextureRect" parent="Health Bar"]
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Health Bar/Heart 6"]
+
 [node name="Ammo count" type="VBoxContainer" parent="."]
 modulate = Color(1, 1, 0.53333336, 1)
 layout_mode = 1
@@ -31,12 +61,8 @@ offset_top = -88.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="Gun graphic" type="BoxContainer" parent="."]
-layout_mode = 0
-offset_left = 973.0
-offset_top = 446.0
-offset_right = 1091.0
-offset_bottom = 526.0
+[node name="Ammo Box" type="TextureRect" parent="Ammo count"]
+layout_mode = 2
 
 [node name="Meat" type="BoxContainer" parent="."]
 layout_mode = 1
@@ -78,3 +104,5 @@ offset_left = 614.0
 offset_top = 283.0
 offset_right = 654.0
 offset_bottom = 323.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
