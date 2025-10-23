@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhb2pgqbfvxoa"]
+
+[ext_resource type="Script" uid="uid://be4q3bfx6l743" path="res://world/enemy/encounter/encounter.gd" id="1_sgs1t"]
+
+[node name="Encounter" type="Area3D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_sgs1t")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
