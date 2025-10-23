@@ -1,5 +1,10 @@
 @tool
+class_name Encounter
 extends Area3D
+
+## If an encounter is active, this references it.
+## Otherwise, null.
+static var active_encounter: Encounter = null
 
 enum EncounterProgress {
 	WAITING,
@@ -50,6 +55,7 @@ func prepare_encounter() -> void:
 func start_encounter() -> void:
 	print("Encounter START")
 	progress = EncounterProgress.IN_PROGRESS
+	active_encounter = self
 	for obj in get_encounter_objects():
 		obj.start()
 		await get_tree().create_timer(0.1, false).timeout
@@ -57,6 +63,7 @@ func start_encounter() -> void:
 func end_encounter() -> void:
 	print("Encounter END")
 	progress = EncounterProgress.DONE
+	active_encounter = null
 
 func _is_encounter_done() -> bool:
 	for o: EncounterObject in get_tree().get_nodes_in_group("encounter_object"):
@@ -77,3 +84,6 @@ func _on_body_entered(body: Node3D) -> void:
 	
 	if body is Player:
 		start_encounter()
+
+static func is_encounter_active() -> bool:
+	return active_encounter != null
