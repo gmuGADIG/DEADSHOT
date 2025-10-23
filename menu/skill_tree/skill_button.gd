@@ -2,6 +2,7 @@ extends TextureButton
 class_name Skill_Button
 
 @export var skillName:String
+@export var description:String
 @export var meatCost:int
 @onready var Skill_Branch : Line2D = $Skill_Branch
 @export var dependencies : Array[Skill_Button]
