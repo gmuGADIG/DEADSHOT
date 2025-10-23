@@ -6,3 +6,8 @@ labels: discipline:art
 assignees: ''
 
 ---
+Description:
+
+Deliverables:
+
+Other Details:

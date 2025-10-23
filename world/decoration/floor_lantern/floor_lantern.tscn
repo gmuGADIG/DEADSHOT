@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://crroyl2puavcb"]
+
+[ext_resource type="Texture2D" uid="uid://mpxyk4udwclq" path="res://temp_art/floor_lantern_temp.png" id="1_lr7sy"]
+[ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="2_8j7bb"]
+
+[node name="FloorLantern" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 1.136, 0)
+pixel_size = 0.005
+alpha_cut = 1
+texture = ExtResource("1_lr7sy")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6070213, 0)
+light_color = Color(1, 0.8413333, 0.65999997, 1)
+light_energy = 1.5
+omni_range = 9.703
+
+[node name="UNFINISHED" parent="." instance=ExtResource("2_8j7bb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0149559, 0)
+text = "lantern (wip)"

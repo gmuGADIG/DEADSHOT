@@ -20,3 +20,13 @@ func hurt(amount : int) -> void:
 
 func heal(amount : int) -> void:
 	health = clampi(health + amount, 0, max_health)
+
+func modify_max_health(amount : int) -> void:
+	
+	max_health += amount
+	print("max health now ",max_health)
+	
+	if amount > 0:
+		heal(amount)
+	elif health > max_health:
+		health = max_health
