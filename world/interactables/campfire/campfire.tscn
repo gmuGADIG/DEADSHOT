@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwsraqi3f8a1l"]
+[gd_scene load_steps=5 format=3 uid="uid://dwsraqi3f8a1l"]
 
 [ext_resource type="PackedScene" uid="uid://3q1vp7v05vlp" path="res://systems/interaction/Interactable.tscn" id="1_1666o"]
 [ext_resource type="Texture2D" uid="uid://bffhswt8p3gcs" path="res://temp_art/gartic/lorax_kirby.png" id="2_5undl"]
 [ext_resource type="Script" uid="uid://bn6avupkkqnrl" path="res://world/interactables/campfire/campfire.gd" id="2_lvvka"]
+[ext_resource type="PackedScene" uid="uid://bls8mp0x10le2" path="res://menu/campfire_menu/campfire_menu.tscn" id="4_35fmf"]
 
 [node name="Campfire" instance=ExtResource("1_1666o")]
 script = ExtResource("2_lvvka")
@@ -10,14 +11,4 @@ script = ExtResource("2_lvvka")
 [node name="campfireSprite" type="Sprite3D" parent="." index="1"]
 texture = ExtResource("2_5undl")
 
-[node name="Control" type="Control" parent="." index="2"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Label" type="Label" parent="Control" index="0"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Welcome to camp fire"
+[node name="CampfireMenu" parent="." index="2" instance=ExtResource("4_35fmf")]

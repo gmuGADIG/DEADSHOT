@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bls8mp0x10le2"]
+
+[node name="CampfireMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 173.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_right = 169.0
+offset_bottom = 23.0
+text = "Welcome to camp fire"

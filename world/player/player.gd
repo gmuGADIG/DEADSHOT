@@ -9,6 +9,8 @@ var speed_multiplier: float = 1.0;
 @export var roll_influence: float = 8 ## Controls how much player input affects steering when mid-roll. 
 var previous_facing_direction: Vector2 = Vector2.RIGHT ## Roll this way if you roll while not holding any directions. Updated every time the player makes a movement input.
 
+var health: int ##Temporary variable to access health from campfire and other healing items. DELETE IF NEEDED
+
 ## Is the player currently in combat? If so, HUD will be shown and dashing will cost stamina.
 var is_in_combat: bool = false
 
@@ -42,6 +44,7 @@ func aim_dir() -> Vector3:
 
 func _ready() -> void:
 	instance = self
+	
 
 func _init() -> void:
 	instance = self
