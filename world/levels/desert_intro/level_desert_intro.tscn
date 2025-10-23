@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bueg0v6pvrthp"]
+[gd_scene load_steps=7 format=3 uid="uid://bueg0v6pvrthp"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_ctnal"]
 [ext_resource type="Resource" uid="uid://q24ustx30otu" path="res://world/floor/sand/sand.tres" id="2_7h0w7"]
+[ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://world/interactables/cover/cover_1.tscn" id="3_ab4dd"]
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="3_vhe22"]
 [ext_resource type="PackedScene" uid="uid://d3stqami0urg7" path="res://world/npc/test/npc_test.tscn" id="4_3a2at"]
 
@@ -17,6 +18,9 @@ point_count = 14
 [node name="Floor" parent="World" index="0"]
 curve = SubResource("Curve3D_vhe22")
 material = ExtResource("2_7h0w7")
+
+[node name="Cover" parent="World" index="1" instance=ExtResource("3_ab4dd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.798306, 0.17816615, 10.76029)
 
 [node name="Right" type="Node3D" parent="EntryPoints" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.99756, 0, 2.9849052)
