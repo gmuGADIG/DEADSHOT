@@ -71,5 +71,4 @@ transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 11.5831, 1
 texture = ExtResource("5_0jvbu")
 
 [node name="TonicTest" parent="." instance=ExtResource("6_27c8k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.311534, 0, -7.866324)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8742356, 9.536743e-07, -1.6893964)
