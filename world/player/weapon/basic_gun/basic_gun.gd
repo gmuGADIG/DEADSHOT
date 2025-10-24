@@ -2,13 +2,12 @@ extends Node3D
 
 @onready var player: Player = get_parent()
 
-## Gets set to the max_wep_ammo and max_reserve_ammo from player.
-var chamber_ammo : int
-var reserve_ammo : int
+@export var max_chamber : int = 6
+@export var max_reserve : int = 60
 
-func _ready() -> void:
-	chamber_ammo = player.max_wep_ammo
-	reserve_ammo = player.max_reserve_ammo
+## Gets set to the max_wep_ammo and max_reserve_ammo from player.
+var chamber_ammo : int = max_chamber
+var reserve_ammo : int = max_reserve
 
 func _process(_delta: float) -> void:
 	# No shooting if you're rolling!
@@ -34,7 +33,7 @@ func fire() -> void:
 	
 ## Definitely want this to have a delay. Will implement
 func reload() -> void:
-	var chamber_diff := player.max_wep_ammo - chamber_ammo
+	var chamber_diff := max_chamber - chamber_ammo
 	print(reserve_ammo)
 	
 	if (reserve_ammo >= chamber_diff):

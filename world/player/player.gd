@@ -3,8 +3,6 @@ class_name Player extends CharacterBody3D
 class PlayerPersistingData:
 	var max_health : int
 	var health : int
-	var chamber : int
-	var reserve : int
 	
 static var persisting_data : PlayerPersistingData
 
@@ -16,9 +14,6 @@ var speed_multiplier: float = 1.0;
 @export var roll_speed: float = 18.0
 @export var roll_duration: float = 0.4
 @export var roll_influence: float = 8 ## Controls how much player input affects steering when mid-roll.
-@export var max_wep_ammo : int = 6
-@export var max_reserve_ammo : int = 60
-
 @export_category("Dependencies")
 @export var health_component : Health
 @export var whip : Whip
@@ -65,7 +60,6 @@ func _ready() -> void:
 
 func _init() -> void:
 	instance = self
-
 
 ## Returns the direction from the player to the reticle (Y = 0)
 func aim_dir() -> Vector3:
