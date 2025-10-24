@@ -1,3 +1,3 @@
 extends Node
 
-var meat_currency:int = 0
+var meat_currency:int = 1000

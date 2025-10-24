@@ -116,3 +116,6 @@ func exit_combat() -> void:
 	is_in_combat = false
 	stamina = 3.0
 	$Hud.fade_stamina_out()
+
+static func has_skill() -> bool:
+	return false

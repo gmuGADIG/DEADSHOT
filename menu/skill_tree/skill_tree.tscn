@@ -48,235 +48,310 @@ offset_bottom = 35.0
 scale = Vector2(2, 2)
 text = "Meat Tree"
 
-[node name="skillButton" parent="." node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+[node name="SkillButtons" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Base" parent="SkillButtons" instance=ExtResource("2_3f6vw")]
 layout_mode = 0
-offset_left = 7.0
-offset_top = 7.0
-offset_right = 59.0
-offset_bottom = 66.0
-disabled = true
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 60.0
+offset_bottom = 60.0
 skillName = "Damage"
 meatCost = 150
-dependencies = [NodePath("skillButton2"), NodePath("skillButton"), NodePath("skillButton3")]
 
-[node name="skillButton2" parent="skillButton" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+[node name="R1" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
 layout_mode = 0
-offset_left = 256.0
-offset_top = 20.0
-offset_right = 308.0
-offset_bottom = 79.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 263.0
+offset_top = 27.0
+offset_right = 315.0
+offset_bottom = 86.0
 skillName = "Rifle"
 meatCost = 250
-dependencies = [NodePath("skillButton4"), NodePath("skillButton5")]
+dependencies = [NodePath("../Base")]
 
-[node name="skillButton4" parent="skillButton/skillButton2" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+[node name="R2_1" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
 layout_mode = 0
-offset_left = 175.0
-offset_top = -21.0
-offset_right = 227.0
-offset_bottom = 38.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 438.0
+offset_top = 6.0
+offset_right = 490.0
+offset_bottom = 65.0
 skillName = "Super - Damage 1"
 description = "Fire rate down"
 meatCost = 400
-dependencies = [NodePath("../skillButton5/skillButton")]
+dependencies = [NodePath("../R1")]
 
-[node name="skillButton5" parent="skillButton/skillButton2" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+[node name="R2_2" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
 layout_mode = 0
-offset_left = 179.0
-offset_top = 98.0
-offset_right = 231.0
-offset_bottom = 157.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 442.0
+offset_top = 125.0
+offset_right = 494.0
+offset_bottom = 184.0
 skillName = "Super - Fire Rate"
 description = "Damage down"
 meatCost = 400
-dependencies = [NodePath("skillButton")]
+dependencies = [NodePath("../R1")]
 
-[node name="skillButton" parent="skillButton/skillButton2/skillButton5" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+[node name="R3" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
 layout_mode = 0
-offset_left = 111.0
-offset_top = -57.0
-offset_right = 163.0
-offset_bottom = 2.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 553.0
+offset_top = 68.0
+offset_right = 605.0
+offset_bottom = 127.0
 skillName = "Charge shot"
 meatCost = 600
-dependencies = [NodePath("skillButton"), NodePath("skillButton2")]
+dependencies = [NodePath("../R2_1"), NodePath("../R2_2")]
 
-[node name="skillButton" parent="skillButton/skillButton2/skillButton5/skillButton" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+[node name="R4_1" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
 layout_mode = 0
-offset_left = 118.0
-offset_top = -32.0
-offset_right = 170.0
-offset_bottom = 27.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 671.0
+offset_top = 36.0
+offset_right = 723.0
+offset_bottom = 95.0
 skillName = "Super - Damage 2"
 description = "HP down"
 meatCost = 700
-dependencies = [NodePath("skillButton")]
+dependencies = [NodePath("../R3")]
 
-[node name="skillButton" parent="skillButton/skillButton2/skillButton5/skillButton/skillButton" instance=ExtResource("2_3f6vw")]
+[node name="R4_2" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
 layout_mode = 0
-offset_left = 146.0
-offset_top = 57.0
-offset_right = 198.0
-offset_bottom = 116.0
-skillName = "Explosive Shot"
-meatCost = 700
-
-[node name="skillButton2" parent="skillButton/skillButton2/skillButton5/skillButton" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
-layout_mode = 0
-offset_left = 120.0
-offset_top = 89.0
-offset_right = 172.0
-offset_bottom = 148.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 673.0
+offset_top = 157.0
+offset_right = 725.0
+offset_bottom = 216.0
 skillName = "Super - Mag"
 description = "Move speed down"
 meatCost = 700
-dependencies = [NodePath("../skillButton/skillButton")]
+dependencies = [NodePath("../R3")]
 
-[node name="skillButton" parent="skillButton" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+[node name="R5" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
 layout_mode = 0
-offset_left = 189.0
-offset_top = 145.0
-offset_right = 241.0
-offset_bottom = 204.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 817.0
+offset_top = 93.0
+offset_right = 869.0
+offset_bottom = 152.0
+skillName = "Explosive Shot"
+meatCost = 700
+dependencies = [NodePath("../R4_1"), NodePath("../R4_2")]
+
+[node name="D1" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 196.0
+offset_top = 152.0
+offset_right = 248.0
+offset_bottom = 211.0
 skillName = "Shotgun"
 meatCost = 250
-dependencies = [NodePath("skillButton2"), NodePath("skillButton")]
+dependencies = [NodePath("../Base")]
 
-[node name="skillButton2" parent="skillButton/skillButton" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+[node name="D2_1" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
 layout_mode = 0
-offset_left = 60.0
-offset_top = 111.0
-offset_right = 112.0
-offset_bottom = 170.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 256.0
+offset_top = 263.0
+offset_right = 308.0
+offset_bottom = 322.0
 skillName = "SUPER - Fire Rate"
 description = "Increases fire rate, decreases damage"
 meatCost = 400
-dependencies = [NodePath("../skillButton/skillButton")]
+dependencies = [NodePath("../D1")]
 
-[node name="skillButton" parent="skillButton/skillButton" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+[node name="D2_2" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
 layout_mode = 0
-offset_left = 136.0
-offset_top = 36.0
-offset_right = 188.0
-offset_bottom = 95.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 332.0
+offset_top = 188.0
+offset_right = 384.0
+offset_bottom = 247.0
 skillName = "SUPER - Hitpoints"
 description = "Increases HP, decreases fire rate"
 meatCost = 400
-dependencies = [NodePath("skillButton")]
+dependencies = [NodePath("../D1")]
 
-[node name="skillButton" parent="skillButton/skillButton/skillButton" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+[node name="D3" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
 layout_mode = 0
-offset_left = 53.0
-offset_top = 117.0
-offset_right = 105.0
-offset_bottom = 176.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 385.0
+offset_top = 305.0
+offset_right = 437.0
+offset_bottom = 364.0
 skillName = "Knockback"
 meatCost = 600
-dependencies = [NodePath("skillButton"), NodePath("skillButton2")]
+dependencies = [NodePath("../D2_1"), NodePath("../D2_2")]
 
-[node name="skillButton" parent="skillButton/skillButton/skillButton/skillButton" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+[node name="D4_1" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
 layout_mode = 0
-offset_left = 120.0
-offset_top = 28.0
-offset_right = 172.0
-offset_bottom = 87.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 505.0
+offset_top = 333.0
+offset_right = 557.0
+offset_bottom = 392.0
 skillName = "SUPER - Hitpoints"
 description = "Increases HP, decreases magazine size."
 meatCost = 700
-dependencies = [NodePath("skillButton")]
+dependencies = [NodePath("../D3")]
 
-[node name="skillButton" parent="skillButton/skillButton/skillButton/skillButton/skillButton" instance=ExtResource("2_3f6vw")]
+[node name="D4_2" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
 layout_mode = 0
-offset_left = 39.0
-offset_top = 116.0
-offset_right = 91.0
-offset_bottom = 175.0
-skillName = "Fire"
-meatCost = 700
-
-[node name="skillButton2" parent="skillButton/skillButton/skillButton/skillButton" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
-layout_mode = 0
-offset_left = 37.0
-offset_top = 121.0
-offset_right = 89.0
-offset_bottom = 180.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 422.0
+offset_top = 426.0
+offset_right = 474.0
+offset_bottom = 485.0
 skillName = "SUPER - Movement Speed"
 description = "Increases movement speed, decreases fire rate"
 meatCost = 700
-dependencies = [NodePath("../skillButton/skillButton")]
+dependencies = [NodePath("../D3")]
 
-[node name="skillButton3" parent="skillButton" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+[node name="D5" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
 layout_mode = 0
-offset_left = 67.0
-offset_top = 202.0
-offset_right = 119.0
-offset_bottom = 261.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 544.0
+offset_top = 449.0
+offset_right = 596.0
+offset_bottom = 508.0
+skillName = "Fire"
+meatCost = 700
+dependencies = [NodePath("../D4_1"), NodePath("../D4_2")]
+
+[node name="B1" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 74.0
+offset_top = 209.0
+offset_right = 126.0
+offset_bottom = 268.0
 skillName = "Dual Pistol"
 meatCost = 250
-dependencies = [NodePath("skillButton4"), NodePath("skillButton")]
+dependencies = [NodePath("../Base")]
 
-[node name="skillButton4" parent="skillButton/skillButton3" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+[node name="B2_1" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
 layout_mode = 0
-offset_left = -67.0
-offset_top = 97.0
-offset_right = -15.0
-offset_bottom = 156.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 7.0
+offset_top = 306.0
+offset_right = 59.0
+offset_bottom = 365.0
 skillName = "SUPER - Fire Rate"
 description = "Increases fire rate, decreases magazine size."
 meatCost = 400
-dependencies = [NodePath("../skillButton/skillButton2")]
+dependencies = [NodePath("../B1")]
 
-[node name="skillButton" parent="skillButton/skillButton3" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+[node name="B2_2" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
 layout_mode = 0
-offset_left = 66.0
-offset_top = 97.0
-offset_right = 118.0
-offset_bottom = 156.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 140.0
+offset_top = 306.0
+offset_right = 192.0
+offset_bottom = 365.0
 skillName = "SUPER - Roll Cooldown"
 description = "Decreases roll cooldown, decreases health."
 meatCost = 400
-dependencies = [NodePath("skillButton2")]
+dependencies = [NodePath("../B1")]
 
-[node name="skillButton2" parent="skillButton/skillButton3/skillButton" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+[node name="B3" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
 layout_mode = 0
-offset_left = -71.0
-offset_top = 95.0
-offset_right = -19.0
-offset_bottom = 154.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 69.0
+offset_top = 401.0
+offset_right = 121.0
+offset_bottom = 460.0
 skillName = "Double Shot"
 meatCost = 600
-dependencies = [NodePath("skillButton"), NodePath("skillButton2")]
+dependencies = [NodePath("../B2_1"), NodePath("../B2_2")]
 
-[node name="skillButton" parent="skillButton/skillButton3/skillButton/skillButton2" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+[node name="B4_1" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
 layout_mode = 0
-offset_left = -62.0
-offset_top = 85.0
-offset_right = -10.0
-offset_bottom = 144.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 7.0
+offset_top = 486.0
+offset_right = 59.0
+offset_bottom = 545.0
 skillName = "SUPER - Damage"
 description = "Increases damage, increases roll cooldown."
 meatCost = 700
-dependencies = [NodePath("../skillButton2/skillButton")]
+dependencies = [NodePath("../B3")]
 
-[node name="skillButton2" parent="skillButton/skillButton3/skillButton/skillButton2" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+[node name="B4_2" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
 layout_mode = 0
-offset_left = 83.0
-offset_top = 80.0
-offset_right = 135.0
-offset_bottom = 139.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 152.0
+offset_top = 481.0
+offset_right = 204.0
+offset_bottom = 540.0
 skillName = "SUPER - Movement speed"
 description = "Increases movement speed, decreases fire rate"
 meatCost = 700
-dependencies = [NodePath("skillButton")]
+dependencies = [NodePath("../B3")]
 
-[node name="skillButton" parent="skillButton/skillButton3/skillButton/skillButton2/skillButton2" instance=ExtResource("2_3f6vw")]
+[node name="B5" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
 layout_mode = 0
-offset_left = -72.0
-offset_top = 87.0
-offset_right = -20.0
-offset_bottom = 146.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 80.0
+offset_top = 568.0
+offset_right = 132.0
+offset_bottom = 627.0
 skillName = "Salvage"
 meatCost = 700
+dependencies = [NodePath("../B4_1"), NodePath("../B4_2")]
 
 [connection signal="pressed" from="Button" to="." method="_on_load_save_button_pressed"]
 [connection signal="pressed" from="PurchaseButton" to="." method="_on_options_button_pressed"]
