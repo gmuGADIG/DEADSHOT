@@ -13,8 +13,8 @@
 [ext_resource type="Script" uid="uid://c1g7056xgtqys" path="res://systems/camera/camera_tracked.gd" id="11_2x47q"]
 
 [sub_resource type="Curve" id="Curve_2x47q"]
-_limits = [0.0, 20.0, 0.0, 0.4]
-_data = [Vector2(0, 16.201298), 0.0, 0.0, 0, 0, Vector2(0.09266409, 20), 0.0, 0.0, 0, 0, Vector2(0.1945946, 20), 0.0, 0.0, 0, 0, Vector2(0.4, 0), 0.0, 0.0, 0, 0]
+_limits = [0.0, 20.0, 0.0, 0.45]
+_data = [Vector2(0, 9.870129), 0.0, 0.0, 0, 0, Vector2(0.05559846, 20), 0.0, 0.0, 0, 0, Vector2(0.32837838, 20), 0.0, 0.0, 0, 0, Vector2(0.45, 0), 0.0, 0.0, 0, 0]
 point_count = 4
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_plfsl"]

@@ -12,7 +12,7 @@ var speed_multiplier: float = 1.0;
 @export_category("Movement")
 @export var walk_speed: float = 8.0
 @export var roll_curve : Curve
-#@export var roll_influence: float = 8 ## Controls how much player input affects steering when mid-roll.
+@export var roll_influence_strength: float = 3 ## Controls how much player input affects steering when mid-roll.
 
 @export_category("Dependencies")
 @export var health_component : Health
@@ -111,13 +111,13 @@ func roll(delta : float) -> void:
 	var roll_speed : float = roll_curve.sample(roll_time)
 	
 	##Influence the dash direction
-	var dash_influence : Vector3 = input_direction()
-	var angle_difference : float = previous_input_direction.signed_angle_to(dash_influence,Vector3.UP)
+	var roll_influence : Vector3 = input_direction()
+	var angle_difference : float = previous_input_direction.signed_angle_to(roll_influence,Vector3.UP)
 	
 	if abs(angle_difference) <= deg_to_rad(135): ##Turn
-		previous_input_direction = previous_input_direction.rotated(Vector3.UP,clampf(angle_difference,-0.1,0.1))
+		previous_input_direction = previous_input_direction.rotated(Vector3.UP,clampf(angle_difference,-roll_influence_strength*delta,roll_influence_strength*delta))
 	else: ##Slowdown
-		roll_speed * 0.2
+		roll_speed *= 0.5
 	
 	##Apply velocity
 	velocity = roll_dir * roll_speed
