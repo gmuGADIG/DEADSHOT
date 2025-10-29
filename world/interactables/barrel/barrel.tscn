@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bricos36gg40h"]
+
+[ext_resource type="Texture2D" uid="uid://ccp0tuojupldg" path="res://temp_art/rough_drafts/barrel.png" id="1_bstqs"]
+[ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="2_7f04u"]
+
+[node name="Barrel" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.45, 0, 0, 0, 0.3897114, 0.5, 0, -0.225, 0.8660254, 0, 0.60334134, 0)
+alpha_cut = 1
+texture = ExtResource("1_bstqs")
+
+[node name="UNFINISHED" parent="." instance=ExtResource("2_7f04u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.64957213, 0)
+text = "barrel (wip)"

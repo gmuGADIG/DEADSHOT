@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwe53mhloyir4"]
+
+[ext_resource type="Texture2D" uid="uid://ddnki8ia30e6x" path="res://temp_art/rough_drafts/cursed_plant.png" id="1_05kov"]
+[ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="2_rwaiw"]
+
+[node name="CursedPlant" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0.85389555, 0)
+texture = ExtResource("1_05kov")
+
+[node name="UNFINISHED" parent="." instance=ExtResource("2_rwaiw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0149559, 0)
+text = "cursed plant
+(wip)"
