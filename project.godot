@@ -38,6 +38,7 @@ folder_colors={
 "res://temp_art/": "yellow",
 "res://test_scenes/": "green",
 "res://world/enemy/": "teal",
+"res://world/items/": "pink",
 "res://world/levels/": "blue",
 "res://world/pickups/": "red",
 "res://world/player/": "purple"

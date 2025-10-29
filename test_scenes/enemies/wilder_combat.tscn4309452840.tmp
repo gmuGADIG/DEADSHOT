@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://d0d1lgxj3xvor"]
+
+[ext_resource type="PackedScene" uid="uid://dxdkwdigtcn43" path="res://world/enemy/test/enemy_test.tscn" id="1_fibh1"]
+[ext_resource type="PackedScene" uid="uid://nuqmhgq1e2lu" path="res://world/player/player.tscn" id="2_hh8v3"]
+[ext_resource type="PackedScene" uid="uid://cr05xakri7lnw" path="res://world/floor/floor_gen.tscn" id="3_hgyqa"]
+[ext_resource type="Texture2D" uid="uid://cjbsq7rk6r3h4" path="res://temp_art/gartic/cactus.png" id="4_j0ac7"]
+[ext_resource type="PackedScene" uid="uid://dwdhuncnyfmcw" path="res://world/enemy/wilder/wilder.tscn" id="5_0k626"]
+[ext_resource type="Texture2D" uid="uid://sxaysn4gqoxo" path="res://temp_art/gartic/coin.png" id="5_r5g3j"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_plfsl"]
+vertices = PackedVector3Array(68.84153, 2.2399998, -23.946981, 69.09153, 2.2399998, -23.446981, 71.59153, 0.73999983, -23.446981, 71.09153, 0.73999983, -27.446981, -30.65847, 0.73999983, -28.946981, -33.40847, 0.73999983, -24.446981, -30.90847, 2.2399998, -23.696981, 65.84153, 0.73999983, -28.946981, -33.90847, 0.73999983, -23.696981, -33.90847, 0.73999983, 31.553019, -33.40847, 0.73999983, 35.303017, -30.90847, 2.2399998, 35.303017, 69.09153, 2.2399998, 35.303017, 71.59153, 0.73999983, 35.303017, 72.09153, 0.73999983, 32.053017, 72.09153, 0.73999983, -20.196981, 70.56653, 1.2399998, -21.971981, -29.90847, 0.48999983, -22.946981, -29.90847, 0.48999983, 34.803017, 68.09153, 0.48999983, 34.803017, 68.09153, 0.48999983, -22.946981, 68.84153, 2.2399998, 35.803017, 71.09153, 0.48999983, 39.303017, -30.65847, 2.2399998, 35.803017, -32.90847, 0.73999983, 39.303017, -27.40847, 0.48999983, 40.803017, 65.59153, 0.48999983, 40.803017, 69.077324, 0.98999983, 38.05316)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(6, 7, 0), PackedInt32Array(0, 7, 3), PackedInt32Array(5, 6, 8), PackedInt32Array(8, 6, 9), PackedInt32Array(9, 6, 10), PackedInt32Array(10, 6, 11), PackedInt32Array(15, 16, 2), PackedInt32Array(2, 16, 1), PackedInt32Array(1, 16, 12), PackedInt32Array(12, 14, 13), PackedInt32Array(14, 16, 15), PackedInt32Array(16, 14, 12), PackedInt32Array(20, 19, 17), PackedInt32Array(17, 19, 18), PackedInt32Array(12, 13, 21), PackedInt32Array(21, 13, 22), PackedInt32Array(11, 23, 10), PackedInt32Array(10, 23, 24), PackedInt32Array(26, 27, 22), PackedInt32Array(22, 27, 21), PackedInt32Array(21, 26, 23), PackedInt32Array(23, 25, 24), PackedInt32Array(25, 23, 26), PackedInt32Array(26, 21, 27)]
+
+[sub_resource type="Curve3D" id="Curve3D_plfsl"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -8, 0, -4, 0, 0, 0, 0, 0, 0, 18, 0, -4, 0, 0, 0, 0, 0, 0, 18, 0, 6, 0, 0, 0, 0, 0, 0, -8, 0, 6),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[node name="ExampleScene" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("2_hh8v3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53553, 4.7683716e-07, 0.9444761)
+walk_speed = 20.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.92473876, -0.25272667, 0.28458285, 0, 0.74771696, 0.66401756, -0.3806024, -0.61404276, 0.69144285, 0, 0, 0)
+
+[node name="World" type="Node3D" parent="."]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="World"]
+navigation_mesh = SubResource("NavigationMesh_plfsl")
+
+[node name="Floor" parent="World/NavigationRegion3D" instance=ExtResource("3_hgyqa")]
+transform = Transform3D(3.8231633, 0, 0, 0, 1, 0, 0, 0, 5.889396, 0, 0, 0)
+curve = SubResource("Curve3D_plfsl")
+
+[node name="Cactus" type="Sprite3D" parent="World/NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -6.08085, 1.35212, -2.54946)
+texture = ExtResource("4_j0ac7")
+
+[node name="Cactus2" type="Sprite3D" parent="World/NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 4.52835, 1.35212, 2.91099)
+texture = ExtResource("4_j0ac7")
+
+[node name="Cactus3" type="Sprite3D" parent="World/NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 14.5163, 1.35212, -2.19461)
+texture = ExtResource("4_j0ac7")
+
+[node name="Coin" type="Sprite3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 11.5831, 1.00557, 0.341141)
+texture = ExtResource("5_r5g3j")
+
+[node name="EnemyTest" parent="." instance=ExtResource("1_fibh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.249423, 4.7683716e-07, -2.0285115)
+
+[node name="Wilder" parent="." instance=ExtResource("5_0k626")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.573513, -4.3039012e-07, 6.2579813)
+max_hp = 10.0
