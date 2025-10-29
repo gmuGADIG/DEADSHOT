@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://blppqsxslhh07"]
+[gd_scene load_steps=18 format=3 uid="uid://blppqsxslhh07"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_j5c1u"]
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="2_83i12"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://8er7o8byf7v1" path="res://world/decoration/well/well.tscn" id="7_f3sn8"]
 [ext_resource type="PackedScene" uid="uid://cgj018oscuhf6" path="res://world/decoration/buildings/house.tscn" id="7_qoiyb"]
 [ext_resource type="PackedScene" uid="uid://crroyl2puavcb" path="res://world/decoration/floor_lantern/floor_lantern.tscn" id="9_ycak7"]
+[ext_resource type="PackedScene" uid="uid://b0ttk38sufgur" path="res://world/pickups/corrupt_heart/corrupt_heart.tscn" id="12_dwgit"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_jsebj"]
 vertices = PackedVector3Array(12.672548, 0.49, 3.7185097, 12.672548, 0.49, 2.7185097, 10.922548, 0.49, 2.7185097, 10.172548, 0.49, 4.4685097, -4.5774517, 0.49, 0.71850955, -4.5774517, 0.49, 2.4685097, -4.3274517, 0.49, 6.2185097, 0.6725483, 0.49, 6.4685097, 10.422548, 0.49, 0.96850955, -6.5774517, 0.49, 2.9685097, -6.5774517, 0.49, 3.7185097, -4.5774517, 0.49, 3.9685097, 10.422548, 0.49, 6.4685097, 10.422548, 0.49, 2.2185097)
@@ -488,6 +489,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.791788, 0.2081351, 31.9735
 
 [node name="Boulder29" parent="." index="86" instance=ExtResource("5_dwgit")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.902529, 0.20793094, 31.907898)
+
+[node name="CorruptHeart" parent="." index="88" instance=ExtResource("12_dwgit")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.908998, 0, 1.6071377)
 
 [editable path="NPCs/NPCTest2"]
 [editable path="NPCs/NPCTest3"]
