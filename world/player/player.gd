@@ -18,6 +18,9 @@ var speed_multiplier: float = 1.0;
 @export var health_component : Health
 @export var whip : Whip
 
+## Is the player currently in combat? If so, HUD will be shown and dashing will cost stamina.
+var is_in_combat: bool = false
+
 var previous_input_direction: Vector3 = Vector3.RIGHT ## Roll this way if you roll while not holding any directions. Updated every time the player makes a movement input.
 var roll_time : float = 0
 
