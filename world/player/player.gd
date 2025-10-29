@@ -3,10 +3,16 @@ class_name Player extends CharacterBody3D
 class PlayerPersistingData:
 	var max_health : int
 	var health : int
+	var curr_chamber : int
+	var curr_reserve : int
 	
 static var persisting_data : PlayerPersistingData
 
 static var instance:Player
+
+# gun_name tracks the name of the current gun node. Should be changed when the gun changes.
+static var gun_name := "BasicGun"
+
 var speed_multiplier: float = 1.0;
 ## EXPORT VARIABLES
 @export_category("Movement")
@@ -37,12 +43,21 @@ enum PlayerState {
 var current_state: PlayerState = PlayerState.WALKING
 
 static func update_persisting_data() -> void:
+	## Make it so this can change to whatever the current gun is?
+	var gun := instance.get_node(gun_name)
+	
 	if persisting_data == null:
 		persisting_data = PlayerPersistingData.new()
 	
 	persisting_data.max_health = Player.instance.health_component.max_health
 	persisting_data.health = Player.instance.health_component.health
-
+	persisting_data.curr_chamber = gun.chamber_ammo
+	persisting_data.curr_reserve = gun.reserve_ammo
+	
+	#TEST
+	print(persisting_data.curr_chamber)
+	print(persisting_data.curr_reserve)
+	
 ## Returns the inputted walking direction on the XZ plane (Y = 0)
 func walking_dir() -> Vector3:
 	var input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -53,10 +68,14 @@ func walking_dir() -> Vector3:
 	return Vector3(input.x, 0, input.y)
 
 func _ready() -> void:
+	var gun := instance.get_node(gun_name)
+	
 	instance = self
 	if persisting_data != null:
 		health_component.max_health = persisting_data.max_health
 		health_component.health = persisting_data.health
+		gun.chamber_ammo = persisting_data.curr_chamber
+		gun.reserve_ammo = persisting_data.curr_reserve
 
 func _init() -> void:
 	instance = self
@@ -66,7 +85,6 @@ func aim_dir() -> Vector3:
 	var dir: Vector3 = %Reticle.global_position - self.global_position
 	dir.y = 0
 	return dir.normalized()
-
 
 func _physics_process(_delta: float) -> void:
 	

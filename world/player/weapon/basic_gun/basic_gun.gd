@@ -1,7 +1,8 @@
 extends Node3D
 
-@onready var player: Player = get_parent()
-
+## Time in seconds to reload
+@export var reload_time : float = 1.25
+## Max number of bullets in chamber and reserve
 @export var max_chamber : int = 6
 @export var max_reserve : int = 60
 
@@ -9,32 +10,44 @@ extends Node3D
 var chamber_ammo : int = max_chamber
 var reserve_ammo : int = max_reserve
 
+var is_reloading := false
+
 func _process(_delta: float) -> void:
 	# No shooting if you're rolling!
 	if Input.is_action_just_pressed("fire"):
-		print(chamber_ammo)
-		## Reloads gun with left click if no bullets in chamber
+		## if the player cannot shoot / is reloading, do not fire
+		if not Player.instance.can_shoot() or is_reloading == true:
+			return
+		
+		## Reloads gun with left click if no bullets in chamber (keep or remove?)
 		if (chamber_ammo == 0):
 			reload()
 			return
-			
-		if not player.can_shoot():
-			return
 		fire()
+	
+	# Reloads the gun as well (if you can shoot, you can reload).
+	if Input.is_action_just_pressed("reload") and Player.instance.can_shoot():
+		reload()
 
 func fire() -> void:
 	var bullet: Bullet = preload("res://world/player/weapon/bullet/player_bullet.tscn").instantiate()
 	get_tree().current_scene.add_child(bullet)
-	bullet.fire(self, player.aim_dir())
+	bullet.fire(self, Player.instance.aim_dir())
 	
 	%ShootSound.play()
 	
 	chamber_ammo -= 1
 	
-## Definitely want this to have a delay. Will implement
+## Reloads the gun if there are less than the max number of bullets in the chamber and if there are any bullets in the reserve available.
 func reload() -> void:
 	var chamber_diff := max_chamber - chamber_ammo
-	print(reserve_ammo)
+	if chamber_diff == 0 or reserve_ammo == 0:
+		return
+		
+	print("reloading...")
+
+	is_reloading = true
+	await get_tree().create_timer(reload_time).timeout
 	
 	if (reserve_ammo >= chamber_diff):
 		reserve_ammo -= chamber_diff
@@ -43,4 +56,6 @@ func reload() -> void:
 		chamber_ammo += reserve_ammo
 		reserve_ammo = 0
 	
-	print(reserve_ammo)
+	is_reloading = false
+	
+	print("reloaded")
