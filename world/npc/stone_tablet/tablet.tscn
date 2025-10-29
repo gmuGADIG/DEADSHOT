@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwlho1k2eetb1"]
+
+[ext_resource type="Texture2D" uid="uid://clcis6jvjdkay" path="res://temp_art/stone_tablet_temp.png" id="1_gbcy0"]
+[ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="2_kvlqy"]
+
+[node name="Tablet" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 1.5324762, 0)
+pixel_size = 0.0033
+alpha_cut = 1
+texture = ExtResource("1_gbcy0")
+
+[node name="UNFINISHED" parent="." instance=ExtResource("2_kvlqy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9037161, 0)
+text = "tablet (wip)"

@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://3o8nbg2v248a"]
+
+[ext_resource type="Script" uid="uid://bpfbqraltsta0" path="res://world/interactables/puddle/puddle.gd" id="1_2gbto"]
+[ext_resource type="Texture2D" uid="uid://chnnd6opa6df5" path="res://temp_art/gartic/fish_man.png" id="2_ijjwc"]
+[ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="3_6unbr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cismt"]
+size = Vector3(3.3955078, 0.15454102, 3.2126465)
+
+[node name="Puddle" type="Area3D"]
+script = ExtResource("1_2gbto")
+atk_damage = 1
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.032779217, 0)
+texture = ExtResource("2_ijjwc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.025390625, 0.010375977, 0)
+shape = SubResource("BoxShape3D_cismt")
+
+[node name="DamageTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="Comment" parent="." instance=ExtResource("3_6unbr")]
+text = "puddle (wip)"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]

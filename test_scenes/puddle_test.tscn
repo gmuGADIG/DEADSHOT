@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://1uc77axc273l"]
+
+[ext_resource type="PackedScene" uid="uid://3o8nbg2v248a" path="res://world/interactables/puddle/puddle.tscn" id="1_cxp5v"]
+[ext_resource type="PackedScene" uid="uid://nuqmhgq1e2lu" path="res://world/player/player.tscn" id="2_54v4a"]
+
+[node name="PuddleTest" type="Node3D"]
+
+[node name="Puddle" parent="." instance=ExtResource("1_cxp5v")]
+
+[node name="Player" parent="." instance=ExtResource("2_54v4a")]
