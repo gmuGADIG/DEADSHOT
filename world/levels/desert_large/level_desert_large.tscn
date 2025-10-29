@@ -1,14 +1,16 @@
-[gd_scene load_steps=12 format=3 uid="uid://crgv6bkolrlyy"]
+[gd_scene load_steps=14 format=3 uid="uid://crgv6bkolrlyy"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_b00wy"]
 [ext_resource type="Resource" uid="uid://q24ustx30otu" path="res://world/floor/sand/sand.tres" id="2_5t0jw"]
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="2_8watp"]
 [ext_resource type="PackedScene" uid="uid://dxdkwdigtcn43" path="res://world/enemy/test/enemy_test.tscn" id="4_eowj5"]
 [ext_resource type="PackedScene" uid="uid://3o8nbg2v248a" path="res://world/interactables/puddle/puddle.tscn" id="5_xa3ak"]
-[ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="6_a3scf"]
-[ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://world/interactables/cover/cover_1.tscn" id="7_afdcq"]
-[ext_resource type="PackedScene" uid="uid://c2bxn6p802s68" path="res://world/interactables/cover/cover_2.tscn" id="8_bu2xb"]
+[ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://world/interactables/cover/cover_boulder.tscn" id="7_afdcq"]
+[ext_resource type="PackedScene" uid="uid://c2bxn6p802s68" path="res://world/interactables/cover/cover_cactus_small.tscn" id="8_bu2xb"]
 [ext_resource type="PackedScene" uid="uid://ckbr1getgwitd" path="res://world/interactables/tumbleweed/tumbleweed.tscn" id="9_bu2xb"]
+[ext_resource type="PackedScene" uid="uid://vm5nvorhandp" path="res://world/items/tonic/tonic.tscn" id="9_k1dxj"]
+[ext_resource type="PackedScene" uid="uid://nh502xx1aqq1" path="res://world/enemy/meat/meat.tscn" id="10_n7sqn"]
+[ext_resource type="PackedScene" uid="uid://bb3qdjspo0kcq" path="res://world/Intereactables/Barrel.tscn" id="11_n7sqn"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_afdcq"]
 vertices = PackedVector3Array(25.443497, 0.48999983, 2.6911688, 25.443497, 0.48999983, 1.6911688, 22.943497, 0.48999983, 1.1911688, 22.193497, 0.48999983, 2.9411688, 17.443497, 0.48999983, -3.5588312, 1.9434967, 0.48999983, -3.0588312, 1.9434967, 0.48999983, 7.441169, 16.443497, 0.48999983, 7.691169, -9.556503, 0.48999983, 0.6911688, -9.556503, 0.48999983, 1.1911688, -7.8065033, 0.48999983, 1.6911688, -7.5565033, 0.48999983, 0.44116879, -5.5565033, 0.48999983, 4.941169, -1.5565033, 0.48999983, 7.441169, -1.5565033, 0.48999983, -3.0588312, -7.5565033, 0.48999983, -1.5588312, -7.8065033, 0.48999983, 3.4411688, -7.0565033, 0.48999983, 4.441169, -2.8065033, 0.48999983, 6.941169)
@@ -57,9 +59,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7624645, 0, 4.589473)
 [node name="Puddle" parent="Enemies" index="2" instance=ExtResource("5_xa3ak")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.607033, 0, 3.1020565)
 
-[node name="Comment" parent="Enemies/Puddle" index="3" instance=ExtResource("6_a3scf")]
-text = "this is a puddle :)"
-
 [node name="Cover" parent="Enemies" index="3" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1681108, 0, 5.748684)
 
@@ -74,3 +73,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.756679, -4.7683716e-07, -0
 
 [node name="Tumbleweed" parent="Enemies" index="7" instance=ExtResource("9_bu2xb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.22028, 0, 1.8608103)
+
+[node name="Tonic" parent="." index="8" instance=ExtResource("9_k1dxj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.948481, 0, -1.4520087)
+
+[node name="Meat" parent="." index="9" instance=ExtResource("10_n7sqn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.258168, 0, 6.1206417)
+
+[node name="Meat2" parent="." index="10" instance=ExtResource("10_n7sqn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.835413, 0, 5.743508)
+
+[node name="Meat3" parent="." index="11" instance=ExtResource("10_n7sqn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.503214, 0, 7.081885)
+
+[node name="Barrel" parent="." index="12" instance=ExtResource("11_n7sqn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.97180223, 0.98099804, 4.146593)
+
+[node name="Barrel2" parent="." index="13" instance=ExtResource("11_n7sqn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9167476, 0.9809985, -0.5031543)
+
+[node name="Barrel3" parent="." index="14" instance=ExtResource("11_n7sqn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.534641, 0.9809985, 3.451202)

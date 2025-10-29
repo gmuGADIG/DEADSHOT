@@ -28,6 +28,33 @@ script = ExtResource("6_qoiyb")
 dialog = "[Garfunkle] where is my house :("
 metadata/_custom_type_script = "uid://rvaetvwo5p3h"
 
+[sub_resource type="Resource" id="Resource_jrcoc"]
+script = ExtResource("6_qoiyb")
+dialog = "[Snake Oil Salesman] \"Woah there, gunslinger! You look like you've seen better days! This infection spreading around seems to be getting the best of everyone in this dusty old town.
+Lucky for you I got just the thing. Elixir, the one-size-fits-all cure to this nasty infection.  One bottle and you're cured! Whaddya say, how many bottles of Elixir can I put you down for? Only fifty dollars!
+...You don't want any?
+Bah, you'll be back. Just you wait. You'll be wishing you had elixir when the infection gets you too.\"
+[Snake Oil Salesman] Stupid gunslinger... Stupid town... 
+Should'a known better than to sell to a town of broke shmucks. Not even a single bottle sold! 
+Nothing left for me here now, it's way too crazy for my liking... gotta cut my losses and get outta this hick desert town.
+Hm? What're you lookin' at, gunslinger? If you don't want a damn bottle, then get outta my face. I'm sick of you and sick of this godforsaken town."
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"
+
+[sub_resource type="Resource" id="Resource_qoiyb"]
+script = ExtResource("6_qoiyb")
+dialog = "[Cryptic Nomad] Careful. None who touch that ever die without regrets, and never peacefully.
+[Cryptic Nomad] The road you're walking isn't one for the weak-hearted. We lose good people every day, and in the end, you're just another grain of sand in this barren desert.
+[Cryptic Nomad] You're too far gone to go back now. Best be careful now, 'cause that angel on your shoulder whispering in your ear isn't as angelic as you think. Whether you listen to it or not, whatever you decide, the fate of this desert is waiting in that cave."
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"
+
+[sub_resource type="Resource" id="Resource_f3sn8"]
+script = ExtResource("6_qoiyb")
+dialog = "[Piano Man] I used to play for the town, ya know. 
+The entire town used to come here after a hard day's work, grab some drinks with their neighbors and listen to the chatter of the saloon… and my music of course. 
+Some people used to dance. She used to dance…waltz around the tables… God, I hope she's okay… 
+Used to be everyone together. Dancin', singin', laughin' ...Funny how life works, huh? Always changin'. "
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"
+
 [node name="LevelTown1" instance=ExtResource("1_j5c1u")]
 
 [node name="World" parent="." index="1"]
@@ -437,3 +464,40 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.791788, 0.2081351, 31.9735
 
 [node name="Boulder29" parent="." index="86" instance=ExtResource("5_dwgit")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.902529, 0.20793094, 31.907898)
+
+[node name="NPCTest2" parent="NPCs" index="1" instance=ExtResource("5_jrcoc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.606473, 0, 1.6276722)
+timelime = SubResource("Resource_jrcoc")
+
+[node name="Sprite3D" parent="NPCs/NPCTest2" index="0"]
+modulate = Color(0.86, 0.4380267, 0.06879999, 1)
+
+[node name="Comment" parent="NPCs/NPCTest2" index="2" instance=ExtResource("4_0hyq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5406563, 0)
+text = "Snake Oil Salesman"
+
+[node name="NPCTest3" parent="NPCs" index="2" instance=ExtResource("5_jrcoc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.517522, 0, 2.5186634)
+timelime = SubResource("Resource_qoiyb")
+
+[node name="Sprite3D" parent="NPCs/NPCTest3" index="0"]
+modulate = Color(0.07999998, 1, 0.89266676, 1)
+
+[node name="Comment" parent="NPCs/NPCTest3" index="2" instance=ExtResource("4_0hyq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5406563, 0)
+text = "Cryptic Nomad"
+
+[node name="NPCTest4" parent="NPCs" index="3" instance=ExtResource("5_jrcoc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8687649, 0, 5.6259146)
+timelime = SubResource("Resource_f3sn8")
+
+[node name="Sprite3D" parent="NPCs/NPCTest4" index="0"]
+modulate = Color(1.158732, 0.13998671, 1.4687854, 1)
+
+[node name="Comment" parent="NPCs/NPCTest4" index="2" instance=ExtResource("4_0hyq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5406563, 0)
+text = "Piano Man"
+
+[editable path="NPCs/NPCTest2"]
+[editable path="NPCs/NPCTest3"]
+[editable path="NPCs/NPCTest4"]
