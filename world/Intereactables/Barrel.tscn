@@ -46,7 +46,9 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="EnemyHurter" type="Area3D" parent="."]
+unique_name_in_owner = true
 collision_mask = 8
+monitoring = false
 script = ExtResource("4_lbkrv")
 damage = 10
 

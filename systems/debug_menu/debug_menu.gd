@@ -22,3 +22,8 @@ func _on_mines_button_pressed() -> void:
 func _on_skill_tree_button_pressed() -> void:
 	visible = false
 	get_tree().change_scene_to_file("res://menu/skill_tree/skill_tree.tscn")
+
+
+func _on_prop_demo_button_pressed() -> void:
+	visible = false
+	get_tree().change_scene_to_file("res://test_scenes/prop_demo.tscn")
