@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://btuw2i28k0axl"]
+[gd_scene load_steps=10 format=3 uid="uid://btuw2i28k0axl"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_p0tjl"]
 [ext_resource type="Texture2D" uid="uid://cjbsq7rk6r3h4" path="res://temp_art/gartic/cactus.png" id="2_yl5fl"]
 [ext_resource type="Resource" uid="uid://ebi2mrpur7b6" path="res://world/floor/rock/rock.tres" id="3_lkd7d"]
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="4_yl5fl"]
-[ext_resource type="PackedScene" uid="uid://c2bxn6p802s68" path="res://world/interactables/cover/cover_2.tscn" id="5_lkd7d"]
-[ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://world/interactables/cover/cover_1.tscn" id="6_7mnxm"]
+[ext_resource type="PackedScene" uid="uid://bb3qdjspo0kcq" path="res://world/Intereactables/Barrel.tscn" id="7_7mnxm"]
+[ext_resource type="PackedScene" uid="uid://dxdkwdigtcn43" path="res://world/enemy/test/enemy_test.tscn" id="7_v2m6r"]
+[ext_resource type="PackedScene" uid="uid://dtqb8q8qomq31" path="res://world/pickups/corrupt_heart/blood_particles/blood_burst.tscn" id="8_v2m6r"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_hxoc3"]
 vertices = PackedVector3Array(0, 0.5, 4.5, 0, 0.5, 4, -1.75, 0.5, 3.75, -7.25, 0.5, 4.5, -1.75, 0.5, 2, 0, 0.5, 1.75, 0, 0.25, -3.25, -7.25, 0.25, -3.25, 1.75, 0.5, 3.75, 7, 0.5, 4.5, 1.75, 0.5, 2, 7, 0.5, 2.75, 8.75, 0.5, 2.5, 8.75, 0.25, -3.25, 15.75, 0.5, 1.5, 20.5, 0.5, 1.5, 20.5, 0.5, 0.75, 15.75, 0.5, 0.75, 10.5, 0.5, 2.75, 15.5, 0.25, -3.25, 15.5, 0.5, 4.5, 10.5, 0.5, 4.5)
@@ -43,16 +44,20 @@ transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 4.52835, 1
 alpha_cut = 1
 texture = ExtResource("2_yl5fl")
 
-[node name="Cover" parent="World" index="3" instance=ExtResource("6_7mnxm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07013404, 0, 2.9305902)
-
-[node name="Cover2" parent="World" index="4" instance=ExtResource("5_lkd7d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.767, 0, 3.672)
-
-[node name="Cactus5" type="Sprite3D" parent="World" index="5"]
+[node name="Cactus5" type="Sprite3D" parent="World" index="3"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 14.5163, 1.35212, -2.19461)
 alpha_cut = 1
 texture = ExtResource("2_yl5fl")
 
 [node name="Right" type="Marker3D" parent="EntryPoints" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.214909, 0, 0.96318436)
+
+[node name="BloodBurst" parent="." index="7" instance=ExtResource("8_v2m6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.812037, 4.0206768e-08, 0.9198234)
+
+[node name="Barrel" parent="." index="9" instance=ExtResource("7_7mnxm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1067781, 1.1097358, 0)
+
+[node name="EnemyTest" parent="." index="10" instance=ExtResource("7_v2m6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.939002, 0, 0)
+movement_speed = 0.0

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://6ahxaf8mfjcr"]
+
+[ext_resource type="Texture2D" uid="uid://cv1gfgy1dth2g" path="res://world/pickups/ammo_pickup/ammo_pickup.png" id="1_k1l7w"]
+[ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="2_66mbw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_shw0w"]
+
+[node name="AmmoPickup" type="Area3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0.35006368, 0)
+pixel_size = 0.0025
+alpha_cut = 1
+texture = ExtResource("1_k1l7w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_shw0w")
+
+[node name="UNFINISHED" parent="." instance=ExtResource("2_66mbw")]
+text = "ammo (wip)"

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c04no3yhhwjuw"]
+
+[ext_resource type="AudioStream" uid="uid://ducaacaocxjru" path="res://audio/placeholders/whip_placeholders/whip_swing.wav" id="1_nd431"]
+
+[node name="WhipSwingSound" type="AudioStreamPlayer3D"]
+stream = ExtResource("1_nd431")

@@ -1,0 +1,1 @@
+extends AnimatedSprite3D

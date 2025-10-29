@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d3stqami0urg7" path="res://world/npc/test/npc_test.tscn" id="4_3a2at"]
 
 [sub_resource type="Curve3D" id="Curve3D_vhe22"]
+closed = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, -6.9366417, 0, -2.4671104, 0, 0, 0, 0, 0, 0, 8.040892, 0, -2.1986964, 0, 0, 0, 0, 0, 0, 8.094572, 0, 0.0023026632, 0, 0, 0, 0, 0, 0, 10.617666, 0, 0.10966875, 0, 0, 0, 0, 0, 0, 10.563986, 0, 1.5591073, 0, 0, 0, 0, 0, 0, 7.8798428, 0, 1.6127902, 0, 0, 0, 0, 0, 0, 8, 0, 5, 0, 0, 0, 0, 0, 0, -7, 0, 5),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
