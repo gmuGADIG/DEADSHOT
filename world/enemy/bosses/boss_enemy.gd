@@ -9,6 +9,7 @@ class_name BossEnemy extends EnemyBase
 
 #region Behaviour Functions
 func _ready() -> void:
+	super._ready()
 	pick_action()
 
 func pick_action() -> void: ##TODO: Override this

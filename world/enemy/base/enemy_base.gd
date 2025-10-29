@@ -89,7 +89,8 @@ func _ready() -> void:
 	randomize()
 	player = get_tree().get_first_node_in_group("player")
 	starting_pos = starting_pos if not starting_pos.is_equal_approx(Vector3.ZERO) else position
-	last_known_player_position = player.global_position
+	
+	last_known_player_position = player.global_position if player else Vector3.ZERO
 	%Health.killed.connect(queue_free)
 	%Health.killed.connect(drop_tonic)
 

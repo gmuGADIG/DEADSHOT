@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buf15wb2e1tep"
-path.s3tc="res://.godot/imported/spike.png-a709a87fb6ea36a2a2767612b3b6997f.s3tc.ctex"
+uid="uid://d0i6s18l8lpes"
+path.s3tc="res://.godot/imported/evil_horse.png-3ed94564828a98e086a48cc3c6c433e1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://temp_art/spike.png"
-dest_files=["res://.godot/imported/spike.png-a709a87fb6ea36a2a2767612b3b6997f.s3tc.ctex"]
+source_file="res://world/enemy/base/evil_horse.png"
+dest_files=["res://.godot/imported/evil_horse.png-3ed94564828a98e086a48cc3c6c433e1.s3tc.ctex"]
 
 [params]
 

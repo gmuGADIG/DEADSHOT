@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b7d3oiw27awag" path="res://systems/attacking/hurtbox/hurtbox.tscn" id="3_1tv51"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_plfsl"]
-height = 1.85699
+height = 2.3742957
 radius = 0.669922
 
 [node name="Enemy" type="CharacterBody3D"]

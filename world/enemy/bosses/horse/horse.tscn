@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://rerij5gun514"]
+
+[ext_resource type="PackedScene" uid="uid://cqo1iwd2arvfk" path="res://world/enemy/bosses/boss_enemy.tscn" id="1_bulbf"]
+[ext_resource type="Script" uid="uid://caif4brdw52j8" path="res://world/enemy/bosses/horse/horse_boss.gd" id="2_23ymh"]
+[ext_resource type="Texture2D" uid="uid://d0i6s18l8lpes" path="res://world/enemy/base/evil_horse.png" id="3_dc5ks"]
+
+[sub_resource type="Animation" id="Animation_23ymh"]
+resource_name = "stomp"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"stomp_fire_attack"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dc5ks"]
+_data = {
+&"stomp": SubResource("Animation_23ymh")
+}
+
+[node name="Horse" node_paths=PackedStringArray("action_player") instance=ExtResource("1_bulbf")]
+script = ExtResource("2_23ymh")
+num_shots_in_spread = 3
+spread_angle = 45.0
+rock_speed = 30.0
+phase_1_action_names = Array[StringName]([&"stomp"])
+action_player = NodePath("ActionPlayer")
+
+[node name="Sprite3D" parent="." index="1"]
+transform = Transform3D(0.8, 0, 0, 0, 0.4327907, 0.34375343, 0, -0.24987194, 0.59539807, 0, 1, 0)
+texture = ExtResource("3_dc5ks")
+
+[node name="CollisionShape3D" parent="Hurtbox" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2055829, 0)
+
+[node name="ActionPlayer" parent="." index="6"]
+libraries = {
+&"": SubResource("AnimationLibrary_dc5ks")
+}
