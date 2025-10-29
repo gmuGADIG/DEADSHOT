@@ -72,6 +72,8 @@ weight = 0.1
 metadata/_custom_type_script = "uid://c1g7056xgtqys"
 
 [node name="HurtboxComponent" type="Area3D" parent="." node_paths=PackedStringArray("health_component")]
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("7_d3e1v")
 health_component = NodePath("HealthComponent")
 allowed_damage_sources = Array[int]([1, 2])

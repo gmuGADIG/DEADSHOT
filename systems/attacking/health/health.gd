@@ -5,7 +5,10 @@ signal killed
 @export var max_health : int
 @export var vulnerable:bool = true
 
-var health : int
+var health : int: 
+	set(v):
+		health = v
+		print("%s.health = %d" % [get_path(), v])
 
 func _ready() -> void:
 	health = max_health

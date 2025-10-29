@@ -1,13 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://crgv6bkolrlyy"]
+[gd_scene load_steps=11 format=3 uid="uid://crgv6bkolrlyy"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_b00wy"]
 [ext_resource type="Resource" uid="uid://q24ustx30otu" path="res://world/floor/sand/sand.tres" id="2_5t0jw"]
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="2_8watp"]
 [ext_resource type="PackedScene" uid="uid://dxdkwdigtcn43" path="res://world/enemy/test/enemy_test.tscn" id="4_eowj5"]
 [ext_resource type="PackedScene" uid="uid://3o8nbg2v248a" path="res://world/interactables/puddle/puddle.tscn" id="5_xa3ak"]
-[ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="6_a3scf"]
-[ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://world/interactables/cover/cover_1.tscn" id="7_afdcq"]
-[ext_resource type="PackedScene" uid="uid://c2bxn6p802s68" path="res://world/interactables/cover/cover_2.tscn" id="8_bu2xb"]
+[ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://world/interactables/cover/cover_boulder.tscn" id="7_afdcq"]
+[ext_resource type="PackedScene" uid="uid://c2bxn6p802s68" path="res://world/interactables/cover/cover_cactus_small.tscn" id="8_bu2xb"]
 [ext_resource type="PackedScene" uid="uid://ckbr1getgwitd" path="res://world/interactables/tumbleweed/tumbleweed.tscn" id="9_bu2xb"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_afdcq"]
@@ -56,9 +55,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7624645, 0, 4.589473)
 
 [node name="Puddle" parent="Enemies" index="2" instance=ExtResource("5_xa3ak")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.607033, 0, 3.1020565)
-
-[node name="Comment" parent="Enemies/Puddle" index="3" instance=ExtResource("6_a3scf")]
-text = "this is a puddle :)"
 
 [node name="Cover" parent="Enemies" index="3" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1681108, 0, 5.748684)
