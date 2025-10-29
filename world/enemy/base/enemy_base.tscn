@@ -9,6 +9,7 @@ height = 1.85699
 radius = 0.669922
 
 [node name="Enemy" type="CharacterBody3D" groups=["in_encounter"]]
+collision_layer = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94693, 0)
@@ -24,6 +25,7 @@ unique_name_in_owner = true
 max_health = 10
 
 [node name="Hurtbox" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_1tv51")]
+collision_layer = 8
 health_component = NodePath("../Health")
 allowed_damage_sources = Array[int]([0, 2])
 
