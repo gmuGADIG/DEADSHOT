@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cn2ip7hvcayky"]
+
+[ext_resource type="Script" uid="uid://cvxwox6ij6wjt" path="res://systems/camera/main_cam.gd" id="1_m50gf"]
+
+[node name="MainCam" type="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.65209836, 0.75813437, 0, -0.75813437, 0.65209836, 0, 0, 0)
+current = true
+script = ExtResource("1_m50gf")
+offset = Vector3(0, 6.9058037, 6.294909)
+smoothing = 10.0

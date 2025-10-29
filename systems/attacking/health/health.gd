@@ -3,6 +3,7 @@ class_name Health extends Node
 signal killed
 
 @export var max_health : int
+@export var vulnerable:bool = true
 
 var health : int
 
@@ -10,6 +11,8 @@ func _ready() -> void:
 	health = max_health
 
 func hurt(amount : int) -> void:
+	if !vulnerable: return
+	
 	if health <= 0: return # already dead
 	
 	health -= amount
