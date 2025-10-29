@@ -134,3 +134,26 @@ func update_stamina(delta: float) -> void:
 		$Hud.update_stamina_bar(stamina)
 	else:
 		stamina = 3.0
+
+
+# COMBAT ENCOUNTERS
+# According to the GDD, the player will enter Combat Encounters. These involve:
+# - The camera locking
+# - Enemies spawning in a group
+# - Rolling becomes stamina-dependent
+# To handle all of this, some other object should just tell the player about combat encounters with signals.
+# These next two functions are provided to hook your signals into.
+## Call this to tell the player that a combat encounter is beginning.
+func enter_combat() -> void:
+	if is_in_combat: return
+	is_in_combat = true
+	$Hud.fade_stamina_in()
+## Call this to tell the player that a combat encounter is done.
+func exit_combat() -> void:
+	if !is_in_combat: return
+	is_in_combat = false
+	stamina = 3.0
+	$Hud.fade_stamina_out()
+
+static func has_skill() -> bool:
+	return false
