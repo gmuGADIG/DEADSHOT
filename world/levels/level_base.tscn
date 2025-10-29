@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://bk60c4813t663"]
+[gd_scene load_steps=11 format=3 uid="uid://bk60c4813t663"]
 
 [ext_resource type="PackedScene" uid="uid://cr05xakri7lnw" path="res://world/floor/floor_gen.tscn" id="1_8hxjk"]
+[ext_resource type="Script" uid="uid://cjhe4i28xn2ne" path="res://world/backgrounds/background.gd" id="2_ay16i"]
 [ext_resource type="PackedScene" uid="uid://nuqmhgq1e2lu" path="res://world/player/player.tscn" id="2_nnb1h"]
 [ext_resource type="Script" uid="uid://2uxmd0kth1s5" path="res://world/transitions/entry_points.gd" id="2_rsarx"]
 [ext_resource type="PackedScene" uid="uid://1s1a4b2buf1o" path="res://menu/pause_menu/pause_menu.tscn" id="3_uyrbk"]
@@ -37,6 +38,15 @@ adjustment_brightness = 0.95
 adjustment_contrast = 1.2
 
 [node name="LevelBase" type="Node3D"]
+
+[node name="Background" type="Node3D" parent="."]
+
+[node name="FullscreenBG" type="Sprite3D" parent="Background"]
+transform = Transform3D(0.114, 0, 0, 0, 0.06538772, 0.093383335, 0, -0.093383335, 0.06538772, 2.5613499, -14.898792, -12.023702)
+cast_shadow = 0
+transparent = false
+fixed_size = true
+script = ExtResource("2_ay16i")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.9247388, -0.25272667, 0.2845829, 0, 0.74771696, 0.66401756, -0.38060242, -0.61404276, 0.69144297, 0, 0, 0)
