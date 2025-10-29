@@ -78,7 +78,6 @@ var was_tracking : bool = false
 
 ## How close the enemy is to the destination before being "basically there"
 var proximity_tolerance : float = 1
-
 var shooting := false
 var can_shoot := true
 

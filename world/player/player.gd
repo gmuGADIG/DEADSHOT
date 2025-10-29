@@ -10,7 +10,7 @@ static var persisting_data : PlayerPersistingData
 
 static var instance:Player
 
-# gun_name tracks the name of the current gun node. Should be changed when the gun changes.
+## Tracks name of current gun node. CHANGE THIS VARIABLE WHEN GUNS ARE CHANGED.
 static var gun_name := "BasicGun"
 
 var speed_multiplier: float = 1.0;

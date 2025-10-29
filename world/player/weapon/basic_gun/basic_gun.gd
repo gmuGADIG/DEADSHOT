@@ -26,7 +26,7 @@ func _process(_delta: float) -> void:
 		fire()
 	
 	# Reloads the gun as well (if you can shoot, you can reload).
-	if Input.is_action_just_pressed("reload") and Player.instance.can_shoot():
+	if Input.is_action_just_pressed("reload") and Player.instance.can_shoot() and is_reloading == false:
 		reload()
 
 func fire() -> void:
