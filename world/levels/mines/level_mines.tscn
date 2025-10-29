@@ -6,6 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://dehkbo3ehmx5u" path="res://world/floor/rock/rock_fill.png" id="3_ci4pn"]
 [ext_resource type="Texture2D" uid="uid://dre3fuqp6wu6g" path="res://world/floor/rock/rock_edge.png" id="4_fb8xb"]
 [ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="4_svmac"]
+[ext_resource type="PackedScene" uid="uid://b4n4rflu3my0v" path="res://world/enemy/longhorn/longhorn.tscn" id="5_ci4pn"]
+[ext_resource type="PackedScene" uid="uid://dwdhuncnyfmcw" path="res://world/enemy/wilder/wilder.tscn" id="6_fb8xb"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_ci4pn"]
+vertices = PackedVector3Array(-6.5660095, 0.49, 2.6657233, -9.0660095, 0.49, 2.6657233, -8.8160095, 0.49, 3.9157233, -6.5660095, 0.49, 4.1657233, -6.0660095, 0.49, 0.6657233, -6.5660095, 0.49, 6.9157233, 0.18399048, 0.49, 8.415724, 0.43399048, 0.49, 0.9157233, 10.9339905, 0.49, 11.165724, 11.1839905, 0.49, 4.4157233, 8.6839905, 0.49, 1.1657233)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(3, 4, 5), PackedInt32Array(5, 4, 7), PackedInt32Array(5, 7, 6), PackedInt32Array(3, 0, 4), PackedInt32Array(9, 8, 10), PackedInt32Array(10, 8, 6), PackedInt32Array(10, 6, 7)]
 
 [sub_resource type="Curve3D" id="Curve3D_nthvq"]
 _data = {
@@ -30,6 +36,9 @@ uv1_scale = Vector3(1, 2, 1)
 uv1_offset = Vector3(0, 1.705, 0)
 
 [node name="LevelMines" instance=ExtResource("1_nthvq")]
+
+[node name="World" parent="." index="1"]
+navigation_mesh = SubResource("NavigationMesh_ci4pn")
 
 [node name="Floor" parent="World" index="0"]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -4.200489, 0, 13.980255)
@@ -70,5 +79,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4667149, 0, 9.848493)
 [node name="Comment" parent="Notes" index="0" instance=ExtResource("4_svmac")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0744767, 4.7683716e-07, 4.3966303)
 text = "Welcome to the mines :)"
+
+[node name="LonghornEnemy" parent="." index="8" instance=ExtResource("5_ci4pn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4384956, 0.99999917, 7.1546817)
+
+[node name="Comment" parent="LonghornEnemy" index="11" instance=ExtResource("4_svmac")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2441782, 1.4277897)
+text = "i am the longhorn"
+
+[node name="Wilder" parent="." index="9" instance=ExtResource("6_fb8xb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1438756, 0.008993983, 4.0566435)
+
+[node name="Comment" parent="Wilder" index="9" instance=ExtResource("4_svmac")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0620713, 0.7462635)
+text = "i am the wilder"
 
 [editable path="World/Floor"]
