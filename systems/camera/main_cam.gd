@@ -1,7 +1,13 @@
+class_name MainCam
 extends Camera3D
+
+static var instance: MainCam
 
 @export var offset: Vector3
 @export var smoothing: float
+
+func _init() -> void:
+	instance = self
 
 func _process(delta: float) -> void:
 	var target := average_position()

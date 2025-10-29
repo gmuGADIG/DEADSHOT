@@ -40,6 +40,7 @@ shape = SubResource("CylinderShape3D_plfsl")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0.385961, 1, 0)
+shaded = true
 alpha_cut = 1
 texture = ExtResource("1_yynsy")
 
@@ -107,3 +108,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.54808617, 0)
 script = ExtResource("11_2x47q")
 weight = 2.0
 metadata/_custom_type_script = "uid://c1g7056xgtqys"
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9011965, 0)
+light_energy = 0.2
+omni_range = 25.0
+omni_attenuation = 1.5
