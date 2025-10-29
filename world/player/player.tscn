@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://nuqmhgq1e2lu"]
+[gd_scene load_steps=15 format=3 uid="uid://nuqmhgq1e2lu"]
 
 [ext_resource type="Script" uid="uid://llqh4g6obmup" path="res://world/player/player.gd" id="1_bvkkv"]
 [ext_resource type="Texture2D" uid="uid://ckv48omi8han7" path="res://temp_art/gartic/harry_potter_with_gun.png" id="1_yynsy"]
@@ -12,6 +12,11 @@
 [ext_resource type="Script" uid="uid://lxg83i28nlul" path="res://systems/attacking/hurtbox/hurtbox.gd" id="7_d3e1v"]
 [ext_resource type="Script" uid="uid://c1g7056xgtqys" path="res://systems/camera/camera_tracked.gd" id="11_2x47q"]
 
+[sub_resource type="Curve" id="Curve_2x47q"]
+_limits = [0.0, 20.0, 0.0, 0.45]
+_data = [Vector2(0, 9.870129), 0.0, 0.0, 0, 0, Vector2(0.05559846, 20), 0.0, 0.0, 0, 0, Vector2(0.32837838, 20), 0.0, 0.0, 0, 0, Vector2(0.45, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_plfsl"]
 height = 1.85699
 radius = 0.669922
@@ -23,6 +28,7 @@ radius = 0.8881836
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("health_component", "whip") groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_bvkkv")
+roll_curve = SubResource("Curve_2x47q")
 health_component = NodePath("HurtboxComponent/HealthComponent")
 whip = NodePath("Whip")
 
@@ -36,11 +42,6 @@ shape = SubResource("CylinderShape3D_plfsl")
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0.385961, 1, 0)
 alpha_cut = 1
 texture = ExtResource("1_yynsy")
-
-[node name="RollDurationTimer" type="Timer" parent="."]
-unique_name_in_owner = true
-wait_time = 0.4
-one_shot = true
 
 [node name="InteractionArea" type="Area3D" parent="."]
 unique_name_in_owner = true

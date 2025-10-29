@@ -104,6 +104,11 @@ pointing/emulate_touch_from_mouse=true
 3d_physics/layer_2="Player"
 3d_physics/layer_3="Interactable"
 
+[physics]
+
+3d/physics_engine="Jolt Physics"
+common/physics_interpolation=true
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
