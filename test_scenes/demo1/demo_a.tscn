@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cjbsq7rk6r3h4" path="res://temp_art/gartic/cactus.png" id="2_yl5fl"]
 [ext_resource type="Resource" uid="uid://ebi2mrpur7b6" path="res://world/floor/rock/rock.tres" id="3_lkd7d"]
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="4_yl5fl"]
-[ext_resource type="PackedScene" uid="uid://bb3qdjspo0kcq" path="res://world/Intereactables/Barrel.tscn" id="7_7mnxm"]
+[ext_resource type="PackedScene" uid="uid://bb3qdjspo0kcq" path="res://world/interactables/barrel/barrel.tscn" id="7_7mnxm"]
 [ext_resource type="PackedScene" uid="uid://dxdkwdigtcn43" path="res://world/enemy/test/enemy_test.tscn" id="7_v2m6r"]
 [ext_resource type="PackedScene" uid="uid://dtqb8q8qomq31" path="res://world/pickups/corrupt_heart/blood_particles/blood_burst.tscn" id="8_v2m6r"]
 

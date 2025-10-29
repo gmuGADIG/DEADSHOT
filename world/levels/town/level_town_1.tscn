@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="2_83i12"]
 [ext_resource type="Resource" uid="uid://q24ustx30otu" path="res://world/floor/sand/sand.tres" id="2_suwgb"]
 [ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="4_0hyq2"]
-[ext_resource type="PackedScene" uid="uid://bb3qdjspo0kcq" path="res://world/Intereactables/Barrel.tscn" id="4_ycak7"]
+[ext_resource type="PackedScene" uid="uid://bb3qdjspo0kcq" path="res://world/interactables/barrel/barrel.tscn" id="4_ycak7"]
 [ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://world/interactables/cover/cover_boulder.tscn" id="5_dwgit"]
 [ext_resource type="PackedScene" uid="uid://d3stqami0urg7" path="res://world/npc/test/npc_test.tscn" id="5_jrcoc"]
 [ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="6_qoiyb"]
@@ -192,7 +192,7 @@ target_scene = "uid://bueg0v6pvrthp"
 target_entry_point = "Right"
 
 [node name="Right" parent="TransitionAreas" index="1" instance=ExtResource("2_83i12")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.177208, 0, -0.065726995)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.08146, 0, -0.065726995)
 target_scene = "uid://crgv6bkolrlyy"
 target_entry_point = "Left"
 

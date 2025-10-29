@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://8er7o8byf7v1" path="res://world/decoration/well/well.tscn" id="15_5dr26"]
 [ext_resource type="PackedScene" uid="uid://d1e8myf75tnlv" path="res://world/interactables/cover/cover_cactus_large.tscn" id="15_srkko"]
 [ext_resource type="PackedScene" uid="uid://dwlho1k2eetb1" path="res://world/npc/stone_tablet/tablet.tscn" id="16_eiede"]
-[ext_resource type="PackedScene" uid="uid://bb3qdjspo0kcq" path="res://world/Intereactables/Barrel.tscn" id="16_srkko"]
+[ext_resource type="PackedScene" uid="uid://bb3qdjspo0kcq" path="res://world/interactables/barrel/barrel.tscn" id="16_srkko"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_hxoc3"]
 vertices = PackedVector3Array(0, 0.5, 4.5, 0, 0.5, 4, -1.75, 0.5, 3.75, -7.25, 0.5, 4.5, -1.75, 0.5, 2, 0, 0.5, 1.75, 0, 0.25, -3.25, -7.25, 0.25, -3.25, 1.75, 0.5, 3.75, 7, 0.5, 4.5, 1.75, 0.5, 2, 7, 0.5, 2.75, 8.75, 0.5, 2.5, 8.75, 0.25, -3.25, 15.75, 0.5, 1.5, 20.5, 0.5, 1.5, 20.5, 0.5, 0.75, 15.75, 0.5, 0.75, 10.5, 0.5, 2.75, 15.5, 0.25, -3.25, 15.5, 0.5, 4.5, 10.5, 0.5, 4.5)

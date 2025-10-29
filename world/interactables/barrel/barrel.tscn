@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://bb3qdjspo0kcq"]
 
-[ext_resource type="Script" uid="uid://16r5ouh3405d" path="res://world/Intereactables/Barrel.gd" id="1_wpcj3"]
+[ext_resource type="Script" uid="uid://16r5ouh3405d" path="res://world/interactables/barrel/barrel.gd" id="1_wpcj3"]
 [ext_resource type="Texture2D" uid="uid://ccp0tuojupldg" path="res://temp_art/rough_drafts/barrel.png" id="2_auk2w"]
 [ext_resource type="Texture2D" uid="uid://cjbsq7rk6r3h4" path="res://temp_art/gartic/cactus.png" id="3_lbkrv"]
-[ext_resource type="Script" uid="uid://b7klmqbbbrtn6" path="res://world/Intereactables/enemy_hurter.gd" id="4_lbkrv"]
+[ext_resource type="Script" uid="uid://b7klmqbbbrtn6" path="res://world/interactables/enemy_hurter.gd" id="4_lbkrv"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_polpe"]
 height = 0.9785156

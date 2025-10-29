@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="2_8watp"]
 [ext_resource type="PackedScene" uid="uid://d1e8myf75tnlv" path="res://world/interactables/cover/cover_cactus_large.tscn" id="4_xa3ak"]
 [ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://world/interactables/cover/cover_boulder.tscn" id="7_afdcq"]
-[ext_resource type="PackedScene" uid="uid://bricos36gg40h" path="res://world/interactables/barrel/barrel.tscn" id="8_afdcq"]
+[ext_resource type="PackedScene" uid="uid://bb3qdjspo0kcq" path="res://world/interactables/barrel/barrel.tscn" id="8_afdcq"]
 [ext_resource type="PackedScene" uid="uid://c2bxn6p802s68" path="res://world/interactables/cover/cover_cactus_small.tscn" id="8_bu2xb"]
 [ext_resource type="PackedScene" uid="uid://ckbr1getgwitd" path="res://world/interactables/tumbleweed/tumbleweed.tscn" id="9_bu2xb"]
 
@@ -38,10 +38,10 @@ material = ExtResource("2_5t0jw")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10973072, 0, 1.4328089)
 
 [node name="Left" type="Node3D" parent="EntryPoints" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.832652, 0, 1.019488)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.685082, -9.536743e-07, -4.1915927)
 
 [node name="Right" type="Node3D" parent="EntryPoints" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.919891, 0, 2.091728)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.105401, 0, 26.48222)
 
 [node name="Entry_North" parent="TransitionAreas" index="0" instance=ExtResource("2_8watp")]
 transform = Transform3D(-5.2797706e-08, 0, 1.2078707, 0, 1, 0, -1.2078707, 0, -5.2797706e-08, 14.428501, 0, 2.526321)
