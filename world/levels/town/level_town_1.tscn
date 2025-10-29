@@ -1,11 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://blppqsxslhh07"]
+[gd_scene load_steps=17 format=3 uid="uid://blppqsxslhh07"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_j5c1u"]
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="2_83i12"]
 [ext_resource type="Resource" uid="uid://q24ustx30otu" path="res://world/floor/sand/sand.tres" id="2_suwgb"]
 [ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="4_0hyq2"]
-[ext_resource type="PackedScene" uid="uid://bricos36gg40h" path="res://world/interactables/barrel/barrel.tscn" id="4_ycak7"]
-[ext_resource type="PackedScene" path="res://world/interactables/cover/cover_boulder.tscn" id="5_dwgit"]
+[ext_resource type="PackedScene" uid="uid://bb3qdjspo0kcq" path="res://world/Intereactables/Barrel.tscn" id="4_ycak7"]
+[ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://world/interactables/cover/cover_boulder.tscn" id="5_dwgit"]
 [ext_resource type="PackedScene" uid="uid://d3stqami0urg7" path="res://world/npc/test/npc_test.tscn" id="5_jrcoc"]
 [ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="6_qoiyb"]
 [ext_resource type="PackedScene" uid="uid://8er7o8byf7v1" path="res://world/decoration/well/well.tscn" id="7_f3sn8"]
@@ -22,11 +22,6 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 12
-
-[sub_resource type="Resource" id="Resource_1ab8i"]
-script = ExtResource("6_qoiyb")
-dialog = "[Garfunkle] where is my house :("
-metadata/_custom_type_script = "uid://rvaetvwo5p3h"
 
 [sub_resource type="Resource" id="Resource_jrcoc"]
 script = ExtResource("6_qoiyb")
@@ -215,9 +210,38 @@ text = "eventually it'll be split into a few scenes:
 
 [node name="NPCs" type="Node3D" parent="." index="7"]
 
-[node name="NPCTest" parent="NPCs" index="0" instance=ExtResource("5_jrcoc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.444736, 0, 1.1609888)
-timelime = SubResource("Resource_1ab8i")
+[node name="NPCTest2" parent="NPCs" index="0" instance=ExtResource("5_jrcoc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.229506, 0, 5.644972)
+timelime = SubResource("Resource_jrcoc")
+
+[node name="Sprite3D" parent="NPCs/NPCTest2" index="0"]
+modulate = Color(0.86, 0.4380267, 0.06879999, 1)
+
+[node name="Comment" parent="NPCs/NPCTest2" index="2" instance=ExtResource("4_0hyq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5406563, 0)
+text = "Snake Oil Salesman"
+
+[node name="NPCTest3" parent="NPCs" index="1" instance=ExtResource("5_jrcoc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.998104, 0, 5.9323926)
+timelime = SubResource("Resource_qoiyb")
+
+[node name="Sprite3D" parent="NPCs/NPCTest3" index="0"]
+modulate = Color(0.07999998, 1, 0.89266676, 1)
+
+[node name="Comment" parent="NPCs/NPCTest3" index="2" instance=ExtResource("4_0hyq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5406563, 0)
+text = "Cryptic Nomad"
+
+[node name="NPCTest4" parent="NPCs" index="2" instance=ExtResource("5_jrcoc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.308859, 0, 5.0440106)
+timelime = SubResource("Resource_f3sn8")
+
+[node name="Sprite3D" parent="NPCs/NPCTest4" index="0"]
+modulate = Color(1.158732, 0.13998671, 1.4687854, 1)
+
+[node name="Comment" parent="NPCs/NPCTest4" index="2" instance=ExtResource("4_0hyq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5406563, 0)
+text = "Piano Man"
 
 [node name="Comment" parent="." index="9" instance=ExtResource("4_0hyq2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.247622, 0.020611577, -0.72196484)
@@ -464,39 +488,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.791788, 0.2081351, 31.9735
 
 [node name="Boulder29" parent="." index="86" instance=ExtResource("5_dwgit")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.902529, 0.20793094, 31.907898)
-
-[node name="NPCTest2" parent="NPCs" index="1" instance=ExtResource("5_jrcoc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.606473, 0, 1.6276722)
-timelime = SubResource("Resource_jrcoc")
-
-[node name="Sprite3D" parent="NPCs/NPCTest2" index="0"]
-modulate = Color(0.86, 0.4380267, 0.06879999, 1)
-
-[node name="Comment" parent="NPCs/NPCTest2" index="2" instance=ExtResource("4_0hyq2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5406563, 0)
-text = "Snake Oil Salesman"
-
-[node name="NPCTest3" parent="NPCs" index="2" instance=ExtResource("5_jrcoc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.517522, 0, 2.5186634)
-timelime = SubResource("Resource_qoiyb")
-
-[node name="Sprite3D" parent="NPCs/NPCTest3" index="0"]
-modulate = Color(0.07999998, 1, 0.89266676, 1)
-
-[node name="Comment" parent="NPCs/NPCTest3" index="2" instance=ExtResource("4_0hyq2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5406563, 0)
-text = "Cryptic Nomad"
-
-[node name="NPCTest4" parent="NPCs" index="3" instance=ExtResource("5_jrcoc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8687649, 0, 5.6259146)
-timelime = SubResource("Resource_f3sn8")
-
-[node name="Sprite3D" parent="NPCs/NPCTest4" index="0"]
-modulate = Color(1.158732, 0.13998671, 1.4687854, 1)
-
-[node name="Comment" parent="NPCs/NPCTest4" index="2" instance=ExtResource("4_0hyq2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5406563, 0)
-text = "Piano Man"
 
 [editable path="NPCs/NPCTest2"]
 [editable path="NPCs/NPCTest3"]
