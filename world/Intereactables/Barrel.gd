@@ -1,22 +1,34 @@
 extends CharacterBody3D
 
+@export var speed := 10.
+var was_hit := false
 @onready var _animated_sprite := $AnimatedSprite3D 
 
 
-func _physics_process(delta: float) -> void:
-	move_and_slide()
+func _physics_process(_delta: float) -> void:
+	if move_and_slide(): queue_free()
 
 
 func hit(bullet: Bullet) -> void:
-	_animated_sprite.set_frame_and_progress(1,0.0)
-	if bullet.velocity.angle_to(Vector3.FORWARD) > 2 :
-		velocity.z = 3
-	if bullet.velocity.angle_to(Vector3.BACK) > 2 :
-		velocity.z = -3
-	if bullet.velocity.angle_to(Vector3.LEFT) > 2 :
-		velocity.x = 3
-	if bullet.velocity.angle_to(Vector3.RIGHT) > 2 :
-		velocity.x = -3
+	if was_hit: return
+	was_hit = true
+	set_collision_layer_value(1, false)
+	
+	_animated_sprite.play("rolling")
+	
+	# quantize bullet velocity to nearest vector
+	var directions: Array[Vector3] = [
+		Vector3.LEFT, Vector3.RIGHT, 
+		Vector3.FORWARD, Vector3.BACK
+	]
+	
+	var dot_result := -INF
+	var v := Vector3()
+	for dir in directions:
+		var d := bullet.velocity.dot(dir)
+		if d > dot_result:
+			dot_result = d
+			v = dir
+	
+	velocity = v * speed
 	bullet.queue_free()
-	await get_tree().create_timer(5.0).timeout
-	_animated_sprite.set_frame_and_progress(2,0.0)

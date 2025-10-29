@@ -1,43 +1,56 @@
-[gd_scene load_steps=7 format=3 uid="uid://bb3qdjspo0kcq"]
+[gd_scene load_steps=8 format=3 uid="uid://bb3qdjspo0kcq"]
 
 [ext_resource type="Script" uid="uid://16r5ouh3405d" path="res://world/Intereactables/Barrel.gd" id="1_wpcj3"]
-[ext_resource type="Texture2D" uid="uid://sxoco3t78rky" path="res://temp_art/gartic/godot.png" id="3_ciue1"]
-[ext_resource type="Texture2D" uid="uid://bspns5244rj6v" path="res://temp_art/gartic/ghost_crying.png" id="4_lbkrv"]
-[ext_resource type="Texture2D" uid="uid://cegfpthfj6eil" path="res://temp_art/gartic/godot_dead.png" id="4_qfs6g"]
+[ext_resource type="Texture2D" uid="uid://ccp0tuojupldg" path="res://temp_art/rough_drafts/barrel.png" id="2_auk2w"]
+[ext_resource type="Texture2D" uid="uid://cjbsq7rk6r3h4" path="res://temp_art/gartic/cactus.png" id="3_lbkrv"]
+[ext_resource type="Script" uid="uid://b7klmqbbbrtn6" path="res://world/Intereactables/enemy_hurter.gd" id="4_lbkrv"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_polpe"]
+height = 0.9785156
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5vsq6"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_ciue1")
+"texture": ExtResource("2_auk2w")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_ciue1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_qfs6g")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_lbkrv")
+"texture": ExtResource("3_lbkrv")
 }],
 "loop": true,
-"name": &"new_animation",
+"name": &"rolling",
 "speed": 5.0
 }]
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_lbkrv"]
+radius = 0.89697266
+
 [node name="Barrel" type="CharacterBody3D"]
+collision_layer = 9
 script = ExtResource("1_wpcj3")
+speed = 15.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3970592, 0)
 shape = SubResource("CylinderShape3D_polpe")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.5376869, 0, 0, 0, 0.46097943, 0.27677637, 0, -0.27677637, 0.46097943, 0, 0, 0)
 sprite_frames = SubResource("SpriteFrames_5vsq6")
-animation = &"new_animation"
+animation = &"idle"
+autoplay = "idle"
+
+[node name="EnemyHurter" type="Area3D" parent="."]
+collision_mask = 8
+script = ExtResource("4_lbkrv")
+damage = 10
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EnemyHurter"]
+shape = SubResource("CylinderShape3D_lbkrv")
+
+[connection signal="area_entered" from="EnemyHurter" to="EnemyHurter" method="_on_area_entered"]

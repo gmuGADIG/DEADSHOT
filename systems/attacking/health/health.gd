@@ -3,7 +3,7 @@ class_name Health extends Node
 signal killed
 
 @export var max_health : int
-@export var vulnerable:bool
+@export var vulnerable:bool = true
 
 var health : int
 
