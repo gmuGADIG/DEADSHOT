@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://b4n4rflu3my0v"]
+
+[ext_resource type="PackedScene" uid="uid://dx3l0wduat3tp" path="res://world/enemy/base/enemy_base.tscn" id="1_qriva"]
+[ext_resource type="Script" uid="uid://dqw3rnmgfv6r7" path="res://world/enemy/longhorn/longhorn.gd" id="2_efxix"]
+[ext_resource type="Texture2D" uid="uid://chnnd6opa6df5" path="res://temp_art/gartic/fish_man.png" id="3_g07qo"]
+[ext_resource type="Script" uid="uid://dy4h4d283fxxn" path="res://util/sprite_shaker.gd" id="4_g07qo"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_plfsl"]
+height = 1.85699
+radius = 0.669922
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4j1ge"]
+
+[node name="LonghornEnemy" instance=ExtResource("1_qriva")]
+script = ExtResource("2_efxix")
+charge_time = 1.0
+cooldown_time = 1.5
+atk_source = 1
+atk_knockback = 1
+max_hp = 20.0
+proximity_tolerance = 1.5
+
+[node name="CollisionShape3D" parent="." index="0"]
+visible = false
+
+[node name="Sprite3D" parent="." index="1"]
+texture = ExtResource("3_g07qo")
+
+[node name="CollisionShape3D" parent="Hurtbox" index="0"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.94693, 0)
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." index="6"]
+
+[node name="ChargeTimer" type="Timer" parent="." index="7"]
+unique_name_in_owner = true
+
+[node name="HurterBox" type="Area3D" parent="." index="8"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurterBox" index="0"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+shape = SubResource("CylinderShape3D_plfsl")
+
+[node name="SpriteShaker" type="Node" parent="." index="9" node_paths=PackedStringArray("sprite")]
+unique_name_in_owner = true
+script = ExtResource("4_g07qo")
+shake_intensity = 0.4
+shake_speed = 500.0
+shaking = true
+sprite = NodePath("../Sprite3D")
+noise = SubResource("FastNoiseLite_4j1ge")
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
+[connection signal="timeout" from="ChargeTimer" to="." method="_on_charge_timer_timeout"]
+[connection signal="area_entered" from="HurterBox" to="." method="_on_hurter_box_area_entered"]
