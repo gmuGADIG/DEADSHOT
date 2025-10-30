@@ -22,13 +22,10 @@ func _process(delta: float) -> void:
 	global_position.z += velocity.z * delta
 
 func _on_area_entered(area: Area3D) -> void:
-	print(area)
 	if area is Hurtbox:
-		print("Hite")
 		var hurtbox : Hurtbox = area
 		var dmg := DamageInfo.new(atk_damage, atk_source, atk_knockback, velocity.normalized())
 		var did_damage := hurtbox.hit(dmg)
 		
 		if did_damage:
-			print("-1")
 			queue_free()

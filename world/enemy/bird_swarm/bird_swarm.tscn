@@ -46,4 +46,5 @@ shape = SubResource("CylinderShape3D_plfsl")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94, 0)
 shape = SubResource("CylinderShape3D_bpewx")
 
+[connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
 [connection signal="area_entered" from="Damagebox" to="." method="_on_damagebox_area_entered"]

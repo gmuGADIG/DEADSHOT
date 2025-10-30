@@ -2,8 +2,9 @@ class_name BirdSwarm
 extends EnemyBase
 
 var timer : float = 0.0;
-const MELEE_RANGE: float = 2.0
-const MELEE_DAMAGE: int = 10
+@export var MELEE_RANGE: float = 0.3
+@export var MELEE_DAMAGE: int = 2
+@export var homing_bird_fire_speed: float = 0.5
 
 
 func fireHomingBird() -> void:
@@ -21,7 +22,7 @@ func hostile() -> void:
 	var distance_to_player: float = global_position.distance_to(player.global_position)
 	
 	if distance_to_player > MELEE_RANGE:
-		if(timer >= 0.9):
+		if(timer >= homing_bird_fire_speed):
 			fireHomingBird()
 			timer = 0;
 	else:
@@ -43,7 +44,6 @@ func attack() -> void:
 
 func _on_damagebox_area_entered(area: Area3D) -> void:
 	if area is Hurtbox:
-		print("Hit")
 		var hurtbox : Hurtbox = area
 		var dmg := DamageInfo.new(damage, DamageInfo.Source.ENEMY, 0, velocity.normalized())
 		hurtbox.hit(dmg)
