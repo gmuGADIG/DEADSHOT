@@ -63,6 +63,8 @@ var patrol_index : int = 0
 var aggro : AggroState = AggroState.BENIGN
 ## Current distance to the player
 var player_distance : float
+## Current on fire status. Starts as false.
+var is_on_fire := false
 
 ## The navigation agent.
 @onready var navigation_agent : NavigationAgent3D = $NavigationAgent3D
