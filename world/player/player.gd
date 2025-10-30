@@ -3,7 +3,8 @@ class_name Player extends CharacterBody3D
 class PlayerPersistingData:
 	var max_health : int
 	var health : int
-	
+
+#region Variables
 static var persisting_data : PlayerPersistingData
 
 static var instance:Player
@@ -39,40 +40,25 @@ enum PlayerState {
 	## The player is interacting with a NPC.
 	INTERACTING
 }
+signal begin_interacting
+signal end_interacting
 
 var current_state: PlayerState = PlayerState.WALKING
+#endregion
 
-static func update_persisting_data() -> void:
-	if persisting_data == null:
-		persisting_data = PlayerPersistingData.new()
-	
-	persisting_data.max_health = Player.instance.health_component.max_health
-	persisting_data.health = Player.instance.health_component.health
-
-## Returns the inputted walking direction on the XZ plane (Y = 0)
-func input_direction() -> Vector3:
-	var input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	return Vector3(input.x,0,input.y)
-
+#region Builtin Functions
 func _ready() -> void:
 	instance = self
 	if persisting_data != null:
 		health_component.max_health = persisting_data.max_health
 		health_component.health = persisting_data.health
+	begin_interacting.connect(_on_player_begin_interacting)
+	end_interacting.connect(_on_player_end_interacting);
 
 func _init() -> void:
 	instance = self
 
-
-## Returns the direction from the player to the reticle (Y = 0)
-func aim_dir() -> Vector3:
-	var dir: Vector3 = %Reticle.global_position - self.global_position
-	dir.y = 0
-	return dir.normalized()
-
-
 func _physics_process(delta: float) -> void:
-	
 	if Input.is_action_just_pressed("roll") and whip.whip_state == Whip.WhipState.OFF:
 		begin_roll()
 	
@@ -89,10 +75,33 @@ func _physics_process(delta: float) -> void:
 		roll(delta)
 	move_and_slide()
 		
-## We use the proper process function to update stamina, since it appears on the HUD and that could be drawn faster than the physics tickrate.
+## We use the proper process function to update stamina,
+## since it appears on the HUD and that could be drawn
+## faster than the physics tickrate.
 func _process(delta: float) -> void:
 	update_stamina(delta)
+#endregion
 
+#region Custom Functions
+static func update_persisting_data() -> void:
+	if persisting_data == null:
+		persisting_data = PlayerPersistingData.new()
+	
+	persisting_data.max_health = Player.instance.health_component.max_health
+	persisting_data.health = Player.instance.health_component.health
+
+## Returns the inputted walking direction on the XZ plane (Y = 0)
+func input_direction() -> Vector3:
+	var input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	return Vector3(input.x,0,input.y)
+
+## Returns the direction from the player to the reticle (Y = 0)
+func aim_dir() -> Vector3:
+	var dir: Vector3 = %Reticle.global_position - self.global_position
+	dir.y = 0
+	return dir.normalized()
+
+## Checks if the player is able to shoot or not.
 func can_shoot() -> bool:
 	# The player should only be able to shoot from the walking state.
 	if current_state != PlayerState.WALKING:
@@ -103,6 +112,7 @@ func can_shoot() -> bool:
 	
 	return true
 
+## Begins the roll by changing the state and decreasing stamina.
 func begin_roll() -> void:
 	# This function only runs when the roll starts.
 	# Get out of here if you're already rolling!
@@ -116,6 +126,7 @@ func begin_roll() -> void:
 	current_state = PlayerState.ROLLING
 	roll_time = 0
 
+## Roll the player in the current direction.
 func roll(delta : float) -> void:
 	var roll_dir : Vector3 = previous_input_direction
 	var roll_speed : float = roll_curve.sample(roll_time)
@@ -145,7 +156,6 @@ func update_stamina(delta: float) -> void:
 	else:
 		stamina = 3.0
 
-
 # COMBAT ENCOUNTERS
 # According to the GDD, the player will enter Combat Encounters. These involve:
 # - The camera locking
@@ -158,6 +168,7 @@ func enter_combat() -> void:
 	if is_in_combat: return
 	is_in_combat = true
 	$Hud.fade_stamina_in()
+
 ## Call this to tell the player that a combat encounter is done.
 func exit_combat() -> void:
 	if !is_in_combat: return
@@ -167,3 +178,14 @@ func exit_combat() -> void:
 
 static func has_skill() -> bool:
 	return false
+
+## Function bound to the signal for beginning an interaction.
+## Changes the state to Interacting.
+func _on_player_begin_interacting() -> void:
+	current_state = PlayerState.INTERACTING;
+
+## Function bound to the signal for ending an interaction
+## Changes state to Walking by default.
+func _on_player_end_interacting() -> void:
+	current_state = PlayerState.WALKING;
+#endregion
