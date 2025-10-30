@@ -15,13 +15,25 @@ extends Area3D
 var velocity: Vector3
 
 func _ready() -> void:
+	# Immediately set the despawn timer and wait
 	await get_tree().create_timer(despawn_after_seconds).timeout
 	queue_free()
 
-
+## Creates the bullet.
 func fire(gun: Node3D, direction: Vector3) -> void:
 	global_position = gun.global_position
 	velocity = direction * speed
+
+## Optionally aims the bullet towards a given point.
+func set_target(target: Vector3) -> void:
+	var dir := target - position
+	dir.y = 0
+	velocity = dir.normalized() * speed
+	
+## Optionally overrides the bullet speed with code.
+func set_speed(newspeed: float) ->void:
+	speed = newspeed
+	velocity = velocity.normalized()*speed
 
 func _process(delta: float) -> void:
 	global_position += velocity * delta
