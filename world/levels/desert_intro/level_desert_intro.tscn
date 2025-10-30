@@ -1,16 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://bueg0v6pvrthp"]
+[gd_scene load_steps=11 format=3 uid="uid://bueg0v6pvrthp"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_ctnal"]
 [ext_resource type="Resource" uid="uid://q24ustx30otu" path="res://world/floor/sand/sand.tres" id="2_7h0w7"]
+[ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://world/interactables/cover/cover_boulder.tscn" id="3_ab4dd"]
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="3_vhe22"]
 [ext_resource type="PackedScene" uid="uid://d3stqami0urg7" path="res://world/npc/test/npc_test.tscn" id="4_3a2at"]
+[ext_resource type="PackedScene" uid="uid://dwe53mhloyir4" path="res://world/decoration/cursed_plant/cursed_plant.tscn" id="6_f6ib5"]
+[ext_resource type="PackedScene" uid="uid://8er7o8byf7v1" path="res://world/decoration/well/well.tscn" id="7_7xwwm"]
+[ext_resource type="PackedScene" uid="uid://d1e8myf75tnlv" path="res://world/interactables/cover/cover_cactus_large.tscn" id="8_5rqjd"]
+[ext_resource type="PackedScene" uid="uid://c2bxn6p802s68" path="res://world/interactables/cover/cover_cactus_small.tscn" id="9_jncf5"]
 
 [sub_resource type="Curve3D" id="Curve3D_vhe22"]
+closed = true
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -6.9366417, 0, -2.4671104, 0, 0, 0, 0, 0, 0, 8.040892, 0, -2.1986964, 0, 0, 0, 0, 0, 0, 8.094572, 0, 0.0023026632, 0, 0, 0, 0, 0, 0, 10.617666, 0, 0.10966875, 0, 0, 0, 0, 0, 0, 10.563986, 0, 1.5591073, 0, 0, 0, 0, 0, 0, 7.8798428, 0, 1.6127902, 0, 0, 0, 0, 0, 0, 8, 0, 5, 0, 0, 0, 0, 0, 0, -7, 0, 5),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -49.09802, 0, -8.575384, 0, 0, 0, 0, 0, 0, -18.230328, 0, -8.575384, 0, 0, 0, 0, 0, 0, -12.442637, 0, 1.0707693, 0, 0, 0, 0, 0, 0, -6.654945, 0, -8.575384, 0, 0, 0, 0, 0, 0, 22.283516, 0, -8.575384, 0, 0, 0, 0, 0, 0, 26.141977, 0, 1.0707693, 0, 0, 0, 0, 0, 0, 30.000439, 0, 1.0707693, 0, 0, 0, 0, 0, 0, 30.000439, 0, 4.9292307, 0, 0, 0, 0, 0, 0, 26.141977, 0, 4.9292307, 0, 0, 0, 0, 0, 0, 22.283516, 0, 14.575384, 0, 0, 0, 0, 0, 0, -6.654945, 0, 14.575384, 0, 0, 0, 0, 0, 0, -12.442637, 0, 4.9292307, 0, 0, 0, 0, 0, 0, -18.230328, 0, 14.575384, 0, 0, 0, 0, 0, 0, -49.09802, 0, 14.575384),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
-point_count = 8
+point_count = 14
 
 [node name="LevelDesertIntro" instance=ExtResource("1_ctnal")]
 
@@ -18,15 +24,131 @@ point_count = 8
 curve = SubResource("Curve3D_vhe22")
 material = ExtResource("2_7h0w7")
 
+[node name="Cover4" parent="World" index="1" instance=ExtResource("3_ab4dd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.52269, 0, 8.912547)
+
+[node name="Cover5" parent="World" index="2" instance=ExtResource("3_ab4dd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.65821, 0, 7.2070494)
+
+[node name="Cover6" parent="World" index="3" instance=ExtResource("3_ab4dd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.811764, 0, 5.346299)
+
+[node name="Cover3" parent="World" index="4" instance=ExtResource("3_ab4dd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.36438, 0, 11.959286)
+
+[node name="Cover28" parent="World" index="5" instance=ExtResource("3_ab4dd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7182827, 0, 8.983976)
+
+[node name="Cover29" parent="World" index="6" instance=ExtResource("3_ab4dd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.675026, 0, 10.5535555)
+
+[node name="Cover34" parent="World" index="7" instance=ExtResource("3_ab4dd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.928534, 0, 2.1283236)
+
+[node name="Cover37" parent="World" index="8" instance=ExtResource("3_ab4dd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.928534, 0, 0.83330536)
+
+[node name="Cover35" parent="World" index="9" instance=ExtResource("3_ab4dd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.800724, 0, 3.6979027)
+
+[node name="Cover36" parent="World" index="10" instance=ExtResource("3_ab4dd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.800724, 0, 4.9153037)
+
+[node name="Cover24" parent="World" index="11" instance=ExtResource("3_ab4dd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.733109, 0, 12.37442)
+
+[node name="Cover26" parent="World" index="12" instance=ExtResource("3_ab4dd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.398027, 0, -1.0391006)
+
+[node name="Cover27" parent="World" index="13" instance=ExtResource("3_ab4dd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.76265, 0, 2.0924482)
+
+[node name="Cover2" parent="World" index="14" instance=ExtResource("3_ab4dd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.811764, 0, 13.397232)
+
+[node name="Cover8" parent="World" index="15" instance=ExtResource("3_ab4dd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.46646, 0, -0.66427994)
+
+[node name="Cover9" parent="World" index="16" instance=ExtResource("3_ab4dd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.317463, 0, -2.3697777)
+
+[node name="Cover10" parent="World" index="17" instance=ExtResource("3_ab4dd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.520504, 0, -4.230528)
+
+[node name="Cover13" parent="World" index="18" instance=ExtResource("3_ab4dd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.398483, 0, -5.6140976)
+
+[node name="Cover14" parent="World" index="19" instance=ExtResource("3_ab4dd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.811764, 0, -7.474848)
+
+[node name="Cover11" parent="World" index="20" instance=ExtResource("3_ab4dd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.64122, 0, 2.382)
+
+[node name="Cover12" parent="World" index="21" instance=ExtResource("3_ab4dd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.222847, 0, 3.820405)
+
+[node name="CactusLarge" parent="World" index="22" instance=ExtResource("8_5rqjd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.851463, 9.2315656e-07, 10.444525)
+
+[node name="CactusSmall" parent="World" index="23" instance=ExtResource("9_jncf5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.67051, -4.2858113e-07, 1.1039686)
+
+[node name="CactusSmall2" parent="World" index="24" instance=ExtResource("9_jncf5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.732557, 4.4346083e-07, 10.145199)
+
+[node name="CactusLarge2" parent="World" index="25" instance=ExtResource("8_5rqjd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.861923, 7.978539e-07, -3.5647545)
+
+[node name="CactusLarge3" parent="World" index="26" instance=ExtResource("8_5rqjd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.942047, -1.1106106e-06, -3.5902834)
+
+[node name="CactusSmall3" parent="World" index="27" instance=ExtResource("9_jncf5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9249552, -3.9919975e-08, -0.91326237)
+
+[node name="CactusLarge4" parent="World" index="28" instance=ExtResource("8_5rqjd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8003745, -1.127243e-07, -2.5788307)
+
+[node name="CactusSmall4" parent="World" index="29" instance=ExtResource("9_jncf5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.375016, -1.3406809e-07, -3.0671196)
+
+[node name="CactusLarge5" parent="World" index="30" instance=ExtResource("8_5rqjd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.754, 0, 11.468)
+
 [node name="Right" type="Node3D" parent="EntryPoints" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.9468393, 0, 0.7609792)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.366405, 0, 2.9849052)
 
 [node name="Right" parent="TransitionAreas" index="0" instance=ExtResource("3_vhe22")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.06256, 0, 0.8713354)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.841705, 0, 3.148212)
 target_scene = "uid://blppqsxslhh07"
 target_entry_point = "Left"
+
+[node name="Player" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.651157, 0, -0.0027666092)
 
 [node name="NPCs" type="Node3D" parent="." index="5"]
 
 [node name="NPCTest" parent="NPCs" index="0" instance=ExtResource("4_3a2at")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2945895, 0, -1.0980012)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.664086, 0, -2.2207124)
+
+[node name="Decorations" type="Node" parent="." index="7"]
+
+[node name="CursedPlant" parent="Decorations" index="0" instance=ExtResource("6_f6ib5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.840607, 0, 14.135367)
+
+[node name="CursedPlant2" parent="Decorations" index="1" instance=ExtResource("6_f6ib5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.981382, 0, 14.3921585)
+
+[node name="CursedPlant4" parent="Decorations" index="2" instance=ExtResource("6_f6ib5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6024475, 0, -8.81553)
+
+[node name="CursedPlant5" parent="Decorations" index="3" instance=ExtResource("6_f6ib5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.922581, 0, -8.826532)
+
+[node name="CursedPlant3" parent="Decorations" index="4" instance=ExtResource("6_f6ib5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.031456, 0, 8.054257)
+
+[node name="Well" parent="Decorations" index="5" instance=ExtResource("7_7xwwm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.720901, -0.0001033251, -9.577308)
+
+[node name="Well2" parent="Decorations" index="6" instance=ExtResource("7_7xwwm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.257309, -0.0001033251, 13.802551)

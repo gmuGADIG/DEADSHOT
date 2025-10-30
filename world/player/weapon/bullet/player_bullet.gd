@@ -24,3 +24,10 @@ func _on_area_entered(area: Area3D) -> void:
 		
 		if did_damage:
 			queue_free()
+	elif area.has_method("hit"):
+		area.hit(self)
+
+
+func _on_body_entered(body: Node3D) -> void:
+	if body.has_method("hit"):
+		body.hit(self)
