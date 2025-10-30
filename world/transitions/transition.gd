@@ -5,6 +5,11 @@ extends Area3D
 func _on_body_entered(body: Node3D) -> void:
 	if body is not Player: return
 	
+	var player: Player = body
+	if player.is_in_combat:
+		print("is in combat")
+		return
+	
 	Player.update_persisting_data()
 	
 	EntryPoints.set_entry_point(target_entry_point)

@@ -10,16 +10,19 @@ extends Control
 
 @export var stamina_bar: ProgressBar ## The stamina bar itself, which Player tells the stamina value.
 @export var stamina_container: PanelContainer ## The stamina bar's parent that fades in and out.
+var player: Player
 
 var _in_combat := false:
 	set(value):
 		if value == _in_combat: return # no change
 		_in_combat = value
 		
-		if _in_combat: fade_stamina_in()
-		else: fade_stamina_out()
+		if _in_combat: player.enter_combat()
+		else: player.exit_combat()
 
 func _ready() -> void:
+	player =  get_tree().get_first_node_in_group("player")
+	print("LOOK HERE: " + player.to_string())
 	# Stamina bar is hidden by default until player enters a Combat Encounter.
 	$StaminaContainer.modulate.a = 0.0
 
