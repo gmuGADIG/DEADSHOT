@@ -46,6 +46,7 @@ charge_levels = Array[ExtResource("2_kmd03")]([SubResource("Resource_kmd03"), Su
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
 
 [node name="Area3D" type="Area3D" parent="Attack"]
+collision_mask = 9
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Attack/Area3D"]
 transform = Transform3D(6, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
