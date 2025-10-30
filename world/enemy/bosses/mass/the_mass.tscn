@@ -1,16 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://d0sdri7hlk5i3"]
+[gd_scene load_steps=11 format=3 uid="uid://d0sdri7hlk5i3"]
 
 [ext_resource type="PackedScene" uid="uid://cqo1iwd2arvfk" path="res://world/enemy/bosses/boss_enemy.tscn" id="1_0ojq6"]
 [ext_resource type="Script" uid="uid://bvjxmtoqmx4bg" path="res://world/enemy/bosses/mass/the_mass.gd" id="2_0ojq6"]
+[ext_resource type="PackedScene" uid="uid://0087idnveyoi" path="res://world/enemy/bosses/mass/spike_attack.tscn" id="3_k1noq"]
 [ext_resource type="Texture2D" uid="uid://bsjg2jy70gbkw" path="res://temp_art/rough_drafts/mass_temp.png" id="3_we0e7"]
+[ext_resource type="PackedScene" uid="uid://xug45fo2qtmw" path="res://world/enemy/bosses/mass/mass_chunk.tscn" id="4_6qvwf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_we0e7"]
 size = Vector3(11.355682, 5.3653564, 3.9311523)
 
 [sub_resource type="Animation" id="Animation_we0e7"]
-resource_name = "spike"
+resource_name = "phase_2_spike"
 length = 4.0
-step = 0.5
+step = 0.1
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -18,9 +20,78 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "values": [{
+"args": [],
+"method": &"spike_attack"
+}, {
+"args": [],
+"method": &"spike_attack"
+}, {
+"args": [],
+"method": &"spike_attack"
+}, {
+"args": [],
+"method": &"spike_attack"
+}, {
+"args": [],
+"method": &"spike_attack"
+}, {
+"args": [],
+"method": &"spike_attack"
+}, {
+"args": [],
+"method": &"spike_attack"
+}, {
+"args": [],
+"method": &"spike_attack"
+}, {
+"args": [],
+"method": &"spike_attack"
+}, {
+"args": [],
+"method": &"spike_attack"
+}, {
+"args": [],
+"method": &"spike_attack"
+}, {
+"args": [],
+"method": &"spike_attack"
+}, {
+"args": [],
+"method": &"spike_attack"
+}, {
+"args": [],
+"method": &"spike_attack"
+}, {
+"args": [],
+"method": &"spike_attack"
+}, {
+"args": [],
+"method": &"spike_attack"
+}, {
+"args": [],
+"method": &"spike_attack"
+}, {
+"args": [],
+"method": &"spike_attack"
+}, {
+"args": [],
+"method": &"spike_attack"
+}, {
+"args": [],
+"method": &"spike_attack"
+}, {
+"args": [],
+"method": &"spike_attack"
+}, {
+"args": [],
+"method": &"spike_attack"
+}, {
+"args": [],
+"method": &"spike_attack"
+}, {
 "args": [],
 "method": &"spike_attack"
 }, {
@@ -32,16 +103,126 @@ tracks/0/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_k1noq"]
+resource_name = "phase_1_spike"
+length = 4.0
+step = 0.1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"spike_attack"
+}, {
+"args": [],
+"method": &"spike_attack"
+}, {
+"args": [],
+"method": &"spike_attack"
+}, {
+"args": [],
+"method": &"spike_attack"
+}, {
+"args": [],
+"method": &"spike_attack"
+}, {
+"args": [],
+"method": &"spike_attack"
+}, {
+"args": [],
+"method": &"spike_attack"
+}, {
+"args": [],
+"method": &"spike_attack"
+}, {
+"args": [],
+"method": &"spike_attack"
+}, {
+"args": [],
+"method": &"spike_attack"
+}, {
+"args": [],
+"method": &"spike_attack"
+}, {
+"args": [],
+"method": &"spike_attack"
+}, {
+"args": [],
+"method": &"spike_attack"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_6qvwf"]
+resource_name = "phase_1_chunk"
+length = 2.5
+step = 0.2
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"shoot_chunk"
+}, {
+"args": [],
+"method": &"shoot_chunk"
+}, {
+"args": [],
+"method": &"shoot_chunk"
+}, {
+"args": [],
+"method": &"shoot_chunk"
+}, {
+"args": [],
+"method": &"shoot_chunk"
+}, {
+"args": [],
+"method": &"shoot_chunk"
+}, {
+"args": [],
+"method": &"shoot_chunk"
+}, {
+"args": [],
+"method": &"shoot_chunk"
+}, {
+"args": [],
+"method": &"shoot_chunk"
+}, {
+"args": [],
+"method": &"shoot_chunk"
+}, {
+"args": [],
+"method": &"shoot_chunk"
+}, {
+"args": [],
+"method": &"shoot_chunk"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k1noq"]
 _data = {
-&"spike": SubResource("Animation_we0e7")
+&"phase_1_chunk": SubResource("Animation_6qvwf"),
+&"phase_1_spike": SubResource("Animation_k1noq"),
+&"phase_2_spike": SubResource("Animation_we0e7")
 }
 
 [node name="TheMass" node_paths=PackedStringArray("action_player") instance=ExtResource("1_0ojq6")]
 script = ExtResource("2_0ojq6")
-spike = null
-spike_distance_multiplier = 0.0
-phase_1_action_names = Array[StringName]([&"spike"])
+spike = ExtResource("3_k1noq")
+chunk = ExtResource("4_6qvwf")
+phase_1_action_names = Array[StringName]([&"phase_1_chunk"])
+phase_2_action_names = Array[StringName]([&"phase_2_spike"])
 action_player = NodePath("ActionPlayer")
 
 [node name="Sprite3D" parent="." index="1"]
@@ -60,3 +241,6 @@ shape = SubResource("BoxShape3D_we0e7")
 libraries = {
 &"": SubResource("AnimationLibrary_k1noq")
 }
+
+[node name="BulletSpawnPoint" type="Node3D" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9846437, 0)

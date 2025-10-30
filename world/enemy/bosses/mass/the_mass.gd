@@ -1,8 +1,7 @@
 class_name TheMass extends BossEnemy
 
-@export_category("Spike Attack")
 @export var spike : PackedScene
-@export var spike_distance_multiplier : float
+@export var chunk : PackedScene
 
 
 func pick_action() -> void:
@@ -15,7 +14,11 @@ func idle() -> void:
 	pass
 
 func spike_attack() -> void:
-	var spike_pos : Vector3 = Player.instance.global_position+Player.instance.velocity*spike_distance_multiplier
 	var new_spike : Spike = spike.instantiate()
 	add_sibling(new_spike)
-	new_spike.global_position = spike_pos
+	
+func shoot_chunk() -> void:
+	var new_chunk : EnemyBullet = chunk.instantiate()
+	add_sibling(new_chunk)
+	new_chunk.global_position = $BulletSpawnPoint.global_position
+	new_chunk.direction = Vector3.BACK.rotated(Vector3.UP,deg_to_rad(randf_range(-100,100)))
