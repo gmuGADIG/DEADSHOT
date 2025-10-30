@@ -8,6 +8,21 @@ func pick_action() -> void:
 	if len(phase_1_action_names) == 0: return
 	action_player.play(phase_1_action_names.pick_random())
 
+#region Longhorn_Variables
+@export var charge_time:float
+@export var cooldown_time:float
+@export var atk_source: DamageInfo.Source
+@export var atk_knockback: DamageInfo.KnockbackStrength
+
+var is_charging:bool = false
+var target:Vector3
+
+@onready var timer: Timer = %ChargeTimer
+
+@onready var shaker: SpriteShaker = %SpriteShaker
+#endregion
+
+
 func idle() -> void: pass
 
 func stomp_fire_attack() -> void:
@@ -27,3 +42,57 @@ func stomp_fire_attack() -> void:
 		bullet_reference.set_target(global_position + final_direction * 10)
 
 		print("Fired rock at angle offset: %f" % angle_offset)
+		
+
+#region Longhorn_funcs
+func longhorn_charge_ready() -> void:
+	
+	
+	print("Charging")
+	
+	%Health.vulnerable = false
+	shaker.shaking = true
+
+
+
+func longhorn_charge_attack() -> void:
+	is_charging = true
+	aggro = AggroState.ATTACKING
+	print("attacking")
+	
+	
+func _on_charge_timer_timeout() -> void:
+	timer.stop()
+	shaker.shaking = false
+	
+func _on_hurter_box_area_entered(area: Area3D) -> void:
+	if area is Hurtbox:
+		var hurtbox : Hurtbox = area
+		@warning_ignore("narrowing_conversion")
+		var dmg := DamageInfo.new(damage, atk_source, atk_knockback, velocity.normalized())
+		var did_damage := hurtbox.hit(dmg)
+		print(hurtbox.get_parent())
+		if did_damage:
+			print("owie")
+
+func action_finished(anim_name: StringName) -> void:
+	if anim_name == "charge":
+		pass
+	else:
+		super.action_finished(anim_name)
+		
+func longhorn_process() -> void:
+	set_movement_target(target);
+	should_move = not is_close_to_destination();
+	
+	if !should_move:
+		print("I'm vulny")
+		%Health.vulnerable = true
+		shaker.shaking = false
+		is_charging = false
+		pick_action()
+	
+func attack() -> void:
+	if (is_charging):
+		longhorn_process()
+#endregion

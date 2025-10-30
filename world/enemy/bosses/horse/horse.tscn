@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://rerij5gun514"]
+[gd_scene load_steps=7 format=3 uid="uid://dp00f0nisoyxa"]
 
-[ext_resource type="PackedScene" uid="uid://cqo1iwd2arvfk" path="res://world/enemy/bosses/boss_enemy.tscn" id="1_bulbf"]
+[ext_resource type="PackedScene" uid="uid://c5mugf35c8n0f" path="res://world/enemy/bosses/boss_enemy.tscn" id="1_bulbf"]
 [ext_resource type="Script" uid="uid://caif4brdw52j8" path="res://world/enemy/bosses/horse/horse_boss.gd" id="2_23ymh"]
 [ext_resource type="Texture2D" uid="uid://d0i6s18l8lpes" path="res://world/enemy/base/evil_horse.png" id="3_dc5ks"]
 
@@ -21,8 +21,30 @@ tracks/0/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_dc5ks"]
+resource_name = "charge"
+length = 3.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.3666667),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"longhorn_charge_ready"
+}, {
+"args": [],
+"method": &"longhorn_charge_attack"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dc5ks"]
 _data = {
+&"charge": SubResource("Animation_dc5ks"),
 &"stomp": SubResource("Animation_23ymh")
 }
 
@@ -31,7 +53,11 @@ script = ExtResource("2_23ymh")
 num_shots_in_spread = 3
 spread_angle = 45.0
 rock_speed = 30.0
-phase_1_action_names = Array[StringName]([&"stomp"])
+charge_time = 0.0
+cooldown_time = 0.0
+atk_source = 0
+atk_knockback = 0
+phase_1_action_names = Array[StringName]([&"stomp", &"charge"])
 action_player = NodePath("ActionPlayer")
 
 [node name="Sprite3D" parent="." index="1"]
@@ -41,7 +67,10 @@ texture = ExtResource("3_dc5ks")
 [node name="CollisionShape3D" parent="Hurtbox" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2055829, 0)
 
-[node name="ActionPlayer" parent="." index="6"]
+[node name="SpriteShaker" parent="." index="7"]
+unique_name_in_owner = true
+
+[node name="ActionPlayer" parent="." index="8"]
 libraries = {
 &"": SubResource("AnimationLibrary_dc5ks")
 }
