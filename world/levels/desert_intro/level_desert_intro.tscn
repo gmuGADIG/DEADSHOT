@@ -74,7 +74,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.733109, 0, 12.37442)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.398027, 0, -1.0391006)
 
 [node name="Cover27" parent="World" index="13" instance=ExtResource("3_ab4dd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.76265, 0, 2.0924482)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.76265, 0, -1.4922876)
 
 [node name="Cover30" parent="World" index="14" instance=ExtResource("3_ab4dd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.254129, 0, 3.8984404)
@@ -168,20 +168,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.720901, -0.0001033251, -9
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.257309, -0.0001033251, 13.802551)
 
 [node name="Encounter" parent="." index="10" instance=ExtResource("10_hfrtt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.931274, 0, 9.070943)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.931274, 0, 7.9214277)
 
 [node name="EncounterShape" type="CollisionShape3D" parent="Encounter" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.067697)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.005599)
 shape = SubResource("BoxShape3D_nn1ho")
 
 [node name="LonghornEnemy" parent="Encounter" index="2" instance=ExtResource("11_nn1ho")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.755775, 0, -10.926495)
 
 [node name="Wilder" parent="Encounter" index="3" instance=ExtResource("6_nn1ho")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7350006, 0, 3.2491999)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7350006, 0, -0.36204433)
 
 [node name="Encounter2" parent="." index="11" instance=ExtResource("10_hfrtt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5439053, 0, 11.348675)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5439053, 0, 7.6797676)
 
 [node name="EncounterShape" type="CollisionShape3D" parent="Encounter2" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.340645, 0, 0.0406456)
