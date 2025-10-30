@@ -11,12 +11,10 @@ enum State{
 	LOCKED
 }
 
-@export var skillName:String
-@export var description:String
-@export var meatCost:int
+
 @onready var Skill_Branch : Line2D = $Skill_Branch
 @export var dependencies : Array[Skill_Button]
-@export var itemDesc : Resource
+@export var itemDesc : SkillDesc
 
 var state : State:
 	set(new_val):
@@ -47,8 +45,8 @@ var state : State:
 
 func _ready() -> void:
 	update_purchase_state()
-	
-	$Label.text = skillName
+	hide_popup()
+	$Label.text = itemDesc.skill_name
 	# Fix this, make sure line goes in correct place
 	for child in dependencies:
 		Skill_Branch.add_point(self.global_position + self.size/2)
@@ -69,13 +67,14 @@ func update_state() -> void:
 			state = State.LOCKED
 			return
 	
-	if Global.meat_currency >= meatCost:
+	if Global.meat_currency >= itemDesc.skill_meat_cost:
 		state = State.AFFORDABLE
 	else:
 		state = State.UNAFFORDABLE
 	
 
 func _on_pressed() -> void:
+	show_popup()
 	match state:
 		State.AFFORDABLE:
 			purchase()
@@ -89,8 +88,8 @@ func _on_pressed() -> void:
 
 func purchase() -> void:
 	##TODO: GRANT SKILL
-	print(skillName)
-	Global.meat_currency -= meatCost
+	print(itemDesc.skill_name)
+	Global.meat_currency -= itemDesc.skill_meat_cost
 	state = State.PURCHASED
 	purchase_made.emit()
 
@@ -104,3 +103,12 @@ func shake() -> void:
 	tween.tween_property(self,"rotation_degrees",10, 0.07)
 	tween.tween_property(self,"rotation_degrees",-10, 0.07)
 	tween.tween_property(self,"rotation_degrees",0, 0.07)
+
+func show_popup() -> void:
+	$Skill_Popup.show()
+	$Skill_Popup/VBoxContainer/Name.text = itemDesc.skill_name
+	$Skill_Popup/VBoxContainer/Description.text = itemDesc.skill_description
+	$Skill_Popup/VBoxContainer/TextureRect.texture = itemDesc.skill_image
+
+func hide_popup() -> void:
+	$Skill_Branch.hide()
