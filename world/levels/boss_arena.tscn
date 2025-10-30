@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://0t033skh7re0"]
+[gd_scene load_steps=6 format=3 uid="uid://bu142em2t7vf0"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_m7nrf"]
 [ext_resource type="Resource" uid="uid://ebi2mrpur7b6" path="res://world/floor/rock/rock.tres" id="2_ne3pg"]

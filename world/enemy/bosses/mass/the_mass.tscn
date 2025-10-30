@@ -39,6 +39,8 @@ _data = {
 
 [node name="TheMass" node_paths=PackedStringArray("action_player") instance=ExtResource("1_0ojq6")]
 script = ExtResource("2_0ojq6")
+spike = null
+spike_distance_multiplier = 0.0
 phase_1_action_names = Array[StringName]([&"spike"])
 action_player = NodePath("ActionPlayer")
 
@@ -46,6 +48,9 @@ action_player = NodePath("ActionPlayer")
 transform = Transform3D(0.305, 0, 0, 0, 0.26413772, 0.15250008, 0, -0.15250008, 0.26413772, 0, 1, 0)
 offset = Vector2(0, 400)
 texture = ExtResource("3_we0e7")
+
+[node name="Health" parent="." index="3"]
+max_health = 200
 
 [node name="CollisionShape3D" parent="Hurtbox" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16773987, 3.1296082, -0.58862305)
@@ -55,5 +60,3 @@ shape = SubResource("BoxShape3D_we0e7")
 libraries = {
 &"": SubResource("AnimationLibrary_k1noq")
 }
-
-[connection signal="animation_finished" from="ActionPlayer" to="." method="action_finished"]
