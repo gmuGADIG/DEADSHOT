@@ -122,13 +122,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.841705, 0, 3.148212)
 target_scene = "uid://blppqsxslhh07"
 target_entry_point = "Left"
 
-[node name="Player" parent="." index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.651157, 0, -0.0027666092)
-
 [node name="NPCs" type="Node3D" parent="." index="5"]
 
 [node name="NPCTest" parent="NPCs" index="0" instance=ExtResource("4_3a2at")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.664086, 0, -2.2207124)
+
+[node name="Player" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.651157, 0, -0.0027666092)
 
 [node name="Decorations" type="Node" parent="." index="7"]
 

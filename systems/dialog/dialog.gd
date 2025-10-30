@@ -15,6 +15,8 @@ var last_dialog_timestamp := 0.
 @export var sfx : Voicebank
 @export var skip_n_characters : int = 0
 
+signal finish_interaction
+
 func _input(event: InputEvent) -> void:
 	if (event.is_action_pressed("interact") or event.is_action_pressed("fire")) and panel.visible: 
 		if (is_text_being_rendered()):
@@ -24,6 +26,7 @@ func _input(event: InputEvent) -> void:
 			if dialog_lines.is_empty():
 				panel.visible = false
 				last_dialog_timestamp = Time.get_ticks_msec()
+				finish_interaction.emit()
 				return
 			show_line()
 
