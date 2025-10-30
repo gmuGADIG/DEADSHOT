@@ -20,3 +20,4 @@ func hurt(amount : int) -> void:
 
 func heal(amount : int) -> void:
 	health = clampi(health + amount, 0, max_health)
+	

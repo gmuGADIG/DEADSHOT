@@ -8,6 +8,7 @@ var speed_multiplier: float = 1.0;
 @export var roll_duration: float = 0.4
 @export var roll_influence: float = 8 ## Controls how much player input affects steering when mid-roll. 
 var previous_facing_direction: Vector2 = Vector2.RIGHT ## Roll this way if you roll while not holding any directions. Updated every time the player makes a movement input.
+@onready var health_component: Health =  %HealthComponent
 
 var health: int ##Temporary variable to access health from campfire and other healing items. DELETE IF NEEDED
 
