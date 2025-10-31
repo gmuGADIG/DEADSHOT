@@ -22,7 +22,7 @@ var speed_multiplier: float = 1.0;
 var previous_facing_direction: Vector2 = Vector2.RIGHT ## Roll this way if you roll while not holding any directions. Updated every time the player makes a movement input.
 
 ## Is the player currently in combat? If so, HUD will be shown and dashing will cost stamina.
-var is_in_combat: bool = false
+var is_in_combat: bool = true
 
 ## Stamina. Consumed by rolling. Up to 3. We use a float so we can smoothly recharge it partially over time.
 var stamina: float = 3.0

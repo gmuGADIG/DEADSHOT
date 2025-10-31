@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfl3b640b1m8e"]
+
+[ext_resource type="PackedScene" uid="uid://0087idnveyoi" path="res://world/enemy/bosses/mass/spikes/spike_attack.tscn" id="1_bdv6u"]
+
+[node name="PredictSpikeAttack" instance=ExtResource("1_bdv6u")]
+predict = true
+stationary_random_spread_distance = 5.0

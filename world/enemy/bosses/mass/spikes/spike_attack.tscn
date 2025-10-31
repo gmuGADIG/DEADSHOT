@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://0087idnveyoi"]
 
-[ext_resource type="Script" uid="uid://dmk1nbg50kxbk" path="res://world/enemy/bosses/mass/spike_attack.gd" id="1_d6t4n"]
+[ext_resource type="Script" uid="uid://dmk1nbg50kxbk" path="res://world/enemy/bosses/mass/spikes/spike_attack.gd" id="1_d6t4n"]
 [ext_resource type="Texture2D" uid="uid://dr0k5wtlmynj6" path="res://temp_art/reticle.png" id="1_n57c1"]
 [ext_resource type="Texture2D" uid="uid://buf15wb2e1tep" path="res://temp_art/spike.png" id="4_cuwb1"]
 
@@ -15,11 +15,11 @@ radius = 1.0
 
 [node name="SpikeAttack" type="Node3D"]
 script = ExtResource("1_d6t4n")
-moving_random_spread_distance = 8.0
-stationary_random_spread_distance = 4.0
-random_spread_degrees = 45.0
-delay = 0.75
+delay = 1.0
 spike_curve = SubResource("Curve_cuwb1")
+stationary_random_spread_distance = 10.0
+moving_random_spread_distance = 10.0
+random_spread_degrees = 45.0
 
 [node name="WarningTarget" type="Sprite3D" parent="."]
 transform = Transform3D(25, 0, 0, 0, -1.0927847e-06, 25, 0, -25, -1.0927847e-06, 0, 0.02, 0)
