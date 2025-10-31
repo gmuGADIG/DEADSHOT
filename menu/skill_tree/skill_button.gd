@@ -53,7 +53,7 @@ func _ready() -> void:
 		Skill_Branch.add_point(child.global_position + child.size/2)
 
 func update_purchase_state() -> void:
-	if Player.has_skill():
+	if SkillSet.has_skill(itemDesc.skill_uid):
 		state = State.PURCHASED
 	else:
 		state = State.UNSET

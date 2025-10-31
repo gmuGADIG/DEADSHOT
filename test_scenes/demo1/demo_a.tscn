@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://btuw2i28k0axl"]
+[gd_scene load_steps=12 format=3 uid="uid://btuw2i28k0axl"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_p0tjl"]
 [ext_resource type="Resource" uid="uid://ebi2mrpur7b6" path="res://world/floor/rock/rock.tres" id="3_lkd7d"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://dxdkwdigtcn43" path="res://world/enemy/test/enemy_test.tscn" id="7_v2m6r"]
 [ext_resource type="Texture2D" uid="uid://48dfxh6s6pk2" path="res://world/backgrounds/cavern_bg.png" id="8_6otf1"]
 [ext_resource type="PackedScene" uid="uid://dtqb8q8qomq31" path="res://world/pickups/corrupt_heart/blood_particles/blood_burst.tscn" id="8_v2m6r"]
-[ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://world/interactables/cover/cover_boulder.tscn" id="11_lw5uw"]
 [ext_resource type="PackedScene" uid="uid://crroyl2puavcb" path="res://world/decoration/floor_lantern/floor_lantern.tscn" id="12_shw0w"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_hxoc3"]
@@ -88,14 +87,44 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1067781, 1.1097358, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.939002, 0, 0)
 movement_speed = 0.0
 
-[node name="Boulder" parent="." index="12" instance=ExtResource("11_lw5uw")]
+[node name="Boulder" parent="." index="12"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1497498, 0, -1.890513)
+script = null
 
-[node name="Boulder2" parent="." index="13" instance=ExtResource("11_lw5uw")]
+[node name="Boulder2" parent="." index="13"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7385912, 0, 3.4624243)
+script = null
 
-[node name="Boulder3" parent="." index="14" instance=ExtResource("11_lw5uw")]
+[node name="Boulder3" parent="." index="14"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.027086, 0, -1.4749694)
+script = null
 
 [node name="FloorLantern" parent="." index="15" instance=ExtResource("12_shw0w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.084494, 4.7683716e-07, 2.5329204)
