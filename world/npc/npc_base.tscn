@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8ycoujcnafdn"]
+
+[ext_resource type="Script" uid="uid://bdild08nlivpj" path="res://world/npc/npc.gd" id="1_8n3qc"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_wf8xw"]
+height = 2.9934082
+radius = 0.7285156
+
+[node name="NPCBase" type="Area3D"]
+script = ExtResource("1_8n3qc")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 1.2800548, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3699951, 0)
+shape = SubResource("CylinderShape3D_wf8xw")

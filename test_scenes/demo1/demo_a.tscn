@@ -1,49 +1,104 @@
-[gd_scene load_steps=8 format=3 uid="uid://btuw2i28k0axl"]
+[gd_scene load_steps=13 format=3 uid="uid://btuw2i28k0axl"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_p0tjl"]
-[ext_resource type="Curve3D" uid="uid://bocr00x5o6up7" path="res://test_scenes/demo1/curve_a.tres" id="2_hxoc3"]
-[ext_resource type="Texture2D" uid="uid://cjbsq7rk6r3h4" path="res://temp_art/gartic/cactus.png" id="2_yl5fl"]
+[ext_resource type="Resource" uid="uid://ebi2mrpur7b6" path="res://world/floor/rock/rock.tres" id="3_lkd7d"]
+[ext_resource type="Texture2D" uid="uid://ba2eoskeemjii" path="res://world/backgrounds/cave_pillars.png" id="4_uml48"]
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="4_yl5fl"]
-[ext_resource type="PackedScene" uid="uid://c2bxn6p802s68" path="res://cover/cover_2.tscn" id="5_lkd7d"]
-[ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://cover/cover_1.tscn" id="6_7mnxm"]
+[ext_resource type="PackedScene" uid="uid://bb3qdjspo0kcq" path="res://world/interactables/barrel/barrel.tscn" id="7_7mnxm"]
+[ext_resource type="PackedScene" uid="uid://dxdkwdigtcn43" path="res://world/enemy/test/enemy_test.tscn" id="7_v2m6r"]
+[ext_resource type="Texture2D" uid="uid://48dfxh6s6pk2" path="res://world/backgrounds/cavern_bg.png" id="8_6otf1"]
+[ext_resource type="PackedScene" uid="uid://dtqb8q8qomq31" path="res://world/pickups/corrupt_heart/blood_particles/blood_burst.tscn" id="8_v2m6r"]
+[ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://world/interactables/cover/cover_boulder.tscn" id="11_lw5uw"]
+[ext_resource type="PackedScene" uid="uid://crroyl2puavcb" path="res://world/decoration/floor_lantern/floor_lantern.tscn" id="12_shw0w"]
 
-[sub_resource type="NavigationMesh" id="NavigationMesh_yl5fl"]
-vertices = PackedVector3Array(17.5, 0.48999983, 1.75, 20.25, 0.48999983, 1.25, 20.25, 0.48999983, 0.75, 17.5, 0.48999983, 0.25, 17.25, 0.48999983, -3.25, -7.25, 0.48999983, -3.25, -7.25, 0.48999983, 5.25, -6.75, 0.48999983, 5.5, 16.75, 0.48999983, 5.5, 17.5, 0.48999983, 5.25)
-polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(0, 8, 4), PackedInt32Array(4, 8, 7), PackedInt32Array(4, 7, 6), PackedInt32Array(4, 6, 5), PackedInt32Array(0, 9, 8), PackedInt32Array(4, 3, 0)]
+[sub_resource type="NavigationMesh" id="NavigationMesh_hxoc3"]
+vertices = PackedVector3Array(0, 0.5, 4.5, 0, 0.5, 4, -1.75, 0.5, 3.75, -7.25, 0.5, 4.5, -1.75, 0.5, 2, 0, 0.5, 1.75, 0, 0.25, -3.25, -7.25, 0.25, -3.25, 1.75, 0.5, 3.75, 7, 0.5, 4.5, 1.75, 0.5, 2, 7, 0.5, 2.75, 8.75, 0.5, 2.5, 8.75, 0.25, -3.25, 15.75, 0.5, 1.5, 20.5, 0.5, 1.5, 20.5, 0.5, 0.75, 15.75, 0.5, 0.75, 10.5, 0.5, 2.75, 15.5, 0.25, -3.25, 15.5, 0.5, 4.5, 10.5, 0.5, 4.5)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(6, 5, 4), PackedInt32Array(6, 4, 7), PackedInt32Array(7, 4, 3), PackedInt32Array(4, 2, 3), PackedInt32Array(1, 8, 0), PackedInt32Array(0, 8, 9), PackedInt32Array(10, 5, 6), PackedInt32Array(10, 11, 8), PackedInt32Array(8, 11, 9), PackedInt32Array(12, 11, 13), PackedInt32Array(13, 11, 10), PackedInt32Array(13, 10, 6), PackedInt32Array(17, 16, 14), PackedInt32Array(14, 16, 15), PackedInt32Array(12, 13, 18), PackedInt32Array(18, 13, 17), PackedInt32Array(17, 13, 19), PackedInt32Array(14, 20, 17), PackedInt32Array(17, 20, 18), PackedInt32Array(18, 20, 21)]
+
+[sub_resource type="Curve3D" id="Curve3D_hxoc3"]
+closed = true
+_data = {
+"points": PackedVector3Array(-0.79925346, 0, 1.1016395, 0.79925346, 0, -1.1016395, -7.7055573, 0, -3.9079268, -1.283371, 0, -0.616333, 1.283371, 0, 0.616333, 15.428068, 0, -3.9784892, 0.15898514, 0, -0.7170719, -0.15898514, 0, 0.7170719, 16.032757, 0, -0.04988442, -0.33026695, 0, -1.0321295, 0.33026695, 0, 1.0321295, 20.974693, 0, 0.3364469, 0.13352203, 0, -0.28435802, -0.13352203, 0, 0.28435802, 20.897396, 0, 2.284358, 0.13913631, 0, -0.41740918, -0.13913631, 0, 0.41740918, 15.98124, 0, 1.9751656, 0.5598459, 0, -0.5154171, -0.5598459, 0, 0.5154171, 15.860613, 0, 5.0322595, 1.244214, 0, 1.496664, -1.244214, 0, -1.496664, -7.3523626, 0, 4.809549),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 8
 
 [node name="DemoA" instance=ExtResource("1_p0tjl")]
 
-[node name="NavigationRegion3D" parent="." index="0"]
-navigation_mesh = SubResource("NavigationMesh_yl5fl")
+[node name="FullscreenBG" parent="Background" index="0"]
+texture = ExtResource("8_6otf1")
 
-[node name="Floor" parent="NavigationRegion3D/World" index="1"]
-curve = ExtResource("2_hxoc3")
+[node name="Sprite3D" type="Sprite3D" parent="Background" index="1"]
+transform = Transform3D(0.82327837, 0, 0, 0, 0.7129799, 0.41163918, 0, -0.41163918, 0.7129799, -0.7102566, 0.75300074, -10.228249)
+cast_shadow = 0
+texture = ExtResource("4_uml48")
 
-[node name="Cactus" type="Sprite3D" parent="NavigationRegion3D/World" index="2"]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -6.08085, 1.35212, -2.54946)
-alpha_cut = 1
-texture = ExtResource("2_yl5fl")
+[node name="Sprite3D5" type="Sprite3D" parent="Background" index="2"]
+transform = Transform3D(1.4397194, 0, 0, 0, 1.2468336, 0.7198597, 0, -0.7198597, 1.2468336, -16.328514, 2.064618, -8.007566)
+cast_shadow = 0
+texture = ExtResource("4_uml48")
 
-[node name="Cactus2" type="Sprite3D" parent="NavigationRegion3D/World" index="3"]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 4.52835, 1.35212, 2.91099)
-alpha_cut = 1
-texture = ExtResource("2_yl5fl")
+[node name="Sprite3D6" type="Sprite3D" parent="Background" index="3"]
+transform = Transform3D(1.5351653, 0, 0, 0, 1.3294921, 0.76758265, 0, -0.76758265, 1.3294921, -8.363059, 2.4971895, 8.102038)
+cast_shadow = 0
+texture = ExtResource("4_uml48")
 
-[node name="Cactus3" type="Sprite3D" parent="NavigationRegion3D/World" index="4"]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 14.5163, 1.35212, -2.19461)
-alpha_cut = 1
-texture = ExtResource("2_yl5fl")
+[node name="Sprite3D7" type="Sprite3D" parent="Background" index="4"]
+transform = Transform3D(1.4397194, 0, 0, 0, 1.2468336, 0.7198597, 0, -0.7198597, 1.2468336, 14.803475, 0.3832116, 8.109494)
+cast_shadow = 0
+texture = ExtResource("4_uml48")
+
+[node name="Sprite3D4" type="Sprite3D" parent="Background" index="5"]
+transform = Transform3D(1.9160607, 0, 0, 0, 1.6593572, 0.95803034, 0, -0.95803034, 1.6593572, -12.433052, 2.5884995, -22.09974)
+cast_shadow = 0
+texture = ExtResource("4_uml48")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Background" index="6"]
+transform = Transform3D(2.3080032, 0, 0, 0, 1.9987893, 1.1540016, 0, -1.1540016, 1.9987893, 12.0422325, 2.4135551, -22.598942)
+cast_shadow = 0
+texture = ExtResource("4_uml48")
+
+[node name="Sprite3D3" type="Sprite3D" parent="Background" index="7"]
+transform = Transform3D(1.2705362, 0, 0, 0, 1.1003165, 0.6352681, 0, -0.6352681, 1.1003165, 19.756937, 1.4512639, -12.199051)
+cast_shadow = 0
+texture = ExtResource("4_uml48")
 
 [node name="Exit" parent="." index="1" instance=ExtResource("4_yl5fl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.351158, 0, 0.9043428)
 target_scene = "uid://daq8dgkrqqghw"
 target_entry_point = "Left"
 
+[node name="World" parent="." index="3"]
+navigation_mesh = SubResource("NavigationMesh_hxoc3")
+
+[node name="Floor" parent="World" index="0"]
+curve = SubResource("Curve3D_hxoc3")
+material = ExtResource("3_lkd7d")
+
 [node name="Right" type="Marker3D" parent="EntryPoints" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.214909, 0, 0.96318436)
 
-[node name="Cover" parent="." index="5" instance=ExtResource("6_7mnxm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07013404, 0, 2.9305902)
+[node name="BloodBurst" parent="." index="7" instance=ExtResource("8_v2m6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.812037, 4.0206768e-08, 0.9198234)
 
-[node name="Cover2" parent="." index="6" instance=ExtResource("5_lkd7d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.767, 0, 3.672)
+[node name="Barrel" parent="." index="9" instance=ExtResource("7_7mnxm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1067781, 1.1097358, 0)
+
+[node name="EnemyTest" parent="." index="10" instance=ExtResource("7_v2m6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.939002, 0, 0)
+movement_speed = 0.0
+
+[node name="Boulder" parent="." index="12" instance=ExtResource("11_lw5uw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1497498, 0, -1.890513)
+
+[node name="Boulder2" parent="." index="13" instance=ExtResource("11_lw5uw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7385912, 0, 3.4624243)
+
+[node name="Boulder3" parent="." index="14" instance=ExtResource("11_lw5uw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.027086, 0, -1.4749694)
+
+[node name="FloorLantern" parent="." index="15" instance=ExtResource("12_shw0w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.084494, 4.7683716e-07, 2.5329204)
+
+[node name="FloorLantern2" parent="." index="16" instance=ExtResource("12_shw0w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5376377, 4.7683716e-07, 2.0982232)

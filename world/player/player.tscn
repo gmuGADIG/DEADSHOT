@@ -1,20 +1,36 @@
-[gd_scene load_steps=10 format=3 uid="uid://nuqmhgq1e2lu"]
+[gd_scene load_steps=15 format=3 uid="uid://nuqmhgq1e2lu"]
 
 [ext_resource type="Script" uid="uid://llqh4g6obmup" path="res://world/player/player.gd" id="1_bvkkv"]
 [ext_resource type="Texture2D" uid="uid://ckv48omi8han7" path="res://temp_art/gartic/harry_potter_with_gun.png" id="1_yynsy"]
 [ext_resource type="PackedScene" uid="uid://bas8xwk5nhlq0" path="res://world/player/HUD/hud.tscn" id="2_duds0"]
+[ext_resource type="Script" uid="uid://cwjxwkxciij4o" path="res://systems/interaction/interactor.gd" id="3_cvtd2"]
 [ext_resource type="PackedScene" uid="uid://cj5uuu7xjsprv" path="res://world/player/weapon/basic_gun/basic_gun.tscn" id="3_et4on"]
 [ext_resource type="Script" uid="uid://c4s1ohnc08ecy" path="res://world/player/reticle/reticle.gd" id="4_40qjc"]
+[ext_resource type="PackedScene" uid="uid://duf7ry1s34j7o" path="res://world/player/weapon/whip/whip.tscn" id="4_duds0"]
 [ext_resource type="Texture2D" uid="uid://bwm425xkr0vcy" path="res://temp_art/icon.svg" id="4_et4on"]
 [ext_resource type="Script" uid="uid://do5vs8m1law7o" path="res://systems/attacking/health/health.gd" id="6_thypd"]
 [ext_resource type="Script" uid="uid://lxg83i28nlul" path="res://systems/attacking/hurtbox/hurtbox.gd" id="7_d3e1v"]
+[ext_resource type="Script" uid="uid://c1g7056xgtqys" path="res://systems/camera/camera_tracked.gd" id="11_2x47q"]
+
+[sub_resource type="Curve" id="Curve_2x47q"]
+_limits = [0.0, 20.0, 0.0, 0.45]
+_data = [Vector2(0, 9.870129), 0.0, 0.0, 0, 0, Vector2(0.05559846, 20), 0.0, 0.0, 0, 0, Vector2(0.32837838, 20), 0.0, 0.0, 0, 0, Vector2(0.45, 0), 0.0, 0.0, 0, 0]
+point_count = 4
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_plfsl"]
 height = 1.85699
 radius = 0.669922
 
-[node name="Player" type="CharacterBody3D" groups=["player"]]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bvkkv"]
+height = 0.27978516
+radius = 0.8881836
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("health_component", "whip") groups=["player"]]
+collision_layer = 2
 script = ExtResource("1_bvkkv")
+roll_curve = SubResource("Curve_2x47q")
+health_component = NodePath("HurtboxComponent/HealthComponent")
+whip = NodePath("Whip")
 
 [node name="Hud" parent="." instance=ExtResource("2_duds0")]
 
@@ -23,25 +39,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94693, 0)
 shape = SubResource("CylinderShape3D_plfsl")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0.385961, 1, 0)
+shaded = true
 alpha_cut = 1
 texture = ExtResource("1_yynsy")
 
-[node name="CamHolder" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.65204537, 0.7581798, 0, -0.7581798, 0.65204537, 0, 0, 0.35582018)
-
-[node name="Camera3D" type="Camera3D" parent="CamHolder"]
+[node name="InteractionArea" type="Area3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.4505806e-08, 9.108398)
-fov = 72.4
+collision_mask = 4
+script = ExtResource("3_cvtd2")
+metadata/_custom_type_script = "uid://cwjxwkxciij4o"
 
-[node name="RollDurationTimer" type="Timer" parent="."]
-unique_name_in_owner = true
-wait_time = 0.4
-one_shot = true
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8601074, 0)
+shape = SubResource("CylinderShape3D_bvkkv")
 
 [node name="BasicGun" parent="." instance=ExtResource("3_et4on")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2370036, 0)
+bullets_of_fire_unlocked = null
 
 [node name="Aiming" type="Node" parent="."]
 
@@ -53,7 +68,14 @@ script = ExtResource("4_40qjc")
 transform = Transform3D(0.34999996, 0, 0, 0, 0, 0.34999993, 0, -0.34999993, 0, 0, 0.051027596, 0)
 texture = ExtResource("4_et4on")
 
+[node name="CameraTracked" type="Node3D" parent="Aiming/Reticle"]
+script = ExtResource("11_2x47q")
+weight = 0.1
+metadata/_custom_type_script = "uid://c1g7056xgtqys"
+
 [node name="HurtboxComponent" type="Area3D" parent="." node_paths=PackedStringArray("health_component")]
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("7_d3e1v")
 health_component = NodePath("HealthComponent")
 allowed_damage_sources = Array[int]([1, 2])
@@ -65,4 +87,31 @@ shape = SubResource("CylinderShape3D_plfsl")
 
 [node name="HealthComponent" type="Node" parent="HurtboxComponent"]
 script = ExtResource("6_thypd")
+max_health = 6
 metadata/_custom_type_script = "uid://do5vs8m1law7o"
+
+[node name="GPUParticlesAttractorSphere3D" type="GPUParticlesAttractorSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.44795907, 1.4558618, 0)
+strength = 100.0
+attenuation = 0.2
+cull_mask = 4294966274
+radius = 50.0
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="."]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -0.4213004, 0.76894426, 0.16874915)
+cull_mask = 4294966274
+size = Vector3(2.0436769, 4.2347975, 2.0017486)
+
+[node name="Whip" parent="." instance=ExtResource("4_duds0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.54808617, 0)
+
+[node name="CameraTracked" type="Node3D" parent="."]
+script = ExtResource("11_2x47q")
+weight = 2.0
+metadata/_custom_type_script = "uid://c1g7056xgtqys"
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9011965, 0)
+light_energy = 0.2
+omni_range = 25.0
+omni_attenuation = 1.5

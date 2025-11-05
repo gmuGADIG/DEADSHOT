@@ -11,7 +11,7 @@ func _ready()->void:
 	animator.play("black_transition")
 	await animator.animation_finished
 	await show_advance_prompt()
-	get_tree().change_scene_to_file("res://test_scenes/demo1/demo_a.tscn")
+	get_tree().change_scene_to_file("res://world/levels/desert_intro/level_desert_intro.tscn")
 	
 func show_advance_prompt() -> void:
 	tap_button.show()
