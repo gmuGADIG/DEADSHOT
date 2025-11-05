@@ -33,9 +33,13 @@ allowed_damage_sources = Array[int]([0, 2])
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94693, 0)
 shape = SubResource("CylinderShape3D_plfsl")
 
+[node name="DOTTimer" type="Timer" parent="Hurtbox"]
+
 [node name="FiringTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 
 [node name="EncounterObject" type="Node" parent="."]
 script = ExtResource("3_17eo5")
 metadata/_custom_type_script = "uid://5yprj03obbfy"
+
+[connection signal="timeout" from="Hurtbox/DOTTimer" to="Hurtbox" method="_on_dot_timer_timeout"]

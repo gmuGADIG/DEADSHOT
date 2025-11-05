@@ -234,6 +234,7 @@ func set_on_fire() -> void:
 	if not is_on_fire:
 		is_on_fire = true
 		on_fire_count += 1
+		$Hurtbox.damage_over_time()
 	print("There are currently %d enemies on fire!" % on_fire_count)
 
 #endregion
