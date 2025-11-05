@@ -10,6 +10,5 @@ func _ready() -> void:
 func hit(dmg: DamageInfo) -> bool:
 	if dmg.source not in allowed_damage_sources: return false
 	
-	print(get_parent())
 	health_component.hurt(dmg.damage)
 	return true
