@@ -3,6 +3,11 @@ class_name Player extends CharacterBody3D
 class PlayerPersistingData:
 	var max_health : int
 	var health : int
+	var curr_chamber : int
+	var curr_reserve : int
+
+## Tracks name of current gun node. CHANGE THIS VARIABLE WHEN GUNS ARE CHANGED.
+static var gun_name := "BasicGun"
 
 ## These are the states that the player can be in. States control what the player can do.
 enum PlayerState {
@@ -45,18 +50,31 @@ var current_state: PlayerState = PlayerState.WALKING
 #endregion
 
 static func update_persisting_data() -> void:
+	## Make it so this can change to whatever the current gun is?
+	var gun := instance.get_node(gun_name)
+	
 	if persisting_data == null:
 		persisting_data = PlayerPersistingData.new()
 	
 	persisting_data.max_health = Player.instance.health_component.max_health
 	persisting_data.health = Player.instance.health_component.health
+	persisting_data.curr_chamber = gun.chamber_ammo
+	persisting_data.curr_reserve = gun.reserve_ammo
+	
+	#TEST
+	print(persisting_data.curr_chamber)
+	print(persisting_data.curr_reserve)
 
 #region Builtin Functions
 func _ready() -> void:
+	var gun := instance.get_node(gun_name)
+	
 	instance = self
 	if persisting_data != null:
 		health_component.max_health = persisting_data.max_health
 		health_component.health = persisting_data.health
+		gun.chamber_ammo = persisting_data.curr_chamber
+		gun.reserve_ammo = persisting_data.curr_reserve
 	$BasicGun.bullets_of_fire_unlocked = bullets_of_fire_unlocked
 
 func _init() -> void:
@@ -78,11 +96,6 @@ func _physics_process(delta: float) -> void:
 		## This way there's no weird acceleration or slowdown.
 		roll(delta)
 	move_and_slide()
-		
-## We use the proper process function to update stamina, since it appears on the HUD and that could be drawn faster than the physics tickrate.
-func _process(delta: float) -> void:
-	update_stamina(delta)
-#endregion
 
 ## Returns the inputted walking direction on the XZ plane (Y = 0)
 func input_direction() -> Vector3:
@@ -94,6 +107,18 @@ func aim_dir() -> Vector3:
 	var dir: Vector3 = %Reticle.global_position - self.global_position
 	dir.y = 0
 	return dir.normalized()
+
+## We use the proper process function to update stamina, since it appears on the HUD and that could be drawn faster than the physics tickrate.
+func _process(delta: float) -> void:
+	if is_in_combat: update_stamina(delta)
+	
+	# TEST COMBAT ENCOUNTER MODE FOR STAMINA
+	if Input.is_action_just_pressed("ui_focus_next"):
+		if is_in_combat:
+			exit_combat()
+		else:
+			enter_combat()
+
 
 func can_shoot() -> bool:
 	if current_state == PlayerState.ROLLING:
