@@ -1,14 +1,13 @@
+class_name Campfire
 extends Interactable
 
-static var used_list: Array = [] ## Global array of all lit campfires
 var extinguish: bool = false ## Boolean if campfire is interacted with
 
 func _ready() -> void:
-	if(used_list.has(get_path())): # Checks if campfire is in global array
+	if Save.save_data.object_save_data.has_campfire(self):
 		extinguish = true # Extinguishes campfire
-		
-	if(extinguish): # Checks if campfire is extinguished, see above
 		%Sprite.play('extinguished')
+		%Light.visible = false
 	else:
 		%Sprite.play('lit')
 
@@ -23,7 +22,8 @@ func interact()->void:
 
 		# extinguish campfire
 		extinguish = true
-		used_list.append(get_path())
+		
+		Save.save_data.object_save_data.add_campfire(self)
 		%Sprite.play('extinguished')
 		%Light.visible = false
 	
