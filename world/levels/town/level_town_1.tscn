@@ -66,33 +66,12 @@ size = Vector3(10, 3, 10)
 
 [node name="LevelTown1" instance=ExtResource("1_j5c1u")]
 
-[node name="EncounterPlaceholder" type="CSGBox3D" parent="." index="2"]
-transform = Transform3D(4.45, 0, 0, 0, -2.560613e-07, 1.497, 0, -5.858, -6.543595e-08, -22.049597, -1.3740067, 0.35922477)
-visible = false
-use_collision = true
-size = Vector3(6.500116, 2.553, 0.1)
-
-[node name="EncounterPlaceholder3" type="CSGBox3D" parent="EncounterPlaceholder" index="0"]
-transform = Transform3D(19.802498, 0, 0, 0, -34.31361, -0.02730069, 0, 0.41804036, -2.240842, 7.611639, 3.760949, -0.018497705)
-use_collision = true
-size = Vector3(0.24039058, 0.16421777, 0.1)
-
-[node name="EncounterPlaceholder" type="CSGBox3D" parent="EncounterPlaceholder" index="1"]
-transform = Transform3D(4.45, 0, 0, 0, 5.8580008, 6.467729e-08, 0, -3.517373e-07, 1.497, 14.916029, 0.0489756, -0.012945548)
-use_collision = true
-size = Vector3(1.5559372, 0.3750664, 0.1)
-
-[node name="EncounterPlaceholder2" type="CSGBox3D" parent="EncounterPlaceholder" index="2"]
-transform = Transform3D(4.45, 0, 0, 0, -5.8575635, -0.018236684, 0, 0.071362205, -1.4968886, 7.661127, -3.409744, -0.03227479)
-use_collision = true
-size = Vector3(1.1379684, 1.1358086, 0.1)
-
-[node name="Comment2" parent="." index="3" instance=ExtResource("4_0hyq2")]
+[node name="Comment2" parent="." index="2" instance=ExtResource("4_0hyq2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 7.450581e-09, 1, 12.323263, 2.8352304, 32.200733)
 text = "Town Encounter #3, ment for the other town level when the player returns
 "
 
-[node name="World" parent="." index="4"]
+[node name="World" parent="." index="3"]
 navigation_mesh = SubResource("NavigationMesh_jsebj")
 
 [node name="Floor" parent="World" index="0"]
@@ -115,7 +94,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.78856, 0, -0.065726995)
 target_scene = "uid://crgv6bkolrlyy"
 target_entry_point = "Left"
 
-[node name="Notes" type="Node3D" parent="." index="7"]
+[node name="Notes" type="Node3D" parent="." index="6"]
 
 [node name="Comment" parent="Notes" index="0" instance=ExtResource("4_0hyq2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39030218, 0, 3.104404)
@@ -127,7 +106,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.7641077, 0, 3.1090455)
 text = "eventually it'll be split into a few scenes:
 (1) initial, (2) peaceful, (3) corrupted, (4) sheriff."
 
-[node name="NPCs" type="Node3D" parent="." index="8"]
+[node name="NPCs" type="Node3D" parent="." index="7"]
 
 [node name="NPCTest2" parent="NPCs" index="0" instance=ExtResource("5_jrcoc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.229506, 0, 5.644972)
@@ -162,12 +141,12 @@ modulate = Color(1.158732, 0.13998671, 1.4687854, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5406563, 0)
 text = "Piano Man"
 
-[node name="Comment" parent="." index="10" instance=ExtResource("4_0hyq2")]
+[node name="Comment" parent="." index="9" instance=ExtResource("4_0hyq2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.247622, 0.020611577, -0.72196484)
 text = "town encounter #1
 "
 
-[node name="Houses" type="Node3D" parent="." index="11"]
+[node name="Houses" type="Node3D" parent="." index="10"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1851654, 0, -9.456607)
 
 [node name="House" parent="Houses" index="0" instance=ExtResource("7_qoiyb")]
@@ -211,22 +190,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.889627, 0, -23.399918)
 [node name="House14" parent="Houses" index="13" instance=ExtResource("7_qoiyb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.05542, 0, -7.536372)
 
-[node name="FloorLantern" parent="." index="12" instance=ExtResource("9_ycak7")]
+[node name="FloorLantern" parent="." index="11" instance=ExtResource("9_ycak7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026645184, 0.059490204, 7.5032425)
 
-[node name="FloorLantern2" parent="." index="13" instance=ExtResource("9_ycak7")]
+[node name="FloorLantern2" parent="." index="12" instance=ExtResource("9_ycak7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3611474, 9.536743e-07, -8.45751)
 
-[node name="FloorLantern3" parent="." index="14" instance=ExtResource("9_ycak7")]
+[node name="FloorLantern3" parent="." index="13" instance=ExtResource("9_ycak7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.951942, -9.536743e-07, 7.2849736)
 
-[node name="FloorLantern4" parent="." index="15" instance=ExtResource("9_ycak7")]
+[node name="FloorLantern4" parent="." index="14" instance=ExtResource("9_ycak7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.73373, 0, -8.143075)
 
-[node name="Well" parent="." index="16" instance=ExtResource("7_f3sn8")]
+[node name="Well" parent="." index="15" instance=ExtResource("7_f3sn8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.871329, -1.9345382e-06, -0.6220263)
 
-[node name="Encounters" type="Node3D" parent="." index="17"]
+[node name="Encounters" type="Node3D" parent="." index="16"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9888, 0.06661462, -0.24382162)
 
 [node name="Encounter 1 Real" parent="Encounters" index="0" instance=ExtResource("11_jxsrk")]
@@ -492,7 +471,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 3.7252903e-09, 1, -9.244781, 0.1163
 [node name="Barrel12" parent="Encounters/Encounter 4 Real" index="23" instance=ExtResource("4_ycak7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 3.7252903e-09, 1, 9.57143, 0.11100387, -8.717083)
 
-[node name="Test NPCs" type="Node3D" parent="." index="18"]
+[node name="Test NPCs" type="Node3D" parent="." index="17"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9888, 0.06661462, -0.24382162)
 
 [node name="NPCTest" parent="Test NPCs" index="0" instance=ExtResource("5_jrcoc")]
@@ -515,7 +494,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.41962, -0.06661462, -9.31
 [node name="NPCTest7" parent="Test NPCs" index="6" instance=ExtResource("5_jrcoc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4651413, -0.06661462, 32.57283)
 
-[node name="Comments" type="Node3D" parent="." index="19"]
+[node name="Comments" type="Node3D" parent="." index="18"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.8584, 0.98787177, 0.89964545)
 
 [node name="Comment2" parent="Comments" index="0" instance=ExtResource("4_0hyq2")]
@@ -541,11 +520,11 @@ size = 2.0
 [node name="Comment6" parent="Comments" index="4" instance=ExtResource("4_0hyq2")]
 text = "town encounter #2"
 
-[node name="Comment7" parent="." index="20" instance=ExtResource("4_0hyq2")]
+[node name="Comment7" parent="." index="19" instance=ExtResource("4_0hyq2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.610857, 0.06789379, -19.251537)
 text = "Town Encounter #4, for when the player beats the sheriff in returning into the town"
 
-[node name="CorruptHeart" parent="." index="22" instance=ExtResource("12_dwgit")]
+[node name="CorruptHeart" parent="." index="21" instance=ExtResource("12_dwgit")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.908998, 0, 1.6071377)
 
 [editable path="NPCs/NPCTest2"]
