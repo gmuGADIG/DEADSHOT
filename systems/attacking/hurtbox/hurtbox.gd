@@ -20,7 +20,7 @@ func hit(dmg: DamageInfo) -> bool:
 ## Starts damaging this enemy over time.
 ## DOT is currently the number of total enemies on fire in the scene.
 func damage_over_time() -> void:
-	dot_timer.start()
+	if dot_timer: dot_timer.start()
 
 func _on_dot_timer_timeout() -> void:
 	hit(DamageInfo.new(
