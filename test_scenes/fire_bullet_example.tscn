@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://nuqmhgq1e2lu" path="res://world/player/player.tscn" id="1_kvtdp"]
 [ext_resource type="PackedScene" uid="uid://cr05xakri7lnw" path="res://world/floor/floor_gen.tscn" id="2_8d08w"]
 [ext_resource type="Texture2D" uid="uid://cjbsq7rk6r3h4" path="res://temp_art/gartic/cactus.png" id="3_oc376"]
-[ext_resource type="Script" path="res://test_scenes/test_coin.gd" id="4_mouky"]
+[ext_resource type="Script" uid="uid://duvasrdv76uic" path="res://test_scenes/test_coin.gd" id="4_mouky"]
 [ext_resource type="Texture2D" uid="uid://sxaysn4gqoxo" path="res://temp_art/gartic/coin.png" id="5_04stk"]
 [ext_resource type="PackedScene" uid="uid://b4n4rflu3my0v" path="res://world/enemy/longhorn/longhorn.tscn" id="6_f2wnx"]
 [ext_resource type="PackedScene" uid="uid://cn2ip7hvcayky" path="res://systems/camera/main_cam.tscn" id="7_noi77"]
@@ -26,7 +26,6 @@ point_count = 4
 
 [node name="Player" parent="." instance=ExtResource("1_kvtdp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53553, 4.7683716e-07, 0.9444761)
-walk_speed = 20.0
 bullets_of_fire_unlocked = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
