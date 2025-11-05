@@ -224,4 +224,8 @@ func _on_firing_timer_timeout() -> void:
 func stop_shooting() -> void:
 	can_shoot = false
 
+## Sets this enemy on fire, and increases the static count of total enemies on fire.
+func set_on_fire() -> void:
+	%FireDamage.set_on_fire()
+
 #endregion
