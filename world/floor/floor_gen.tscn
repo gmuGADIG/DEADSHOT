@@ -4,16 +4,17 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lma22"]
 resource_local_to_scene = true
+render_priority = -1
+normal_enabled = true
 uv1_scale = Vector3(0.2, 0.2, 0.2)
 uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lofne"]
 resource_local_to_scene = true
-transparency = 2
-alpha_scissor_threshold = 0.5
-alpha_antialiasing_mode = 0
-uv1_scale = Vector3(1, 2, 1)
-uv1_offset = Vector3(0, 1.705, 0)
+render_priority = -1
+transparency = 1
+uv1_scale = Vector3(0.5, 2, 1)
+uv1_offset = Vector3(0, 1.495, 0)
 
 [node name="Floor" type="Path3D"]
 script = ExtResource("1_ub512")
@@ -45,7 +46,7 @@ material = SubResource("StandardMaterial3D_lma22")
 
 [node name="Trim" type="CSGPolygon3D" parent="."]
 unique_name_in_owner = true
-polygon = PackedVector2Array(0, 0, 0.1, 0.01, -0.5, 0)
+polygon = PackedVector2Array(0, 0, 0.15762734, 0.009109028, -0.5, 0)
 mode = 2
 path_node = NodePath("..")
 path_interval_type = 0

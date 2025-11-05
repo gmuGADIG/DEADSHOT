@@ -28,7 +28,7 @@ enum AggroState {
 
 # TODO: change this to the real tonic scene eventually
 ## The tonic scene to drop.
-@onready var tonic := preload("res://world/items/tonic/tonic_test.tscn");
+@onready var tonic := preload("res://world/items/tonic/tonic.tscn");
 
 @export_group("Enemy Stats")
 ## The starting amount of health.
@@ -77,7 +77,8 @@ var should_move : bool = false
 var was_tracking : bool = false
 
 ## How close the enemy is to the destination before being "basically there"
-var proximity_tolerance : float = 1
+@export var proximity_tolerance : float = 1
+
 var shooting := false
 var can_shoot := true
 
@@ -89,6 +90,8 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	starting_pos = starting_pos if not starting_pos.is_equal_approx(Vector3.ZERO) else position
 	last_known_player_position = player.global_position
+	%Health.max_health = max_hp
+	%Health.health = max_hp
 	%Health.killed.connect(queue_free)
 	%Health.killed.connect(drop_tonic)
 
@@ -198,8 +201,8 @@ func is_close_to_destination() -> bool:
 ## Chance to drop tonic on enemy death.
 func drop_tonic() -> void:
 	if (tonic_drop_rate >= randf_range(0.0, 1.0)):
-		var dropped_tonic : Node3D = tonic.instantiate();
-		dropped_tonic.position = self.position;
+		var dropped_tonic : Node3D = tonic.instantiate()
+		dropped_tonic.global_position = self.global_position
 		$/root.add_child(dropped_tonic);
 
 func shoot_bullet() -> void:
@@ -222,5 +225,9 @@ func _on_firing_timer_timeout() -> void:
 
 func stop_shooting() -> void:
 	can_shoot = false
+
+## Sets this enemy on fire, and increases the static count of total enemies on fire.
+func set_on_fire() -> void:
+	%FireDamage.set_on_fire()
 
 #endregion

@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://7lrs6qjp01ku"]
+
+[ext_resource type="Texture2D" uid="uid://bwm425xkr0vcy" path="res://temp_art/icon.svg" id="1_tltrc"]
+[ext_resource type="Script" uid="uid://dnpj3weokw4ps" path="res://menu/skill_tree/skill_button.gd" id="2_k43o4"]
+[ext_resource type="Texture2D" uid="uid://bcudjyrfhmykx" path="res://temp_art/lock.png" id="3_ux1m3"]
+
+[node name="skillButton" type="TextureButton"]
+custom_minimum_size = Vector2(60, 60)
+anchors_preset = -1
+anchor_right = 0.044000003
+anchor_bottom = 0.09
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 8.311996
+offset_bottom = 2.6799965
+pivot_offset = Vector2(30, 30)
+texture_normal = ExtResource("1_tltrc")
+texture_disabled = ExtResource("1_tltrc")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_k43o4")
+skillName = "Gun Big"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.19700001
+anchor_top = 1.0
+anchor_right = 0.84300005
+anchor_bottom = 1.0
+offset_left = -4.2440004
+offset_top = -14.0
+offset_right = 3.1639977
+offset_bottom = -2.0
+theme_override_font_sizes/font_size = 8
+text = "Skill Name"
+
+[node name="Skill_Branch" type="Line2D" parent="."]
+top_level = true
+z_index = -1
+
+[node name="LockIcon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ux1m3")
+expand_mode = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
