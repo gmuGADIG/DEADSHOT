@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://fkmkprnxsrpf"]
+[gd_scene load_steps=33 format=3 uid="uid://fkmkprnxsrpf"]
 
 [ext_resource type="Script" uid="uid://c6cng071rfahe" path="res://menu/skill_tree/skill_tree.gd" id="1_dnamn"]
 [ext_resource type="PackedScene" uid="uid://7lrs6qjp01ku" path="res://menu/skill_tree/skill_button.tscn" id="2_3f6vw"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://54e4esurd3xm" path="res://temp_art/gartic/gun.png" id="5_3b2bh"]
 [ext_resource type="Texture2D" uid="uid://sxaysn4gqoxo" path="res://temp_art/gartic/coin.png" id="6_6jgdw"]
 [ext_resource type="Texture2D" uid="uid://cegfpthfj6eil" path="res://temp_art/gartic/godot_dead.png" id="6_ph0jt"]
+[ext_resource type="Script" uid="uid://g60bhhds87wx" path="res://menu/skill_tree/skill_tree_overlay.gd" id="8_oh6w3"]
+[ext_resource type="Texture2D" uid="uid://y1h3uww1jns7" path="res://world/enemy/meat/meat.png" id="8_yrbjn"]
 
 [sub_resource type="Resource" id="Resource_lmf3w"]
 script = ExtResource("4_8qlyr")
@@ -169,10 +171,18 @@ skill_name = "Salvage"
 skill_uid = 2097152
 metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
+[sub_resource type="GDScript" id="GDScript_77k0x"]
+script/source = "extends PanelContainer
+
+func show_skill_panel(skill : SkillDesc) -> void:
+	pass
+"
+
 [node name="Skill_Tree" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_dnamn")
+zoom_offset = Vector2(-15, -25)
 
 [node name="Background" type="ColorRect" parent="."]
 visible = false
@@ -181,29 +191,13 @@ offset_right = 1166.0
 offset_bottom = 660.0
 color = Color(0, 0.2365942, 0.6779701, 1)
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 770.0
-offset_top = 496.0
-offset_right = 1129.0
-offset_bottom = 557.0
-text = "Confirm Upgrade"
-
-[node name="PurchaseButton" type="Button" parent="."]
+[node name="ExitButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 772.0
 offset_top = 567.0
 offset_right = 1131.0
 offset_bottom = 628.0
 text = "Exit"
-
-[node name="ExitButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 771.0
-offset_top = 422.0
-offset_right = 1130.0
-offset_bottom = 483.0
-text = "PLACEHOLDER"
 
 [node name="Meat Tree" type="Label" parent="."]
 layout_mode = 0
@@ -227,10 +221,10 @@ layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 60.0
-offset_bottom = 60.0
+offset_left = 92.0
+offset_top = 58.0
+offset_right = 152.0
+offset_bottom = 118.0
 itemDesc = SubResource("Resource_lmf3w")
 
 [node name="R1" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
@@ -485,6 +479,108 @@ offset_bottom = 627.0
 dependencies = [NodePath("../B4_1"), NodePath("../B4_2")]
 itemDesc = SubResource("Resource_a42n7")
 
-[connection signal="pressed" from="Button" to="." method="_on_load_save_button_pressed"]
-[connection signal="pressed" from="PurchaseButton" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="ExitButton" to="." method="_on_quit_button_pressed"]
+[node name="Overlay" type="CanvasLayer" parent="."]
+script = ExtResource("8_oh6w3")
+
+[node name="SkillPanel" type="PanelContainer" parent="Overlay"]
+visible = false
+anchors_preset = -1
+anchor_left = 0.4748264
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_77k0x")
+metadata/_edit_use_anchors_ = true
+
+[node name="VSplitContainer" type="VSplitContainer" parent="Overlay/SkillPanel"]
+layout_mode = 2
+split_offset = 500
+
+[node name="Info" type="VBoxContainer" parent="Overlay/SkillPanel/VSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="Name" type="Label" parent="Overlay/SkillPanel/VSplitContainer/Info"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "[Insert Text
+Here Please]"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Overlay/SkillPanel/VSplitContainer/Info"]
+layout_mode = 2
+alignment = 1
+
+[node name="Price" type="Label" parent="Overlay/SkillPanel/VSplitContainer/Info/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 32
+text = "500"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Overlay/SkillPanel/VSplitContainer/Info/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_yrbjn")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Description" type="Label" parent="Overlay/SkillPanel/VSplitContainer/Info"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "1 infinfofnniinfoninfo
+2 here is the info on the gun (:
+4 its schmeat that it cosrst.
+5 ggggggggggggggggggggg
+6 ggggggggggggggggggggggg"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Options" type="VBoxContainer" parent="Overlay/SkillPanel/VSplitContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+alignment = 1
+
+[node name="Purchase" type="Button" parent="Overlay/SkillPanel/VSplitContainer/Options"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 4
+text = "Purchase"
+
+[node name="Cancel" type="Button" parent="Overlay/SkillPanel/VSplitContainer/Options"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "Cancel"
+
+[node name="MeatDisplay" type="PanelContainer" parent="Overlay"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Overlay/MeatDisplay"]
+layout_mode = 2
+alignment = 1
+
+[node name="OwnedMeat" type="Label" parent="Overlay/MeatDisplay/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 32
+text = "500"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Overlay/MeatDisplay/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_yrbjn")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="SkillBranches" type="Node2D" parent="."]
+unique_name_in_owner = true
+z_index = -1
+
+[connection signal="pressed" from="Overlay/SkillPanel/VSplitContainer/Options/Purchase" to="." method="_on_purchase_pressed"]
+[connection signal="pressed" from="Overlay/SkillPanel/VSplitContainer/Options/Cancel" to="." method="on_skill_unselected"]
