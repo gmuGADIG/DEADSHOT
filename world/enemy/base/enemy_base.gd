@@ -65,6 +65,9 @@ var aggro : AggroState = AggroState.BENIGN
 var player_distance : float
 ## Current on fire status. Starts as false.
 var is_on_fire := false
+## Static variable tracking the number of enemies on fire in a scene.
+## Starts at 0.
+static var on_fire_count : int = 0;
 
 ## The navigation agent.
 @onready var navigation_agent : NavigationAgent3D = $NavigationAgent3D
@@ -225,5 +228,12 @@ func _on_firing_timer_timeout() -> void:
 
 func stop_shooting() -> void:
 	can_shoot = false
+
+## Sets this enemy on fire, and increases the static count of total enemies on fire.
+func set_on_fire() -> void:
+	if not is_on_fire:
+		is_on_fire = true
+		on_fire_count += 1
+	print("There are currently %d enemies on fire!" % on_fire_count)
 
 #endregion

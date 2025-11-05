@@ -3,11 +3,19 @@ class_name Player extends CharacterBody3D
 class PlayerPersistingData:
 	var max_health : int
 	var health : int
-	
-static var persisting_data : PlayerPersistingData
 
-static var instance:Player
+## These are the states that the player can be in. States control what the player can do.
+enum PlayerState {
+	WALKING,
+	ROLLING
+}
+
+#region Variables
+static var persisting_data : PlayerPersistingData
+static var instance : Player
+
 var speed_multiplier: float = 1.0;
+
 ## EXPORT VARIABLES
 @export_category("Movement")
 @export var walk_speed: float = 8.0
@@ -17,6 +25,10 @@ var speed_multiplier: float = 1.0;
 @export_category("Dependencies")
 @export var health_component : Health
 @export var whip : Whip
+
+# TODO: The skills system will probably be handled outside of the player.
+# This is just for testing.
+@export var bullets_of_fire_unlocked : bool = false
 
 ## Is the player currently in combat? If so, HUD will be shown and dashing will cost stamina.
 var is_in_combat: bool = false
@@ -29,13 +41,8 @@ var stamina: float = 3.0
 ## How much stamina recharges every second. It should take 1.5 seconds for 1 bar to recover.
 const STAMINA_RECHARGE_RATE: float = 0.666667
 
-## These are the states that the player can be in. States control what the player can do.
-enum PlayerState {
-	WALKING,
-	ROLLING
-}
-
 var current_state: PlayerState = PlayerState.WALKING
+#endregion
 
 static func update_persisting_data() -> void:
 	if persisting_data == null:
@@ -44,30 +51,18 @@ static func update_persisting_data() -> void:
 	persisting_data.max_health = Player.instance.health_component.max_health
 	persisting_data.health = Player.instance.health_component.health
 
-## Returns the inputted walking direction on the XZ plane (Y = 0)
-func input_direction() -> Vector3:
-	var input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	return Vector3(input.x,0,input.y)
-
+#region Builtin Functions
 func _ready() -> void:
 	instance = self
 	if persisting_data != null:
 		health_component.max_health = persisting_data.max_health
 		health_component.health = persisting_data.health
+	$BasicGun.bullets_of_fire_unlocked = bullets_of_fire_unlocked
 
 func _init() -> void:
 	instance = self
 
-
-## Returns the direction from the player to the reticle (Y = 0)
-func aim_dir() -> Vector3:
-	var dir: Vector3 = %Reticle.global_position - self.global_position
-	dir.y = 0
-	return dir.normalized()
-
-
 func _physics_process(delta: float) -> void:
-	
 	if Input.is_action_just_pressed("roll") and whip.whip_state == Whip.WhipState.OFF:
 		begin_roll()
 	
@@ -87,6 +82,18 @@ func _physics_process(delta: float) -> void:
 ## We use the proper process function to update stamina, since it appears on the HUD and that could be drawn faster than the physics tickrate.
 func _process(delta: float) -> void:
 	update_stamina(delta)
+#endregion
+
+## Returns the inputted walking direction on the XZ plane (Y = 0)
+func input_direction() -> Vector3:
+	var input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	return Vector3(input.x,0,input.y)
+
+## Returns the direction from the player to the reticle (Y = 0)
+func aim_dir() -> Vector3:
+	var dir: Vector3 = %Reticle.global_position - self.global_position
+	dir.y = 0
+	return dir.normalized()
 
 func can_shoot() -> bool:
 	if current_state == PlayerState.ROLLING:
