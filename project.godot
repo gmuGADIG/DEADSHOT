@@ -19,6 +19,7 @@ config/icon="res://temp_art/icon.svg"
 
 Global="*res://systems/globals.gd"
 Dialog="*res://systems/dialog/dialog.tscn"
+DebugMenu="*res://systems/debug_menu/debug_menu.tscn"
 
 [debug]
 
@@ -38,13 +39,16 @@ folder_colors={
 "res://temp_art/": "yellow",
 "res://test_scenes/": "green",
 "res://world/enemy/": "teal",
+"res://world/items/": "pink",
 "res://world/levels/": "blue",
+"res://world/pickups/": "red",
 "res://world/player/": "purple"
 }
 
 [global_group]
 
 player=""
+camera_tracked=""
 
 [input]
 
@@ -88,6 +92,11 @@ move_down={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"key_label":0,"unicode":115,"location":0,"echo":false,"script":null)
 ]
 }
+debug_menu={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":96,"key_label":0,"unicode":96,"location":0,"echo":false,"script":null)
+]
+}
 
 [input_devices]
 
@@ -95,9 +104,16 @@ pointing/emulate_touch_from_mouse=true
 
 [layer_names]
 
+3d_render/layer_2="PlayerAttracted"
 3d_physics/layer_1="World"
 3d_physics/layer_2="Player"
 3d_physics/layer_3="Interactable"
+3d_physics/layer_4="Enemy"
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+common/physics_interpolation=true
 
 [rendering]
 

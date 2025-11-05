@@ -5,5 +5,9 @@ extends Area3D
 func _on_body_entered(body: Node3D) -> void:
 	if body is not Player: return
 	
+	Player.update_persisting_data()
+	
 	EntryPoints.set_entry_point(target_entry_point)
 	get_tree().change_scene_to_file(target_scene)
+	
+	
