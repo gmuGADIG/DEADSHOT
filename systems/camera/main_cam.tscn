@@ -7,4 +7,5 @@ transform = Transform3D(1, 0, 0, 0, 0.57357645, 0.81915206, 0, -0.81915206, 0.57
 current = true
 script = ExtResource("1_m50gf")
 offset = Vector3(0, 7.201, 5.785)
+encounter_zoom = 1.25
 smoothing = 10.0

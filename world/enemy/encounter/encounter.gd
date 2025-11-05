@@ -12,6 +12,9 @@ enum EncounterProgress {
 	DONE,
 }
 
+## Camera will zoom out this much when the encounter is active.
+@export var camera_zoom := 1.2
+
 var progress := EncounterProgress.WAITING
 
 func _ready() -> void:
