@@ -216,6 +216,8 @@ func shoot_bullet() -> void:
 		bullet_reference.set_speed(bullet_speed)
 		bullet_reference.set_target(get_tree().get_first_node_in_group("player").global_position)
 		shooting = true
+		
+	
 
 func _on_firing_timer_timeout() -> void:
 	shooting = false
@@ -223,5 +225,9 @@ func _on_firing_timer_timeout() -> void:
 
 func stop_shooting() -> void:
 	can_shoot = false
+
+## Sets this enemy on fire, and increases the static count of total enemies on fire.
+func set_on_fire() -> void:
+	%FireDamage.set_on_fire()
 
 #endregion
