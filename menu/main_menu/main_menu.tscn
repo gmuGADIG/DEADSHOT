@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://by8y1gjlttw6g"]
 
 [ext_resource type="Script" uid="uid://cg6umb86w26xh" path="res://menu/main_menu/main_menu.gd" id="1_winya"]
-[ext_resource type="Texture2D" uid="uid://boauxw7dvftyt" path="res://temp_art/rough_drafts/cutscene/cutscene4.png" id="2_e5xhn"]
+[ext_resource type="Texture2D" uid="uid://dcavwcmbdms3e" path="res://temp_art/rough_drafts/main_menu.png" id="2_e5xhn"]
 
 [sub_resource type="SystemFont" id="SystemFont_qs6vt"]
 
@@ -18,38 +18,41 @@ grow_vertical = 2
 theme = SubResource("Theme_7r8i1")
 script = ExtResource("1_winya")
 
-[node name="Background" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="MainMenu" type="Sprite2D" parent="."]
+position = Vector2(576.25, 325.25)
+scale = Vector2(1.0109171, 0.89862067)
 texture = ExtResource("2_e5xhn")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_right = 385.0
+offset_left = 92.0
+offset_top = 214.0
+offset_right = 315.0
+offset_bottom = -170.0
 grow_vertical = 2
 
 [node name="NewSaveButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 40
 text = "NEW SAVE
 "
 
 [node name="LoadSaveButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 40
 text = "LOAD SAVE
 "
 
 [node name="OptionsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 40
 text = "OPTIONS"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 40
 text = "QUIT"
 
 [node name="Title" type="Label" parent="."]
@@ -57,13 +60,13 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -93.0
-offset_top = 3.0
-offset_right = 3.0
-offset_bottom = 26.0
+offset_left = -194.0
+offset_top = 84.0
+offset_right = -37.0
+offset_bottom = 107.0
 grow_horizontal = 2
 scale = Vector2(2, 2)
-text = "MAIN MENU"
+text = "DEAD                 SHOT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
