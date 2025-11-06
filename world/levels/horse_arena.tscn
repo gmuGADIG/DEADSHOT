@@ -27,10 +27,14 @@ material = ExtResource("2_v5nwm")
 [node name="Player" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.202965, 0, 8.371207)
 
-[node name="Horse" parent="." index="6" instance=ExtResource("3_lm8ri")]
+[node name="Horse" parent="." index="6" node_paths=PackedStringArray("floor_area") instance=ExtResource("3_lm8ri")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46483076, 0)
 spread_angle = 25.0
+rock_speed = 10.0
 charge_time = 1.0
 cooldown_time = 1.0
 atk_source = 1
 atk_knockback = 1
+floor_area = NodePath("../World/Floor")
+phase_1_action_names = Array[StringName]([&"stomp"])
+patrol_path = Array[Vector3]([Vector3(0, 0, 0)])
