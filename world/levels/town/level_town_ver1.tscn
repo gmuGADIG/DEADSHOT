@@ -1,0 +1,194 @@
+[gd_scene load_steps=12 format=3 uid="uid://beju3ms5o28f6"]
+
+[ext_resource type="PackedScene" uid="uid://cxahvvaidpg32" path="res://world/levels/town/level_town_base.tscn" id="1_jqym7"]
+[ext_resource type="PackedScene" uid="uid://dhb2pgqbfvxoa" path="res://world/enemy/encounter/encounter.tscn" id="2_tryip"]
+[ext_resource type="PackedScene" uid="uid://bp6l0lw650m8o" path="res://world/blocker/blocker.tscn" id="3_07v3m"]
+[ext_resource type="PackedScene" uid="uid://bb3qdjspo0kcq" path="res://world/interactables/barrel/barrel.tscn" id="4_2p0yr"]
+[ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://world/interactables/cover/cover_boulder.tscn" id="5_er60s"]
+[ext_resource type="PackedScene" uid="uid://doavrdpyjcdgp" path="res://world/enemy/judge/enemy_judge.tscn" id="6_tute4"]
+[ext_resource type="PackedScene" uid="uid://dwdhuncnyfmcw" path="res://world/enemy/wilder/wilder.tscn" id="7_w2gme"]
+[ext_resource type="PackedScene" uid="uid://dgq8eujhb7aiv" path="res://world/enemy/enemy_bandit.tscn" id="8_hhml8"]
+[ext_resource type="PackedScene" uid="uid://h4pbrdsf4bcg" path="res://world/enemy/splitter/enemy_splitter.tscn" id="9_hrkmd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dynrd"]
+size = Vector3(10, 3, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_supmm"]
+size = Vector3(10, 3, 10)
+
+[node name="LevelTown1" instance=ExtResource("1_jqym7")]
+
+[node name="Encounters" type="Node3D" parent="." index="14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9888, 0.06661462, -0.24382162)
+
+[node name="Encounter 1 Real" parent="Encounters" index="0" instance=ExtResource("2_tryip")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.796177, 0, 1.0880146)
+camera_zoom = 1.7
+
+[node name="EncounterShape" type="CollisionShape3D" parent="Encounters/Encounter 1 Real" index="1"]
+transform = Transform3D(3.015, 0, 0, 0, 1, 0, 0, 0, 1.42, -0.66210175, 0, 0)
+shape = SubResource("BoxShape3D_dynrd")
+
+[node name="Blocker" parent="Encounters/Encounter 1 Real" index="2" instance=ExtResource("3_07v3m")]
+transform = Transform3D(1.782, 0, 0, 0, 1, 0, 0, 0, 15.629515, 19.925665, -0.06650209, -0.281219)
+
+[node name="Blocker2" parent="Encounters/Encounter 1 Real" index="3" instance=ExtResource("3_07v3m")]
+transform = Transform3D(1.782, 0, 0, 0, 1, 0, 0, 0, 4.257, -17.905468, -0.066615574, 0.20863008)
+
+[node name="Barrel" parent="Encounters/Encounter 1 Real" index="4" instance=ExtResource("4_2p0yr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.85321, -0.0026482865, -6.212362)
+
+[node name="Barrel2" parent="Encounters/Encounter 1 Real" index="5" instance=ExtResource("4_2p0yr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.691387, -0.002648227, -1.5263298)
+
+[node name="Barrel3" parent="Encounters/Encounter 1 Real" index="6" instance=ExtResource("4_2p0yr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.832787, -0.0026484728, -0.51711833)
+
+[node name="Barrel4" parent="Encounters/Encounter 1 Real" index="7" instance=ExtResource("4_2p0yr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.625275, -0.0026481599, 5.338372)
+
+[node name="Boulder" parent="Encounters/Encounter 1 Real" index="8" instance=ExtResource("5_er60s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8204346, 0.11440203, -3.5871053)
+
+[node name="Boulder2" parent="Encounters/Encounter 1 Real" index="9" instance=ExtResource("5_er60s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8289452, 0.11440132, -3.5237043)
+
+[node name="Boulder3" parent="Encounters/Encounter 1 Real" index="10" instance=ExtResource("5_er60s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0581512, 0.11440209, -2.2167568)
+
+[node name="Boulder4" parent="Encounters/Encounter 1 Real" index="11" instance=ExtResource("5_er60s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9939041, 0.11440144, -0.98233)
+
+[node name="Boulder5" parent="Encounters/Encounter 1 Real" index="12" instance=ExtResource("5_er60s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.957058, 0.11440206, -0.060611725)
+
+[node name="Boulder6" parent="Encounters/Encounter 1 Real" index="13" instance=ExtResource("5_er60s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3588867, 0.11440065, 0.04286158)
+
+[node name="Barrel5" parent="Encounters/Encounter 1 Real" index="14" instance=ExtResource("4_2p0yr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.916626, -0.0026480034, -6.1598916)
+
+[node name="Barrel6" parent="Encounters/Encounter 1 Real" index="15" instance=ExtResource("4_2p0yr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.90757, -0.0026485398, -1.9483272)
+
+[node name="Barrel7" parent="Encounters/Encounter 1 Real" index="16" instance=ExtResource("4_2p0yr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.88396, -0.0026477724, -0.8461448)
+
+[node name="EnemyTest9" parent="Encounters/Encounter 1 Real" index="17" instance=ExtResource("6_tute4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2237358, -0.06661265, -1.2299254)
+
+[node name="Barrel8" parent="Encounters/Encounter 1 Real" index="18" instance=ExtResource("4_2p0yr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.157491, -0.0026474297, 5.661652)
+
+[node name="EnemyTest" parent="Encounters/Encounter 1 Real" index="19" instance=ExtResource("6_tute4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2834129, -0.06661456, -2.1927283)
+
+[node name="Wilder" parent="Encounters/Encounter 1 Real" index="20" instance=ExtResource("7_w2gme")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.28141, -0.057398908, -2.409165)
+
+[node name="Wilder2" parent="Encounters/Encounter 1 Real" index="21" instance=ExtResource("7_w2gme")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.329793, -0.05766403, -1.0076718)
+
+[node name="Wilder3" parent="Encounters/Encounter 1 Real" index="22" instance=ExtResource("7_w2gme")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.548709, -0.057694547, -6.6524196)
+
+[node name="Wilder4" parent="Encounters/Encounter 1 Real" index="23" instance=ExtResource("7_w2gme")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.454863, -0.05756771, 5.5331826)
+
+[node name="EnemyTest2" parent="Encounters/Encounter 1 Real" index="24" instance=ExtResource("8_hhml8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.816677, -0.06661027, -7.36005)
+
+[node name="EnemyTest3" parent="Encounters/Encounter 1 Real" index="25" instance=ExtResource("8_hhml8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.125034, -0.06662267, -6.160677)
+
+[node name="EnemyTest4" parent="Encounters/Encounter 1 Real" index="26" instance=ExtResource("8_hhml8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.280651, -0.066588335, 5.2620344)
+
+[node name="EnemyTest5" parent="Encounters/Encounter 1 Real" index="27" instance=ExtResource("8_hhml8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.522533, -0.06663697, 6.0142417)
+
+[node name="Encounter 2 Real" parent="Encounters" index="1" instance=ExtResource("2_tryip")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.352249, 0, 0.31310797)
+camera_zoom = 1.7
+
+[node name="EncounterShape" type="CollisionShape3D" parent="Encounters/Encounter 2 Real" index="1"]
+transform = Transform3D(3.32, 0, 0, 0, 1, 0, 0, 0, 1.395, 0, 0, 0)
+shape = SubResource("BoxShape3D_supmm")
+
+[node name="Blocker2" parent="Encounters/Encounter 2 Real" index="2" instance=ExtResource("3_07v3m")]
+transform = Transform3D(1.782, 0, 0, 0, 1, 0, 0, 0, 4.257, 18.598312, -0.06661462, 0.85690546)
+
+[node name="Blocker" parent="Encounters/Encounter 2 Real" index="3" instance=ExtResource("3_07v3m")]
+transform = Transform3D(1.782, 0, 0, 0, 1, 0, 0, 0, 14.467296, -14.593159, -0.06661271, 0.25013113)
+
+[node name="Barrel9" parent="Encounters/Encounter 2 Real" index="4" instance=ExtResource("4_2p0yr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.839815, 0.01517202, -3.3371098)
+
+[node name="Boulder7" parent="Encounters/Encounter 2 Real" index="5" instance=ExtResource("5_er60s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.365875, 0.13222182, -3.4484246)
+
+[node name="Barrel10" parent="Encounters/Encounter 2 Real" index="6" instance=ExtResource("4_2p0yr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.40745, 0.015172295, 4.3866396)
+
+[node name="Boulder8" parent="Encounters/Encounter 2 Real" index="7" instance=ExtResource("5_er60s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.809349, 0.13222218, 4.3435163)
+
+[node name="Barrel11" parent="Encounters/Encounter 2 Real" index="8" instance=ExtResource("4_2p0yr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6804657, 0.015172876, -0.032675505)
+
+[node name="Barrel12" parent="Encounters/Encounter 2 Real" index="9" instance=ExtResource("4_2p0yr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2502441, 0.015173279, 1.0437303)
+
+[node name="Boulder9" parent="Encounters/Encounter 2 Real" index="10" instance=ExtResource("5_er60s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4667511, 0.13222203, -0.30693793)
+
+[node name="Boulder10" parent="Encounters/Encounter 2 Real" index="11" instance=ExtResource("5_er60s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21240997, 0.13222215, 0.9359851)
+
+[node name="Barrel13" parent="Encounters/Encounter 2 Real" index="12" instance=ExtResource("4_2p0yr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.48627472, 0.015172511, -1.6032703)
+
+[node name="Barrel14" parent="Encounters/Encounter 2 Real" index="13" instance=ExtResource("4_2p0yr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03314209, 0.015173696, 2.3053641)
+
+[node name="Boulder11" parent="Encounters/Encounter 2 Real" index="14" instance=ExtResource("5_er60s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.134987, 0.132222, 0.3851778)
+
+[node name="Boulder12" parent="Encounters/Encounter 2 Real" index="15" instance=ExtResource("5_er60s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.119041, 0.13222215, 1.5308481)
+
+[node name="Barrel15" parent="Encounters/Encounter 2 Real" index="16" instance=ExtResource("4_2p0yr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.316254, 0.015173562, -0.7200222)
+
+[node name="Barrel16" parent="Encounters/Encounter 2 Real" index="17" instance=ExtResource("4_2p0yr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.308754, 0.015173711, 2.6627991)
+
+[node name="Wilder2" parent="Encounters/Encounter 2 Real" index="18" instance=ExtResource("7_w2gme")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.642925, -0.057695977, 2.573387)
+
+[node name="Wilder" parent="Encounters/Encounter 2 Real" index="19" instance=ExtResource("7_w2gme")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.660507, -0.057613485, -0.8249669)
+
+[node name="EnemyTest" parent="Encounters/Encounter 2 Real" index="20" instance=ExtResource("9_hrkmd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8896751, -0.06661504, 1.0149593)
+
+[node name="EnemyTest2" parent="Encounters/Encounter 2 Real" index="21" instance=ExtResource("9_hrkmd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.278839, -0.06661456, -0.2959087)
+
+[node name="EnemyTest3" parent="Encounters/Encounter 2 Real" index="22" instance=ExtResource("9_hrkmd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4365044, -0.06661456, -0.5796609)
+
+[node name="EnemyTest4" parent="Encounters/Encounter 2 Real" index="23" instance=ExtResource("9_hrkmd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4692955, -0.066614084, 0.7994578)
+
+[node name="EnemyTest5" parent="Encounters/Encounter 2 Real" index="24" instance=ExtResource("8_hhml8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.450661, -0.06661504, 3.1376028)
+
+[node name="EnemyTest6" parent="Encounters/Encounter 2 Real" index="25" instance=ExtResource("8_hhml8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.706394, -0.06661456, 4.361479)
+
+[node name="EnemyTest7" parent="Encounters/Encounter 2 Real" index="26" instance=ExtResource("8_hhml8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.593697, -0.06651824, -4.2473955)
+
+[node name="EnemyTest8" parent="Encounters/Encounter 2 Real" index="27" instance=ExtResource("8_hhml8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.555187, -0.06661456, -3.53351)

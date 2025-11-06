@@ -1,0 +1,97 @@
+[gd_scene load_steps=8 format=3 uid="uid://cuwovas4cflco"]
+
+[ext_resource type="PackedScene" uid="uid://cxahvvaidpg32" path="res://world/levels/town/level_town_base.tscn" id="1_64v5s"]
+[ext_resource type="PackedScene" uid="uid://d3stqami0urg7" path="res://world/npc/test/npc_test.tscn" id="2_mtstk"]
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="3_ineyk"]
+[ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="4_6mxwy"]
+
+[sub_resource type="Resource" id="Resource_x2t4e"]
+script = ExtResource("3_ineyk")
+dialog = "[Snake Oil Salesman] \"Woah there, gunslinger! You look like you've seen better days! This infection spreading around seems to be getting the best of everyone in this dusty old town.
+Lucky for you I got just the thing. Elixir, the one-size-fits-all cure to this nasty infection.  One bottle and you're cured! Whaddya say, how many bottles of Elixir can I put you down for? Only fifty dollars!
+...You don't want any?
+Bah, you'll be back. Just you wait. You'll be wishing you had elixir when the infection gets you too.\"
+[Snake Oil Salesman] Stupid gunslinger... Stupid town... 
+Should'a known better than to sell to a town of broke shmucks. Not even a single bottle sold! 
+Nothing left for me here now, it's way too crazy for my liking... gotta cut my losses and get outta this hick desert town.
+Hm? What're you lookin' at, gunslinger? If you don't want a damn bottle, then get outta my face. I'm sick of you and sick of this godforsaken town."
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"
+
+[sub_resource type="Resource" id="Resource_f8kss"]
+script = ExtResource("3_ineyk")
+dialog = "[Cryptic Nomad] Careful. None who touch that ever die without regrets, and never peacefully.
+[Cryptic Nomad] The road you're walking isn't one for the weak-hearted. We lose good people every day, and in the end, you're just another grain of sand in this barren desert.
+[Cryptic Nomad] You're too far gone to go back now. Best be careful now, 'cause that angel on your shoulder whispering in your ear isn't as angelic as you think. Whether you listen to it or not, whatever you decide, the fate of this desert is waiting in that cave."
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"
+
+[sub_resource type="Resource" id="Resource_4ewu8"]
+script = ExtResource("3_ineyk")
+dialog = "[Piano Man] I used to play for the town, ya know. 
+The entire town used to come here after a hard day's work, grab some drinks with their neighbors and listen to the chatter of the saloon… and my music of course. 
+Some people used to dance. She used to dance…waltz around the tables… God, I hope she's okay… 
+Used to be everyone together. Dancin', singin', laughin' ...Funny how life works, huh? Always changin'. "
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"
+
+[node name="LevelTown1" instance=ExtResource("1_64v5s")]
+
+[node name="Test NPCs" type="Node3D" parent="." index="14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.86013, 0.06661268, -0.86584795)
+
+[node name="NPCTest" parent="Test NPCs" index="0" instance=ExtResource("2_mtstk")]
+
+[node name="NPCTest2" parent="Test NPCs" index="1" instance=ExtResource("2_mtstk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.053219, -0.06661462, 19.094393)
+
+[node name="NPCTest3" parent="Test NPCs" index="2" instance=ExtResource("2_mtstk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.201412, -0.06661462, -29.743269)
+
+[node name="NPCTest4" parent="Test NPCs" index="3" instance=ExtResource("2_mtstk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.777542, -0.06661462, -8.864834)
+
+[node name="NPCTest5" parent="Test NPCs" index="4" instance=ExtResource("2_mtstk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.941654, -4.0978193e-07, -20.248877)
+
+[node name="NPCTest6" parent="Test NPCs" index="5" instance=ExtResource("2_mtstk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.41962, -0.06661462, -9.313629)
+
+[node name="NPCTest7" parent="Test NPCs" index="6" instance=ExtResource("2_mtstk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4651413, -0.06661462, 32.57283)
+
+[node name="NPCs" type="Node3D" parent="." index="15"]
+
+[node name="NPCTest2" parent="NPCs" index="0" instance=ExtResource("2_mtstk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.229506, 0, 5.644972)
+timelime = SubResource("Resource_x2t4e")
+
+[node name="Sprite3D" parent="NPCs/NPCTest2" index="0"]
+modulate = Color(0.86, 0.4380267, 0.06879999, 1)
+
+[node name="Comment" parent="NPCs/NPCTest2" index="2" instance=ExtResource("4_6mxwy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5406563, 0)
+text = "Snake Oil Salesman"
+
+[node name="NPCTest3" parent="NPCs" index="1" instance=ExtResource("2_mtstk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.998104, 0, 5.9323926)
+timelime = SubResource("Resource_f8kss")
+
+[node name="Sprite3D" parent="NPCs/NPCTest3" index="0"]
+modulate = Color(0.07999998, 1, 0.89266676, 1)
+
+[node name="Comment" parent="NPCs/NPCTest3" index="2" instance=ExtResource("4_6mxwy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5406563, 0)
+text = "Cryptic Nomad"
+
+[node name="NPCTest4" parent="NPCs" index="2" instance=ExtResource("2_mtstk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.308859, 0, 5.0440106)
+timelime = SubResource("Resource_4ewu8")
+
+[node name="Sprite3D" parent="NPCs/NPCTest4" index="0"]
+modulate = Color(1.158732, 0.13998671, 1.4687854, 1)
+
+[node name="Comment" parent="NPCs/NPCTest4" index="2" instance=ExtResource("4_6mxwy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5406563, 0)
+text = "Piano Man"
+
+[editable path="NPCs/NPCTest2"]
+[editable path="NPCs/NPCTest3"]
+[editable path="NPCs/NPCTest4"]
