@@ -1,8 +1,11 @@
-[gd_scene format=3 uid="uid://y53xq3oyclfj"]
+[gd_scene load_steps=2 format=3 uid="uid://y53xq3oyclfj"]
+
+[ext_resource type="Script" uid="uid://cl10rk3dnuqfi" path="res://menu/options_menu/options_menu.gd" id="1_f3be3"]
 
 [node name="OptionsMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_f3be3")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 0
@@ -19,18 +22,20 @@ offset_bottom = 408.0
 text = "BACKK"
 
 [node name="Music" type="HSlider" parent="Background"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 393.0
-offset_top = 247.0
+offset_top = 196.0
 offset_right = 698.0
-offset_bottom = 314.0
+offset_bottom = 263.0
 
 [node name="VFX" type="HSlider" parent="Background"]
+unique_name_in_owner = true
 layout_mode = 0
-offset_left = 388.0
-offset_top = 217.0
-offset_right = 687.0
-offset_bottom = 237.0
+offset_left = 391.0
+offset_top = 265.0
+offset_right = 690.0
+offset_bottom = 285.0
 
 [node name="Music2" type="Label" parent="Background"]
 layout_mode = 0
@@ -62,3 +67,24 @@ theme_override_colors/font_color = Color(0.92088336, 0.57774734, 0.73736346, 1)
 theme_override_font_sizes/font_size = 39
 text = "SOUND
 "
+
+[node name="MusicPercentage" type="Label" parent="Background"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 701.0
+offset_top = 218.0
+offset_right = 779.0
+offset_bottom = 241.0
+text = "%"
+
+[node name="VFXPercentage" type="Label" parent="Background"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 702.0
+offset_top = 259.0
+offset_right = 780.0
+offset_bottom = 282.0
+text = "%"
+
+[connection signal="value_changed" from="Background/Music" to="." method="_on_music_value_changed"]
+[connection signal="value_changed" from="Background/VFX" to="." method="_on_vfx_value_changed"]
