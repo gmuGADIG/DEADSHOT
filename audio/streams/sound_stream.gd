@@ -1,4 +1,4 @@
-extends Node
+extends AudioStreamPlayer3D
 
 @export var delete_on_finish : bool = true
 

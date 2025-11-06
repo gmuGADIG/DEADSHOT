@@ -56,7 +56,6 @@ shape = SubResource("CylinderShape3D_bvkkv")
 
 [node name="BasicGun" parent="." instance=ExtResource("3_et4on")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2370036, 0)
-bullets_of_fire_unlocked = null
 
 [node name="Aiming" type="Node" parent="."]
 
@@ -116,3 +115,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9011965, 0)
 light_energy = 0.2
 omni_range = 25.0
 omni_attenuation = 1.5
+
+[connection signal="was_hit" from="HurtboxComponent" to="." method="_on_hurtbox_component_was_hit"]

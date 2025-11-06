@@ -97,17 +97,6 @@ func _physics_process(delta: float) -> void:
 		roll(delta)
 	move_and_slide()
 
-## Returns the inputted walking direction on the XZ plane (Y = 0)
-func input_direction() -> Vector3:
-	var input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	return Vector3(input.x,0,input.y)
-
-## Returns the direction from the player to the reticle (Y = 0)
-func aim_dir() -> Vector3:
-	var dir: Vector3 = %Reticle.global_position - self.global_position
-	dir.y = 0
-	return dir.normalized()
-
 ## We use the proper process function to update stamina, since it appears on the HUD and that could be drawn faster than the physics tickrate.
 func _process(delta: float) -> void:
 	if is_in_combat: update_stamina(delta)
@@ -118,6 +107,19 @@ func _process(delta: float) -> void:
 			exit_combat()
 		else:
 			enter_combat()
+#endregion
+
+#region Custom Functions
+## Returns the inputted walking direction on the XZ plane (Y = 0)
+func input_direction() -> Vector3:
+	var input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	return Vector3(input.x,0,input.y)
+
+## Returns the direction from the player to the reticle (Y = 0)
+func aim_dir() -> Vector3:
+	var dir: Vector3 = %Reticle.global_position - self.global_position
+	dir.y = 0
+	return dir.normalized()
 
 
 func can_shoot() -> bool:
@@ -138,6 +140,7 @@ func begin_roll() -> void:
 	stamina -= 1.0
 	
 	#TODO: Play animation, do iframes.
+	preload("res://audio/streams/roll_sound.tscn").instantiate()
 	current_state = PlayerState.ROLLING
 	roll_time = 0
 
@@ -189,3 +192,9 @@ func exit_combat() -> void:
 	is_in_combat = false
 	stamina = 3.0
 	$Hud.fade_stamina_out()
+
+## Connects to the was_hit signal on the player's Hurtbox to play a sound.
+func _on_hurtbox_component_was_hit(_dmg: DamageInfo) -> void:
+	preload("res://audio/streams/hurt_sound.tscn").instantiate()
+
+#endregion
