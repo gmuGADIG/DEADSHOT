@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cyjxodkcwpalp"]
+[gd_scene load_steps=3 format=3 uid="uid://cqfi86fpx2hgq"]
 
+[ext_resource type="PackedScene" uid="uid://ci3804ofkibap" path="res://audio/streams/sound_base.tscn" id="1_inyr8"]
 [ext_resource type="AudioStream" uid="uid://btq4usey4ba53" path="res://audio/placeholders/explosion.wav" id="1_stffr"]
 
-[node name="FireStartSound" type="AudioStreamPlayer3D"]
+[node name="FireStartSound" instance=ExtResource("1_inyr8")]
 stream = ExtResource("1_stffr")

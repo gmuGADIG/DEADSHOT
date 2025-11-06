@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b3cjgdvyt8if7"]
+[gd_scene load_steps=3 format=3 uid="uid://b56tx6gavm48t"]
 
-[ext_resource type="AudioStream" uid="uid://wlnqhs4htixp" path="res://audio/placeholders/test_hurt.wav" id="1_dypvy"]
+[ext_resource type="PackedScene" uid="uid://ci3804ofkibap" path="res://audio/streams/sound_base.tscn" id="1_d03m1"]
+[ext_resource type="AudioStream" uid="uid://c6fh3mivba1sg" path="res://audio/placeholders/test_beep.wav" id="1_jky5y"]
 
-[node name="FireHitSound" type="AudioStreamPlayer3D"]
-stream = ExtResource("1_dypvy")
+[node name="FireHitSound" instance=ExtResource("1_d03m1")]
+stream = ExtResource("1_jky5y")
