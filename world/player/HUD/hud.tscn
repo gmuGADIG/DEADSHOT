@@ -17,10 +17,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cuqld")
-stamina_bar = NodePath("StaminaContainer/ProgressBar")
-stamina_container = NodePath("StaminaContainer")
+stamina_bar = NodePath("Hearts/ProgressBar")
+stamina_container = NodePath("Stamina")
 
-[node name="StaminaContainer" type="PanelContainer" parent="."]
+[node name="Hearts" type="PanelContainer" parent="."]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 1
 anchors_preset = 2
@@ -30,51 +30,51 @@ offset_top = -30.0
 offset_right = 458.0
 grow_vertical = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="StaminaContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Hearts"]
 layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="StaminaContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="Hearts/HBoxContainer"]
 modulate = Color(3.8789892, 3.8789892, 3.8789892, 1)
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("2_cuqld")
 expand_mode = 1
 
-[node name="TextureRect2" type="TextureRect" parent="StaminaContainer/HBoxContainer"]
+[node name="TextureRect2" type="TextureRect" parent="Hearts/HBoxContainer"]
 modulate = Color(3.8789892, 3.8789892, 3.8789892, 1)
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("2_cuqld")
 expand_mode = 1
 
-[node name="TextureRect3" type="TextureRect" parent="StaminaContainer/HBoxContainer"]
+[node name="TextureRect3" type="TextureRect" parent="Hearts/HBoxContainer"]
 modulate = Color(3.8789892, 3.8789892, 3.8789892, 1)
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("2_cuqld")
 expand_mode = 1
 
-[node name="TextureRect4" type="TextureRect" parent="StaminaContainer/HBoxContainer"]
+[node name="TextureRect4" type="TextureRect" parent="Hearts/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("2_cuqld")
 expand_mode = 1
 
-[node name="TextureRect5" type="TextureRect" parent="StaminaContainer/HBoxContainer"]
+[node name="TextureRect5" type="TextureRect" parent="Hearts/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("2_cuqld")
 expand_mode = 1
 
-[node name="TextureRect6" type="TextureRect" parent="StaminaContainer/HBoxContainer"]
+[node name="TextureRect6" type="TextureRect" parent="Hearts/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("2_cuqld")
 expand_mode = 1
 
-[node name="ProgressBar" type="ProgressBar" parent="StaminaContainer"]
+[node name="ProgressBar" type="ProgressBar" parent="Hearts"]
 visible = false
 layout_mode = 2
 size_flags_vertical = 1
@@ -101,7 +101,7 @@ layout_mode = 2
 layout_mode = 2
 text = "Ammo Count"
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="Meat" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -110,14 +110,14 @@ offset_left = -174.0
 offset_bottom = 133.0
 grow_horizontal = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Meat"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="Meat/VBoxContainer"]
 layout_mode = 2
 text = "Meat"
 
-[node name="PanelContainer3" type="PanelContainer" parent="."]
+[node name="Stamina" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -131,20 +131,20 @@ offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer3"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Stamina"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer3/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="Stamina/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = SubResource("CanvasTexture_swyvw")
 
-[node name="TextureRect2" type="TextureRect" parent="PanelContainer3/HBoxContainer"]
+[node name="TextureRect2" type="TextureRect" parent="Stamina/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = SubResource("CanvasTexture_y8wca")
 
-[node name="TextureRect3" type="TextureRect" parent="PanelContainer3/HBoxContainer"]
+[node name="TextureRect3" type="TextureRect" parent="Stamina/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = SubResource("CanvasTexture_52oqe")
