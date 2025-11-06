@@ -23,7 +23,7 @@ func _process(_delta: float) -> void:
   
 	if Input.is_action_just_pressed("fire") && player.current_state != player.PlayerState.ROLLING && fire_timer>=fire_cooldown:
 		fire_timer = 0.0
-    
+	
 		## if the player cannot shoot / is reloading, do not fire
 		if not Player.instance.can_shoot() or is_reloading == true:
 			return
@@ -32,7 +32,7 @@ func _process(_delta: float) -> void:
 		if (chamber_ammo == 0):
 			reload()
 			return
-     
+	 
 		fire()
 	
 	# Reloads the gun as well (if you can shoot, you can reload).

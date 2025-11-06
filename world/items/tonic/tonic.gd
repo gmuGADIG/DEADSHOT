@@ -6,4 +6,12 @@ func on_pickup(body: Node3D) -> void:
 		var player_health : Health = player.get_node("HurtboxComponent/HealthComponent");
 		player_health.heal(2);
 		print(player_health.health);
+		
+		# Reparents to current scene so sound does not dissappear when tonic is free'd.
+		# Sound is free'd when done playing.
+		var sfx: AudioStreamPlayer3D = %TonicPickupSound
+		sfx.reparent(get_tree().current_scene)
+		sfx.play()
+		sfx.finished.connect(sfx.queue_free)
+		
 		queue_free();
