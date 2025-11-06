@@ -1,16 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://dj6y7e4wwgh2k"]
+[gd_scene load_steps=4 format=3 uid="uid://dj6y7e4wwgh2k"]
 
 [ext_resource type="Texture2D" uid="uid://dy1ulo73udm6r" path="res://world/interactables/Ammo_Box_Pickup/ammo.png" id="1_hdicf"]
+[ext_resource type="Script" uid="uid://c7v8dlfvcx8k8" path="res://world/interactables/Ammo_Box_Pickup/Ammo_Box.gd" id="1_shm4r"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hdicf"]
 size = Vector3(3.4431152, 2.3354492, 4.0143127)
 
 [node name="AmmoBox" type="Area3D"]
+top_level = true
+collision_mask = 2
+script = ExtResource("1_shm4r")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.20901978, -0.9757529, -0.06494042, 0.79136604, 0.1297613, 0.5974123, -0.57449996, -0.17626265, 0.79930043, -4.5434766, 2.0094109, 1.2846324)
+layers = 3
 texture = ExtResource("1_hdicf")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
 transform = Transform3D(-1.2255797, 0.12942435, -0.41971093, 0.25596973, -0.4338363, -1.0418407, -0.40985078, -0.65796703, 0.6043875, -4.3765693, 2.36118, 1.5478278)
 shape = SubResource("BoxShape3D_hdicf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
