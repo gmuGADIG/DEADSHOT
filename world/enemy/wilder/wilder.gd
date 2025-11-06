@@ -74,6 +74,7 @@ func shootBullet() -> void:
 	newBullet.atk_source = DamageInfo.Source.ENEMY
 	add_sibling(newBullet)
 	newBullet.fire(self, getPlayerDirection())
+	$Sounds/WilderShoot.play()
 
 func getPlayerDirection() -> Vector3:
 	# We add 1 to the Y value of this vector to keep it aimed at the player's center of mass, not their origin.
