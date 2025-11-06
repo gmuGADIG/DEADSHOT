@@ -7,8 +7,8 @@ func on_pickup(body: Node3D) -> void:
 		player_health.heal(2);
 		print(player_health.health);
 		
-		# Reparents to current scene so sound does not dissappear when tonic is free'd.
-		# Sound is free'd when done playing.
+		# Reparents to current scene so sound does not dissappear when tonic is freed.
+		# Sound is freed when done playing.
 		var sfx: AudioStreamPlayer3D = %TonicPickupSound
 		sfx.reparent(get_tree().current_scene)
 		sfx.play()
