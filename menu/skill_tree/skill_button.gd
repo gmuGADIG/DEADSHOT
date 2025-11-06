@@ -16,6 +16,8 @@ enum State{
 
 @onready var skill_branch : Line2D = Line2D.new()
 @export var dependencies : Array[Skill_Button]
+@export var evil_dependencies : Array[Skill_Button] #it is just the opposite of regular dependecies,
+# so if you have any of the dependencies unlocked you cant unlock this one
 @export var itemDesc : SkillDesc
 
 var state : State:
@@ -64,6 +66,12 @@ func update_purchase_state() -> void:
 func update_state() -> void:
 	if state == State.PURCHASED:
 		return
+	
+	for evil_dependency : Skill_Button in evil_dependencies:
+		if evil_dependency.state == State.PURCHASED:
+			state = State.LOCKED
+			shake()
+			return
 	
 	for dependency : Skill_Button in dependencies:
 		if dependency.state != State.PURCHASED:

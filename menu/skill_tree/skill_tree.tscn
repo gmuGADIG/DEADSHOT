@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://54e4esurd3xm" path="res://temp_art/gartic/gun.png" id="5_3b2bh"]
 [ext_resource type="Texture2D" uid="uid://sxaysn4gqoxo" path="res://temp_art/gartic/coin.png" id="6_6jgdw"]
 [ext_resource type="Texture2D" uid="uid://cegfpthfj6eil" path="res://temp_art/gartic/godot_dead.png" id="6_ph0jt"]
-[ext_resource type="Script" uid="uid://g60bhhds87wx" path="res://menu/skill_tree/skill_tree_overlay.gd" id="8_oh6w3"]
+[ext_resource type="Script" path="res://menu/skill_tree/skill_tree_overlay.gd" id="8_oh6w3"]
 [ext_resource type="Texture2D" uid="uid://y1h3uww1jns7" path="res://world/enemy/meat/meat.png" id="8_yrbjn"]
 
 [sub_resource type="Resource" id="Resource_lmf3w"]
@@ -53,26 +53,34 @@ metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
 [sub_resource type="Resource" id="Resource_6jgdw"]
 script = ExtResource("4_8qlyr")
-skill_name = "Charge Shot"
+skill_name = "TNT Shot"
 skill_image = ExtResource("5_3b2bh")
-skill_uid = 16
+skill_description = "tgrsyifhese (: tnt haha explosion
+"
+skill_meat_cost = 600
+skill_uid = 128
 metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
 [sub_resource type="Resource" id="Resource_yrbjn"]
 script = ExtResource("4_8qlyr")
 skill_name = "Rifle DMG 2"
+skill_description = "Upgrade the damage you deal at the expense of lowering the amount of HP you have."
+skill_meat_cost = 700
 skill_uid = 32
 metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
 [sub_resource type="Resource" id="Resource_oh6w3"]
 script = ExtResource("4_8qlyr")
 skill_name = "Rifle Mag"
+skill_description = "Upgrade your magazine length allowing you to hold more bullets at the cost of slower movement speed."
+skill_meat_cost = 700
 skill_uid = 64
 metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
 [sub_resource type="Resource" id="Resource_77k0x"]
 script = ExtResource("4_8qlyr")
-skill_description = "Your bullets are now explosive."
+skill_description = "Chargeing or whatever
+8>[ ^)]  -Tenna"
 skill_uid = 128
 metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
@@ -80,9 +88,7 @@ metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 script = ExtResource("4_8qlyr")
 skill_name = "Double Barrel Shotgun"
 skill_image = ExtResource("6_ph0jt")
-skill_description = "A simple double-barrel shotgun, favoring 
-fire power over fire rate and accuracy.
-Packs a punch!"
+skill_description = "A simple double-barrel shotgun, favoring fire power over fire rate and accuracy. Packs a punch!"
 skill_meat_cost = 250
 skill_uid = 256
 metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
@@ -90,6 +96,8 @@ metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 [sub_resource type="Resource" id="Resource_x1cyl"]
 script = ExtResource("4_8qlyr")
 skill_name = "Fire Rate"
+skill_description = "Increase the firing rate of your shotgun, but lowers the damage it deals"
+skill_meat_cost = 400
 skill_uid = 512
 metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
@@ -227,7 +235,7 @@ offset_right = 152.0
 offset_bottom = 118.0
 itemDesc = SubResource("Resource_lmf3w")
 
-[node name="R1" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+[node name="R1" parent="SkillButtons" node_paths=PackedStringArray("dependencies", "evil_dependencies") instance=ExtResource("2_3f6vw")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -237,9 +245,10 @@ offset_top = 27.0
 offset_right = 315.0
 offset_bottom = 86.0
 dependencies = [NodePath("../Base")]
+evil_dependencies = [NodePath("../D1"), NodePath("../B1")]
 itemDesc = SubResource("Resource_3b2bh")
 
-[node name="R2_1" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+[node name="R2_1" parent="SkillButtons" node_paths=PackedStringArray("dependencies", "evil_dependencies") instance=ExtResource("2_3f6vw")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -249,6 +258,7 @@ offset_top = 6.0
 offset_right = 490.0
 offset_bottom = 65.0
 dependencies = [NodePath("../R1")]
+evil_dependencies = [NodePath("../D1"), NodePath("../B1")]
 itemDesc = SubResource("Resource_8qlyr")
 
 [node name="R2_2" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
@@ -311,7 +321,7 @@ offset_bottom = 152.0
 dependencies = [NodePath("../R4_1"), NodePath("../R4_2")]
 itemDesc = SubResource("Resource_77k0x")
 
-[node name="D1" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+[node name="D1" parent="SkillButtons" node_paths=PackedStringArray("dependencies", "evil_dependencies") instance=ExtResource("2_3f6vw")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -321,6 +331,7 @@ offset_top = 152.0
 offset_right = 248.0
 offset_bottom = 211.0
 dependencies = [NodePath("../Base")]
+evil_dependencies = [NodePath("../R1"), NodePath("../B1")]
 itemDesc = SubResource("Resource_fin66")
 
 [node name="D2_1" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
@@ -395,7 +406,7 @@ offset_bottom = 508.0
 dependencies = [NodePath("../D4_1"), NodePath("../D4_2")]
 itemDesc = SubResource("Resource_idjr8")
 
-[node name="B1" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+[node name="B1" parent="SkillButtons" node_paths=PackedStringArray("dependencies", "evil_dependencies") instance=ExtResource("2_3f6vw")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -405,6 +416,7 @@ offset_top = 209.0
 offset_right = 126.0
 offset_bottom = 268.0
 dependencies = [NodePath("../Base")]
+evil_dependencies = [NodePath("../R1"), NodePath("../D1")]
 itemDesc = SubResource("Resource_jggre")
 
 [node name="B2_1" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
