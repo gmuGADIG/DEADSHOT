@@ -25,6 +25,7 @@ func hostile() -> void:
 func attack() -> void:
 	if timer.is_stopped():
 		set_movement_target(target);
+		$Sounds/DashSound.play()
 		
 		should_move = not is_close_to_destination();
 	
@@ -56,3 +57,8 @@ func _on_hurter_box_area_entered(area: Area3D) -> void:
 		print(hurtbox.get_parent())
 		if did_damage:
 			print("owie")
+
+
+
+func _on_killed() -> void:
+	$Sounds/DieSound.play()
