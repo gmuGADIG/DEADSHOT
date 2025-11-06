@@ -1,4 +1,9 @@
 extends Control
 @export var back_button : Button
 
-func back()
+func _ready() -> void:
+	pass
+	
+func back() -> void:
+	pass
+	
