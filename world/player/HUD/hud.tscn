@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bas8xwk5nhlq0"]
+[gd_scene load_steps=6 format=3 uid="uid://bas8xwk5nhlq0"]
 
-[ext_resource type="Texture2D" uid="uid://bwm425xkr0vcy" path="res://temp_art/icon.svg" id="1_2msmg"]
 [ext_resource type="Script" uid="uid://c2rh58lkl0gwo" path="res://world/player/HUD/hud.gd" id="1_cuqld"]
+[ext_resource type="Texture2D" uid="uid://di2fa8ln64nqe" path="res://world/pickups/corrupt_heart/corrupt_heart.png" id="2_cuqld"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_swyvw"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_y8wca"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_52oqe"]
 
 [node name="Hud" type="Control" node_paths=PackedStringArray("stamina_bar", "stamina_container")]
 layout_mode = 3
@@ -17,16 +23,11 @@ stamina_container = NodePath("StaminaContainer")
 [node name="StaminaContainer" type="PanelContainer" parent="."]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 2
 anchor_top = 1.0
-anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -229.0
-offset_top = -114.0
-offset_right = 229.0
-offset_bottom = -84.0
-grow_horizontal = 2
+offset_top = -30.0
+offset_right = 458.0
 grow_vertical = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="StaminaContainer"]
@@ -38,26 +39,112 @@ alignment = 1
 modulate = Color(3.8789892, 3.8789892, 3.8789892, 1)
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("1_2msmg")
+texture = ExtResource("2_cuqld")
 expand_mode = 1
 
 [node name="TextureRect2" type="TextureRect" parent="StaminaContainer/HBoxContainer"]
 modulate = Color(3.8789892, 3.8789892, 3.8789892, 1)
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("1_2msmg")
+texture = ExtResource("2_cuqld")
 expand_mode = 1
 
 [node name="TextureRect3" type="TextureRect" parent="StaminaContainer/HBoxContainer"]
 modulate = Color(3.8789892, 3.8789892, 3.8789892, 1)
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("1_2msmg")
+texture = ExtResource("2_cuqld")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="StaminaContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_cuqld")
+expand_mode = 1
+
+[node name="TextureRect5" type="TextureRect" parent="StaminaContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_cuqld")
+expand_mode = 1
+
+[node name="TextureRect6" type="TextureRect" parent="StaminaContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_cuqld")
 expand_mode = 1
 
 [node name="ProgressBar" type="ProgressBar" parent="StaminaContainer"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 1
 max_value = 3.0
 value = 3.0
 show_percentage = false
+
+[node name="Ammo Count" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -171.0
+offset_top = -109.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Ammo Count"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Ammo Count/VBoxContainer"]
+layout_mode = 2
+text = "Ammo Count"
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -174.0
+offset_bottom = 133.0
+grow_horizontal = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Meat"
+
+[node name="PanelContainer3" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -191.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer3"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("CanvasTexture_swyvw")
+
+[node name="TextureRect2" type="TextureRect" parent="PanelContainer3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("CanvasTexture_y8wca")
+
+[node name="TextureRect3" type="TextureRect" parent="PanelContainer3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("CanvasTexture_52oqe")
