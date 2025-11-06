@@ -61,4 +61,8 @@ func _on_hurter_box_area_entered(area: Area3D) -> void:
 
 
 func _on_killed() -> void:
-	$Sounds/DieSound.play()
+	var die_sound:AudioStreamPlayer3D = $Sounds/DieSound
+	die_sound.reparent(get_tree().current_scene)
+	die_sound.play()
+	print("idied")
+	
