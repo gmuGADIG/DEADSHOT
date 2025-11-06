@@ -25,7 +25,7 @@ func hostile() -> void:
 func attack() -> void:
 	if timer.is_stopped():
 		set_movement_target(target);
-		$Sounds/DashSound.play()
+		
 		
 		should_move = not is_close_to_destination();
 	
@@ -44,6 +44,7 @@ func _on_charge_timer_timeout() -> void:
 	shaker.shaking = false
 	if aggro == AggroState.HOSTILE:
 		target = player.global_position
+		$Sounds/LonghornDashSound.play()
 		aggro = AggroState.ATTACKING
 	elif aggro == AggroState.ATTACKING:
 		aggro = AggroState.HOSTILE
@@ -61,7 +62,7 @@ func _on_hurter_box_area_entered(area: Area3D) -> void:
 
 
 func _on_killed() -> void:
-	var die_sound:AudioStreamPlayer3D = $Sounds/DieSound
+	var die_sound:AudioStreamPlayer3D = $Sounds/LonghornDieSound
 	die_sound.reparent(get_tree().current_scene)
 	die_sound.play()
 	print("idied")
