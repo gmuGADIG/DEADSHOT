@@ -104,30 +104,40 @@ metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 [sub_resource type="Resource" id="Resource_lwvla"]
 script = ExtResource("4_8qlyr")
 skill_name = "HP"
+skill_description = "Increase the amount of your HP at the expense of lowering the fire rate of your shotgun."
+skill_meat_cost = 400
 skill_uid = 1024
 metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
 [sub_resource type="Resource" id="Resource_8rbpw"]
 script = ExtResource("4_8qlyr")
 skill_name = "Knockback"
+skill_description = "Packing a punch with every shot!"
+skill_meat_cost = 600
 skill_uid = 2048
 metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
 [sub_resource type="Resource" id="Resource_mygyd"]
 script = ExtResource("4_8qlyr")
-skill_name = "HP"
+skill_name = "HP UP"
+skill_description = "Increase the amount of your HP, but the size of your magazines decreases."
+skill_meat_cost = 700
 skill_uid = 4096
 metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
 [sub_resource type="Resource" id="Resource_4fwot"]
 script = ExtResource("4_8qlyr")
 skill_name = "Movement Speed"
+skill_description = "An upgrade for your legs, increasing your movement speed at the cost of having a lower firing rate."
+skill_meat_cost = 700
 skill_uid = 8192
 metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
 [sub_resource type="Resource" id="Resource_idjr8"]
 script = ExtResource("4_8qlyr")
 skill_name = "Fire"
+skill_description = "fire or smth"
+skill_meat_cost = 700
 skill_uid = 16384
 metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
@@ -135,41 +145,49 @@ metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 script = ExtResource("4_8qlyr")
 skill_name = "Dual Pistols"
 skill_image = ExtResource("5_3b2bh")
-skill_description = "A 2 for 1 special! The dual pistols have
-a faster firing rate in exchange over 
-the damage it inflicts.
-A classic choice!"
+skill_description = "A 2 for 1 special! The dual pistols have a faster firing rate in exchange over the damage it inflicts. A classic choice!"
 skill_meat_cost = 250
 skill_uid = 32768
 metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
 [sub_resource type="Resource" id="Resource_luurr"]
 script = ExtResource("4_8qlyr")
-skill_name = "Fire Rate"
+skill_name = "Fire Rate UP"
+skill_description = "Upgrade the fire rate of your guns in exchange for having a smaller magazine size."
+skill_meat_cost = 400
 skill_uid = 65536
 metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
 [sub_resource type="Resource" id="Resource_2h7kc"]
 script = ExtResource("4_8qlyr")
-skill_name = "Cooldown"
+skill_name = "Roll Cooldown"
+skill_description = "Reduce the cooldown timer of your roll ability at the expense of lowering your HP."
+skill_meat_cost = 400
 skill_uid = 131072
 metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
 [sub_resource type="Resource" id="Resource_dcxbm"]
 script = ExtResource("4_8qlyr")
 skill_name = "Double Shot"
+skill_description = "Fire two shots at once
+(i dont know this one)"
+skill_meat_cost = 600
 skill_uid = 262144
 metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
 [sub_resource type="Resource" id="Resource_qu2j3"]
 script = ExtResource("4_8qlyr")
-skill_name = "Damage"
+skill_name = "Damage UP"
+skill_description = "Upgrade the damage output of your guns, but lower the distance of the roll ability."
+skill_meat_cost = 700
 skill_uid = 524288
 metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
 [sub_resource type="Resource" id="Resource_obulw"]
 script = ExtResource("4_8qlyr")
 skill_name = "Movement Speed"
+skill_description = "An upgrade for your legs, increasing your movement speed at the cost of having a lower firing rate."
+skill_meat_cost = 700
 skill_uid = 1048576
 metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
