@@ -1,7 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bas8xwk5nhlq0"]
+[gd_scene load_steps=10 format=3 uid="uid://bas8xwk5nhlq0"]
 
 [ext_resource type="Script" uid="uid://c2rh58lkl0gwo" path="res://world/player/HUD/hud.gd" id="1_cuqld"]
 [ext_resource type="Texture2D" uid="uid://di2fa8ln64nqe" path="res://world/pickups/corrupt_heart/corrupt_heart.png" id="2_cuqld"]
+[ext_resource type="Script" uid="uid://clcb8u0fv74qk" path="res://world/player/HUD/hearts.gd" id="2_swyvw"]
+[ext_resource type="Texture2D" uid="uid://dr4ivc7tmyyha" path="res://world/player/HUD/heart_full.png" id="3_02nes"]
+[ext_resource type="Texture2D" uid="uid://cewx8ggk4t2ff" path="res://world/player/HUD/heart_half.png" id="4_5nwtl"]
+[ext_resource type="Texture2D" uid="uid://be888xpfyrter" path="res://world/player/HUD/heart_empty.png" id="5_4aq5e"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_swyvw"]
 
@@ -29,6 +33,10 @@ anchor_bottom = 1.0
 offset_top = -30.0
 offset_right = 458.0
 grow_vertical = 0
+script = ExtResource("2_swyvw")
+full_tex = ExtResource("3_02nes")
+half_tex = ExtResource("4_5nwtl")
+empty_tex = ExtResource("5_4aq5e")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Hearts"]
 layout_mode = 2
