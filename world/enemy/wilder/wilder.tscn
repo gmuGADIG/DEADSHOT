@@ -11,7 +11,6 @@ timeBetweenShots = 0.4
 bullet = ExtResource("3_skiir")
 maxTravelDistance = 20.0
 StuckTimer = NodePath("StuckTimer")
-max_hp = 16.0
 
 [node name="Sprite3D" parent="." index="1"]
 texture = ExtResource("1_0ccam")
@@ -20,7 +19,7 @@ texture = ExtResource("1_0ccam")
 aabb = AABB(-0.5, 0, -0.5, 1, 1, 1)
 
 [node name="Health" parent="." index="4"]
-max_health = 16
+max_health = 5
 
 [node name="StuckTimer" type="Timer" parent="." index="6"]
 wait_time = 0.2

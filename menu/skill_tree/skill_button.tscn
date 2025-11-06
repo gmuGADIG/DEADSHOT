@@ -19,7 +19,6 @@ texture_disabled = ExtResource("1_tltrc")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("2_k43o4")
-skillName = "Gun Big"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -35,18 +34,18 @@ offset_bottom = -2.0
 theme_override_font_sizes/font_size = 8
 text = "Skill Name"
 
-[node name="Skill_Branch" type="Line2D" parent="."]
-top_level = true
-z_index = -1
-
 [node name="LockIcon" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("3_ux1m3")
 expand_mode = 1
 
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="pressed" from="." to="." method="_on_pressed"]

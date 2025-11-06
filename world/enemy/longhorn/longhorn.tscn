@@ -17,7 +17,6 @@ charge_time = 1.0
 cooldown_time = 1.5
 atk_source = 1
 atk_knockback = 1
-max_hp = 20.0
 proximity_tolerance = 1.5
 
 [node name="CollisionShape3D" parent="." index="0"]
@@ -25,6 +24,9 @@ visible = false
 
 [node name="Sprite3D" parent="." index="1"]
 texture = ExtResource("3_g07qo")
+
+[node name="Health" parent="." index="3"]
+max_health = 5
 
 [node name="CollisionShape3D" parent="Hurtbox" index="0"]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.94693, 0)

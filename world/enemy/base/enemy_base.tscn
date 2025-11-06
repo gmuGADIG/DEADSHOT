@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dx3l0wduat3tp"]
+[gd_scene load_steps=6 format=3 uid="uid://dx3l0wduat3tp"]
 
 [ext_resource type="PackedScene" uid="uid://hiyp7n7uvc4m" path="res://systems/attacking/health/health.tscn" id="2_17eo5"]
 [ext_resource type="PackedScene" uid="uid://b7d3oiw27awag" path="res://systems/attacking/hurtbox/hurtbox.tscn" id="3_1tv51"]
 [ext_resource type="Script" uid="uid://5yprj03obbfy" path="res://world/enemy/encounter/encounter_obj.gd" id="3_17eo5"]
+[ext_resource type="PackedScene" uid="uid://c2u06fnkx16jv" path="res://systems/attacking/damage/fire/fire_damage.tscn" id="3_f0luy"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_plfsl"]
 height = 2.3742957
@@ -32,6 +33,9 @@ allowed_damage_sources = Array[int]([0, 2])
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94693, 0)
 shape = SubResource("CylinderShape3D_plfsl")
+
+[node name="FireDamage" parent="Hurtbox" instance=ExtResource("3_f0luy")]
+unique_name_in_owner = true
 
 [node name="FiringTimer" type="Timer" parent="."]
 unique_name_in_owner = true
