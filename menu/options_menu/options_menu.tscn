@@ -1,3 +1,64 @@
 [gd_scene format=3 uid="uid://y53xq3oyclfj"]
 
-[node name="OptionsMenu" type="Node2D"]
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 649.0
+color = Color(0.07058824, 0.07058824, 0.07058824, 0.6431373)
+
+[node name="back_button" type="Button" parent="Background"]
+layout_mode = 0
+offset_left = 398.0
+offset_top = 345.0
+offset_right = 691.0
+offset_bottom = 408.0
+text = "BACKK"
+
+[node name="Music" type="HSlider" parent="Background"]
+layout_mode = 0
+offset_left = 393.0
+offset_top = 247.0
+offset_right = 698.0
+offset_bottom = 314.0
+
+[node name="VFX" type="HSlider" parent="Background"]
+layout_mode = 0
+offset_left = 388.0
+offset_top = 217.0
+offset_right = 687.0
+offset_bottom = 237.0
+
+[node name="Music2" type="Label" parent="Background"]
+layout_mode = 0
+offset_left = 285.0
+offset_top = 208.0
+offset_right = 436.0
+offset_bottom = 313.0
+theme_override_colors/font_color = Color(0.92088336, 0.57774734, 0.73736346, 1)
+theme_override_font_sizes/font_size = 30
+text = "MUSIC"
+
+[node name="VFX2" type="Label" parent="Background"]
+layout_mode = 0
+offset_left = 286.0
+offset_top = 253.0
+offset_right = 348.0
+offset_bottom = 299.0
+theme_override_colors/font_color = Color(0.92088336, 0.57774734, 0.73736346, 1)
+theme_override_font_sizes/font_size = 30
+text = "VFX"
+
+[node name="Sound" type="Label" parent="Background"]
+layout_mode = 0
+offset_left = 452.0
+offset_top = 135.0
+offset_right = 603.0
+offset_bottom = 246.0
+theme_override_colors/font_color = Color(0.92088336, 0.57774734, 0.73736346, 1)
+theme_override_font_sizes/font_size = 39
+text = "SOUND
+"
