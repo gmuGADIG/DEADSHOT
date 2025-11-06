@@ -1,12 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://cvx5l4jsju102"]
+[gd_scene load_steps=9 format=3 uid="uid://cvx5l4jsju102"]
 
 [ext_resource type="PackedScene" uid="uid://cr05xakri7lnw" path="res://world/floor/floor_gen.tscn" id="1_1wydf"]
 [ext_resource type="Script" uid="uid://2uxmd0kth1s5" path="res://world/transitions/entry_points.gd" id="2_3lf37"]
+[ext_resource type="Resource" uid="uid://ebi2mrpur7b6" path="res://world/floor/rock/rock.tres" id="2_eifi2"]
 [ext_resource type="PackedScene" uid="uid://nuqmhgq1e2lu" path="res://world/player/player.tscn" id="3_kkg4b"]
 [ext_resource type="PackedScene" uid="uid://1s1a4b2buf1o" path="res://menu/pause_menu/pause_menu.tscn" id="4_6hice"]
 [ext_resource type="PackedScene" uid="uid://cqcjv8i3rxkbu" path="res://world/enemy/sherrifboss/sherrif_test.tscn" id="5_gpjem"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_xskwq"]
+
+[sub_resource type="Curve3D" id="Curve3D_g6tme"]
 
 [node name="LevelBase" type="Node3D"]
 
@@ -18,6 +21,8 @@ shadow_enabled = true
 navigation_mesh = SubResource("NavigationMesh_xskwq")
 
 [node name="Floor" parent="World" instance=ExtResource("1_1wydf")]
+curve = SubResource("Curve3D_g6tme")
+material = ExtResource("2_eifi2")
 
 [node name="EntryPoints" type="Node3D" parent="."]
 script = ExtResource("2_3lf37")
@@ -39,3 +44,12 @@ layout_mode = 1
 
 [node name="Sheriff" parent="." instance=ExtResource("5_gpjem")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 4)
+damage = null
+movement_speed = null
+tonic_drop_rate = null
+type = null
+returns_to_post = null
+starting_pos = null
+patrol_path = null
+fire_rate = null
+bullet_speed = null
