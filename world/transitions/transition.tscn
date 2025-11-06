@@ -6,7 +6,10 @@
 size = Vector3(1.8884277, 3.5175781, 4.6188965)
 
 [node name="Transition" type="Area3D"]
+collision_mask = 2
 script = ExtResource("1_2gi1b")
+target_scene = null
+target_entry_point = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_1yi3g")

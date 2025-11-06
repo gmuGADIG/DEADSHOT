@@ -26,13 +26,17 @@ enum AggroState {
 @onready var player : Player
 @onready var firing_timer: Timer = %FiringTimer
 
+# TODO: change this to the real tonic scene eventually
+## The tonic scene to drop.
+@onready var tonic := preload("res://world/items/tonic/tonic.tscn");
+
 @export_group("Enemy Stats")
-## The starting amount of health.
-@export var max_hp : float = 10
 ## The amount of damage done in an attack.
 @export var damage : float = 1
 ## Controls the speed of the enemy agent.
 @export var movement_speed : float = 10.0
+## Rate of the tonic dropping, from 0 to 1.
+@export_range(0.0, 1.0, 0.01) var tonic_drop_rate : float = 0.5
 
 # TODO: type is a subclass?
 ## Does the enemy remain still or move about on their own?
@@ -71,7 +75,7 @@ var should_move : bool = false
 var was_tracking : bool = false
 
 ## How close the enemy is to the destination before being "basically there"
-var proximity_tolerance : float = 1
+@export var proximity_tolerance : float = 1
 
 var shooting := false
 var can_shoot := true
@@ -80,10 +84,12 @@ var can_shoot := true
 
 #region Builtin Functions
 func _ready() -> void:
+	randomize()
 	player = get_tree().get_first_node_in_group("player")
 	starting_pos = starting_pos if not starting_pos.is_equal_approx(Vector3.ZERO) else position
 	last_known_player_position = player.global_position
 	%Health.killed.connect(queue_free)
+	%Health.killed.connect(drop_tonic)
 
 	if fire_rate == 0:
 		firing_timer.process_mode = PROCESS_MODE_DISABLED
@@ -91,6 +97,19 @@ func _ready() -> void:
 		firing_timer.wait_time = fire_rate
 		firing_timer.timeout.connect(_on_firing_timer_timeout)
 		firing_timer.start()
+
+## Call when you want to switch a state. Handles what to do once when entering each state.
+func switch_state(target_state: AggroState) -> void:
+	aggro = target_state
+	match target_state:
+		AggroState.BENIGN when type == EnemyType.IDLE:
+			enter_idle()
+		AggroState.BENIGN when type == EnemyType.PATROLLING:
+			enter_patrol()
+		AggroState.HOSTILE:
+			enter_hostile()
+		AggroState.ATTACKING:
+			enter_attack()
 
 func _physics_process(_delta: float) -> void:
 	match aggro:
@@ -122,6 +141,10 @@ func _on_visible_on_screen_notifier_3d_screen_entered() -> void:
 func set_movement_target(movement_target: Vector3) -> void:
 	navigation_agent.target_position = movement_target
 
+## Do once when entering idle
+func enter_idle() -> void:
+	pass
+
 ## Specifies behaviour during idling phase, when applicable
 func idle() -> void:
 	was_tracking = false
@@ -141,6 +164,9 @@ func idle() -> void:
 		# the enemy should not move.
 		should_move = false
 
+## Do once when entering patrol
+func enter_patrol() -> void:
+	pass
 ## Specifies patrolling behaviour
 func patrol() -> void:
 	was_tracking = false
@@ -150,8 +176,16 @@ func patrol() -> void:
 		patrol_index += 1
 		patrol_index %= patrol_path.size()
 
-## Finds the player.
+## Do once when entering hostile
+func enter_hostile() -> void:
+	pass
+
+## Handles movement when aggravated.
 @abstract func hostile() -> void
+
+## Do once when entering attack
+func enter_attack() -> void:
+	pass
 
 ## Attacks the player.
 @abstract func attack() -> void
@@ -160,7 +194,12 @@ func patrol() -> void:
 func is_close_to_destination() -> bool:
 	return global_position.distance_to(navigation_agent.target_position) < proximity_tolerance
 
-#endregion
+## Chance to drop tonic on enemy death.
+func drop_tonic() -> void:
+	if (tonic_drop_rate >= randf_range(0.0, 1.0)):
+		var dropped_tonic : Node3D = tonic.instantiate()
+		dropped_tonic.global_position = self.global_position
+		$/root.add_child(dropped_tonic);
 
 func shoot_bullet() -> void:
 	if !can_shoot:
@@ -173,6 +212,8 @@ func shoot_bullet() -> void:
 		bullet_reference.set_speed(bullet_speed)
 		bullet_reference.set_target(get_tree().get_first_node_in_group("player").global_position)
 		shooting = true
+		
+	
 
 func _on_firing_timer_timeout() -> void:
 	shooting = false
@@ -180,3 +221,9 @@ func _on_firing_timer_timeout() -> void:
 
 func stop_shooting() -> void:
 	can_shoot = false
+
+## Sets this enemy on fire, and increases the static count of total enemies on fire.
+func set_on_fire() -> void:
+	%FireDamage.set_on_fire()
+
+#endregion

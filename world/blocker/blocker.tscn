@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bp6l0lw650m8o"]
+
+[ext_resource type="Script" uid="uid://5yprj03obbfy" path="res://world/enemy/encounter/encounter_obj.gd" id="2_egdxf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2guf3"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.3254902)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nn1ho"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_101jw"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
+[node name="Blocker" type="StaticBody3D"]
+transform = Transform3D(1.782, 0, 0, 0, 1, 0, 0, 0, 4.257, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.2524895, 0, 0, 0, 1, 0, 0.7466908, 0)
+material_override = SubResource("StandardMaterial3D_2guf3")
+mesh = SubResource("BoxMesh_nn1ho")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.2524895, 0, 0, 0, 1, 0, 0.7466908, 0)
+shape = SubResource("ConvexPolygonShape3D_101jw")
+
+[node name="EncounterObject" type="Node" parent="."]
+script = ExtResource("2_egdxf")
+hide_on_finish = true
+metadata/_custom_type_script = "uid://5yprj03obbfy"
