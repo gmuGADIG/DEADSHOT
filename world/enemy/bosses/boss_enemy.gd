@@ -24,4 +24,6 @@ func hostile() -> void:
 func attack() -> void:
 	pass
 
+func _on_visible_on_screen_notifier_3d_screen_entered() -> void:
+	pass #Override base enemy behavior
 #endregion

@@ -89,8 +89,6 @@ func _ready() -> void:
 	starting_pos = starting_pos if not starting_pos.is_equal_approx(Vector3.ZERO) else position
 	
 	last_known_player_position = player.global_position if player else Vector3.ZERO
-	%Health.max_health = max_hp
-	%Health.health = max_hp
 	%Health.killed.connect(queue_free)
 	%Health.killed.connect(drop_tonic)
 

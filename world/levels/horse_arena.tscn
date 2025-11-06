@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dp00f0nisoyxa" path="res://world/enemy/bosses/horse/horse.tscn" id="3_lm8ri"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_yi0vy"]
-vertices = PackedVector3Array(-7.53308, 0.48999965, -7.303426, -7.53308, 0.48999965, 7.196574, 7.21692, 0.48999965, 7.196574, 7.21692, 0.48999965, -7.303426)
+vertices = PackedVector3Array(-19.534193, 0.48999965, -7.307107, -19.534193, 0.48999965, 15.192893, 19.215807, 0.48999965, 15.192893, 19.215807, 0.48999965, -7.307107)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
 [sub_resource type="Curve3D" id="Curve3D_ronks"]
@@ -28,6 +28,9 @@ material = ExtResource("2_v5nwm")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.202965, 0, 8.371207)
 
 [node name="Horse" parent="." index="6" instance=ExtResource("3_lm8ri")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6745157, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46483076, 0)
 spread_angle = 25.0
-max_hp = 30.0
+charge_time = 1.0
+cooldown_time = 1.0
+atk_source = 1
+atk_knockback = 1

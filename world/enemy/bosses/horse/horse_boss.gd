@@ -4,9 +4,6 @@ extends BossEnemy
 @export var spread_angle: float = 45.0
 @export var rock_speed: float = 2
 const rock_obj := preload("res://world/enemy/bosses/horse/rock.tscn")
-func pick_action() -> void:
-	if len(phase_1_action_names) == 0: return
-	action_player.play(phase_1_action_names.pick_random())
 
 #region Longhorn_Variables
 @export var charge_time:float
@@ -20,8 +17,23 @@ var target:Vector3
 @onready var timer: Timer = %ChargeTimer
 
 @onready var shaker: SpriteShaker = %SpriteShaker
+
+var current_action: StringName = ""
 #endregion
 
+func pick_action() -> void:
+	
+	if len(phase_1_action_names) == 0: return
+	if current_action != "": 
+		print("Action in progress, not picking new action")
+		return
+	var action_name: StringName = phase_1_action_names.pick_random()
+	action_player.play(action_name)
+	current_action = action_name
+	print("picking action ", action_name)
+func _ready() -> void:
+	super._ready()
+	timer.connect("timeout", _on_charge_timer_timeout)
 
 func idle() -> void: pass
 
@@ -33,7 +45,7 @@ func stomp_fire_attack() -> void:
 		bullet_reference.global_position = global_position
 		bullet_reference.set_speed(rock_speed)
 
-		var target_position: Vector3 = player.global_position if player else (global_position + Vector3(0, 0, 1))
+		var target_position: Vector3 = player.global_position
 		var direction: Vector3 = (target_position - global_position).normalized()
 		var base_angle: float = direction.angle_to(Vector3.FORWARD)
 		var angle_offset: float = spread_angle * ((float(i) / (num_shots_in_spread - 1)) - 0.5)
@@ -42,7 +54,6 @@ func stomp_fire_attack() -> void:
 		bullet_reference.set_target(global_position + final_direction * 10)
 
 		print("Fired rock at angle offset: %f" % angle_offset)
-		
 
 #region Longhorn_funcs
 func longhorn_charge_ready() -> void:
@@ -50,7 +61,6 @@ func longhorn_charge_ready() -> void:
 	
 	print("Charging")
 	
-	%Health.vulnerable = false
 	shaker.shaking = true
 
 
@@ -58,12 +68,15 @@ func longhorn_charge_ready() -> void:
 func longhorn_charge_attack() -> void:
 	is_charging = true
 	aggro = AggroState.ATTACKING
+	%Health.vulnerable = false
+	target = player.global_position
 	print("attacking")
 	
 	
 func _on_charge_timer_timeout() -> void:
-	timer.stop()
-	shaker.shaking = false
+	if not is_charging: 
+		current_action = ""
+		pick_action()
 	
 func _on_hurter_box_area_entered(area: Area3D) -> void:
 	if area is Hurtbox:
@@ -76,22 +89,22 @@ func _on_hurter_box_area_entered(area: Area3D) -> void:
 			print("owie")
 
 func action_finished(anim_name: StringName) -> void:
-	if anim_name == "charge":
-		pass
+	if current_action == &"charge":
+		print("charge anim finished, waiting for stop")
 	else:
+		current_action = ""
 		super.action_finished(anim_name)
 		
 func longhorn_process() -> void:
+	
 	set_movement_target(target);
 	should_move = not is_close_to_destination();
-	
 	if !should_move:
 		print("I'm vulny")
 		%Health.vulnerable = true
 		shaker.shaking = false
 		is_charging = false
-		pick_action()
-	
+		timer.start(cooldown_time)	
 func attack() -> void:
 	if (is_charging):
 		longhorn_process()
