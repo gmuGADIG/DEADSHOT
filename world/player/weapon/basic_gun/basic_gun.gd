@@ -17,13 +17,13 @@ var bullets_of_fire_unlocked: bool
 @export var fire_cooldown: float = 0.2
 var fire_timer: float = 0.0
 
-func _process(_delta: float) -> void:
-	# No shooting if you're rolling!
-	fire_timer+=_delta
-  
+func _process(delta: float) -> void:
+	fire_timer+=delta
+ 
+	# No shooting if you're rolling or the cooldown hasn't ended!
 	if Input.is_action_just_pressed("fire") && player.current_state != player.PlayerState.ROLLING && fire_timer>=fire_cooldown:
 		fire_timer = 0.0
-    
+	
 		## if the player cannot shoot / is reloading, do not fire
 		if not Player.instance.can_shoot() or is_reloading == true:
 			return
@@ -32,7 +32,7 @@ func _process(_delta: float) -> void:
 		if (chamber_ammo == 0):
 			reload()
 			return
-     
+	 
 		fire()
 	
 	# Reloads the gun as well (if you can shoot, you can reload).

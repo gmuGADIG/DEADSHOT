@@ -5,6 +5,9 @@
 
 [node name="Dualies" type="Node3D"]
 script = ExtResource("1_albja")
+reload_time = 1.5
+max_chamber = 12
+max_reserve = 72
 
 [node name="Sounds" type="Node3D" parent="."]
 
