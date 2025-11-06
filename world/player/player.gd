@@ -49,6 +49,14 @@ const STAMINA_RECHARGE_RATE: float = 0.666667
 var current_state: PlayerState = PlayerState.WALKING
 #endregion
 
+enum FloorType{ ## Where the player is walking
+	WOOD,
+	SAND,
+	STONE,
+	STONE_SOFT,
+}
+@export var floor_type: FloorType
+
 static func update_persisting_data() -> void:
 	## Make it so this can change to whatever the current gun is?
 	var gun := instance.get_node(gun_name)
@@ -68,6 +76,7 @@ static func update_persisting_data() -> void:
 #region Builtin Functions
 func _ready() -> void:
 	var gun := instance.get_node(gun_name)
+	walking_sounds() #Sets the player's walking sound. 
 	
 	instance = self
 	if persisting_data != null:
@@ -87,8 +96,11 @@ func _physics_process(delta: float) -> void:
 	if current_state == PlayerState.WALKING:
 		var input_dir : Vector3 = input_direction()
 		velocity = input_dir * walk_speed * speed_multiplier
+		#$WalkSFX.play() 
+		#print($WalkSFX.stream)
 		if input_dir != Vector3.ZERO:
 			previous_input_direction = input_dir
+		
 	elif current_state == PlayerState.ROLLING:
 		## We move the velocity vector towards the direction of the movement. 
 		## This means that velocity doesn't immediately become where we're pointing, but changes over time.
@@ -169,7 +181,16 @@ func update_stamina(delta: float) -> void:
 		$Hud.update_stamina_bar(stamina)
 	else:
 		stamina = 3.0
-
+func walking_sounds()->void: #Determines what sound the player should make when walking
+	match floor_type:
+		FloorType.WOOD:
+			$WalkSFX.stream = load("res://audio/placeholders/funny_bone_man.wav")
+		FloorType.SAND:
+			$WalkSFX.stream = load("res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkB.wav")
+	
+		
+		
+	
 
 # COMBAT ENCOUNTERS
 # According to the GDD, the player will enter Combat Encounters. These involve:
