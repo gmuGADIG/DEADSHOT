@@ -6,6 +6,3 @@ class_name Skill_Popup
 
 @onready var skillIcon : TextureRect = $VBoxContainer/TextureRect
 @onready var skillInfo : Label = $VBoxContainer/Label
-
-func _ready() -> void:
-	self.hide()
