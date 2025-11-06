@@ -5,3 +5,5 @@
 
 [node name="WhipSwingSound" instance=ExtResource("1_2b0gw")]
 stream = ExtResource("1_nd431")
+autoplay = false
+delete_on_finish = false

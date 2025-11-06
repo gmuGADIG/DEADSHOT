@@ -5,3 +5,5 @@
 
 [node name="FireHitSound" instance=ExtResource("1_d03m1")]
 stream = ExtResource("1_jky5y")
+autoplay = false
+delete_on_finish = false

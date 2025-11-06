@@ -5,3 +5,5 @@
 
 [node name="WhipChargeSound" instance=ExtResource("1_67g1k")]
 stream = ExtResource("2_uhchb")
+autoplay = false
+delete_on_finish = false

@@ -140,7 +140,7 @@ func begin_roll() -> void:
 	stamina -= 1.0
 	
 	#TODO: Play animation, do iframes.
-	preload("res://audio/streams/roll_sound.tscn").instantiate()
+	add_sibling(	preload("res://audio/streams/roll_sound.tscn").instantiate())
 	current_state = PlayerState.ROLLING
 	roll_time = 0
 
@@ -195,6 +195,6 @@ func exit_combat() -> void:
 
 ## Connects to the was_hit signal on the player's Hurtbox to play a sound.
 func _on_hurtbox_component_was_hit(_dmg: DamageInfo) -> void:
-	preload("res://audio/streams/hurt_sound.tscn").instantiate()
+	add_sibling(preload("res://audio/streams/hurt_sound.tscn").instantiate())
 
 #endregion

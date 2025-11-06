@@ -5,3 +5,5 @@
 
 [node name="FireStartSound" instance=ExtResource("1_inyr8")]
 stream = ExtResource("1_stffr")
+autoplay = false
+delete_on_finish = false
