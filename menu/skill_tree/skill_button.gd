@@ -1,7 +1,9 @@
 extends TextureButton
 class_name Skill_Button
 
-signal purchase_made
+signal skill_pressed(skill_info : SkillDesc, location : Vector2)
+signal purchase_made(skill_uid : SkillSet.SkillUID)
+
 
 enum State{
 	UNSET,
@@ -11,12 +13,10 @@ enum State{
 	LOCKED
 }
 
-@export var skillName:String
-@export var description:String
-@export var meatCost:int
-@onready var Skill_Branch : Line2D = $Skill_Branch
+
+@onready var skill_branch : Line2D = Line2D.new()
 @export var dependencies : Array[Skill_Button]
-@export var itemDesc : Resource
+@export var itemDesc : SkillDesc
 
 var state : State:
 	set(new_val):
@@ -27,35 +27,36 @@ var state : State:
 				self_modulate = Color(1,0,0)
 			State.PURCHASED:
 				self_modulate = Color(1,1,1)
-				$Skill_Branch.default_color = Color(1,1,1)
-				$Skill_Branch.show()
+				skill_branch.default_color = Color(1,1,1)
+				skill_branch.show()
 				$LockIcon.hide()
 			State.AFFORDABLE:
 				self_modulate = Color(1,1,1)
-				$Skill_Branch.default_color = Color(0.5,0.5,0.5)
-				$Skill_Branch.show()
+				skill_branch.default_color = Color(0.5,0.5,0.5)
+				skill_branch.show()
 				$LockIcon.hide()
 			State.UNAFFORDABLE:
 				self_modulate = Color(0.5,0.5,0.5)
-				$Skill_Branch.default_color = Color(0.5,0.5,0.5)
-				$Skill_Branch.show()
+				skill_branch.default_color = Color(0.5,0.5,0.5)
+				skill_branch.show()
 				$LockIcon.hide()
 			State.LOCKED:
 				self_modulate = Color(0.5,0.5,0.5)
-				$Skill_Branch.hide()
+				skill_branch.hide()
 				$LockIcon.show()
 
 func _ready() -> void:
+	%SkillBranches.add_child(skill_branch)
+	#setup_popup()
 	update_purchase_state()
-	
-	$Label.text = skillName
+	$Label.text = itemDesc.skill_name
 	# Fix this, make sure line goes in correct place
 	for child in dependencies:
-		Skill_Branch.add_point(self.global_position + self.size/2)
-		Skill_Branch.add_point(child.global_position + child.size/2)
+		skill_branch.add_point(self.global_position + self.size/2)
+		skill_branch.add_point(child.global_position + child.size/2)
 
 func update_purchase_state() -> void:
-	if Player.has_skill():
+	if SkillSet.has_skill(itemDesc.skill_uid):
 		state = State.PURCHASED
 	else:
 		state = State.UNSET
@@ -69,13 +70,23 @@ func update_state() -> void:
 			state = State.LOCKED
 			return
 	
-	if Global.meat_currency >= meatCost:
+	if Global.meat_currency >= itemDesc.skill_meat_cost:
 		state = State.AFFORDABLE
 	else:
 		state = State.UNAFFORDABLE
 	
 
 func _on_pressed() -> void:
+	if Input.is_action_pressed("quick_purchase"):
+		attempt_purchase()
+	else:
+		indent()
+		skill_pressed.emit(self)
+	
+			
+	#if player level or prev skill is acheived, allow it, or deny it
+
+func attempt_purchase() -> void:
 	match state:
 		State.AFFORDABLE:
 			purchase()
@@ -84,15 +95,13 @@ func _on_pressed() -> void:
 			shake()
 		State.PURCHASED:
 			indent()
-			
-	#if player level or prev skill is acheived, allow it, or deny it
 
 func purchase() -> void:
 	##TODO: GRANT SKILL
-	print(skillName)
-	Global.meat_currency -= meatCost
+	print(itemDesc.skill_name)
+	Global.meat_currency -= itemDesc.skill_meat_cost
 	state = State.PURCHASED
-	purchase_made.emit()
+	purchase_made.emit(itemDesc.skill_uid)
 
 func indent() -> void:
 	var tween : Tween = get_tree().create_tween()
@@ -104,3 +113,8 @@ func shake() -> void:
 	tween.tween_property(self,"rotation_degrees",10, 0.07)
 	tween.tween_property(self,"rotation_degrees",-10, 0.07)
 	tween.tween_property(self,"rotation_degrees",0, 0.07)
+
+#func setup_popup() -> void:
+	#$Skill_Popup/VBoxContainer/Name.text = itemDesc.skill_name
+	#$Skill_Popup/VBoxContainer/Description.text = itemDesc.skill_description
+	#$Skill_Popup/VBoxContainer/TextureRect.texture = itemDesc.skill_image
