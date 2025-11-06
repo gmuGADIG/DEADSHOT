@@ -31,8 +31,6 @@ enum AggroState {
 @onready var tonic := preload("res://world/items/tonic/tonic.tscn");
 
 @export_group("Enemy Stats")
-## The starting amount of health.
-@export var max_hp : float = 10
 ## The amount of damage done in an attack.
 @export var damage : float = 1
 ## Controls the speed of the enemy agent.
@@ -90,8 +88,6 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	starting_pos = starting_pos if not starting_pos.is_equal_approx(Vector3.ZERO) else position
 	last_known_player_position = player.global_position
-	%Health.max_health = max_hp
-	%Health.health = max_hp
 	%Health.killed.connect(queue_free)
 	%Health.killed.connect(drop_tonic)
 
