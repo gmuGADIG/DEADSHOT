@@ -3,8 +3,9 @@
 [ext_resource type="Script" uid="uid://cvxwox6ij6wjt" path="res://systems/camera/main_cam.gd" id="1_m50gf"]
 
 [node name="MainCam" type="Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 0.65209836, 0.75813437, 0, -0.75813437, 0.65209836, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.57357645, 0.81915206, 0, -0.81915206, 0.57357645, 0, 0, 0)
 current = true
 script = ExtResource("1_m50gf")
-offset = Vector3(0, 6.9058037, 6.294909)
+offset = Vector3(0, 7.201, 5.785)
+encounter_zoom = 1.25
 smoothing = 10.0

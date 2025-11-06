@@ -1,30 +1,42 @@
 extends Node
 
+const DEBOUNCE_DURATION := .1
+
 @onready var text_box:=$Panel/VBoxContainer/Speech
 @onready var panel:=$Panel
-var dialog_lines: Array[String]=[]
 @onready var timer:=$LineTimer
 @onready var speaker_box:=$Panel/VBoxContainer/Speaker
 @onready var base_speed :float= 1/$LineTimer.wait_time
 @onready var sound_effect:=$AudioStreamPlayer 
+
+var dialog_lines: Array[String]=[]
+var last_dialog_timestamp := 0.
+
 @export var sfx : Voicebank
 @export var skip_n_characters : int = 0
+
 func _input(event: InputEvent) -> void:
-	if (event.is_action_pressed("interact") or event.is_action_pressed("fire")) and text_box.visible: 
+	if (event.is_action_pressed("interact") or event.is_action_pressed("fire")) and panel.visible: 
 		if (is_text_being_rendered()):
 			timer.stop()
 			text_box.visible_ratio = 1
-			
 		else:
 			if dialog_lines.is_empty():
 				panel.visible = false
+				last_dialog_timestamp = Time.get_ticks_msec()
 				return
 			show_line()
+
+func debounce() -> bool:
+	return last_dialog_timestamp + (DEBOUNCE_DURATION * 1000) > Time.get_ticks_msec()
 
 func is_text_being_rendered() -> bool:
 	return text_box.visible_ratio != 1
 
 func play(timeline:DialogTimeline) -> void:
+	if panel.visible or debounce(): 
+		push_warning("Dialog.play called when a timeline is already playing. Ignoring...")
+		return
 	panel.visible = true
 	dialog_lines.assign(timeline.dialog.split("\n"))
 	speaker_box.text = ""

@@ -31,8 +31,6 @@ enum AggroState {
 @onready var tonic := preload("res://world/items/tonic/tonic.tscn");
 
 @export_group("Enemy Stats")
-## The starting amount of health.
-@export var max_hp : float = 10
 ## The amount of damage done in an attack.
 @export var damage : float = 1
 ## Controls the speed of the enemy agent.
@@ -77,7 +75,7 @@ var should_move : bool = false
 var was_tracking : bool = false
 
 ## How close the enemy is to the destination before being "basically there"
-var proximity_tolerance : float = 1
+@export var proximity_tolerance : float = 1
 
 var shooting := false
 var can_shoot := true
@@ -214,6 +212,8 @@ func shoot_bullet() -> void:
 		bullet_reference.set_speed(bullet_speed)
 		bullet_reference.set_target(get_tree().get_first_node_in_group("player").global_position)
 		shooting = true
+		
+	
 
 func _on_firing_timer_timeout() -> void:
 	shooting = false
@@ -221,5 +221,9 @@ func _on_firing_timer_timeout() -> void:
 
 func stop_shooting() -> void:
 	can_shoot = false
+
+## Sets this enemy on fire, and increases the static count of total enemies on fire.
+func set_on_fire() -> void:
+	%FireDamage.set_on_fire()
 
 #endregion
