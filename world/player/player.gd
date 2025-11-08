@@ -75,7 +75,7 @@ func _ready() -> void:
 		health_component.health = persisting_data.health
 		gun.chamber_ammo = persisting_data.curr_chamber
 		gun.reserve_ammo = persisting_data.curr_reserve
-	$BasicGun.bullets_of_fire_unlocked = bullets_of_fire_unlocked
+	get_node(gun_name).bullets_of_fire_unlocked = bullets_of_fire_unlocked
 
 func _init() -> void:
 	instance = self

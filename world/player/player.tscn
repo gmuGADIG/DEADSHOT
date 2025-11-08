@@ -55,8 +55,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8601074, 0)
 shape = SubResource("CylinderShape3D_bvkkv")
 
 [node name="BasicGun" parent="." instance=ExtResource("3_et4on")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2370036, 0)
-bullets_of_fire_unlocked = null
 
 [node name="Aiming" type="Node" parent="."]
 

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://p58o2mcgb6c2"]
+
+[ext_resource type="PackedScene" uid="uid://c34cmvuqfmuww" path="res://audio/streams/shoot_sound.tscn" id="1_glffo"]
+[ext_resource type="Script" uid="uid://buc5ns1tk4wqc" path="res://world/player/weapon/dual_pistols/dual_pistols.gd" id="1_px5xx"]
+
+[node name="DualPistols" type="Node3D"]
+script = ExtResource("1_px5xx")
+
+[node name="Sounds" type="Node3D" parent="."]
+
+[node name="ShootSound" parent="Sounds" instance=ExtResource("1_glffo")]
+unique_name_in_owner = true
+volume_db = -5.96

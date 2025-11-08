@@ -1,10 +1,10 @@
 extends Node3D
 
 ## Time in seconds to reload
-@export var reload_time : float = 1.25
+@export var reload_time : float = 2.5
 ## Max number of bullets in chamber and reserve
-@export var max_chamber : int = 6
-@export var max_reserve : int = 60
+@export var max_chamber : int = 12
+@export var max_reserve : int = 72
 
 ## Gets set to the max_wep_ammo and max_reserve_ammo from player.
 var chamber_ammo : int = max_chamber
@@ -14,14 +14,14 @@ var is_reloading := false
 var bullets_of_fire_unlocked: bool
 
 @onready var player: Player = get_parent()
-@export var fire_cooldown: float = 0.2
+@export var fire_cooldown: float = 0.1
 var fire_timer: float = 0.0
 
 func _process(_delta: float) -> void:
 	# No shooting if you're rolling!
 	fire_timer+=_delta
   
-	if Input.is_action_just_pressed("fire") && player.current_state != player.PlayerState.ROLLING && fire_timer>=fire_cooldown:
+	if Input.is_action_pressed("fire") && player.current_state != player.PlayerState.ROLLING && fire_timer>=fire_cooldown:
 		fire_timer = 0.0
 	
 		## if the player cannot shoot / is reloading, do not fire

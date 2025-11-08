@@ -6,7 +6,7 @@ class_name Item extends Area3D
 var time: float = 0.0
 
 func _ready() -> void:
-	body_entered.connect(on_pickup)
+	connect("body_entered", Callable(self, "on_pickup"))
 
 ## Makes the item bob up and down.
 func _process(delta: float) -> void:
