@@ -9,8 +9,8 @@ const SPEED := 40.0
 
 var velocity: Vector3
 
-func fire(gun: Node3D, direction: Vector3) -> void:
-	global_position = gun.global_position
+func fire(gun: Node3D, direction: Vector3, offset: Vector3 = Vector3.ZERO) -> void:
+	global_position = gun.global_position + offset
 	velocity = direction * SPEED
 
 func _process(delta: float) -> void:

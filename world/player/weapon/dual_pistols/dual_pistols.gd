@@ -21,7 +21,7 @@ func _process(_delta: float) -> void:
 	# No shooting if you're rolling!
 	fire_timer+=_delta
   
-	if Input.is_action_pressed("fire") && player.current_state != player.PlayerState.ROLLING && fire_timer>=fire_cooldown:
+	if Input.is_action_just_pressed("fire") && player.current_state != player.PlayerState.ROLLING && fire_timer>=fire_cooldown:
 		fire_timer = 0.0
 	
 		## if the player cannot shoot / is reloading, do not fire
@@ -34,23 +34,32 @@ func _process(_delta: float) -> void:
 			return
 	 
 		fire()
+		
 	
 	# Reloads the gun as well (if you can shoot, you can reload).
 	if Input.is_action_just_pressed("reload") and Player.instance.can_shoot() and is_reloading == false:
 		reload()
 
 func fire() -> void:
-	var bullet : Bullet
+	var bullet : PackedScene
 	if bullets_of_fire_unlocked:
-		bullet = preload("res://world/player/weapon/bullet/fire_bullet.tscn").instantiate()
+		bullet = preload("res://world/player/weapon/bullet/fire_bullet.tscn")
 	else:
-		bullet = preload("res://world/player/weapon/bullet/player_bullet.tscn").instantiate()
-	get_tree().current_scene.add_child(bullet)
-	bullet.fire(self, Player.instance.aim_dir())
+		bullet = preload("res://world/player/weapon/bullet/player_bullet.tscn")
 	
+	var bullet1: Bullet = bullet.instantiate()
+	get_tree().current_scene.add_child(bullet1)
+	bullet1.fire(self, Player.instance.aim_dir(), Vector3(0.5, 0, 0))
+	%ShootSound.play()
+
+	await get_tree().create_timer(0.2).timeout
+	
+	var bullet2: Bullet = bullet.instantiate()
+	get_tree().current_scene.add_child(bullet2)
+	bullet2.fire(self, Player.instance.aim_dir(), Vector3(-0.5, 0, 0))
 	%ShootSound.play()
 	
-	chamber_ammo -= 1
+	chamber_ammo -= 2
 	
 ## Reloads the gun if there are less than the max number of bullets in the chamber and if there are any bullets in the reserve available.
 func reload() -> void:
