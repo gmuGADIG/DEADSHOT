@@ -39,6 +39,8 @@ enum AggroState {
 @export var movement_speed : float = 10.0
 ## Rate of the tonic dropping, from 0 to 1.
 @export_range(0.0, 1.0, 0.01) var tonic_drop_rate : float = 0.5
+## Unique Enemy ID
+@export var enemy_id: String = ""
 
 # TODO: type is a subclass?
 ## Does the enemy remain still or move about on their own?
@@ -90,11 +92,14 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	starting_pos = starting_pos if not starting_pos.is_equal_approx(Vector3.ZERO) else position
 	last_known_player_position = player.global_position
-	if not is_in_group("remaining_enemies"):
+	
+	enemy_id = "%s_%s" % [get_tree().current_scene.name, position]
+	if Enemy_Tracker.is_dead(enemy_id):
 		queue_free()
+		return
+	
 	%Health.killed.connect(drop_tonic)
 	%Health.killed.connect(death)
-	add_to_group("remaining_enemies")
 
 	if fire_rate == 0:
 		firing_timer.process_mode = PROCESS_MODE_DISABLED
@@ -207,8 +212,7 @@ func drop_tonic() -> void:
 		$/root.add_child(dropped_tonic);
 		
 func death() -> void:
-	remove_from_group("remaining_enemies")
-	print("Enemies left in group:", get_tree().get_nodes_in_group("remaining_enemies"))
+	Enemy_Tracker.mark_dead(enemy_id)
 	queue_free()
 
 func shoot_bullet() -> void:
