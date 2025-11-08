@@ -64,6 +64,7 @@ func hostile() -> void:
 func attack() -> void:
 	while true:
 		await get_tree().create_timer(timeBetweenShots, false).timeout
+		if process_mode == ProcessMode.PROCESS_MODE_DISABLED: continue
 		shootBullet()
 
 

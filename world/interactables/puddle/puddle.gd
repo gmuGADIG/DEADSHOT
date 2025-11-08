@@ -19,7 +19,7 @@ func _on_body_exited(body: Node3D) -> void:
 
 func _on_damage_timer_timeout() -> void:
 	var overlaps := get_overlapping_areas()
-	print("Puddle damaging (overlaps = %s)" % overlaps)
+	print("Puddle damaging (overlaps = %s)" % str(overlaps))
 	for obj in overlaps:
 		if obj is Hurtbox:
 			obj.hit(DamageInfo.new(
