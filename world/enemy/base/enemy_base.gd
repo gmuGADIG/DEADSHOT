@@ -94,7 +94,11 @@ func _ready() -> void:
 	last_known_player_position = player.global_position
 	
 	enemy_id = "%s_%s" % [get_tree().current_scene.name, position]
-	if Enemy_Tracker.is_dead(enemy_id):
+	if Save.save_data == null or Save.save_data.enemy_save_data == null:
+		print("Save not initialized")
+		return
+		
+	if Save.save_data.enemy_save_data.is_dead(enemy_id):
 		queue_free()
 		return
 	
@@ -212,7 +216,7 @@ func drop_tonic() -> void:
 		$/root.add_child(dropped_tonic);
 		
 func death() -> void:
-	Enemy_Tracker.mark_dead(enemy_id)
+	Save.save_data.enemy_save_data.mark_dead(enemy_id)
 	queue_free()
 
 func shoot_bullet() -> void:

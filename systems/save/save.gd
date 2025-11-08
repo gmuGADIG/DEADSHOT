@@ -5,11 +5,13 @@ const SAVE_FILE := "user://save.tres" ## Filepath where the save file is loaded
 static var save_data : Save ## The resource that gets saved to file
 @export var location_save_data : LocationSaveData ## Saves information regarding the player's location
 @export var health_save_data : HealthSaveData ## Saves info regarding the player's max health
+@export var enemy_save_data : EnemySaveData ## Saves info regarding the enemies that have been defeated in this save
 
 static func create() -> void: ## Creates an empty save file if one does not exist
 	save_data = Save.new()
 	save_data.location_save_data = LocationSaveData.new()
 	save_data.health_save_data = HealthSaveData.new()
+	save_data.enemy_save_data = EnemySaveData.new()
 
 static func save_game() -> void: ## Saves the game
 	if save_data == null:

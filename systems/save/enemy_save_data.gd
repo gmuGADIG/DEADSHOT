@@ -1,6 +1,6 @@
-extends Node
+class_name EnemySaveData extends Resource
 
-var dead_list := {}
+@export_storage var dead_list : Dictionary = {}
 
 func mark_dead(id: String) -> void:
 	dead_list[id] = true

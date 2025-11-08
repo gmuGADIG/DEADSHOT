@@ -19,7 +19,6 @@ config/icon="res://temp_art/icon.svg"
 
 Global="*res://systems/globals.gd"
 Dialog="*res://systems/dialog/dialog.tscn"
-Enemy_Tracker="*res://world/enemy/enemy_tracker.gd"
 
 [debug]
 
