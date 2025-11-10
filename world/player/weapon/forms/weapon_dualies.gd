@@ -19,7 +19,6 @@ var fire_timer: float = 0.0
 
 func _process(delta: float) -> void:
 	fire_timer+=delta
- 
 	# No shooting if you're rolling or the cooldown hasn't ended!
 	if Input.is_action_just_pressed("fire") && player.current_state != player.PlayerState.ROLLING && fire_timer>=fire_cooldown:
 		fire_timer = 0.0
@@ -32,26 +31,40 @@ func _process(delta: float) -> void:
 		if (chamber_ammo == 0):
 			reload()
 			return
-	 
+		
 		fire()
 	
 	# Reloads the gun as well (if you can shoot, you can reload).
 	if Input.is_action_just_pressed("reload") and Player.instance.can_shoot() and is_reloading == false:
 		reload()
 
+## Rotate Dualies to aim direction to keep bullet spawn points correct
+func setGunRotation() -> void:
+	self.look_at(player.global_position+player.aim_dir())
+	rotation.x=0.0
+	rotation.z=0.0
+
 func fire() -> void:
+	setGunRotation()
+	add_bullet($Right)
+	add_bullet($Left)
+	%ShootSound.play()
+
+func add_bullet(gun: Node3D) -> void:
 	var bullet : Bullet
 	if bullets_of_fire_unlocked:
 		bullet = preload("res://world/player/weapon/bullet/fire_bullet.tscn").instantiate()
 	else:
 		bullet = preload("res://world/player/weapon/bullet/player_bullet.tscn").instantiate()
 	get_tree().current_scene.add_child(bullet)
-	bullet.fire(self, Player.instance.aim_dir())
-	
-	%ShootSound.play()
-	
+	#TODO: Damage uses integers right now. It should either use floats or much bigger integers.
+	# The standard pistol bullet does 2 damage. Each dualie bullet needs to do somewhere between 50-100% of that.
+	# We override the bullet's damage here in code. This could be set up later as an export variable, or as a 
+	# unique bullet scene, but I didn't see the point.
+	bullet.atk_damage = 7
+	bullet.fire(gun, player.aim_dir())
 	chamber_ammo -= 1
-	
+
 ## Reloads the gun if there are less than the max number of bullets in the chamber and if there are any bullets in the reserve available.
 func reload() -> void:
 	var chamber_diff := max_chamber - chamber_ammo
