@@ -37,8 +37,6 @@ enum AggroState {
 @export var movement_speed : float = 10.0
 ## Rate of the tonic dropping, from 0 to 1.
 @export_range(0.0, 1.0, 0.01) var tonic_drop_rate : float = 0.5
-## Unique Enemy ID
-@export var enemy_id: String = ""
 
 # TODO: type is a subclass?
 ## Does the enemy remain still or move about on their own?
@@ -91,12 +89,7 @@ func _ready() -> void:
 	starting_pos = starting_pos if not starting_pos.is_equal_approx(Vector3.ZERO) else position
 	last_known_player_position = player.global_position
 	
-	enemy_id = "%s_%s" % [get_tree().current_scene.name, position]
-	if Save.save_data == null or Save.save_data.enemy_save_data == null:
-		print("Save not initialized")
-		return
-		
-	if Save.save_data.enemy_save_data.is_dead(enemy_id):
+	if Save.save_data.object_save_data.is_dead(self):
 		queue_free()
 		return
 	
@@ -214,7 +207,7 @@ func drop_tonic() -> void:
 		$/root.add_child(dropped_tonic);
 		
 func death() -> void:
-	Save.save_data.enemy_save_data.mark_dead(enemy_id)
+	Save.save_data.object_save_data.mark_dead(self)
 	queue_free()
 
 func shoot_bullet() -> void:

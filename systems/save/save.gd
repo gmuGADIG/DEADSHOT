@@ -6,7 +6,6 @@ static var save_data : Save ## The resource that gets saved to file
 @export var object_save_data : ObjectSaveData ## Saves objects in the world, e.g. campfires used, enemies killed
 @export var location_save_data : LocationSaveData ## Saves information regarding the player's location
 @export var health_save_data : HealthSaveData ## Saves info regarding the player's max health
-@export var enemy_save_data : EnemySaveData ## Saves info regarding the enemies that have been defeated in this save
 @export var skill_save_data : SkillSaveData ## Saves the player's selected skills
 
 static func _static_init() -> void:
@@ -17,7 +16,6 @@ static func create() -> void: ## Creates an empty save file if one does not exis
 	save_data.object_save_data = ObjectSaveData.new()
 	save_data.location_save_data = LocationSaveData.new()
 	save_data.health_save_data = HealthSaveData.new()
-	save_data.enemy_save_data = EnemySaveData.new()
 	save_data.skill_save_data = SkillSaveData.new()
 
 static func save_game() -> void: ## Saves the game
