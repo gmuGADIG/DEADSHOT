@@ -7,7 +7,8 @@ class PlayerPersistingData:
 	var curr_reserve : int
 
 ## Tracks name of current gun node. CHANGE THIS VARIABLE WHEN GUNS ARE CHANGED.
-static var gun_name := "BasicGun"
+static var gun_name := "Dualies"
+#static var gun_name := "BasicGun"
 
 ## These are the states that the player can be in. States control what the player can do.
 enum PlayerState {
@@ -47,6 +48,8 @@ var stamina: float = 3.0
 const STAMINA_RECHARGE_RATE: float = 0.666667
 
 var current_state: PlayerState = PlayerState.WALKING
+
+@onready var starting_y_pos : float = position.y
 #endregion
 
 static func update_persisting_data() -> void:
@@ -75,7 +78,7 @@ func _ready() -> void:
 		health_component.health = persisting_data.health
 		gun.chamber_ammo = persisting_data.curr_chamber
 		gun.reserve_ammo = persisting_data.curr_reserve
-	$BasicGun.bullets_of_fire_unlocked = bullets_of_fire_unlocked
+	gun.bullets_of_fire_unlocked = bullets_of_fire_unlocked
 
 func _init() -> void:
 	instance = self
@@ -95,7 +98,9 @@ func _physics_process(delta: float) -> void:
 		## We normalize the shit out of everything so we can multiply it by a consistent speed.
 		## This way there's no weird acceleration or slowdown.
 		roll(delta)
+	
 	move_and_slide()
+	position.y = starting_y_pos # ensures that player does not move above starting plane
 
 ## Returns the inputted walking direction on the XZ plane (Y = 0)
 func input_direction() -> Vector3:
