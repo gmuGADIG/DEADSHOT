@@ -69,6 +69,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.351158, 0, 0.9043428)
 target_scene = "uid://daq8dgkrqqghw"
 target_entry_point = "Left"
 
+[node name="Sun" parent="." index="2"]
+shadow_opacity = 0.75
+
 [node name="World" parent="." index="3"]
 navigation_mesh = SubResource("NavigationMesh_hxoc3")
 
