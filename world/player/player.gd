@@ -7,7 +7,8 @@ class PlayerPersistingData:
 	var curr_reserve : int
 
 ## Tracks name of current gun node. CHANGE THIS VARIABLE WHEN GUNS ARE CHANGED.
-static var gun_name := "BasicGun"
+static var gun_name := "Dualies"
+#static var gun_name := "BasicGun"
 
 ## These are the states that the player can be in. States control what the player can do.
 enum PlayerState {
@@ -75,7 +76,7 @@ func _ready() -> void:
 		health_component.health = persisting_data.health
 		gun.chamber_ammo = persisting_data.curr_chamber
 		gun.reserve_ammo = persisting_data.curr_reserve
-	$BasicGun.bullets_of_fire_unlocked = bullets_of_fire_unlocked
+	gun.bullets_of_fire_unlocked = bullets_of_fire_unlocked
 
 func _init() -> void:
 	instance = self
