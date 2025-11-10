@@ -48,6 +48,8 @@ var stamina: float = 3.0
 const STAMINA_RECHARGE_RATE: float = 0.666667
 
 var current_state: PlayerState = PlayerState.WALKING
+
+@onready var starting_y_pos : float = position.y
 #endregion
 
 static func update_persisting_data() -> void:
@@ -96,7 +98,9 @@ func _physics_process(delta: float) -> void:
 		## We normalize the shit out of everything so we can multiply it by a consistent speed.
 		## This way there's no weird acceleration or slowdown.
 		roll(delta)
+	
 	move_and_slide()
+	position.y = starting_y_pos # ensures that player does not move above starting plane
 
 ## Returns the inputted walking direction on the XZ plane (Y = 0)
 func input_direction() -> Vector3:
