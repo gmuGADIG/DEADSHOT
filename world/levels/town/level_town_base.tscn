@@ -19,7 +19,7 @@ _data = {
 }
 point_count = 20
 
-[node name="LevelTown1" instance=ExtResource("1_tcp4o")]
+[node name="LevelTown" instance=ExtResource("1_tcp4o")]
 
 [node name="Comment2" parent="." index="2" instance=ExtResource("2_d6o6r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 7.450581e-09, 1, 12.323263, 2.8352304, 32.200733)

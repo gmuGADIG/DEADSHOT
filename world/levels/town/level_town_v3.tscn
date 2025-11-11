@@ -17,7 +17,7 @@ size = Vector3(10, 3, 10)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ddydx"]
 size = Vector3(10, 3, 10)
 
-[node name="LevelTown1" instance=ExtResource("1_64v5s")]
+[node name="LevelTown3" instance=ExtResource("1_64v5s")]
 
 [node name="Encounters" type="Node3D" parent="." index="14"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9888, 0.06661462, -0.24382162)

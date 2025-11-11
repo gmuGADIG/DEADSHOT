@@ -33,7 +33,7 @@ Some people used to dance. She used to dance…waltz around the tables… God, I
 Used to be everyone together. Dancin', singin', laughin' ...Funny how life works, huh? Always changin'. "
 metadata/_custom_type_script = "uid://rvaetvwo5p3h"
 
-[node name="LevelTown1" instance=ExtResource("1_64v5s")]
+[node name="LevelTown2" instance=ExtResource("1_64v5s")]
 
 [node name="Test NPCs" type="Node3D" parent="." index="14"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.86013, 0.06661268, -0.86584795)
