@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://crgsrx50vvbrj"]
-
-[ext_resource type="AudioStream" uid="uid://c6fh3mivba1sg" path="res://audio/placeholders/test_beep.wav" id="1_744uy"]
-
-[node name="WilderShoot" type="AudioStreamPlayer3D"]
-stream = ExtResource("1_744uy")

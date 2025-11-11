@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://dx3l0wduat3tp" path="res://world/enemy/base/enemy_base.tscn" id="1_pw5bb"]
 [ext_resource type="Script" uid="uid://pewr3uke4fqt" path="res://world/enemy/wilder/wilder.gd" id="1_skiir"]
 [ext_resource type="PackedScene" uid="uid://bq22o80xk3p40" path="res://world/player/weapon/bullet/player_bullet.tscn" id="3_skiir"]
-[ext_resource type="PackedScene" uid="uid://crgsrx50vvbrj" path="res://audio/streams/wilder_shoot.tscn" id="5_d53cb"]
-[ext_resource type="PackedScene" uid="uid://dkjvnj7suuabj" path="res://audio/streams/wilder_death.tscn" id="6_buhvy"]
+[ext_resource type="PackedScene" uid="uid://bgo2o5m34pbn6" path="res://audio/streams/wilder_shoot_sound.tscn" id="5_d53cb"]
+[ext_resource type="PackedScene" uid="uid://bc2cuo16dxify" path="res://audio/streams/wilder_death_sound.tscn" id="6_buhvy"]
 [ext_resource type="AudioStream" uid="uid://drvscc177esir" path="res://audio/placeholders/test_explode_big.wav" id="7_b04xd"]
 
 [node name="Wilder" node_paths=PackedStringArray("StuckTimer") instance=ExtResource("1_pw5bb")]
@@ -30,9 +30,11 @@ autostart = true
 
 [node name="Sounds" type="Node3D" parent="." index="9"]
 
-[node name="WilderShoot" parent="Sounds" index="0" instance=ExtResource("5_d53cb")]
+[node name="WilderShootSound" parent="Sounds" index="0" instance=ExtResource("5_d53cb")]
+unique_name_in_owner = true
 
-[node name="WilderDeath" parent="Sounds" index="1" instance=ExtResource("6_buhvy")]
+[node name="WilderDeathSound" parent="Sounds" index="1" instance=ExtResource("6_buhvy")]
+unique_name_in_owner = true
 stream = ExtResource("7_b04xd")
 
 [connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
