@@ -1,9 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://ohg0len20ido"]
+[gd_scene load_steps=6 format=3 uid="uid://ohg0len20ido"]
 
 [ext_resource type="PackedScene" uid="uid://cxahvvaidpg32" path="res://world/levels/town/level_town_base.tscn" id="1_83ufp"]
+[ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="2_4ry00"]
 [ext_resource type="PackedScene" uid="uid://b0ttk38sufgur" path="res://world/pickups/corrupt_heart/corrupt_heart.tscn" id="2_28xow"]
+[ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="3_8wq7s"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j4103"]
+size = Vector3(24.894531, 3.5175781, 4.6188965)
 
 [node name="LevelTown4" instance=ExtResource("1_83ufp")]
 
+[node name="Transition" parent="TransitionAreas" index="0" instance=ExtResource("2_4ry00")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.844759, 0, -12.468933)
+target_scene = "uid://d0lbvne2ofk7c"
+target_entry_point = "left"
+
+[node name="CollisionShape3D" parent="TransitionAreas/Transition" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5639458, 0, -25.812904)
+shape = SubResource("BoxShape3D_j4103")
+
+[node name="Player" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.3684225, 0, 4.9706383)
+
 [node name="CorruptHeart" parent="." index="14" instance=ExtResource("2_28xow")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.908998, 0, 1.6071377)
+
+[node name="Comment" parent="." index="15" instance=ExtResource("3_8wq7s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.545789, 0, 3.5805511)
+text = "Here's where the sheriff boss would be"
+
+[editable path="TransitionAreas/Transition"]

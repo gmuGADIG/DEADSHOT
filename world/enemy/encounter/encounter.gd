@@ -18,6 +18,9 @@ enum EncounterProgress {
 ## When the encounter starts, objects appear one after another, with this many seconds between each object.
 @export var appear_delay := 0.1
 
+## Optional. If set, finishing the encounter will change to this scene.
+@export var ending_scene: PackedScene = null
+
 var progress := EncounterProgress.WAITING
 
 func _ready() -> void:
@@ -75,10 +78,13 @@ func end_encounter() -> void:
 	
 	for obj in get_encounter_objects():
 		obj.finish()
+	
+	if ending_scene != null:
+		get_tree().change_scene_to_packed(ending_scene)
 
 func _is_encounter_done() -> bool:
-	for o: EncounterObject in get_tree().get_nodes_in_group("encounter_object"):
-		if o.is_enemy() and o.is_active(): return false
+	for o: EncounterObject in get_encounter_objects():
+		if o.is_enemy(): return false
 	
 	return true
 

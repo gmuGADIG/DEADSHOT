@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c4lcfae1j0kdx"]
+[gd_scene load_steps=14 format=3 uid="uid://c4lcfae1j0kdx"]
 
 [ext_resource type="PackedScene" uid="uid://cxahvvaidpg32" path="res://world/levels/town/level_town_base.tscn" id="1_64v5s"]
 [ext_resource type="PackedScene" uid="uid://dhb2pgqbfvxoa" path="res://world/enemy/encounter/encounter.tscn" id="2_8nofb"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dgq8eujhb7aiv" path="res://world/enemy/enemy_bandit.tscn" id="7_06bpv"]
 [ext_resource type="PackedScene" uid="uid://doavrdpyjcdgp" path="res://world/enemy/judge/enemy_judge.tscn" id="8_kiyv6"]
 [ext_resource type="PackedScene" uid="uid://b4n4rflu3my0v" path="res://world/enemy/longhorn/longhorn.tscn" id="9_gvfx8"]
+[ext_resource type="PackedScene" uid="uid://ohg0len20ido" path="res://world/levels/town/level_town_v4_boss.tscn" id="9_l7ewn"]
 [ext_resource type="PackedScene" uid="uid://h4pbrdsf4bcg" path="res://world/enemy/splitter/enemy_splitter.tscn" id="10_ma23k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h2go5"]
@@ -165,6 +166,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3151398, 3.874302e-06, 0.22
 [node name="Encounter 4 Real" parent="Encounters" index="1" instance=ExtResource("2_8nofb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.994127, -0.06661462, -21.964973)
 camera_zoom = 1.7
+ending_scene = ExtResource("9_l7ewn")
 
 [node name="EncounterShape" type="CollisionShape3D" parent="Encounters/Encounter 4 Real" index="1"]
 transform = Transform3D(2.275, 0, 0, 0, 1, 0, 0, 0, 1.98, 0, 0, 0)

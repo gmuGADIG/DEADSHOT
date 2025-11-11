@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cxahvvaidpg32"]
+[gd_scene load_steps=9 format=3 uid="uid://cxahvvaidpg32"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_tcp4o"]
 [ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="2_d6o6r"]
 [ext_resource type="Resource" uid="uid://q24ustx30otu" path="res://world/floor/sand/sand.tres" id="3_q3pnm"]
-[ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="4_4msoq"]
 [ext_resource type="PackedScene" uid="uid://cgj018oscuhf6" path="res://world/decoration/buildings/house.tscn" id="7_3kx2l"]
 [ext_resource type="PackedScene" uid="uid://crroyl2puavcb" path="res://world/decoration/floor_lantern/floor_lantern.tscn" id="8_0fxxf"]
 [ext_resource type="PackedScene" uid="uid://8er7o8byf7v1" path="res://world/decoration/well/well.tscn" id="9_7fok8"]
@@ -39,15 +38,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.12597, 0, -0.16398096)
 [node name="Right" type="Node3D" parent="EntryPoints" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.30764, 0, -0.10400367)
 
-[node name="Left" parent="TransitionAreas" index="0" instance=ExtResource("4_4msoq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.43365, 0, -0.1333859)
-target_scene = "uid://bueg0v6pvrthp"
-target_entry_point = "Right"
+[node name="Bottom" type="Node3D" parent="EntryPoints" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.821126, 9.536743e-07, 39.192707)
 
-[node name="Right" parent="TransitionAreas" index="1" instance=ExtResource("4_4msoq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.78856, 0, -0.065726995)
-target_scene = "uid://crgv6bkolrlyy"
-target_entry_point = "Left"
+[node name="Top" type="Node3D" parent="EntryPoints" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.821126, 9.536743e-07, -37.015163)
 
 [node name="Player" parent="." index="6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.14402, 0, 0)

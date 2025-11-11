@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dhb2pgqbfvxoa" path="res://world/enemy/encounter/encounter.tscn" id="9_fpcaa"]
 [ext_resource type="PackedScene" uid="uid://dwdhuncnyfmcw" path="res://world/enemy/wilder/wilder.tscn" id="11_4q5tc"]
 [ext_resource type="PackedScene" uid="uid://b4n4rflu3my0v" path="res://world/enemy/longhorn/longhorn.tscn" id="12_qk81x"]
-[ext_resource type="PackedScene" uid="uid://dgq8eujhb7aiv" path="res://world/enemy/bandit/enemy_bandit.tscn" id="13_4q5tc"]
+[ext_resource type="PackedScene" uid="uid://dgq8eujhb7aiv" path="res://world/enemy/enemy_bandit.tscn" id="13_4q5tc"]
 [ext_resource type="PackedScene" uid="uid://dxdkwdigtcn43" path="res://world/enemy/test/enemy_test.tscn" id="13_r6j0u"]
 [ext_resource type="PackedScene" uid="uid://doavrdpyjcdgp" path="res://world/enemy/judge/enemy_judge.tscn" id="14_4q5tc"]
 
@@ -31,7 +31,7 @@ point_count = 94
 size = Vector3(15.052856, 3, 6.2387695)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n7sqn"]
-size = Vector3(5.2992554, 3, 11.875549)
+size = Vector3(2.5179977, 3, 8.3792)
 
 [node name="LevelDesertLarge" instance=ExtResource("1_b00wy")]
 
@@ -60,7 +60,7 @@ material = ExtResource("2_5t0jw")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10973072, 0, 1.4328089)
 
 [node name="Left" type="Node3D" parent="EntryPoints" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.685082, -9.536743e-07, -4.1915927)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.711521, -4.7683716e-07, 0.8270476)
 
 [node name="Right" type="Node3D" parent="EntryPoints" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.105401, 0, 26.48222)
@@ -69,17 +69,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.105401, 0, 26.48222)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, -7)
 
 [node name="Entry_North" parent="TransitionAreas" index="0" instance=ExtResource("2_8watp")]
-transform = Transform3D(-5.2797706e-08, 0, 1.2078707, 0, 1, 0, -1.2078707, 0, -5.2797706e-08, 14.428501, 0, 2.526321)
+transform = Transform3D(-5.2797706e-08, 0, 1.2078707, 0, 1, 0, -1.2078707, 0, -5.2797706e-08, 9.721218, 0, 4.781355)
 target_scene = "uid://blppqsxslhh07"
 target_entry_point = "Right"
 
 [node name="Right" parent="TransitionAreas" index="1" instance=ExtResource("2_8watp")]
-transform = Transform3D(-5.2797706e-08, 0, 1.2078707, 0, 1, 0, -1.2078707, 0, -5.2797706e-08, 14.213625, 0, 25.25497)
-target_scene = "uid://d0lbvne2ofk7c"
-target_entry_point = "Left"
+transform = Transform3D(-5.2797706e-08, 0, 1.2078707, 0, 1, 0, -1.2078707, 0, -5.2797706e-08, 9.900384, 0, 25.25497)
+target_scene = "uid://c4lcfae1j0kdx"
+target_entry_point = "Bottom"
 
 [node name="Player" parent="." index="6"]
-transform = Transform3D(1.2078707, 0, 0, 0, 1, 0, 0, 0, 1.2078707, 28.630379, 0, 44.673172)
+transform = Transform3D(1.2078707, 0, 0, 0, 1, 0, 0, 0, 1.2078707, 16.158676, 0, 37.40243)
 
 [node name="Boulder" type="Node" parent="." index="7"]
 
@@ -737,7 +737,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.193001, 0, -7.7602253)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1144943, 0, -12.618758)
 
 [node name="EncounterShape" type="CollisionShape3D" parent="Encounter 2" index="10"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43641663, 0, 6.1292343)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5999222, 0, 3.7177753)
 shape = SubResource("BoxShape3D_n7sqn")
 
 [node name="Encounter 3" parent="." index="16" instance=ExtResource("9_fpcaa")]
@@ -754,6 +754,8 @@ transform = Transform3D(-6.636043e-08, 0, 8.773376, 0, 0.99999994, 0, -1.5181497
 [node name="EncounterShape" type="CollisionShape3D" parent="Encounter 3" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43641663, 0, -11.375122)
 shape = SubResource("BoxShape3D_n7sqn")
+
+[node name="Boulder" parent="Encounter 3" index="4" instance=ExtResource("7_afdcq")]
 
 [node name="Encounter 4" parent="." index="17" instance=ExtResource("9_fpcaa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.844, 0, 42.398552)
@@ -779,7 +781,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18676, 0, -5.886421)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18676, 0, -7.5870476)
 
 [node name="EncounterShape" type="CollisionShape3D" parent="Encounter 4" index="7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.639046, 0, -12.452244)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.639046, 0, -11.962692)
 shape = SubResource("BoxShape3D_n7sqn")
 
 [node name="Encounter 5" parent="." index="18" instance=ExtResource("9_fpcaa")]
@@ -803,7 +805,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.738857, 0, -10.940819)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.93835, 0, 3.3336716)
 
 [node name="EncounterShape" type="CollisionShape3D" parent="Encounter 5" index="6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.095257, 0, 4.1966743)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.575668, 0, 3.1082191)
 shape = SubResource("BoxShape3D_n7sqn")
 
 [node name="Wilder" parent="Encounter 5" index="7" instance=ExtResource("11_4q5tc")]

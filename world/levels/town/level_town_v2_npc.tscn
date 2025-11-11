@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://cgpuvir86nykf"]
+[gd_scene load_steps=16 format=3 uid="uid://cgpuvir86nykf"]
 
 [ext_resource type="PackedScene" uid="uid://cxahvvaidpg32" path="res://world/levels/town/level_town_base.tscn" id="1_64v5s"]
+[ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="2_jjhs5"]
 [ext_resource type="PackedScene" uid="uid://d3stqami0urg7" path="res://world/npc/test/npc_test.tscn" id="2_mtstk"]
 [ext_resource type="PackedScene" uid="uid://c414hqj4nmy45" path="res://world/npc/npc_demoman1.tscn" id="3_6x3r5"]
 [ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="3_ineyk"]
@@ -34,6 +35,16 @@ Used to be everyone together. Dancin', singin', laughin' ...Funny how life works
 metadata/_custom_type_script = "uid://rvaetvwo5p3h"
 
 [node name="LevelTown2" instance=ExtResource("1_64v5s")]
+
+[node name="Right" parent="TransitionAreas" index="0" instance=ExtResource("2_jjhs5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.78856, 0, -0.065726995)
+target_scene = "uid://crgv6bkolrlyy"
+target_entry_point = "Left"
+
+[node name="Comment" parent="Comments" index="4" instance=ExtResource("4_6mxwy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.752525, -0.019320965, 0)
+text = "now that the enemies are gone,
+you can talk with NPCs :)"
 
 [node name="Test NPCs" type="Node3D" parent="." index="14"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.86013, 0.06661268, -0.86584795)
