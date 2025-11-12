@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://vnurg1w4ttt4"]
 
-[ext_resource type="Script" uid="uid://byvixw3m8t4b7" path="res://world/player/weapon/forms/weapon_dualies.gd" id="1_albja"]
+[ext_resource type="Script" uid="uid://byvixw3m8t4b7" path="res://world/player/weapon/dualies/weapon_dualies.gd" id="1_albja"]
 [ext_resource type="PackedScene" uid="uid://c34cmvuqfmuww" path="res://audio/streams/shoot_sound.tscn" id="1_yunt5"]
 
 [node name="Dualies" type="Node3D"]

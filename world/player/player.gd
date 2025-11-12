@@ -100,20 +100,17 @@ func _process(delta: float) -> void:
 
 
 #region Custom Functions
-static func update_persisting_data() -> void:
-	## Make it so this can change to whatever the current gun is?
-	var gun := instance.get_node(gun_name)
-	
+static func update_persisting_data() -> void:	
 	if persisting_data == null:
 		persisting_data = PlayerPersistingData.new()
-	
-	persisting_data.max_health = Player.instance.health_component.max_health
-	persisting_data.health = Player.instance.health_component.health
-	persisting_data.curr_chamber = gun.chamber_ammo
-	persisting_data.curr_reserve = gun.reserve_ammo
-	
-	#TEST
-	print("Ammo: %s / %s" % [persisting_data.curr_chamber, persisting_data.curr_reserve])
+		
+	persisting_data.max_health = instance.health_component.max_health
+	persisting_data.health = instance.health_component.health
+	persisting_data.curr_chamber = instance.get_gun().chamber_ammo
+	persisting_data.curr_reserve = instance.get_gun().reserve_ammo
+
+func get_gun() -> Gun:
+	return get_node(gun_name)
 
 ## Returns the inputted walking direction on the XZ plane (Y = 0)
 func input_direction() -> Vector3:
