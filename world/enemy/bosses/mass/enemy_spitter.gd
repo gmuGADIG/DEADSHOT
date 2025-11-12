@@ -28,7 +28,7 @@ func _physics_process(delta: float) -> void:
 	for launched_enemy in launched_enemies:
 		launched_enemy.age += delta
 		if launched_enemy.age >= launch_curve.max_domain:
-			launched_enemy.enemy.global_position = launched_enemy.target
+			launched_enemy.enemy.global_position = global_position+launched_enemy.target
 			launched_enemy.enemy.process_mode = Node.PROCESS_MODE_INHERIT
 			remove_child(launched_enemy.enemy)
 			the_mass.add_sibling(launched_enemy.enemy)

@@ -5,6 +5,9 @@ class_name BossEnemy extends EnemyBase
 @export var phase_2_action_names : Array[StringName] ## Might end up unused
 
 @export var action_player : AnimationPlayer
+
+
+var last_action : StringName
 #endregion
 
 #region Behaviour Functions
@@ -15,6 +18,7 @@ func pick_action() -> void: ##TODO: Override this
 	pass
 	
 func action_finished(anim_name: StringName) -> void:
+	last_action = anim_name
 	pick_action()
 
 func hostile() -> void:

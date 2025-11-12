@@ -1,6 +1,7 @@
 class_name Health extends Node
 
 signal killed
+signal damaged
 
 @export var max_health : int
 
@@ -14,9 +15,12 @@ func hurt(amount : int) -> void:
 	
 	health -= amount
 	
+	
 	print(get_parent().name,": ",health," hp")
 	if health <= 0:
 		killed.emit()
+	else:
+		damaged.emit()
 
 func heal(amount : int) -> void:
 	health = clampi(health + amount, 0, max_health)

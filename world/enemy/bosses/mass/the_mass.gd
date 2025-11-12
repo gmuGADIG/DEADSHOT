@@ -17,21 +17,30 @@ class_name TheMass extends BossEnemy
 @export var enemy_spawn_dist_min : float = 8 ## Distance away from the player the enemy is allowed to spawn
 @export var enemy_spawn_dist_max : float = 18 ## Distance away from the player the enemy is allowed to spawn
 
-
+var phase : int = 1
 
 func _ready() -> void:
 	super._ready()
+	$%Health.damaged.connect(func() -> void:
+		if phase == 1 && $Health.health <= $Health.max_health/2:
+			$ActionPlayer.play("phase_change")
+			phase = 2
+	)
 	#Player.instance.player_state_changed.connect(func() -> void:
 		#if 	Player.instance.current_state == Player.PlayerState.ROLLING:
 			#_on_player_dash()
 	#)
 
 func pick_action() -> void:
-	if $Health.health > $Health.max_health/2:
-		action_player.play(phase_1_action_names.pick_random())
-	else:
-		action_player.play(phase_2_action_names.pick_random())
-
+	var new_action : StringName = last_action
+	##HACK again, mildly inoptimal while loop
+	while new_action == last_action:
+		if phase == 1:
+			new_action = phase_1_action_names.pick_random()
+		else:
+			new_action = phase_2_action_names.pick_random()
+	action_player.play(new_action)
+	
 func idle() -> void:
 	pass
 
@@ -94,7 +103,11 @@ func spit_enemy() -> void:
 	while not arena_area.is_point_in_arena(target):
 		target = player_position+neutral_spread(enemy_spawn_dist_min,enemy_spawn_dist_max)
 	$EnemySpitter.spit_enemy(target)
-	
+
+func teleport_to_center() -> void:
+	var new_loc : Vector3 = arena_area.global_position
+	new_loc.y = self.global_position.y
+	self.global_position = new_loc
 #func shoot_chunk() -> void:
 	#if Player.instance.current_state != Player.PlayerState.ROLLING:
 		#return

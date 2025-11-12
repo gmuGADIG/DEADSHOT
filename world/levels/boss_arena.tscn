@@ -32,8 +32,8 @@ material = ExtResource("2_ne3pg")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.202965, 0, 8.371207)
 
 [node name="TheMass" parent="." index="6" node_paths=PackedStringArray("arena_area") instance=ExtResource("3_ne3pg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -5.898)
 arena_area = NodePath("../ArenaArea")
-phase_1_action_names = Array[StringName]([&"phase_1_spit_enemy"])
 
 [node name="ArenaArea" type="CollisionShape3D" parent="." index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11643028, -0.05883789, 4.01169)
