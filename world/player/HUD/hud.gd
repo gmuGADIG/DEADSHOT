@@ -21,10 +21,16 @@ var _in_combat := false:
 
 func _ready() -> void:
 	# Stamina bar is hidden by default until player enters a Combat Encounter.
-	$StaminaContainer.modulate.a = 0.0
+	stamina_container.modulate.a = 0.0
 
 func _process(_delta: float) -> void:
 	_in_combat = Encounter.is_encounter_active()
+	
+	# ideally this shouldn't be done every frame
+	# it should trigger when it changes, that way we can add animations and stuff
+	# but this way's a lot easier
+	%Hearts.set_hearts(Player.instance.health_component.health)
+	%Hearts.set_max_hearts(Player.instance.health_component.max_health)
 
 func fade_stamina_out() -> void:
 	print("Hud out")
