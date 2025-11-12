@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4n4rflu3my0v"]
+[gd_scene load_steps=9 format=3 uid="uid://b4n4rflu3my0v"]
 
 [ext_resource type="PackedScene" uid="uid://dx3l0wduat3tp" path="res://world/enemy/base/enemy_base.tscn" id="1_qriva"]
 [ext_resource type="Script" uid="uid://dqw3rnmgfv6r7" path="res://world/enemy/longhorn/longhorn.gd" id="2_efxix"]
 [ext_resource type="Texture2D" uid="uid://chnnd6opa6df5" path="res://temp_art/gartic/fish_man.png" id="3_g07qo"]
 [ext_resource type="Script" uid="uid://dy4h4d283fxxn" path="res://util/sprite_shaker.gd" id="4_g07qo"]
+[ext_resource type="PackedScene" uid="uid://bpfklhcte1c5h" path="res://audio/streams/longhorn_die_sound.tscn" id="5_uamdi"]
+[ext_resource type="PackedScene" uid="uid://3cvvvws1lhvd" path="res://audio/streams/longhorn_dash_sound.tscn" id="6_3lbiw"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_plfsl"]
 height = 1.85699
@@ -17,7 +19,6 @@ charge_time = 1.0
 cooldown_time = 1.5
 atk_source = 1
 atk_knockback = 1
-max_hp = 20.0
 proximity_tolerance = 1.5
 
 [node name="CollisionShape3D" parent="." index="0"]
@@ -25,6 +26,9 @@ visible = false
 
 [node name="Sprite3D" parent="." index="1"]
 texture = ExtResource("3_g07qo")
+
+[node name="Health" parent="." index="3"]
+max_health = 5
 
 [node name="CollisionShape3D" parent="Hurtbox" index="0"]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.94693, 0)
@@ -49,6 +53,13 @@ shaking = true
 sprite = NodePath("../Sprite3D")
 noise = SubResource("FastNoiseLite_4j1ge")
 
+[node name="Sounds" type="Node3D" parent="." index="11"]
+
+[node name="LonghornDieSound" parent="Sounds" index="0" instance=ExtResource("5_uamdi")]
+
+[node name="LonghornDashSound" parent="Sounds" index="1" instance=ExtResource("6_3lbiw")]
+
+[connection signal="killed" from="Health" to="." method="_on_killed"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
 [connection signal="timeout" from="ChargeTimer" to="." method="_on_charge_timer_timeout"]
 [connection signal="area_entered" from="HurterBox" to="." method="_on_hurter_box_area_entered"]

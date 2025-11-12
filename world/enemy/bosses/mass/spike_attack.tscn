@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://0087idnveyoi"]
+
+[ext_resource type="Script" uid="uid://dmk1nbg50kxbk" path="res://world/enemy/bosses/mass/spike_attack.gd" id="1_d6t4n"]
+[ext_resource type="Texture2D" uid="uid://dr0k5wtlmynj6" path="res://temp_art/reticle.png" id="1_n57c1"]
+[ext_resource type="Script" uid="uid://bhpagy0iq3tpw" path="res://systems/attacking/damage/damage_info.gd" id="2_rb7fk"]
+[ext_resource type="Texture2D" uid="uid://buf15wb2e1tep" path="res://temp_art/spike.png" id="4_cuwb1"]
+
+[sub_resource type="Resource" id="Resource_cuwb1"]
+script = ExtResource("2_rb7fk")
+damage = 1
+source = 1
+metadata/_custom_type_script = "uid://bhpagy0iq3tpw"
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_cuwb1"]
+height = 5.0
+radius = 1.0
+
+[node name="SpikeAttack" type="Node3D"]
+script = ExtResource("1_d6t4n")
+damage = SubResource("Resource_cuwb1")
+
+[node name="WarningTarget" type="Sprite3D" parent="."]
+transform = Transform3D(25, 0, 0, 0, -1.0927847e-06, 25, 0, -25, -1.0927847e-06, 0, 0.02, 0)
+texture_filter = 0
+texture = ExtResource("1_n57c1")
+
+[node name="Spike" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8, 0)
+
+[node name="SpikeSprite3D" type="Sprite3D" parent="Spike"]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 0, 0, 0)
+offset = Vector2(0, 15)
+texture_filter = 0
+texture = ExtResource("4_cuwb1")
+
+[node name="DamageArea" type="Area3D" parent="Spike"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Spike/DamageArea"]
+shape = SubResource("CylinderShape3D_cuwb1")
