@@ -4,6 +4,13 @@ extends Control
 @export var half_tex: Texture2D
 @export var empty_tex: Texture2D
 
+func _ready() -> void:
+	set_hearts(Player.instance.health_component.health)
+	set_max_hearts(Player.instance.health_component.max_health)
+	
+	Global.player_hp_changed.connect(set_hearts)
+	Global.player_max_hp_changed.connect(set_max_hearts)
+
 func set_hearts(hearts: int) -> void:
 	var halves := hearts * 2
 	for heart: TextureRect in get_children():

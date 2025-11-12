@@ -34,21 +34,18 @@ var speed_multiplier: float = 1.0
 @export var whip : Whip
 @onready var interactor : Interactor = %InteractionArea
 
-# TODO: The skills system will probably be handled outside of the player.
-# This is just for testing.
-@export var bullets_of_fire_unlocked : bool = false
-
-## Is the player currently in combat? If so, HUD will be shown and dashing will cost stamina.
-var is_in_combat: bool = false
-
 var previous_input_direction: Vector3 = Vector3.RIGHT ## Roll this way if you roll while not holding any directions. Updated every time the player makes a movement input.
 var roll_time : float = 0
 
 ## Stamina. Consumed by rolling. Up to 3. We use a float so we can smoothly recharge it partially over time.
-var stamina: float = 3.0
-## How much stamina recharges every second. It should take 1.5 seconds for 1 bar to recover.
-const STAMINA_RECHARGE_RATE: float = 0.666667
+var stamina: float = 3.0:
+	set(value):
+		if value == stamina: return # no change
+		stamina = value
+		Global.player_stamina_changed.emit(stamina)
 
+## How much stamina recharges every second
+const STAMINA_RECHARGE_RATE: float = 0.666667
 
 var current_state: PlayerState = PlayerState.WALKING
 #endregion
@@ -70,7 +67,8 @@ func _ready() -> void:
 	interactor.interaction_started.connect(_on_interaction_started)
 	interactor.interaction_ended.connect(_on_interaction_ended)
 	
-	gun.bullets_of_fire_unlocked = bullets_of_fire_unlocked
+	health_component.hp_changed.connect(Global.player_hp_changed.emit)
+	health_component.max_hp_changed.connect(Global.player_max_hp_changed.emit)
 
 func _init() -> void:
 	instance = self
@@ -179,29 +177,8 @@ func update_stamina(delta: float) -> void:
 	if Encounter.is_encounter_active():
 		stamina += STAMINA_RECHARGE_RATE * delta
 		stamina = clampf(stamina, 0.0, 3.0)
-		$Hud.update_stamina_bar(stamina)
 	else:
 		stamina = 3.0
-
-# COMBAT ENCOUNTERS
-# According to the GDD, the player will enter Combat Encounters. These involve:
-# - The camera locking
-# - Enemies spawning in a group
-# - Rolling becomes stamina-dependent
-# To handle all of this, some other object should just tell the player about combat encounters with signals.
-# These next two functions are provided to hook your signals into.
-## Call this to tell the player that a combat encounter is beginning.
-func enter_combat() -> void:
-	if is_in_combat: return
-	is_in_combat = true
-	$Hud.fade_stamina_in()
-
-## Call this to tell the player that a combat encounter is done.
-func exit_combat() -> void:
-	if !is_in_combat: return
-	is_in_combat = false
-	stamina = 3.0
-	$Hud.fade_stamina_out()
 
 ## Function bound to the signal for beginning an interaction.
 ## Changes the state to Interacting.
