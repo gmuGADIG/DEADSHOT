@@ -31,6 +31,12 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	_in_combat = Encounter.is_encounter_active()
+	
+	# ideally this shouldn't be done every frame
+	# it should trigger when it changes, that way we can add animations and stuff
+	# but this way's a lot easier
+	%Hearts.set_hearts(Player.instance.health_component.health)
+	%Hearts.set_max_hearts(Player.instance.health_component.max_health)
 
 func fade_stamina_out() -> void:
 	print("Hud out")
