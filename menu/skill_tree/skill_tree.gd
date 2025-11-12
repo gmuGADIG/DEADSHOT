@@ -10,12 +10,12 @@ var selected_skill_button : Skill_Button = null
 func _ready() -> void:
 	for child in $SkillButtons.get_children():
 		if child is Skill_Button:
-			print("child")
 			skill_buttons.append(child)
 			child.update_purchase_state()
 			child.skill_pressed.connect(on_skill_pressed)
 			child.purchase_made.connect(on_skill_purchased)
 	
+	$Overlay.update_meat_display()
 	##This has to happen after all the purchase states are set
 	update_state()
 
@@ -54,3 +54,12 @@ func on_skill_purchased(skill : SkillSet.SkillUID) -> void:
 func update_state() -> void:
 	for skill_button : Skill_Button in skill_buttons:
 		skill_button.update_state()
+
+func on_skill_tree_reset() -> void:
+	for skill_button : Skill_Button in skill_buttons:
+		if SkillSet.has_skill(skill_button.itemDesc.skill_uid):
+			SkillSet.remove_skill(skill_button.itemDesc.skill_uid)
+			Global.meat_currency+=skill_button.itemDesc.skill_meat_cost
+			skill_button.state = Skill_Button.State.UNSET
+			update_state()
+			
