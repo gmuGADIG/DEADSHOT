@@ -21,9 +21,6 @@ enum PlayerState {
 static var persisting_data : PlayerPersistingData
 static var instance : Player
 
-signal begin_interacting
-signal end_interacting
-
 var speed_multiplier: float = 1.0
 
 ## EXPORT VARIABLES
@@ -70,8 +67,9 @@ func _ready() -> void:
 		gun.chamber_ammo = persisting_data.curr_chamber
 		gun.reserve_ammo = persisting_data.curr_reserve
 	
-	begin_interacting.connect(_on_player_begin_interacting)
-	end_interacting.connect(_on_player_end_interacting)
+	interactor.interaction_started.connect(_on_interaction_started)
+	interactor.interaction_ended.connect(_on_interaction_ended)
+	
 	gun.bullets_of_fire_unlocked = bullets_of_fire_unlocked
 
 func _init() -> void:
@@ -92,6 +90,8 @@ func _physics_process(delta: float) -> void:
 		## We normalize the shit out of everything so we can multiply it by a consistent speed.
 		## This way there's no weird acceleration or slowdown.
 		roll(delta)
+	elif current_state == PlayerState.INTERACTING:
+		velocity = Vector3.ZERO
 	
 	move_and_slide()
 	position.y = starting_y_pos # ensures that player does not move above starting plane
@@ -212,11 +212,11 @@ func exit_combat() -> void:
 
 ## Function bound to the signal for beginning an interaction.
 ## Changes the state to Interacting.
-func _on_player_begin_interacting() -> void:
-	current_state = PlayerState.INTERACTING;
+func _on_interaction_started() -> void:
+	current_state = PlayerState.INTERACTING
 
 ## Function bound to the signal for ending an interaction
 ## Changes state to Walking by default.
-func _on_player_end_interacting() -> void:
-	current_state = PlayerState.WALKING;
+func _on_interaction_ended() -> void:
+	current_state = PlayerState.WALKING
 #endregion

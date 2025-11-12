@@ -4,8 +4,16 @@ class_name Interactor
 var controller: Node3D
 var interactable : Interactable = null
 
-func _ready() -> void:
-	Dialog.finish_interaction.connect(change_player_state)
+var is_interacting := false:
+	set(value):
+		if value == is_interacting: return
+		is_interacting = value
+		
+		if is_interacting: interaction_started.emit()
+		else: interaction_ended.emit()
+
+signal interaction_started
+signal interaction_ended
 
 func get_closest_interactable() -> Interactable:
 	var list: Array[Area3D] = get_overlapping_areas()	
@@ -22,16 +30,16 @@ func get_closest_interactable() -> Interactable:
 
 	return closest
 
-func _process(_delta: float) -> void:
+func _process(_delta: float) -> void:	
+	if is_interacting: return
+	
 	if Input.is_action_just_pressed("interact"):
 		interactable = get_closest_interactable()
 		if interactable != null:
-			interactable.interact()
+			is_interacting = true
+			
+			@warning_ignore("redundant_await")
+			await interactable.interact()
+			
+			is_interacting = false
 		print("Trying to interact with '%s'" % interactable)
-		change_player_state()
-
-func change_player_state() -> void:
-	if (Dialog.is_text_being_rendered()):
-		get_parent().emit_signal("begin_interacting")
-	else:
-		get_parent().emit_signal("end_interacting")

@@ -15,7 +15,8 @@ var last_dialog_timestamp := 0.
 @export var sfx : Voicebank
 @export var skip_n_characters : int = 0
 
-signal finish_interaction
+signal timeline_started
+signal timeline_ended
 
 func _input(event: InputEvent) -> void:
 	if (event.is_action_pressed("interact") or event.is_action_pressed("fire")) and panel.visible: 
@@ -26,7 +27,7 @@ func _input(event: InputEvent) -> void:
 			if dialog_lines.is_empty():
 				panel.visible = false
 				last_dialog_timestamp = Time.get_ticks_msec()
-				finish_interaction.emit()
+				timeline_ended.emit()
 				return
 			show_line()
 
@@ -36,15 +37,20 @@ func debounce() -> bool:
 func is_text_being_rendered() -> bool:
 	return text_box.visible_ratio != 1
 
-func play(timeline:DialogTimeline) -> void:
+## Tries to play a dialog timeline.
+## Returns false if it can't play (already playing, or debouncing)
+func play(timeline:DialogTimeline) -> bool:
 	if panel.visible or debounce(): 
 		push_warning("Dialog.play called when a timeline is already playing. Ignoring...")
-		return
+		return false
+	
 	panel.visible = true
 	dialog_lines.assign(timeline.dialog.split("\n"))
 	speaker_box.text = ""
+	timeline_started.emit()
 	
 	show_line()
+	return true
 
 var countPlayedCharacters := 0
 const punctuationCharacters := [".", ",", "!", "?", ";", ":"]
