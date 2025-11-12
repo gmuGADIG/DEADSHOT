@@ -3,4 +3,5 @@ extends Interactable
 @export var timelime: DialogTimeline
 
 func interact() -> void:
-	Dialog.play(timelime)
+	if Dialog.play(timelime):
+		await Dialog.timeline_ended
