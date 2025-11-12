@@ -3,7 +3,7 @@ extends BossEnemy
 @export var num_shots_in_spread: int = 5
 @export var spread_angle: float = 45.0
 @export var rock_speed: float = 2
-const rock_obj := preload("res://world/enemy/bosses/horse/rock.tscn")
+const rock_obj := preload("res://world/enemy/bosses/horse/horse_rock.tscn")
 
 #region Longhorn_Variables
 @export var charge_time:float
