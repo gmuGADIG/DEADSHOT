@@ -32,8 +32,6 @@ roll_curve = SubResource("Curve_2x47q")
 health_component = NodePath("HurtboxComponent/HealthComponent")
 whip = NodePath("Whip")
 
-[node name="Hud" parent="." instance=ExtResource("2_duds0")]
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94693, 0)
 shape = SubResource("CylinderShape3D_plfsl")
@@ -115,3 +113,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9011965, 0)
 light_energy = 0.2
 omni_range = 25.0
 omni_attenuation = 1.5
+
+[node name="Hud" parent="." instance=ExtResource("2_duds0")]
