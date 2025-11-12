@@ -1,45 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://bcvw4b8fvxwum"]
+[gd_scene load_steps=10 format=3 uid="uid://bcvw4b8fvxwum"]
 
 [ext_resource type="Script" uid="uid://c1bnxnohhlms" path="res://test_scenes/cutscene_text_test.gd" id="1_h7t7a"]
 [ext_resource type="Texture2D" uid="uid://cql7y5vsb68dv" path="res://temp_art/rough_drafts/cutscene/cutscene1.png" id="2_8k56t"]
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="2_8lxff"]
+[ext_resource type="Resource" uid="uid://x0yh4numjl12" path="res://world/npc/test/test_timeline.tres" id="3_8kcv5"]
 [ext_resource type="Texture2D" uid="uid://d14m6jdmbadnh" path="res://temp_art/rough_drafts/cutscene/cutscene2.png" id="3_c1kdk"]
 [ext_resource type="Texture2D" uid="uid://ddhyw81vkbsyb" path="res://temp_art/rough_drafts/cutscene/cutscene3.png" id="4_c1kdk"]
-[ext_resource type="Texture2D" uid="uid://boauxw7dvftyt" path="res://temp_art/rough_drafts/cutscene/cutscene4.png" id="5_x4i8e"]
-[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="7_8kcv5"]
-
-[sub_resource type="Resource" id="Resource_8lxff"]
-script = ExtResource("7_8kcv5")
-dialog = "This is cutscene text.
-This is more cutscene text."
-metadata/_custom_type_script = "uid://rvaetvwo5p3h"
-
-[sub_resource type="Animation" id="Animation_x4i8e"]
-resource_name = "before_dialogue"
-length = 5.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimationPlayer/TextureRect:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("2_8k56t"), ExtResource("3_c1kdk")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimationPlayer/TextureRect:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(4, 5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_8lxff"]
 length = 0.001
@@ -68,9 +34,10 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_8kcv5"]
-resource_name = "after_dialogue"
-length = 5.0
+[sub_resource type="Animation" id="Animation_c1kdk"]
+resource_name = "cutscene"
+length = 4.0
+step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -78,10 +45,10 @@ tracks/0/path = NodePath("AnimationPlayer/TextureRect:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 1, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [ExtResource("4_c1kdk"), ExtResource("5_x4i8e")]
+"values": [ExtResource("2_8k56t"), ExtResource("3_c1kdk"), ExtResource("4_c1kdk")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -90,27 +57,35 @@ tracks/1/path = NodePath("AnimationPlayer/TextureRect:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 2, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
 }
-
-[sub_resource type="Animation" id="Animation_ar7hv"]
-resource_name = "black_transition"
-length = 1.5
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0],
+"method": &"play_timeline"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8kcv5"]
 _data = {
 &"RESET": SubResource("Animation_8lxff"),
-&"after_dialogue": SubResource("Animation_8kcv5"),
-&"before_dialogue": SubResource("Animation_x4i8e"),
-&"black_transition": SubResource("Animation_ar7hv")
+&"cutscene": SubResource("Animation_c1kdk")
 }
 
 [node name="CutsceneTextTest" type="Node2D"]
 script = ExtResource("1_h7t7a")
-timeline = SubResource("Resource_8lxff")
+timelines = Array[ExtResource("2_8lxff")]([ExtResource("3_8kcv5")])
 
 [node name="TextureButton" type="TextureButton" parent="."]
 z_index = 2
@@ -139,6 +114,7 @@ libraries = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="AnimationPlayer"]
+z_index = -100
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
