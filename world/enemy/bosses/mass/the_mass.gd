@@ -18,6 +18,8 @@ class_name TheMass extends BossEnemy
 @export var enemy_spawn_dist_max : float = 18 ## Distance away from the player the enemy is allowed to spawn
 
 var phase : int = 1
+var spike_spin_direction : int = 0
+var spike_spin_angle : int
 
 func _ready() -> void:
 	super._ready()
@@ -108,9 +110,33 @@ func teleport_to_center() -> void:
 	var new_loc : Vector3 = arena_area.global_position
 	new_loc.y = self.global_position.y
 	self.global_position = new_loc
-#func shoot_chunk() -> void:
+
+func set_up_spike_spin() -> void:
+	spike_spin_direction = randi_range(0,1)
+	if spike_spin_direction == 0:
+		spike_spin_direction = -1
+	
+	spike_spin_angle = 0
+
+func shoot_spike_spin() -> void:
+	var spike_dir : Vector3 = Vector3.BACK.rotated(Vector3.UP,deg_to_rad(spike_spin_angle))
+	
+	for i in range(0,20,2):
+		var spike_position : Vector3 = global_position+spike_dir*i
+		##Check if outside the boss arena
+		if not arena_area.is_point_in_arena(spike_position):
+			continue
+		
+		var new_spike : Spike = spike_scene.instantiate()
+		add_sibling(new_spike)
+		new_spike.global_position = spike_position
+		new_spike.delay = 1
+		new_spike.prime()
+	
+	spike_spin_angle+=spike_spin_direction*15
+#func shoot_chunk() -> void:dssd
 	#if Player.instance.current_state != Player.PlayerState.ROLLING:
-		#return
+		#returnsd
 	#
 	#await get_tree().create_timer(0.5).timeout
 	#var new_chunk : EnemyBullet = chunk.instantiate()

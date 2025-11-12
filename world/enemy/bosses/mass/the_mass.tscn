@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://d0sdri7hlk5i3"]
+[gd_scene load_steps=22 format=3 uid="uid://d0sdri7hlk5i3"]
 
 [ext_resource type="PackedScene" uid="uid://cqo1iwd2arvfk" path="res://world/enemy/bosses/boss_enemy.tscn" id="1_0ojq6"]
 [ext_resource type="Script" uid="uid://bvjxmtoqmx4bg" path="res://world/enemy/bosses/mass/the_mass.gd" id="2_0ojq6"]
@@ -8,7 +8,10 @@
 [ext_resource type="Script" uid="uid://c34j1choqmasd" path="res://world/enemy/bosses/mass/enemy_spitter.gd" id="6_wko6n"]
 [ext_resource type="PackedScene" uid="uid://dxdkwdigtcn43" path="res://world/enemy/test/enemy_test.tscn" id="7_2il7s"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_we0e7"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_b8f6a"]
+size = Vector3(11.355682, 5.3653564, 3.9311523)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2il7s"]
 size = Vector3(11.355682, 5.3653564, 3.9311523)
 
 [sub_resource type="Animation" id="Animation_b8f6a"]
@@ -387,7 +390,7 @@ tracks/2/keys = PackedFloat32Array(0.9, 1, 0, 0, 0, 1, 1, 0, -0.25, 0, 1.1, 1, 0
 
 [sub_resource type="Animation" id="Animation_v1sxx"]
 resource_name = "phase_2_spit_enemy"
-length = 4.0
+length = 2.0
 step = 0.1
 tracks/0/type = "method"
 tracks/0/imported = false
@@ -396,12 +399,9 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1, 2.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
 "values": [{
-"args": [],
-"method": &"spit_enemy"
-}, {
 "args": [],
 "method": &"spit_enemy"
 }]
@@ -412,14 +412,14 @@ tracks/1/enabled = true
 tracks/1/path = NodePath("Sprite3D")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.8000002, 1, 0, 0, 0, 1, 1, 0, 0.5, 0, 1.1999998, 1, 0, 0, 0, 1.5, 1, 0, 0, 0, 2.3000002, 1, 0, 0, 0, 2.5, 1, 0, 0.5, 0, 2.6999998, 1, 0, 0, 0, 3, 1, 0, 0, 0)
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.8000002, 1, 0, 0, 0, 1, 1, 0, 0.5, 0, 1.1999998, 1, 0, 0, 0, 1.5, 1, 0, 0, 0)
 tracks/2/type = "scale_3d"
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/path = NodePath("Sprite3D")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/keys = PackedFloat32Array(0, 1, 0.305, 0.305, 0.305, 0.8000002, 1, 0.32, 0.27, 0.305, 1, 1, 0.27, 0.35, 0.305, 1.1999998, 1, 0.305, 0.305, 0.305, 1.5, 1, 0.305, 0.305, 0.305, 2.3000002, 1, 0.32, 0.27, 0.305, 2.5, 1, 0.27, 0.35, 0.305, 2.6999998, 1, 0.305, 0.305, 0.305, 3, 1, 0.305, 0.305, 0.305)
+tracks/2/keys = PackedFloat32Array(0, 1, 0.305, 0.305, 0.305, 0.8000002, 1, 0.32, 0.27, 0.305, 1, 1, 0.27, 0.35, 0.305, 1.1999998, 1, 0.305, 0.305, 0.305, 1.5, 1, 0.305, 0.305, 0.305)
 
 [sub_resource type="Animation" id="Animation_s2jdb"]
 resource_name = "phase_change"
@@ -466,6 +466,165 @@ tracks/3/keys = {
 "values": [4, 0]
 }
 
+[sub_resource type="Animation" id="Animation_c6uyn"]
+resource_name = "phase_2_spike_spin"
+length = 8.0
+step = 0.15
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5714286, 0.71428573, 0.8571429, 1, 1.1428572, 1.2857143, 1.4285715, 1.5714285, 1.7142857, 1.8571428, 2, 2.1428573, 2.2857144, 2.4285715, 2.5714285, 2.7142856, 2.857143, 3, 3.1428573, 3.2857144, 3.4285715, 3.5714285, 3.7142859, 3.857143, 4, 4.142857, 4.285714, 4.4285717, 4.5714283, 4.714286, 4.857143, 5, 5.1428576, 5.285714, 5.4285717, 5.5714283, 5.714286, 5.857143, 6, 6.1428576, 6.285714, 6.4285717),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"set_up_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}]
+}
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.5, 1, 0, 0, 0, 0.6, 1, -0.25, -0.25, 0, 0.7, 1, 0.25, -0.25, 0, 0.79999995, 1, -0.25, -0.25, 0, 0.9, 1, 0.25, -0.25, 0, 1, 1, -0.25, -0.25, 0, 1.1, 1, 0.25, -0.25, 0, 1.1999999, 1, -0.25, -0.25, 0, 1.3, 1, 0.25, -0.25, 0, 1.4, 1, -0.25, -0.25, 0, 1.5, 1, 0.25, -0.25, 0, 1.6, 1, -0.25, -0.25, 0, 1.7, 1, 0.25, -0.25, 0, 1.8, 1, -0.25, -0.25, 0, 1.9, 1, 0.25, -0.25, 0, 1.9999999, 1, -0.25, -0.25, 0, 2.1, 1, 0.25, -0.25, 0, 2.1999998, 1, -0.25, -0.25, 0, 2.3000002, 1, 0.25, -0.25, 0, 2.4, 1, -0.25, -0.25, 0, 2.5, 1, 0.25, -0.25, 0, 2.6, 1, -0.25, -0.25, 0, 2.7000003, 1, 0.25, -0.25, 0, 2.8000002, 1, -0.25, -0.25, 0, 2.9, 1, 0.25, -0.25, 0, 3, 1, -0.25, -0.25, 0, 3.1, 1, 0.25, -0.25, 0, 3.2, 1, 0, 0, 0)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite3D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0.305, 0.305, 0.305, 0.19999997, 1, 0.27, 0.35, 0.305, 0.30000007, 1, 0.305, 0.305, 0.305, 0.50000006, 1, 0.35, 0.28, 0.305, 3.1, 1, 0.35, 0.28, 0.305, 3.2999997, 1, 0.305, 0.305, 0.305)
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k1noq"]
 _data = {
 &"RESET": SubResource("Animation_b8f6a"),
@@ -475,6 +634,7 @@ _data = {
 &"phase_1_spit_enemy": SubResource("Animation_txmqb"),
 &"phase_2_rapid_spike": SubResource("Animation_we0e7"),
 &"phase_2_spike_field": SubResource("Animation_2il7s"),
+&"phase_2_spike_spin": SubResource("Animation_c6uyn"),
 &"phase_2_spit_enemy": SubResource("Animation_v1sxx"),
 &"phase_change": SubResource("Animation_s2jdb")
 }
@@ -501,6 +661,9 @@ phase_2_action_names = Array[StringName]([&"phase_2_rapid_spike", &"phase_2_spik
 action_player = NodePath("ActionPlayer")
 max_hp = 300.0
 
+[node name="CollisionShape3D" parent="." index="0"]
+shape = SubResource("BoxShape3D_b8f6a")
+
 [node name="Sprite3D" parent="." index="1"]
 transform = Transform3D(0.305, 0, 0, 0, 0.26413772, 0.15250008, 0, -0.15250008, 0.26413772, 0, 0, 0)
 offset = Vector2(0, 400)
@@ -511,7 +674,7 @@ max_health = 400
 
 [node name="CollisionShape3D" parent="Hurtbox" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16773987, 3.1296082, -0.58862305)
-shape = SubResource("BoxShape3D_we0e7")
+shape = SubResource("BoxShape3D_2il7s")
 
 [node name="ActionPlayer" parent="." index="6"]
 libraries = {
