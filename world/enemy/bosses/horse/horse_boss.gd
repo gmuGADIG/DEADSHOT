@@ -1,11 +1,11 @@
 extends BossEnemy
 
+const rock_obj := preload("res://world/enemy/bosses/horse/horse_rock.tscn")
+
+@export var roam_points: Array[Node3D]
 @export var num_shots_in_spread: int = 5
 @export var spread_angle: float = 45.0
 @export var rock_speed: float = 2
-const rock_obj := preload("res://world/enemy/bosses/horse/horse_rock.tscn")
-
-#region Longhorn_Variables
 @export var charge_time:float
 @export var cooldown_time:float
 @export var atk_source: DamageInfo.Source
@@ -21,7 +21,6 @@ var target:Vector3
 @export var floor_area: Path3D
 
 var current_action: StringName = ""
-#endregion
 
 func pick_action() -> void:
 	
@@ -52,7 +51,6 @@ func stomp_fire_attack() -> void:
 		var bullet_reference: Node3D = rock_obj.instantiate()
 		add_sibling(bullet_reference)
 		bullet_reference.global_position = global_position
-		bullet_reference.set_speed(rock_speed)
 
 		var target_position: Vector3 = player.global_position
 		var direction: Vector3 = (target_position - global_position).normalized()
@@ -121,24 +119,8 @@ func attack() -> void:
 	if (is_charging):
 		longhorn_process()
 
-func get_bounds() -> AABB:
-	var minPoint: Vector3 = floor_area.curve.get_point_position(0)
-	var maxPoint: Vector3 = floor_area.curve.get_point_position(0)
-	for i in range(floor_area.curve.get_point_count()):
-		var point: Vector3 = floor_area.curve.get_point_position(i)
-		minPoint.x = min(minPoint.x, point.x)
-		minPoint.y = min(minPoint.y, point.y)
-		minPoint.z = min(minPoint.z, point.z)
-		maxPoint.x = max(maxPoint.x, point.x)
-		maxPoint.y = max(maxPoint.y, point.y)
-		maxPoint.z = max(maxPoint.z, point.z)
-	return AABB(minPoint, maxPoint - minPoint)
-
 func roam() -> void:
-	var bounds: AABB = get_bounds()
-	var random_x: float = randf_range(bounds.position.x, bounds.position.x + bounds.size.x)
-	var random_z: float = randf_range(bounds.position.z, bounds.position.z + bounds.size.z)
-	var target_pos: Vector3 = Vector3(random_x, global_position.y, random_z)
+	var target_pos: Vector3 = roam_points.pick_random().global_position
 	set_movement_target(target_pos)
 	should_move = true
 	aggro = AggroState.HOSTILE

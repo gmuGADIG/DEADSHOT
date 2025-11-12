@@ -37,6 +37,8 @@ enum AggroState {
 @export var movement_speed : float = 10.0
 ## Rate of the tonic dropping, from 0 to 1.
 @export_range(0.0, 1.0, 0.01) var tonic_drop_rate : float = 0.5
+## What node, if any, spawns when the enemy dies.
+@export var spawn_on_killed: PackedScene = preload("res://world/enemy/meat/meat.tscn")
 
 # TODO: type is a subclass?
 ## Does the enemy remain still or move about on their own?
@@ -94,8 +96,6 @@ func _ready() -> void:
 	
 	last_known_player_position = player.global_position if (player != null) else Vector3.ZERO
 	
-	%Health.killed.connect(queue_free)
-	%Health.killed.connect(drop_tonic)
 	%Health.killed.connect(death)
 
 	if fire_rate == 0:
@@ -209,7 +209,17 @@ func drop_tonic() -> void:
 		$/root.add_child(dropped_tonic);
 		
 func death() -> void:
+	# save that this enemy died
 	Save.save_data.object_save_data.mark_dead(self)
+	
+	# drop stuff
+	drop_tonic()
+	if spawn_on_killed != null:
+		var spawn := spawn_on_killed.instantiate()
+		add_sibling(spawn)
+		spawn.global_position = global_position
+	
+	# free
 	queue_free()
 
 func shoot_bullet() -> void:

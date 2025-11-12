@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dp00f0nisoyxa"]
+[gd_scene load_steps=8 format=3 uid="uid://dp00f0nisoyxa"]
 
 [ext_resource type="PackedScene" uid="uid://c5mugf35c8n0f" path="res://world/enemy/bosses/boss_enemy.tscn" id="1_bulbf"]
 [ext_resource type="Script" uid="uid://caif4brdw52j8" path="res://world/enemy/bosses/horse/horse_boss.gd" id="2_23ymh"]
 [ext_resource type="Texture2D" uid="uid://d0i6s18l8lpes" path="res://world/enemy/base/evil_horse.png" id="3_dc5ks"]
+[ext_resource type="PackedScene" uid="uid://b0ttk38sufgur" path="res://world/pickups/corrupt_heart/corrupt_heart.tscn" id="3_o0ar2"]
 
 [sub_resource type="Animation" id="Animation_dc5ks"]
 resource_name = "charge"
@@ -48,13 +49,9 @@ _data = {
 &"stomp": SubResource("Animation_23ymh")
 }
 
-[node name="Horse" instance=ExtResource("1_bulbf")]
+[node name="Horse" node_paths=PackedStringArray("roam_points", "action_player") instance=ExtResource("1_bulbf")]
 script = ExtResource("2_23ymh")
-phase_1_action_names = Array[StringName]([&"stomp", &"charge"])
-action_player = Object(AnimationPlayer,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":1,"libraries":{
-&"": SubResource("AnimationLibrary_dc5ks")
-},"autoplay":"","playback_auto_capture":true,"playback_auto_capture_duration":-1.0,"playback_auto_capture_transition_type":0,"playback_auto_capture_ease_type":0,"playback_default_blend_time":0.0,"speed_scale":1.0,"movie_quit_on_finish":false,"blend_times":[],"script":null)
-
+roam_points = []
 num_shots_in_spread = 3
 spread_angle = 45.0
 rock_speed = 30.0
@@ -62,10 +59,16 @@ charge_time = 0.0
 cooldown_time = 0.0
 atk_source = 0
 atk_knockback = 0
+phase_1_action_names = Array[StringName]([&"stomp", &"charge"])
+action_player = NodePath("ActionPlayer")
+spawn_on_killed = ExtResource("3_o0ar2")
 
 [node name="Sprite3D" parent="." index="1"]
 transform = Transform3D(0.8, 0, 0, 0, 0.4327907, 0.34375343, 0, -0.24987194, 0.59539807, 0, 1.3770412, 0)
 texture = ExtResource("3_dc5ks")
+
+[node name="Health" parent="." index="3"]
+max_health = 100
 
 [node name="CollisionShape3D" parent="Hurtbox" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2055829, 0)

@@ -80,7 +80,7 @@ target_scene = "uid://c4lcfae1j0kdx"
 target_entry_point = "Bottom"
 
 [node name="Player" parent="." index="6"]
-transform = Transform3D(1.2078707, 0, 0, 0, 1, 0, 0, 0, 1.2078707, 16.158676, 0, 37.40243)
+transform = Transform3D(1.2078707, 0, 0, 0, 1, 0, 0, 0, 1.2078707, 54.658966, 0, 12.676014)
 
 [node name="Boulder" type="Node" parent="." index="7"]
 
@@ -771,8 +771,35 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.096542, 0, -9.944796)
 [node name="Boulder4" parent="Encounter 3" index="8" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.7997284, 9.536743e-07, 4.8894405)
 
-[node name="Horse" parent="Encounter 3" index="9" instance=ExtResource("14_b84ov")]
+[node name="Horse" parent="Encounter 3" index="9" node_paths=PackedStringArray("roam_points") instance=ExtResource("14_b84ov")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06713486, 0, -1.9251671)
+roam_points = [NodePath("RoamPoints/Point"), NodePath("RoamPoints/Point2"), NodePath("RoamPoints/Point3"), NodePath("RoamPoints/Point4"), NodePath("RoamPoints/Point5"), NodePath("RoamPoints/Point6"), NodePath("RoamPoints/Point7"), NodePath("RoamPoints/Point8")]
+
+[node name="RoamPoints" type="Node" parent="Encounter 3/Horse" index="10"]
+
+[node name="Point" type="Node3D" parent="Encounter 3/Horse/RoamPoints" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.40684, -4.7683716e-07, 21.822258)
+
+[node name="Point2" type="Node3D" parent="Encounter 3/Horse/RoamPoints" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.895496, -4.7683716e-07, 24.97309)
+
+[node name="Point3" type="Node3D" parent="Encounter 3/Horse/RoamPoints" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.23337, 4.7683716e-07, 25.230589)
+
+[node name="Point4" type="Node3D" parent="Encounter 3/Horse/RoamPoints" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.35584, 4.7683716e-07, 20.332926)
+
+[node name="Point5" type="Node3D" parent="Encounter 3/Horse/RoamPoints" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.37798, -4.7683716e-07, 13.31871)
+
+[node name="Point6" type="Node3D" parent="Encounter 3/Horse/RoamPoints" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.580135, -4.7683716e-07, 15.316044)
+
+[node name="Point7" type="Node3D" parent="Encounter 3/Horse/RoamPoints" index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.617504, -4.7683716e-07, 14.396516)
+
+[node name="Point8" type="Node3D" parent="Encounter 3/Horse/RoamPoints" index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.60514, -4.7683716e-07, 13.922693)
 
 [node name="CactusLarge" parent="Encounter 3" index="10" instance=ExtResource("4_xa3ak")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.547646, 0, -2.91189)

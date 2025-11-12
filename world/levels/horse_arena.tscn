@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bnbc74ay6h1rl"]
+[gd_scene load_steps=7 format=3 uid="uid://bnbc74ay6h1rl"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_lm8ri"]
 [ext_resource type="Resource" uid="uid://ebi2mrpur7b6" path="res://world/floor/rock/rock.tres" id="2_v5nwm"]
 [ext_resource type="PackedScene" uid="uid://dp00f0nisoyxa" path="res://world/enemy/bosses/horse/horse.tscn" id="3_lm8ri"]
+[ext_resource type="PackedScene" uid="uid://b0ttk38sufgur" path="res://world/pickups/corrupt_heart/corrupt_heart.tscn" id="4_v5nwm"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_yi0vy"]
 vertices = PackedVector3Array(-19.534193, 0.48999965, -7.307107, -19.534193, 0.48999965, 15.192893, 19.215807, 0.48999965, 15.192893, 19.215807, 0.48999965, -7.307107)
@@ -27,8 +28,9 @@ material = ExtResource("2_v5nwm")
 [node name="Player" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.202965, 0, 8.371207)
 
-[node name="Horse" parent="." index="6" node_paths=PackedStringArray("floor_area") instance=ExtResource("3_lm8ri")]
+[node name="Horse" parent="." index="6" node_paths=PackedStringArray("roam_points", "floor_area") instance=ExtResource("3_lm8ri")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46483076, 0)
+roam_points = []
 spread_angle = 25.0
 rock_speed = 10.0
 charge_time = 1.0
@@ -37,4 +39,5 @@ atk_source = 1
 atk_knockback = 1
 floor_area = NodePath("../World/Floor")
 phase_1_action_names = Array[StringName]([&"stomp"])
+spawn_on_killed = ExtResource("4_v5nwm")
 patrol_path = Array[Vector3]([Vector3(0, 0, 0)])
