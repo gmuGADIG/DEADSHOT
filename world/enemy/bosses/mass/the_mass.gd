@@ -134,6 +134,8 @@ func shoot_spike_spin() -> void:
 		new_spike.prime()
 	
 	spike_spin_angle+=spike_spin_direction*15
+	
+#BUG: uses EnemyBullet but EnemyBullet has been refactored out
 #func shoot_chunk() -> void:dssd
 	#if Player.instance.current_state != Player.PlayerState.ROLLING:
 		#returnsd

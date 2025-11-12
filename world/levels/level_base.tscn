@@ -1,13 +1,52 @@
-[gd_scene load_steps=6 format=3 uid="uid://bk60c4813t663"]
+[gd_scene load_steps=11 format=3 uid="uid://bk60c4813t663"]
 
 [ext_resource type="PackedScene" uid="uid://cr05xakri7lnw" path="res://world/floor/floor_gen.tscn" id="1_8hxjk"]
+[ext_resource type="Script" uid="uid://cjhe4i28xn2ne" path="res://world/backgrounds/background.gd" id="2_ay16i"]
 [ext_resource type="PackedScene" uid="uid://nuqmhgq1e2lu" path="res://world/player/player.tscn" id="2_nnb1h"]
 [ext_resource type="Script" uid="uid://2uxmd0kth1s5" path="res://world/transitions/entry_points.gd" id="2_rsarx"]
 [ext_resource type="PackedScene" uid="uid://1s1a4b2buf1o" path="res://menu/pause_menu/pause_menu.tscn" id="3_uyrbk"]
+[ext_resource type="PackedScene" uid="uid://cn2ip7hvcayky" path="res://systems/camera/main_cam.tscn" id="5_xskwq"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_xskwq"]
 
+[sub_resource type="Gradient" id="Gradient_xskwq"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.57758623, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.67058825)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0lvvw"]
+gradient = SubResource("Gradient_xskwq")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.14102565)
+
+[sub_resource type="Environment" id="Environment_xskwq"]
+background_mode = 1
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.1
+glow_enabled = true
+glow_intensity = 0.53
+glow_hdr_threshold = 0.4
+fog_mode = 1
+fog_light_color = Color(0, 0, 0, 1)
+fog_density = 1.0
+fog_depth_begin = 12.0
+fog_depth_end = 50.0
+adjustment_enabled = true
+adjustment_brightness = 0.95
+adjustment_contrast = 1.2
+
 [node name="LevelBase" type="Node3D"]
+
+[node name="Background" type="Node3D" parent="."]
+
+[node name="FullscreenBG" type="Sprite3D" parent="Background"]
+transform = Transform3D(0.114, 0, 0, 0, 0.06538772, 0.093383335, 0, -0.093383335, 0.06538772, 2.5613499, -14.898792, -12.023702)
+cast_shadow = 0
+transparent = false
+fixed_size = true
+script = ExtResource("2_ay16i")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.9247388, -0.25272667, 0.2845829, 0, 0.74771696, 0.66401756, -0.38060242, -0.61404276, 0.69144297, 0, 0, 0)
@@ -35,3 +74,17 @@ grow_vertical = 2
 
 [node name="PauseMenu" parent="UI" instance=ExtResource("3_uyrbk")]
 layout_mode = 1
+
+[node name="Vignette" type="TextureRect" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_0lvvw")
+
+[node name="MainCam" parent="." instance=ExtResource("5_xskwq")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xskwq")

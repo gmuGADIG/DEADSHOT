@@ -1,8 +1,8 @@
 [gd_scene load_steps=22 format=3 uid="uid://d0sdri7hlk5i3"]
 
-[ext_resource type="PackedScene" uid="uid://cqo1iwd2arvfk" path="res://world/enemy/bosses/boss_enemy.tscn" id="1_0ojq6"]
+[ext_resource type="PackedScene" uid="uid://c5mugf35c8n0f" path="res://world/enemy/bosses/boss_enemy.tscn" id="1_0ojq6"]
 [ext_resource type="Script" uid="uid://bvjxmtoqmx4bg" path="res://world/enemy/bosses/mass/the_mass.gd" id="2_0ojq6"]
-[ext_resource type="PackedScene" uid="uid://0087idnveyoi" path="res://world/enemy/bosses/mass/attacks/spike_attack.tscn" id="3_k1noq"]
+[ext_resource type="PackedScene" uid="uid://0087idnveyoi" path="res://world/enemy/bosses/mass/attacks/spike_attack.tscn" id="3_2il7s"]
 [ext_resource type="Texture2D" uid="uid://bsjg2jy70gbkw" path="res://temp_art/rough_drafts/mass_temp.png" id="3_we0e7"]
 [ext_resource type="PackedScene" uid="uid://xug45fo2qtmw" path="res://world/enemy/bosses/mass/mass_chunk.tscn" id="4_6qvwf"]
 [ext_resource type="Script" uid="uid://c34j1choqmasd" path="res://world/enemy/bosses/mass/enemy_spitter.gd" id="6_wko6n"]
@@ -13,6 +13,11 @@ size = Vector3(11.355682, 5.3653564, 3.9311523)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2il7s"]
 size = Vector3(11.355682, 5.3653564, 3.9311523)
+
+[sub_resource type="Curve" id="Curve_2il7s"]
+_limits = [0.22, 5.0, 0.0, 0.8]
+_data = [Vector2(0, 0.22), 0.0, 0.0, 0, 0, Vector2(0.33892474, 5), 0.0, 0.0, 0, 0, Vector2(0.8, 0.22), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="Animation" id="Animation_b8f6a"]
 length = 0.001
@@ -388,84 +393,6 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = PackedFloat32Array(0.9, 1, 0, 0, 0, 1, 1, 0, -0.25, 0, 1.1, 1, 0, 0, 0, 1.4, 1, 0, 0, 0, 1.5000001, 1, 0, -0.25, 0, 1.6, 1, 0, 0, 0, 1.9, 1, 0, 0, 0, 2, 1, 0, -0.25, 0, 2.1, 1, 0, 0, 0, 2.4, 1, 0, 0, 0, 2.5, 1, 0, -0.25, 0, 2.6, 1, 0, 0, 0, 2.9, 1, 0, 0, 0, 3, 1, 0, -0.25, 0, 3.1, 1, 0, 0, 0)
 
-[sub_resource type="Animation" id="Animation_v1sxx"]
-resource_name = "phase_2_spit_enemy"
-length = 2.0
-step = 0.1
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"spit_enemy"
-}]
-}
-tracks/1/type = "position_3d"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite3D")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.8000002, 1, 0, 0, 0, 1, 1, 0, 0.5, 0, 1.1999998, 1, 0, 0, 0, 1.5, 1, 0, 0, 0)
-tracks/2/type = "scale_3d"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite3D")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = PackedFloat32Array(0, 1, 0.305, 0.305, 0.305, 0.8000002, 1, 0.32, 0.27, 0.305, 1, 1, 0.27, 0.35, 0.305, 1.1999998, 1, 0.305, 0.305, 0.305, 1.5, 1, 0.305, 0.305, 0.305)
-
-[sub_resource type="Animation" id="Animation_s2jdb"]
-resource_name = "phase_change"
-length = 8.5
-step = 0.5
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.07692308, 1, 0.25, 0, -0.25, 0.15384616, 1, -0.25, 0, -0.25, 0.23076923, 1, 0.25, 0, 0, 0.30769232, 1, -0.25, 0, 0, 0.3846154, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1.4, 1, 0, 0, 0, 1.5999999, 1, -0.5, 0, 0, 1.7999997, 1, 0.5, -1, 0, 2, 1, -0.5, -2, 0, 2.1999998, 1, 0.5, -3, 0, 2.4, 1, -0.5, -4, 0, 2.6, 1, 0.5, -5, 0, 2.7999997, 1, -0.5, -6, 0, 3, 1, 0.5, -7, 0, 3.7, 1, 0.5, -7, 0, 3.8999999, 1, -0.5, -6, 0, 4.1000004, 1, 0.5, -5, 0, 4.3, 1, -0.5, -4, 0, 4.5, 1, 0.5, -3, 0, 4.7, 1, -0.5, -2, 0, 4.8999996, 1, 0.5, -1, 0, 5.1000004, 1, -0.5, 0, 0, 5.3, 1, 0, 0, 0, 6.3, 1, 0, 0, 0, 6.4615383, 1, -0.5, 0, 0, 6.6153846, 1, 0.5, 0, 0, 6.769231, 1, 0, 0, 0, 6.923077, 1, 0.5, 0, 0, 7.076923, 1, 0, 0, 0)
-tracks/1/type = "scale_3d"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite3D")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0.305, 0.305, 0.305, 0.19999993, 1, 0.27, 0.35, 0.305, 0.3000002, 1, 0.305, 0.305, 0.305, 1, 1, 0.305, 0.305, 0.305, 1.1999999, 1, 0.27, 0.35, 0.305, 1.3000002, 1, 0.305, 0.305, 0.305, 1.5, 1, 0.35, 0.28, 0.305, 5.1000004, 1, 0.305, 0.305, 0.305, 5.3, 1, 0.27, 0.35, 0.305, 5.4000006, 1, 0.305, 0.305, 0.305, 5.6000004, 1, 0.35, 0.28, 0.305, 5.7, 1, 0.305, 0.305, 0.305, 6.1, 1, 0.305, 0.305, 0.305, 6.2999997, 1, 0.27, 0.35, 0.305, 7, 1, 0.27, 0.35, 0.305, 7.1000004, 1, 0.305, 0.305, 0.305, 7.3, 1, 0.35, 0.28, 0.305, 7.3999996, 1, 0.305, 0.305, 0.305)
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(3.3),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"teleport_to_center"
-}]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Hurtbox:process_mode")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 8.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [4, 0]
-}
-
 [sub_resource type="Animation" id="Animation_c6uyn"]
 resource_name = "phase_2_spike_spin"
 length = 8.0
@@ -625,6 +552,84 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = PackedFloat32Array(0, 1, 0.305, 0.305, 0.305, 0.19999997, 1, 0.27, 0.35, 0.305, 0.30000007, 1, 0.305, 0.305, 0.305, 0.50000006, 1, 0.35, 0.28, 0.305, 3.1, 1, 0.35, 0.28, 0.305, 3.2999997, 1, 0.305, 0.305, 0.305)
 
+[sub_resource type="Animation" id="Animation_v1sxx"]
+resource_name = "phase_2_spit_enemy"
+length = 2.0
+step = 0.1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spit_enemy"
+}]
+}
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.8000002, 1, 0, 0, 0, 1, 1, 0, 0.5, 0, 1.1999998, 1, 0, 0, 0, 1.5, 1, 0, 0, 0)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite3D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0.305, 0.305, 0.305, 0.8000002, 1, 0.32, 0.27, 0.305, 1, 1, 0.27, 0.35, 0.305, 1.1999998, 1, 0.305, 0.305, 0.305, 1.5, 1, 0.305, 0.305, 0.305)
+
+[sub_resource type="Animation" id="Animation_s2jdb"]
+resource_name = "phase_change"
+length = 8.5
+step = 0.5
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.07692308, 1, 0.25, 0, -0.25, 0.15384616, 1, -0.25, 0, -0.25, 0.23076923, 1, 0.25, 0, 0, 0.30769232, 1, -0.25, 0, 0, 0.3846154, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1.4, 1, 0, 0, 0, 1.5999999, 1, -0.5, 0, 0, 1.7999997, 1, 0.5, -1, 0, 2, 1, -0.5, -2, 0, 2.1999998, 1, 0.5, -3, 0, 2.4, 1, -0.5, -4, 0, 2.6, 1, 0.5, -5, 0, 2.7999997, 1, -0.5, -6, 0, 3, 1, 0.5, -7, 0, 3.7, 1, 0.5, -7, 0, 3.8999999, 1, -0.5, -6, 0, 4.1000004, 1, 0.5, -5, 0, 4.3, 1, -0.5, -4, 0, 4.5, 1, 0.5, -3, 0, 4.7, 1, -0.5, -2, 0, 4.8999996, 1, 0.5, -1, 0, 5.1000004, 1, -0.5, 0, 0, 5.3, 1, 0, 0, 0, 6.3, 1, 0, 0, 0, 6.4615383, 1, -0.5, 0, 0, 6.6153846, 1, 0.5, 0, 0, 6.769231, 1, 0, 0, 0, 6.923077, 1, 0.5, 0, 0, 7.076923, 1, 0, 0, 0)
+tracks/1/type = "scale_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.305, 0.305, 0.305, 0.19999993, 1, 0.27, 0.35, 0.305, 0.3000002, 1, 0.305, 0.305, 0.305, 1, 1, 0.305, 0.305, 0.305, 1.1999999, 1, 0.27, 0.35, 0.305, 1.3000002, 1, 0.305, 0.305, 0.305, 1.5, 1, 0.35, 0.28, 0.305, 5.1000004, 1, 0.305, 0.305, 0.305, 5.3, 1, 0.27, 0.35, 0.305, 5.4000006, 1, 0.305, 0.305, 0.305, 5.6000004, 1, 0.35, 0.28, 0.305, 5.7, 1, 0.305, 0.305, 0.305, 6.1, 1, 0.305, 0.305, 0.305, 6.2999997, 1, 0.27, 0.35, 0.305, 7, 1, 0.27, 0.35, 0.305, 7.1000004, 1, 0.305, 0.305, 0.305, 7.3, 1, 0.35, 0.28, 0.305, 7.3999996, 1, 0.305, 0.305, 0.305)
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"teleport_to_center"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hurtbox:process_mode")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 8.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k1noq"]
 _data = {
 &"RESET": SubResource("Animation_b8f6a"),
@@ -639,14 +644,9 @@ _data = {
 &"phase_change": SubResource("Animation_s2jdb")
 }
 
-[sub_resource type="Curve" id="Curve_2il7s"]
-_limits = [0.22, 5.0, 0.0, 0.8]
-_data = [Vector2(0, 0.22), 0.0, 0.0, 0, 0, Vector2(0.33892474, 5), 0.0, 0.0, 0, 0, Vector2(0.8, 0.22), 0.0, 0.0, 0, 0]
-point_count = 3
-
 [node name="TheMass" node_paths=PackedStringArray("action_player") instance=ExtResource("1_0ojq6")]
 script = ExtResource("2_0ojq6")
-spike_scene = ExtResource("3_k1noq")
+spike_scene = ExtResource("3_2il7s")
 player_still_spread_distance = 15.0
 player_predict_distance_min = -3.0
 player_predict_distance_max = 15.0
@@ -659,7 +659,6 @@ enemy_spawn_dist_max = 18.0
 phase_1_action_names = Array[StringName]([&"phase_1_rapid_spike", &"phase_1_spike_field", &"phase_1_spit_enemy"])
 phase_2_action_names = Array[StringName]([&"phase_2_rapid_spike", &"phase_2_spike_field", &"phase_2_spit_enemy"])
 action_player = NodePath("ActionPlayer")
-max_hp = 300.0
 
 [node name="CollisionShape3D" parent="." index="0"]
 shape = SubResource("BoxShape3D_b8f6a")
@@ -676,11 +675,6 @@ max_health = 400
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16773987, 3.1296082, -0.58862305)
 shape = SubResource("BoxShape3D_2il7s")
 
-[node name="ActionPlayer" parent="." index="6"]
-libraries = {
-&"": SubResource("AnimationLibrary_k1noq")
-}
-
 [node name="BulletSpawnPoint" type="Node3D" parent="." index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9846437, 0)
 
@@ -688,3 +682,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9846437, 0)
 script = ExtResource("6_wko6n")
 enemy_scenes = Array[PackedScene]([ExtResource("7_2il7s")])
 launch_curve = SubResource("Curve_2il7s")
+
+[node name="ActionPlayer" parent="." index="10"]
+libraries = {
+&"": SubResource("AnimationLibrary_k1noq")
+}

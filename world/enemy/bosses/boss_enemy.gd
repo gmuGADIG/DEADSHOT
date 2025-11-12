@@ -12,6 +12,7 @@ var last_action : StringName
 
 #region Behaviour Functions
 func _ready() -> void:
+	super._ready()
 	pick_action()
 
 func pick_action() -> void: ##TODO: Override this
@@ -27,4 +28,6 @@ func hostile() -> void:
 func attack() -> void:
 	pass
 
+func _on_visible_on_screen_notifier_3d_screen_entered() -> void:
+	pass #Override base enemy behavior
 #endregion

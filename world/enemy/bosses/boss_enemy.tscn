@@ -1,11 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://cqo1iwd2arvfk"]
+[gd_scene load_steps=6 format=3 uid="uid://c5mugf35c8n0f"]
 
 [ext_resource type="PackedScene" uid="uid://dx3l0wduat3tp" path="res://world/enemy/base/enemy_base.tscn" id="1_ktb5c"]
 [ext_resource type="Script" uid="uid://7b0himm6r8el" path="res://world/enemy/bosses/boss_enemy.gd" id="2_eboog"]
+[ext_resource type="Script" path="res://util/sprite_shaker.gd" id="3_7gjwh"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7gjwh"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7gjwh"]
 
 [node name="BossEnemy" instance=ExtResource("1_ktb5c")]
 script = ExtResource("2_eboog")
 
-[node name="ActionPlayer" type="AnimationPlayer" parent="." index="6"]
+[node name="ChargeTimer" type="Timer" parent="." index="6"]
+unique_name_in_owner = true
+
+[node name="SpriteShaker" type="Node" parent="." index="7" node_paths=PackedStringArray("sprite")]
+script = ExtResource("3_7gjwh")
+sprite = NodePath("../Sprite3D")
+noise = SubResource("FastNoiseLite_7gjwh")
+metadata/_custom_type_script = "uid://dy4h4d283fxxn"
+
+[node name="ActionPlayer" type="AnimationPlayer" parent="." index="8"]
+libraries = {
+&"": SubResource("AnimationLibrary_7gjwh")
+}
 
 [connection signal="animation_finished" from="ActionPlayer" to="." method="action_finished"]
