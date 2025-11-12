@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdo2hhkl4eici"]
+[gd_scene load_steps=4 format=3 uid="uid://53setitiasq8"]
 
 [ext_resource type="Script" uid="uid://bxbowl7sjix2l" path="res://world/bullets/bullet.gd" id="1_bvla6"]
 [ext_resource type="Texture2D" uid="uid://54e4esurd3xm" path="res://temp_art/gartic/gun.png" id="1_ydd17"]

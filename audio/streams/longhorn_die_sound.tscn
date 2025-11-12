@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpfklhcte1c5h"]
+
+[ext_resource type="AudioStream" uid="uid://drvscc177esir" path="res://audio/placeholders/test_explode_big.wav" id="1_aseh3"]
+
+[node name="LonghornDieSound" type="AudioStreamPlayer3D"]
+stream = ExtResource("1_aseh3")

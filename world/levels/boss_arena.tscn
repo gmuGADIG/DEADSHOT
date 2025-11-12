@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://bu142em2t7vf0"]
+
+[ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_m7nrf"]
+[ext_resource type="Resource" uid="uid://ebi2mrpur7b6" path="res://world/floor/rock/rock.tres" id="2_ne3pg"]
+[ext_resource type="PackedScene" uid="uid://d0sdri7hlk5i3" path="res://world/enemy/bosses/mass/the_mass.tscn" id="3_ne3pg"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_yi0vy"]
+vertices = PackedVector3Array(-7.53308, 0.48999965, -7.303426, -7.53308, 0.48999965, 7.196574, 7.21692, 0.48999965, 7.196574, 7.21692, 0.48999965, -7.303426)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[sub_resource type="Curve3D" id="Curve3D_ronks"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -20.035074, 0, -7.961582, 0, 0, 0, 0, 0, 0, 19.937084, 0, -8.05957, 0, 0, 0, 0, 0, 0, 19.937084, 0, 15.912587, 0, 0, 0, 0, 0, 0, -20.035074, 0, 15.814598),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[node name="BossArena" instance=ExtResource("1_m7nrf")]
+
+[node name="World" parent="." index="1"]
+navigation_mesh = SubResource("NavigationMesh_yi0vy")
+
+[node name="Floor" parent="World" index="0"]
+curve = SubResource("Curve3D_ronks")
+material = ExtResource("2_ne3pg")
+
+[node name="Player" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.202965, 0, 8.371207)
+
+[node name="TheMass" parent="." index="6" instance=ExtResource("3_ne3pg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
