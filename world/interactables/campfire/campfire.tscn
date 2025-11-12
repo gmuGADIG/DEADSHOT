@@ -1,56 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dwsraqi3f8a1l"]
+[gd_scene load_steps=4 format=3 uid="uid://dwsraqi3f8a1l"]
 
+[ext_resource type="SpriteFrames" uid="uid://ubx8wetjoqm2" path="res://world/interactables/campfire/campfire_frames.tres" id="2_5undl"]
 [ext_resource type="Script" uid="uid://bn6avupkkqnrl" path="res://world/interactables/campfire/campfire.gd" id="2_lvvka"]
-[ext_resource type="Texture2D" uid="uid://lxwrp6g5j1m2" path="res://world/interactables/campfire/DeadshotCamfire.png" id="3_35fmf"]
-[ext_resource type="Texture2D" uid="uid://btid4xpsasn3e" path="res://world/interactables/campfire/campfireOut.png" id="3_wx3c2"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_35fmf"]
 height = 1.1269531
 radius = 1.6875
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wx3c2"]
-atlas = ExtResource("3_35fmf")
-region = Rect2(0, 0, 513, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7am0y"]
-atlas = ExtResource("3_35fmf")
-region = Rect2(513, 0, 513, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0t6bq"]
-atlas = ExtResource("3_35fmf")
-region = Rect2(1539, 0, 513, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1t576"]
-atlas = ExtResource("3_35fmf")
-region = Rect2(2052, 0, 513, 512)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_v1xqc"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_wx3c2")
-}],
-"loop": true,
-"name": &"extinguished",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wx3c2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7am0y")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0t6bq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1t576")
-}],
-"loop": true,
-"name": &"lit",
-"speed": 5.0
-}]
 
 [node name="Campfire" type="Area3D"]
 collision_layer = 4
@@ -65,8 +20,10 @@ shape = SubResource("CylinderShape3D_35fmf")
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0.7802601, 0)
 pixel_size = 0.005
-sprite_frames = SubResource("SpriteFrames_v1xqc")
-animation = &"extinguished"
+sprite_frames = ExtResource("2_5undl")
+animation = &"lit"
+frame = 3
+frame_progress = 0.38747305
 
 [node name="Light" type="OmniLight3D" parent="."]
 unique_name_in_owner = true

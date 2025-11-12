@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://54e4esurd3xm" path="res://temp_art/gartic/gun.png" id="5_3b2bh"]
 [ext_resource type="Texture2D" uid="uid://sxaysn4gqoxo" path="res://temp_art/gartic/coin.png" id="6_6jgdw"]
 [ext_resource type="Texture2D" uid="uid://cegfpthfj6eil" path="res://temp_art/gartic/godot_dead.png" id="6_ph0jt"]
-[ext_resource type="Script" path="res://menu/skill_tree/skill_tree_overlay.gd" id="8_oh6w3"]
+[ext_resource type="Script" uid="uid://g60bhhds87wx" path="res://menu/skill_tree/skill_tree_overlay.gd" id="8_oh6w3"]
 [ext_resource type="Texture2D" uid="uid://y1h3uww1jns7" path="res://world/enemy/meat/meat.png" id="8_yrbjn"]
 
 [sub_resource type="Resource" id="Resource_lmf3w"]
@@ -211,11 +211,12 @@ script = ExtResource("1_dnamn")
 zoom_offset = Vector2(-15, -25)
 
 [node name="Background" type="ColorRect" parent="."]
-visible = false
 layout_mode = 0
-offset_right = 1166.0
-offset_bottom = 660.0
-color = Color(0, 0.2365942, 0.6779701, 1)
+offset_left = -322.0
+offset_top = -207.0
+offset_right = 1488.0
+offset_bottom = 867.0
+color = Color(0, 0, 0, 0.87058824)
 
 [node name="ExitButton" type="Button" parent="."]
 layout_mode = 0
@@ -612,5 +613,6 @@ stretch_mode = 5
 unique_name_in_owner = true
 z_index = -1
 
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="Overlay/SkillPanel/VSplitContainer/Options/Purchase" to="." method="_on_purchase_pressed"]
 [connection signal="pressed" from="Overlay/SkillPanel/VSplitContainer/Options/Cancel" to="." method="on_skill_unselected"]
