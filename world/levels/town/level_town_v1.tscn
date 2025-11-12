@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://beju3ms5o28f6"]
+[gd_scene load_steps=15 format=3 uid="uid://beju3ms5o28f6"]
 
 [ext_resource type="PackedScene" uid="uid://cxahvvaidpg32" path="res://world/levels/town/level_town_base.tscn" id="1_vhep4"]
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="2_j473c"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dgq8eujhb7aiv" path="res://world/enemy/enemy_bandit.tscn" id="8_s6y2q"]
 [ext_resource type="PackedScene" uid="uid://cgpuvir86nykf" path="res://world/levels/town/level_town_v2_npc.tscn" id="9_lm1tg"]
 [ext_resource type="PackedScene" uid="uid://h4pbrdsf4bcg" path="res://world/enemy/splitter/enemy_splitter.tscn" id="10_peyec"]
+[ext_resource type="PackedScene" uid="uid://buycij5b3uf5i" path="res://world/npc/paper/paper.tscn" id="12_j473c"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dynrd"]
 size = Vector3(10, 3, 10)
@@ -20,7 +21,7 @@ size = Vector3(9.885742, 3, 10)
 
 [node name="LevelTown1" instance=ExtResource("1_vhep4")]
 
-[node name="Left" parent="TransitionAreas" index="1" instance=ExtResource("2_j473c")]
+[node name="Left" parent="TransitionAreas" index="0" instance=ExtResource("2_j473c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.43365, 0, -0.1333859)
 target_scene = "uid://bueg0v6pvrthp"
 target_entry_point = "Right"
@@ -200,3 +201,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.593697, -0.06651824, -4.2
 
 [node name="EnemyTest8" parent="Encounters/Encounter 2 Real" index="27" instance=ExtResource("8_s6y2q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.555187, -0.06661456, -3.53351)
+
+[node name="Paper" parent="." index="15" instance=ExtResource("12_j473c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.6706986, 0, -3.960771)

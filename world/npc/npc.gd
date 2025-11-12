@@ -1,7 +1,11 @@
 extends Interactable
 
-@export var timelime: DialogTimeline
+@export var timeline: DialogTimeline
 
 func interact() -> void:
-	if Dialog.play(timelime):
+	if timeline == null:
+		push_error("Timeline wasn't set for `%s`" % get_path())
+		return
+	
+	if Dialog.play(timeline):
 		await Dialog.timeline_ended
