@@ -5,23 +5,23 @@ extends Control
 @export var empty_tex: Texture2D
 
 func _ready() -> void:
-	set_hearts(Player.instance.health_component.health)
-	set_max_hearts(Player.instance.health_component.max_health)
+	set_hp(Player.instance.health_component.health)
+	set_max_hp(Player.instance.health_component.max_health)
 	
-	Global.player_hp_changed.connect(set_hearts)
-	Global.player_max_hp_changed.connect(set_max_hearts)
+	Global.player_hp_changed.connect(set_hp)
+	Global.player_max_hp_changed.connect(set_max_hp)
 
-func set_hearts(hearts: int) -> void:
-	var halves := hearts * 2
+func set_hp(hp: int) -> void:
 	for heart: TextureRect in get_children():
-		if halves >= 2:
+		if hp >= 2:
 			heart.texture = full_tex
-		elif halves == 1:
+		elif hp == 1:
 			heart.texture = half_tex
 		else:
 			heart.texture = empty_tex
-		halves -= 2
+		hp -= 2
 
-func set_max_hearts(max_hearts: int) -> void:
+func set_max_hp(max_hp: int) -> void:
+	var hearts := ceili(float(max_hp) / 2)
 	for i in range(get_child_count()):
-		get_child(i).visible = (i < max_hearts)
+		get_child(i).visible = (i < hearts)
