@@ -129,7 +129,7 @@ blood_burst_packed = ExtResource("4_uxcdq")
 final_burst_packed = ExtResource("2_e8xih")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.5274873, 0, 0, 0, 0.4568173, 0.26374376, 0, -0.26374376, 0.4568173, 0, 0.82869124, 0)
+transform = Transform3D(0.5425574, 0, 0, 0, 0.46986842, 0.27127883, 0, -0.27127883, 0.46986842, 0, 0.82869124, 0)
 alpha_cut = 1
 texture = ExtResource("1_sj4sw")
 
