@@ -1,10 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://cgpuvir86nykf"]
+[gd_scene load_steps=14 format=3 uid="uid://cgpuvir86nykf"]
 
 [ext_resource type="PackedScene" uid="uid://cxahvvaidpg32" path="res://world/levels/town/level_town_base.tscn" id="1_64v5s"]
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="2_jjhs5"]
 [ext_resource type="PackedScene" uid="uid://d3stqami0urg7" path="res://world/npc/test/npc_test.tscn" id="2_mtstk"]
 [ext_resource type="PackedScene" uid="uid://c414hqj4nmy45" path="res://world/npc/npc_demoman1.tscn" id="3_6x3r5"]
-[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="3_ineyk"]
 [ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="4_6mxwy"]
 [ext_resource type="PackedScene" uid="uid://bg0cg3jolk6u" path="res://world/npc/npc_demoman2.tscn" id="4_g27ds"]
 [ext_resource type="PackedScene" uid="uid://dqt2qu5jrxsoa" path="res://world/npc/npc_FemmeFatale.tscn" id="5_dla4e"]
@@ -13,26 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dcu4x4q865hlm" path="res://world/npc/npc_CowardlyLion.tscn" id="8_hnf84"]
 [ext_resource type="PackedScene" uid="uid://c13bgcrak26ua" path="res://world/npc/npc_sheriff.tscn" id="9_lwccn"]
 [ext_resource type="PackedScene" uid="uid://ck3lifhncrfx2" path="res://world/npc/npc_base_Barnmaid.tscn" id="11_o8nib"]
-
-[sub_resource type="Resource" id="Resource_x2t4e"]
-script = ExtResource("3_ineyk")
-dialog = "[Snake Oil Salesman] \"Woah there, gunslinger! You look like you've seen better days! This infection spreading around seems to be getting the best of everyone in this dusty old town.
-Lucky for you I got just the thing. Elixir, the one-size-fits-all cure to this nasty infection.  One bottle and you're cured! Whaddya say, how many bottles of Elixir can I put you down for? Only fifty dollars!
-...You don't want any?
-Bah, you'll be back. Just you wait. You'll be wishing you had elixir when the infection gets you too.\"
-[Snake Oil Salesman] Stupid gunslinger... Stupid town... 
-Should'a known better than to sell to a town of broke shmucks. Not even a single bottle sold! 
-Nothing left for me here now, it's way too crazy for my liking... gotta cut my losses and get outta this hick desert town.
-Hm? What're you lookin' at, gunslinger? If you don't want a damn bottle, then get outta my face. I'm sick of you and sick of this godforsaken town."
-metadata/_custom_type_script = "uid://rvaetvwo5p3h"
-
-[sub_resource type="Resource" id="Resource_4ewu8"]
-script = ExtResource("3_ineyk")
-dialog = "[Piano Man] I used to play for the town, ya know. 
-The entire town used to come here after a hard day's work, grab some drinks with their neighbors and listen to the chatter of the saloon… and my music of course. 
-Some people used to dance. She used to dance…waltz around the tables… God, I hope she's okay… 
-Used to be everyone together. Dancin', singin', laughin' ...Funny how life works, huh? Always changin'. "
-metadata/_custom_type_script = "uid://rvaetvwo5p3h"
+[ext_resource type="PackedScene" uid="uid://dwsraqi3f8a1l" path="res://world/interactables/campfire/campfire.tscn" id="13_jjhs5"]
 
 [node name="LevelTown2" instance=ExtResource("1_64v5s")]
 
@@ -94,7 +74,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.709621, -0.030307852, -6.
 
 [node name="NPCTest2" parent="NPCs" index="0" instance=ExtResource("2_mtstk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.28699, 0, -0.40559483)
-timelime = SubResource("Resource_x2t4e")
 
 [node name="Sprite3D" parent="NPCs/NPCTest2" index="0"]
 modulate = Color(0.86, 0.4380267, 0.06879999, 1)
@@ -108,7 +87,6 @@ text = "Snake Oil Salesman"
 
 [node name="NPCTest4" parent="NPCs" index="1" instance=ExtResource("2_mtstk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.308859, 0, 5.0440106)
-timelime = SubResource("Resource_4ewu8")
 
 [node name="Sprite3D" parent="NPCs/NPCTest4" index="0"]
 transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, -28.003716, 1.2800548, -12.033845)
@@ -120,6 +98,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.583164, 1.3699961, -10.31
 [node name="Comment" parent="NPCs/NPCTest4" index="2" instance=ExtResource("4_6mxwy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.430483, 2.5406563, -11.445475)
 text = "Piano Man"
+
+[node name="Campfire" parent="." index="16" instance=ExtResource("13_jjhs5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7527723, 0, 0)
 
 [editable path="NPCs/NPCTest2"]
 [editable path="NPCs/NPCTest4"]
