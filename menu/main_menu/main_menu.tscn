@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://by8y1gjlttw6g"]
+[gd_scene load_steps=3 format=3 uid="uid://by8y1gjlttw6g"]
 
 [ext_resource type="Script" uid="uid://cg6umb86w26xh" path="res://menu/main_menu/main_menu.gd" id="1_winya"]
+[ext_resource type="PackedScene" uid="uid://y53xq3oyclfj" path="res://menu/options_menu/options_menu.tscn" id="2_e5xhn"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -55,6 +56,14 @@ offset_right = 566.00006
 offset_bottom = 73.0
 scale = Vector2(2, 2)
 text = "MAIN MENU"
+
+[node name="OptionsMenu" parent="." instance=ExtResource("2_e5xhn")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="pressed" from="NewSaveButton" to="." method="_on_new_save_button_pressed"]
 [connection signal="pressed" from="LoadSaveButton" to="." method="_on_load_save_button_pressed"]

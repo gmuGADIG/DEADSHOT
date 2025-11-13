@@ -11,7 +11,8 @@ var vol_vfx := db_to_linear(AudioServer.get_bus_volume_db(vfx_bus))
 @onready var music_value := vol_music * 100
 @onready var vfx_value := vol_vfx * 100
 
-func _ready() -> void:
+
+func open() -> void:
 	%Music.value = music_value
 	%VFX.value = vfx_value
 	
@@ -19,6 +20,7 @@ func _ready() -> void:
 	%VFXPercentage.text = str(int(vfx_value)) + "%"
 	# need to change value of sound. uhhhh
 	# is there a better way to do the int calling? it looks... ass LOL
+	$AnimationPlayer.play("open")
 
 	# Do I even need this? Don't think so.
 	# AudioServer.set_bus_volume_linear(music_bus, music_value)
