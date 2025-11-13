@@ -4,3 +4,4 @@
 
 [node name="WhipChargeSound" type="AudioStreamPlayer3D"]
 stream = ExtResource("1_0fnpp")
+bus = &"VFX"

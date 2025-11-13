@@ -4,3 +4,4 @@
 
 [node name="FireStartSound" type="AudioStreamPlayer3D"]
 stream = ExtResource("1_stffr")
+bus = &"VFX"
