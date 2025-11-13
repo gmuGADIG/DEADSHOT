@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://world/interactables/cover/cover_boulder.tscn" id="13_5qrk3"]
 [ext_resource type="PackedScene" uid="uid://doavrdpyjcdgp" path="res://world/enemy/judge/enemy_judge.tscn" id="13_skfgv"]
 [ext_resource type="PackedScene" uid="uid://by1e10t6ksd64" path="res://world/enemy/bird_swarm/bird_swarm.tscn" id="14_lrsis"]
-[ext_resource type="PackedScene" uid="uid://dgq8eujhb7aiv" path="res://world/enemy/enemy_bandit.tscn" id="16_rskgg"]
+[ext_resource type="PackedScene" uid="uid://dgq8eujhb7aiv" path="res://world/enemy/bandit/enemy_bandit.tscn" id="16_rskgg"]
 [ext_resource type="PackedScene" uid="uid://d0sdri7hlk5i3" path="res://world/enemy/bosses/mass/the_mass.tscn" id="17_eyi7e"]
 [ext_resource type="Script" uid="uid://d2wxipl4px3iw" path="res://world/levels/arena_area.gd" id="17_skfgv"]
 

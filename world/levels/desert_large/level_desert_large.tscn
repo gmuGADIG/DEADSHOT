@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dhb2pgqbfvxoa" path="res://world/enemy/encounter/encounter.tscn" id="9_fpcaa"]
 [ext_resource type="PackedScene" uid="uid://dwdhuncnyfmcw" path="res://world/enemy/wilder/wilder.tscn" id="11_4q5tc"]
 [ext_resource type="PackedScene" uid="uid://b4n4rflu3my0v" path="res://world/enemy/longhorn/longhorn.tscn" id="12_qk81x"]
-[ext_resource type="PackedScene" uid="uid://dgq8eujhb7aiv" path="res://world/enemy/enemy_bandit.tscn" id="13_4q5tc"]
+[ext_resource type="PackedScene" uid="uid://dgq8eujhb7aiv" path="res://world/enemy/bandit/enemy_bandit.tscn" id="13_4q5tc"]
 [ext_resource type="PackedScene" uid="uid://dxdkwdigtcn43" path="res://world/enemy/test/enemy_test.tscn" id="13_r6j0u"]
 [ext_resource type="PackedScene" uid="uid://doavrdpyjcdgp" path="res://world/enemy/judge/enemy_judge.tscn" id="14_4q5tc"]
 [ext_resource type="PackedScene" uid="uid://dp00f0nisoyxa" path="res://world/enemy/bosses/horse/horse.tscn" id="14_b84ov"]

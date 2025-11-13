@@ -232,8 +232,7 @@ func shoot_bullet() -> void:
 		bullet_reference.global_position = global_position + Vector3(0, 1, 0)
 		bullet_reference.set_speed(bullet_speed)
 		bullet_reference.set_target(get_tree().get_first_node_in_group("player").global_position)
-		shooting = true
-		
+		shooting = true		
 	
 
 func _on_firing_timer_timeout() -> void:

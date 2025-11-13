@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://world/interactables/cover/cover_boulder.tscn" id="5_siqd8"]
 [ext_resource type="PackedScene" uid="uid://doavrdpyjcdgp" path="res://world/enemy/judge/enemy_judge.tscn" id="6_rldgf"]
 [ext_resource type="PackedScene" uid="uid://dwdhuncnyfmcw" path="res://world/enemy/wilder/wilder.tscn" id="7_41dv2"]
-[ext_resource type="PackedScene" uid="uid://dgq8eujhb7aiv" path="res://world/enemy/enemy_bandit.tscn" id="8_s6y2q"]
+[ext_resource type="PackedScene" uid="uid://dgq8eujhb7aiv" path="res://world/enemy/bandit/enemy_bandit.tscn" id="8_s6y2q"]
 [ext_resource type="PackedScene" uid="uid://cgpuvir86nykf" path="res://world/levels/town/level_town_v2_npc.tscn" id="9_lm1tg"]
 [ext_resource type="PackedScene" uid="uid://h4pbrdsf4bcg" path="res://world/enemy/splitter/enemy_splitter.tscn" id="10_peyec"]
 [ext_resource type="PackedScene" uid="uid://buycij5b3uf5i" path="res://world/npc/paper/paper.tscn" id="12_j473c"]
