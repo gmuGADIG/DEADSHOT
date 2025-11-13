@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cxahvvaidpg32"]
+[gd_scene load_steps=11 format=3 uid="uid://cxahvvaidpg32"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_tcp4o"]
 [ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="2_d6o6r"]
 [ext_resource type="Resource" uid="uid://q24ustx30otu" path="res://world/floor/sand/sand.tres" id="3_q3pnm"]
-[ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="4_4msoq"]
+[ext_resource type="Texture2D" uid="uid://d4iomax3x56yw" path="res://world/decoration/buildings/general_store.png" id="5_5qvel"]
+[ext_resource type="Texture2D" uid="uid://dogpjy022cabi" path="res://world/decoration/buildings/sheriff_office.png" id="5_ad2bl"]
 [ext_resource type="PackedScene" uid="uid://cgj018oscuhf6" path="res://world/decoration/buildings/house.tscn" id="7_3kx2l"]
 [ext_resource type="PackedScene" uid="uid://crroyl2puavcb" path="res://world/decoration/floor_lantern/floor_lantern.tscn" id="8_0fxxf"]
 [ext_resource type="PackedScene" uid="uid://8er7o8byf7v1" path="res://world/decoration/well/well.tscn" id="9_7fok8"]
@@ -19,7 +20,7 @@ _data = {
 }
 point_count = 20
 
-[node name="LevelTown1" instance=ExtResource("1_tcp4o")]
+[node name="LevelTown" instance=ExtResource("1_tcp4o")]
 
 [node name="Comment2" parent="." index="2" instance=ExtResource("2_d6o6r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 7.450581e-09, 1, 12.323263, 2.8352304, 32.200733)
@@ -39,15 +40,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.12597, 0, -0.16398096)
 [node name="Right" type="Node3D" parent="EntryPoints" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.30764, 0, -0.10400367)
 
-[node name="Left" parent="TransitionAreas" index="0" instance=ExtResource("4_4msoq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.43365, 0, -0.1333859)
-target_scene = "uid://bueg0v6pvrthp"
-target_entry_point = "Right"
+[node name="Bottom" type="Node3D" parent="EntryPoints" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.821126, 9.536743e-07, 39.192707)
 
-[node name="Right" parent="TransitionAreas" index="1" instance=ExtResource("4_4msoq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.78856, 0, -0.065726995)
-target_scene = "uid://crgv6bkolrlyy"
-target_entry_point = "Left"
+[node name="Top" type="Node3D" parent="EntryPoints" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.821126, 9.536743e-07, -37.015163)
 
 [node name="Player" parent="." index="6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.14402, 0, 0)
@@ -66,8 +63,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.61683, 0, 0.13444233)
 [node name="House4" parent="Houses" index="3" instance=ExtResource("7_3kx2l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.89583, 0, 0.29475403)
 
-[node name="House5" parent="Houses" index="4" instance=ExtResource("7_3kx2l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.520203, 0, -0.3286028)
+[node name="SheriffOffice" type="Sprite3D" parent="Houses" index="4"]
+transform = Transform3D(0.7833022, 0, 0, 0, 0.67835957, 0.3916511, 0, -0.3916511, 0.67835957, 37.414806, 3.4319782, 1.0083961)
+pixel_size = 0.0033
+alpha_cut = 1
+texture = ExtResource("5_ad2bl")
 
 [node name="House6" parent="Houses" index="5" instance=ExtResource("7_3kx2l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.510063, 0, -0.80777645)
@@ -78,14 +78,17 @@ transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 1.2397966, 0,
 [node name="House8" parent="Houses" index="7" instance=ExtResource("7_3kx2l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1718159, 0, 40.312164)
 
-[node name="House9" parent="Houses" index="8" instance=ExtResource("7_3kx2l")]
+[node name="GeneralStore" type="Sprite3D" parent="Houses" index="8"]
+transform = Transform3D(1.2736995, 0.049857985, 0.028785521, -0.057571046, 1.1030561, 0.6368497, 0, -0.6374999, 1.1041822, -1.1058922, 3.8271213, -8.26967)
+pixel_size = 0.0033
+alpha_cut = 1
+texture = ExtResource("5_5qvel")
+
+[node name="House9" parent="Houses" index="9" instance=ExtResource("7_3kx2l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.601847, 0, 24.403908)
 
-[node name="House10" parent="Houses" index="9" instance=ExtResource("7_3kx2l")]
+[node name="House10" parent="Houses" index="10" instance=ExtResource("7_3kx2l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.27104, 0, 40.513283)
-
-[node name="House11" parent="Houses" index="10" instance=ExtResource("7_3kx2l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.711514, 0, -7.5409975)
 
 [node name="House12" parent="Houses" index="11" instance=ExtResource("7_3kx2l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25496435, 0, -23.391438)

@@ -1,0 +1,124 @@
+[gd_scene load_steps=10 format=3 uid="uid://bcvw4b8fvxwum"]
+
+[ext_resource type="Script" uid="uid://c1bnxnohhlms" path="res://test_scenes/cutscene_text_test.gd" id="1_h7t7a"]
+[ext_resource type="Texture2D" uid="uid://cql7y5vsb68dv" path="res://temp_art/rough_drafts/cutscene/cutscene1.png" id="2_8k56t"]
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="2_8lxff"]
+[ext_resource type="Resource" uid="uid://x0yh4numjl12" path="res://world/npc/test/test_timeline.tres" id="3_8kcv5"]
+[ext_resource type="Texture2D" uid="uid://d14m6jdmbadnh" path="res://temp_art/rough_drafts/cutscene/cutscene2.png" id="3_c1kdk"]
+[ext_resource type="Texture2D" uid="uid://ddhyw81vkbsyb" path="res://temp_art/rough_drafts/cutscene/cutscene3.png" id="4_c1kdk"]
+
+[sub_resource type="Animation" id="Animation_8lxff"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/TextureRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_c1kdk"]
+resource_name = "cutscene"
+length = 4.0
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_8k56t"), ExtResource("3_c1kdk"), ExtResource("4_c1kdk")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/TextureRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0],
+"method": &"play_timeline"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8kcv5"]
+_data = {
+&"RESET": SubResource("Animation_8lxff"),
+&"cutscene": SubResource("Animation_c1kdk")
+}
+
+[node name="CutsceneTextTest" type="Node2D"]
+script = ExtResource("1_h7t7a")
+timelines = Array[ExtResource("2_8lxff")]([ExtResource("3_8kcv5")])
+
+[node name="TextureButton" type="TextureButton" parent="."]
+z_index = 2
+offset_right = 1152.0
+offset_bottom = 648.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="TextureButton"]
+z_index = 10
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.86419755
+anchor_right = 1.0
+anchor_bottom = 0.89969134
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Press \"E\" to enter game"
+horizontal_alignment = 1
+vertical_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8kcv5")
+}
+
+[node name="TextureRect" type="TextureRect" parent="AnimationPlayer"]
+z_index = -100
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 6

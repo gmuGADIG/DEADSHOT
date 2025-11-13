@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://ca88gbh8xi0u5"]
-
-[ext_resource type="PackedScene" uid="uid://cxahvvaidpg32" path="res://world/levels/town/level_town_base.tscn" id="1_83ufp"]
-[ext_resource type="PackedScene" uid="uid://b0ttk38sufgur" path="res://world/pickups/corrupt_heart/corrupt_heart.tscn" id="2_28xow"]
-
-[node name="LevelTown1" instance=ExtResource("1_83ufp")]
-
-[node name="CorruptHeart" parent="." index="14" instance=ExtResource("2_28xow")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.908998, 0, 1.6071377)

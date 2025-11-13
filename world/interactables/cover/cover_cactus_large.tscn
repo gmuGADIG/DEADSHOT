@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://d1e8myf75tnlv"]
 
 [ext_resource type="PackedScene" uid="uid://o72hyyjcmpll" path="res://world/interactables/cover/cover_base.tscn" id="1_vjqk3"]
-[ext_resource type="Texture2D" uid="uid://q7fp56l7so2y" path="res://world/interactables/cover/cactus_large.png" id="2_vjqk3"]
+[ext_resource type="Texture2D" uid="uid://bawb4ny3wnsng" path="res://world/interactables/cover/cactus_new.png" id="2_vjqk3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vjqk3"]
 size = Vector3(0.8479004, 2.1071777, 1)
@@ -16,7 +16,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.031576, 0)
 shape = SubResource("BoxShape3D_vjqk3")
 
 [node name="Sprite3D" parent="." index="1"]
-transform = Transform3D(0.5, 0, 0, 0, 0.4330127, 0.25, 0, -0.25, 0.4330127, 0, 1.132133, 0)
+transform = Transform3D(0.65, 0, 0, 0, 0.56291646, 0.325, 0, -0.325, 0.56291646, 0, 1.3438051, 0)
 pixel_size = 0.005
 alpha_cut = 1
 texture = ExtResource("2_vjqk3")

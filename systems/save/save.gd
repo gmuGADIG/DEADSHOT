@@ -37,5 +37,5 @@ static func load_game() -> void: ## Loads the game
 	save_data.health_save_data.load()
 	save_data.skill_save_data.load()
 
-static func save_file_exists() -> void:
-	ResourceLoader.exists(SAVE_FILE)
+static func save_file_exists() -> bool:
+	return ResourceLoader.exists(SAVE_FILE)

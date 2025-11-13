@@ -1,16 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://8er7o8byf7v1"]
+[gd_scene load_steps=2 format=3 uid="uid://8er7o8byf7v1"]
 
-[ext_resource type="Texture2D" uid="uid://ducth8c6ucegc" path="res://temp_art/well_temp.png" id="1_5ot4x"]
-[ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="2_7ys7j"]
+[ext_resource type="Texture2D" uid="uid://bk2jdlg2kse1x" path="res://world/decoration/well/well.png" id="1_23g2p"]
 
 [node name="Well" type="Node3D"]
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 1.5324762, 0)
+transform = Transform3D(1.4, 0, 0, 0, 1.2124355, 0.7, 0, -0.7, 1.2124355, 0, 2.0463405, 0)
 pixel_size = 0.0033
 alpha_cut = 1
-texture = ExtResource("1_5ot4x")
-
-[node name="UNFINISHED" parent="." instance=ExtResource("2_7ys7j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9037161, 0)
-text = "(wip)"
+texture = ExtResource("1_23g2p")
