@@ -21,6 +21,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.78856, 0, -0.065726995)
 target_scene = "uid://crgv6bkolrlyy"
 target_entry_point = "Left"
 
+[node name="Player" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.712135, 0, 0)
+
 [node name="Comment" parent="Comments" index="4" instance=ExtResource("4_6mxwy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.752525, -0.019320965, 0)
 text = "now that the enemies are gone,
