@@ -12,3 +12,4 @@ script = ExtResource("1_gjor4")
 unique_name_in_owner = true
 autoplay = false
 delete_on_finish = false
+volume_db = -18.641

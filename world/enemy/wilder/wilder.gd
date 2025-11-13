@@ -74,6 +74,7 @@ func shootBullet() -> void:
 	newBullet.atk_source = DamageInfo.Source.ENEMY
 	add_sibling(newBullet)
 	newBullet.fire(self, getPlayerDirection())
+	%WilderShootSound.play()
 
 func getPlayerDirection() -> Vector3:
 	# We add 1 to the Y value of this vector to keep it aimed at the player's center of mass, not their origin.
@@ -89,4 +90,10 @@ func stuckCheckLoop() -> void:
 		if self.global_position.distance_to(pastPosition) < 0.5:
 			switch_state(AggroState.HOSTILE)
 
+func _on_killed() -> void:
+	var die_sound:AudioStreamPlayer3D = %WilderDeathSound
+	die_sound.reparent(get_tree().current_scene)
+	die_sound.play()
+	print("idied")
+	
 #endregion

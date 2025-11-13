@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqe8jyn23q6w6"]
+
+[ext_resource type="Script" uid="uid://bf14d2iyiqx56" path="res://audio/streams/sound_stream.gd" id="1_yukyd"]
+
+[node name="WilderDeathSound" type="AudioStreamPlayer3D"]
+script = ExtResource("1_yukyd")
+delete_on_finish = false
