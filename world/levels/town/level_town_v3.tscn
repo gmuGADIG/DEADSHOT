@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c4lcfae1j0kdx"]
+[gd_scene load_steps=15 format=3 uid="uid://c4lcfae1j0kdx"]
 
 [ext_resource type="PackedScene" uid="uid://cxahvvaidpg32" path="res://world/levels/town/level_town_base.tscn" id="1_64v5s"]
 [ext_resource type="PackedScene" uid="uid://dhb2pgqbfvxoa" path="res://world/enemy/encounter/encounter.tscn" id="2_8nofb"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b4n4rflu3my0v" path="res://world/enemy/longhorn/longhorn.tscn" id="9_gvfx8"]
 [ext_resource type="PackedScene" uid="uid://ohg0len20ido" path="res://world/levels/town/level_town_v4_boss.tscn" id="9_l7ewn"]
 [ext_resource type="PackedScene" uid="uid://h4pbrdsf4bcg" path="res://world/enemy/splitter/enemy_splitter.tscn" id="10_ma23k"]
+[ext_resource type="PackedScene" uid="uid://dwsraqi3f8a1l" path="res://world/interactables/campfire/campfire.tscn" id="12_6u3i3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h2go5"]
 size = Vector3(10, 3, 10)
@@ -20,12 +21,16 @@ size = Vector3(10, 3, 10)
 
 [node name="LevelTown3" instance=ExtResource("1_64v5s")]
 
+[node name="Player" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.090755, 0, 48.140087)
+
 [node name="Encounters" type="Node3D" parent="." index="14"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9888, 0.06661462, -0.24382162)
 
 [node name="Encounter 3 Real" parent="Encounters" index="0" instance=ExtResource("2_8nofb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.374382, -0.06661462, 30.351206)
 camera_zoom = 1.7
+appear_delay = 0.015
 
 [node name="EncounterShape" type="CollisionShape3D" parent="Encounters/Encounter 3 Real" index="1"]
 transform = Transform3D(2.22, 0, 0, 0, 1, 0, 0, 0, 2.025, -0.7020855, 0, -0.38622665)
@@ -166,6 +171,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3151398, 3.874302e-06, 0.22
 [node name="Encounter 4 Real" parent="Encounters" index="1" instance=ExtResource("2_8nofb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.994127, -0.06661462, -21.964973)
 camera_zoom = 1.7
+appear_delay = 0.015
 ending_scene = ExtResource("9_l7ewn")
 
 [node name="EncounterShape" type="CollisionShape3D" parent="Encounters/Encounter 4 Real" index="1"]
@@ -270,3 +276,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4657507, -3.0398369e-06, -
 
 [node name="EnemyTest12" parent="Encounters/Encounter 4 Real" index="34" instance=ExtResource("10_ma23k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5674849, -3.0398369e-06, -3.777277)
+
+[node name="Campfire" parent="." index="15" instance=ExtResource("12_6u3i3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.875153, 0.21470356, 47.442585)

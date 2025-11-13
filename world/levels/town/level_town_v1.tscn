@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://beju3ms5o28f6"]
+[gd_scene load_steps=16 format=3 uid="uid://beju3ms5o28f6"]
 
 [ext_resource type="PackedScene" uid="uid://cxahvvaidpg32" path="res://world/levels/town/level_town_base.tscn" id="1_vhep4"]
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="2_j473c"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cgpuvir86nykf" path="res://world/levels/town/level_town_v2_npc.tscn" id="9_lm1tg"]
 [ext_resource type="PackedScene" uid="uid://h4pbrdsf4bcg" path="res://world/enemy/splitter/enemy_splitter.tscn" id="10_peyec"]
 [ext_resource type="PackedScene" uid="uid://buycij5b3uf5i" path="res://world/npc/paper/paper.tscn" id="12_j473c"]
+[ext_resource type="PackedScene" uid="uid://dwsraqi3f8a1l" path="res://world/interactables/campfire/campfire.tscn" id="13_5bykt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dynrd"]
 size = Vector3(10, 3, 10)
@@ -32,13 +33,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9888, 0.06661462, -0.24382
 [node name="Encounter 1 Real" parent="Encounters" index="0" instance=ExtResource("2_ovvcg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.796177, 0, 1.0880146)
 camera_zoom = 1.7
+appear_delay = 0.025
 
 [node name="EncounterShape" type="CollisionShape3D" parent="Encounters/Encounter 1 Real" index="1"]
 transform = Transform3D(3.015, 0, 0, 0, 1, 0, 0, 0, 1.42, -0.66210175, 0, 0)
 shape = SubResource("BoxShape3D_dynrd")
 
 [node name="Blocker" parent="Encounters/Encounter 1 Real" index="2" instance=ExtResource("3_j473c")]
-transform = Transform3D(1.782, 0, 0, 0, 1, 0, 0, 0, 15.629515, 19.925665, -0.06650209, -0.281219)
+transform = Transform3D(1.782, 0, 0, 0, 1, 0, 0, 0, 15.629515, 21.674574, -0.06650209, -0.281219)
 
 [node name="Blocker2" parent="Encounters/Encounter 1 Real" index="3" instance=ExtResource("3_j473c")]
 transform = Transform3D(1.782, 0, 0, 0, 1, 0, 0, 0, 4.257, -17.905468, -0.066615574, 0.20863008)
@@ -118,6 +120,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.522533, -0.06663697, 6.01
 [node name="Encounter 2 Real" parent="Encounters" index="1" instance=ExtResource("2_ovvcg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.352249, 0, 0.31310797)
 camera_zoom = 1.7
+appear_delay = 0.025
 ending_scene = ExtResource("9_lm1tg")
 
 [node name="EncounterShape" type="CollisionShape3D" parent="Encounters/Encounter 2 Real" index="1"]
@@ -128,7 +131,7 @@ shape = SubResource("BoxShape3D_supmm")
 transform = Transform3D(1.782, 0, 0, 0, 1, 0, 0, 0, 4.257, 18.598312, -0.06661462, 0.85690546)
 
 [node name="Blocker" parent="Encounters/Encounter 2 Real" index="3" instance=ExtResource("3_j473c")]
-transform = Transform3D(1.782, 0, 0, 0, 1, 0, 0, 0, 14.467296, -18.219084, -0.06661271, 0.25013113)
+transform = Transform3D(1.782, 0, 0, 0, 1, 0, 0, 0, 14.467296, -20.67757, -0.06661271, 0.25013113)
 
 [node name="Barrel9" parent="Encounters/Encounter 2 Real" index="4" instance=ExtResource("4_5bykt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.839815, 0.01517202, -3.3371098)
@@ -204,3 +207,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.555187, -0.06661456, -3.53
 
 [node name="Paper" parent="." index="15" instance=ExtResource("12_j473c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.6706986, 0, -3.960771)
+
+[node name="Campfire" parent="." index="16" instance=ExtResource("13_5bykt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.734806, -0.04697272, -1.3176425)
