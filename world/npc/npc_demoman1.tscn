@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://c414hqj4nmy45"]
+
+[ext_resource type="PackedScene" uid="uid://c8ycoujcnafdn" path="res://world/npc/npc_base.tscn" id="1_hkqjx"]
+[ext_resource type="Texture2D" uid="uid://54e4esurd3xm" path="res://temp_art/gartic/gun.png" id="2_dbbny"]
+[ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="3_cnl6w"]
+
+[node name="NPCBase" instance=ExtResource("1_hkqjx")]
+
+[node name="Sprite3D" parent="." index="0"]
+texture = ExtResource("2_dbbny")
+
+[node name="Comment" parent="." index="2" instance=ExtResource("3_cnl6w")]
+text = "Demoman 1"

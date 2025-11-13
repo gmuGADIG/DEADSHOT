@@ -18,7 +18,7 @@ enum KnockbackStrength {
 @export var knockback: KnockbackStrength
 @export var direction: Vector3
 
-func _init(dmg: int, src: Source, knockback_str: KnockbackStrength, dir: Vector3) -> void:
+func _init(dmg: int, src: Source, knockback_str: KnockbackStrength = KnockbackStrength.NONE, dir: Vector3 = Vector3.ZERO) -> void:
 	self.damage = dmg
 	self.source = src
 	self.knockback = knockback_str

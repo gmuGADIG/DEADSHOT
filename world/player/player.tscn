@@ -1,13 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://nuqmhgq1e2lu"]
+[gd_scene load_steps=31 format=3 uid="uid://nuqmhgq1e2lu"]
 
 [ext_resource type="Script" uid="uid://llqh4g6obmup" path="res://world/player/player.gd" id="1_bvkkv"]
-[ext_resource type="Texture2D" uid="uid://ckv48omi8han7" path="res://temp_art/gartic/harry_potter_with_gun.png" id="1_yynsy"]
+[ext_resource type="Texture2D" uid="uid://doi1lgfq8hi21" path="res://world/player/player_sheet.png" id="2_2x47q"]
 [ext_resource type="PackedScene" uid="uid://bas8xwk5nhlq0" path="res://world/player/HUD/hud.tscn" id="2_duds0"]
 [ext_resource type="Script" uid="uid://cwjxwkxciij4o" path="res://systems/interaction/interactor.gd" id="3_cvtd2"]
-[ext_resource type="PackedScene" uid="uid://cj5uuu7xjsprv" path="res://world/player/weapon/basic_gun/basic_gun.tscn" id="3_et4on"]
 [ext_resource type="Script" uid="uid://c4s1ohnc08ecy" path="res://world/player/reticle/reticle.gd" id="4_40qjc"]
 [ext_resource type="PackedScene" uid="uid://duf7ry1s34j7o" path="res://world/player/weapon/whip/whip.tscn" id="4_duds0"]
 [ext_resource type="Texture2D" uid="uid://bwm425xkr0vcy" path="res://temp_art/icon.svg" id="4_et4on"]
+[ext_resource type="PackedScene" uid="uid://vnurg1w4ttt4" path="res://world/player/weapon/dualies/weapon_dualies.tscn" id="5_2x47q"]
 [ext_resource type="Script" uid="uid://do5vs8m1law7o" path="res://systems/attacking/health/health.gd" id="6_thypd"]
 [ext_resource type="Script" uid="uid://lxg83i28nlul" path="res://systems/attacking/hurtbox/hurtbox.gd" id="7_d3e1v"]
 [ext_resource type="Script" uid="uid://c1g7056xgtqys" path="res://systems/camera/camera_tracked.gd" id="11_2x47q"]
@@ -21,6 +21,134 @@ point_count = 4
 height = 1.85699
 radius = 0.669922
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_3n4qb"]
+atlas = ExtResource("2_2x47q")
+region = Rect2(4096, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_myh4x"]
+atlas = ExtResource("2_2x47q")
+region = Rect2(0, 1024, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80mbn"]
+atlas = ExtResource("2_2x47q")
+region = Rect2(1024, 1024, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbm61"]
+atlas = ExtResource("2_2x47q")
+region = Rect2(2048, 1024, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2x47q"]
+atlas = ExtResource("2_2x47q")
+region = Rect2(1024, 3072, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrep8"]
+atlas = ExtResource("2_2x47q")
+region = Rect2(2048, 3072, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1k4r"]
+atlas = ExtResource("2_2x47q")
+region = Rect2(3072, 3072, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_scey4"]
+atlas = ExtResource("2_2x47q")
+region = Rect2(4096, 3072, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fn377"]
+atlas = ExtResource("2_2x47q")
+region = Rect2(2048, 5120, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxa5a"]
+atlas = ExtResource("2_2x47q")
+region = Rect2(3072, 5120, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xq3gs"]
+atlas = ExtResource("2_2x47q")
+region = Rect2(4096, 5120, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hnw2l"]
+atlas = ExtResource("2_2x47q")
+region = Rect2(2048, 2048, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gy2m5"]
+atlas = ExtResource("2_2x47q")
+region = Rect2(3072, 2048, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tckbl"]
+atlas = ExtResource("2_2x47q")
+region = Rect2(4096, 2048, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sacbj"]
+atlas = ExtResource("2_2x47q")
+region = Rect2(0, 3072, 1024, 1024)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jrep8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3n4qb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_myh4x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80mbn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbm61")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2x47q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrep8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1k4r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_scey4")
+}],
+"loop": false,
+"name": &"rolling",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fn377")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxa5a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xq3gs")
+}],
+"loop": false,
+"name": &"shooting",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hnw2l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gy2m5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tckbl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sacbj")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 8.0
+}]
+
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_bvkkv"]
 height = 0.27978516
 radius = 0.8881836
@@ -32,17 +160,17 @@ roll_curve = SubResource("Curve_2x47q")
 health_component = NodePath("HurtboxComponent/HealthComponent")
 whip = NodePath("Whip")
 
-[node name="Hud" parent="." instance=ExtResource("2_duds0")]
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94693, 0)
 shape = SubResource("CylinderShape3D_plfsl")
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0.385961, 1, 0)
+[node name="Sprite" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.39011317, 0, 0, 0, 0.33784774, 0.19505659, 0, -0.19505659, 0.33784774, 0.00084251165, 1.6017487, 0)
 shaded = true
 alpha_cut = 1
-texture = ExtResource("1_yynsy")
+sprite_frames = SubResource("SpriteFrames_jrep8")
+animation = &"idle"
+autoplay = "idle"
 
 [node name="InteractionArea" type="Area3D" parent="."]
 unique_name_in_owner = true
@@ -54,8 +182,8 @@ metadata/_custom_type_script = "uid://cwjxwkxciij4o"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8601074, 0)
 shape = SubResource("CylinderShape3D_bvkkv")
 
-[node name="BasicGun" parent="." instance=ExtResource("3_et4on")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2370036, 0)
+[node name="Dualies" parent="." instance=ExtResource("5_2x47q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.237, 0)
 
 [node name="Aiming" type="Node" parent="."]
 
@@ -116,4 +244,4 @@ light_energy = 0.2
 omni_range = 25.0
 omni_attenuation = 1.5
 
-[node name="WalkSFX" type="AudioStreamPlayer3D" parent="."]
+[node name="Hud" parent="." instance=ExtResource("2_duds0")]

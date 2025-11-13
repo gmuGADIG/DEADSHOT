@@ -1,5 +1,7 @@
 class_name Player extends CharacterBody3D
 
+signal player_state_changed
+
 class PlayerPersistingData:
 	var max_health : int
 	var health : int
@@ -7,19 +9,21 @@ class PlayerPersistingData:
 	var curr_reserve : int
 
 ## Tracks name of current gun node. CHANGE THIS VARIABLE WHEN GUNS ARE CHANGED.
-static var gun_name := "BasicGun"
+static var gun_name := "Dualies"
+#static var gun_name := "BasicGun"
 
 ## These are the states that the player can be in. States control what the player can do.
 enum PlayerState {
-	WALKING,
-	ROLLING
+	WALKING, ## Default state. Player can walk and shoot.
+	ROLLING, ## Dodging / rolling.
+	INTERACTING, ## Interacting with an NPC. Most actions are disabled during this.
 }
 
 #region Variables
 static var persisting_data : PlayerPersistingData
 static var instance : Player
 
-var speed_multiplier: float = 1.0;
+var speed_multiplier: float = 1.0
 
 ## EXPORT VARIABLES
 @export_category("Movement")
@@ -30,23 +34,28 @@ var speed_multiplier: float = 1.0;
 @export_category("Dependencies")
 @export var health_component : Health
 @export var whip : Whip
-
-# TODO: The skills system will probably be handled outside of the player.
-# This is just for testing.
-@export var bullets_of_fire_unlocked : bool = false
+@onready var interactor : Interactor = %InteractionArea
 
 ## Is the player currently in combat? If so, HUD will be shown and dashing will cost stamina.
-var is_in_combat: bool = false
+var is_in_combat: bool = true
 
 var previous_input_direction: Vector3 = Vector3.RIGHT ## Roll this way if you roll while not holding any directions. Updated every time the player makes a movement input.
 var roll_time : float = 0
 
 ## Stamina. Consumed by rolling. Up to 3. We use a float so we can smoothly recharge it partially over time.
-var stamina: float = 3.0
-## How much stamina recharges every second. It should take 1.5 seconds for 1 bar to recover.
+var stamina: float = 3.0:
+	set(value):
+		if value == stamina: return # no change
+		stamina = value
+		Global.player_stamina_changed.emit(stamina)
+
+## How much stamina recharges every second
 const STAMINA_RECHARGE_RATE: float = 0.666667
 
-var current_state: PlayerState = PlayerState.WALKING
+var current_state: PlayerState = PlayerState.WALKING:
+	set(new_val):
+		current_state = new_val
+		player_state_changed.emit()
 #endregion
 
 enum FloorType{ ## Where the player is walking
@@ -72,6 +81,8 @@ static func update_persisting_data() -> void:
 	#TEST
 	print(persisting_data.curr_chamber)
 	print(persisting_data.curr_reserve)
+@onready var starting_y_pos : float = position.y
+#endregion
 
 #region Builtin Functions
 func _ready() -> void:
@@ -84,7 +95,12 @@ func _ready() -> void:
 		health_component.health = persisting_data.health
 		gun.chamber_ammo = persisting_data.curr_chamber
 		gun.reserve_ammo = persisting_data.curr_reserve
-	$BasicGun.bullets_of_fire_unlocked = bullets_of_fire_unlocked
+	
+	interactor.interaction_started.connect(_on_interaction_started)
+	interactor.interaction_ended.connect(_on_interaction_ended)
+	
+	health_component.hp_changed.connect(Global.player_hp_changed.emit)
+	health_component.max_hp_changed.connect(Global.player_max_hp_changed.emit)
 
 func _init() -> void:
 	instance = self
@@ -107,7 +123,29 @@ func _physics_process(delta: float) -> void:
 		## We normalize the shit out of everything so we can multiply it by a consistent speed.
 		## This way there's no weird acceleration or slowdown.
 		roll(delta)
+	elif current_state == PlayerState.INTERACTING:
+		velocity = Vector3.ZERO
+	
 	move_and_slide()
+	position.y = starting_y_pos # ensures that player does not move above starting plane
+
+## We use the proper process function to update stamina, since it appears on the HUD and that could be drawn faster than the physics tickrate.
+func _process(delta: float) -> void:
+	update_stamina(delta)
+
+
+#region Custom Functions
+static func update_persisting_data() -> void:	
+	if persisting_data == null:
+		persisting_data = PlayerPersistingData.new()
+		
+	persisting_data.max_health = instance.health_component.max_health
+	persisting_data.health = instance.health_component.health
+	persisting_data.curr_chamber = instance.get_gun().chamber_ammo
+	persisting_data.curr_reserve = instance.get_gun().reserve_ammo
+
+func get_gun() -> Gun:
+	return get_node(gun_name)
 
 ## Returns the inputted walking direction on the XZ plane (Y = 0)
 func input_direction() -> Vector3:
@@ -120,39 +158,32 @@ func aim_dir() -> Vector3:
 	dir.y = 0
 	return dir.normalized()
 
-## We use the proper process function to update stamina, since it appears on the HUD and that could be drawn faster than the physics tickrate.
-func _process(delta: float) -> void:
-	if is_in_combat: update_stamina(delta)
-	
-	# TEST COMBAT ENCOUNTER MODE FOR STAMINA
-	if Input.is_action_just_pressed("ui_focus_next"):
-		if is_in_combat:
-			exit_combat()
-		else:
-			enter_combat()
-
-
+## Checks if the player is able to shoot or not.
 func can_shoot() -> bool:
-	if current_state == PlayerState.ROLLING:
+	# The player should only be able to shoot from the walking state.
+	if current_state != PlayerState.WALKING:
 		return false
-	
+	# The player can't shoot if they are using the whip either.
 	if whip.whip_state != Whip.WhipState.OFF:
 		return false
 	
 	return true
 
+## Begins the roll by changing the state and decreasing stamina.
 func begin_roll() -> void:
-	# This function only runs when the roll starts. Get out of here if you're already rolling!
+	# This function only runs when the roll starts.
+	# Get out of here if you're already rolling!
 	if current_state == PlayerState.ROLLING: return
 	
 	# Factor in stamina
 	if stamina < 1.0: return
 	stamina -= 1.0
 	
-	#TODO: Play animation, do iframes.
+	# TODO: Play animation, do iframes.
 	current_state = PlayerState.ROLLING
 	roll_time = 0
 
+## Roll the player in the current direction.
 func roll(delta : float) -> void:
 	var roll_dir : Vector3 = previous_input_direction
 	var roll_speed : float = roll_curve.sample(roll_time)
@@ -178,7 +209,6 @@ func update_stamina(delta: float) -> void:
 	if Encounter.is_encounter_active():
 		stamina += STAMINA_RECHARGE_RATE * delta
 		stamina = clampf(stamina, 0.0, 3.0)
-		$Hud.update_stamina_bar(stamina)
 	else:
 		stamina = 3.0
 func walking_sounds()->void: #Determines what sound the player should make when walking
@@ -192,21 +222,13 @@ func walking_sounds()->void: #Determines what sound the player should make when 
 		
 	
 
-# COMBAT ENCOUNTERS
-# According to the GDD, the player will enter Combat Encounters. These involve:
-# - The camera locking
-# - Enemies spawning in a group
-# - Rolling becomes stamina-dependent
-# To handle all of this, some other object should just tell the player about combat encounters with signals.
-# These next two functions are provided to hook your signals into.
-## Call this to tell the player that a combat encounter is beginning.
-func enter_combat() -> void:
-	if is_in_combat: return
-	is_in_combat = true
-	$Hud.fade_stamina_in()
-## Call this to tell the player that a combat encounter is done.
-func exit_combat() -> void:
-	if !is_in_combat: return
-	is_in_combat = false
-	stamina = 3.0
-	$Hud.fade_stamina_out()
+## Function bound to the signal for beginning an interaction.
+## Changes the state to Interacting.
+func _on_interaction_started() -> void:
+	current_state = PlayerState.INTERACTING
+
+## Function bound to the signal for ending an interaction
+## Changes state to Walking by default.
+func _on_interaction_ended() -> void:
+	current_state = PlayerState.WALKING
+#endregion

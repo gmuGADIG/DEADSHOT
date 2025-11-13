@@ -1,6 +1,189 @@
-[gd_scene load_steps=2 format=3 uid="uid://bls8mp0x10le2"]
+[gd_scene load_steps=12 format=3 uid="uid://bls8mp0x10le2"]
 
 [ext_resource type="Script" uid="uid://diivajb5h6s00" path="res://menu/campfire_menu/campfire_menu.gd" id="1_w7cwq"]
+[ext_resource type="SpriteFrames" uid="uid://ubx8wetjoqm2" path="res://world/interactables/campfire/campfire_frames.tres" id="2_xivvi"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xivvi"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_bwmi4"]
+interpolation_mode = 2
+colors = PackedColorArray(1, 0.3647059, 0, 1, 1, 0.3647059, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_d8eq6"]
+gradient = SubResource("Gradient_bwmi4")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Animation" id="Animation_yiec5"]
+resource_name = "pulsate"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.011764706), Color(1, 1, 1, 0.08235294)]
+}
+
+[sub_resource type="Animation" id="Animation_cge4d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.08235294)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_co6me"]
+_data = {
+&"RESET": SubResource("Animation_cge4d"),
+&"pulsate": SubResource("Animation_yiec5")
+}
+
+[sub_resource type="Animation" id="Animation_xivvi"]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.89411765)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.3298771, 1),
+"update": 0,
+"values": [Vector2(572, 700), Vector2(572, 580.95)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VBoxContainer/Cancel:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.4666667, 0.76666665),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("VBoxContainer/SkillTree:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.56666666, 0.8666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bwmi4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.89411765)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(572, 541.00006)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VBoxContainer/Cancel:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("VBoxContainer/SkillTree:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d8eq6"]
+_data = {
+&"RESET": SubResource("Animation_bwmi4"),
+&"start": SubResource("Animation_xivvi")
+}
 
 [node name="CampfireMenu" type="Control"]
 layout_mode = 3
@@ -11,48 +194,78 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_w7cwq")
 
-[node name="Panel" type="Panel" parent="."]
-custom_minimum_size = Vector2(9.355, 7.23)
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.89411765)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(572, 541.00006)
+rotation = 0.14664483
+scale = Vector2(0.9936207, 0.9936207)
+sprite_frames = ExtResource("2_xivvi")
+animation = &"lit"
+autoplay = "lit"
+frame_progress = 0.19229183
+
+[node name="Glow" type="Sprite2D" parent="AnimatedSprite2D"]
+modulate = Color(1, 1, 1, 0.08235294)
+material = SubResource("CanvasItemMaterial_xivvi")
+position = Vector2(4.763389, -15.963729)
+scale = Vector2(17.470146, 16.139902)
+texture = SubResource("GradientTexture2D_d8eq6")
+
+[node name="GlowAnim" type="AnimationPlayer" parent="AnimatedSprite2D/Glow"]
+libraries = {
+&"": SubResource("AnimationLibrary_co6me")
+}
+autoplay = "pulsate"
+speed_scale = 0.5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -170.0
-offset_top = -149.99998
-offset_right = 170.0
-offset_bottom = 150.0
+offset_left = -111.0
+offset_top = -168.0
+offset_right = 111.0
+offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 24
+alignment = 1
 
-[node name="Label" type="Label" parent="Panel"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -84.5
-offset_top = 26.999985
-offset_right = 84.5
-offset_bottom = 49.999985
-grow_horizontal = 2
-text = "Welcome to camp fire!
-game saved + hp restored"
-horizontal_alignment = 1
+[node name="SkillTree" type="Button" parent="VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 0.36862746, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Meat Locker"
+flat = true
 
-[node name="Close" type="Button" parent="Panel"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -43.0
-offset_top = -75.0
-offset_right = 43.0
-offset_bottom = -32.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "Close"
+[node name="Cancel" type="Button" parent="VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.98039216, 0.16078432, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Cancel"
+flat = true
 
-[connection signal="pressed" from="Panel/Close" to="." method="_on_close_pressed"]
+[node name="Anim" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_d8eq6")
+}
+autoplay = "start"
+
+[connection signal="pressed" from="VBoxContainer/SkillTree" to="." method="_on_skill_tree_pressed"]
+[connection signal="pressed" from="VBoxContainer/Cancel" to="." method="_on_cancel_pressed"]
