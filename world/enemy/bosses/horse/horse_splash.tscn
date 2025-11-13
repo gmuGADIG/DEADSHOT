@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4i551n7tbjtm"]
+
+[ext_resource type="Texture2D" uid="uid://dr0k5wtlmynj6" path="res://temp_art/reticle.png" id="1_fisj4"]
+[ext_resource type="Texture2D" uid="uid://sxaysn4gqoxo" path="res://temp_art/gartic/coin.png" id="2_mrlxj"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8fe32"]
+radius = 2.5
+
+[node name="HorseChunk" type="Node3D"]
+
+[node name="WarningTarget" type="Sprite3D" parent="."]
+transform = Transform3D(25, 0, 0, 0, -1.0927847e-06, 25, 0, -25, -1.0927847e-06, 0, 0.02, 0)
+texture_filter = 0
+texture = ExtResource("1_fisj4")
+
+[node name="Splash" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="Splash"]
+transform = Transform3D(4, 0, 0, 0, 0.34862322, 3.984779, 0, -3.984779, 0.34862322, 0, 0, 0)
+texture = ExtResource("2_mrlxj")
+
+[node name="Area3D" type="Area3D" parent="Splash"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Splash/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+shape = SubResource("CylinderShape3D_8fe32")
