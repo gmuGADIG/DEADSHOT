@@ -18,7 +18,6 @@ func _process(_delta: float) -> void:
 	updateMovementAnimation(player.current_state)
 	if player.velocity == Vector3.ZERO: updateSpriteAnimation("idle")
 	checkSpriteDirection()
-	print(scale)
 
 
 func _on_player_state_change() -> void:
