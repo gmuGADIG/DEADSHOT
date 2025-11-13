@@ -126,11 +126,8 @@ text = "SOUND
 libraries = {
 &"": SubResource("AnimationLibrary_md36l")
 }
+autoplay = "open"
 
-[node name="close" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_md36l")
-}
-
+[connection signal="pressed" from="Background/back_button" to="." method="_on_back_button_pressed"]
 [connection signal="value_changed" from="Background/Music" to="." method="_on_music_value_changed"]
 [connection signal="value_changed" from="Background/VFX" to="." method="_on_vfx_value_changed"]

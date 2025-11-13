@@ -15,7 +15,6 @@ func _ready() -> void:
 	
 	%MusicPercentage.text = str(int(music_value)) + "%"
 	%VFXPercentage.text = str(int(vfx_value)) + "%"
-
 	# need to change value of sound. uhhhh
 	# is there a better way to do the int calling? it looks... ass LOL
 
@@ -27,3 +26,7 @@ func _on_music_value_changed(_value: float) -> void:
 func _on_vfx_value_changed(_value: float) -> void:
 	vfx_value = %VFX.value
 	%VFXPercentage.text = str(int(vfx_value)) + "%"
+	
+
+func _on_back_button_pressed() -> void:
+	$AnimationPlayer.play_backwards("open")

@@ -12,6 +12,7 @@ func _on_load_save_button_pressed() -> void:
 func _on_options_button_pressed() -> void:
 	#Load Options Menu Scene
 	print("Options Opened")
+	get_tree().change_scene_to_file("res://menu/options_menu/options_menu.tscn")
 
 func _on_quit_button_pressed() -> void:
 	#Quit Game
