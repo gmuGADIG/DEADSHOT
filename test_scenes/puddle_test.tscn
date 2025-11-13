@@ -1,10 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://1uc77axc273l"]
+[gd_scene load_steps=7 format=3 uid="uid://1uc77axc273l"]
 
 [ext_resource type="PackedScene" uid="uid://3o8nbg2v248a" path="res://world/interactables/puddle/puddle.tscn" id="1_cxp5v"]
 [ext_resource type="PackedScene" uid="uid://nuqmhgq1e2lu" path="res://world/player/player.tscn" id="2_54v4a"]
+[ext_resource type="PackedScene" uid="uid://cr05xakri7lnw" path="res://world/floor/floor_gen.tscn" id="3_ylnq2"]
+[ext_resource type="Resource" uid="uid://q24ustx30otu" path="res://world/floor/sand/sand.tres" id="4_a4wa5"]
+[ext_resource type="PackedScene" uid="uid://cn2ip7hvcayky" path="res://systems/camera/main_cam.tscn" id="5_a4wa5"]
+
+[sub_resource type="Curve3D" id="Curve3D_jvic3"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 4.654374, 0, -4.3272734, 0, 0, 0, 0, 0, 0, -6.4774256, 0, -4.265941, 0, 0, 0, 0, 0, 0, -7.4894075, 0, 4.7038975, 0, 0, 0, 0, 0, 0, 5.835019, 0, 4.5965657),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
 
 [node name="PuddleTest" type="Node3D"]
 
 [node name="Puddle" parent="." instance=ExtResource("1_cxp5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2567606, 0, 2.0137954)
 
 [node name="Player" parent="." instance=ExtResource("2_54v4a")]
+
+[node name="Floor" parent="." instance=ExtResource("3_ylnq2")]
+curve = SubResource("Curve3D_jvic3")
+material = ExtResource("4_a4wa5")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.92473876, -0.25272667, 0.28458285, 0, 0.74771696, 0.66401756, -0.3806024, -0.61404276, 0.69144285, 0, 0, 0)
+
+[node name="MainCam" parent="." instance=ExtResource("5_a4wa5")]
+transform = Transform3D(1, 0, 0, 0, 0.57357645, 0.81915206, 0, -0.81915206, 0.57357645, 0, 3.8096743, 4.860206)

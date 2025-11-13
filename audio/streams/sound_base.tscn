@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ci3804ofkibap"]
+
+[ext_resource type="Script" uid="uid://bf14d2iyiqx56" path="res://audio/streams/sound_stream.gd" id="2_2l4ex"]
+
+[node name="SoundBase" type="AudioStreamPlayer3D"]
+autoplay = true
+script = ExtResource("2_2l4ex")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

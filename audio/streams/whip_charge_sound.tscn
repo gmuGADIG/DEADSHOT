@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://cuf4m7g7i2wdk"]
+[gd_scene load_steps=3 format=3 uid="uid://cuf4m7g7i2wdk"]
 
-[ext_resource type="AudioStream" uid="uid://bsxp7603mjq0x" path="res://audio/placeholders/test_unlock.wav" id="1_0fnpp"]
+[ext_resource type="PackedScene" uid="uid://ci3804ofkibap" path="res://audio/streams/sound_base.tscn" id="1_67g1k"]
+[ext_resource type="AudioStream" uid="uid://bcq5fl3n4wrqd" path="res://audio/placeholders/whip_placeholders/whip_charge_1.wav" id="2_uhchb"]
 
-[node name="WhipChargeSound" type="AudioStreamPlayer3D"]
-stream = ExtResource("1_0fnpp")
+[node name="WhipChargeSound" instance=ExtResource("1_67g1k")]
+stream = ExtResource("2_uhchb")
+autoplay = false
+delete_on_finish = false

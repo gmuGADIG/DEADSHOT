@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjqtb588mlf84"]
+
+[ext_resource type="PackedScene" uid="uid://ci3804ofkibap" path="res://audio/streams/sound_base.tscn" id="1_2etuh"]
+[ext_resource type="AudioStream" uid="uid://wlnqhs4htixp" path="res://audio/placeholders/test_hurt.wav" id="2_amc8g"]
+
+[node name="HurtSound" instance=ExtResource("1_2etuh")]
+stream = ExtResource("2_amc8g")

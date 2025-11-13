@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://dou0ya37mv70s"]
+
+[ext_resource type="PackedScene" uid="uid://ci3804ofkibap" path="res://audio/streams/sound_base.tscn" id="1_8mxbc"]
+[ext_resource type="AudioStream" uid="uid://dc6lbunkflvv4" path="res://audio/placeholders/funny_bone_man.wav" id="1_alq1n"]
+
+[node name="RollSound" instance=ExtResource("1_8mxbc")]
+stream = ExtResource("1_alq1n")

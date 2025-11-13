@@ -10,4 +10,6 @@ script = ExtResource("1_gjor4")
 
 [node name="ShootSound" parent="Sounds" instance=ExtResource("2_jjk67")]
 unique_name_in_owner = true
+autoplay = false
+delete_on_finish = false
 volume_db = -18.641
