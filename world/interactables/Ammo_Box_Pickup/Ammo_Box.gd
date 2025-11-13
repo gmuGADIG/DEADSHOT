@@ -7,7 +7,7 @@ extends Area3D
 func _on_body_entered(body: Node3D) -> void:
 	# player will pick up ammo when it collides
 	if body is Player:
-		Num_Of_Ammo_In_Box=randf_range(5,20)
+		Num_Of_Ammo_In_Box=randf_range(5,21)
 		Player.instance.get_node(Player.gun_name).reserve_ammo+=Num_Of_Ammo_In_Box
 		#print("Ammo Box Picked Up and got: ")
 		#print(Num_Of_Ammo_In_Box)

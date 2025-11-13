@@ -30,3 +30,4 @@ func interact()->void:
 	# open campfire menu
 	var menu := preload("res://menu/campfire_menu/campfire_menu.tscn").instantiate()
 	add_child(menu)
+	await menu.tree_exited

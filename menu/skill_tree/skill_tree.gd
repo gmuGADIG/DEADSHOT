@@ -54,3 +54,6 @@ func on_skill_purchased(skill : SkillSet.SkillUID) -> void:
 func update_state() -> void:
 	for skill_button : Skill_Button in skill_buttons:
 		skill_button.update_state()
+
+func _on_exit_button_pressed() -> void:
+	queue_free()
