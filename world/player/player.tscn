@@ -166,7 +166,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94693, 0)
 shape = SubResource("CylinderShape3D_plfsl")
 
 [node name="Sprite" type="AnimatedSprite3D" parent="." node_paths=PackedStringArray("player")]
-transform = Transform3D(0.39011317, 0, 0, 0, 0.33784774, 0.19505659, 0, -0.19505659, 0.33784774, 0.00084251165, 1.6017487, 0)
+transform = Transform3D(0.39, 0, 0, 0, 0.33774987, 0.19500007, 0, -0.19500007, 0.33774987, 0.00084251165, 1.6017487, 0)
 shaded = true
 alpha_cut = 1
 sprite_frames = SubResource("SpriteFrames_jrep8")

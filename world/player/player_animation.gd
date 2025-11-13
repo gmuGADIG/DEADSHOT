@@ -17,10 +17,13 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	updateMovementAnimation(player.current_state)
 	if player.velocity == Vector3.ZERO: updateSpriteAnimation("idle")
+	checkSpriteDirection()
+	print(scale)
 
 
 func _on_player_state_change() -> void:
 	updateMovementAnimation(player.current_state)
+	
 
 ## Update if the player is walking or rolling
 func updateMovementAnimation(state: Player.PlayerState) -> void:
@@ -55,14 +58,20 @@ func _on_animation_finished() -> void:
 	updateMovementAnimation(player.current_state)
 
 func _on_gun_fired() -> void:
-	#TODO: Flip sprite direction based on player direction
+	#if/else statement to update the sprite's direction according to direction shot towards. skips if player is aiming perfectly upwards
+	if player.aim_dir().x != 0: 
+		scale.x = 0.39 * player.aim_dir().x/abs(player.aim_dir().x)
+	else:
+		return
 	updateSpriteAnimation("shooting")
 
-## TODO: This function isn't called anywhere. It should probably be called every frame?
-## TODO: Based on the dot product, set the sprite to scale -1 or 1.
-## 		Google about the dot product between two vectors to see what you can learn just by the value of directionDifference
+
 func checkSpriteDirection() -> void:
 	var playerDirection: Vector2 = Vector2(player.velocity.x, player.velocity.z).normalized()
 	var directionDifference: float = Vector2.RIGHT.dot(playerDirection)
-	
-	
+	#updates the sprite's direction if the player isn't standing still nor shooting
+	#TODO: fix lighting issue when the sprite is scaled negatively
+	if (directionDifference != 0) && (animation != "shooting"):
+		scale.x = 0.39 * directionDifference/abs(directionDifference)
+	else:
+		return
