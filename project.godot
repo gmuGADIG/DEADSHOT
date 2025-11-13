@@ -23,6 +23,7 @@ DebugMenu="*res://systems/debug_menu/debug_menu.tscn"
 
 [debug]
 
+gdscript/warnings/unused_signal=0
 gdscript/warnings/untyped_declaration=2
 
 [display]

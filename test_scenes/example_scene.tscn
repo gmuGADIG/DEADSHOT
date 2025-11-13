@@ -1,74 +1,247 @@
-[gd_scene load_steps=11 format=3 uid="uid://d3o7riajla512"]
+[gd_scene load_steps=31 format=3 uid="uid://d3o7riajla512"]
 
-[ext_resource type="PackedScene" uid="uid://cr05xakri7lnw" path="res://world/floor/floor_gen.tscn" id="1_plfsl"]
-[ext_resource type="Texture2D" uid="uid://cjbsq7rk6r3h4" path="res://temp_art/gartic/cactus.png" id="2_p5u37"]
-[ext_resource type="Script" uid="uid://duvasrdv76uic" path="res://test_scenes/test_coin.gd" id="3_0u0ns"]
-[ext_resource type="Texture2D" uid="uid://sxaysn4gqoxo" path="res://temp_art/gartic/coin.png" id="3_p5u37"]
-[ext_resource type="PackedScene" uid="uid://nuqmhgq1e2lu" path="res://world/player/player.tscn" id="5_plfsl"]
-[ext_resource type="PackedScene" uid="uid://b4n4rflu3my0v" path="res://world/enemy/longhorn/longhorn.tscn" id="7_byltu"]
-[ext_resource type="PackedScene" uid="uid://cn2ip7hvcayky" path="res://systems/camera/main_cam.tscn" id="7_ppbhs"]
+[ext_resource type="Script" uid="uid://llqh4g6obmup" path="res://world/player/player.gd" id="1_uixtt"]
+[ext_resource type="Texture2D" path="res://world/player/player_sheet.png" id="2_wqyx2"]
+[ext_resource type="Script" uid="uid://cwjxwkxciij4o" path="res://systems/interaction/interactor.gd" id="3_ium5j"]
+[ext_resource type="PackedScene" path="res://world/player/weapon/dualies/weapon_dualies.tscn" id="4_xye10"]
+[ext_resource type="Script" uid="uid://c4s1ohnc08ecy" path="res://world/player/reticle/reticle.gd" id="5_7cecu"]
+[ext_resource type="Texture2D" uid="uid://bwm425xkr0vcy" path="res://temp_art/icon.svg" id="6_paqw0"]
+[ext_resource type="Script" uid="uid://c1g7056xgtqys" path="res://systems/camera/camera_tracked.gd" id="7_hhruw"]
+[ext_resource type="Script" uid="uid://lxg83i28nlul" path="res://systems/attacking/hurtbox/hurtbox.gd" id="8_31xdq"]
+[ext_resource type="Script" uid="uid://do5vs8m1law7o" path="res://systems/attacking/health/health.gd" id="9_mx3ft"]
+[ext_resource type="PackedScene" uid="uid://duf7ry1s34j7o" path="res://world/player/weapon/whip/whip.tscn" id="10_il4y0"]
+[ext_resource type="PackedScene" uid="uid://bas8xwk5nhlq0" path="res://world/player/HUD/hud.tscn" id="11_210xh"]
 
-[sub_resource type="NavigationMesh" id="NavigationMesh_plfsl"]
-vertices = PackedVector3Array(68.84153, 2.3999999, -23.946981, 69.09153, 2.3999999, -23.446981, 71.59153, 0.64999986, -23.446981, 71.09153, 0.64999986, -27.446981, -30.65847, 0.64999986, -28.946981, -33.40847, 0.89999986, -24.446981, -30.90847, 2.3999999, -23.696981, 65.84153, 0.64999986, -28.946981, -33.90847, 0.64999986, -23.696981, -33.90847, 0.64999986, 31.553019, -33.40847, 0.64999986, 35.303017, -30.90847, 2.3999999, 35.303017, -32.928074, 1.3999999, 27.540594, 69.09153, 2.3999999, 35.303017, 71.59153, 0.89999986, 35.303017, 72.09153, 0.64999986, 32.053017, 72.09153, 0.64999986, -20.196981, 70.56653, 1.1499999, -21.971981, 70.60154, 1.3999999, -20.460995, -29.90847, 0.39999983, -22.946981, -29.90847, 0.39999983, 34.803017, 68.09153, 0.39999983, 34.803017, 68.09153, 0.39999983, -22.946981, 68.84153, 2.1499999, 35.803017, 71.09153, 0.64999986, 39.303017, -30.65847, 2.3999999, 35.803017, -32.90847, 0.64999986, 39.303017, -27.40847, 0.64999986, 40.803017, 65.59153, 0.64999986, 40.803017, 67.592316, 1.1499999, 38.042175)
-polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(6, 7, 0), PackedInt32Array(0, 7, 3), PackedInt32Array(10, 9, 11), PackedInt32Array(11, 12, 6), PackedInt32Array(6, 8, 5), PackedInt32Array(8, 12, 9), PackedInt32Array(9, 12, 11), PackedInt32Array(12, 8, 6), PackedInt32Array(16, 17, 2), PackedInt32Array(2, 17, 1), PackedInt32Array(1, 18, 13), PackedInt32Array(13, 15, 14), PackedInt32Array(15, 18, 16), PackedInt32Array(16, 18, 17), PackedInt32Array(17, 18, 1), PackedInt32Array(18, 15, 13), PackedInt32Array(22, 21, 19), PackedInt32Array(19, 21, 20), PackedInt32Array(13, 14, 23), PackedInt32Array(23, 14, 24), PackedInt32Array(11, 25, 10), PackedInt32Array(10, 25, 26), PackedInt32Array(28, 29, 24), PackedInt32Array(24, 29, 23), PackedInt32Array(23, 28, 25), PackedInt32Array(25, 27, 26), PackedInt32Array(27, 25, 28), PackedInt32Array(28, 23, 29)]
-
-[sub_resource type="Curve3D" id="Curve3D_plfsl"]
-closed = true
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -8, 0, -4, 0, 0, 0, 0, 0, 0, 18, 0, -4, 0, 0, 0, 0, 0, 0, 18, 0, 6, 0, 0, 0, 0, 0, 0, -8, 0, 6),
-"tilts": PackedFloat32Array(0, 0, 0, 0)
-}
+[sub_resource type="Curve" id="Curve_2x47q"]
+_limits = [0.0, 20.0, 0.0, 0.45]
+_data = [Vector2(0, 9.870129), 0.0, 0.0, 0, 0, Vector2(0.05559846, 20), 0.0, 0.0, 0, 0, Vector2(0.32837838, 20), 0.0, 0.0, 0, 0, Vector2(0.45, 0), 0.0, 0.0, 0, 0]
 point_count = 4
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_plfsl"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_plfsl"]
+height = 1.85699
+radius = 0.669922
 
-[node name="ExampleScene" type="Node3D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3n4qb"]
+atlas = ExtResource("2_wqyx2")
+region = Rect2(4096, 0, 1024, 1024)
 
-[node name="Player" parent="." instance=ExtResource("5_plfsl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53553, 4.7683716e-07, 0.9444761)
-walk_speed = 20.0
-floor_type = 1
+[sub_resource type="AtlasTexture" id="AtlasTexture_myh4x"]
+atlas = ExtResource("2_wqyx2")
+region = Rect2(0, 1024, 1024, 1024)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.92473876, -0.25272667, 0.28458285, 0, 0.74771696, 0.66401756, -0.3806024, -0.61404276, 0.69144285, 0, 0, 0)
+[sub_resource type="AtlasTexture" id="AtlasTexture_80mbn"]
+atlas = ExtResource("2_wqyx2")
+region = Rect2(1024, 1024, 1024, 1024)
 
-[node name="World" type="Node3D" parent="."]
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbm61"]
+atlas = ExtResource("2_wqyx2")
+region = Rect2(2048, 1024, 1024, 1024)
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="World"]
-navigation_mesh = SubResource("NavigationMesh_plfsl")
+[sub_resource type="AtlasTexture" id="AtlasTexture_2x47q"]
+atlas = ExtResource("2_wqyx2")
+region = Rect2(1024, 3072, 1024, 1024)
 
-[node name="Floor" parent="World/NavigationRegion3D" instance=ExtResource("1_plfsl")]
-transform = Transform3D(3.8231633, 0, 0, 0, 1, 0, 0, 0, 5.889396, 0, 0, 0)
-curve = SubResource("Curve3D_plfsl")
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrep8"]
+atlas = ExtResource("2_wqyx2")
+region = Rect2(2048, 3072, 1024, 1024)
 
-[node name="Cactus" type="Sprite3D" parent="World/NavigationRegion3D"]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -6.08085, 1.35212, -2.54946)
-texture = ExtResource("2_p5u37")
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1k4r"]
+atlas = ExtResource("2_wqyx2")
+region = Rect2(3072, 3072, 1024, 1024)
 
-[node name="Cactus2" type="Sprite3D" parent="World/NavigationRegion3D"]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 4.52835, 1.35212, 2.91099)
-texture = ExtResource("2_p5u37")
+[sub_resource type="AtlasTexture" id="AtlasTexture_scey4"]
+atlas = ExtResource("2_wqyx2")
+region = Rect2(4096, 3072, 1024, 1024)
 
-[node name="Cactus3" type="Sprite3D" parent="World/NavigationRegion3D"]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 14.5163, 1.35212, -2.19461)
-texture = ExtResource("2_p5u37")
+[sub_resource type="AtlasTexture" id="AtlasTexture_fn377"]
+atlas = ExtResource("2_wqyx2")
+region = Rect2(2048, 5120, 1024, 1024)
 
-[node name="StaticBody3D" type="Area3D" parent="World"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38925886, 0.84841657, 0)
-collision_layer = 4
-script = ExtResource("3_0u0ns")
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxa5a"]
+atlas = ExtResource("2_wqyx2")
+region = Rect2(3072, 5120, 1024, 1024)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/StaticBody3D"]
-shape = SubResource("CapsuleShape3D_plfsl")
+[sub_resource type="AtlasTexture" id="AtlasTexture_xq3gs"]
+atlas = ExtResource("2_wqyx2")
+region = Rect2(4096, 5120, 1024, 1024)
 
-[node name="Coin" type="Sprite3D" parent="World/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0)
-texture = ExtResource("3_p5u37")
+[sub_resource type="AtlasTexture" id="AtlasTexture_hnw2l"]
+atlas = ExtResource("2_wqyx2")
+region = Rect2(2048, 2048, 1024, 1024)
 
-[node name="Enemy" parent="." instance=ExtResource("7_byltu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.796852, 1, 6.3707905)
-damage = 5.0
-movement_speed = 25.0
-patrol_path = Array[Vector3]([Vector3(10.126128, 1, 6.3707905), Vector3(20.796852, 1, 6.3707905)])
+[sub_resource type="AtlasTexture" id="AtlasTexture_gy2m5"]
+atlas = ExtResource("2_wqyx2")
+region = Rect2(3072, 2048, 1024, 1024)
 
-[node name="MainCam" parent="." instance=ExtResource("7_ppbhs")]
+[sub_resource type="AtlasTexture" id="AtlasTexture_tckbl"]
+atlas = ExtResource("2_wqyx2")
+region = Rect2(4096, 2048, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sacbj"]
+atlas = ExtResource("2_wqyx2")
+region = Rect2(0, 3072, 1024, 1024)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jrep8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3n4qb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_myh4x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80mbn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbm61")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2x47q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrep8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1k4r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_scey4")
+}],
+"loop": false,
+"name": &"rolling",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fn377")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxa5a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xq3gs")
+}],
+"loop": false,
+"name": &"shooting",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hnw2l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gy2m5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tckbl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sacbj")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 8.0
+}]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bvkkv"]
+height = 0.27978516
+radius = 0.8881836
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("health_component", "whip") groups=["player"]]
+collision_layer = 2
+script = ExtResource("1_uixtt")
+roll_curve = SubResource("Curve_2x47q")
+health_component = NodePath("HurtboxComponent/HealthComponent")
+whip = NodePath("Whip")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94693, 0)
+shape = SubResource("CylinderShape3D_plfsl")
+
+[node name="Sprite" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.39011317, 0, 0, 0, 0.33784774, 0.19505659, 0, -0.19505659, 0.33784774, 0.00084251165, 1.6017487, 0)
+shaded = true
+alpha_cut = 1
+sprite_frames = SubResource("SpriteFrames_jrep8")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="InteractionArea" type="Area3D" parent="."]
+unique_name_in_owner = true
+collision_mask = 4
+script = ExtResource("3_ium5j")
+metadata/_custom_type_script = "uid://cwjxwkxciij4o"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8601074, 0)
+shape = SubResource("CylinderShape3D_bvkkv")
+
+[node name="Dualies" parent="." instance=ExtResource("4_xye10")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.237, 0)
+
+[node name="Aiming" type="Node" parent="."]
+
+[node name="Reticle" type="Node3D" parent="Aiming"]
+unique_name_in_owner = true
+script = ExtResource("5_7cecu")
+
+[node name="Sprite3D" type="Sprite3D" parent="Aiming/Reticle"]
+transform = Transform3D(0.34999996, 0, 0, 0, 0, 0.34999993, 0, -0.34999993, 0, 0, 0.051027596, 0)
+texture = ExtResource("6_paqw0")
+
+[node name="CameraTracked" type="Node3D" parent="Aiming/Reticle"]
+script = ExtResource("7_hhruw")
+weight = 0.1
+metadata/_custom_type_script = "uid://c1g7056xgtqys"
+
+[node name="HurtboxComponent" type="Area3D" parent="." node_paths=PackedStringArray("health_component")]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("8_31xdq")
+health_component = NodePath("HealthComponent")
+allowed_damage_sources = Array[int]([1, 2])
+metadata/_custom_type_script = "uid://lxg83i28nlul"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtboxComponent"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94693, 0)
+shape = SubResource("CylinderShape3D_plfsl")
+
+[node name="HealthComponent" type="Node" parent="HurtboxComponent"]
+unique_name_in_owner = true
+script = ExtResource("9_mx3ft")
+max_health = 6
+metadata/_custom_type_script = "uid://do5vs8m1law7o"
+
+[node name="GPUParticlesAttractorSphere3D" type="GPUParticlesAttractorSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.44795907, 1.4558618, 0)
+strength = 100.0
+attenuation = 0.2
+cull_mask = 4294966274
+radius = 50.0
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="."]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -0.4213004, 0.76894426, 0.16874915)
+cull_mask = 4294966274
+size = Vector3(2.0436769, 4.2347975, 2.0017486)
+
+[node name="Whip" parent="." instance=ExtResource("10_il4y0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.54808617, 0)
+
+[node name="CameraTracked" type="Node3D" parent="."]
+script = ExtResource("7_hhruw")
+weight = 2.0
+metadata/_custom_type_script = "uid://c1g7056xgtqys"
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9011965, 0)
+light_energy = 0.2
+omni_range = 25.0
+omni_attenuation = 1.5
+
+[node name="Hud" parent="." instance=ExtResource("11_210xh")]
