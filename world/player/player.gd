@@ -100,9 +100,9 @@ func _physics_process(delta: float) -> void:
 		velocity = input_dir * walk_speed * speed_multiplier
 		if(($Sprite.frame==0 || $Sprite.frame == 2)&& self.velocity != Vector3.ZERO):
 			if(speed_multiplier == 0.5): #Check if player is in puddle
-				$WalkSFX.play() #
+				$WalkSFX.play() #Need to update to play puddle noise
 			else:
-				$WalkSFX.play()
+				$WalkSFX.play() #Play normal walking noise
 		if input_dir != Vector3.ZERO:
 			previous_input_direction = input_dir
 		
