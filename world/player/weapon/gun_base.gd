@@ -2,6 +2,8 @@
 class_name Gun
 extends Node3D
 
+signal fired
+
 ## Time in seconds to reload
 @export var reload_time : float = 1.25
 ## Max number of bullets in chamber and reserve
@@ -54,6 +56,7 @@ func _process(delta: float) -> void:
 			return
 	 
 		fire()
+		fired.emit()
 	
 	# Reloads the gun as well (if you can shoot, you can reload).
 	if Input.is_action_just_pressed("reload") and is_reloading == false:
