@@ -1,13 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://by8y1gjlttw6g"]
+[gd_scene load_steps=5 format=3 uid="uid://by8y1gjlttw6g"]
 
 [ext_resource type="Script" uid="uid://cg6umb86w26xh" path="res://menu/main_menu/main_menu.gd" id="1_winya"]
 [ext_resource type="Texture2D" uid="uid://dcavwcmbdms3e" path="res://temp_art/rough_drafts/main_menu.png" id="2_e5xhn"]
+[ext_resource type="Theme" uid="uid://djhkh3pf5w1j5" path="res://temp_art/rough_drafts/main_menu_theme.tres" id="3_7r8i1"]
 [ext_resource type="Script" uid="uid://dvio66wasdhpi" path="res://menu/main_menu/button.gd" id="3_qs6vt"]
-
-[sub_resource type="SystemFont" id="SystemFont_qs6vt"]
-
-[sub_resource type="Theme" id="Theme_7r8i1"]
-default_font = SubResource("SystemFont_qs6vt")
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -16,7 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_7r8i1")
+theme = ExtResource("3_7r8i1")
 script = ExtResource("1_winya")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -43,6 +39,7 @@ grow_vertical = 2
 [node name="NewSaveButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
+toggle_mode = true
 text = "NEW SAVE
 "
 script = ExtResource("3_qs6vt")
@@ -50,17 +47,20 @@ script = ExtResource("3_qs6vt")
 [node name="LoadSaveButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
+toggle_mode = true
 text = "LOAD SAVE
 "
 
 [node name="OptionsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
+toggle_mode = true
 text = "OPTIONS"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
+toggle_mode = true
 text = "QUIT"
 
 [node name="Title" type="Label" parent="."]
@@ -78,7 +78,10 @@ text = "DEAD                 SHOT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[connection signal="mouse_entered" from="VBoxContainer/NewSaveButton" to="VBoxContainer/NewSaveButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/NewSaveButton" to="VBoxContainer/NewSaveButton" method="_on_mouse_exited"]
 [connection signal="pressed" from="VBoxContainer/NewSaveButton" to="." method="_on_new_save_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/NewSaveButton" to="VBoxContainer/NewSaveButton" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/LoadSaveButton" to="." method="_on_load_save_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

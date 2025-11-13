@@ -1,0 +1,14 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://djhkh3pf5w1j5"]
+
+[ext_resource type="Texture2D" uid="uid://bwm425xkr0vcy" path="res://temp_art/icon.svg" id="1_gikp6"]
+[ext_resource type="Texture2D" uid="uid://sxaysn4gqoxo" path="res://temp_art/gartic/coin.png" id="2_a43qx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a43qx"]
+texture = ExtResource("1_gikp6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1rmgx"]
+texture = ExtResource("2_a43qx")
+
+[resource]
+Button/styles/hover = SubResource("StyleBoxTexture_a43qx")
+Button/styles/pressed = SubResource("StyleBoxTexture_1rmgx")
