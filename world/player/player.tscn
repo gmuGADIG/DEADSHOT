@@ -169,8 +169,8 @@ transform = Transform3D(0.39011317, 0, 0, 0, 0.33784774, 0.19505659, 0, -0.19505
 shaded = true
 alpha_cut = 1
 sprite_frames = SubResource("SpriteFrames_jrep8")
-animation = &"idle"
-autoplay = "idle"
+animation = &"walking"
+autoplay = "walking"
 
 [node name="InteractionArea" type="Area3D" parent="."]
 unique_name_in_owner = true
@@ -245,3 +245,5 @@ omni_range = 25.0
 omni_attenuation = 1.5
 
 [node name="Hud" parent="." instance=ExtResource("2_duds0")]
+
+[node name="WalkSFX" type="AudioStreamPlayer3D" parent="."]

@@ -66,21 +66,6 @@ enum FloorType{ ## Where the player is walking
 }
 @export var floor_type: FloorType
 
-static func update_persisting_data() -> void:
-	## Make it so this can change to whatever the current gun is?
-	var gun := instance.get_node(gun_name)
-	
-	if persisting_data == null:
-		persisting_data = PlayerPersistingData.new()
-	
-	persisting_data.max_health = Player.instance.health_component.max_health
-	persisting_data.health = Player.instance.health_component.health
-	persisting_data.curr_chamber = gun.chamber_ammo
-	persisting_data.curr_reserve = gun.reserve_ammo
-	
-	#TEST
-	print(persisting_data.curr_chamber)
-	print(persisting_data.curr_reserve)
 @onready var starting_y_pos : float = position.y
 #endregion
 
@@ -110,10 +95,14 @@ func _physics_process(delta: float) -> void:
 		begin_roll()
 	
 	if current_state == PlayerState.WALKING:
+		
 		var input_dir : Vector3 = input_direction()
 		velocity = input_dir * walk_speed * speed_multiplier
-		#$WalkSFX.play() 
-		#print($WalkSFX.stream)
+		if(($Sprite.frame==0 || $Sprite.frame == 2)&& self.velocity != Vector3.ZERO):
+			if(speed_multiplier == 0.5): #Check if player is in puddle
+				$WalkSFX.play() #
+			else:
+				$WalkSFX.play()
 		if input_dir != Vector3.ZERO:
 			previous_input_direction = input_dir
 		
@@ -213,11 +202,12 @@ func update_stamina(delta: float) -> void:
 		stamina = 3.0
 func walking_sounds()->void: #Determines what sound the player should make when walking
 	match floor_type:
+		
 		FloorType.WOOD:
 			$WalkSFX.stream = load("res://audio/placeholders/funny_bone_man.wav")
 		FloorType.SAND:
 			$WalkSFX.stream = load("res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkB.wav")
-	
+			
 		
 		
 	
