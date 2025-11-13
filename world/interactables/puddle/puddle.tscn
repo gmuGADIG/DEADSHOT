@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://3o8nbg2v248a"]
 
 [ext_resource type="Script" uid="uid://bpfbqraltsta0" path="res://world/interactables/puddle/puddle.gd" id="1_2gbto"]
-[ext_resource type="Texture2D" uid="uid://chnnd6opa6df5" path="res://temp_art/gartic/fish_man.png" id="2_ijjwc"]
+[ext_resource type="Texture2D" uid="uid://c7nn1cepv4i3w" path="res://world/interactables/puddle/Mass_Puddle.png" id="2_6unbr"]
 [ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="3_6unbr"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_cismt"]
-size = Vector3(3.3955078, 0.15454102, 3.2126465)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6unbr"]
+points = PackedVector3Array(-1.015, 0, -1.265, -0.5, 0, -1.77, 1.545, 0, -0.78, 1.525, 0, 0.11, -0.405, 0, 1.74, -1.565, 0, 0.7, -1.21, 0, 1.5, -1.015, 0.155, -1.265, -0.5, 0.155, -1.77, 1.545, 0.155, -0.78, -0.405, 0.155, 1.74, 1.525, 0.155, 0.11, -1.565, 0.155, 0.7, -1.21, 0.155, 1.5)
 
 [node name="Puddle" type="Area3D"]
 collision_mask = 2
@@ -13,12 +13,12 @@ script = ExtResource("1_2gbto")
 atk_damage = 1
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.032779217, 0)
-texture = ExtResource("2_ijjwc")
+transform = Transform3D(0.535, 0, 0, 0, -2.3385594e-08, -0.535, 0, 0.535, -2.3385594e-08, -0.14507449, 0.032779217, -0.07892525)
+texture = ExtResource("2_6unbr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.025390625, 0.010375977, 0)
-shape = SubResource("BoxShape3D_cismt")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.039245605, 0.010375977, 0)
+shape = SubResource("ConvexPolygonShape3D_6unbr")
 
 [node name="DamageTimer" type="Timer" parent="."]
 unique_name_in_owner = true
