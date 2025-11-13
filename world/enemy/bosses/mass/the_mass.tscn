@@ -1,16 +1,50 @@
-[gd_scene load_steps=7 format=3 uid="uid://d0sdri7hlk5i3"]
+[gd_scene load_steps=22 format=3 uid="uid://d0sdri7hlk5i3"]
 
-[ext_resource type="PackedScene" uid="uid://cqo1iwd2arvfk" path="res://world/enemy/bosses/boss_enemy.tscn" id="1_0ojq6"]
+[ext_resource type="PackedScene" uid="uid://c5mugf35c8n0f" path="res://world/enemy/bosses/boss_enemy.tscn" id="1_0ojq6"]
 [ext_resource type="Script" uid="uid://bvjxmtoqmx4bg" path="res://world/enemy/bosses/mass/the_mass.gd" id="2_0ojq6"]
+[ext_resource type="PackedScene" uid="uid://0087idnveyoi" path="res://world/enemy/bosses/mass/attacks/spike_attack.tscn" id="3_2il7s"]
 [ext_resource type="Texture2D" uid="uid://bsjg2jy70gbkw" path="res://temp_art/rough_drafts/mass_temp.png" id="3_we0e7"]
+[ext_resource type="PackedScene" uid="uid://xug45fo2qtmw" path="res://world/enemy/bosses/mass/mass_chunk.tscn" id="4_6qvwf"]
+[ext_resource type="Script" uid="uid://c34j1choqmasd" path="res://world/enemy/bosses/mass/enemy_spitter.gd" id="6_wko6n"]
+[ext_resource type="PackedScene" uid="uid://dxdkwdigtcn43" path="res://world/enemy/test/enemy_test.tscn" id="7_2il7s"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_we0e7"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_b8f6a"]
 size = Vector3(11.355682, 5.3653564, 3.9311523)
 
-[sub_resource type="Animation" id="Animation_we0e7"]
-resource_name = "spike"
-length = 4.0
-step = 0.5
+[sub_resource type="BoxShape3D" id="BoxShape3D_2il7s"]
+size = Vector3(11.355682, 5.3653564, 3.9311523)
+
+[sub_resource type="Curve" id="Curve_2il7s"]
+_limits = [0.22, 5.0, 0.0, 0.8]
+_data = [Vector2(0, 0.22), 0.0, 0.0, 0, 0, Vector2(0.33892474, 5), 0.0, 0.0, 0, 0, Vector2(0.8, 0.22), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Animation" id="Animation_b8f6a"]
+length = 0.001
+tracks/0/type = "scale_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.305, 0.305, 0.305)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hurtbox:process_mode")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_6qvwf"]
+resource_name = "phase_1_chunk"
+length = 2.5
+step = 0.2
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -18,42 +52,638 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "values": [{
 "args": [],
-"method": &"spike_attack"
+"method": &"shoot_chunk"
 }, {
 "args": [],
-"method": &"spike_attack"
+"method": &"shoot_chunk"
 }, {
 "args": [],
-"method": &"spike_attack"
+"method": &"shoot_chunk"
+}, {
+"args": [],
+"method": &"shoot_chunk"
+}, {
+"args": [],
+"method": &"shoot_chunk"
+}, {
+"args": [],
+"method": &"shoot_chunk"
+}, {
+"args": [],
+"method": &"shoot_chunk"
+}, {
+"args": [],
+"method": &"shoot_chunk"
+}, {
+"args": [],
+"method": &"shoot_chunk"
+}, {
+"args": [],
+"method": &"shoot_chunk"
+}, {
+"args": [],
+"method": &"shoot_chunk"
+}, {
+"args": [],
+"method": &"shoot_chunk"
 }]
+}
+
+[sub_resource type="Animation" id="Animation_k1noq"]
+resource_name = "phase_1_rapid_spike"
+length = 5.0
+step = 0.1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.59999996, 0.79999995, 1, 1.1999999, 1.4, 1.6, 1.8000001, 1.9999999, 2.1999998, 2.4, 2.6, 2.8000002, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"rapid_spike"
+}, {
+"args": [],
+"method": &"rapid_spike"
+}, {
+"args": [],
+"method": &"rapid_spike"
+}, {
+"args": [],
+"method": &"rapid_spike"
+}, {
+"args": [],
+"method": &"rapid_spike"
+}, {
+"args": [],
+"method": &"rapid_spike"
+}, {
+"args": [],
+"method": &"rapid_spike"
+}, {
+"args": [],
+"method": &"rapid_spike"
+}, {
+"args": [],
+"method": &"rapid_spike"
+}, {
+"args": [],
+"method": &"rapid_spike"
+}, {
+"args": [],
+"method": &"rapid_spike"
+}, {
+"args": [],
+"method": &"rapid_spike"
+}, {
+"args": [],
+"method": &"rapid_spike"
+}]
+}
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.5, 1, 0, 0, 0, 0.6, 1, -0.25, -0.25, 0, 0.7, 1, 0.25, -0.25, 0, 0.79999995, 1, -0.25, -0.25, 0, 0.9, 1, 0.25, -0.25, 0, 1, 1, -0.25, -0.25, 0, 1.1, 1, 0.25, -0.25, 0, 1.1999999, 1, -0.25, -0.25, 0, 1.3, 1, 0.25, -0.25, 0, 1.4, 1, -0.25, -0.25, 0, 1.5, 1, 0.25, -0.25, 0, 1.6, 1, -0.25, -0.25, 0, 1.7, 1, 0.25, -0.25, 0, 1.8, 1, -0.25, -0.25, 0, 1.9, 1, 0.25, -0.25, 0, 1.9999999, 1, -0.25, -0.25, 0, 2.1, 1, 0.25, -0.25, 0, 2.1999998, 1, -0.25, -0.25, 0, 2.3000002, 1, 0.25, -0.25, 0, 2.4, 1, -0.25, -0.25, 0, 2.5, 1, 0.25, -0.25, 0, 2.6, 1, -0.25, -0.25, 0, 2.7000003, 1, 0.25, -0.25, 0, 2.8000002, 1, -0.25, -0.25, 0, 2.9, 1, 0.25, -0.25, 0, 3, 1, -0.25, -0.25, 0, 3.1, 1, 0.25, -0.25, 0, 3.2, 1, 0, 0, 0)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite3D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0.305, 0.305, 0.305, 0.19999997, 1, 0.27, 0.35, 0.305, 0.30000007, 1, 0.305, 0.305, 0.305, 0.50000006, 1, 0.35, 0.28, 0.305, 3.1, 1, 0.35, 0.28, 0.305, 3.2999997, 1, 0.305, 0.305, 0.305)
+
+[sub_resource type="Animation" id="Animation_wko6n"]
+resource_name = "phase_1_spike_field"
+length = 5.0
+step = 0.1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.6, 1.0999999, 1.5999999, 2.1, 2.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"spike_field"
+}, {
+"args": [],
+"method": &"spike_field"
+}, {
+"args": [],
+"method": &"spike_field"
+}, {
+"args": [],
+"method": &"spike_field"
+}, {
+"args": [],
+"method": &"spike_field"
+}]
+}
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.19999996, 1, 0, 0, 0, 0.30000007, 1, 0, 0, 0, 0.5, 1, 0, 0, 0, 0.6, 1, -0.25, -0.25, 0, 0.70000005, 1, 0.25, -0.25, 0, 0.8000001, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1.1, 1, -0.25, -0.25, 0, 1.1999999, 1, 0.25, -0.25, 0, 1.3000001, 1, 0, 0, 0, 1.6, 1, 0, 0, 0, 1.7, 1, -0.25, -0.25, 0, 1.8, 1, 0.25, -0.25, 0, 1.8999999, 1, 0, 0, 0, 2.1000004, 1, 0, 0, 0, 2.2000003, 1, -0.25, -0.25, 0, 2.3000002, 1, 0.25, -0.25, 0, 2.4, 1, 0, 0, 0, 2.6000004, 1, 0, 0, 0, 2.7000003, 1, -0.25, -0.25, 0, 2.8000002, 1, 0.25, -0.25, 0, 2.9, 1, 0, 0, 0)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite3D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0.305, 0.305, 0.305, 0.19999996, 1, 0.27, 0.35, 0.305, 0.30000007, 1, 0.305, 0.305, 0.305, 0.50000006, 1, 0.35, 0.28, 0.305, 2.7999997, 1, 0.35, 0.28, 0.305, 2.9999995, 1, 0.305, 0.305, 0.305)
+
+[sub_resource type="Animation" id="Animation_txmqb"]
+resource_name = "phase_1_spit_enemy"
+length = 3.5
+step = 0.1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spit_enemy"
+}]
+}
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.8000002, 1, 0, 0, 0, 1, 1, 0, 0.5, 0, 1.1999998, 1, 0, 0, 0)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite3D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0.305, 0.305, 0.305, 0.8000002, 1, 0.32, 0.27, 0.305, 1, 1, 0.27, 0.35, 0.305, 1.1999998, 1, 0.305, 0.305, 0.305)
+
+[sub_resource type="Animation" id="Animation_we0e7"]
+resource_name = "phase_2_rapid_spike"
+length = 4.0
+step = 0.1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.6, 0.70000005, 0.8, 0.90000004, 1, 1.1, 1.2, 1.3, 1.4000001, 1.5, 1.6, 1.7, 1.8000001, 1.9, 2, 2.1, 2.2, 2.3000002, 2.4, 2.5, 2.6, 2.6999998, 2.8000002, 2.9, 3, 3.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"rapid_spike"
+}, {
+"args": [],
+"method": &"rapid_spike"
+}, {
+"args": [],
+"method": &"rapid_spike"
+}, {
+"args": [],
+"method": &"rapid_spike"
+}, {
+"args": [],
+"method": &"rapid_spike"
+}, {
+"args": [],
+"method": &"rapid_spike"
+}, {
+"args": [],
+"method": &"rapid_spike"
+}, {
+"args": [],
+"method": &"rapid_spike"
+}, {
+"args": [],
+"method": &"rapid_spike"
+}, {
+"args": [],
+"method": &"rapid_spike"
+}, {
+"args": [],
+"method": &"rapid_spike"
+}, {
+"args": [],
+"method": &"rapid_spike"
+}, {
+"args": [],
+"method": &"rapid_spike"
+}, {
+"args": [],
+"method": &"rapid_spike"
+}, {
+"args": [],
+"method": &"rapid_spike"
+}, {
+"args": [],
+"method": &"rapid_spike"
+}, {
+"args": [],
+"method": &"rapid_spike"
+}, {
+"args": [],
+"method": &"rapid_spike"
+}, {
+"args": [],
+"method": &"rapid_spike"
+}, {
+"args": [],
+"method": &"rapid_spike"
+}, {
+"args": [],
+"method": &"rapid_spike"
+}, {
+"args": [],
+"method": &"rapid_spike"
+}, {
+"args": [],
+"method": &"rapid_spike"
+}, {
+"args": [],
+"method": &"rapid_spike"
+}, {
+"args": [],
+"method": &"rapid_spike"
+}, {
+"args": [],
+"method": &"rapid_spike"
+}]
+}
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.5, 1, 0, 0, 0, 0.6, 1, -0.25, -0.25, 0, 0.7, 1, 0.25, -0.25, 0, 0.79999995, 1, -0.25, -0.25, 0, 0.9, 1, 0.25, -0.25, 0, 1, 1, -0.25, -0.25, 0, 1.1, 1, 0.25, -0.25, 0, 1.1999999, 1, -0.25, -0.25, 0, 1.3, 1, 0.25, -0.25, 0, 1.4, 1, -0.25, -0.25, 0, 1.5, 1, 0.25, -0.25, 0, 1.6, 1, -0.25, -0.25, 0, 1.7, 1, 0.25, -0.25, 0, 1.8, 1, -0.25, -0.25, 0, 1.9, 1, 0.25, -0.25, 0, 1.9999999, 1, -0.25, -0.25, 0, 2.1, 1, 0.25, -0.25, 0, 2.1999998, 1, -0.25, -0.25, 0, 2.3000002, 1, 0.25, -0.25, 0, 2.4, 1, -0.25, -0.25, 0, 2.5, 1, 0.25, -0.25, 0, 2.6, 1, -0.25, -0.25, 0, 2.7000003, 1, 0.25, -0.25, 0, 2.8000002, 1, -0.25, -0.25, 0, 2.9, 1, 0.25, -0.25, 0, 3, 1, -0.25, -0.25, 0, 3.1, 1, 0.25, -0.25, 0, 3.2, 1, 0, 0, 0)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite3D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0.305, 0.305, 0.305, 0.19999997, 1, 0.27, 0.35, 0.305, 0.30000007, 1, 0.305, 0.305, 0.305, 0.50000006, 1, 0.35, 0.28, 0.305, 3.1, 1, 0.35, 0.28, 0.305, 3.2999997, 1, 0.305, 0.305, 0.305)
+
+[sub_resource type="Animation" id="Animation_2il7s"]
+resource_name = "phase_2_spike_field"
+length = 4.5
+step = 0.1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 1.5, 2, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"values": [{
+"args": [0.65],
+"method": &"spike_field"
+}, {
+"args": [0.65],
+"method": &"spike_field"
+}, {
+"args": [0.65],
+"method": &"spike_field"
+}, {
+"args": [0.65],
+"method": &"spike_field"
+}, {
+"args": [0.65],
+"method": &"spike_field"
+}]
+}
+tracks/1/type = "scale_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.305, 0.305, 0.305, 0.2, 1, 0.305, 0.33, 0.305, 0.4000001, 1, 0.305, 0.34, 0.305, 0.6, 1, 0.305, 0.27, 0.305)
+tracks/2/type = "position_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite3D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0.9, 1, 0, 0, 0, 1, 1, 0, -0.25, 0, 1.1, 1, 0, 0, 0, 1.4, 1, 0, 0, 0, 1.5000001, 1, 0, -0.25, 0, 1.6, 1, 0, 0, 0, 1.9, 1, 0, 0, 0, 2, 1, 0, -0.25, 0, 2.1, 1, 0, 0, 0, 2.4, 1, 0, 0, 0, 2.5, 1, 0, -0.25, 0, 2.6, 1, 0, 0, 0, 2.9, 1, 0, 0, 0, 3, 1, 0, -0.25, 0, 3.1, 1, 0, 0, 0)
+
+[sub_resource type="Animation" id="Animation_c6uyn"]
+resource_name = "phase_2_spike_spin"
+length = 8.0
+step = 0.15
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5714286, 0.71428573, 0.8571429, 1, 1.1428572, 1.2857143, 1.4285715, 1.5714285, 1.7142857, 1.8571428, 2, 2.1428573, 2.2857144, 2.4285715, 2.5714285, 2.7142856, 2.857143, 3, 3.1428573, 3.2857144, 3.4285715, 3.5714285, 3.7142859, 3.857143, 4, 4.142857, 4.285714, 4.4285717, 4.5714283, 4.714286, 4.857143, 5, 5.1428576, 5.285714, 5.4285717, 5.5714283, 5.714286, 5.857143, 6, 6.1428576, 6.285714, 6.4285717),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"set_up_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}, {
+"args": [],
+"method": &"shoot_spike_spin"
+}]
+}
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.5, 1, 0, 0, 0, 0.6, 1, -0.25, -0.25, 0, 0.7, 1, 0.25, -0.25, 0, 0.79999995, 1, -0.25, -0.25, 0, 0.9, 1, 0.25, -0.25, 0, 1, 1, -0.25, -0.25, 0, 1.1, 1, 0.25, -0.25, 0, 1.1999999, 1, -0.25, -0.25, 0, 1.3, 1, 0.25, -0.25, 0, 1.4, 1, -0.25, -0.25, 0, 1.5, 1, 0.25, -0.25, 0, 1.6, 1, -0.25, -0.25, 0, 1.7, 1, 0.25, -0.25, 0, 1.8, 1, -0.25, -0.25, 0, 1.9, 1, 0.25, -0.25, 0, 1.9999999, 1, -0.25, -0.25, 0, 2.1, 1, 0.25, -0.25, 0, 2.1999998, 1, -0.25, -0.25, 0, 2.3000002, 1, 0.25, -0.25, 0, 2.4, 1, -0.25, -0.25, 0, 2.5, 1, 0.25, -0.25, 0, 2.6, 1, -0.25, -0.25, 0, 2.7000003, 1, 0.25, -0.25, 0, 2.8000002, 1, -0.25, -0.25, 0, 2.9, 1, 0.25, -0.25, 0, 3, 1, -0.25, -0.25, 0, 3.1, 1, 0.25, -0.25, 0, 3.2, 1, 0, 0, 0)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite3D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0.305, 0.305, 0.305, 0.19999997, 1, 0.27, 0.35, 0.305, 0.30000007, 1, 0.305, 0.305, 0.305, 0.50000006, 1, 0.35, 0.28, 0.305, 3.1, 1, 0.35, 0.28, 0.305, 3.2999997, 1, 0.305, 0.305, 0.305)
+
+[sub_resource type="Animation" id="Animation_v1sxx"]
+resource_name = "phase_2_spit_enemy"
+length = 2.0
+step = 0.1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spit_enemy"
+}]
+}
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.8000002, 1, 0, 0, 0, 1, 1, 0, 0.5, 0, 1.1999998, 1, 0, 0, 0, 1.5, 1, 0, 0, 0)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite3D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0.305, 0.305, 0.305, 0.8000002, 1, 0.32, 0.27, 0.305, 1, 1, 0.27, 0.35, 0.305, 1.1999998, 1, 0.305, 0.305, 0.305, 1.5, 1, 0.305, 0.305, 0.305)
+
+[sub_resource type="Animation" id="Animation_s2jdb"]
+resource_name = "phase_change"
+length = 8.5
+step = 0.5
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.07692308, 1, 0.25, 0, -0.25, 0.15384616, 1, -0.25, 0, -0.25, 0.23076923, 1, 0.25, 0, 0, 0.30769232, 1, -0.25, 0, 0, 0.3846154, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1.4, 1, 0, 0, 0, 1.5999999, 1, -0.5, 0, 0, 1.7999997, 1, 0.5, -1, 0, 2, 1, -0.5, -2, 0, 2.1999998, 1, 0.5, -3, 0, 2.4, 1, -0.5, -4, 0, 2.6, 1, 0.5, -5, 0, 2.7999997, 1, -0.5, -6, 0, 3, 1, 0.5, -7, 0, 3.7, 1, 0.5, -7, 0, 3.8999999, 1, -0.5, -6, 0, 4.1000004, 1, 0.5, -5, 0, 4.3, 1, -0.5, -4, 0, 4.5, 1, 0.5, -3, 0, 4.7, 1, -0.5, -2, 0, 4.8999996, 1, 0.5, -1, 0, 5.1000004, 1, -0.5, 0, 0, 5.3, 1, 0, 0, 0, 6.3, 1, 0, 0, 0, 6.4615383, 1, -0.5, 0, 0, 6.6153846, 1, 0.5, 0, 0, 6.769231, 1, 0, 0, 0, 6.923077, 1, 0.5, 0, 0, 7.076923, 1, 0, 0, 0)
+tracks/1/type = "scale_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.305, 0.305, 0.305, 0.19999993, 1, 0.27, 0.35, 0.305, 0.3000002, 1, 0.305, 0.305, 0.305, 1, 1, 0.305, 0.305, 0.305, 1.1999999, 1, 0.27, 0.35, 0.305, 1.3000002, 1, 0.305, 0.305, 0.305, 1.5, 1, 0.35, 0.28, 0.305, 5.1000004, 1, 0.305, 0.305, 0.305, 5.3, 1, 0.27, 0.35, 0.305, 5.4000006, 1, 0.305, 0.305, 0.305, 5.6000004, 1, 0.35, 0.28, 0.305, 5.7, 1, 0.305, 0.305, 0.305, 6.1, 1, 0.305, 0.305, 0.305, 6.2999997, 1, 0.27, 0.35, 0.305, 7, 1, 0.27, 0.35, 0.305, 7.1000004, 1, 0.305, 0.305, 0.305, 7.3, 1, 0.35, 0.28, 0.305, 7.3999996, 1, 0.305, 0.305, 0.305)
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"teleport_to_center"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hurtbox:process_mode")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 8.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k1noq"]
 _data = {
-&"spike": SubResource("Animation_we0e7")
+&"RESET": SubResource("Animation_b8f6a"),
+&"phase_1_chunk": SubResource("Animation_6qvwf"),
+&"phase_1_rapid_spike": SubResource("Animation_k1noq"),
+&"phase_1_spike_field": SubResource("Animation_wko6n"),
+&"phase_1_spit_enemy": SubResource("Animation_txmqb"),
+&"phase_2_rapid_spike": SubResource("Animation_we0e7"),
+&"phase_2_spike_field": SubResource("Animation_2il7s"),
+&"phase_2_spike_spin": SubResource("Animation_c6uyn"),
+&"phase_2_spit_enemy": SubResource("Animation_v1sxx"),
+&"phase_change": SubResource("Animation_s2jdb")
 }
 
 [node name="TheMass" node_paths=PackedStringArray("action_player") instance=ExtResource("1_0ojq6")]
 script = ExtResource("2_0ojq6")
-phase_1_action_names = Array[StringName]([&"spike"])
+spike_scene = ExtResource("3_2il7s")
+player_still_spread_distance = 15.0
+player_predict_distance_min = -3.0
+player_predict_distance_max = 15.0
+player_predict_spread_angle_deg = 90.0
+spike_field_count = 10
+chunk = ExtResource("4_6qvwf")
+chunk_spread_degrees = 30.0
+enemy_spawn_dist_min = 8.0
+enemy_spawn_dist_max = 18.0
+phase_1_action_names = Array[StringName]([&"phase_1_rapid_spike", &"phase_1_spike_field", &"phase_1_spit_enemy"])
+phase_2_action_names = Array[StringName]([&"phase_2_rapid_spike", &"phase_2_spike_field", &"phase_2_spit_enemy"])
 action_player = NodePath("ActionPlayer")
 
+[node name="CollisionShape3D" parent="." index="0"]
+shape = SubResource("BoxShape3D_b8f6a")
+
 [node name="Sprite3D" parent="." index="1"]
-transform = Transform3D(0.305, 0, 0, 0, 0.26413772, 0.15250008, 0, -0.15250008, 0.26413772, 0, 1, 0)
+transform = Transform3D(0.305, 0, 0, 0, 0.26413772, 0.15250008, 0, -0.15250008, 0.26413772, 0, 0, 0)
 offset = Vector2(0, 400)
 texture = ExtResource("3_we0e7")
 
+[node name="Health" parent="." index="3"]
+max_health = 400
+
 [node name="CollisionShape3D" parent="Hurtbox" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16773987, 3.1296082, -0.58862305)
-shape = SubResource("BoxShape3D_we0e7")
+shape = SubResource("BoxShape3D_2il7s")
 
-[node name="ActionPlayer" parent="." index="6"]
+[node name="BulletSpawnPoint" type="Node3D" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9846437, 0)
+
+[node name="EnemySpitter" type="Node3D" parent="." index="8"]
+script = ExtResource("6_wko6n")
+enemy_scenes = Array[PackedScene]([ExtResource("7_2il7s")])
+launch_curve = SubResource("Curve_2il7s")
+
+[node name="ActionPlayer" parent="." index="10"]
 libraries = {
 &"": SubResource("AnimationLibrary_k1noq")
 }
-
-[connection signal="animation_finished" from="ActionPlayer" to="." method="action_finished"]

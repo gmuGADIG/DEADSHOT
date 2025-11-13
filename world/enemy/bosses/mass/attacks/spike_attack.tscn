@@ -1,15 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://0087idnveyoi"]
+[gd_scene load_steps=6 format=3 uid="uid://0087idnveyoi"]
 
-[ext_resource type="Script" uid="uid://dmk1nbg50kxbk" path="res://world/enemy/bosses/mass/spike_attack.gd" id="1_d6t4n"]
+[ext_resource type="Script" uid="uid://dmk1nbg50kxbk" path="res://world/enemy/bosses/mass/attacks/spike_attack.gd" id="1_d6t4n"]
 [ext_resource type="Texture2D" uid="uid://dr0k5wtlmynj6" path="res://temp_art/reticle.png" id="1_n57c1"]
-[ext_resource type="Script" uid="uid://bhpagy0iq3tpw" path="res://systems/attacking/damage/damage_info.gd" id="2_rb7fk"]
 [ext_resource type="Texture2D" uid="uid://buf15wb2e1tep" path="res://temp_art/spike.png" id="4_cuwb1"]
 
-[sub_resource type="Resource" id="Resource_cuwb1"]
-script = ExtResource("2_rb7fk")
-damage = 1
-source = 1
-metadata/_custom_type_script = "uid://bhpagy0iq3tpw"
+[sub_resource type="Curve" id="Curve_cuwb1"]
+_limits = [-8.0, 0.0, 0.0, 0.8]
+_data = [Vector2(0, -8), 0.0, 0.0, 0, 0, Vector2(0.20080972, 0), 0.0, 0.0, 0, 0, Vector2(0.79891306, -8), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_cuwb1"]
 height = 5.0
@@ -17,7 +15,8 @@ radius = 1.0
 
 [node name="SpikeAttack" type="Node3D"]
 script = ExtResource("1_d6t4n")
-damage = SubResource("Resource_cuwb1")
+delay = 0.8
+spike_curve = SubResource("Curve_cuwb1")
 
 [node name="WarningTarget" type="Sprite3D" parent="."]
 transform = Transform3D(25, 0, 0, 0, -1.0927847e-06, 25, 0, -25, -1.0927847e-06, 0, 0.02, 0)
@@ -38,3 +37,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Spike/DamageArea"]
 shape = SubResource("CylinderShape3D_cuwb1")
+
+[connection signal="area_entered" from="Spike/DamageArea" to="." method="_on_damage_area_area_entered"]

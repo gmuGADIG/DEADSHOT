@@ -1,5 +1,7 @@
 class_name Player extends CharacterBody3D
 
+signal player_state_changed
+
 class PlayerPersistingData:
 	var max_health : int
 	var health : int
@@ -34,6 +36,9 @@ var speed_multiplier: float = 1.0
 @export var whip : Whip
 @onready var interactor : Interactor = %InteractionArea
 
+## Is the player currently in combat? If so, HUD will be shown and dashing will cost stamina.
+var is_in_combat: bool = true
+
 var previous_input_direction: Vector3 = Vector3.RIGHT ## Roll this way if you roll while not holding any directions. Updated every time the player makes a movement input.
 var roll_time : float = 0
 
@@ -47,7 +52,10 @@ var stamina: float = 3.0:
 ## How much stamina recharges every second
 const STAMINA_RECHARGE_RATE: float = 0.666667
 
-var current_state: PlayerState = PlayerState.WALKING
+var current_state: PlayerState = PlayerState.WALKING:
+	set(new_val):
+		current_state = new_val
+		player_state_changed.emit()
 #endregion
 
 @onready var starting_y_pos : float = position.y
