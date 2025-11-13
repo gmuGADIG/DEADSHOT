@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://vm5nvorhandp"]
+[gd_scene load_steps=5 format=3 uid="uid://vm5nvorhandp"]
 
 [ext_resource type="PackedScene" uid="uid://bsv40u00ftl6q" path="res://world/items/item_base.tscn" id="1_kiflt"]
 [ext_resource type="Script" uid="uid://cgq6m1pu70lqy" path="res://world/items/tonic/tonic.gd" id="2_n6fpe"]
 [ext_resource type="Texture2D" uid="uid://6jgt8xv3eflx" path="res://world/items/tonic/tonic.png" id="3_1cxjs"]
-[ext_resource type="PackedScene" uid="uid://clcukslouff0j" path="res://audio/streams/tonic_pickup_sound.tscn" id="4_n6fpe"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1cxjs"]
 size = Vector3(1.5, 2, 1.5)
@@ -20,8 +19,3 @@ transform = Transform3D(0.35, 0, 0, 0, 0.30310884, 0.17500009, 0, -0.17500009, 0
 texture = ExtResource("3_1cxjs")
 region_enabled = true
 region_rect = Rect2(51, 16, 381, 496)
-
-[node name="Sound" type="Node3D" parent="." index="2"]
-
-[node name="TonicPickupSound" parent="Sound" index="0" instance=ExtResource("4_n6fpe")]
-unique_name_in_owner = true

@@ -1,7 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://clcukslouff0j"]
+[gd_scene load_steps=3 format=3 uid="uid://1alg6fyjtpgv"]
 
+[ext_resource type="PackedScene" uid="uid://ci3804ofkibap" path="res://audio/streams/sound_base.tscn" id="1_hprcs"]
 [ext_resource type="AudioStream" uid="uid://dbu6sm5lfp51i" path="res://audio/placeholders/tonic_pickup_ph.wav" id="1_wbcem"]
 
-[node name="TonicPickupSound" type="AudioStreamPlayer3D"]
+[node name="SoundBase" instance=ExtResource("1_hprcs")]
 stream = ExtResource("1_wbcem")
-volume_db = -2.106
