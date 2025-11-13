@@ -4,3 +4,4 @@
 
 [node name="ShootSound" type="AudioStreamPlayer3D"]
 stream = ExtResource("1_nsvdi")
+bus = &"VFX"

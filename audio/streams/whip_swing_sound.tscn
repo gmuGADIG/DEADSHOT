@@ -4,3 +4,4 @@
 
 [node name="WhipSwingSound" type="AudioStreamPlayer3D"]
 stream = ExtResource("1_nd431")
+bus = &"VFX"

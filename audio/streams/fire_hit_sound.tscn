@@ -4,3 +4,4 @@
 
 [node name="FireHitSound" type="AudioStreamPlayer3D"]
 stream = ExtResource("1_dypvy")
+bus = &"VFX"

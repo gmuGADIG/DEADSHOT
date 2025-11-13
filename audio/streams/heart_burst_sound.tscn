@@ -5,3 +5,4 @@
 [node name="HeartBurstSound" type="AudioStreamPlayer3D"]
 stream = ExtResource("1_mf0rg")
 autoplay = true
+bus = &"VFX"
