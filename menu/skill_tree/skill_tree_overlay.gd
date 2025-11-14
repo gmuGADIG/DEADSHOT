@@ -2,6 +2,7 @@ extends CanvasLayer
 
 func _ready() -> void:
 	Global.meat_changed.connect(update_meat_display)
+	update_meat_display()
 
 func update_meat_display() -> void:
 	$MeatDisplay/HBoxContainer/OwnedMeat.text = str(Global.meat_currency)
