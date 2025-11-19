@@ -13,6 +13,8 @@ max_reserve = 72
 
 [node name="ShootSound" parent="Sounds" instance=ExtResource("1_yunt5")]
 unique_name_in_owner = true
+autoplay = false
+delete_on_finish = false
 
 [node name="Right" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, 0, 0)
