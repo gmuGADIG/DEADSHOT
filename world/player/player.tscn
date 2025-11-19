@@ -252,3 +252,5 @@ omni_range = 25.0
 omni_attenuation = 1.5
 
 [node name="Hud" parent="." instance=ExtResource("2_duds0")]
+
+[connection signal="was_hit" from="HurtboxComponent" to="." method="_on_hurtbox_component_was_hit"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c34cmvuqfmuww"]
+[gd_scene load_steps=3 format=3 uid="uid://c34cmvuqfmuww"]
 
-[ext_resource type="AudioStream" uid="uid://bnq6ptoxqxvcc" path="res://audio/placeholders/test_explode_small.wav" id="1_nsvdi"]
+[ext_resource type="PackedScene" uid="uid://ci3804ofkibap" path="res://audio/streams/sound_base.tscn" id="1_bg6df"]
+[ext_resource type="AudioStream" uid="uid://hej4hmx0ms4s" path="res://audio/placeholders/test_smack.wav" id="2_aemcp"]
 
-[node name="ShootSound" type="AudioStreamPlayer3D"]
-stream = ExtResource("1_nsvdi")
+[node name="ShootSound" instance=ExtResource("1_bg6df")]
+stream = ExtResource("2_aemcp")
