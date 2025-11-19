@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bg142evknuep7" path="res://temp_art/gartic/batman.png" id="1_625lq"]
 [ext_resource type="PackedScene" uid="uid://hiyp7n7uvc4m" path="res://systems/attacking/health/health.tscn" id="1_om4hq"]
 [ext_resource type="PackedScene" uid="uid://bq22o80xk3p40" path="res://world/player/weapon/bullet/player_bullet.tscn" id="2_6d7by"]
-[ext_resource type="Script" uid="uid://cyjssoraty4ok" path="res://world/enemy/sherrifboss/sherrif.gd" id="2_h2jae"]
+[ext_resource type="Script" uid="uid://cyjssoraty4ok" path="res://world/enemy/sheriff/sheriff.gd" id="2_h2jae"]
 [ext_resource type="PackedScene" uid="uid://b7d3oiw27awag" path="res://systems/attacking/hurtbox/hurtbox.tscn" id="2_uu4ew"]
 [ext_resource type="PackedScene" uid="uid://cx8e0px578hd7" path="res://slash.tscn" id="3_6d7by"]
 
@@ -17,7 +17,6 @@ bullet = ExtResource("2_6d7by")
 slash = ExtResource("3_6d7by")
 shootInt = 20
 maxSpeed = 0.1
-max_hp = 150.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94693, 0)
