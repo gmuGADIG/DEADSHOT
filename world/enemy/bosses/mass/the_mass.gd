@@ -1,5 +1,6 @@
 class_name TheMass extends BossEnemy
 
+@export var blood_explosion_scene : PackedScene
 @export var arena_area : ArenaArea
 @export_category("Attacks")
 @export_subgroup("Spikes (General)")
@@ -147,3 +148,10 @@ func shoot_chunk() -> void:
 	new_chunk.set_target(target)
 	#var shoot_angle_rad : float = deg_to_rad(randf_range(-schunk_spread_degrees))
 	#new_chunk.direction = new_chunk.direction.rotated(Vector3.UP,shoot_angle_rad)
+
+func death() -> void:
+	var blood_explosion : GPUParticles3D = blood_explosion_scene.instantiate()
+	add_sibling(blood_explosion)
+	blood_explosion.global_position = $BulletSpawnPoint.global_position
+	blood_explosion.emitting = true
+	super.death()
