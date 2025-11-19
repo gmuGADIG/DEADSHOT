@@ -159,9 +159,9 @@ func begin_roll() -> void:
 	if stamina < 1.0: return
 	stamina -= 1.0
 	
-	# TODO: Play animation, do iframes.
-	add_sibling(	preload("res://audio/streams/roll_sound.tscn").instantiate())
+	add_sibling(preload("res://audio/streams/roll_sound.tscn").instantiate())
 	current_state = PlayerState.ROLLING
+	health_component.vulnerable = false
 	roll_time = 0
 
 ## Roll the player in the current direction.
@@ -183,6 +183,7 @@ func roll(delta : float) -> void:
 	roll_time += delta
 	
 	if roll_time >= roll_curve.max_domain:
+		health_component.vulnerable = true
 		current_state = PlayerState.WALKING
 
 ## Called every frame if the player is in combat.
