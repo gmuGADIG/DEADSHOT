@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://bf14d2iyiqx56" path="res://audio/streams/sound_stream.gd" id="2_2l4ex"]
 
 [node name="SoundBase" type="AudioStreamPlayer3D"]
-autoplay = true
+unit_size = 20.0
+panning_strength = 0.5
+attenuation_filter_cutoff_hz = 20500.0
 script = ExtResource("2_2l4ex")
 
 [connection signal="finished" from="." to="." method="_on_finished"]

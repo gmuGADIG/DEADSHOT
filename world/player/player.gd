@@ -104,14 +104,7 @@ func _physics_process(delta: float) -> void:
 
 ## We use the proper process function to update stamina, since it appears on the HUD and that could be drawn faster than the physics tickrate.
 func _process(delta: float) -> void:
-	if is_in_combat: update_stamina(delta)
-	
-	# TEST COMBAT ENCOUNTER MODE FOR STAMINA
-	if Input.is_action_just_pressed("ui_focus_next"):
-		if is_in_combat:
-			exit_combat()
-		else:
-			enter_combat()
+	update_stamina(delta)
 #endregion
 
 #region Custom Functions
@@ -159,7 +152,7 @@ func begin_roll() -> void:
 	if stamina < 1.0: return
 	stamina -= 1.0
 	
-	add_sibling(preload("res://audio/streams/roll_sound.tscn").instantiate())
+	%RollSound.play()
 	current_state = PlayerState.ROLLING
 	health_component.vulnerable = false
 	roll_time = 0
@@ -199,28 +192,9 @@ func update_stamina(delta: float) -> void:
 func _on_interaction_started() -> void:
 	current_state = PlayerState.INTERACTING
 
-# COMBAT ENCOUNTERS
-# According to the GDD, the player will enter Combat Encounters. These involve:
-# - The camera locking
-# - Enemies spawning in a group
-# - Rolling becomes stamina-dependent
-# To handle all of this, some other object should just tell the player about combat encounters with signals.
-# These next two functions are provided to hook your signals into.
-## Call this to tell the player that a combat encounter is beginning.
-func enter_combat() -> void:
-	if is_in_combat: return
-	is_in_combat = true
-	$Hud.fade_stamina_in()
-## Call this to tell the player that a combat encounter is done.
-func exit_combat() -> void:
-	if !is_in_combat: return
-	is_in_combat = false
-	stamina = 3.0
-	$Hud.fade_stamina_out()
-
 ## Connects to the was_hit signal on the player's Hurtbox to play a sound.
 func _on_hurtbox_component_was_hit(_dmg: DamageInfo) -> void:
-	add_sibling(preload("res://audio/streams/hurt_sound.tscn").instantiate())
+	%HurtSound.play()
 
 ## Function bound to the signal for ending an interaction
 ## Changes state to Walking by default.
