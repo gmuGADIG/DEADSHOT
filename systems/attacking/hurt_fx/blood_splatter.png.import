@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo8fih3lgc5oj"
-path.s3tc="res://.godot/imported/stalagmite3.png-8ae8252d9ad8d756b52d1cb198db1ebf.s3tc.ctex"
+uid="uid://kslw254k7plb"
+path.s3tc="res://.godot/imported/blood_splatter.png-bb423d6c5d1c06096e8221983e33a7f7.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://world/backgrounds/stalagmite3.png"
-dest_files=["res://.godot/imported/stalagmite3.png-8ae8252d9ad8d756b52d1cb198db1ebf.s3tc.ctex"]
+source_file="res://systems/attacking/hurt_fx/blood_splatter.png"
+dest_files=["res://.godot/imported/blood_splatter.png-bb423d6c5d1c06096e8221983e33a7f7.s3tc.ctex"]
 
 [params]
 

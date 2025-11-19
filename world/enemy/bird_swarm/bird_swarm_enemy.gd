@@ -3,7 +3,7 @@ extends EnemyBase
 
 var timer : float = 0.0;
 @export var MELEE_RANGE: float = 0.3
-@export var MELEE_DAMAGE: int = 2
+@export var MELEE_DAMAGE: float = 2
 @export var homing_bird_fire_speed: float = 0.5
 
 

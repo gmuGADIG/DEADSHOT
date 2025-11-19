@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo8fih3lgc5oj"
-path.s3tc="res://.godot/imported/stalagmite3.png-8ae8252d9ad8d756b52d1cb198db1ebf.s3tc.ctex"
+uid="uid://c7nn1cepv4i3w"
+path.s3tc="res://.godot/imported/Mass_Puddle.png-fcf3f1022fe9d39131dfc8c984bff4fc.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://world/backgrounds/stalagmite3.png"
-dest_files=["res://.godot/imported/stalagmite3.png-8ae8252d9ad8d756b52d1cb198db1ebf.s3tc.ctex"]
+source_file="res://world/interactables/puddle/Mass_Puddle.png"
+dest_files=["res://.godot/imported/Mass_Puddle.png-fcf3f1022fe9d39131dfc8c984bff4fc.s3tc.ctex"]
 
 [params]
 
