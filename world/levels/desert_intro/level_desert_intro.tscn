@@ -49,6 +49,9 @@ target_entry_point = "Left"
 [node name="Player" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.703968, 0, 3.723072)
 
+[node name="Vignette" parent="UI" index="1"]
+mouse_filter = 2
+
 [node name="LeftArea" type="Node3D" parent="." index="9"]
 
 [node name="Objects" type="Node3D" parent="LeftArea" index="0"]

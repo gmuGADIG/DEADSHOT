@@ -3,7 +3,7 @@ var is_paused: bool = false
 
 @export var resume_button: TextureButton
 @export var locker_button: TextureButton
-@export var options_button: TextureButton
+@export var settings_button: TextureButton
 @export var restart_button: TextureButton
 @export var menu_button: TextureButton
 @export var quit_button: TextureButton
@@ -24,7 +24,7 @@ var _initial_quit_button_text: String
 func _ready() -> void:
 	resume_button.pressed.connect(_on_resume_pressed)
 	locker_button.pressed.connect(_on_locker_pressed)
-	options_button.pressed.connect(_on_options_pressed)
+	settings_button.pressed.connect(_on_settings_pressed)
 	restart_button.pressed.connect(_on_restart_pressed)
 	menu_button.pressed.connect(_on_menu_pressed)
 	quit_button.pressed.connect(_on_quit_pressed)
@@ -59,14 +59,18 @@ func _on_resume_pressed() -> void:
 func _on_locker_pressed() -> void:
 		reset_quit_safety()
 		#Load Meat Locker
-		var meat_locker_scene := load("res://test_scenes/example_scene.tscn")
+		var meat_locker_scene := load("res://menu/skill_tree/skill_tree.tscn")
 		add_child(meat_locker_scene.instantiate())
 
 
-func _on_options_pressed() -> void:
+func _on_settings_pressed() -> void:
 		reset_quit_safety()
 		#reset_close_safety()
-		print("Enter Options Menu")
+		print("Enter Settings Menu")
+		# Temporary for settings at the moment
+		#var settings_scene := load("res://systems/debug_menu/debug_menu.tscn")
+		#add_child(settings_scene.instantiate())
+		get_tree().change_scene_to_file("res://systems/debug_menu/debug_menu.tscn")
 
 func _on_restart_pressed() -> void:
 		reset_quit_safety()
