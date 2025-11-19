@@ -25,6 +25,7 @@ func _ready() -> void:
 	super._ready()
 	$%Health.damaged.connect(func() -> void:
 		if phase == 1 && $Health.health <= $Health.max_health/2:
+			$FakeChunk.hide()
 			$ActionPlayer.play("phase_change")
 			phase = 2
 	)
@@ -136,14 +137,13 @@ func shoot_spike_spin() -> void:
 	spike_spin_angle+=spike_spin_direction*15
 	
 #BUG: uses EnemyBullet but EnemyBullet has been refactored out
-#func shoot_chunk() -> void:dssd
-	#if Player.instance.current_state != Player.PlayerState.ROLLING:
-		#returnsd
-	#
-	#await get_tree().create_timer(0.5).timeout
-	#var new_chunk : EnemyBullet = chunk.instantiate()
-	#add_sibling(new_chunk)
-	#new_chunk.global_position = $BulletSpawnPoint.global_position
-	#new_chunk.set_target(Player.instance.global_position+Player.instance.velocity*0.6)
-	##var shoot_angle_rad : float = deg_to_rad(randf_range(-schunk_spread_degrees))
-	##new_chunk.direction = new_chunk.direction.rotated(Vector3.UP,shoot_angle_rad)
+func shoot_chunk() -> void:
+	
+	var new_chunk : Bullet = chunk.instantiate()
+	add_sibling(new_chunk)
+	new_chunk.global_position = $BulletSpawnPoint.global_position
+	var target : Vector3 = Player.instance.global_position
+	target += 0.05*Player.instance.velocity*global_position.distance_to(Player.instance.global_position)
+	new_chunk.set_target(target)
+	#var shoot_angle_rad : float = deg_to_rad(randf_range(-schunk_spread_degrees))
+	#new_chunk.direction = new_chunk.direction.rotated(Vector3.UP,shoot_angle_rad)
