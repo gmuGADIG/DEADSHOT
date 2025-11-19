@@ -1,12 +1,14 @@
-[gd_scene load_steps=22 format=3 uid="uid://d0sdri7hlk5i3"]
+[gd_scene load_steps=25 format=3 uid="uid://d0sdri7hlk5i3"]
 
 [ext_resource type="PackedScene" uid="uid://c5mugf35c8n0f" path="res://world/enemy/bosses/boss_enemy.tscn" id="1_0ojq6"]
 [ext_resource type="Script" uid="uid://bvjxmtoqmx4bg" path="res://world/enemy/bosses/mass/the_mass.gd" id="2_0ojq6"]
 [ext_resource type="PackedScene" uid="uid://0087idnveyoi" path="res://world/enemy/bosses/mass/attacks/spike_attack.tscn" id="3_2il7s"]
+[ext_resource type="PackedScene" uid="uid://vqmkg8wor6fr" path="res://world/pickups/corrupt_heart/blood_particles/final_burst.tscn" id="3_txmqb"]
 [ext_resource type="Texture2D" uid="uid://bsjg2jy70gbkw" path="res://temp_art/rough_drafts/mass_temp.png" id="3_we0e7"]
 [ext_resource type="PackedScene" uid="uid://xug45fo2qtmw" path="res://world/enemy/bosses/mass/mass_chunk.tscn" id="4_6qvwf"]
 [ext_resource type="Script" uid="uid://c34j1choqmasd" path="res://world/enemy/bosses/mass/enemy_spitter.gd" id="6_wko6n"]
 [ext_resource type="PackedScene" uid="uid://dxdkwdigtcn43" path="res://world/enemy/test/enemy_test.tscn" id="7_2il7s"]
+[ext_resource type="Texture2D" uid="uid://di2fa8ln64nqe" path="res://world/pickups/corrupt_heart/corrupt_heart.png" id="8_b8f6a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b8f6a"]
 size = Vector3(11.355682, 5.3653564, 3.9311523)
@@ -40,11 +42,30 @@ tracks/1/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FakeChunk:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "scale_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FakeChunk")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 1, 1, 1)
 
 [sub_resource type="Animation" id="Animation_6qvwf"]
 resource_name = "phase_1_chunk"
-length = 2.5
-step = 0.2
+length = 6.0
+step = 0.1
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -52,36 +73,9 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(1.5, 3, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
-"args": [],
-"method": &"shoot_chunk"
-}, {
-"args": [],
-"method": &"shoot_chunk"
-}, {
-"args": [],
-"method": &"shoot_chunk"
-}, {
-"args": [],
-"method": &"shoot_chunk"
-}, {
-"args": [],
-"method": &"shoot_chunk"
-}, {
-"args": [],
-"method": &"shoot_chunk"
-}, {
-"args": [],
-"method": &"shoot_chunk"
-}, {
-"args": [],
-"method": &"shoot_chunk"
-}, {
-"args": [],
-"method": &"shoot_chunk"
-}, {
 "args": [],
 "method": &"shoot_chunk"
 }, {
@@ -92,6 +86,39 @@ tracks/0/keys = {
 "method": &"shoot_chunk"
 }]
 }
+tracks/1/type = "scale_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FakeChunk")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0.1, 1, 0, 0, 0, 1.5, 1, 0.6, 0.6, 0.6, 1.6, 1, 0, 0, 0, 3, 1, 0.6, 0.6, 0.6, 3.1, 1, 0, 0, 0, 4.5, 1, 0.6, 0.6, 0.6, 4.6, 1, 0, 0, 0)
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FakeChunk:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.100000024, 1.5, 1.6, 3, 3.1, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false]
+}
+tracks/3/type = "position_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite3D")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1.3000002, 1, 0, 0, 0, 1.5, 1, 0, 0.5, 0, 1.6999998, 1, 0, 0, 0, 2.8000002, 1, 0, 0, 0, 3, 1, 0, 0.5, 0, 3.1999998, 1, 0, 0, 0, 4.3, 1, 0, 0, 0, 4.5, 1, 0, 0.5, 0, 4.7, 1, 0, 0, 0)
+tracks/4/type = "scale_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite3D")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 0.305, 0.305, 0.305, 1.3000002, 1, 0.32, 0.27, 0.305, 1.5, 1, 0.27, 0.35, 0.305, 1.6999998, 1, 0.305, 0.305, 0.305, 2.8000002, 1, 0.32, 0.27, 0.305, 3, 1, 0.27, 0.35, 0.305, 3.1999998, 1, 0.305, 0.305, 0.305, 4.3, 1, 0.32, 0.27, 0.305, 4.5, 1, 0.27, 0.35, 0.305, 4.7, 1, 0.305, 0.305, 0.305)
 
 [sub_resource type="Animation" id="Animation_k1noq"]
 resource_name = "phase_1_rapid_spike"
@@ -239,6 +266,64 @@ tracks/2/path = NodePath("Sprite3D")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = PackedFloat32Array(0, 1, 0.305, 0.305, 0.305, 0.8000002, 1, 0.32, 0.27, 0.305, 1, 1, 0.27, 0.35, 0.305, 1.1999998, 1, 0.305, 0.305, 0.305)
+
+[sub_resource type="Animation" id="Animation_mu05a"]
+resource_name = "phase_2_chunk"
+length = 4.5
+step = 0.1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.2, 2.4, 3.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"shoot_chunk"
+}, {
+"args": [],
+"method": &"shoot_chunk"
+}, {
+"args": [],
+"method": &"shoot_chunk"
+}]
+}
+tracks/1/type = "scale_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FakeChunk")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0.1, 1, 0, 0, 0, 1.2, 1, 0.6, 0.6, 0.6, 1.3000001, 1, 0, 0, 0, 2.4, 1, 0.6, 0.6, 0.6, 2.5, 1, 0, 0, 0, 3.6, 1, 0.6, 0.6, 0.6, 3.6999998, 1, 0, 0, 0)
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FakeChunk:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.100000024, 1.2, 1.3000001, 2.4, 2.5, 3.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false]
+}
+tracks/3/type = "position_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite3D")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1.0000002, 1, 0, 0, 0, 1.2, 1, 0, 0.5, 0, 1.3999999, 1, 0, 0, 0, 2.2000003, 1, 0, 0, 0, 2.4, 1, 0, 0.5, 0, 2.6, 1, 0, 0, 0, 3.4, 1, 0, 0, 0, 3.6, 1, 0, 0.5, 0, 3.7999997, 1, 0, 0, 0)
+tracks/4/type = "scale_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite3D")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 0.305, 0.305, 0.305, 1.0000002, 1, 0.32, 0.27, 0.305, 1.2, 1, 0.27, 0.35, 0.305, 1.3999999, 1, 0.305, 0.305, 0.305, 2.2000003, 1, 0.32, 0.27, 0.305, 2.4, 1, 0.27, 0.35, 0.305, 2.6, 1, 0.305, 0.305, 0.305, 3.4, 1, 0.32, 0.27, 0.305, 3.6, 1, 0.27, 0.35, 0.305, 3.7999997, 1, 0.305, 0.305, 0.305)
 
 [sub_resource type="Animation" id="Animation_we0e7"]
 resource_name = "phase_2_rapid_spike"
@@ -587,22 +672,22 @@ tracks/2/keys = PackedFloat32Array(0, 1, 0.305, 0.305, 0.305, 0.8000002, 1, 0.32
 
 [sub_resource type="Animation" id="Animation_s2jdb"]
 resource_name = "phase_change"
-length = 8.5
-step = 0.5
+length = 3.4
+step = 0.1
 tracks/0/type = "position_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("Sprite3D")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.07692308, 1, 0.25, 0, -0.25, 0.15384616, 1, -0.25, 0, -0.25, 0.23076923, 1, 0.25, 0, 0, 0.30769232, 1, -0.25, 0, 0, 0.3846154, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1.4, 1, 0, 0, 0, 1.5999999, 1, -0.5, 0, 0, 1.7999997, 1, 0.5, -1, 0, 2, 1, -0.5, -2, 0, 2.1999998, 1, 0.5, -3, 0, 2.4, 1, -0.5, -4, 0, 2.6, 1, 0.5, -5, 0, 2.7999997, 1, -0.5, -6, 0, 3, 1, 0.5, -7, 0, 3.7, 1, 0.5, -7, 0, 3.8999999, 1, -0.5, -6, 0, 4.1000004, 1, 0.5, -5, 0, 4.3, 1, -0.5, -4, 0, 4.5, 1, 0.5, -3, 0, 4.7, 1, -0.5, -2, 0, 4.8999996, 1, 0.5, -1, 0, 5.1000004, 1, -0.5, 0, 0, 5.3, 1, 0, 0, 0, 6.3, 1, 0, 0, 0, 6.4615383, 1, -0.5, 0, 0, 6.6153846, 1, 0.5, 0, 0, 6.769231, 1, 0, 0, 0, 6.923077, 1, 0.5, 0, 0, 7.076923, 1, 0, 0, 0)
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.07692308, 1, 0.25, 0, -0.25, 0.15384616, 1, -0.25, 0, -0.25, 0.23076923, 1, 0.25, 0, 0, 0.30769232, 1, -0.25, 0, 0, 0.3846154, 1, 0, 0, 0, 1.3, 1, 0, 0, 0, 1.4615381, 1, -0.5, 0, 0, 1.6153843, 1, 0.5, 0, 0, 1.7692306, 1, 0, 0, 0, 1.9230769, 1, 0.5, 0, 0, 2.0769227, 1, 0, 0, 0)
 tracks/1/type = "scale_3d"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath("Sprite3D")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0.305, 0.305, 0.305, 0.19999993, 1, 0.27, 0.35, 0.305, 0.3000002, 1, 0.305, 0.305, 0.305, 1, 1, 0.305, 0.305, 0.305, 1.1999999, 1, 0.27, 0.35, 0.305, 1.3000002, 1, 0.305, 0.305, 0.305, 1.5, 1, 0.35, 0.28, 0.305, 5.1000004, 1, 0.305, 0.305, 0.305, 5.3, 1, 0.27, 0.35, 0.305, 5.4000006, 1, 0.305, 0.305, 0.305, 5.6000004, 1, 0.35, 0.28, 0.305, 5.7, 1, 0.305, 0.305, 0.305, 6.1, 1, 0.305, 0.305, 0.305, 6.2999997, 1, 0.27, 0.35, 0.305, 7, 1, 0.27, 0.35, 0.305, 7.1000004, 1, 0.305, 0.305, 0.305, 7.3, 1, 0.35, 0.28, 0.305, 7.3999996, 1, 0.305, 0.305, 0.305)
+tracks/1/keys = PackedFloat32Array(0, 1, 0.305, 0.305, 0.305, 0.19999993, 1, 0.27, 0.35, 0.305, 0.3000002, 1, 0.305, 0.305, 0.305, 1.0999997, 1, 0.305, 0.305, 0.305, 1.2999995, 1, 0.27, 0.35, 0.305, 1.9999998, 1, 0.27, 0.35, 0.305, 2.1000001, 1, 0.305, 0.305, 0.305, 2.3, 1, 0.35, 0.28, 0.305, 2.3999994, 1, 0.305, 0.305, 0.305)
 tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
@@ -610,12 +695,9 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(3.3),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"teleport_to_center"
-}]
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -624,7 +706,7 @@ tracks/3/path = NodePath("Hurtbox:process_mode")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 8.5),
+"times": PackedFloat32Array(0, 3.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [4, 0]
@@ -637,6 +719,7 @@ _data = {
 &"phase_1_rapid_spike": SubResource("Animation_k1noq"),
 &"phase_1_spike_field": SubResource("Animation_wko6n"),
 &"phase_1_spit_enemy": SubResource("Animation_txmqb"),
+&"phase_2_chunk": SubResource("Animation_mu05a"),
 &"phase_2_rapid_spike": SubResource("Animation_we0e7"),
 &"phase_2_spike_field": SubResource("Animation_2il7s"),
 &"phase_2_spike_spin": SubResource("Animation_c6uyn"),
@@ -646,6 +729,7 @@ _data = {
 
 [node name="TheMass" node_paths=PackedStringArray("action_player") instance=ExtResource("1_0ojq6")]
 script = ExtResource("2_0ojq6")
+blood_explosion_scene = ExtResource("3_txmqb")
 spike_scene = ExtResource("3_2il7s")
 player_still_spread_distance = 15.0
 player_predict_distance_min = -3.0
@@ -656,15 +740,15 @@ chunk = ExtResource("4_6qvwf")
 chunk_spread_degrees = 30.0
 enemy_spawn_dist_min = 8.0
 enemy_spawn_dist_max = 18.0
-phase_1_action_names = Array[StringName]([&"phase_1_rapid_spike", &"phase_1_spike_field", &"phase_1_spit_enemy"])
-phase_2_action_names = Array[StringName]([&"phase_2_rapid_spike", &"phase_2_spike_field", &"phase_2_spit_enemy"])
+phase_1_action_names = Array[StringName]([&"phase_1_rapid_spike", &"phase_1_spike_field", &"phase_1_spit_enemy", &"phase_1_chunk"])
+phase_2_action_names = Array[StringName]([&"phase_2_rapid_spike", &"phase_2_spike_field", &"phase_2_spit_enemy", &"phase_2_chunk"])
 action_player = NodePath("ActionPlayer")
 
 [node name="CollisionShape3D" parent="." index="0"]
 shape = SubResource("BoxShape3D_b8f6a")
 
 [node name="Sprite3D" parent="." index="1"]
-transform = Transform3D(0.305, 0, 0, 0, 0.26413772, 0.15250008, 0, -0.15250008, 0.26413772, 0, 0, 0)
+transform = Transform3D(0.305, 0, 0, 0, 0.27642387, 0.12889858, 0, -0.12889858, 0.27642387, 0, 0, 0)
 offset = Vector2(0, 400)
 texture = ExtResource("3_we0e7")
 
@@ -687,3 +771,8 @@ launch_curve = SubResource("Curve_2il7s")
 libraries = {
 &"": SubResource("AnimationLibrary_k1noq")
 }
+
+[node name="FakeChunk" type="Sprite3D" parent="." index="12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08410025, 1.9897518, 0)
+visible = false
+texture = ExtResource("8_b8f6a")
