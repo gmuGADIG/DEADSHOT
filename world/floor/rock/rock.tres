@@ -10,4 +10,6 @@ script = ExtResource("1_uuhka")
 fill = ExtResource("2_obr2w")
 fill_normal = ExtResource("3_obr2w")
 edge = ExtResource("1_ti2x0")
+edge_offset = 1.495
+edge_scale = 2.0
 metadata/_custom_type_script = "uid://cxrc4v6ga561p"
