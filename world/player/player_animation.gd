@@ -74,17 +74,8 @@ func checkSpriteDirection() -> void:
 	# more than we want them to face their movement direction.
 	if animation=="shooting": return
 	
-	# Dot product of two normal vectors! 
-	# The player sprite art is RIGHT FACING, i.e. always Vector2.RIGHT.
-	# We're checking if the player's movement is in the same direction as that or not. If not, we flip it.
-	var playerDirection: Vector2 = Vector2(player.velocity.x, player.velocity.z).normalized()
-	var directionDifference: int = int(roundf(Vector2.RIGHT.dot(playerDirection)))
-	match directionDifference:
-		-1:
-			flip_h=true
-		0:
-			flip_h=false
-		1:
-			flip_h=false
-		_:
-			printerr("player_animation.gd directionDifference is out of bounds!")
+	# Flip sprite based on player velocity.
+	if player.velocity.x < 0:
+		flip_h = true
+	elif player.velocity.x > 0:
+		flip_h = false
