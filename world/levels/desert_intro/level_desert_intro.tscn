@@ -43,7 +43,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.366405, 0, 2.9849052)
 
 [node name="Right" parent="TransitionAreas" index="0" instance=ExtResource("3_vhe22")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.841705, 0, 3.148212)
-target_scene = "uid://blppqsxslhh07"
+target_scene = "uid://beju3ms5o28f6"
 target_entry_point = "Left"
 
 [node name="Player" parent="." index="5"]
