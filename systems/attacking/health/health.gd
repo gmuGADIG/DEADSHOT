@@ -22,13 +22,11 @@ func hurt(amount : int) -> void:
 	if health <= 0: return # already dead
 	
 	health -= amount
-	
+	damaged.emit()
 	
 	print(get_parent().name,": ",health," hp")
 	if health <= 0:
 		killed.emit()
-	else:
-		damaged.emit()
 
 func heal(amount : int) -> void:
 	health = clampi(health + amount, 0, max_health)
