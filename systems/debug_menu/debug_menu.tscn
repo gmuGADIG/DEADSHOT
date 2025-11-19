@@ -1,0 +1,86 @@
+[gd_scene load_steps=2 format=3 uid="uid://bje0qkkfyp7w6"]
+
+[ext_resource type="Script" uid="uid://53d08g0cwe53" path="res://systems/debug_menu/debug_menu.gd" id="1_mfke8"]
+
+[node name="DebugMenu" type="CanvasLayer"]
+script = ExtResource("1_mfke8")
+
+[node name="PanelContainer" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -326.0
+offset_top = -245.0
+offset_right = 326.0
+offset_bottom = 245.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PanelContainer"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -147.5
+offset_top = 33.0
+offset_right = 147.5
+offset_bottom = 100.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 48
+text = "Debug Menu"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -296.0
+offset_top = -96.0
+offset_right = 296.0
+offset_bottom = 217.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SmallDesertButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Go to small desert scene"
+
+[node name="MinesButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Go to mines"
+
+[node name="SkillTreeButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Go to skill tree"
+
+[node name="PropDemoButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Go to prop demo"
+
+[node name="Spacing" type="MarginContainer" parent="PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 21.725)
+layout_mode = 2
+
+[node name="MaxAmmo" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Max Ammo"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/SmallDesertButton" to="." method="_on_small_desert_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/MinesButton" to="." method="_on_mines_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/SkillTreeButton" to="." method="_on_skill_tree_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/PropDemoButton" to="." method="_on_prop_demo_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/MaxAmmo" to="." method="_on_max_ammo_pressed"]
