@@ -106,7 +106,7 @@ func _physics_process(delta: float) -> void:
 ## We use the proper process function to update stamina, since it appears on the HUD and that could be drawn faster than the physics tickrate.
 func _process(delta: float) -> void:
 	update_stamina(delta)
-
+#endregion
 
 #region Custom Functions
 static func update_persisting_data() -> void:	
@@ -153,8 +153,9 @@ func begin_roll() -> void:
 	if stamina < 1.0: return
 	stamina -= 1.0
 	
-	# TODO: Play animation, do iframes.
+	%RollSound.play()
 	current_state = PlayerState.ROLLING
+	health_component.vulnerable = false
 	roll_time = 0
 
 ## Roll the player in the current direction.
@@ -176,6 +177,7 @@ func roll(delta : float) -> void:
 	roll_time += delta
 	
 	if roll_time >= roll_curve.max_domain:
+		health_component.vulnerable = true
 		current_state = PlayerState.WALKING
 
 ## Called every frame if the player is in combat.
@@ -191,8 +193,13 @@ func update_stamina(delta: float) -> void:
 func _on_interaction_started() -> void:
 	current_state = PlayerState.INTERACTING
 
+## Connects to the was_hit signal on the player's Hurtbox to play a sound.
+func _on_hurtbox_component_was_hit(_dmg: DamageInfo) -> void:
+	%HurtSound.play()
+
 ## Function bound to the signal for ending an interaction
 ## Changes state to Walking by default.
 func _on_interaction_ended() -> void:
 	current_state = PlayerState.WALKING
+
 #endregion

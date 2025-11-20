@@ -20,7 +20,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5639458, 0, -25.812904)
 shape = SubResource("BoxShape3D_j4103")
 
 [node name="Player" parent="." index="6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.3684225, 0, 4.9706383)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.288485, 0, 4.5333595)
 
 [node name="CorruptHeart" parent="." index="14" instance=ExtResource("2_28xow")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.908998, 0, 1.6071377)

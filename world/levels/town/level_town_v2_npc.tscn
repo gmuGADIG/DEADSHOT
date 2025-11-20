@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cgpuvir86nykf"]
+[gd_scene load_steps=15 format=3 uid="uid://cgpuvir86nykf"]
 
 [ext_resource type="PackedScene" uid="uid://cxahvvaidpg32" path="res://world/levels/town/level_town_base.tscn" id="1_64v5s"]
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="2_jjhs5"]
@@ -6,12 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://c414hqj4nmy45" path="res://world/npc/npc_demoman1.tscn" id="3_6x3r5"]
 [ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="4_6mxwy"]
 [ext_resource type="PackedScene" uid="uid://bg0cg3jolk6u" path="res://world/npc/npc_demoman2.tscn" id="4_g27ds"]
-[ext_resource type="PackedScene" uid="uid://dqt2qu5jrxsoa" path="res://world/npc/npc_FemmeFatale.tscn" id="5_dla4e"]
-[ext_resource type="PackedScene" uid="uid://ivld0ndseynw" path="res://world/npc/npc_ProvidingMother.tscn" id="6_g1l2l"]
+[ext_resource type="PackedScene" uid="uid://dqt2qu5jrxsoa" path="res://world/npc/npc_femme_fatale.tscn" id="5_dla4e"]
+[ext_resource type="PackedScene" uid="uid://ivld0ndseynw" path="res://world/npc/npc_providing_mother.tscn" id="6_g1l2l"]
 [ext_resource type="PackedScene" uid="uid://b81n6pdoa3kip" path="res://world/npc/npc_blacksmith.tscn" id="7_kuom1"]
-[ext_resource type="PackedScene" uid="uid://dcu4x4q865hlm" path="res://world/npc/npc_CowardlyLion.tscn" id="8_hnf84"]
+[ext_resource type="PackedScene" uid="uid://dcu4x4q865hlm" path="res://world/npc/npc_cowardly_lion.tscn" id="8_hnf84"]
 [ext_resource type="PackedScene" uid="uid://c13bgcrak26ua" path="res://world/npc/npc_sheriff.tscn" id="9_lwccn"]
-[ext_resource type="PackedScene" uid="uid://ck3lifhncrfx2" path="res://world/npc/npc_base_Barnmaid.tscn" id="11_o8nib"]
+[ext_resource type="PackedScene" uid="uid://b6fcln7500jxl" path="res://world/npc/npc_piano_man.tscn" id="11_455ow"]
+[ext_resource type="PackedScene" uid="uid://ck3lifhncrfx2" path="res://world/npc/npc_barmaid.tscn" id="11_o8nib"]
 [ext_resource type="PackedScene" uid="uid://dwsraqi3f8a1l" path="res://world/interactables/campfire/campfire.tscn" id="13_jjhs5"]
 
 [node name="LevelTown2" instance=ExtResource("1_64v5s")]
@@ -21,6 +22,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.78856, 0, -0.065726995)
 target_scene = "uid://crgv6bkolrlyy"
 target_entry_point = "Left"
 
+[node name="Player" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.46693, 0, 0)
+
 [node name="Comment" parent="Comments" index="4" instance=ExtResource("4_6mxwy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.752525, -0.019320965, 0)
 text = "now that the enemies are gone,
@@ -29,46 +33,29 @@ you can talk with NPCs :)"
 [node name="Test NPCs" type="Node3D" parent="." index="14"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.86013, 0.06661268, -0.86584795)
 
-[node name="NPCTest" parent="Test NPCs" index="0" instance=ExtResource("2_mtstk")]
-
-[node name="NPCTest2" parent="Test NPCs" index="1" instance=ExtResource("2_mtstk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.053219, -0.06661462, 19.094393)
-
-[node name="NPCTest3" parent="Test NPCs" index="2" instance=ExtResource("2_mtstk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.201412, -0.06661462, -29.743269)
-
-[node name="NPCTest4" parent="Test NPCs" index="3" instance=ExtResource("2_mtstk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.777542, -0.06661462, -8.864834)
-
-[node name="NPCTest5" parent="Test NPCs" index="4" instance=ExtResource("2_mtstk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.941654, -4.0978193e-07, -20.248877)
-
-[node name="NPCTest6" parent="Test NPCs" index="5" instance=ExtResource("2_mtstk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.41962, -0.06661462, -9.313629)
-
-[node name="NPCTest7" parent="Test NPCs" index="6" instance=ExtResource("2_mtstk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4651413, -0.06661462, 32.57283)
-
-[node name="NPCBase" parent="Test NPCs" index="7" instance=ExtResource("3_6x3r5")]
+[node name="Demoman1" parent="Test NPCs" index="0" instance=ExtResource("3_6x3r5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.089172, -0.066610776, -35.796566)
 
-[node name="NPCBase2" parent="Test NPCs" index="8" instance=ExtResource("4_g27ds")]
+[node name="Demoman2" parent="Test NPCs" index="1" instance=ExtResource("4_g27ds")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.55588, -0.066610776, -34.67586)
 
-[node name="NPCBase3" parent="Test NPCs" index="9" instance=ExtResource("5_dla4e")]
+[node name="FemmeFatale" parent="Test NPCs" index="2" instance=ExtResource("5_dla4e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.271212, 0.038975038, -8.993068)
 
-[node name="NPCBase4" parent="Test NPCs" index="10" instance=ExtResource("6_g1l2l")]
+[node name="ProvidingMother" parent="Test NPCs" index="3" instance=ExtResource("6_g1l2l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.049973, -0.06661173, 15.455947)
 
-[node name="NPCBase5" parent="Test NPCs" index="11" instance=ExtResource("7_kuom1")]
+[node name="Blacksmith" parent="Test NPCs" index="4" instance=ExtResource("7_kuom1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.669846, -0.06661173, 16.31409)
 
-[node name="NPCBase6" parent="Test NPCs" index="12" instance=ExtResource("8_hnf84")]
+[node name="CowardlyLion" parent="Test NPCs" index="5" instance=ExtResource("8_hnf84")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0004501, -0.06660887, -6.0955644)
 
-[node name="NPCBase7" parent="Test NPCs" index="13" instance=ExtResource("9_lwccn")]
+[node name="Sheriff" parent="Test NPCs" index="6" instance=ExtResource("9_lwccn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.709621, -0.030307852, -6.559241)
+
+[node name="NPCBase" parent="Test NPCs" index="7" instance=ExtResource("11_455ow")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.480827, 0, -5.847)
 
 [node name="NPCs" type="Node3D" parent="." index="15"]
 
@@ -85,22 +72,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.998596, 2.2979527, -5.980
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5406563, 0)
 text = "Snake Oil Salesman"
 
-[node name="NPCTest4" parent="NPCs" index="1" instance=ExtResource("2_mtstk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.308859, 0, 5.0440106)
-
-[node name="Sprite3D" parent="NPCs/NPCTest4" index="0"]
-transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, -28.003716, 1.2800548, -12.033845)
-modulate = Color(1.158732, 0.13998671, 1.4687854, 1)
-
-[node name="CollisionShape3D" parent="NPCs/NPCTest4" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.583164, 1.3699961, -10.313252)
-
-[node name="Comment" parent="NPCs/NPCTest4" index="2" instance=ExtResource("4_6mxwy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.430483, 2.5406563, -11.445475)
-text = "Piano Man"
-
 [node name="Campfire" parent="." index="16" instance=ExtResource("13_jjhs5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7527723, 0, 0)
 
 [editable path="NPCs/NPCTest2"]
-[editable path="NPCs/NPCTest4"]
