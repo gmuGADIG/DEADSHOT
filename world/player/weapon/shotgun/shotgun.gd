@@ -8,8 +8,7 @@ func fire() -> void:
 	var start := -TAU * spread / 2
 	for i in range(number_of_shots):
 		var rads := start + delta_rads * i
-		var bullet : Bullet
-		bullet = preload("res://world/player/weapon/bullet/player_bullet.tscn").instantiate()
+		var bullet : Bullet = get_bullet_scene().instantiate()
 		get_tree().current_scene.add_child(bullet)
 		bullet.fire(
 			self, 

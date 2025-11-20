@@ -91,3 +91,9 @@ func reload() -> void:
 	is_reloading = false
 	
 	print("reloaded")
+
+func get_bullet_scene() -> PackedScene:
+	if bullets_of_fire_unlocked:
+		return preload("res://world/player/weapon/bullet/fire_bullet.tscn")
+	else:
+		return preload("res://world/player/weapon/bullet/player_bullet.tscn")
