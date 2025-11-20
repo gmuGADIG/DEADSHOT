@@ -1,7 +1,7 @@
 extends Control
 
 func _on_new_save_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://menu/cutscenes/intro/intro_cutscene.tscn")
+	SceneManager.change_scene_to_file("res://menu/cutscenes/intro/intro_cutscene.tscn")
 
 func _on_load_save_button_pressed() -> void:
 	if Save.save_file_exists():

@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://sxgpqre2k23t"]
+
+[ext_resource type="Script" uid="uid://bjenh2w6qpj4i" path="res://systems/scene_switch/scene_switch.gd" id="1_dr43d"]
+
+[sub_resource type="Curve" id="Curve_dr43d"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.4, 1), 0.0, 0.0, 0, 0, Vector2(0.6, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[node name="SceneManager" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dr43d")
+fade_curve = SubResource("Curve_dr43d")
+scene_change_time = 0.5
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
