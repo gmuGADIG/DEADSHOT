@@ -5,3 +5,4 @@
 
 [node name="HurtSound" instance=ExtResource("1_2etuh")]
 stream = ExtResource("2_amc8g")
+delete_on_finish = false
