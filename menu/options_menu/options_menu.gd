@@ -8,7 +8,6 @@ extends Control
 @onready var music_value := db_to_linear(AudioServer.get_bus_volume_db(music_bus)) * 100
 @onready var vfx_value := db_to_linear(AudioServer.get_bus_volume_db(vfx_bus)) * 100
 
-
 func open() -> void:
 	%Music.value = music_value
 	%VFX.value = vfx_value
@@ -18,7 +17,6 @@ func open() -> void:
 	%VFXPercentage.text = str(int(vfx_value)) + "%"
 	
 	$AnimationPlayer.play("open")
-
 
 func _on_music_value_changed(_value: float) -> void:
 	music_value = %Music.value
