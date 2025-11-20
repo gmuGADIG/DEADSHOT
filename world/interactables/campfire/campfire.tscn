@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwsraqi3f8a1l"]
+
+[ext_resource type="SpriteFrames" uid="uid://s3e0dwwb00o3" path="res://world/interactables/campfire/campfire_frames.tres" id="2_5undl"]
+[ext_resource type="Script" uid="uid://bn6avupkkqnrl" path="res://world/interactables/campfire/campfire.gd" id="2_lvvka"]
+[ext_resource type="PackedScene" uid="uid://dlk1b6wuqagg6" path="res://audio/streams/campfire_ambience_sound.tscn" id="3_lvvka"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_35fmf"]
+height = 1.1269531
+radius = 1.6875
+
+[node name="Campfire" type="Area3D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("2_lvvka")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.58614206, 0)
+shape = SubResource("CylinderShape3D_35fmf")
+
+[node name="Sprite" type="AnimatedSprite3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0.7802601, 0)
+pixel_size = 0.005
+sprite_frames = ExtResource("2_5undl")
+animation = &"lit"
+frame = 3
+frame_progress = 0.38747305
+
+[node name="Light" type="OmniLight3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2160945, 0)
+light_color = Color(1, 0.79466665, 0.56, 1)
+light_energy = 2.0
+omni_range = 15.0
+
+[node name="CampfireAmbienceSound" parent="." instance=ExtResource("3_lvvka")]
+unique_name_in_owner = true
+autoplay = true

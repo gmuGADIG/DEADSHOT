@@ -1,17 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwdhuncnyfmcw"]
+[gd_scene load_steps=8 format=3 uid="uid://dwdhuncnyfmcw"]
 
 [ext_resource type="Texture2D" uid="uid://dsyqcqueqayou" path="res://temp_art/gartic/the_gartic_phone.png" id="1_0ccam"]
 [ext_resource type="PackedScene" uid="uid://dx3l0wduat3tp" path="res://world/enemy/base/enemy_base.tscn" id="1_pw5bb"]
 [ext_resource type="Script" uid="uid://pewr3uke4fqt" path="res://world/enemy/wilder/wilder.gd" id="1_skiir"]
-[ext_resource type="PackedScene" uid="uid://bq22o80xk3p40" path="res://world/player/weapon/bullet/player_bullet.tscn" id="3_skiir"]
+[ext_resource type="PackedScene" uid="uid://53setitiasq8" path="res://world/enemy/Enemy Bullets/enemy_bullet.tscn" id="3_b04xd"]
+[ext_resource type="PackedScene" uid="uid://bgo2o5m34pbn6" path="res://audio/streams/wilder_shoot_sound.tscn" id="5_d53cb"]
+[ext_resource type="PackedScene" uid="uid://bc2cuo16dxify" path="res://audio/streams/wilder_death_sound.tscn" id="6_buhvy"]
+[ext_resource type="AudioStream" uid="uid://drvscc177esir" path="res://audio/placeholders/test_explode_big.wav" id="7_b04xd"]
 
 [node name="Wilder" node_paths=PackedStringArray("StuckTimer") instance=ExtResource("1_pw5bb")]
 script = ExtResource("1_skiir")
 timeBetweenShots = 0.4
-bullet = ExtResource("3_skiir")
+bullet = ExtResource("3_b04xd")
 maxTravelDistance = 20.0
 StuckTimer = NodePath("StuckTimer")
-max_hp = 16.0
 
 [node name="Sprite3D" parent="." index="1"]
 texture = ExtResource("1_0ccam")
@@ -20,10 +22,20 @@ texture = ExtResource("1_0ccam")
 aabb = AABB(-0.5, 0, -0.5, 1, 1, 1)
 
 [node name="Health" parent="." index="4"]
-max_health = 16
+max_health = 5
 
 [node name="StuckTimer" type="Timer" parent="." index="6"]
 wait_time = 0.2
 autostart = true
 
+[node name="Sounds" type="Node3D" parent="." index="9"]
+
+[node name="WilderShootSound" parent="Sounds" index="0" instance=ExtResource("5_d53cb")]
+unique_name_in_owner = true
+
+[node name="WilderDeathSound" parent="Sounds" index="1" instance=ExtResource("6_buhvy")]
+unique_name_in_owner = true
+stream = ExtResource("7_b04xd")
+
 [connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
+[connection signal="killed" from="Health" to="." method="_on_killed"]

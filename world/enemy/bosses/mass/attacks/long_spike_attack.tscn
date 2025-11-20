@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://beoykunmng3vq"]
+
+[ext_resource type="PackedScene" uid="uid://0087idnveyoi" path="res://world/enemy/bosses/mass/attacks/spike_attack.tscn" id="1_ltni0"]
+
+[sub_resource type="Curve" id="Curve_ltni0"]
+_limits = [0.0, 1.0, 0.0, 2.5]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.20430107, 1), 0.0, 0.0, 0, 0, Vector2(1.9032258, 1), 0.0, 0.0, 0, 0, Vector2(2.5, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[node name="SpikeAttack" instance=ExtResource("1_ltni0")]
+spike_curve = SubResource("Curve_ltni0")

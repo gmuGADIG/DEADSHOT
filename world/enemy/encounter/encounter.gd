@@ -12,6 +12,15 @@ enum EncounterProgress {
 	DONE,
 }
 
+## Camera will zoom out this much when the encounter is active.
+@export var camera_zoom := 1.2
+
+## When the encounter starts, objects appear one after another, with this many seconds between each object.
+@export var appear_delay := 0.1
+
+## Optional. If set, finishing the encounter will change to this scene.
+@export var ending_scene: PackedScene = null
+
 var progress := EncounterProgress.WAITING
 
 func _ready() -> void:
@@ -57,19 +66,30 @@ func start_encounter() -> void:
 	progress = EncounterProgress.IN_PROGRESS
 	active_encounter = self
 	%CameraTracked.enabled = true
-	for obj in get_encounter_objects():
+	
+	var objects := get_encounter_objects()
+	for obj in objects:
+		obj.prepare()
+	
+	for obj in objects:
 		obj.start()
-		await get_tree().create_timer(0.1, false).timeout
+		await get_tree().create_timer(appear_delay, false).timeout
 
 func end_encounter() -> void:
 	print("Encounter END")
 	progress = EncounterProgress.DONE
 	%CameraTracked.enabled = false
 	active_encounter = null
+	
+	for obj in get_encounter_objects():
+		obj.finish()
+	
+	if ending_scene != null:
+		get_tree().change_scene_to_packed(ending_scene)
 
 func _is_encounter_done() -> bool:
-	for o: EncounterObject in get_tree().get_nodes_in_group("encounter_object"):
-		if o.is_enemy() and o.is_active(): return false
+	for o: EncounterObject in get_encounter_objects():
+		if o.is_enemy(): return false
 	
 	return true
 

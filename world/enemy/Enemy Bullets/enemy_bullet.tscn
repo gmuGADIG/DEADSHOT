@@ -1,29 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdo2hhkl4eici"]
+[gd_scene load_steps=4 format=3 uid="uid://53setitiasq8"]
 
-[ext_resource type="Script" uid="uid://dfmqhwv6hg8e0" path="res://world/enemy/Enemy Bullets/enemy_bullet.gd" id="1_bvla6"]
+[ext_resource type="Script" uid="uid://bxbowl7sjix2l" path="res://world/bullets/bullet.gd" id="1_bvla6"]
 [ext_resource type="Texture2D" uid="uid://54e4esurd3xm" path="res://temp_art/gartic/gun.png" id="1_ydd17"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_akls5"]
 height = 0.8574219
 radius = 0.32080078
 
-[node name="Node3D" type="Node3D"]
+[node name="EnemyBullet" type="Area3D"]
+collision_mask = 3
 script = ExtResource("1_bvla6")
-despawn_after_seconds = 10.0
+atk_damage = 1
+atk_source = 1
+speed = 15.0
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 texture = ExtResource("1_ydd17")
 
-[node name="Area3D" type="Area3D" parent="."]
-collision_mask = 6
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(-4.371139e-08, -1, 0, -4.371139e-08, 1.9106855e-15, -1, 1, -4.371139e-08, -4.371139e-08, 0, 0, 0)
 shape = SubResource("CylinderShape3D_akls5")
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
-autostart = true
-
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

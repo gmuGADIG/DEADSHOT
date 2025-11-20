@@ -31,14 +31,14 @@ enum AggroState {
 @onready var tonic := preload("res://world/items/tonic/tonic.tscn");
 
 @export_group("Enemy Stats")
-## The starting amount of health.
-@export var max_hp : float = 10
 ## The amount of damage done in an attack.
 @export var damage : float = 1
 ## Controls the speed of the enemy agent.
 @export var movement_speed : float = 10.0
 ## Rate of the tonic dropping, from 0 to 1.
 @export_range(0.0, 1.0, 0.01) var tonic_drop_rate : float = 0.5
+## What node, if any, spawns when the enemy dies.
+@export var spawn_on_killed: PackedScene = preload("res://world/enemy/meat/meat.tscn")
 
 # TODO: type is a subclass?
 ## Does the enemy remain still or move about on their own?
@@ -86,14 +86,17 @@ var can_shoot := true
 
 #region Builtin Functions
 func _ready() -> void:
+	if Save.save_data.object_save_data.is_dead(self):
+		queue_free()
+		return
+	
 	randomize()
 	player = get_tree().get_first_node_in_group("player")
 	starting_pos = starting_pos if not starting_pos.is_equal_approx(Vector3.ZERO) else position
-	last_known_player_position = player.global_position
-	%Health.max_health = max_hp
-	%Health.health = max_hp
-	%Health.killed.connect(queue_free)
-	%Health.killed.connect(drop_tonic)
+	
+	last_known_player_position = player.global_position if (player != null) else Vector3.ZERO
+	
+	%Health.killed.connect(death)
 
 	if fire_rate == 0:
 		firing_timer.process_mode = PROCESS_MODE_DISABLED
@@ -204,6 +207,20 @@ func drop_tonic() -> void:
 		var dropped_tonic : Node3D = tonic.instantiate()
 		dropped_tonic.global_position = self.global_position
 		$/root.add_child(dropped_tonic);
+		
+func death() -> void:
+	# save that this enemy died
+	Save.save_data.object_save_data.mark_dead(self)
+	
+	# drop stuff
+	drop_tonic()
+	if spawn_on_killed != null:
+		var spawn := spawn_on_killed.instantiate()
+		add_sibling(spawn)
+		spawn.global_position = global_position
+	
+	# free
+	queue_free()
 
 func shoot_bullet() -> void:
 	if !can_shoot:
@@ -216,6 +233,8 @@ func shoot_bullet() -> void:
 		bullet_reference.set_speed(bullet_speed)
 		bullet_reference.set_target(get_tree().get_first_node_in_group("player").global_position)
 		shooting = true
+		
+	
 
 func _on_firing_timer_timeout() -> void:
 	shooting = false
@@ -223,5 +242,9 @@ func _on_firing_timer_timeout() -> void:
 
 func stop_shooting() -> void:
 	can_shoot = false
+
+## Sets this enemy on fire, and increases the static count of total enemies on fire.
+func set_on_fire() -> void:
+	%FireDamage.set_on_fire()
 
 #endregion

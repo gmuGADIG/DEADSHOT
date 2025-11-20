@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b56tx6gavm48t"]
+
+[ext_resource type="PackedScene" uid="uid://ci3804ofkibap" path="res://audio/streams/sound_base.tscn" id="1_d03m1"]
+[ext_resource type="AudioStream" uid="uid://c6fh3mivba1sg" path="res://audio/placeholders/test_beep.wav" id="1_jky5y"]
+
+[node name="FireHitSound" instance=ExtResource("1_d03m1")]
+stream = ExtResource("1_jky5y")
+autoplay = false
+delete_on_finish = false
