@@ -29,3 +29,7 @@ func _on_prop_demo_button_pressed() -> void:
 
 func _on_max_ammo_pressed() -> void:
 	Player.instance.get_gun().reserve_ammo = 999
+
+
+func _on_god_mode_pressed() -> void:
+	Player.instance.health_component.modify_max_health(9999)

@@ -5,7 +5,7 @@ extends Area3D
 ## If an encounter is active, this references it.
 ## Otherwise, null.
 static var active_encounter: Encounter = null
-var finished_encounter:Array #Test test test
+
 enum EncounterProgress {
 	WAITING,
 	IN_PROGRESS,
@@ -104,7 +104,7 @@ func _on_object_killed(obj: EncounterObject) -> void:
 func _on_body_entered(body: Node3D) -> void:
 	if progress != EncounterProgress.WAITING: return # encounter has already been started
 	
-	if body is Player && _is_encounter_done() == false:
+	if body is Player && _is_encounter_done() == false:## Added a check to see if encounter is "done" before starting. Because enemies do not respawn, the get encounter will be zero hence encounter will be done.
 		start_encounter()
 
 static func is_encounter_active() -> bool:
