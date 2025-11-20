@@ -66,7 +66,12 @@ func start_encounter() -> void:
 	progress = EncounterProgress.IN_PROGRESS
 	active_encounter = self
 	%CameraTracked.enabled = true
-	for obj in get_encounter_objects():
+	
+	var objects := get_encounter_objects()
+	for obj in objects:
+		obj.prepare()
+	
+	for obj in objects:
 		obj.start()
 		await get_tree().create_timer(appear_delay, false).timeout
 

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://diuq4h3ag50bu"]
+
+[ext_resource type="Texture2D" uid="uid://bx7hvbacrk233" path="res://world/decoration/meat_small/decorative_meat_small.png" id="1_cl3g3"]
+
+[node name="MeatSmall" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1.4, 0, 0, 0, 1.2124355, 0.7, 0, -0.7, 1.2124355, 0, 0.8643706, 0)
+pixel_size = 0.0033
+alpha_cut = 1
+texture = ExtResource("1_cl3g3")
