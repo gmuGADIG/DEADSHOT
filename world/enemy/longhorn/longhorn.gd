@@ -40,6 +40,7 @@ func attack() -> void:
 				timer.start(cooldown_time)
 				print("I'm vulny")
 				is_stuck = false
+				stuck_timer.stop()
 				health.vulnerable = true
 				shaker.shaking = false
 				#hurtbox.allowed_damage_sources.insert(0, player_damage_source)
@@ -77,6 +78,5 @@ func _on_killed() -> void:
 
 
 func _on_stuck_timer_timeout() -> void:
-	if velocity.length() <= 0.1:
-		print("Stuck :(")
-		is_stuck = true
+	print("Stuck :(")
+	is_stuck = true
