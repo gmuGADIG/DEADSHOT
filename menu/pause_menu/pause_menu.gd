@@ -100,4 +100,6 @@ func _on_save_button_pressed() -> void:
 func _on_load_button_pressed() -> void:
 	_on_resume_pressed()
 	Save.load_game()
-	
+
+func _on_options_button_pressed() -> void:
+	_on_options_pressed()

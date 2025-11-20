@@ -97,5 +97,6 @@ text = "Save"
 layout_mode = 2
 text = "Load"
 
+[connection signal="pressed" from="Panel/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="Panel/HBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]
 [connection signal="pressed" from="Panel/HBoxContainer/LoadButton" to="." method="_on_load_button_pressed"]
