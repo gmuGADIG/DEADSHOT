@@ -26,7 +26,7 @@ var reserve_ammo : int:
 var is_reloading := false
 var bullets_of_fire_unlocked: bool
 
-@onready var player: Player = get_parent()
+@onready var player: Player = Player.instance
 @export var fire_cooldown: float = 0.2
 var fire_timer: float = 0.0
 
