@@ -1,14 +1,18 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://cbhjnihlejbf6"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://cbhjnihlejbf6"]
 
-[ext_resource type="Texture2D" uid="uid://bwm425xkr0vcy" path="res://temp_art/icon.svg" id="1_gikp6"]
-[ext_resource type="Texture2D" uid="uid://sxaysn4gqoxo" path="res://temp_art/gartic/coin.png" id="2_a43qx"]
+[ext_resource type="Texture2D" uid="uid://lwqkmtyly4uq" path="res://menu/main_menu/non_shot.png" id="1_2pgop"]
+[ext_resource type="Texture2D" uid="uid://70nvlv43j31f" path="res://menu/main_menu/shot.png" id="2_2pgop"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a43qx"]
-texture = ExtResource("1_gikp6")
+texture = ExtResource("1_2pgop")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gpfoj"]
+texture = ExtResource("1_2pgop")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1rmgx"]
-texture = ExtResource("2_a43qx")
+texture = ExtResource("2_2pgop")
 
 [resource]
 Button/styles/hover = SubResource("StyleBoxTexture_a43qx")
+Button/styles/normal = SubResource("StyleBoxTexture_gpfoj")
 Button/styles/pressed = SubResource("StyleBoxTexture_1rmgx")
