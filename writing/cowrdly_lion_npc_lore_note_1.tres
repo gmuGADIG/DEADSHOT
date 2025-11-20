@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://coa8vf7agxpwe"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_61l6d"]
+
+[resource]
+script = ExtResource("1_61l6d")
+dialog = "DAMN! THERE'S DAMN ZOMBIES EVERYWHERE!
+I gotta get the hell outta here and if you're readin this you better too!
+If you think that you can fight this stuff you're slow as molasses!
+
+-C. Lion
+"
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"

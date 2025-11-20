@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://dj12m0h7qo5e2"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_jsy7i"]
+
+[resource]
+script = ExtResource("1_jsy7i")
+dialog = "[Piano Man] Those damned… things… came back. At first I was glad that I was in the ol’ bar when they came ‘round, now I reckon I'm gonna die in here. Well, if I'm gonna go I'd rather go out here, surrounded by memories of the good ol’ times. My only regret is that I couldn't see her one last time… sweet ol’ Cailie. I sure hope she got away. In case you ever see this Cailie, if you ever come back to this dusty ol’ town, just know, I love ya, always have, and I always will. -Felipe
+"
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"
