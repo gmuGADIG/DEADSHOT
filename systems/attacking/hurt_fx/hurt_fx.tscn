@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://s0mcou8b7n0v"]
+
+[ext_resource type="Script" uid="uid://dtuay44bepddb" path="res://systems/attacking/hurt_fx/hurt_fx.gd" id="1_jft24"]
+
+[node name="HurtFX" type="Node3D"]
+script = ExtResource("1_jft24")

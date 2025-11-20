@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://dx3l0wduat3tp"]
+[gd_scene load_steps=7 format=3 uid="uid://dx3l0wduat3tp"]
 
+[ext_resource type="PackedScene" uid="uid://s0mcou8b7n0v" path="res://systems/attacking/hurt_fx/hurt_fx.tscn" id="1_f0luy"]
 [ext_resource type="PackedScene" uid="uid://hiyp7n7uvc4m" path="res://systems/attacking/health/health.tscn" id="2_17eo5"]
 [ext_resource type="PackedScene" uid="uid://b7d3oiw27awag" path="res://systems/attacking/hurtbox/hurtbox.tscn" id="3_1tv51"]
 [ext_resource type="Script" uid="uid://5yprj03obbfy" path="res://world/enemy/encounter/encounter_obj.gd" id="3_17eo5"]
@@ -18,6 +19,9 @@ shape = SubResource("CylinderShape3D_plfsl")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 1, 0)
+
+[node name="HurtFX" parent="Sprite3D" node_paths=PackedStringArray("health") instance=ExtResource("1_f0luy")]
+health = NodePath("../../Health")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
