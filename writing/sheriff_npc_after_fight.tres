@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://q80687pc33rk"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_2kd0d"]
+
+[resource]
+script = ExtResource("1_2kd0d")
+dialog = "[Zoa] *gasp* *gasp* Well…*gasp* *gasp*Ya finally got me. Your long awaited deliverance. Can’t say i’m happy with this outcome but.. *gasp* I can't say it wasn’t a long time coming. Argh.. I can’t defend my town anymore…. You need to go to the mines…*gasp* *gasp* The old cultists hideaway from days old…*gasp* That’s where you’ll find…*gasp*...it…."
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"

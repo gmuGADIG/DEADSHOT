@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://64lfn5f1c11g"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_mi2dn"]
+
+[resource]
+script = ExtResource("1_mi2dn")
+dialog = "[Zoa] Well, Look who it is. Didn’t anyone teach you it’s rude to scrounge around another person’s stuff? I thought I taught you a lesson when I banished you from here, but now I see… (loads bullets into revolver) Imma need to teach you a harder lesson. YOU WONT TAKE THIS TOWN AWAY FROM ME!
+"
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"
