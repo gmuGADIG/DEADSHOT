@@ -100,7 +100,7 @@ target_scene = "uid://c4lcfae1j0kdx"
 target_entry_point = "Bottom"
 
 [node name="Player" parent="." index="6"]
-transform = Transform3D(1.2078707, 0, 0, 0, 1, 0, 0, 0, 1.2078707, 16.788742, 0, -5.0230675)
+transform = Transform3D(1.2078707, 0, 0, 0, 1, 0, 0, 0, 1.2078707, 16.413002, 0, -5.0230675)
 
 [node name="Decor" type="Node" parent="." index="7"]
 
