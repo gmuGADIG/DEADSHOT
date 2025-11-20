@@ -44,7 +44,7 @@ alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 albedo_texture = ExtResource("4_fb8xb")
 uv1_scale = Vector3(1, 2, 1)
-uv1_offset = Vector3(0, 1.705, 0)
+uv1_offset = Vector3(0, 1.495, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_akuqq"]
 transparency = 2
@@ -118,7 +118,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0744767, 4.7683716e-07, 4.3
 text = "Welcome to the mines :)"
 
 [node name="Player" parent="." index="6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4667149, 0, 9.848493)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.255447, 0, 29.254498)
 
 [node name="Wilder" parent="." index="8" instance=ExtResource("6_fb8xb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1438756, 0.008993983, 4.0566435)
@@ -132,6 +132,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 171.74503, 0, 15.157271)
 
 [node name="Encounter" parent="." index="12" instance=ExtResource("11_rkdtq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.16222, 1.5018328e-06, 4.769372)
+appear_delay = 0.04
 
 [node name="EncounterShape" type="CollisionShape3D" parent="Encounter" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3190918, 0, -0.59942627)
@@ -229,6 +230,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.382488, -3.3495767e-06, -8
 
 [node name="Encounter2" parent="." index="13" instance=ExtResource("11_rkdtq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.662285, 0.5700009, 14.503639)
+appear_delay = 0.035
 
 [node name="EncounterShape" type="CollisionShape3D" parent="Encounter2" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.68078613, 0, -0.7536011)
