@@ -52,7 +52,7 @@ alpha_antialiasing_mode = 0
 albedo_color = Color(1, 1, 1, 0)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_akuqq"]
-size = Vector3(10, 3, 10)
+size = Vector3(23.325684, 3, 22.286499)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5qrk3"]
 size = Vector3(31.026611, 3, 17.979126)
@@ -119,30 +119,24 @@ text = "Welcome to the mines :)"
 [node name="Player" parent="." index="6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4667149, 0, 9.848493)
 
-[node name="LonghornEnemy" parent="." index="8" instance=ExtResource("5_ci4pn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.644047, 0.99999917, 2.812282)
-
-[node name="Comment" parent="LonghornEnemy" index="11" instance=ExtResource("4_svmac")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2441782, 1.4277897)
-text = "i am the longhorn"
-
-[node name="Wilder" parent="." index="9" instance=ExtResource("6_fb8xb")]
+[node name="Wilder" parent="." index="8" instance=ExtResource("6_fb8xb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1438756, 0.008993983, 4.0566435)
 
 [node name="Comment" parent="Wilder" index="9" instance=ExtResource("4_svmac")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0620713, 0.7462635)
 text = "i am the wilder"
 
-[node name="CorruptHeart" parent="." index="10" instance=ExtResource("9_qw06v")]
+[node name="CorruptHeart" parent="." index="9" instance=ExtResource("9_qw06v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 171.74503, 0, 15.157271)
 
-[node name="Encounter" parent="." index="13" instance=ExtResource("11_rkdtq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.306057, 1.5018328e-06, 9.638979)
+[node name="Encounter" parent="." index="12" instance=ExtResource("11_rkdtq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.16222, 1.5018328e-06, 4.769372)
 
 [node name="EncounterShape" type="CollisionShape3D" parent="Encounter" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3190918, 0, -0.59942627)
 shape = SubResource("BoxShape3D_akuqq")
 
-[node name="Encounter2" parent="." index="14" instance=ExtResource("11_rkdtq")]
+[node name="Encounter2" parent="." index="13" instance=ExtResource("11_rkdtq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.662285, 0.5700009, 14.503639)
 
 [node name="EncounterShape" type="CollisionShape3D" parent="Encounter2" index="1"]
@@ -263,14 +257,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.227394, -0.3918389, -0.419
 [node name="Boulder18" parent="Encounter2" index="39" instance=ExtResource("13_5qrk3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.774696, -0.3918389, -0.41988087)
 
-[node name="Encounter3" parent="." index="15" instance=ExtResource("11_rkdtq")]
+[node name="Encounter3" parent="." index="14" instance=ExtResource("11_rkdtq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110.61625, -9.628075e-07, 37.73636)
 
 [node name="EncounterShape" type="CollisionShape3D" parent="Encounter3" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0822525, -3.8146973e-06, -0.0064735413)
 shape = SubResource("BoxShape3D_1exam")
 
-[node name="Encounter4" parent="." index="16" instance=ExtResource("11_rkdtq")]
+[node name="Encounter4" parent="." index="15" instance=ExtResource("11_rkdtq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120.119026, -0.7348371, 15.429918)
 
 [node name="EncounterShape" type="CollisionShape3D" parent="Encounter4" index="1"]
@@ -319,7 +313,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.641922, 0.9130029, 1.195625
 [node name="Boulder8" parent="Encounter4" index="15" instance=ExtResource("13_5qrk3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3041153, 0.7273741, 0.7510433)
 
-[node name="Encounter5" parent="." index="17" instance=ExtResource("11_rkdtq")]
+[node name="Encounter5" parent="." index="16" instance=ExtResource("11_rkdtq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112.90734, 7.6293945e-06, 36.54578)
 
 [node name="EncounterShape" type="CollisionShape3D" parent="Encounter5" index="1"]
@@ -329,7 +323,7 @@ shape = SubResource("BoxShape3D_8bdu7")
 [node name="Wilder" parent="Encounter5" index="2" instance=ExtResource("6_fb8xb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.59507, -0.0019073486, 4.2124176)
 
-[node name="LonghornEnemy2" parent="." index="18" instance=ExtResource("5_ci4pn")]
+[node name="LonghornEnemy2" parent="." index="17" instance=ExtResource("5_ci4pn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.17998, 0.62600994, 36.637535)
 
 [editable path="World/Floor"]
