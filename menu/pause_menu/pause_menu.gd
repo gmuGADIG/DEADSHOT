@@ -53,6 +53,8 @@ func _on_options_pressed() -> void:
 		reset_quit_safety()
 		reset_close_safety()
 		print("Options menu goes here")
+		print("Options Opened")
+		$OptionsMenu.open()
 	
 func _on_quit_pressed() -> void:
 		# Reset the opposite button's safety, for aesthetics and safety.
@@ -98,3 +100,4 @@ func _on_save_button_pressed() -> void:
 func _on_load_button_pressed() -> void:
 	_on_resume_pressed()
 	Save.load_game()
+	
