@@ -67,8 +67,10 @@ func _ready() -> void:
 	for child in $Weapons.get_children():
 		if child is Gun:
 			child.process_mode = Node.PROCESS_MODE_DISABLED
+			child.hide()
 	var gun := get_gun()
 	gun.process_mode = Node.PROCESS_MODE_INHERIT
+	gun.show()
 	
 	instance = self
 	if persisting_data != null:
