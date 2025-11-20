@@ -28,6 +28,9 @@ var target:Vector3
 
 var current_action: StringName = ""
 
+@export var mass_targets: Array[Node3D]
+@export var arena_area : ArenaArea
+
 func pick_action() -> void:
 	
 	if len(phase_1_action_names) == 0: return
@@ -143,8 +146,7 @@ func hostile() -> void:
 #endregion
 
 #region MassChunks_funcs
-@export var mass_targets: Array[Node3D]
-@export var arena_area : ArenaArea
+
 
 func mass_chunks_charge() -> void:
 	mass_targets.clear()
@@ -153,6 +155,10 @@ func mass_chunks_charge() -> void:
 	var player_position : Vector3 = Player.instance.global_position
 	for i in range(mass_chunk_amount):
 		var chunk_position : Vector3 = player_position + neutral_spread(0,player_still_spread_distance)
+
+		if not arena_area.is_point_in_arena(chunk_position): #is_point_in_arena caused crash
+			return
+		
 		var bullet_reference: Node3D = splash_obj.instantiate()
 		add_sibling(bullet_reference)
 		bullet_reference.global_position = chunk_position
@@ -164,17 +170,13 @@ func mass_chunks_attack() -> void:
 	should_move = false
 	shaker.shaking = false
 	
-	for i in range(num_shots_in_spread):
+	for i in range(mass_targets.size()):
 		var target_position: Vector3 = mass_targets[i].global_position
-		
-		#if not arena_area.is_point_in_arena(target_position): #is_point_in_arena caused crash
-			#return
 		
 		var bullet_reference: Node3D = chunk_obj.instantiate()
 		add_sibling(bullet_reference)
 		bullet_reference.global_position = global_position
 		bullet_reference.speed = 40
-		
 		
 		bullet_reference.set_target(target_position)
 		

@@ -54,7 +54,6 @@ atk_source = 1
 atk_knockback = 1
 floor_area = NodePath("../World/Floor")
 arena_area = NodePath("../Area3D/ArenaArea")
-phase_1_action_names = Array[StringName]([&"stomp", &"splash", &"charge"])
 patrol_path = Array[Vector3]([Vector3(0, 0, 0)])
 
 [node name="RoamingPoints" type="Node3D" parent="." index="8"]
