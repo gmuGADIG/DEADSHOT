@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://d0lbvne2ofk7c"]
+[gd_scene load_steps=24 format=3 uid="uid://d0lbvne2ofk7c"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_nthvq"]
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="2_ohr83"]
@@ -11,7 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://dwdhuncnyfmcw" path="res://world/enemy/wilder/wilder.tscn" id="6_fb8xb"]
 [ext_resource type="PackedScene" uid="uid://b0ttk38sufgur" path="res://world/pickups/corrupt_heart/corrupt_heart.tscn" id="9_qw06v"]
 [ext_resource type="PackedScene" uid="uid://dhb2pgqbfvxoa" path="res://world/enemy/encounter/encounter.tscn" id="11_rkdtq"]
+[ext_resource type="PackedScene" path="res://world/blocker/blocker.tscn" id="12_eyi7e"]
 [ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://world/interactables/cover/cover_boulder.tscn" id="12_rkdtq"]
+[ext_resource type="PackedScene" uid="uid://6ahxaf8mfjcr" path="res://world/pickups/ammo_pickup/ammo_pickup.tscn" id="14_5qrk3"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_ci4pn"]
 vertices = PackedVector3Array(31.360775, 0.35881376, -28.744022, 24.610775, 0.35881376, -28.744022, 24.860775, 0.35881376, -16.994022, 31.360775, 0.35881376, -16.744022, 34.110775, 0.35881376, -10.244022, 36.110775, 0.35881376, -10.244022, 35.860775, 0.35881376, -15.994022, 34.110775, 0.35881376, -15.994022, 36.610775, 0.35881376, -16.744022, 38.610775, 0.35881376, -28.744022, 33.360775, 0.35881376, -16.744022, 38.610775, 0.35881376, -16.744022, 46.860775, 0.35881376, -16.744022, 47.610775, 0.35881376, -28.744022, 24.110775, 0.35881376, 4.0059776, 22.360775, 0.35881376, 4.0059776, 22.610775, 0.35881376, 5.2559776, 24.360775, 0.35881376, 5.2559776, 33.610775, 0.35881376, -7.2440224, 24.860775, 0.35881376, -7.4940224, 24.860775, 0.35881376, 3.2559776, 24.860775, 0.35881376, 5.7559776, 36.860775, 0.35881376, 15.755978, 36.860775, 0.35881376, 17.505978, 38.610775, 0.35881376, 17.505978, 38.610775, 0.35881376, 15.755978, 24.860775, 0.35881376, 15.505978, 36.360775, 0.35881376, 15.255978, 49.110775, 0.35881376, -6.9940224, 36.860775, 0.35881376, -7.2440224, 36.110775, 0.35881376, -8.244022, 34.110775, 0.35881376, -7.9940224, 39.360775, 0.35881376, 15.255978, 48.860775, 0.35881376, 15.255978, -9.639226, 0.35881376, 1.5059776, -9.639226, 0.35881376, 5.0059776, -8.139226, 0.35881376, 5.0059776, -7.639226, 0.35881376, 1.5059776, 6.610774, 0.35881376, 3.2559776, 6.360774, 0.35881376, -6.7440224, 6.610774, 0.35881376, 5.2559776, -7.139226, 0.35881376, 5.7559776, -6.889226, 0.35881376, 0.75597763, 7.360774, 0.35881376, 4.0059776, -6.889226, 0.35881376, 11.255978, 6.110774, 0.35881376, 11.005978, -6.639226, 0.35881376, -6.9940224, 195.11078, 0.35881376, 1.2559776, 187.86078, 0.35881376, -4.2440224, 177.61078, 0.35881376, -5.9940224, 165.36078, 0.35881376, -4.2440224, 158.86078, 0.35881376, 2.5059776, 160.61078, 0.35881376, 14.255978, 197.61078, 0.35881376, 14.255978, 88.11077, 0.35881376, 23.005978, 88.36077, 0.35881376, 24.755978, 92.11077, 0.35881376, 24.255978, 92.61077, 0.35881376, 4.2559776, 58.360775, 0.35881376, 15.755978, 58.360775, 0.35881376, 22.505978, 61.860775, 0.35881376, 23.005978, 59.360775, 0.35881376, 3.7559776, 80.61077, 0.35881376, -2.2440224, 72.11077, 0.35881376, -2.2440224, 133.61078, 0.35881376, 17.505978, 133.61078, 0.35881376, 15.005978, 131.61078, 0.35881376, 15.005978, 130.61078, 0.35881376, 17.505978, 130.11078, 0.35881376, 18.255978, 130.61078, 0.35881376, 14.505978, 130.36078, 0.35881376, 4.7559776, 106.61077, 0.35881376, 4.5059776, 106.11077, 0.35881376, 28.255978, 112.61077, 0.35881376, 27.005978, 129.86078, 0.35881376, 27.255978, 130.36078, 0.35881376, 27.005978, 111.61077, 0.35881376, 28.255978, 111.61077, 0.35881376, 27.505978, 160.11078, 0.35881376, 15.005978, 158.36078, 0.35881376, 15.005978, 158.36078, 0.35881376, 17.255978, 160.11078, 0.35881376, 17.255978, 160.86078, 0.35881376, 18.255978, 162.36078, 0.35881376, 29.255978, 185.61078, 0.35881376, 34.255978, 195.61078, 0.35881376, 29.005978, 172.86078, 0.35881376, 34.755978, 163.11078, 0.35881376, 30.005978, 182.36078, 0.35881376, 34.505978, 44.860775, 0.35881376, 31.005978, 46.610775, 0.35881376, 31.005978, 46.360775, 0.35881376, 29.255978, 44.360775, 0.35881376, 31.505978, 39.610775, 0.35881376, 29.255978, 38.860775, 0.35881376, 28.755978, 37.110775, 0.35881376, 40.255978, 43.860775, 0.35881376, 40.255978, 61.860775, 0.35881376, 31.005978, 61.860775, 0.35881376, 28.505978, 61.360775, 0.35881376, 28.255978, 57.860775, 0.35881376, 28.755978, 61.360775, 0.35881376, 23.255978, 88.36077, 0.35881376, 28.255978, 86.11077, 0.35881376, 28.505978, 85.86077, 0.35881376, 31.255978, 93.11077, 0.35881376, 28.755978, 92.36077, 0.35881376, 28.005978, 104.11077, 0.35881376, 31.755978, 104.36077, 0.35881376, 29.255978, 105.86077, 0.35881376, 29.255978, 104.36077, 0.35881376, 34.005978, 111.86077, 0.35881376, 32.255978, 113.61077, 0.35881376, 32.505978, 103.36077, 0.35881376, 42.505978, 113.36077, 0.35881376, 42.755978, 119.61077, 0.35881376, 42.755978, 119.86077, 0.35881376, 42.255978, 119.86077, 0.35881376, 33.255978)
@@ -38,7 +40,7 @@ alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 albedo_texture = ExtResource("4_fb8xb")
 uv1_scale = Vector3(1, 2, 1)
-uv1_offset = Vector3(0, 1.705, 0)
+uv1_offset = Vector3(0, 1.495, 0)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_akuqq"]
 size = Vector3(10, 3, 10)
@@ -53,7 +55,7 @@ size = Vector3(10, 3, 10)
 size = Vector3(10, 3, 10)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8bdu7"]
-size = Vector3(14.224121, 3, 8.940216)
+size = Vector3(14.224121, 3, 12.389053)
 
 [node name="LevelMines" instance=ExtResource("1_nthvq")]
 
@@ -76,9 +78,6 @@ size = Vector3(26.19918, 4.6989746, 1)
 
 [node name="Trim" parent="World/Floor" index="2"]
 material = SubResource("StandardMaterial3D_qw06v")
-
-[node name="Wilder" parent="World" index="1" instance=ExtResource("6_fb8xb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.79667, -0.112389624, 40.855946)
 
 [node name="EntryPoints" parent="." index="3"]
 transform = Transform3D(-1, -3.1196299e-09, 8.73671e-08, 0, 0.9993631, 0.035684407, -8.742278e-08, 0.035684407, -0.9993631, -4.200489, 0, 13.822917)
@@ -149,25 +148,34 @@ shape = SubResource("BoxShape3D_4ssk2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112.90734, 7.6293945e-06, 36.54578)
 
 [node name="EncounterShape" type="CollisionShape3D" parent="Encounter5" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3789063, 0, 0.9714203)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3789063, 0, -0.75299835)
 shape = SubResource("BoxShape3D_8bdu7")
 
-[node name="Wilder" parent="Encounter5" index="2" instance=ExtResource("6_fb8xb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.544693, -0.072335124, 4.2241783)
+[node name="Blocker" parent="Encounter5" index="2" instance=ExtResource("12_eyi7e")]
+transform = Transform3D(1.782, 0, 0, 0, 1, 0, 0, 0, 4.257, -9.438309, -0.1561482, -6.01441)
 
-[node name="LonghornEnemy2" parent="." index="18" instance=ExtResource("5_ci4pn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.38363, 0.5234008, 40.734932)
+[node name="Blocker2" parent="Encounter5" index="3" instance=ExtResource("12_eyi7e")]
+transform = Transform3D(-0.03135169, 0, 7.2763247, 0, 0.99999994, 0, -1.759187, 0, -0.12967643, -4.0643616, -0.42227268, -9.309151)
 
-[node name="LonghornEnemy3" parent="." index="19" instance=ExtResource("5_ci4pn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 114.43864, 0.5064504, 39.67426)
+[node name="Wilder" parent="Encounter5" index="4" instance=ExtResource("6_fb8xb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5364914, -0.072335124, 5.020443)
 
-[node name="Wilder2" parent="." index="20" instance=ExtResource("6_fb8xb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 118.03882, -0.128106, 37.007023)
+[node name="Wilder3" parent="Encounter5" index="5" instance=ExtResource("6_fb8xb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1463852, -0.11239725, -3.2544327)
 
-[node name="Boulder" parent="." index="21" instance=ExtResource("12_rkdtq")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 111.44495, 0.034311354, 36.906265)
+[node name="LonghornEnemy3" parent="Encounter5" index="6" instance=ExtResource("5_ci4pn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5889206, 0.5064428, 2.4564285)
 
-[node name="Boulder2" parent="." index="22" instance=ExtResource("12_rkdtq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113.50313, 0.09229007, 33.795063)
+[node name="Wilder2" parent="Encounter5" index="7" instance=ExtResource("6_fb8xb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7401962, -0.12811363, -1.3835945)
+
+[node name="Boulder" parent="Encounter5" index="8" instance=ExtResource("12_rkdtq")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.4623947, 0.034303725, 0.36048508)
+
+[node name="Boulder2" parent="Encounter5" index="9" instance=ExtResource("12_rkdtq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.59578705, 0.092282444, -2.7507172)
+
+[node name="AmmoPickup" parent="Encounter5/Boulder2" index="5" instance=ExtResource("14_5qrk3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.239922, -0.0922896, 8.021019)
 
 [editable path="World/Floor"]
