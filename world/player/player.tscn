@@ -7,10 +7,10 @@
 [ext_resource type="Script" uid="uid://c4s1ohnc08ecy" path="res://world/player/reticle/reticle.gd" id="4_40qjc"]
 [ext_resource type="PackedScene" uid="uid://duf7ry1s34j7o" path="res://world/player/weapon/whip/whip.tscn" id="4_duds0"]
 [ext_resource type="Texture2D" uid="uid://bwm425xkr0vcy" path="res://temp_art/icon.svg" id="4_et4on"]
-[ext_resource type="PackedScene" uid="uid://vnurg1w4ttt4" path="res://world/player/weapon/dualies/weapon_dualies.tscn" id="5_2x47q"]
 [ext_resource type="Script" uid="uid://do5vs8m1law7o" path="res://systems/attacking/health/health.gd" id="6_thypd"]
 [ext_resource type="Script" uid="uid://lxg83i28nlul" path="res://systems/attacking/hurtbox/hurtbox.gd" id="7_d3e1v"]
 [ext_resource type="Script" uid="uid://c1g7056xgtqys" path="res://systems/camera/camera_tracked.gd" id="11_2x47q"]
+[ext_resource type="PackedScene" uid="uid://bqngdxosj3du1" path="res://world/player/weapon/shotgun/shotgun.tscn" id="11_3n4qb"]
 
 [sub_resource type="Curve" id="Curve_2x47q"]
 _limits = [0.0, 20.0, 0.0, 0.45]
@@ -182,9 +182,6 @@ metadata/_custom_type_script = "uid://cwjxwkxciij4o"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8601074, 0)
 shape = SubResource("CylinderShape3D_bvkkv")
 
-[node name="Dualies" parent="." instance=ExtResource("5_2x47q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.237, 0)
-
 [node name="Aiming" type="Node" parent="."]
 
 [node name="Reticle" type="Node3D" parent="Aiming"]
@@ -245,3 +242,5 @@ omni_range = 25.0
 omni_attenuation = 1.5
 
 [node name="Hud" parent="." instance=ExtResource("2_duds0")]
+
+[node name="shotgun" parent="." instance=ExtResource("11_3n4qb")]
