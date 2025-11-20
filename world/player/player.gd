@@ -2,11 +2,22 @@ class_name Player extends CharacterBody3D
 
 signal player_state_changed
 
-class PlayerPersistingData:
-	var max_health : int
-	var health : int
-	var curr_chamber : int
-	var curr_reserve : int
+#class PlayerPersistingData:
+	#var max_health : int
+	#var health : int
+	#var curr_chamber : int
+	#var curr_reserve : int
+	#
+	#func save() -> void:
+		#max_health = Player.instance.persisting_data.max_health
+		#health = Player.instance.persisting_data.health
+		#curr_chamber = Player.instance.persisting_data.curr_chamber
+		#curr_reserve = Player.instance.persisting_data.curr_reserve
+	#func load() -> void:
+		#Player.instance.persisting_data.max_health = max_health
+		#Player.instance.persisting_data.health = health
+		#Player.instance.persisting_data.curr_chamber = curr_chamber
+		#Player.instance.persisting_data.curr_reserve = curr_reserve
 
 ## Tracks name of current gun node. CHANGE THIS VARIABLE WHEN GUNS ARE CHANGED.
 static var gun_name := "Dualies"
