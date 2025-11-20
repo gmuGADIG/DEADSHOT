@@ -76,12 +76,10 @@ func reload() -> void:
 	is_reloading = true
 	
 	# wait `reload_time` seconds, while emitting player_reload_progress_changed every frame
-	var progress := 0.0
-	while progress < 1.0:
-		Global.player_reload_progress_changed.emit(progress)
-		progress += get_process_delta_time() / reload_time
-		await get_tree().process_frame
-	Global.player_reload_progress_changed.emit(1.0)
+	await create_tween().tween_method(
+		Global.player_reload_progress_changed.emit,
+		0., 1., reload_time
+	).finished
 	
 	if (reserve_ammo >= chamber_diff):
 		reserve_ammo -= chamber_diff
