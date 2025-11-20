@@ -100,9 +100,9 @@ func _physics_process(delta: float) -> void:
 		velocity = input_dir * walk_speed * speed_multiplier
 		if(($Sprite.frame==0 || $Sprite.frame == 2)&& self.velocity != Vector3.ZERO):
 			if(speed_multiplier == 0.5): #Check if player is in puddle
-				$WalkSFX.play() #Need to update to play puddle noise
+				$WalkSFX.get_child(0).play() #Need to update to play puddle noise
 			else:
-				$WalkSFX.play() #Play normal walking noise
+				$WalkSFX.get_child(1).play() #Play normal walking noise
 		if input_dir != Vector3.ZERO:
 			previous_input_direction = input_dir
 		
@@ -201,15 +201,20 @@ func update_stamina(delta: float) -> void:
 	else:
 		stamina = 3.0
 func walking_sounds()->void: #Determines what sound the player should make when walking
+	var soundEffect : Resource
+	
 	match floor_type:
 		
 		FloorType.WOOD:
-			$WalkSFX.stream = load("res://audio/placeholders/funny_bone_man.wav")
+			soundEffect = load("res://audio/streams/WalkSFX/walk_wood.tscn")
 		FloorType.SAND:
-			$WalkSFX.stream = load("res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkB.wav")
-			
-		
-		
+			soundEffect = load("res://audio/streams/WalkSFX/walk_sand.tscn")
+		FloorType.STONE:
+			soundEffect = load("res://audio/streams/WalkSFX/walk_stone.tscn")
+		FloorType.STONE_SOFT:
+			soundEffect = load("res://audio/streams/WalkSFX/walk_soft_stone.tscn")
+	
+	$WalkSFX.add_child(soundEffect.instantiate())
 	
 
 ## Function bound to the signal for beginning an interaction.

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7dhd02gnv5mh"]
+
+[ext_resource type="AudioStream" uid="uid://bsg0we7wlotpv" path="res://audio/placeholders/test_jump.wav" id="1_6l2a0"]
+
+[node name="WalkStone" type="AudioStreamPlayer3D"]
+stream = ExtResource("1_6l2a0")

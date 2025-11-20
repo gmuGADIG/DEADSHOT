@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0ix7w0r4kdsi"]
+
+[ext_resource type="AudioStream" uid="uid://bdsxandq2bhjy" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkA.wav" id="1_j010c"]
+
+[node name="WalkWood" type="AudioStreamPlayer3D"]
+stream = ExtResource("1_j010c")

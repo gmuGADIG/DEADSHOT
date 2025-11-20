@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2ipnswehnyjo"]
+
+[ext_resource type="AudioStream" uid="uid://btq4usey4ba53" path="res://audio/placeholders/explosion.wav" id="1_54dsi"]
+
+[node name="WalkSand" type="AudioStreamPlayer3D"]
+stream = ExtResource("1_54dsi")
