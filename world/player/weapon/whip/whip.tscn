@@ -12,14 +12,14 @@
 
 [sub_resource type="Resource" id="Resource_kmd03"]
 script = ExtResource("2_kmd03")
-damage = 1
+damage = 2
 knockback = 1
 sound = ExtResource("3_60w6d")
 metadata/_custom_type_script = "uid://dprtuautgwqbv"
 
 [sub_resource type="Resource" id="Resource_lyq0n"]
 script = ExtResource("2_kmd03")
-damage = 2
+damage = 4
 knockback = 1
 sprite_glow_brightness = 0.5
 sound = ExtResource("4_kksg7")
@@ -27,7 +27,7 @@ metadata/_custom_type_script = "uid://dprtuautgwqbv"
 
 [sub_resource type="Resource" id="Resource_w5dsa"]
 script = ExtResource("2_kmd03")
-damage = 3
+damage = 8
 knockback = 2
 sprite_glow_brightness = 1.0
 sound = ExtResource("5_nn6fm")
@@ -38,7 +38,7 @@ metadata/_custom_type_script = "uid://dprtuautgwqbv"
 [node name="Whip" type="Node3D"]
 script = ExtResource("1_ox2ft")
 windup_time = 0.1
-cooldown_time = 0.3
+cooldown_time = 0.15
 time_per_charge = 1.0
 charge_levels = Array[ExtResource("2_kmd03")]([SubResource("Resource_kmd03"), SubResource("Resource_lyq0n"), SubResource("Resource_w5dsa")])
 

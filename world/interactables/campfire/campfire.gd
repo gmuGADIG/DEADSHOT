@@ -8,6 +8,7 @@ func _ready() -> void:
 		extinguish = true # Extinguishes campfire
 		%Sprite.play('extinguished')
 		%Light.visible = false
+		%CampfireAmbienceSound.stop()
 	else:
 		%Sprite.play('lit')
 
@@ -26,7 +27,15 @@ func interact()->void:
 		Save.save_data.object_save_data.add_campfire(self)
 		%Sprite.play('extinguished')
 		%Light.visible = false
-	
+		stop_ambience()
+			
 	# open campfire menu
 	var menu := preload("res://menu/campfire_menu/campfire_menu.tscn").instantiate()
 	add_child(menu)
+	await menu.tree_exited
+
+func stop_ambience() -> void:
+	var tween := create_tween()
+	tween.tween_property(%CampfireAmbienceSound, "volume_linear", 0.0, 1.0)
+	await tween.finished
+	%CampfireAmbienceSound.stop()

@@ -1,101 +1,273 @@
-[gd_scene load_steps=2 format=3 uid="uid://1s1a4b2buf1o"]
+[gd_scene load_steps=5 format=3 uid="uid://1s1a4b2buf1o"]
 
 [ext_resource type="Script" uid="uid://c2g1b6ojckef4" path="res://menu/pause_menu/pause_menu.gd" id="1_inj1j"]
+[ext_resource type="Texture2D" uid="uid://bkx0k7n6ahwbu" path="res://menu/pause_menu/Wood Panel.jpg" id="2_51p4d"]
 
-[node name="PauseMenu" type="Control" node_paths=PackedStringArray("resume_button", "options_button", "quit_button", "close_button")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1mtac"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0, 0, 0, 0.25882354)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_51p4d"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="PauseMenu" type="Control" node_paths=PackedStringArray("resume_button", "locker_button", "settings_button", "restart_button", "menu_button", "quit_button")]
 process_mode = 3
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_inj1j")
-resume_button = NodePath("Panel/VBoxContainer/ResumeButton")
-options_button = NodePath("Panel/VBoxContainer/OptionsButton")
-quit_button = NodePath("Panel/VBoxContainer/QuitToMenuButton")
-close_button = NodePath("Panel/VBoxContainer/CloseGameButton")
+resume_button = NodePath("VBoxContainer/ResumeButton")
+locker_button = NodePath("VBoxContainer/LockerButton")
+settings_button = NodePath("VBoxContainer/SettingsButton")
+restart_button = NodePath("VBoxContainer/RestartButton")
+menu_button = NodePath("VBoxContainer/MainMenuButton")
+quit_button = NodePath("VBoxContainer/QuitButton")
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -228.0
-offset_top = -176.0
-offset_right = 228.0
-offset_bottom = 176.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+[node name="TransparentBG" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1mtac")
 
-[node name="GAME PAUSED" type="Label" parent="Panel/VBoxContainer"]
-layout_mode = 2
-text = "GAME PAUSED"
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -100.0
+offset_right = 225.0
+offset_bottom = -100.0
+grow_vertical = 2
+rotation = 0.10471976
+scale = Vector2(1.33, 1.33)
+theme_override_styles/panel = SubResource("StyleBoxFlat_51p4d")
+
+[node name="DEADSHOT" type="Label" parent="."]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 20.0
+offset_right = 292.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 50
+text = "DEADSHOT"
 horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="ResumeButton" type="Button" parent="Panel/VBoxContainer"]
-layout_mode = 2
-text = "RESUME"
-
-[node name="OptionsButton" type="Button" parent="Panel/VBoxContainer"]
-layout_mode = 2
-text = "OPTIONS"
-
-[node name="QuitToMenuButton" type="Button" parent="Panel/VBoxContainer"]
-layout_mode = 2
-text = "QUIT TO MENU"
-
-[node name="CloseGameButton" type="Button" parent="Panel/VBoxContainer"]
-layout_mode = 2
-text = "CLOSE GAME"
-
-[node name="TestLabel" type="Label" parent="Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -127.0
-offset_top = -70.0
-offset_right = 127.0
-offset_bottom = -47.0
+anchor_bottom = 0.5
+offset_left = -551.0
+offset_top = -214.0
+offset_right = -351.0
+offset_bottom = 306.0
 grow_horizontal = 2
-grow_vertical = 0
-text = "these buttons are just for testing"
+grow_vertical = 2
+theme_override_constants/separation = 20
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+[node name="ResumeButton" type="TextureButton" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+texture_normal = ExtResource("2_51p4d")
+texture_pressed = ExtResource("2_51p4d")
+texture_hover = ExtResource("2_51p4d")
+texture_disabled = ExtResource("2_51p4d")
+texture_focused = ExtResource("2_51p4d")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/ResumeButton"]
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -39.0
-offset_bottom = -8.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -11.5
+offset_right = 32.0
+offset_bottom = 11.5
 grow_horizontal = 2
-grow_vertical = 0
-theme_override_constants/separation = 54
-alignment = 1
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "RESUME"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="SaveButton" type="Button" parent="Panel/HBoxContainer"]
+[node name="LockerButton" type="TextureButton" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
-text = "Save"
+texture_normal = ExtResource("2_51p4d")
+texture_pressed = ExtResource("2_51p4d")
+texture_hover = ExtResource("2_51p4d")
+texture_disabled = ExtResource("2_51p4d")
+texture_focused = ExtResource("2_51p4d")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="LoadButton" type="Button" parent="Panel/HBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/LockerButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -11.5
+offset_right = 32.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "MEAT LOCKER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SettingsButton" type="TextureButton" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
-text = "Load"
+texture_normal = ExtResource("2_51p4d")
+texture_pressed = ExtResource("2_51p4d")
+texture_hover = ExtResource("2_51p4d")
+texture_disabled = ExtResource("2_51p4d")
+texture_focused = ExtResource("2_51p4d")
+ignore_texture_size = true
+stretch_mode = 0
 
-[connection signal="pressed" from="Panel/HBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]
-[connection signal="pressed" from="Panel/HBoxContainer/LoadButton" to="." method="_on_load_button_pressed"]
+[node name="Label" type="Label" parent="VBoxContainer/SettingsButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -11.5
+offset_right = 32.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "SETTINGS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartButton" type="TextureButton" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+texture_normal = ExtResource("2_51p4d")
+texture_pressed = ExtResource("2_51p4d")
+texture_hover = ExtResource("2_51p4d")
+texture_disabled = ExtResource("2_51p4d")
+texture_focused = ExtResource("2_51p4d")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/RestartButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -11.5
+offset_right = 32.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "RESTART FROM
+CHECKPOINT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainMenuButton" type="TextureButton" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+texture_normal = ExtResource("2_51p4d")
+texture_pressed = ExtResource("2_51p4d")
+texture_hover = ExtResource("2_51p4d")
+texture_disabled = ExtResource("2_51p4d")
+texture_focused = ExtResource("2_51p4d")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/MainMenuButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -11.5
+offset_right = 32.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "MAIN MENU"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuitButton" type="TextureButton" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+texture_normal = ExtResource("2_51p4d")
+texture_pressed = ExtResource("2_51p4d")
+texture_hover = ExtResource("2_51p4d")
+texture_disabled = ExtResource("2_51p4d")
+texture_focused = ExtResource("2_51p4d")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/QuitButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -11.5
+offset_right = 32.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "QUIT GAME"
+horizontal_alignment = 1
+vertical_alignment = 1

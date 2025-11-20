@@ -1,0 +1,48 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://s3e0dwwb00o3"]
+
+[ext_resource type="Texture2D" uid="uid://btid4xpsasn3e" path="res://world/interactables/campfire/campfireOut.png" id="1_uwxls"]
+[ext_resource type="Texture2D" uid="uid://lxwrp6g5j1m2" path="res://world/interactables/campfire/DeadshotCamfire.png" id="2_x7qwf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wx3c2"]
+atlas = ExtResource("2_x7qwf")
+region = Rect2(0, 0, 513, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7am0y"]
+atlas = ExtResource("2_x7qwf")
+region = Rect2(513, 0, 513, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0t6bq"]
+atlas = ExtResource("2_x7qwf")
+region = Rect2(1539, 0, 513, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1t576"]
+atlas = ExtResource("2_x7qwf")
+region = Rect2(2052, 0, 513, 512)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_uwxls")
+}],
+"loop": true,
+"name": &"extinguished",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wx3c2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7am0y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0t6bq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1t576")
+}],
+"loop": true,
+"name": &"lit",
+"speed": 5.0
+}]

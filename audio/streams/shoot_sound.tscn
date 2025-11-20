@@ -1,6 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://c34cmvuqfmuww"]
+[gd_scene load_steps=9 format=3 uid="uid://c34cmvuqfmuww"]
 
-[ext_resource type="AudioStream" uid="uid://bnq6ptoxqxvcc" path="res://audio/placeholders/test_explode_small.wav" id="1_nsvdi"]
+[ext_resource type="PackedScene" uid="uid://ci3804ofkibap" path="res://audio/streams/sound_base.tscn" id="1_bg6df"]
+[ext_resource type="AudioStream" uid="uid://bqyu3lhn5fmqa" path="res://audio/enemies/bandit_fire/se_bandit_shot_1.wav" id="2_mfwji"]
+[ext_resource type="AudioStream" uid="uid://d3xsdmer5ajvg" path="res://audio/enemies/bandit_fire/se_bandit_shot_2.wav" id="3_k16l2"]
+[ext_resource type="AudioStream" uid="uid://c04n58okbg0b7" path="res://audio/enemies/bandit_fire/se_bandit_shot_3.wav" id="4_sjv8a"]
+[ext_resource type="AudioStream" uid="uid://by08law5odftx" path="res://audio/enemies/bandit_fire/se_bandit_shot_4.wav" id="5_ngtil"]
+[ext_resource type="AudioStream" uid="uid://d27d2o4jrevfa" path="res://audio/enemies/bandit_fire/se_bandit_shot_5.wav" id="6_3aasp"]
+[ext_resource type="AudioStream" uid="uid://3wvwqxvma2an" path="res://audio/enemies/bandit_fire/se_bandit_shot_6.wav" id="7_y7a3q"]
 
-[node name="ShootSound" type="AudioStreamPlayer3D"]
-stream = ExtResource("1_nsvdi")
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_35sv0"]
+streams_count = 6
+stream_0/stream = ExtResource("2_mfwji")
+stream_1/stream = ExtResource("3_k16l2")
+stream_2/stream = ExtResource("4_sjv8a")
+stream_3/stream = ExtResource("5_ngtil")
+stream_4/stream = ExtResource("6_3aasp")
+stream_5/stream = ExtResource("7_y7a3q")
+
+[node name="ShootSound" instance=ExtResource("1_bg6df")]
+stream = SubResource("AudioStreamRandomizer_35sv0")
+volume_db = -7.778
+panning_strength = 0.5
+attenuation_filter_cutoff_hz = 20500.0
