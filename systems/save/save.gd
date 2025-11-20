@@ -7,6 +7,7 @@ static var save_data : Save ## The resource that gets saved to file
 @export var location_save_data : LocationSaveData ## Saves information regarding the player's location
 @export var health_save_data : HealthSaveData ## Saves info regarding the player's max health
 @export var skill_save_data : SkillSaveData ## Saves the player's selected skills
+@export var player_save_data : PlayerPersistingData ## Save's the player's persisting data (health, ammo)
 
 static func _static_init() -> void:
 	Save.create()
@@ -17,13 +18,14 @@ static func create() -> void: ## Creates an empty save file if one does not exis
 	save_data.location_save_data = LocationSaveData.new()
 	save_data.health_save_data = HealthSaveData.new()
 	save_data.skill_save_data = SkillSaveData.new()
-
+	save_data.player_save_data = PlayerPersistingData.new()
+	
 static func save_game() -> void: ## Saves the game
 	save_data.object_save_data.save()
 	save_data.location_save_data.save()
 	save_data.health_save_data.save()
 	save_data.skill_save_data.save()
-	
+	save_data.player_save_data.save()
 	ResourceSaver.save(save_data, SAVE_FILE)
 
 static func load_game() -> void: ## Loads the game
@@ -33,9 +35,12 @@ static func load_game() -> void: ## Loads the game
 	save_data = ResourceLoader.load(SAVE_FILE)
 	
 	save_data.object_save_data.load()
-	save_data.location_save_data.load()
-	save_data.health_save_data.load()
 	save_data.skill_save_data.load()
+	save_data.player_save_data.load()
+	
+	save_data.location_save_data.load() # scene changes here
+	
+	save_data.health_save_data.load()
 
 static func save_file_exists() -> bool:
 	return ResourceLoader.exists(SAVE_FILE)
