@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://cr05xakri7lnw" path="res://world/floor/floor_gen.tscn" id="1_plfsl"]
 [ext_resource type="Texture2D" uid="uid://cjbsq7rk6r3h4" path="res://temp_art/gartic/cactus.png" id="2_p5u37"]
-[ext_resource type="Script" path="res://test_scenes/test_coin.gd" id="3_0u0ns"]
+[ext_resource type="Script" uid="uid://duvasrdv76uic" path="res://test_scenes/test_coin.gd" id="3_0u0ns"]
 [ext_resource type="Texture2D" uid="uid://sxaysn4gqoxo" path="res://temp_art/gartic/coin.png" id="3_p5u37"]
 [ext_resource type="PackedScene" uid="uid://nuqmhgq1e2lu" path="res://world/player/player.tscn" id="5_plfsl"]
-[ext_resource type="PackedScene" uid="uid://b4n4rflu3my0v" path="res://world/enemy/longhorn/longhorn.tscn" id="7_byltu"]
+[ext_resource type="PackedScene" uid="uid://l3n8wifm6dic" path="res://world/enemy/two_headed_snake/two_headed_snake.tscn" id="6_byltu"]
 [ext_resource type="PackedScene" uid="uid://cn2ip7hvcayky" path="res://systems/camera/main_cam.tscn" id="7_ppbhs"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_plfsl"]
@@ -64,10 +64,6 @@ shape = SubResource("CapsuleShape3D_plfsl")
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0)
 texture = ExtResource("3_p5u37")
 
-[node name="Enemy" parent="." instance=ExtResource("7_byltu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.796852, 1, 6.3707905)
-damage = 5.0
-movement_speed = 25.0
-patrol_path = Array[Vector3]([Vector3(10.126128, 1, 6.3707905), Vector3(20.796852, 1, 6.3707905)])
+[node name="TwoHeadedSnake" parent="." instance=ExtResource("6_byltu")]
 
 [node name="MainCam" parent="." instance=ExtResource("7_ppbhs")]
