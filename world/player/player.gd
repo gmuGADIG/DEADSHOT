@@ -9,7 +9,8 @@ class PlayerPersistingData:
 	var curr_reserve : int
 
 ## Tracks name of current gun node. CHANGE THIS VARIABLE WHEN GUNS ARE CHANGED.
-static var gun_name := "Dualies"
+static var gun_name := "Shotgun"
+#static var gun_name := "Dualies"
 #static var gun_name := "BasicGun"
 
 ## These are the states that the player can be in. States control what the player can do.
@@ -63,7 +64,13 @@ var current_state: PlayerState = PlayerState.WALKING:
 
 #region Builtin Functions
 func _ready() -> void:
-	var gun := instance.get_node(gun_name)
+	for child in $Weapons.get_children():
+		if child is Gun:
+			child.process_mode = Node.PROCESS_MODE_DISABLED
+			child.hide()
+	var gun := get_gun()
+	gun.process_mode = Node.PROCESS_MODE_INHERIT
+	gun.show()
 	
 	instance = self
 	if persisting_data != null:
@@ -118,7 +125,7 @@ static func update_persisting_data() -> void:
 	persisting_data.curr_reserve = instance.get_gun().reserve_ammo
 
 func get_gun() -> Gun:
-	return get_node(gun_name)
+	return get_node("Weapons/" + gun_name)
 
 ## Returns the inputted walking direction on the XZ plane (Y = 0)
 func input_direction() -> Vector3:

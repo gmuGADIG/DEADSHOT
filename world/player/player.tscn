@@ -1,18 +1,20 @@
-[gd_scene load_steps=35 format=3 uid="uid://nuqmhgq1e2lu"]
+[gd_scene load_steps=37 format=3 uid="uid://nuqmhgq1e2lu"]
 
 [ext_resource type="Script" uid="uid://llqh4g6obmup" path="res://world/player/player.gd" id="1_bvkkv"]
 [ext_resource type="Texture2D" uid="uid://doi1lgfq8hi21" path="res://world/player/player_sheet.png" id="2_2x47q"]
 [ext_resource type="PackedScene" uid="uid://bas8xwk5nhlq0" path="res://world/player/HUD/hud.tscn" id="2_duds0"]
 [ext_resource type="Script" uid="uid://dbka0ckv4aeih" path="res://world/player/player_animation.gd" id="3_3n4qb"]
 [ext_resource type="Script" uid="uid://cwjxwkxciij4o" path="res://systems/interaction/interactor.gd" id="3_cvtd2"]
+[ext_resource type="PackedScene" uid="uid://vnurg1w4ttt4" path="res://world/player/weapon/dualies/weapon_dualies.tscn" id="3_jrep8"]
 [ext_resource type="Script" uid="uid://c4s1ohnc08ecy" path="res://world/player/reticle/reticle.gd" id="4_40qjc"]
 [ext_resource type="PackedScene" uid="uid://duf7ry1s34j7o" path="res://world/player/weapon/whip/whip.tscn" id="4_duds0"]
 [ext_resource type="Texture2D" uid="uid://bwm425xkr0vcy" path="res://temp_art/icon.svg" id="4_et4on"]
 [ext_resource type="PackedScene" uid="uid://s0mcou8b7n0v" path="res://systems/attacking/hurt_fx/hurt_fx.tscn" id="4_myh4x"]
-[ext_resource type="PackedScene" uid="uid://vnurg1w4ttt4" path="res://world/player/weapon/dualies/weapon_dualies.tscn" id="5_2x47q"]
+[ext_resource type="PackedScene" uid="uid://cj5uuu7xjsprv" path="res://world/player/weapon/basic_gun/basic_gun.tscn" id="4_q1k4r"]
 [ext_resource type="Script" uid="uid://do5vs8m1law7o" path="res://systems/attacking/health/health.gd" id="6_thypd"]
 [ext_resource type="Script" uid="uid://lxg83i28nlul" path="res://systems/attacking/hurtbox/hurtbox.gd" id="7_d3e1v"]
 [ext_resource type="Script" uid="uid://c1g7056xgtqys" path="res://systems/camera/camera_tracked.gd" id="11_2x47q"]
+[ext_resource type="PackedScene" uid="uid://bqngdxosj3du1" path="res://world/player/weapon/shotgun/shotgun.tscn" id="11_3n4qb"]
 [ext_resource type="PackedScene" uid="uid://dou0ya37mv70s" path="res://audio/streams/roll_sound.tscn" id="14_lbm61"]
 [ext_resource type="PackedScene" uid="uid://cjqtb588mlf84" path="res://audio/streams/hurt_sound.tscn" id="15_jrep8"]
 
@@ -168,6 +170,15 @@ whip = NodePath("Whip")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94693, 0)
 shape = SubResource("CylinderShape3D_plfsl")
 
+[node name="Weapons" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.237, 0)
+
+[node name="Shotgun" parent="Weapons" instance=ExtResource("11_3n4qb")]
+
+[node name="Dualies" parent="Weapons" instance=ExtResource("3_jrep8")]
+
+[node name="BasicGun" parent="Weapons" instance=ExtResource("4_q1k4r")]
+
 [node name="Sprite" type="AnimatedSprite3D" parent="." node_paths=PackedStringArray("player")]
 transform = Transform3D(0.39, 0, 0, 0, 0.33774987, 0.19500007, 0, -0.19500007, 0.33774987, 0.00084251165, 1.6017487, 0)
 shaded = true
@@ -190,9 +201,6 @@ metadata/_custom_type_script = "uid://cwjxwkxciij4o"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8601074, 0)
 shape = SubResource("CylinderShape3D_bvkkv")
-
-[node name="Dualies" parent="." instance=ExtResource("5_2x47q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.237, 0)
 
 [node name="Aiming" type="Node" parent="."]
 
