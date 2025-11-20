@@ -82,6 +82,11 @@ func _init() -> void:
 	instance = self
 
 func _physics_process(delta: float) -> void:
+	#if health drops below zero, wait for a bit (if there is a death animation), then go to death screen
+	if(instance.health_component.health <= 0):
+		await get_tree().create_timer(0.2, true,true).timeout
+		get_tree().change_scene_to_file("res://menu/death_menu/death_menu.tscn")
+		
 	if Input.is_action_just_pressed("roll") and whip.whip_state == Whip.WhipState.OFF:
 		begin_roll()
 	
