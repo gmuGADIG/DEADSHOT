@@ -61,6 +61,8 @@ func _process(delta: float) -> void:
 	# Reloads the gun as well (if you can shoot, you can reload).
 	if Input.is_action_just_pressed("reload") and is_reloading == false:
 		reload()
+	
+	set_gun_rotation()
 
 @abstract
 func fire() -> void
@@ -93,3 +95,9 @@ func reload() -> void:
 	is_reloading = false
 	
 	print("reloaded")
+
+## Rotate Dualies to aim direction to keep bullet spawn points correct
+func set_gun_rotation() -> void:
+	self.look_at(player.global_position+player.aim_dir())
+	rotation.x=0.0
+	rotation.z=0.0
