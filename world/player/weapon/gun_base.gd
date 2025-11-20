@@ -4,11 +4,10 @@ extends Node3D
 
 signal fired
 
-## Time in seconds to reload
-@export var reload_time : float = 1.25
-## Max number of bullets in chamber and reserve
-@export var max_chamber : int = 6
-@export var max_reserve : int = 60
+@export var reload_time : float = 1.25 ## Time in seconds to reload
+@export var max_chamber : int = 6 ## Max number of bullets in chamber (a single clip)
+@export var max_reserve : int = 60 ## Max number of bullets in the reserve
+@export var ammo_per_pickup : int = 30 ## How much ammo is added when the player gets an ammo pickup
 
 ## Gets set to the max_wep_ammo and max_reserve_ammo from player.
 var chamber_ammo : int:
@@ -65,6 +64,14 @@ func _process(delta: float) -> void:
 @abstract
 func fire() -> void
 	
+
+## Called when an ammo pickup is grabbed.
+## Adds to the gun's reserve.
+## Returns the amount added, since different guns can have different amounts.
+func add_ammo() -> int:
+	reserve_ammo += ammo_per_pickup
+	return ammo_per_pickup
+
 ## Reloads the gun if there are less than the max number of bullets in the chamber and if there are any bullets in the reserve available.
 func reload() -> void:
 	var chamber_diff := max_chamber - chamber_ammo

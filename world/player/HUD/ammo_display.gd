@@ -4,6 +4,10 @@ var current_ammo := 0
 var current_reserve := 0
 
 func _ready() -> void:
+	current_ammo = Player.instance.get_gun().chamber_ammo
+	current_reserve = Player.instance.get_gun().reserve_ammo
+	display_ammo()
+	
 	Global.player_ammo_changed.connect(_on_ammo_changed)
 	Global.player_ammo_reserve_changed.connect(_on_ammo_reserve_changed)
 
