@@ -3,7 +3,7 @@ class_name MusicPlayerDebug
 
 const EPS := 0.001
 
-const default_song_path = "res://music/default_song.tres"
+const default_song_path = "res://audio/music/default_song.tres"
 
 @onready var pl: MusicPlayer = $MusicPlayer
 @onready var start_edit: LineEdit = $VBoxContainer/Controls/PlayContainer/LoopStartContainer/LoopStartEdit
