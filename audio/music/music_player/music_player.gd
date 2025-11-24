@@ -44,7 +44,10 @@ func play(from_sec: float = 0.0) -> void:
 	_reset_players()
 	active_idx = 0
 	var active: AudioStreamPlayer = _active()
-	active.stream = current_song.song_file
+	if current_song:
+		active.stream = current_song.song_file
+	else:
+		active.stream = null
 	active.volume_db = FULL_DB
 	active.play(from_sec)
 
@@ -87,7 +90,10 @@ func transition_to_song(song: Song, at_point: float = 0.0) -> void:
 	is_song_transition = true
 	transition_time_elapsed = 0.0
 	var inactive: AudioStreamPlayer = _inactive()
-	inactive.stream = song.song_file
+	if (song):
+		inactive.stream = song.song_file
+	else:
+		inactive.stream = null	
 	inactive.volume_db = MUTE_DB
 	inactive.play(at_point)
 
