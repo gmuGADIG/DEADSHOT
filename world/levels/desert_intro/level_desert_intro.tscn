@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bueg0v6pvrthp"]
+[gd_scene load_steps=18 format=3 uid="uid://bueg0v6pvrthp"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_ctnal"]
 [ext_resource type="Resource" uid="uid://q24ustx30otu" path="res://world/floor/sand/sand.tres" id="2_7h0w7"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://8er7o8byf7v1" path="res://world/decoration/well/well.tscn" id="7_7xwwm"]
 [ext_resource type="PackedScene" uid="uid://d1e8myf75tnlv" path="res://world/interactables/cover/cover_cactus_large.tscn" id="8_5rqjd"]
 [ext_resource type="PackedScene" uid="uid://c2bxn6p802s68" path="res://world/interactables/cover/cover_cactus_small.tscn" id="9_jncf5"]
+[ext_resource type="Resource" uid="uid://dxsc1cj14ngb" path="res://audio/music/test_songs/desert_combat_encounters.tres" id="10_17pcg"]
 [ext_resource type="PackedScene" uid="uid://bp6l0lw650m8o" path="res://world/blocker/blocker.tscn" id="10_101jw"]
 [ext_resource type="PackedScene" uid="uid://dhb2pgqbfvxoa" path="res://world/enemy/encounter/encounter.tscn" id="10_hfrtt"]
 [ext_resource type="PackedScene" uid="uid://b4n4rflu3my0v" path="res://world/enemy/longhorn/longhorn.tscn" id="11_nn1ho"]
@@ -130,6 +131,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.132736, -0.000102848266, 
 [node name="Encounter" parent="LeftArea" index="2" instance=ExtResource("10_hfrtt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.931274, 0, 7.9214277)
 camera_zoom = 1.3
+encounter_song = ExtResource("10_17pcg")
 
 [node name="EncounterShape" type="CollisionShape3D" parent="LeftArea/Encounter" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.005599)
@@ -180,6 +182,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.933622, -0.0001033251, 12.
 [node name="Encounter2" parent="RightArea" index="2" instance=ExtResource("10_hfrtt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5439053, 0, 7.6797676)
 camera_zoom = 1.3
+encounter_song = ExtResource("10_17pcg")
 
 [node name="Blocker" parent="RightArea/Encounter2" index="1" instance=ExtResource("10_101jw")]
 transform = Transform3D(1.782, 0, 0, 0, 1, 0, 0, 0, 9.304141, -17.037071, 0, -4.871868)

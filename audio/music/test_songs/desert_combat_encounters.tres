@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Song" load_steps=5 format=3 uid="uid://dxsc1cj14ngb"]
+
+[ext_resource type="Script" uid="uid://co2r0p266y1vu" path="res://audio/music/song_res.gd" id="1_1oxpr"]
+[ext_resource type="AudioStream" uid="uid://cny1rp3vvu4y6" path="res://audio/music/test_songs/desert_combat_encounters_Matthew.mp3" id="2_1a12c"]
+
+[sub_resource type="Curve" id="Curve_uwpqi"]
+_data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_8piww"]
+_data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[resource]
+script = ExtResource("1_1oxpr")
+loop_start = 5.85625
+loop_end = 175.012393188477
+song_file = ExtResource("2_1a12c")
+fade_period = 0.2
+fade_in_curve = SubResource("Curve_uwpqi")
+fade_out_curve = SubResource("Curve_8piww")

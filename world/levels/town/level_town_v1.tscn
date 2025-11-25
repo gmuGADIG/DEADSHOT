@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://beju3ms5o28f6"]
+[gd_scene load_steps=18 format=3 uid="uid://beju3ms5o28f6"]
 
 [ext_resource type="PackedScene" uid="uid://cxahvvaidpg32" path="res://world/levels/town/level_town_base.tscn" id="1_vhep4"]
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="2_j473c"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://6ahxaf8mfjcr" path="res://world/pickups/ammo_pickup/ammo_pickup.tscn" id="2_siqd8"]
 [ext_resource type="PackedScene" uid="uid://bp6l0lw650m8o" path="res://world/blocker/blocker.tscn" id="3_j473c"]
 [ext_resource type="PackedScene" uid="uid://bb3qdjspo0kcq" path="res://world/interactables/barrel/barrel.tscn" id="4_5bykt"]
+[ext_resource type="Resource" uid="uid://kddnbdg35fd7" path="res://audio/music/test_songs/town_combat_encounters.tres" id="5_rldgf"]
 [ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://world/interactables/cover/cover_boulder.tscn" id="5_siqd8"]
 [ext_resource type="PackedScene" uid="uid://doavrdpyjcdgp" path="res://world/enemy/judge/enemy_judge.tscn" id="6_rldgf"]
 [ext_resource type="PackedScene" uid="uid://dwdhuncnyfmcw" path="res://world/enemy/wilder/wilder.tscn" id="7_41dv2"]
@@ -38,6 +39,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9888, 0.06661462, -0.24382
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.796177, 0, 1.0880146)
 camera_zoom = 1.7
 appear_delay = 0.025
+encounter_song = ExtResource("5_rldgf")
 
 [node name="EncounterShape" type="CollisionShape3D" parent="Encounters/Encounter 1 Real" index="1"]
 transform = Transform3D(3.015, 0, 0, 0, 1, 0, 0, 0, 1.42, -0.66210175, 0, 0)
@@ -141,6 +143,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.352249, 0, 0.31310797)
 camera_zoom = 1.7
 appear_delay = 0.025
 ending_scene = ExtResource("9_lm1tg")
+encounter_song = ExtResource("5_rldgf")
 
 [node name="EncounterShape" type="CollisionShape3D" parent="Encounters/Encounter 2 Real" index="1"]
 transform = Transform3D(3.32, 0, 0, 0, 1, 0, 0, 0, 1.395, 0.18966675, 0, 0)
