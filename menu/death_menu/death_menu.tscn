@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://cda13rfhy3s2v"]
+
+[ext_resource type="Texture2D" uid="uid://cegfpthfj6eil" path="res://temp_art/gartic/godot_dead.png" id="1_0hfil"]
+[ext_resource type="Script" uid="uid://bv567fesukdbq" path="res://menu/death_menu/death_menu.gd" id="1_78wx2"]
+
+[node name="DeathMenu" type="Node2D"]
+script = ExtResource("1_78wx2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(578.5, 328.00003)
+scale = Vector2(2.5995471, 4.571429)
+texture = ExtResource("1_0hfil")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 414.0
+offset_top = 466.0
+offset_right = 799.0
+offset_bottom = 739.0
+
+[node name="LoadSaveButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "LOAD SAVE"
+
+[node name="MainMenuButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "RETURN TO MAIN MENU"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "QUIT GAME"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 263.0
+offset_top = -9.0
+offset_right = 867.0
+offset_bottom = 166.0
+theme_override_font_sizes/font_size = 128
+text = "YOU DIED"
+
+[connection signal="pressed" from="VBoxContainer/LoadSaveButton" to="." method="_on_load_save_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
