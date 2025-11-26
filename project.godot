@@ -52,6 +52,7 @@ folder_colors={
 
 player=""
 camera_tracked=""
+cover=""
 
 [input]
 
