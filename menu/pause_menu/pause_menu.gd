@@ -109,8 +109,11 @@ func _on_quit_pressed() -> void:
 func reset_quit_safety() -> void:
 	#Resetting safety boolean.
 	already_tried_to_quit = false
-	#Resetting button label.
+	#Resetting button label.6
 	quit_button.get_child(0).text = _initial_quit_button_text
+
+func _exit_tree() -> void: 
+	get_tree().paused = false
 
 """
 func reset_close_safety() -> void:
