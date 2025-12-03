@@ -1,7 +1,40 @@
-[gd_scene load_steps=3 format=3 uid="uid://bas8xwk5nhlq0"]
+[gd_scene load_steps=16 format=3 uid="uid://bas8xwk5nhlq0"]
 
-[ext_resource type="Texture2D" uid="uid://bwm425xkr0vcy" path="res://temp_art/icon.svg" id="1_2msmg"]
-[ext_resource type="Script" uid="uid://c2rh58lkl0gwo" path="res://world/player/HUD/hud.gd" id="1_cuqld"]
+[ext_resource type="Script" uid="uid://clcb8u0fv74qk" path="res://world/player/HUD/heart_display.gd" id="2_swyvw"]
+[ext_resource type="Texture2D" uid="uid://dr4ivc7tmyyha" path="res://world/player/HUD/heart_full.png" id="3_02nes"]
+[ext_resource type="Texture2D" uid="uid://cewx8ggk4t2ff" path="res://world/player/HUD/heart_half.png" id="4_5nwtl"]
+[ext_resource type="Texture2D" uid="uid://be888xpfyrter" path="res://world/player/HUD/heart_empty.png" id="5_4aq5e"]
+[ext_resource type="Script" path="res://world/player/HUD/stamina_display.gd" id="6_02nes"]
+[ext_resource type="Script" path="res://world/player/HUD/ammo_display.gd" id="6_4abqf"]
+[ext_resource type="Script" uid="uid://bb38eh0qqofj5" path="res://world/player/HUD/meatcounter.gd" id="6_4o0ul"]
+[ext_resource type="Script" path="res://world/player/HUD/player_point.gd" id="7_5nwtl"]
+[ext_resource type="Script" path="res://world/player/HUD/reload_display.gd" id="8_4aq5e"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5nwtl"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_4aq5e"]
+font_size = 32
+
+[sub_resource type="Gradient" id="Gradient_5nwtl"]
+offsets = PackedFloat32Array(0.8454546, 0.8590909, 0.9590909, 1)
+colors = PackedColorArray(0, 0, 0, 0.4745098, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4aq5e"]
+gradient = SubResource("Gradient_5nwtl")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_4abqf"]
+offsets = PackedFloat32Array(0.9590909, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4o0ul"]
+gradient = SubResource("Gradient_4abqf")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
 
 [node name="Hud" type="Control"]
 layout_mode = 3
@@ -10,76 +43,162 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_cuqld")
 
-[node name="StaminaContainer" type="PanelContainer" parent="."]
-custom_minimum_size = Vector2(0, 30)
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -229.0
-offset_top = -114.0
-offset_right = 229.0
-offset_bottom = -84.0
-grow_horizontal = 2
-grow_vertical = 0
+[node name="Hearts" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 9.0
+offset_top = 576.0
+offset_right = 467.0
+offset_bottom = 630.0
+theme_override_constants/separation = -9
+script = ExtResource("2_swyvw")
+full_tex = ExtResource("3_02nes")
+half_tex = ExtResource("4_5nwtl")
+empty_tex = ExtResource("5_4aq5e")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="StaminaContainer"]
+[node name="TextureRect" type="TextureRect" parent="Hearts"]
+custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
-theme_override_constants/separation = 0
-alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="StaminaContainer/HBoxContainer"]
-modulate = Color(3.8789892, 3.8789892, 3.8789892, 1)
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("1_2msmg")
+texture = ExtResource("3_02nes")
 expand_mode = 1
+stretch_mode = 5
 
-[node name="TextureRect2" type="TextureRect" parent="StaminaContainer/HBoxContainer"]
-modulate = Color(3.8789892, 3.8789892, 3.8789892, 1)
+[node name="TextureRect2" type="TextureRect" parent="Hearts"]
+custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("1_2msmg")
+texture = ExtResource("3_02nes")
 expand_mode = 1
+stretch_mode = 5
 
-[node name="TextureRect3" type="TextureRect" parent="StaminaContainer/HBoxContainer"]
-modulate = Color(3.8789892, 3.8789892, 3.8789892, 1)
+[node name="TextureRect3" type="TextureRect" parent="Hearts"]
+custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("1_2msmg")
+texture = ExtResource("3_02nes")
 expand_mode = 1
+stretch_mode = 5
 
-[node name="ProgressBar" type="ProgressBar" parent="StaminaContainer"]
+[node name="TextureRect4" type="TextureRect" parent="Hearts"]
+custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
-size_flags_vertical = 1
-max_value = 3.0
-value = 3.0
-show_percentage = false
+texture = ExtResource("3_02nes")
+expand_mode = 1
+stretch_mode = 5
 
-[node name="AmmoContainer" type="PanelContainer" parent="."]
-self_modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(150, 130)
+[node name="TextureRect5" type="TextureRect" parent="Hearts"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+texture = ExtResource("3_02nes")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect6" type="TextureRect" parent="Hearts"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+texture = ExtResource("3_02nes")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Ammo" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -122.0
-offset_top = -114.0
-offset_right = -82.0
-offset_bottom = -74.0
+offset_left = -197.0
+offset_top = -132.0
+offset_right = -26.0
+offset_bottom = -23.0
 grow_horizontal = 0
 grow_vertical = 0
+script = ExtResource("6_4abqf")
 
-[node name="Label" type="RichTextLabel" parent="AmmoContainer"]
-layout_mode = 2
-theme_override_font_sizes/normal_font_size = 40
-text = "Ammo"
-fit_content = true
+[node name="AmmoLabel" type="Label" parent="Ammo"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "12 / 48"
+label_settings = SubResource("LabelSettings_5nwtl")
 horizontal_alignment = 1
-vertical_alignment = 2
+vertical_alignment = 1
+
+[node name="Meat" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -174.0
+offset_bottom = 133.0
+grow_horizontal = 0
+script = ExtResource("6_4o0ul")
+
+[node name="TempLabel" type="Label" parent="Meat"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 24.0
+offset_right = 109.0
+offset_bottom = 47.0
+text = "Meat:"
+
+[node name="MeatLabel" type="Label" parent="Meat"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "305"
+label_settings = SubResource("LabelSettings_4aq5e")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player" type="Marker2D" parent="."]
+position = Vector2(538, 298)
+script = ExtResource("7_5nwtl")
+
+[node name="Stamina" type="HBoxContainer" parent="Player"]
+unique_name_in_owner = true
+offset_left = -58.0
+offset_top = 20.0
+offset_right = 55.0
+offset_bottom = 35.0
+script = ExtResource("6_02nes")
+
+[node name="Blip1" type="ProgressBar" parent="Player/Stamina"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+show_percentage = false
+
+[node name="Blip2" type="ProgressBar" parent="Player/Stamina"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+show_percentage = false
+
+[node name="Blip3" type="ProgressBar" parent="Player/Stamina"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+show_percentage = false
+
+[node name="Reload" type="TextureProgressBar" parent="Player"]
+offset_left = 15.0
+offset_top = -96.0
+offset_right = 44.0
+offset_bottom = -67.0
+max_value = 1.0
+step = 0.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_under = SubResource("GradientTexture2D_4aq5e")
+texture_progress = SubResource("GradientTexture2D_4o0ul")
+script = ExtResource("8_4aq5e")

@@ -1,7 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://c04no3yhhwjuw"]
+[gd_scene load_steps=3 format=3 uid="uid://c04no3yhhwjuw"]
 
+[ext_resource type="PackedScene" uid="uid://ci3804ofkibap" path="res://audio/streams/sound_base.tscn" id="1_2b0gw"]
 [ext_resource type="AudioStream" uid="uid://ducaacaocxjru" path="res://audio/placeholders/whip_placeholders/whip_swing.wav" id="1_nd431"]
 
-[node name="WhipSwingSound" type="AudioStreamPlayer3D"]
+[node name="WhipSwingSound" instance=ExtResource("1_2b0gw")]
 stream = ExtResource("1_nd431")
-bus = &"VFX"
+autoplay = false
+delete_on_finish = false

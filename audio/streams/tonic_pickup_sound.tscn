@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://clcukslouff0j"]
+
+[ext_resource type="AudioStream" uid="uid://dbu6sm5lfp51i" path="res://audio/placeholders/tonic_pickup_ph.wav" id="1_wbcem"]
+
+[node name="TonicPickupSound" type="AudioStreamPlayer3D"]
+stream = ExtResource("1_wbcem")
+volume_db = -2.106

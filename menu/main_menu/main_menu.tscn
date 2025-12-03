@@ -1,71 +1,76 @@
-[gd_scene load_steps=3 format=3 uid="uid://by8y1gjlttw6g"]
+[gd_scene load_steps=5 format=3 uid="uid://by8y1gjlttw6g"]
 
 [ext_resource type="Script" uid="uid://cg6umb86w26xh" path="res://menu/main_menu/main_menu.gd" id="1_winya"]
-[ext_resource type="PackedScene" uid="uid://y53xq3oyclfj" path="res://menu/options_menu/options_menu.tscn" id="2_e5xhn"]
+[ext_resource type="Texture2D" uid="uid://dcavwcmbdms3e" path="res://temp_art/rough_drafts/main_menu.png" id="2_e5xhn"]
+
+[sub_resource type="SystemFont" id="SystemFont_qs6vt"]
+
+[sub_resource type="Theme" id="Theme_7r8i1"]
+default_font = SubResource("SystemFont_qs6vt")
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-script = ExtResource("1_winya")
-
-[node name="Background" type="ColorRect" parent="."]
-layout_mode = 0
-offset_right = 1166.0
-offset_bottom = 660.0
-color = Color(0, 0.2365942, 0.6779701, 1)
-
-[node name="NewSaveButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 100.0
-offset_top = 200.0
-offset_right = 459.0
-offset_bottom = 261.0
-text = "NEW SAVE
-"
-
-[node name="LoadSaveButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 650.0
-offset_top = 200.0
-offset_right = 1009.0
-offset_bottom = 261.0
-text = "LOAD SAVE
-"
-
-[node name="OptionsButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 100.0
-offset_top = 400.0
-offset_right = 459.0
-offset_bottom = 461.0
-text = "OPTIONS"
-
-[node name="QuitButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 650.0
-offset_top = 400.0
-offset_right = 1009.0
-offset_bottom = 461.0
-text = "QUIT"
-
-[node name="Title" type="Label" parent="."]
-layout_mode = 0
-offset_left = 470.0
-offset_top = 50.0
-offset_right = 566.00006
-offset_bottom = 73.0
-scale = Vector2(2, 2)
-text = "MAIN MENU"
-
-[node name="OptionsMenu" parent="." instance=ExtResource("2_e5xhn")]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_7r8i1")
+script = ExtResource("1_winya")
 
-[connection signal="pressed" from="NewSaveButton" to="." method="_on_new_save_button_pressed"]
-[connection signal="pressed" from="LoadSaveButton" to="." method="_on_load_save_button_pressed"]
-[connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[node name="MainMenu" type="Sprite2D" parent="."]
+position = Vector2(576.25, 325.25)
+scale = Vector2(1.0109171, 0.89862067)
+texture = ExtResource("2_e5xhn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 92.0
+offset_top = 214.0
+offset_right = 315.0
+offset_bottom = -170.0
+grow_vertical = 2
+
+[node name="NewSaveButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "NEW SAVE
+"
+
+[node name="LoadSaveButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "LOAD SAVE
+"
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "OPTIONS"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "QUIT"
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -194.0
+offset_top = 84.0
+offset_right = -37.0
+offset_bottom = 107.0
+grow_horizontal = 2
+scale = Vector2(2, 2)
+text = "DEAD                 SHOT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/NewSaveButton" to="." method="_on_new_save_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/LoadSaveButton" to="." method="_on_load_save_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -1,8 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dtw08j1hawd8p"]
+[gd_scene load_steps=3 format=3 uid="uid://dtw08j1hawd8p"]
 
-[ext_resource type="AudioStream" uid="uid://btq4usey4ba53" path="res://audio/placeholders/explosion.wav" id="1_mf0rg"]
+[ext_resource type="PackedScene" uid="uid://ci3804ofkibap" path="res://audio/streams/sound_base.tscn" id="1_3wuvn"]
+[ext_resource type="AudioStream" uid="uid://drvscc177esir" path="res://audio/placeholders/test_explode_big.wav" id="2_vu3rr"]
 
-[node name="HeartBurstSound" type="AudioStreamPlayer3D"]
-stream = ExtResource("1_mf0rg")
-autoplay = true
-bus = &"VFX"
+[node name="HeartBurstSound" instance=ExtResource("1_3wuvn")]
+stream = ExtResource("2_vu3rr")

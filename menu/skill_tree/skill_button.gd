@@ -1,3 +1,4 @@
+@tool
 extends TextureButton
 class_name Skill_Button
 
@@ -16,6 +17,8 @@ enum State{
 
 @onready var skill_branch : Line2D = Line2D.new()
 @export var dependencies : Array[Skill_Button]
+@export var evil_dependencies : Array[Skill_Button] #it is just the opposite of regular dependecies,
+# so if you have any of the dependencies unlocked you cant unlock this one
 @export var itemDesc : SkillDesc
 
 var state : State:
@@ -46,6 +49,8 @@ var state : State:
 				$LockIcon.show()
 
 func _ready() -> void:
+	if Engine.is_editor_hint(): return
+	
 	%SkillBranches.add_child(skill_branch)
 	#setup_popup()
 	update_purchase_state()
@@ -65,6 +70,12 @@ func update_state() -> void:
 	if state == State.PURCHASED:
 		return
 	
+	for evil_dependency : Skill_Button in evil_dependencies:
+		if evil_dependency.state == State.PURCHASED:
+			state = State.LOCKED
+			shake()
+			return
+	
 	for dependency : Skill_Button in dependencies:
 		if dependency.state != State.PURCHASED:
 			state = State.LOCKED
@@ -75,8 +86,12 @@ func update_state() -> void:
 	else:
 		state = State.UNAFFORDABLE
 	
+func _process(_delta:float) -> void:
+	if Engine.is_editor_hint():
+		$Label.text = itemDesc.skill_name
 
 func _on_pressed() -> void:
+	if Engine.is_editor_hint(): return
 	if Input.is_action_pressed("quick_purchase"):
 		attempt_purchase()
 	else:

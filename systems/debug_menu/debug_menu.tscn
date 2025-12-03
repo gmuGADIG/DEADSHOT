@@ -69,7 +69,25 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Go to prop demo"
 
+[node name="Spacing" type="MarginContainer" parent="PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 21.725)
+layout_mode = 2
+
+[node name="MaxAmmo" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Max Ammo"
+
+[node name="GodMode" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Toggle God Mode"
+
 [connection signal="pressed" from="PanelContainer/VBoxContainer/SmallDesertButton" to="." method="_on_small_desert_button_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/MinesButton" to="." method="_on_mines_button_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/SkillTreeButton" to="." method="_on_skill_tree_button_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/PropDemoButton" to="." method="_on_prop_demo_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/MaxAmmo" to="." method="_on_max_ammo_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/GodMode" to="." method="_on_god_mode_pressed"]

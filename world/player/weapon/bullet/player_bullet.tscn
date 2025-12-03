@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bq22o80xk3p40"]
 
-[ext_resource type="Script" uid="uid://bykjiyhskge1i" path="res://world/player/weapon/bullet/player_bullet.gd" id="1_0g3v8"]
+[ext_resource type="Script" uid="uid://bxbowl7sjix2l" path="res://world/bullets/bullet.gd" id="1_0g3v8"]
 [ext_resource type="Texture2D" uid="uid://sxaysn4gqoxo" path="res://temp_art/gartic/coin.png" id="1_bnpoh"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0g3v8"]
@@ -9,8 +9,8 @@ radius = 0.2795053
 [node name="PlayerBullet" type="Area3D"]
 collision_mask = 9
 script = ExtResource("1_0g3v8")
-atk_damage = 2
 atk_knockback = 1
+despawn_after_seconds = 10.0
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.41249996, 0, 0, 0, 0.2916815, 0.2916815, 0, -0.2916815, 0.2916815, 0, 0, 0)
