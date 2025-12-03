@@ -1,0 +1,69 @@
+[gd_scene load_steps=12 format=3 uid="uid://dgq8eujhb7aiv"]
+
+[ext_resource type="PackedScene" uid="uid://dx3l0wduat3tp" path="res://world/enemy/base/enemy_base.tscn" id="1_j1u5n"]
+[ext_resource type="Script" uid="uid://charttcjx1m72" path="res://world/enemy/bandit/enemy_bandit.gd" id="2_jv5hu"]
+[ext_resource type="Texture2D" uid="uid://deg2yflx7vkqd" path="res://temp_art/gartic/business_man.png" id="3_ar7lx"]
+[ext_resource type="Script" uid="uid://b7gnqrtvmdboc" path="res://world/enemy/bandit/play_death_sound.gd" id="4_34fns"]
+[ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="4_jv5hu"]
+[ext_resource type="Script" uid="uid://dxdxm14oo7mql" path="res://world/enemy/bandit/play_hurt_sound.gd" id="5_arsgg"]
+[ext_resource type="PackedScene" uid="uid://djn6jyw5vuicu" path="res://audio/enemies/bandit/bandit_dies.tscn" id="5_j5a5e"]
+[ext_resource type="PackedScene" uid="uid://d4f1fg4m5hdar" path="res://audio/enemies/bandit/bandit_fire.tscn" id="6_4xph0"]
+[ext_resource type="PackedScene" uid="uid://ydnqhfpbxx0f" path="res://audio/enemies/bandit/bandit_hurt.tscn" id="7_nwlji"]
+[ext_resource type="Script" uid="uid://xhcb1o6cugjs" path="res://world/enemy/bandit/play_fired_sound.gd" id="7_ywn7w"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_xuwp2"]
+
+[node name="EnemyBandit" instance=ExtResource("1_j1u5n")]
+script = ExtResource("2_jv5hu")
+fire_rate = 1.0
+bullet_speed = 15.0
+
+[node name="Sprite3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.99794334, 0.06409709, 0, -0.06409709, 0.99794334, 0, 1.6290603, 0.18859816)
+texture = ExtResource("3_ar7lx")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." index="3"]
+aabb = AABB(-0.5, 0, -0.5, 1, 1, 1)
+
+[node name="Health" parent="." index="4"]
+max_health = 2.0
+
+[node name="PlayDeathSound" type="Node3D" parent="Health" index="0"]
+script = ExtResource("4_34fns")
+
+[node name="PlayHurtSound" type="Node3D" parent="Hurtbox" index="2"]
+script = ExtResource("5_arsgg")
+
+[node name="Damagebox" type="Area3D" parent="." index="6"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Damagebox" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94, 0)
+shape = SubResource("CylinderShape3D_xuwp2")
+
+[node name="FiringTimer" parent="." index="7"]
+autostart = true
+
+[node name="Comment" parent="." index="9" instance=ExtResource("4_jv5hu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0926998, 0)
+text = "TODO: bandit"
+
+[node name="PlayFiredSound" type="Node3D" parent="." index="10"]
+script = ExtResource("7_ywn7w")
+
+[node name="Sounds" type="Node3D" parent="." index="11"]
+
+[node name="BanditDies" parent="Sounds" index="0" instance=ExtResource("5_j5a5e")]
+unique_name_in_owner = true
+
+[node name="BanditFire" parent="Sounds" index="1" instance=ExtResource("6_4xph0")]
+unique_name_in_owner = true
+
+[node name="BanditHurt" parent="Sounds" index="2" instance=ExtResource("7_nwlji")]
+unique_name_in_owner = true
+
+[connection signal="enemy_fired" from="." to="PlayFiredSound" method="_on_enemy_bandit_enemy_fired"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
+[connection signal="killed" from="Health" to="Health/PlayDeathSound" method="_on_health_killed"]
+[connection signal="was_hit" from="Hurtbox" to="Hurtbox/PlayHurtSound" method="_on_hurtbox_was_hit"]
+[connection signal="timeout" from="FiringTimer" to="." method="_on_firing_timer_timeout"]

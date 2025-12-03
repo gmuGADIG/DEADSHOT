@@ -1,3 +1,4 @@
+@tool
 extends TextureButton
 class_name Skill_Button
 
@@ -48,6 +49,8 @@ var state : State:
 				$LockIcon.show()
 
 func _ready() -> void:
+	if Engine.is_editor_hint(): return
+	
 	%SkillBranches.add_child(skill_branch)
 	#setup_popup()
 	update_purchase_state()
@@ -83,8 +86,12 @@ func update_state() -> void:
 	else:
 		state = State.UNAFFORDABLE
 	
+func _process(_delta:float) -> void:
+	if Engine.is_editor_hint():
+		$Label.text = itemDesc.skill_name
 
 func _on_pressed() -> void:
+	if Engine.is_editor_hint(): return
 	if Input.is_action_pressed("quick_purchase"):
 		attempt_purchase()
 	else:

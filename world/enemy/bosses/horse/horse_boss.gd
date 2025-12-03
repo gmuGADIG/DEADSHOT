@@ -1,15 +1,21 @@
 extends BossEnemy
 
 const rock_obj := preload("res://world/enemy/bosses/horse/horse_rock.tscn")
+const splash_obj := preload("res://world/enemy/bosses/horse/horse_splash.tscn")
+const chunk_obj := preload("res://world/enemy/bosses/horse/horse_chunk.tscn")
 
 @export var roam_points: Array[Node3D]
 @export var num_shots_in_spread: int = 5
 @export var spread_angle: float = 45.0
-@export var rock_speed: float = 2
+@export var rock_speed: float = 0.25
 @export var charge_time:float
 @export var cooldown_time:float
 @export var atk_source: DamageInfo.Source
 @export var atk_knockback: DamageInfo.KnockbackStrength
+
+@export var mass_chunk_amount: int = 3
+@export var player_still_spread_distance : float = 15 ## Used by spike field, and rapid spike when the player is not moving
+
 
 var is_charging:bool = false
 var target:Vector3
@@ -21,6 +27,9 @@ var target:Vector3
 @export var floor_area: Path3D
 
 var current_action: StringName = ""
+
+@export var mass_targets: Array[Node3D]
+@export var arena_area : ArenaArea
 
 func pick_action() -> void:
 	
@@ -38,6 +47,7 @@ func _ready() -> void:
 
 func idle() -> void: pass
 
+#region Stomp_funcs
 func get_2d_angle(from: Vector3, to: Vector3) -> float:
 	var cross := from.cross(to)
 	var dot := from.dot(to)
@@ -61,6 +71,7 @@ func stomp_fire_attack() -> void:
 		bullet_reference.set_target(global_position + final_direction * 10)
 
 		print("Fired rock at angle offset: %f" % rad_to_deg(final_angle))
+#endregion
 
 #region Longhorn_funcs
 func longhorn_charge_ready() -> void:
@@ -132,4 +143,52 @@ func hostile() -> void:
 	if navigation_agent.is_navigation_finished():
 		pick_action()
 	
+#endregion
+
+#region MassChunks_funcs
+
+
+func mass_chunks_charge() -> void:
+	mass_targets.clear()
+	print("Charging chunks")
+	shaker.shaking = true
+	var player_position : Vector3 = Player.instance.global_position
+	for i in range(mass_chunk_amount):
+		var chunk_position : Vector3 = player_position + neutral_spread(0,player_still_spread_distance)
+
+		if not arena_area.is_point_in_arena(chunk_position): #is_point_in_arena caused crash
+			return
+		
+		var bullet_reference: Node3D = splash_obj.instantiate()
+		add_sibling(bullet_reference)
+		bullet_reference.global_position = chunk_position
+		mass_targets.append(bullet_reference)
+
+func mass_chunks_attack() -> void:
+	print("mass chunks fire")
+	aggro = AggroState.ATTACKING
+	should_move = false
+	shaker.shaking = false
+	
+	for i in range(mass_targets.size()):
+		var target_position: Vector3 = mass_targets[i].global_position
+		
+		var bullet_reference: Node3D = chunk_obj.instantiate()
+		add_sibling(bullet_reference)
+		bullet_reference.global_position = global_position
+		bullet_reference.speed = 40
+		
+		bullet_reference.set_target(target_position)
+		
+		
+	
+
+func neutral_spread(min_dist : float, max_dist : float) -> Vector3:
+	var result : Vector3 = Vector3.RIGHT
+	var angle : float = randf_range(0,360)
+	var distance_multiplier : float = randf_range(min_dist,max_dist)
+	
+	return result.rotated(Vector3.UP,deg_to_rad(angle))*distance_multiplier
+
+
 #endregion

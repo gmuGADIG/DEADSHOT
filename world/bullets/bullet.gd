@@ -2,7 +2,7 @@ class_name Bullet
 extends Area3D
 
 ## How much damage the bullet will do.
-@export var atk_damage: int = 0
+@export var atk_damage: float = 0
 ## The bullet's allegiance. The bullet won't hurt anyone in this group.
 @export var atk_source: DamageInfo.Source
 ## The knockback added to anyone hurt by the bullet.
@@ -46,3 +46,7 @@ func _on_area_entered(area: Area3D) -> void:
 		
 		if did_damage:
 			queue_free()
+
+func _on_body_entered(body: Node3D) -> void:
+	if body.has_method("hit"):
+		body.hit(self)
