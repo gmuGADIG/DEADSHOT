@@ -13,12 +13,14 @@ radius = 0.669922
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_4j1ge"]
 
-[node name="LonghornEnemy" instance=ExtResource("1_qriva")]
+[node name="LonghornEnemy" node_paths=PackedStringArray("stuck_timer") instance=ExtResource("1_qriva")]
 script = ExtResource("2_efxix")
 charge_time = 1.0
 cooldown_time = 1.5
+stuck_time = 3.0
 atk_source = 1
 atk_knockback = 1
+stuck_timer = NodePath("StuckTimer")
 proximity_tolerance = 1.5
 
 [node name="CollisionShape3D" parent="." index="0"]
@@ -59,7 +61,10 @@ noise = SubResource("FastNoiseLite_4j1ge")
 
 [node name="LonghornDashSound" parent="Sounds" index="1" instance=ExtResource("6_3lbiw")]
 
+[node name="StuckTimer" type="Timer" parent="." index="12"]
+
 [connection signal="killed" from="Health" to="." method="_on_killed"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
 [connection signal="timeout" from="ChargeTimer" to="." method="_on_charge_timer_timeout"]
 [connection signal="area_entered" from="HurterBox" to="." method="_on_hurter_box_area_entered"]
+[connection signal="timeout" from="StuckTimer" to="." method="_on_stuck_timer_timeout"]
