@@ -55,6 +55,10 @@ player=""
 camera_tracked=""
 cover=""
 
+[gui]
+
+theme/custom_font="uid://ypol1ssrkffh"
+
 [input]
 
 fire={

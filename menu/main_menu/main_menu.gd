@@ -37,17 +37,19 @@ func _on_quit_button_pressed() -> void:
 		SceneManager.quit_game()
 	
 func play_gunshot_sound() -> void:
-	$AudioStreamPlayer.stream = gunshot
-	$AudioStreamPlayer.play()
-	
+	%UIClickSound.play()
 
 func _on_button_mouse_entered() -> void:
 	if not button_pressed:
-		$AudioStreamPlayer.stream = gun_spinning
-		$AudioStreamPlayer.play()
+		%UIHoverSound.play()
 
 func hide_reticles() -> void:
-	$VBoxContainer/NewSaveButton/Reticle.position.x += 500
-	$VBoxContainer/LoadSaveButton/Reticle.position.x += 500
-	$VBoxContainer/SettingsButton/Reticle.position.x += 500
-	$VBoxContainer/QuitButton/Reticle.position.x += 500
+	var reticles := [
+		$VBoxContainer/NewSaveButton/Reticle,
+		$VBoxContainer/LoadSaveButton/Reticle,
+		$VBoxContainer/SettingsButton/Reticle,
+		$VBoxContainer/QuitButton/Reticle
+	]
+	
+	for r: TextureRect in reticles:
+		r.modulate = Color.TRANSPARENT # the reticle controls its `visible` property, so we have to hide it another way
