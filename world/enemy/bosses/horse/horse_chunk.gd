@@ -2,7 +2,7 @@ extends Area3D
 
 var stopPoint: Vector3
 
-@export var speed: float = 40.0
+@export var speed: float = 1.0
 
 var velocity: Vector3
 
