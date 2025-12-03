@@ -2,12 +2,6 @@ class_name Player extends CharacterBody3D
 
 signal player_state_changed
 
-class PlayerPersistingData:
-	var max_health : int
-	var health : int
-	var curr_chamber : int
-	var curr_reserve : int
-
 ## Tracks name of current gun node. CHANGE THIS VARIABLE WHEN GUNS ARE CHANGED.
 static var gun_name := "Shotgun"
 #static var gun_name := "Dualies"
