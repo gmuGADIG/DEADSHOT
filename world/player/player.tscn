@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://llqh4g6obmup" path="res://world/player/player.gd" id="1_bvkkv"]
 [ext_resource type="Texture2D" uid="uid://doi1lgfq8hi21" path="res://world/player/player_sheet.png" id="2_2x47q"]
 [ext_resource type="PackedScene" uid="uid://bas8xwk5nhlq0" path="res://world/player/HUD/hud.tscn" id="2_duds0"]
-[ext_resource type="Script" path="res://world/player/player_animation.gd" id="3_3n4qb"]
+[ext_resource type="Script" uid="uid://dbka0ckv4aeih" path="res://world/player/player_animation.gd" id="3_3n4qb"]
 [ext_resource type="Script" uid="uid://cwjxwkxciij4o" path="res://systems/interaction/interactor.gd" id="3_cvtd2"]
 [ext_resource type="PackedScene" uid="uid://vnurg1w4ttt4" path="res://world/player/weapon/dualies/weapon_dualies.tscn" id="3_jrep8"]
 [ext_resource type="Script" uid="uid://c4s1ohnc08ecy" path="res://world/player/reticle/reticle.gd" id="4_40qjc"]

@@ -14,4 +14,4 @@ alpha_cut = 1
 texture = ExtResource("2_4f4eh")
 
 [node name="HealthComponent" parent="." index="2"]
-max_health = 5
+max_health = 1.0

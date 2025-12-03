@@ -10,9 +10,11 @@ func fire() -> void:
 		var rads := start + delta_rads * i
 		var bullet : Bullet = get_bullet_scene().instantiate()
 		get_tree().current_scene.add_child(bullet)
+		bullet.atk_damage = 1.
 		bullet.fire(
 			self, 
 			Player.instance.aim_dir().rotated(Vector3.UP, rads)
 		)
 	
+	%ShootSound.play()
 	chamber_ammo -= 1
