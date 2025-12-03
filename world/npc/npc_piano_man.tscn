@@ -45,6 +45,6 @@ animations = [{
 transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 3.8717766, 0)
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Sprite3D" index="0"]
-transform = Transform3D(0.33, 0, 0, 0, 0.33, 0, 0, 0, 0.33, 0, -2.256182, -1.302607)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -2.3426242, -1.3525145)
 sprite_frames = SubResource("SpriteFrames_pyw5j")
 frame_progress = 0.31766692
