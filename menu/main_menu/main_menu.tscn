@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://by8y1gjlttw6g"]
+[gd_scene load_steps=9 format=3 uid="uid://by8y1gjlttw6g"]
 
 [ext_resource type="Script" uid="uid://cg6umb86w26xh" path="res://menu/main_menu/main_menu.gd" id="1_winya"]
 [ext_resource type="Texture2D" uid="uid://dcavwcmbdms3e" path="res://temp_art/rough_drafts/main_menu.png" id="2_e5xhn"]
@@ -6,6 +6,8 @@
 [ext_resource type="AudioStream" uid="uid://btq4usey4ba53" path="res://audio/placeholders/explosion.wav" id="3_winya"]
 [ext_resource type="AudioStream" uid="uid://dc6lbunkflvv4" path="res://audio/placeholders/funny_bone_man.wav" id="4_prid6"]
 [ext_resource type="Texture2D" uid="uid://dcq7buy1fkobw" path="res://menu/main_menu/title.png" id="6_prid6"]
+[ext_resource type="Texture2D" uid="uid://bg3axsvl61ynf" path="res://temp_art/reticle.png" id="6_x87vx"]
+[ext_resource type="Script" uid="uid://co66s5c2pttrb" path="res://menu/main_menu/reticle_spin.gd" id="7_dn5jd"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -39,32 +41,119 @@ offset_top = 214.0
 offset_right = 315.0
 offset_bottom = -170.0
 grow_vertical = 2
+alignment = 1
 
 [node name="NewSaveButton" type="Button" parent="VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 63)
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
 toggle_mode = true
-text = "NEW SAVE
-"
+text = "NEW SAVE"
+
+[node name="Reticle" type="TextureRect" parent="VBoxContainer/NewSaveButton"]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.551
+anchor_top = 0.669
+anchor_right = 0.551
+anchor_bottom = 0.669
+offset_left = -19.983002
+offset_top = -20.025002
+offset_right = 20.017044
+offset_bottom = 19.974998
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.38, 1.38)
+pivot_offset = Vector2(20, 20)
+texture = ExtResource("6_x87vx")
+script = ExtResource("7_dn5jd")
+rotation_speed = 40.0
 
 [node name="LoadSaveButton" type="Button" parent="VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 63)
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
 toggle_mode = true
-text = "LOAD SAVE
-"
+text = "LOAD SAVE"
 
-[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+[node name="Reticle" type="TextureRect" parent="VBoxContainer/LoadSaveButton"]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.551
+anchor_top = 0.669
+anchor_right = 0.551
+anchor_bottom = 0.669
+offset_left = -19.983002
+offset_top = -20.025002
+offset_right = 20.017044
+offset_bottom = 19.974998
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.38, 1.38)
+pivot_offset = Vector2(20, 20)
+texture = ExtResource("6_x87vx")
+script = ExtResource("7_dn5jd")
+rotation_speed = 40.0
+
+[node name="SettingsButton" type="Button" parent="VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 63)
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
 toggle_mode = true
-text = "OPTIONS"
+text = "SETTINGS"
+
+[node name="Reticle" type="TextureRect" parent="VBoxContainer/SettingsButton"]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.551
+anchor_top = 0.669
+anchor_right = 0.551
+anchor_bottom = 0.669
+offset_left = -19.983002
+offset_top = -20.025002
+offset_right = 20.017044
+offset_bottom = 19.974998
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.38, 1.38)
+pivot_offset = Vector2(20, 20)
+texture = ExtResource("6_x87vx")
+script = ExtResource("7_dn5jd")
+rotation_speed = 40.0
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 63)
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
 toggle_mode = true
 text = "QUIT"
+
+[node name="Reticle" type="TextureRect" parent="VBoxContainer/QuitButton"]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.551
+anchor_top = 0.669
+anchor_right = 0.551
+anchor_bottom = 0.669
+offset_left = -19.983002
+offset_top = -20.025002
+offset_right = 20.017044
+offset_bottom = 19.974998
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.38, 1.38)
+pivot_offset = Vector2(20, 20)
+texture = ExtResource("6_x87vx")
+script = ExtResource("7_dn5jd")
+rotation_speed = 40.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
@@ -77,23 +166,16 @@ offset_left = -320.0
 offset_right = 320.0
 offset_bottom = 303.0
 grow_horizontal = 2
+mouse_filter = 2
 texture = ExtResource("6_prid6")
 expand_mode = 3
 stretch_mode = 5
 
 [connection signal="mouse_entered" from="VBoxContainer/NewSaveButton" to="." method="_on_button_mouse_entered"]
-[connection signal="mouse_exited" from="VBoxContainer/NewSaveButton" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="VBoxContainer/NewSaveButton" to="." method="_on_new_save_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/NewSaveButton" to="." method="_on_button_pressed"]
 [connection signal="mouse_entered" from="VBoxContainer/LoadSaveButton" to="." method="_on_button_mouse_entered"]
-[connection signal="mouse_exited" from="VBoxContainer/LoadSaveButton" to="." method="_on_button_mouse_exited"]
-[connection signal="pressed" from="VBoxContainer/LoadSaveButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/LoadSaveButton" to="." method="_on_load_save_button_pressed"]
-[connection signal="mouse_entered" from="VBoxContainer/OptionsButton" to="." method="_on_button_mouse_entered"]
-[connection signal="mouse_exited" from="VBoxContainer/OptionsButton" to="." method="_on_button_mouse_exited"]
-[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/SettingsButton" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_options_button_pressed"]
 [connection signal="mouse_entered" from="VBoxContainer/QuitButton" to="." method="_on_button_mouse_entered"]
-[connection signal="mouse_exited" from="VBoxContainer/QuitButton" to="." method="_on_button_mouse_exited"]
-[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

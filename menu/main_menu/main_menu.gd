@@ -3,37 +3,51 @@ extends Control
 @export var gunshot: AudioStream
 @export var gun_spinning: AudioStream
 
+var button_pressed : bool = false
+
+func _ready() -> void:
+	if not Save.save_file_exists():
+		$VBoxContainer/LoadSaveButton.hide()
+
 func _on_new_save_button_pressed() -> void:
-	SceneManager.change_scene_to_file("res://menu/cutscenes/intro/intro_cutscene.tscn")
+	if not button_pressed:
+		button_pressed = true
+		play_gunshot_sound()
+		hide_reticles()
+		SceneManager.change_scene_to_file("res://menu/cutscenes/intro/intro_cutscene.tscn")
 
 func _on_load_save_button_pressed() -> void:
-	await get_tree().create_timer(1.0).timeout
-	if Save.save_file_exists():
+	if not button_pressed:
+		button_pressed = true
+		play_gunshot_sound()
+		hide_reticles()
 		Save.load_game()
-	else:
-		_on_new_save_button_pressed()
 
 func _on_options_button_pressed() -> void:
-	await get_tree().create_timer(1.0).timeout
-	# TODO: Load Options Menu Scene
-	print("Options Opened")
+	if not button_pressed:
+		button_pressed = true
+		print("Options Opened")
 
 func _on_quit_button_pressed() -> void:
-	await get_tree().create_timer(1.0).timeout
-	#Quit Game
-	get_tree().quit()
+	if not button_pressed:
+		button_pressed = true
+		play_gunshot_sound()
+		hide_reticles()
+		#Quit Game
+		SceneManager.quit_game()
 	
-func _on_button_pressed() -> void:
+func play_gunshot_sound() -> void:
 	$AudioStreamPlayer.stream = gunshot
 	$AudioStreamPlayer.play()
-	pass # Replace with function body.
 	
 
 func _on_button_mouse_entered() -> void:
-	$AudioStreamPlayer.stream = gun_spinning
-	$AudioStreamPlayer.play()
-	pass # Replace with function body.
+	if not button_pressed:
+		$AudioStreamPlayer.stream = gun_spinning
+		$AudioStreamPlayer.play()
 
-func _on_button_mouse_exited() -> void:
-	$AudioStreamPlayer.stop()
-	pass # Replace with function body.
+func hide_reticles() -> void:
+	$VBoxContainer/NewSaveButton/Reticle.position.x += 500
+	$VBoxContainer/LoadSaveButton/Reticle.position.x += 500
+	$VBoxContainer/SettingsButton/Reticle.position.x += 500
+	$VBoxContainer/QuitButton/Reticle.position.x += 500
