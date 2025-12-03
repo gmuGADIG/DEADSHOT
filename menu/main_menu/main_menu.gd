@@ -3,7 +3,7 @@ extends Control
 @export var gunshot: AudioStream
 @export var gun_spinning: AudioStream
 
-var button_pressed : bool = false
+var button_pressed : bool = false ## When a button is pressed, this is set to true so no other button can be pressed (e.g. during the start transition)
 
 func _ready() -> void:
 	if not Save.save_file_exists():
@@ -24,9 +24,15 @@ func _on_load_save_button_pressed() -> void:
 		Save.load_game()
 
 func _on_options_button_pressed() -> void:
-	if not button_pressed:
-		button_pressed = true
-		print("Options Opened")
+	if button_pressed: return
+	button_pressed = true
+	
+	play_gunshot_sound()
+	
+	var options: Control = load("res://menu/options_menu/options_menu.tscn").instantiate()
+	add_child(options)
+	await options.tree_exiting # options menus frees itself when closed
+	button_pressed = false
 
 func _on_quit_button_pressed() -> void:
 	if not button_pressed:

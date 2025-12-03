@@ -8,6 +8,9 @@ extends Control
 @onready var music_value := db_to_linear(AudioServer.get_bus_volume_db(music_bus)) * 100
 @onready var vfx_value := db_to_linear(AudioServer.get_bus_volume_db(vfx_bus)) * 100
 
+func _ready() -> void:
+	open()
+
 func open() -> void:
 	%Music.value = music_value
 	%VFX.value = vfx_value
@@ -32,4 +35,6 @@ func _on_vfx_value_changed(_value: float) -> void:
 
 func _on_back_button_pressed() -> void:
 	$AnimationPlayer.play_backwards("open")
+	await $AnimationPlayer.animation_finished
+	queue_free()
 	
