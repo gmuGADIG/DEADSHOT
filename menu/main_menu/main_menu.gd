@@ -37,8 +37,3 @@ func _on_button_mouse_entered() -> void:
 func _on_button_mouse_exited() -> void:
 	$AudioStreamPlayer.stop()
 	pass # Replace with function body.
-
-func _on_audio_stream_player_finished() -> void:
-	if $AudioStreamPlayer.stream != gunshot:
-		$AudioStreamPlayer.play()
-	pass # Replace with function body.
