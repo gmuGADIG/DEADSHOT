@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bqngdxosj3du1"]
+[gd_scene load_steps=4 format=3 uid="uid://bqngdxosj3du1"]
 
 [ext_resource type="Script" uid="uid://nxr5s1a8netl" path="res://world/player/weapon/shotgun/shotgun.gd" id="1_vbc65"]
 [ext_resource type="Texture2D" uid="uid://54e4esurd3xm" path="res://temp_art/gartic/gun.png" id="2_f43cm"]
+[ext_resource type="PackedScene" uid="uid://c34cmvuqfmuww" path="res://audio/streams/shoot_sound.tscn" id="3_0y7ls"]
 
 [node name="Shotgun" type="Node3D"]
 script = ExtResource("1_vbc65")
@@ -9,6 +10,11 @@ number_of_shots_fired = 7
 reload_time = 0.65
 max_chamber = 2
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38462913, 0, 0)
+[node name="Sounds" type="Node3D" parent="."]
+
+[node name="ShootSound" parent="Sounds" instance=ExtResource("3_0y7ls")]
+unique_name_in_owner = true
+
+[node name="GunSprite" type="Sprite3D" parent="."]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 0, 0, -1)
 texture = ExtResource("2_f43cm")

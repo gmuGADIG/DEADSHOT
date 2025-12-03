@@ -53,11 +53,30 @@ var current_state: PlayerState = PlayerState.WALKING:
 		player_state_changed.emit()
 #endregion
 
+enum FloorType{ ## Where the player is walking
+	WOOD,
+	SAND,
+	STONE,
+	STONE_SOFT,
+}
+@export var floor_type: FloorType
+
 @onready var starting_y_pos : float = position.y
+
+var walk_sfx: AudioStreamPlayer3D
+var walk_sfx_timer: Timer
 #endregion
 
 #region Builtin Functions
 func _ready() -> void:
+	walk_sfx = generate_walking_sounds() # Sets the player's walking sound.
+	walk_sfx_timer = Timer.new()
+	
+	var frame_time := 1. / 8.
+	walk_sfx_timer.wait_time = frame_time * 2 # the run sprite is 8 FPS and a basic 4 frame run cycle
+	walk_sfx_timer.timeout.connect(play_walking_sfx)
+	add_child(walk_sfx_timer)
+
 	for child in $Weapons.get_children():
 		if child is Gun:
 			child.process_mode = Node.PROCESS_MODE_DISABLED
@@ -93,6 +112,12 @@ func _physics_process(delta: float) -> void:
 		velocity = input_dir * walk_speed * speed_multiplier
 		if input_dir != Vector3.ZERO:
 			previous_input_direction = input_dir
+			if walk_sfx_timer.is_stopped():
+				walk_sfx_timer.start()
+				play_walking_sfx()
+		else:
+			walk_sfx_timer.stop()
+		
 	elif current_state == PlayerState.ROLLING:
 		## We move the velocity vector towards the direction of the movement. 
 		## This means that velocity doesn't immediately become where we're pointing, but changes over time.
@@ -194,6 +219,26 @@ func update_stamina(delta: float) -> void:
 	else:
 		stamina = 3.0
 
+# Determines what sound the player should make when walking, and generates
+# the audio stream player that plays that sound
+func generate_walking_sounds() -> AudioStreamPlayer3D: 
+	var soundEffect : PackedScene
+	
+	match floor_type:
+		FloorType.WOOD:
+			soundEffect = load("res://audio/streams/WalkSFX/walk_wood.tscn")
+		FloorType.SAND:
+			soundEffect = load("res://audio/streams/WalkSFX/walk_sand.tscn")
+		FloorType.STONE:
+			soundEffect = load("res://audio/streams/WalkSFX/walk_stone.tscn")
+		FloorType.STONE_SOFT:
+			soundEffect = load("res://audio/streams/WalkSFX/walk_soft_stone.tscn")
+	
+	var ret := soundEffect.instantiate()
+	add_child(ret)
+	return ret
+	
+
 ## Function bound to the signal for beginning an interaction.
 ## Changes the state to Interacting.
 func _on_interaction_started() -> void:
@@ -207,5 +252,11 @@ func _on_hurtbox_component_was_hit(_dmg: DamageInfo) -> void:
 ## Changes state to Walking by default.
 func _on_interaction_ended() -> void:
 	current_state = PlayerState.WALKING
+
+func play_walking_sfx() -> void:
+	if(speed_multiplier == 0.5): #Check if player is in puddle
+		%WalkPuddle.play() #Need to update to play puddle noise
+	else:
+		walk_sfx.play() #Play normal walking noise
 
 #endregion
