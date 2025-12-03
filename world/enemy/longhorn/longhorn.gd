@@ -3,12 +3,15 @@ extends EnemyBase
 #region Variables
 @export var charge_time:float
 @export var cooldown_time:float
+@export var stuck_time:float
 @export var atk_source: DamageInfo.Source
 @export var atk_knockback: DamageInfo.KnockbackStrength
 
 var target:Vector3
+var is_stuck:bool = false
 
 @onready var timer: Timer = %ChargeTimer
+@onready var stuck_timer: Timer = $StuckTimer
 @onready var health: Health = %Health
 @onready var shaker: SpriteShaker = %SpriteShaker
 #endregion
@@ -26,13 +29,18 @@ func attack() -> void:
 	if timer.is_stopped():
 		set_movement_target(target);
 		
+		if stuck_timer.is_stopped():
+			print("starting stuck timer!")
+			stuck_timer.start(stuck_time)
 		
-		should_move = not is_close_to_destination();
-	
-		if !should_move:
+		should_move = not is_close_to_destination()
+		
+		if !should_move || is_stuck:
 			if timer.is_stopped():
 				timer.start(cooldown_time)
 				print("I'm vulny")
+				is_stuck = false
+				stuck_timer.stop()
 				health.vulnerable = true
 				shaker.shaking = false
 				#hurtbox.allowed_damage_sources.insert(0, player_damage_source)
@@ -67,3 +75,8 @@ func _on_killed() -> void:
 	die_sound.play()
 	print("idied")
 	
+
+
+func _on_stuck_timer_timeout() -> void:
+	print("Stuck :(")
+	is_stuck = true

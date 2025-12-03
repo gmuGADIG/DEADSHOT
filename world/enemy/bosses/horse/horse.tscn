@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dp00f0nisoyxa"]
+[gd_scene load_steps=11 format=3 uid="uid://dp00f0nisoyxa"]
 
 [ext_resource type="PackedScene" uid="uid://c5mugf35c8n0f" path="res://world/enemy/bosses/boss_enemy.tscn" id="1_bulbf"]
 [ext_resource type="Script" uid="uid://caif4brdw52j8" path="res://world/enemy/bosses/horse/horse_boss.gd" id="2_23ymh"]
@@ -34,6 +34,27 @@ tracks/0/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_o0ar2"]
+resource_name = "splash"
+length = 3.5
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"mass_chunks_charge"
+}, {
+"args": [],
+"method": &"mass_chunks_attack"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_23ymh"]
 resource_name = "stomp"
 tracks/0/type = "method"
@@ -54,10 +75,11 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dc5ks"]
 _data = {
 &"charge": SubResource("Animation_dc5ks"),
+&"splash": SubResource("Animation_o0ar2"),
 &"stomp": SubResource("Animation_23ymh")
 }
 
-[node name="Horse" node_paths=PackedStringArray("roam_points", "action_player") instance=ExtResource("1_bulbf")]
+[node name="Horse" node_paths=PackedStringArray("roam_points", "mass_targets", "action_player") instance=ExtResource("1_bulbf")]
 script = ExtResource("2_23ymh")
 roam_points = []
 num_shots_in_spread = 3
@@ -67,7 +89,10 @@ charge_time = 0.0
 cooldown_time = 0.0
 atk_source = 0
 atk_knockback = 0
-phase_1_action_names = Array[StringName]([&"stomp", &"charge"])
+mass_chunk_amount = 3
+player_still_spread_distance = 15.0
+mass_targets = []
+phase_1_action_names = Array[StringName]([&"stomp", &"charge", &"splash"])
 action_player = NodePath("ActionPlayer")
 spawn_on_killed = ExtResource("3_o0ar2")
 
@@ -96,3 +121,13 @@ unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_dc5ks")
 }
+
+[node name="HurterBox" type="Area3D" parent="." index="10"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurterBox" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2055829, 0)
+shape = SubResource("CylinderShape3D_skegu")
+
+[connection signal="area_entered" from="HurterBox" to="." method="_on_hurter_box_area_entered"]

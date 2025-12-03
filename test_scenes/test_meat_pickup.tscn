@@ -1,7 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://uw50kymbv61o"]
+[gd_scene load_steps=7 format=3 uid="uid://uw50kymbv61o"]
 
 [ext_resource type="PackedScene" uid="uid://nuqmhgq1e2lu" path="res://world/player/player.tscn" id="1_nxnt1"]
 [ext_resource type="PackedScene" uid="uid://nh502xx1aqq1" path="res://world/enemy/meat/meat.tscn" id="2_6qqga"]
+[ext_resource type="PackedScene" uid="uid://cr05xakri7lnw" path="res://world/floor/floor_gen.tscn" id="3_mw24f"]
+[ext_resource type="Resource" uid="uid://ebi2mrpur7b6" path="res://world/floor/rock/rock.tres" id="4_hij2i"]
+[ext_resource type="PackedScene" uid="uid://cn2ip7hvcayky" path="res://systems/camera/main_cam.tscn" id="5_hij2i"]
+
+[sub_resource type="Curve3D" id="Curve3D_mragr"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 7.915133, 0, -3.3354826, 0, 0, 0, 0, 0, 0, -6.188563, 0, -3.309219, 0, 0, 0, 0, 0, 0, -6.5318375, 0, 6.4121757, 0, 0, 0, 0, 0, 0, 8.1877165, 0, 6.5137634),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
 
 [node name="TestMeatPickup" type="Node3D"]
 
@@ -16,3 +27,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.971689, 0, 4.915471)
 
 [node name="Meat3" parent="." instance=ExtResource("2_6qqga")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2330914, 0, -0.48358727)
+
+[node name="Floor" parent="." instance=ExtResource("3_mw24f")]
+curve = SubResource("Curve3D_mragr")
+material = ExtResource("4_hij2i")
+
+[node name="MainCam" parent="." instance=ExtResource("5_hij2i")]
+transform = Transform3D(1, 0, 0, 0, 0.57357645, 0.81915206, 0, -0.81915206, 0.57357645, -0.56816185, 2.910524, 4.0590334)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.92473876, -0.25272667, 0.28458285, 0, 0.74771696, 0.66401756, -0.3806024, -0.61404276, 0.69144285, 0, 0, 0)

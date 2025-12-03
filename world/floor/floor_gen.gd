@@ -30,6 +30,8 @@ func update_material() -> void:
 		fill_mat.albedo_texture = null
 		fill_mat.normal_texture = null
 	else:
+		edge_mat.uv1_scale.y = material.edge_scale
+		edge_mat.uv1_offset.y = material.edge_offset
 		edge_mat.albedo_texture = material.edge
 		edge_mat.normal_texture = material.edge_normal
 		fill_mat.albedo_texture = material.fill

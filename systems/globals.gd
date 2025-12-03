@@ -4,8 +4,8 @@ signal meat_changed
 
 signal encounter_object_killed(obj: EncounterObject)
 
-signal player_hp_changed(value: int)
-signal player_max_hp_changed(value: int)
+signal player_hp_changed(value: float)
+signal player_max_hp_changed(value: float)
 
 signal player_ammo_changed(value: int)
 signal player_ammo_reserve_changed(value: int)

@@ -1,9 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://bnbc74ay6h1rl"]
+[gd_scene load_steps=9 format=3 uid="uid://bnbc74ay6h1rl"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_lm8ri"]
-[ext_resource type="Resource" uid="uid://ebi2mrpur7b6" path="res://world/floor/rock/rock.tres" id="2_v5nwm"]
+[ext_resource type="Script" uid="uid://bt2qger85ly43" path="res://world/levels/horse_arena.gd" id="2_rvy0h"]
 [ext_resource type="PackedScene" uid="uid://dp00f0nisoyxa" path="res://world/enemy/bosses/horse/horse.tscn" id="3_lm8ri"]
-[ext_resource type="PackedScene" uid="uid://b0ttk38sufgur" path="res://world/pickups/corrupt_heart/corrupt_heart.tscn" id="4_v5nwm"]
+[ext_resource type="Script" uid="uid://d2wxipl4px3iw" path="res://world/levels/arena_area.gd" id="3_rvy0h"]
+[ext_resource type="Resource" uid="uid://q24ustx30otu" path="res://world/floor/sand/sand.tres" id="3_v5nwm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8ily2"]
+size = Vector3(36.135498, 1, 20.816711)
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_yi0vy"]
 vertices = PackedVector3Array(-19.534193, 0.48999965, -7.307107, -19.534193, 0.48999965, 15.192893, 19.215807, 0.48999965, 15.192893, 19.215807, 0.48999965, -7.307107)
@@ -17,20 +21,31 @@ _data = {
 point_count = 4
 
 [node name="HorseArena" instance=ExtResource("1_lm8ri")]
+script = ExtResource("2_rvy0h")
+customHealth = 250
 
-[node name="World" parent="." index="2"]
+[node name="Area3D" type="Area3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.286232, 0, 3.5409904)
+
+[node name="ArenaArea" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.14382935)
+shape = SubResource("BoxShape3D_8ily2")
+script = ExtResource("3_rvy0h")
+metadata/_custom_type_script = "uid://d2wxipl4px3iw"
+
+[node name="World" parent="." index="3"]
 navigation_mesh = SubResource("NavigationMesh_yi0vy")
 
 [node name="Floor" parent="World" index="0"]
 curve = SubResource("Curve3D_ronks")
-material = ExtResource("2_v5nwm")
+material = ExtResource("3_v5nwm")
 
-[node name="Player" parent="." index="5"]
+[node name="Player" parent="." index="6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.202965, 0, 8.371207)
 
-[node name="Horse" parent="." index="6" node_paths=PackedStringArray("roam_points", "floor_area") instance=ExtResource("3_lm8ri")]
+[node name="Horse" parent="." index="7" node_paths=PackedStringArray("roam_points", "floor_area", "arena_area") instance=ExtResource("3_lm8ri")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46483076, 0)
-roam_points = []
+roam_points = [NodePath("../RoamingPoints/Node3D"), NodePath("../RoamingPoints/Node3D2"), NodePath("../RoamingPoints/Node3D3"), NodePath("../RoamingPoints/Node3D4")]
 spread_angle = 25.0
 rock_speed = 10.0
 charge_time = 1.0
@@ -38,6 +53,22 @@ cooldown_time = 1.0
 atk_source = 1
 atk_knockback = 1
 floor_area = NodePath("../World/Floor")
-phase_1_action_names = Array[StringName]([&"stomp"])
-spawn_on_killed = ExtResource("4_v5nwm")
+arena_area = NodePath("../Area3D/ArenaArea")
+phase_1_action_names = Array[StringName]([&"stomp", &"splash", &"charge"])
 patrol_path = Array[Vector3]([Vector3(0, 0, 0)])
+
+[node name="RoamingPoints" type="Node3D" parent="." index="8"]
+
+[node name="Node3D" type="Node3D" parent="RoamingPoints" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.05122, 0, 0)
+
+[node name="Node3D2" type="Node3D" parent="RoamingPoints" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.859839, 0, 7.1942406)
+
+[node name="Node3D3" type="Node3D" parent="RoamingPoints" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.667057, 0, -3.560543)
+
+[node name="Node3D4" type="Node3D" parent="RoamingPoints" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.91205, 0, 7.2436666)
+
+[editable path="Player"]
