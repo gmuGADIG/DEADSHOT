@@ -15,6 +15,8 @@
 
 [node name="EnemyBandit" instance=ExtResource("1_j1u5n")]
 script = ExtResource("2_jv5hu")
+fire_rate = 1.0
+bullet_speed = 15.0
 
 [node name="Sprite3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 0.99794334, 0.06409709, 0, -0.06409709, 0.99794334, 0, 1.6290603, 0.18859816)
@@ -22,6 +24,9 @@ texture = ExtResource("3_ar7lx")
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." index="3"]
 aabb = AABB(-0.5, 0, -0.5, 1, 1, 1)
+
+[node name="Health" parent="." index="4"]
+max_health = 15
 
 [node name="PlayDeathSound" type="Node3D" parent="Health" index="0"]
 script = ExtResource("4_34fns")
@@ -49,10 +54,13 @@ script = ExtResource("7_ywn7w")
 [node name="Sounds" type="Node3D" parent="." index="11"]
 
 [node name="BanditDies" parent="Sounds" index="0" instance=ExtResource("5_j5a5e")]
+unique_name_in_owner = true
 
 [node name="BanditFire" parent="Sounds" index="1" instance=ExtResource("6_4xph0")]
+unique_name_in_owner = true
 
 [node name="BanditHurt" parent="Sounds" index="2" instance=ExtResource("7_nwlji")]
+unique_name_in_owner = true
 
 [connection signal="enemy_fired" from="." to="PlayFiredSound" method="_on_enemy_bandit_enemy_fired"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
