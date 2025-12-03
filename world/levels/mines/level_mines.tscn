@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://by1e10t6ksd64" path="res://world/enemy/bird_swarm/bird_swarm.tscn" id="14_lrsis"]
 [ext_resource type="PackedScene" uid="uid://dgq8eujhb7aiv" path="res://world/enemy/bandit/enemy_bandit.tscn" id="16_rskgg"]
 [ext_resource type="PackedScene" uid="uid://d0sdri7hlk5i3" path="res://world/enemy/bosses/mass/the_mass.tscn" id="17_eyi7e"]
-[ext_resource type="Script" path="res://world/levels/arena_area.gd" id="17_skfgv"]
+[ext_resource type="Script" uid="uid://d2wxipl4px3iw" path="res://world/levels/arena_area.gd" id="17_skfgv"]
 [ext_resource type="PackedScene" uid="uid://dwsraqi3f8a1l" path="res://world/interactables/campfire/campfire.tscn" id="19_lrsis"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_ci4pn"]
@@ -48,7 +48,7 @@ alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 albedo_texture = ExtResource("4_fb8xb")
 uv1_scale = Vector3(1, 2, 1)
-uv1_offset = Vector3(0, 1.705, 0)
+uv1_offset = Vector3(0, 1.495, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_akuqq"]
 transparency = 2
@@ -137,12 +137,16 @@ text = "Welcome to the mines :)"
 
 [node name="Player" parent="." index="6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.96182823, 0, -4.7959185)
+floor_type = 2
 
 [node name="MainCam" parent="." index="8"]
 encounter_zoom = 1.0
 
 [node name="Encounter" parent="." index="10" instance=ExtResource("11_rkdtq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.306057, 1.5018328e-06, 9.638979)
+camera_zoom = 1.2
+appear_delay = 0.1
+ending_scene = null
 
 [node name="EncounterShape" type="CollisionShape3D" parent="Encounter" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3894844, -9.536743e-07, -4.181016)
@@ -157,6 +161,9 @@ text = "i am the longhorn"
 
 [node name="Encounter2" parent="." index="11" instance=ExtResource("11_rkdtq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.2427, 0.5700009, 18.558805)
+camera_zoom = 1.2
+appear_delay = 0.1
+ending_scene = null
 
 [node name="EncounterShape" type="CollisionShape3D" parent="Encounter2" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6441345, 0, 0.85392)
@@ -173,6 +180,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.393402, 0, -1.7708454)
 
 [node name="Encounter3" parent="." index="12" instance=ExtResource("11_rkdtq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.78412, -9.628075e-07, 55.259235)
+camera_zoom = 1.2
+appear_delay = 0.1
+ending_scene = null
 
 [node name="EncounterShape" type="CollisionShape3D" parent="Encounter3" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0822525, -3.8146973e-06, -0.0064735413)
@@ -185,6 +195,9 @@ so it's here now :)"
 
 [node name="Encounter4" parent="." index="13" instance=ExtResource("11_rkdtq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120.119026, -0.7348371, 16.806353)
+camera_zoom = 1.2
+appear_delay = 0.1
+ending_scene = null
 
 [node name="Boulder12" parent="Encounter4" index="0" instance=ExtResource("13_5qrk3")]
 transform = Transform3D(3.515, 0, 0, 0, 3.515, 0, 0, 0, 3.515, -5.886, 0, 0.864)
@@ -237,6 +250,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.821, 0, -11.08)
 
 [node name="Encounter5" parent="." index="14" instance=ExtResource("11_rkdtq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112.90734, 7.6293945e-06, 36.54578)
+camera_zoom = 1.2
+appear_delay = 0.1
+ending_scene = null
 
 [node name="EncounterShape" type="CollisionShape3D" parent="Encounter5" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3789063, 0, 0.9714203)
@@ -250,6 +266,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.273, 0, 0.092)
 
 [node name="Encounter6" parent="." index="15" instance=ExtResource("11_rkdtq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 177.89032, 7.6293945e-06, 17.756916)
+camera_zoom = 1.2
+appear_delay = 0.1
+ending_scene = null
 
 [node name="EncounterShape" type="CollisionShape3D" parent="Encounter6" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08177185, 0.1423645, -2.7622051)
