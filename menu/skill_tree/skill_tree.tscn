@@ -205,6 +205,7 @@ func show_skill_panel(skill : SkillDesc) -> void:
 "
 
 [node name="Skill_Tree" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -229,20 +230,27 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -279.0
-offset_top = -188.0
+offset_left = -313.0
+offset_top = -202.0
+offset_right = -34.0
+offset_bottom = -30.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_constants/separation = 64
 alignment = 1
 
 [node name="Reset" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 38
 text = "Reset Skill Tree"
+flat = true
 
 [node name="ExitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 38
 text = "Exit"
+flat = true
 
 [node name="Meat Tree" type="Label" parent="."]
 layout_mode = 0
