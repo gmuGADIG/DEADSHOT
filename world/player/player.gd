@@ -78,11 +78,13 @@ func _ready() -> void:
 	
 	health_component.hp_changed.connect(Global.player_hp_changed.emit)
 	health_component.max_hp_changed.connect(Global.player_max_hp_changed.emit)
+	
+	health_component.killed.connect(_on_killed)
 
 func _init() -> void:
 	instance = self
 
-func _physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void:		
 	if Input.is_action_just_pressed("roll") and whip.whip_state == Whip.WhipState.OFF:
 		begin_roll()
 	
@@ -117,6 +119,10 @@ static func update_persisting_data() -> void:
 	persisting_data.health = instance.health_component.health
 	persisting_data.curr_chamber = instance.get_gun().chamber_ammo
 	persisting_data.curr_reserve = instance.get_gun().reserve_ammo
+
+func _on_killed() -> void:
+	#await get_tree().create_timer(0.2, true,true).timeout
+	get_tree().change_scene_to_file("res://menu/death_menu/death_menu.tscn")
 
 func get_gun() -> Gun:
 	return get_node("Weapons/" + gun_name)
