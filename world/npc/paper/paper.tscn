@@ -1,0 +1,79 @@
+[gd_scene load_steps=6 format=3 uid="uid://buycij5b3uf5i"]
+
+[ext_resource type="PackedScene" uid="uid://c8ycoujcnafdn" path="res://world/npc/npc_base.tscn" id="1_jq1bl"]
+[ext_resource type="Texture2D" uid="uid://b4chv76syicuf" path="res://world/npc/paper/paper.png" id="2_fju3b"]
+
+[sub_resource type="Animation" id="Animation_llnne"]
+resource_name = "idle"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5474436, 0), Vector3(0, 1.0777481, 0), Vector3(0, 1.5474436, 0), Vector3(0, 1.0777481, 0), Vector3(0, 1.5474436, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3.1, 4),
+"transitions": PackedFloat32Array(1, 0.32987696, 1),
+"update": 0,
+"values": [Vector3(-0.5235988, 0, 0), Vector3(-0.5235988, 0, 0), Vector3(-0.5235988, 6.2831855, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_sc3kb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5474436, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.5235988, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ge4pa"]
+_data = {
+&"RESET": SubResource("Animation_sc3kb"),
+&"idle": SubResource("Animation_llnne")
+}
+
+[node name="Paper" instance=ExtResource("1_jq1bl")]
+
+[node name="Sprite3D" parent="." index="0"]
+transform = Transform3D(0.3, 0, 0, 0, 0.2598076, 0.14999999, 0, -0.14999999, 0.2598076, 0, 1.5474436, 0)
+alpha_cut = 1
+texture = ExtResource("2_fju3b")
+
+[node name="Anim" type="AnimationPlayer" parent="." index="2"]
+libraries = {
+&"": SubResource("AnimationLibrary_ge4pa")
+}
+autoplay = "idle"

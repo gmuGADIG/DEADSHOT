@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://btpeenutso7eb" path="res://temp_art/gartic/garfunkle.png" id="3_e4otu"]
 
 [node name="NPCTest" instance=ExtResource("1_iewex")]
-collision_layer = 4
 timelime = ExtResource("2_vtlcx")
 
 [node name="Sprite3D" parent="." index="0"]

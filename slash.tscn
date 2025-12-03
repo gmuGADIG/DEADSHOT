@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cx8e0px578hd7"]
+
+[ext_resource type="Texture2D" uid="uid://bspns5244rj6v" path="res://temp_art/gartic/ghost_crying.png" id="1_bf50k"]
+[ext_resource type="Script" uid="uid://ceohwdi6o863w" path="res://tendrillslash.gd" id="1_tocf0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tocf0"]
+
+[node name="TendrillSlash" type="Area3D"]
+script = ExtResource("1_tocf0")
+atk_source = 1
+time = 10
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0, 0)
+texture = ExtResource("1_bf50k")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.9, 0, 0)
+shape = SubResource("BoxShape3D_tocf0")
+debug_color = Color(0, 0.6, 0.69803923, 1)

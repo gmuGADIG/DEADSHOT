@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://cqcjv8i3rxkbu"]
+
+[ext_resource type="Texture2D" uid="uid://bg142evknuep7" path="res://temp_art/gartic/batman.png" id="1_625lq"]
+[ext_resource type="PackedScene" uid="uid://hiyp7n7uvc4m" path="res://systems/attacking/health/health.tscn" id="1_om4hq"]
+[ext_resource type="PackedScene" uid="uid://bq22o80xk3p40" path="res://world/player/weapon/bullet/player_bullet.tscn" id="2_6d7by"]
+[ext_resource type="Script" uid="uid://cyjssoraty4ok" path="res://world/enemy/sheriff/sheriff.gd" id="2_h2jae"]
+[ext_resource type="PackedScene" uid="uid://b7d3oiw27awag" path="res://systems/attacking/hurtbox/hurtbox.tscn" id="2_uu4ew"]
+[ext_resource type="PackedScene" uid="uid://cx8e0px578hd7" path="res://slash.tscn" id="3_6d7by"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_plfsl"]
+height = 1.85699
+radius = 0.669922
+
+[node name="Sheriff" type="CharacterBody3D"]
+script = ExtResource("2_h2jae")
+bullet = ExtResource("2_6d7by")
+slash = ExtResource("3_6d7by")
+shootInt = 20
+maxSpeed = 0.1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94693, 0)
+shape = SubResource("CylinderShape3D_plfsl")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 1, 0)
+texture = ExtResource("1_625lq")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="Health" parent="." instance=ExtResource("1_om4hq")]
+unique_name_in_owner = true
+max_health = 10
+
+[node name="Hurtbox" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("2_uu4ew")]
+health_component = NodePath("../Health")
+allowed_damage_sources = Array[int]([0, 2])
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94693, 0)
+shape = SubResource("CylinderShape3D_plfsl")
+
+[node name="FiringTimer" type="Timer" parent="."]
+unique_name_in_owner = true
