@@ -27,7 +27,6 @@ func quit_game() -> void:
 func _process(delta: float) -> void:
 	if transition_time >= 0:
 		transition_time += delta
-		print(fade_curve.sample(transition_time))
 		$ColorRect.color.a = fade_curve.sample(clampf(transition_time,fade_curve.min_domain,fade_curve.max_domain))
 		if not switched_scenes and transition_time >= scene_change_time:
 			if next_scene == "quit":
