@@ -9,7 +9,6 @@ radius = 0.2795053
 [node name="PlayerBullet" type="Area3D"]
 collision_mask = 9
 script = ExtResource("1_0g3v8")
-atk_damage = 2
 atk_knockback = 1
 despawn_after_seconds = 10.0
 
