@@ -1,16 +1,10 @@
 extends Gun
 
 func fire() -> void:
-	set_gun_rotation()
+	# set_gun_rotation() # already covered by _process 
 	add_bullet($Right)
 	add_bullet($Left)
 	%ShootSound.play()
-
-## Rotate Dualies to aim direction to keep bullet spawn points correct
-func set_gun_rotation() -> void:
-	self.look_at(player.global_position+player.aim_dir())
-	rotation.x=0.0
-	rotation.z=0.0
 
 func add_bullet(gun: Node3D) -> void:
 	var bullet : Bullet = get_bullet_scene().instantiate()
