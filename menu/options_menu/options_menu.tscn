@@ -1,37 +1,98 @@
-[gd_scene load_steps=6 format=3 uid="uid://y53xq3oyclfj"]
+[gd_scene load_steps=10 format=3 uid="uid://y53xq3oyclfj"]
 
 [ext_resource type="Script" uid="uid://cl10rk3dnuqfi" path="res://menu/options_menu/options_menu.gd" id="1_f3be3"]
 [ext_resource type="Theme" uid="uid://cbhjnihlejbf6" path="res://menu/ui_theme.tres" id="1_md36l"]
+[ext_resource type="Texture2D" uid="uid://dsce4ph8hgx2o" path="res://menu/options_menu/sign_post_wip.png" id="3_122c4"]
+
+[sub_resource type="Gradient" id="Gradient_122c4"]
+colors = PackedColorArray(0, 0, 0, 0.5137255, 0, 0, 0, 0.8117647)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mru58"]
+gradient = SubResource("Gradient_122c4")
+fill = 1
+fill_from = Vector2(0.5, -0.193)
+fill_to = Vector2(0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_122c4"]
+font_size = 64
+font_color = Color(0.12156863, 0.09019608, 0.05490196, 1)
 
 [sub_resource type="Animation" id="Animation_f3be3"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Background:position")
+tracks/0/path = NodePath("Sign:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 1000)]
+"values": [Vector2(267.75214, 223)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sign:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_n5fb7"]
 resource_name = "open"
-length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Background:position")
-tracks/0/interp = 1
+tracks/0/path = NodePath("Sign:position")
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.96666664),
 "transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
-"values": [Vector2(4, 647), Vector2(0, 0)]
+"values": [Vector2(-110, 831), Vector2(267.75214, 223)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sign:rotation")
+tracks/1/interp = 4
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.96666664),
+"transitions": PackedFloat32Array(0.7071068, 1),
+"update": 0,
+"values": [-0.2785092, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.33333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_md36l"]
@@ -46,91 +107,130 @@ anchors_preset = 0
 theme = ExtResource("1_md36l")
 script = ExtResource("1_f3be3")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
-offset_top = 1000.0
 offset_right = 1153.0
-offset_bottom = 1648.9998
-color = Color(0.07058824, 0.07058824, 0.07058824, 0.6431373)
+offset_bottom = 648.9994
+texture = SubResource("GradientTexture2D_mru58")
 
-[node name="back_button" type="Button" parent="Background"]
-layout_mode = 0
-offset_left = 398.0
-offset_top = 345.0
-offset_right = 691.0
-offset_bottom = 408.0
-text = "BACKK"
+[node name="Sign" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 267.75214
+offset_top = 223.0
+offset_right = 885.24786
+offset_bottom = 793.9983
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("3_122c4")
+expand_mode = 1
+stretch_mode = 5
 
-[node name="Music" type="HSlider" parent="Background"]
+[node name="Control" type="Control" parent="Sign"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.247864
+offset_top = 31.0
+offset_right = -30.247864
+offset_bottom = -265.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Sign/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -167.0
+offset_top = 33.0
+offset_right = 167.0
+offset_bottom = 95.0
+grow_horizontal = 2
+text = "Audio Settings"
+label_settings = SubResource("LabelSettings_122c4")
+
+[node name="Music" type="HSlider" parent="Sign/Control"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 395.0
-offset_top = 196.0
-offset_right = 700.0
-offset_bottom = 263.0
+offset_left = 147.0
+offset_top = 103.0
+offset_right = 452.0
+offset_bottom = 170.0
 
-[node name="VFX" type="HSlider" parent="Background"]
+[node name="VFX" type="HSlider" parent="Sign/Control"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 395.0
-offset_top = 267.0
-offset_right = 694.0
-offset_bottom = 287.0
+offset_left = 147.0
+offset_top = 174.0
+offset_right = 446.0
+offset_bottom = 194.0
 
-[node name="MusicPercentage" type="Label" parent="Background"]
+[node name="MusicPercentage" type="Label" parent="Sign/Control"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 715.0
-offset_top = 215.0
-offset_right = 755.0
-offset_bottom = 238.0
+offset_left = 467.0
+offset_top = 122.0
+offset_right = 507.0
+offset_bottom = 145.0
+theme_override_colors/font_color = Color(0.31764707, 0.20392157, 0.09803922, 1)
 text = "%"
 
-[node name="VFXPercentage" type="Label" parent="Background"]
+[node name="VFXPercentage" type="Label" parent="Sign/Control"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 715.0
-offset_top = 263.0
-offset_right = 755.0
-offset_bottom = 286.0
+offset_left = 467.0
+offset_top = 170.0
+offset_right = 507.0
+offset_bottom = 193.0
+theme_override_colors/font_color = Color(0.31764707, 0.20392157, 0.09803922, 1)
 text = "%"
 
-[node name="Music2" type="Label" parent="Background"]
+[node name="Music2" type="Label" parent="Sign/Control"]
 layout_mode = 0
-offset_left = 285.0
-offset_top = 208.0
-offset_right = 436.0
-offset_bottom = 313.0
-theme_override_colors/font_color = Color(0.92088336, 0.57774734, 0.73736346, 1)
-theme_override_font_sizes/font_size = 30
+offset_left = 51.0
+offset_top = 119.0
+offset_right = 128.0
+offset_bottom = 155.0
+theme_override_colors/font_color = Color(0.31764707, 0.20392157, 0.09803922, 1)
+theme_override_font_sizes/font_size = 36
 text = "MUSIC"
 
-[node name="VFX2" type="Label" parent="Background"]
+[node name="VFX2" type="Label" parent="Sign/Control"]
 layout_mode = 0
-offset_left = 286.0
-offset_top = 253.0
-offset_right = 348.0
-offset_bottom = 299.0
-theme_override_colors/font_color = Color(0.92088336, 0.57774734, 0.73736346, 1)
-theme_override_font_sizes/font_size = 30
+offset_left = 79.0
+offset_top = 168.0
+offset_right = 128.0
+offset_bottom = 204.0
+theme_override_colors/font_color = Color(0.31764707, 0.20392157, 0.09803922, 1)
+theme_override_font_sizes/font_size = 36
 text = "VFX"
 
-[node name="Sound" type="Label" parent="Background"]
-layout_mode = 0
-offset_left = 452.0
-offset_top = 135.0
-offset_right = 603.0
-offset_bottom = 246.0
-theme_override_colors/font_color = Color(0.92088336, 0.57774734, 0.73736346, 1)
-theme_override_font_sizes/font_size = 39
-text = "SOUND
-"
+[node name="back_button" type="Button" parent="Sign/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -146.5
+offset_top = -63.0
+offset_right = 146.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Exit"
+flat = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_md36l")
 }
 
-[connection signal="pressed" from="Background/back_button" to="." method="_on_back_button_pressed"]
-[connection signal="value_changed" from="Background/Music" to="." method="_on_music_value_changed"]
-[connection signal="value_changed" from="Background/VFX" to="." method="_on_vfx_value_changed"]
+[connection signal="value_changed" from="Sign/Control/Music" to="." method="_on_music_value_changed"]
+[connection signal="value_changed" from="Sign/Control/VFX" to="." method="_on_vfx_value_changed"]
+[connection signal="pressed" from="Sign/Control/back_button" to="." method="_on_back_button_pressed"]
