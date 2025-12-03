@@ -1,6 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0ix7w0r4kdsi"]
+[gd_scene load_steps=13 format=3 uid="uid://b0ix7w0r4kdsi"]
 
-[ext_resource type="AudioStream" uid="uid://bdsxandq2bhjy" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkA.wav" id="1_j010c"]
+[ext_resource type="AudioStream" uid="uid://23g4uqcsea60" path="res://audio/player/se_pc_step_wood/se_pc_step_wood.wav" id="1_prhv3"]
+[ext_resource type="AudioStream" uid="uid://ckldm5fb57cln" path="res://audio/player/se_pc_step_wood/se_pc_step_wood_1.wav" id="2_tkscs"]
+[ext_resource type="AudioStream" uid="uid://dedei2g86ph0i" path="res://audio/player/se_pc_step_wood/se_pc_step_wood_10.wav" id="3_b6n52"]
+[ext_resource type="AudioStream" uid="uid://c3dwmlljgrft8" path="res://audio/player/se_pc_step_wood/se_pc_step_wood_2.wav" id="4_m7pe5"]
+[ext_resource type="AudioStream" uid="uid://bv426ku2ux3b5" path="res://audio/player/se_pc_step_wood/se_pc_step_wood_3.wav" id="5_nbgai"]
+[ext_resource type="AudioStream" uid="uid://dllk2sp6hblbh" path="res://audio/player/se_pc_step_wood/se_pc_step_wood_4.wav" id="6_yq7o5"]
+[ext_resource type="AudioStream" uid="uid://bq15uap0itmo7" path="res://audio/player/se_pc_step_wood/se_pc_step_wood_5.wav" id="7_p4ml0"]
+[ext_resource type="AudioStream" uid="uid://c5h3jjjrkl0kd" path="res://audio/player/se_pc_step_wood/se_pc_step_wood_6.wav" id="8_iwiws"]
+[ext_resource type="AudioStream" uid="uid://cj8i02rra1wve" path="res://audio/player/se_pc_step_wood/se_pc_step_wood_7.wav" id="9_d7i00"]
+[ext_resource type="AudioStream" uid="uid://bqvdvquqknvka" path="res://audio/player/se_pc_step_wood/se_pc_step_wood_8.wav" id="10_hhebq"]
+[ext_resource type="AudioStream" uid="uid://cfvqhahwtiyhp" path="res://audio/player/se_pc_step_wood/se_pc_step_wood_9.wav" id="11_qech7"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_q5qiq"]
+streams_count = 11
+stream_0/stream = ExtResource("1_prhv3")
+stream_1/stream = ExtResource("2_tkscs")
+stream_2/stream = ExtResource("4_m7pe5")
+stream_3/stream = ExtResource("5_nbgai")
+stream_4/stream = ExtResource("6_yq7o5")
+stream_5/stream = ExtResource("7_p4ml0")
+stream_6/stream = ExtResource("8_iwiws")
+stream_7/stream = ExtResource("9_d7i00")
+stream_8/stream = ExtResource("10_hhebq")
+stream_9/stream = ExtResource("11_qech7")
+stream_10/stream = ExtResource("3_b6n52")
 
 [node name="WalkWood" type="AudioStreamPlayer3D"]
-stream = ExtResource("1_j010c")
+stream = SubResource("AudioStreamRandomizer_q5qiq")

@@ -1,6 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://pl3x14i1m2kt"]
+[gd_scene load_steps=10 format=3 uid="uid://pl3x14i1m2kt"]
 
-[ext_resource type="AudioStream" uid="uid://btq4usey4ba53" path="res://audio/placeholders/explosion.wav" id="1_63c0y"]
+[ext_resource type="AudioStream" uid="uid://ckajahty80n8u" path="res://audio/player/Pc_steps_water/se_pc_step_puddle.wav" id="1_k2tmd"]
+[ext_resource type="AudioStream" uid="uid://23uhqxt7wtgm" path="res://audio/player/Pc_steps_water/se_pc_step_puddle_1.wav" id="2_ir7wv"]
+[ext_resource type="AudioStream" uid="uid://cs20hfd5pn42u" path="res://audio/player/Pc_steps_water/se_pc_step_puddle_2.wav" id="3_7rr66"]
+[ext_resource type="AudioStream" uid="uid://oiuqfw2y4vbh" path="res://audio/player/Pc_steps_water/se_pc_step_puddle_3.wav" id="4_qmiku"]
+[ext_resource type="AudioStream" uid="uid://dkx2wxlufi22s" path="res://audio/player/Pc_steps_water/se_pc_step_puddle_4.wav" id="5_vgncu"]
+[ext_resource type="AudioStream" uid="uid://dq6mds3u2wlqr" path="res://audio/player/Pc_steps_water/se_pc_step_puddle_5.wav" id="6_hxir0"]
+[ext_resource type="AudioStream" uid="uid://dcpuh0iwf8xf7" path="res://audio/player/Pc_steps_water/se_pc_step_puddle_6.wav" id="7_cif0f"]
+[ext_resource type="AudioStream" uid="uid://debgua1myv14u" path="res://audio/player/Pc_steps_water/se_pc_step_puddle_7.wav" id="8_edlg0"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_e3w62"]
+streams_count = 8
+stream_0/stream = ExtResource("1_k2tmd")
+stream_1/stream = ExtResource("2_ir7wv")
+stream_2/stream = ExtResource("3_7rr66")
+stream_3/stream = ExtResource("4_qmiku")
+stream_4/stream = ExtResource("5_vgncu")
+stream_5/stream = ExtResource("6_hxir0")
+stream_6/stream = ExtResource("7_cif0f")
+stream_7/stream = ExtResource("8_edlg0")
 
 [node name="WalkPuddle" type="AudioStreamPlayer3D"]
-stream = ExtResource("1_63c0y")
+stream = SubResource("AudioStreamRandomizer_e3w62")

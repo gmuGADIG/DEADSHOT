@@ -1,6 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://b7dhd02gnv5mh"]
+[gd_scene load_steps=11 format=3 uid="uid://b7dhd02gnv5mh"]
 
-[ext_resource type="AudioStream" uid="uid://bsg0we7wlotpv" path="res://audio/placeholders/test_jump.wav" id="1_6l2a0"]
+[ext_resource type="AudioStream" uid="uid://bhsi5bdhxpl3y" path="res://audio/player/Pc_steps_stone_soft/se_pc_step_stoneSoft_1.wav" id="1_hrn62"]
+[ext_resource type="AudioStream" uid="uid://bknh7ojemqrhv" path="res://audio/player/Pc_steps_stone_soft/se_pc_step_stoneSoft_2.wav" id="2_kncpi"]
+[ext_resource type="AudioStream" uid="uid://y2ov5judeum1" path="res://audio/player/Pc_steps_stone_soft/se_pc_step_stoneSoft_3.wav" id="3_pes6t"]
+[ext_resource type="AudioStream" uid="uid://uuiyknokt0u3" path="res://audio/player/Pc_steps_stone_soft/se_pc_step_stoneSoft_4.wav" id="4_ihnan"]
+[ext_resource type="AudioStream" uid="uid://blgbxmhhnm2d2" path="res://audio/player/Pc_steps_stone_soft/se_pc_step_stoneSoft_5.wav" id="5_85ro5"]
+[ext_resource type="AudioStream" uid="uid://dxvkwv2qbhu1c" path="res://audio/player/Pc_steps_stone_soft/se_pc_step_stoneSoft_6.wav" id="6_8ecen"]
+[ext_resource type="AudioStream" uid="uid://brylutfin3br1" path="res://audio/player/Pc_steps_stone_soft/se_pc_step_stoneSoft_7.wav" id="7_ar1p1"]
+[ext_resource type="AudioStream" uid="uid://cgrpduy27spx6" path="res://audio/player/Pc_steps_stone_soft/se_pc_step_stoneSoft_8.wav" id="8_ii6bd"]
+[ext_resource type="AudioStream" uid="uid://dp5214q0is3g3" path="res://audio/player/Pc_steps_stone_soft/se_pc_step_stoneSoft_9.wav" id="9_mpqj4"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_a51fy"]
+streams_count = 9
+stream_0/stream = ExtResource("1_hrn62")
+stream_1/stream = ExtResource("2_kncpi")
+stream_2/stream = ExtResource("3_pes6t")
+stream_3/stream = ExtResource("4_ihnan")
+stream_4/stream = ExtResource("5_85ro5")
+stream_5/stream = ExtResource("6_8ecen")
+stream_6/stream = ExtResource("7_ar1p1")
+stream_7/stream = ExtResource("8_ii6bd")
+stream_8/stream = ExtResource("9_mpqj4")
 
 [node name="WalkStone" type="AudioStreamPlayer3D"]
-stream = ExtResource("1_6l2a0")
+stream = SubResource("AudioStreamRandomizer_a51fy")
