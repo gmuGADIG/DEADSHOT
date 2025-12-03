@@ -255,6 +255,7 @@ scale = Vector2(2, 2)
 text = "Meat Tree"
 
 [node name="SkillButtons" type="Control" parent="."]
+z_index = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -631,7 +632,6 @@ stretch_mode = 5
 
 [node name="SkillBranches" type="Node2D" parent="."]
 unique_name_in_owner = true
-z_index = -1
 
 [connection signal="pressed" from="VBoxContainer/Reset" to="." method="on_skill_tree_reset"]
 [connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
