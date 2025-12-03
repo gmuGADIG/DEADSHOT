@@ -2,14 +2,9 @@ class_name Player extends CharacterBody3D
 
 signal player_state_changed
 
-class PlayerPersistingData:
-	var max_health : int
-	var health : int
-	var curr_chamber : int
-	var curr_reserve : int
-
 ## Tracks name of current gun node. CHANGE THIS VARIABLE WHEN GUNS ARE CHANGED.
-static var gun_name := "Dualies"
+static var gun_name := "Shotgun"
+#static var gun_name := "Dualies"
 #static var gun_name := "BasicGun"
 
 ## These are the states that the player can be in. States control what the player can do.
@@ -63,7 +58,13 @@ var current_state: PlayerState = PlayerState.WALKING:
 
 #region Builtin Functions
 func _ready() -> void:
-	var gun := instance.get_node(gun_name)
+	for child in $Weapons.get_children():
+		if child is Gun:
+			child.process_mode = Node.PROCESS_MODE_DISABLED
+			child.hide()
+	var gun := get_gun()
+	gun.process_mode = Node.PROCESS_MODE_INHERIT
+	gun.show()
 	
 	instance = self
 	if persisting_data != null:
@@ -105,7 +106,7 @@ func _physics_process(delta: float) -> void:
 ## We use the proper process function to update stamina, since it appears on the HUD and that could be drawn faster than the physics tickrate.
 func _process(delta: float) -> void:
 	update_stamina(delta)
-
+#endregion
 
 #region Custom Functions
 static func update_persisting_data() -> void:	
@@ -118,7 +119,7 @@ static func update_persisting_data() -> void:
 	persisting_data.curr_reserve = instance.get_gun().reserve_ammo
 
 func get_gun() -> Gun:
-	return get_node(gun_name)
+	return get_node("Weapons/" + gun_name)
 
 ## Returns the inputted walking direction on the XZ plane (Y = 0)
 func input_direction() -> Vector3:
@@ -152,8 +153,9 @@ func begin_roll() -> void:
 	if stamina < 1.0: return
 	stamina -= 1.0
 	
-	# TODO: Play animation, do iframes.
+	%RollSound.play()
 	current_state = PlayerState.ROLLING
+	health_component.vulnerable = false
 	roll_time = 0
 
 ## Roll the player in the current direction.
@@ -175,6 +177,7 @@ func roll(delta : float) -> void:
 	roll_time += delta
 	
 	if roll_time >= roll_curve.max_domain:
+		health_component.vulnerable = true
 		current_state = PlayerState.WALKING
 
 ## Called every frame if the player is in combat.
@@ -190,8 +193,13 @@ func update_stamina(delta: float) -> void:
 func _on_interaction_started() -> void:
 	current_state = PlayerState.INTERACTING
 
+## Connects to the was_hit signal on the player's Hurtbox to play a sound.
+func _on_hurtbox_component_was_hit(_dmg: DamageInfo) -> void:
+	%HurtSound.play()
+
 ## Function bound to the signal for ending an interaction
 ## Changes state to Walking by default.
 func _on_interaction_ended() -> void:
 	current_state = PlayerState.WALKING
+
 #endregion

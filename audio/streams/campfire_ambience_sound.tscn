@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlk1b6wuqagg6"]
+
+[ext_resource type="PackedScene" uid="uid://ci3804ofkibap" path="res://audio/streams/sound_base.tscn" id="1_amkqf"]
+[ext_resource type="AudioStream" uid="uid://3os7cukrrr0r" path="res://audio/world_objects/se_amb_campfireLoop.wav" id="2_tqqu1"]
+
+[node name="CampfireAmbienceSound" instance=ExtResource("1_amkqf")]
+stream = ExtResource("2_tqqu1")
+unit_size = 4.0
+panning_strength = 1.0
+attenuation_filter_cutoff_hz = 10000.0

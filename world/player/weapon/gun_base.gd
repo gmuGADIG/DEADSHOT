@@ -2,6 +2,8 @@
 class_name Gun
 extends Node3D
 
+signal fired
+
 ## Time in seconds to reload
 @export var reload_time : float = 1.25
 ## Max number of bullets in chamber and reserve
@@ -24,7 +26,7 @@ var reserve_ammo : int:
 var is_reloading := false
 var bullets_of_fire_unlocked: bool
 
-@onready var player: Player = get_parent()
+@onready var player: Player = Player.instance
 @export var fire_cooldown: float = 0.2
 var fire_timer: float = 0.0
 
@@ -54,6 +56,7 @@ func _process(delta: float) -> void:
 			return
 	 
 		fire()
+		fired.emit()
 	
 	# Reloads the gun as well (if you can shoot, you can reload).
 	if Input.is_action_just_pressed("reload") and is_reloading == false:
@@ -73,12 +76,10 @@ func reload() -> void:
 	is_reloading = true
 	
 	# wait `reload_time` seconds, while emitting player_reload_progress_changed every frame
-	var progress := 0.0
-	while progress < 1.0:
-		Global.player_reload_progress_changed.emit(progress)
-		progress += get_process_delta_time() / reload_time
-		await get_tree().process_frame
-	Global.player_reload_progress_changed.emit(1.0)
+	await create_tween().tween_method(
+		Global.player_reload_progress_changed.emit,
+		0., 1., reload_time
+	).finished
 	
 	if (reserve_ammo >= chamber_diff):
 		reserve_ammo -= chamber_diff
@@ -90,3 +91,9 @@ func reload() -> void:
 	is_reloading = false
 	
 	print("reloaded")
+
+func get_bullet_scene() -> PackedScene:
+	if bullets_of_fire_unlocked:
+		return preload("res://world/player/weapon/bullet/fire_bullet.tscn")
+	else:
+		return preload("res://world/player/weapon/bullet/player_bullet.tscn")

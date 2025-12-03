@@ -1,7 +1,7 @@
 extends Area3D
 
 @export var player_speed_mult: float = 0.5
-@export var atk_damage: int
+@export var atk_damage: float
 
 @onready var damage_timer: Timer = %DamageTimer
 
