@@ -8,10 +8,14 @@ func _on_new_save_button_pressed() -> void:
 func _on_load_save_button_pressed() -> void:
 	#Load Save
 	print("Save Loaded")
+	Save.load_game()
 
 func _on_options_button_pressed() -> void:
 	#Load Options Menu Scene
+	
 	print("Options Opened")
+	$OptionsMenu.open()
+	
 
 func _on_quit_button_pressed() -> void:
 	#Quit Game

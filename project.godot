@@ -20,6 +20,8 @@ config/icon="res://temp_art/icon.svg"
 Global="*res://systems/globals.gd"
 Dialog="*res://systems/dialog/dialog.tscn"
 DebugMenu="*res://systems/debug_menu/debug_menu.tscn"
+MainMusicPlayer="*res://audio/music/music_player/music_player.tscn"
+SongScanner="*res://audio/music/song_scanner.tscn"
 
 [debug]
 
