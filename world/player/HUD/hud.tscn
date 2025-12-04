@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bas8xwk5nhlq0"]
+[gd_scene load_steps=18 format=3 uid="uid://bas8xwk5nhlq0"]
 
 [ext_resource type="Script" uid="uid://clcb8u0fv74qk" path="res://world/player/HUD/heart_display.gd" id="2_swyvw"]
 [ext_resource type="Texture2D" uid="uid://dr4ivc7tmyyha" path="res://world/player/HUD/heart_full.png" id="3_02nes"]
@@ -7,8 +7,10 @@
 [ext_resource type="Script" path="res://world/player/HUD/stamina_display.gd" id="6_02nes"]
 [ext_resource type="Script" path="res://world/player/HUD/ammo_display.gd" id="6_4abqf"]
 [ext_resource type="Script" uid="uid://bb38eh0qqofj5" path="res://world/player/HUD/meatcounter.gd" id="6_4o0ul"]
+[ext_resource type="Texture2D" uid="uid://dst1s8o2rlmw5" path="res://world/floor/sand/sand_grey-fill.png" id="6_07gs6"]
 [ext_resource type="Script" path="res://world/player/HUD/player_point.gd" id="7_5nwtl"]
 [ext_resource type="Script" path="res://world/player/HUD/reload_display.gd" id="8_4aq5e"]
+[ext_resource type="Texture2D" uid="uid://y1h3uww1jns7" path="res://world/enemy/meat/meat.png" id="8_l0aox"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5nwtl"]
 font_size = 40
@@ -114,12 +116,31 @@ grow_horizontal = 0
 grow_vertical = 0
 script = ExtResource("6_4abqf")
 
+[node name="TextureRect" type="TextureRect" parent="Ammo"]
+modulate = Color(0.6509804, 0.67058825, 0.6666667, 1)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -168.0
+offset_top = -93.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("6_07gs6")
+expand_mode = 1
+
 [node name="AmmoLabel" type="Label" parent="Ammo"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 9.0
+offset_right = 7.0
+offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "12 / 48"
@@ -137,19 +158,28 @@ offset_bottom = 133.0
 grow_horizontal = 0
 script = ExtResource("6_4o0ul")
 
-[node name="TempLabel" type="Label" parent="Meat"]
-layout_mode = 0
-offset_left = 65.0
-offset_top = 24.0
-offset_right = 109.0
-offset_bottom = 47.0
-text = "Meat:"
+[node name="Meat Silouehtte" type="TextureRect" parent="Meat"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -175.0
+offset_bottom = 94.0
+grow_horizontal = 0
+texture = ExtResource("8_l0aox")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="MeatLabel" type="Label" parent="Meat"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -12.0
+offset_right = 1.0
+offset_bottom = -12.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "305"
