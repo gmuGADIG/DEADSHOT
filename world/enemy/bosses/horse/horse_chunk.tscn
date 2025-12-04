@@ -4,16 +4,17 @@
 [ext_resource type="Texture2D" uid="uid://bsjg2jy70gbkw" path="res://temp_art/rough_drafts/mass_temp.png" id="2_exjq6"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_akls5"]
-height = 0.8574219
+height = 3.2259521
 radius = 0.32080078
 
 [node name="HorseChunk" type="Area3D"]
 collision_layer = 128
 collision_mask = 0
 script = ExtResource("1_mrlxj")
+speed = 0.5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18304443, 0)
 shape = SubResource("CylinderShape3D_akls5")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
@@ -23,4 +24,3 @@ texture = ExtResource("2_exjq6")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
-autostart = true

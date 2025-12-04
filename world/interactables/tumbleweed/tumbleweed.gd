@@ -6,19 +6,20 @@ extends Node3D
 @export var max_velocity := 0.05 # max velocity for x and z directions
 
 var bounce := 0.0 # controls bouncing movement
-var amplitude := 0.5 # height of the bounce
-var frequency := 4 # bounce speed
+var amplitude := 0.3 # height of the bounce
+var frequency := 6 # bounce speed
 var velocity := Vector3(randf_range(-max_vel_change,max_vel_change),0,randf_range(-max_vel_change,max_vel_change)) # velocity for x and z
 var hit := false # if tumbleweed was hit by bullet
 
 func _physics_process(delta: float) -> void:
 	#rotate on y-plane
-	%Sprite.rotate_z(deg_to_rad(rotate_speed))
-	%Sprite.rotate_y(deg_to_rad(rotate_speed))
+	var speed_factor := clampf(velocity.length() * .2, 0, 1)
+	%Sprite.rotate_z(deg_to_rad(rotate_speed * speed_factor))
+	#%SpriteHolder.rotate_y(deg_to_rad(rotate_speed))
 	
 	#bounce updates, then calcuate position y using some trig
 	bounce += delta * frequency
-	position.y = amplitude * sin(bounce)
+	position.y = amplitude * sin(bounce * speed_factor)
 	
 	#if tumbleweed hits the ground, do stuff
 	if(position.y < -0.499):
@@ -34,6 +35,8 @@ func _physics_process(delta: float) -> void:
 
 	#move the tumbleweed using velocity
 	position += velocity * delta
+	
+	#velocity = velocity.lerp(Vector3.ZERO, 1.0 - exp(-.5 * delta))
 
 func _on_hurtbox_was_hit(dmg: DamageInfo) -> void:
 	velocity += dmg.get_knockback() * knockback_multiplier

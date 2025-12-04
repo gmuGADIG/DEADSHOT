@@ -222,18 +222,20 @@ func death() -> void:
 	# free
 	queue_free()
 
+
+signal enemy_fired
 func shoot_bullet() -> void:
 	if !can_shoot:
 		return
 	firing_timer.start()
 	if (!shooting):
+		enemy_fired.emit()
 		var bullet_reference: Node3D = load("res://world/enemy/Enemy Bullets/enemy_bullet.tscn").instantiate()
 		add_sibling(bullet_reference)
 		bullet_reference.global_position = global_position + Vector3(0, 1, 0)
 		bullet_reference.set_speed(bullet_speed)
 		bullet_reference.set_target(get_tree().get_first_node_in_group("player").global_position)
-		shooting = true
-		
+		shooting = true		
 	
 
 func _on_firing_timer_timeout() -> void:

@@ -16,13 +16,17 @@ func _on_hurt() -> void:
 		_blood_particles()
 
 func _shake() -> void:
-	var time := 0.0
-	while time < 0.1:
-		sprite.position = sprite_pos + Vector3(randf_range(-1, 1), randf_range(-1, 1), randf_range(-1, 1)) * .2
-		
-		await get_tree().process_frame
-		time += get_process_delta_time()
-	sprite.position = sprite_pos
+	const DURATION := 0.1
+	# This code runs every frame while the effect is active
+	create_tween().tween_method(
+		func(t: float) -> void:
+			sprite.position = sprite_pos
+			if t == 0.0: return # set to normal position at the end
+			
+			var rand := Vector3(randf_range(-1, 1), randf_range(-1, 1), randf_range(-1, 1))
+			sprite.position += rand * 0.2,
+		0.0, 1.0, DURATION
+	)
 
 func _flash_modulate() -> void:
 	sprite.modulate = Color("bd0000")

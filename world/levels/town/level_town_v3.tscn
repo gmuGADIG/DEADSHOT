@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bb3qdjspo0kcq" path="res://world/interactables/barrel/barrel.tscn" id="4_wf0ds"]
 [ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://world/interactables/cover/cover_boulder.tscn" id="5_35bcn"]
 [ext_resource type="PackedScene" uid="uid://dwdhuncnyfmcw" path="res://world/enemy/wilder/wilder.tscn" id="6_rpgrq"]
-[ext_resource type="PackedScene" uid="uid://dgq8eujhb7aiv" path="res://world/enemy/enemy_bandit.tscn" id="7_06bpv"]
+[ext_resource type="PackedScene" uid="uid://dgq8eujhb7aiv" path="res://world/enemy/bandit/enemy_bandit.tscn" id="7_06bpv"]
 [ext_resource type="PackedScene" uid="uid://doavrdpyjcdgp" path="res://world/enemy/judge/enemy_judge.tscn" id="8_kiyv6"]
 [ext_resource type="PackedScene" uid="uid://b4n4rflu3my0v" path="res://world/enemy/longhorn/longhorn.tscn" id="9_gvfx8"]
 [ext_resource type="PackedScene" uid="uid://ohg0len20ido" path="res://world/levels/town/level_town_v4_boss.tscn" id="9_l7ewn"]
@@ -106,76 +106,64 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35128975, 0.19067141, -3.7
 [node name="Boulder18" parent="Encounters/Encounter 3 Real" index="24" instance=ExtResource("5_35bcn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.050066, 0.19011831, -3.9758549)
 
-[node name="Boulder19" parent="Encounters/Encounter 3 Real" index="25" instance=ExtResource("5_35bcn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.398184, 0.18987162, -4.054907)
-
-[node name="Boulder20" parent="Encounters/Encounter 3 Real" index="26" instance=ExtResource("5_35bcn")]
+[node name="Boulder20" parent="Encounters/Encounter 3 Real" index="25" instance=ExtResource("5_35bcn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5411777, 0.18947789, -4.181364)
 
-[node name="Boulder21" parent="Encounters/Encounter 3 Real" index="27" instance=ExtResource("5_35bcn")]
+[node name="Boulder21" parent="Encounters/Encounter 3 Real" index="26" instance=ExtResource("5_35bcn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.648485, 0.18906285, -4.3146954)
 
-[node name="Boulder22" parent="Encounters/Encounter 3 Real" index="28" instance=ExtResource("5_35bcn")]
+[node name="Boulder22" parent="Encounters/Encounter 3 Real" index="27" instance=ExtResource("5_35bcn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.86252, 0.19664663, -1.8788185)
 
-[node name="Boulder23" parent="Encounters/Encounter 3 Real" index="29" instance=ExtResource("5_35bcn")]
+[node name="Boulder23" parent="Encounters/Encounter 3 Real" index="28" instance=ExtResource("5_35bcn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3406925, 0.19683704, -1.8177929)
 
-[node name="Boulder24" parent="Encounters/Encounter 3 Real" index="30" instance=ExtResource("5_35bcn")]
+[node name="Boulder24" parent="Encounters/Encounter 3 Real" index="29" instance=ExtResource("5_35bcn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.388443, 0.20259711, 0.032526016)
 
-[node name="Boulder25" parent="Encounters/Encounter 3 Real" index="31" instance=ExtResource("5_35bcn")]
+[node name="Boulder25" parent="Encounters/Encounter 3 Real" index="30" instance=ExtResource("5_35bcn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2825565, 0.20243502, -0.019573212)
 
-[node name="Boulder26" parent="Encounters/Encounter 3 Real" index="32" instance=ExtResource("5_35bcn")]
+[node name="Boulder26" parent="Encounters/Encounter 3 Real" index="31" instance=ExtResource("5_35bcn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8193321, 0.20870826, 1.9951744)
 
-[node name="Boulder27" parent="Encounters/Encounter 3 Real" index="33" instance=ExtResource("5_35bcn")]
+[node name="Boulder27" parent="Encounters/Encounter 3 Real" index="32" instance=ExtResource("5_35bcn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2832546, 0.20746684, 1.5964012)
 
-[node name="Boulder28" parent="Encounters/Encounter 3 Real" index="34" instance=ExtResource("5_35bcn")]
+[node name="Boulder28" parent="Encounters/Encounter 3 Real" index="33" instance=ExtResource("5_35bcn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8226299, 0.2081351, 1.811039)
 
-[node name="Boulder29" parent="Encounters/Encounter 3 Real" index="35" instance=ExtResource("5_35bcn")]
+[node name="Boulder29" parent="Encounters/Encounter 3 Real" index="34" instance=ExtResource("5_35bcn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2881107, 0.20793095, 1.7453384)
 
-[node name="Wilder2" parent="Encounters/Encounter 3 Real" index="36" instance=ExtResource("6_rpgrq")]
+[node name="Wilder2" parent="Encounters/Encounter 3 Real" index="35" instance=ExtResource("6_rpgrq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.106333, 0.00892204, -5.3445225)
 
-[node name="Wilder4" parent="Encounters/Encounter 3 Real" index="37" instance=ExtResource("6_rpgrq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.05037, 0.00892204, -5.4420986)
-
-[node name="Wilder6" parent="Encounters/Encounter 3 Real" index="38" instance=ExtResource("6_rpgrq")]
+[node name="Wilder6" parent="Encounters/Encounter 3 Real" index="36" instance=ExtResource("6_rpgrq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.163064, 0.008922458, -5.262285)
 
-[node name="Wilder8" parent="Encounters/Encounter 3 Real" index="39" instance=ExtResource("6_rpgrq")]
+[node name="Wilder8" parent="Encounters/Encounter 3 Real" index="37" instance=ExtResource("6_rpgrq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6045856, 0.008914828, -5.4816456)
 
-[node name="Wilder10" parent="Encounters/Encounter 3 Real" index="40" instance=ExtResource("6_rpgrq")]
+[node name="Wilder10" parent="Encounters/Encounter 3 Real" index="38" instance=ExtResource("6_rpgrq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.320019, 0.00885427, -5.7448444)
 
-[node name="EnemyTest3" parent="Encounters/Encounter 3 Real" index="41" instance=ExtResource("7_06bpv")]
+[node name="EnemyTest3" parent="Encounters/Encounter 3 Real" index="39" instance=ExtResource("7_06bpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.731713, 4.827976e-06, 5.4380264)
 
-[node name="EnemyTest4" parent="Encounters/Encounter 3 Real" index="42" instance=ExtResource("7_06bpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1243944, 5.7816505e-06, 6.997299)
-
-[node name="EnemyTest5" parent="Encounters/Encounter 3 Real" index="43" instance=ExtResource("7_06bpv")]
+[node name="EnemyTest5" parent="Encounters/Encounter 3 Real" index="40" instance=ExtResource("7_06bpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4562874, 4.827976e-06, 5.0859833)
 
-[node name="EnemyTest6" parent="Encounters/Encounter 3 Real" index="44" instance=ExtResource("7_06bpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4788303, 5.7816505e-06, 7.028908)
-
-[node name="EnemyTest" parent="Encounters/Encounter 3 Real" index="45" instance=ExtResource("8_kiyv6")]
+[node name="EnemyTest" parent="Encounters/Encounter 3 Real" index="41" instance=ExtResource("8_kiyv6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9472313, 2.9206276e-06, -0.06072426)
 
-[node name="EnemyTest2" parent="Encounters/Encounter 3 Real" index="46" instance=ExtResource("8_kiyv6")]
+[node name="EnemyTest2" parent="Encounters/Encounter 3 Real" index="42" instance=ExtResource("8_kiyv6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3151398, 3.874302e-06, 0.22773552)
 
-[node name="AmmoPickup" parent="Encounters/Encounter 3 Real" index="47" instance=ExtResource("12_862rw")]
+[node name="AmmoPickup" parent="Encounters/Encounter 3 Real" index="43" instance=ExtResource("12_862rw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7371492, 0.20419651, 1.2845764)
 
-[node name="AmmoPickup2" parent="Encounters/Encounter 3 Real" index="48" instance=ExtResource("12_862rw")]
+[node name="AmmoPickup2" parent="Encounters/Encounter 3 Real" index="44" instance=ExtResource("12_862rw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4220133, 0.28632832, -47.356922)
 
 [node name="Encounter 4 Real" parent="Encounters" index="1" instance=ExtResource("2_8nofb")]

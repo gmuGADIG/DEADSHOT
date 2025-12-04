@@ -112,28 +112,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2834129, -0.06661456, -2.19
 [node name="Wilder" parent="Encounters/Encounter 1 Real" index="24" instance=ExtResource("7_41dv2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.28141, -0.057398908, -2.409165)
 
-[node name="Wilder2" parent="Encounters/Encounter 1 Real" index="25" instance=ExtResource("7_41dv2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.329793, -0.05766403, -1.0076718)
-
-[node name="Wilder3" parent="Encounters/Encounter 1 Real" index="26" instance=ExtResource("7_41dv2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.548709, -0.057694547, -6.6524196)
-
-[node name="Wilder4" parent="Encounters/Encounter 1 Real" index="27" instance=ExtResource("7_41dv2")]
+[node name="Wilder4" parent="Encounters/Encounter 1 Real" index="25" instance=ExtResource("7_41dv2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.454863, -0.05756771, 5.5331826)
 
-[node name="EnemyTest2" parent="Encounters/Encounter 1 Real" index="28" instance=ExtResource("8_s6y2q")]
+[node name="EnemyTest2" parent="Encounters/Encounter 1 Real" index="26" instance=ExtResource("8_s6y2q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.816677, -0.06661027, -7.36005)
 
-[node name="EnemyTest3" parent="Encounters/Encounter 1 Real" index="29" instance=ExtResource("8_s6y2q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.125034, -0.06662267, -6.160677)
-
-[node name="EnemyTest4" parent="Encounters/Encounter 1 Real" index="30" instance=ExtResource("8_s6y2q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.280651, -0.066588335, 5.2620344)
-
-[node name="EnemyTest5" parent="Encounters/Encounter 1 Real" index="31" instance=ExtResource("8_s6y2q")]
+[node name="EnemyTest5" parent="Encounters/Encounter 1 Real" index="27" instance=ExtResource("8_s6y2q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.522533, -0.06663697, 6.0142417)
 
-[node name="AmmoPickup" parent="Encounters/Encounter 1 Real" index="32" instance=ExtResource("2_siqd8")]
+[node name="AmmoPickup" parent="Encounters/Encounter 1 Real" index="28" instance=ExtResource("2_siqd8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.82412, 0.13757795, 0.27713633)
 
 [node name="Encounter 2 Real" parent="Encounters" index="1" instance=ExtResource("2_ovvcg")]
@@ -209,22 +197,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.278839, -0.06661456, -0.29
 [node name="EnemyTest3" parent="Encounters/Encounter 2 Real" index="22" instance=ExtResource("10_peyec")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4365044, -0.06661456, -0.5796609)
 
-[node name="EnemyTest4" parent="Encounters/Encounter 2 Real" index="23" instance=ExtResource("10_peyec")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4692955, -0.066614084, 0.7994578)
-
-[node name="EnemyTest5" parent="Encounters/Encounter 2 Real" index="24" instance=ExtResource("8_s6y2q")]
+[node name="EnemyTest5" parent="Encounters/Encounter 2 Real" index="23" instance=ExtResource("8_s6y2q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.450661, -0.06661504, 3.1376028)
 
-[node name="EnemyTest6" parent="Encounters/Encounter 2 Real" index="25" instance=ExtResource("8_s6y2q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.706394, -0.06661456, 4.361479)
-
-[node name="EnemyTest7" parent="Encounters/Encounter 2 Real" index="26" instance=ExtResource("8_s6y2q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.593697, -0.06651824, -4.2473955)
-
-[node name="EnemyTest8" parent="Encounters/Encounter 2 Real" index="27" instance=ExtResource("8_s6y2q")]
+[node name="EnemyTest8" parent="Encounters/Encounter 2 Real" index="24" instance=ExtResource("8_s6y2q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.555187, -0.06661456, -3.53351)
 
-[node name="AmmoPickup" parent="Encounters/Encounter 2 Real" index="28" instance=ExtResource("2_siqd8")]
+[node name="AmmoPickup" parent="Encounters/Encounter 2 Real" index="25" instance=ExtResource("2_siqd8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67.03223, 0.137577, -3.4369495)
 
 [node name="Paper" parent="." index="15" instance=ExtResource("12_j473c")]
