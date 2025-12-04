@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnddjimdmtq1s"]
+
+[ext_resource type="PackedScene" uid="uid://ci3804ofkibap" path="res://audio/streams/sound_base.tscn" id="1_pghqc"]
+[ext_resource type="AudioStream" uid="uid://n1djv1i5lknd" path="res://audio/world_objects/CorruptHeartGet.mp3" id="2_1vcw8"]
+
+[node name="HeartDropSound" instance=ExtResource("1_pghqc")]
+stream = ExtResource("2_1vcw8")
+autoplay = true
+delete_on_finish = true

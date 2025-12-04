@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b0ttk38sufgur"]
+[gd_scene load_steps=18 format=3 uid="uid://b0ttk38sufgur"]
 
 [ext_resource type="Texture2D" uid="uid://di2fa8ln64nqe" path="res://world/pickups/corrupt_heart/corrupt_heart.png" id="1_sj4sw"]
 [ext_resource type="Script" uid="uid://1vuuexllss1q" path="res://world/pickups/corrupt_heart/corrupt_heart.gd" id="1_vve5n"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" uid="uid://do5vs8m1law7o" path="res://systems/attacking/health/health.gd" id="6_5roo4"]
 [ext_resource type="AudioStream" uid="uid://de23avhh4wkr3" path="res://audio/placeholders/heart_beat1.wav" id="6_kyt37"]
 [ext_resource type="AudioStream" uid="uid://ftg5bow5xo32" path="res://audio/placeholders/heart_beat2.wav" id="7_1n52r"]
+[ext_resource type="PackedScene" uid="uid://cnddjimdmtq1s" path="res://audio/streams/heart_drop_sound.tscn" id="11_kyt37"]
+[ext_resource type="PackedScene" uid="uid://blmxgvtxbyaur" path="res://audio/streams/heart_swish_sound.tscn" id="12_1n52r"]
 
 [sub_resource type="Animation" id="Animation_vve5n"]
 length = 0.001
@@ -129,7 +131,7 @@ blood_burst_packed = ExtResource("4_uxcdq")
 final_burst_packed = ExtResource("2_e8xih")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.5425574, 0, 0, 0, 0.46986842, 0.27127883, 0, -0.27127883, 0.46986842, 0, 1.2127075, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.43301263, 0.25000015, 0, -0.25000015, 0.43301263, 0, 1.2127075, 0)
 alpha_cut = 1
 texture = ExtResource("1_sj4sw")
 
@@ -175,3 +177,7 @@ metadata/_custom_type_script = "uid://do5vs8m1law7o"
 
 [node name="BloodEmitCenter" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9867293, 0)
+
+[node name="HeartDropSound" parent="." instance=ExtResource("11_kyt37")]
+
+[node name="HeartSwishSound" parent="." instance=ExtResource("12_1n52r")]
