@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4f1fg4m5hdar"]
+
+[ext_resource type="AudioStream" uid="uid://hej4hmx0ms4s" path="res://audio/placeholders/test_smack.wav" id="1_n5bip"]
+
+[node name="BanditFire" type="AudioStreamPlayer3D"]
+stream = ExtResource("1_n5bip")

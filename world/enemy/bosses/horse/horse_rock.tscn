@@ -26,3 +26,5 @@ texture = ExtResource("2_6qux5")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

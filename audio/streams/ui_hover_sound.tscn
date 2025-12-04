@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://d15hbjoa7a2bp"]
+
+[ext_resource type="AudioStream" uid="uid://hej4hmx0ms4s" path="res://audio/placeholders/test_smack.wav" id="1_suc1e"]
+
+[node name="UIHoverSound" type="AudioStreamPlayer"]
+stream = ExtResource("1_suc1e")
+volume_db = -27.734

@@ -139,6 +139,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.821126, 9.536743e-07, -37.
 
 [node name="Player" parent="." index="6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.14402, 0, 0)
+floor_type = 1
 
 [node name="Houses" type="Node3D" parent="." index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1851654, 0, -9.456607)
