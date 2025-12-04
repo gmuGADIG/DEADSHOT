@@ -32,10 +32,19 @@ var state : State:
 				self_modulate = Color(1,1,1)
 				skill_branch.default_color = Color(1,1,1)
 				skill_branch.show()
+				
+				skill_branch.texture_mode = Line2D.LINE_TEXTURE_STRETCH
+				skill_branch.texture = preload("res://menu/skill_tree/skill_tree_art/connectorplank1.png")
+				skill_branch.width = 25
 				$LockIcon.hide()
 			State.AFFORDABLE:
 				self_modulate = Color(1,1,1)
 				skill_branch.default_color = Color(0.5,0.5,0.5)
+				
+				skill_branch.texture_mode = Line2D.LINE_TEXTURE_STRETCH
+				skill_branch.texture = preload("res://menu/skill_tree/skill_tree_art/connectorplank1.png")
+				skill_branch.width = 25
+				
 				skill_branch.show()
 				$LockIcon.hide()
 			State.UNAFFORDABLE:
@@ -55,6 +64,7 @@ func _ready() -> void:
 	#setup_popup()
 	update_purchase_state()
 	$Label.text = itemDesc.skill_name
+	$TextureRect.texture = itemDesc.skill_image
 	# Fix this, make sure line goes in correct place
 	for child in dependencies:
 		skill_branch.add_point(self.global_position + self.size/2)
@@ -89,6 +99,7 @@ func update_state() -> void:
 func _process(_delta:float) -> void:
 	if Engine.is_editor_hint():
 		$Label.text = itemDesc.skill_name
+		$TextureRect.texture = itemDesc.skill_image
 
 func _on_pressed() -> void:
 	if Engine.is_editor_hint(): return
