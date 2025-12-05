@@ -1112,7 +1112,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.544182, 0, -1.5427737)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2310295, 0, -4.666794)
 
 [node name="EncounterShape" type="CollisionShape3D" parent="Encounter 2" index="10"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5999222, 0, 0.73770595)
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 1, 0.5999222, 0, -3.6891232)
 shape = SubResource("BoxShape3D_n7sqn")
 
 [node name="Encounter 3" parent="." index="18" instance=ExtResource("9_fpcaa")]
