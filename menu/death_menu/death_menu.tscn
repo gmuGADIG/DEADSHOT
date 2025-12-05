@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cda13rfhy3s2v"]
+[gd_scene load_steps=5 format=3 uid="uid://cda13rfhy3s2v"]
 
 [ext_resource type="Texture2D" uid="uid://cegfpthfj6eil" path="res://temp_art/gartic/godot_dead.png" id="1_0hfil"]
 [ext_resource type="Script" uid="uid://bv567fesukdbq" path="res://menu/death_menu/death_menu.gd" id="1_78wx2"]
+[ext_resource type="PackedScene" uid="uid://c7c1lwr411btx" path="res://audio/music/music_player/play_song_for_scene.tscn" id="3_dja7b"]
+[ext_resource type="Resource" uid="uid://bqvt6ossatd16" path="res://audio/music/song_files/misc/Cooper_death_jingle_song.tres" id="4_vaouj"]
 
 [node name="DeathMenu" type="Node2D"]
 script = ExtResource("1_78wx2")
@@ -39,6 +41,11 @@ offset_right = 867.0
 offset_bottom = 166.0
 theme_override_font_sizes/font_size = 128
 text = "YOU DIED"
+
+[node name="PlaySongForScene" parent="." instance=ExtResource("3_dja7b")]
+song = ExtResource("4_vaouj")
+reset_song = true
+immediate = true
 
 [connection signal="pressed" from="VBoxContainer/LoadSaveButton" to="." method="_on_load_save_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
