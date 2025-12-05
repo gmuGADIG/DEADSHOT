@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Song" load_steps=7 format=3 uid="uid://dgfsfa6177rri"]
+
+[ext_resource type="Script" uid="uid://dah3ryl52vplp" path="res://audio/music/song_resource/loop_info.gd" id="1_gb13a"]
+[ext_resource type="Script" uid="uid://co2r0p266y1vu" path="res://audio/music/song_resource/song.gd" id="2_p4mm0"]
+[ext_resource type="AudioStream" uid="uid://bs1ck1abw6nad" path="res://audio/music/song_files/desert_level/Matthew_desert_combat.mp3" id="3_vk1co"]
+
+[sub_resource type="Curve" id="Curve_cj257"]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 0, Vector2(1, 1), 1.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_q38ot"]
+_data = [Vector2(0, 1), 0.0, -1.0, 0, 0, Vector2(1, 0), -1.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Resource" id="Resource_jsm4m"]
+script = ExtResource("1_gb13a")
+loop_start = 36.51855846546307
+loop_end = 236.1917381851763
+fade_period = 2.0
+fade_in_curve = SubResource("Curve_cj257")
+fade_out_curve = SubResource("Curve_q38ot")
+
+[resource]
+script = ExtResource("2_p4mm0")
+song_file = ExtResource("3_vk1co")
+loop_info = SubResource("Resource_jsm4m")

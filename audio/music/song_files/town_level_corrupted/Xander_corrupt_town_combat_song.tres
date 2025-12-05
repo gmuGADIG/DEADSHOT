@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Song" load_steps=7 format=3 uid="uid://bin2l0wyprpnw"]
+
+[ext_resource type="Script" uid="uid://dah3ryl52vplp" path="res://audio/music/song_resource/loop_info.gd" id="1_g3hfn"]
+[ext_resource type="Script" uid="uid://co2r0p266y1vu" path="res://audio/music/song_resource/song.gd" id="2_vgbv2"]
+[ext_resource type="AudioStream" uid="uid://buse06ouwo7bg" path="res://audio/music/song_files/town_level_corrupted/Xander_corrupt_town_combat.mp3" id="3_so1fb"]
+
+[sub_resource type="Curve" id="Curve_ru0k8"]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 0, Vector2(1, 1), 1.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_b8u1u"]
+_data = [Vector2(0, 1), 0.0, -1.0, 0, 0, Vector2(1, 0), -1.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Resource" id="Resource_e4356"]
+script = ExtResource("1_g3hfn")
+loop_start = 7.89
+loop_end = 97.7709453582764
+fade_in_curve = SubResource("Curve_ru0k8")
+fade_out_curve = SubResource("Curve_b8u1u")
+
+[resource]
+script = ExtResource("2_vgbv2")
+song_file = ExtResource("3_so1fb")
+loop_info = SubResource("Resource_e4356")

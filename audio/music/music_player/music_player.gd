@@ -240,6 +240,11 @@ func _handle_song_transition(delta: float) -> void:
 		song_changed.emit(current_song)
 
 func _do_pop_sequence(song: Song, at_position: float, fade_out_time: float, delay: float, fade_in_time: float) -> void:
+	# Update current_song immediately so that if push_song is called during
+	# the fade-out, it will save the correct song (the one we're transitioning to)
+	# rather than the one that's fading out.
+	current_song = song
+	
 	if fade_out_time > 0 and _any_playing():
 		_inactive().stop()
 		_kill_tween(_fade_out_tween)
