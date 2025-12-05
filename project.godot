@@ -22,7 +22,6 @@ Dialog="*res://systems/dialog/dialog.tscn"
 DebugMenu="*res://systems/debug_menu/debug_menu.tscn"
 SceneManager="*res://systems/scene_switch/scene_switch.tscn"
 MainMusicPlayer="*res://audio/music/music_player/music_player.tscn"
-SongScanner="*res://audio/music/song_scanner.tscn"
 
 [debug]
 
