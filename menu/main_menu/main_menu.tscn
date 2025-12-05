@@ -5,11 +5,11 @@
 [ext_resource type="Theme" uid="uid://cbhjnihlejbf6" path="res://menu/ui_theme.tres" id="3_7r8i1"]
 [ext_resource type="AudioStream" uid="uid://btq4usey4ba53" path="res://audio/placeholders/explosion.wav" id="3_winya"]
 [ext_resource type="AudioStream" uid="uid://dc6lbunkflvv4" path="res://audio/placeholders/funny_bone_man.wav" id="4_prid6"]
-[ext_resource type="Texture2D" uid="uid://dcq7buy1fkobw" path="res://menu/main_menu/title.png" id="6_prid6"]
+[ext_resource type="Texture2D" uid="uid://bx137n5y4vbmv" path="res://menu/main_menu/main_menu_text.png" id="5_t631e"]
 [ext_resource type="Texture2D" uid="uid://dr0k5wtlmynj6" path="res://temp_art/reticle.png" id="6_x87vx"]
-[ext_resource type="Script" uid="uid://co66s5c2pttrb" path="res://menu/main_menu/reticle_spin.gd" id="7_dn5jd"]
-[ext_resource type="PackedScene" uid="uid://d15hbjoa7a2bp" path="res://audio/streams/ui_hover_sound.tscn" id="9_ub0vu"]
-[ext_resource type="PackedScene" uid="uid://b4hj1uuryjqkf" path="res://audio/streams/ui_click_sound.tscn" id="10_t631e"]
+[ext_resource type="Script" path="res://menu/main_menu/reticle_spin.gd" id="7_dn5jd"]
+[ext_resource type="PackedScene" path="res://audio/streams/ui_hover_sound.tscn" id="9_ub0vu"]
+[ext_resource type="PackedScene" path="res://audio/streams/ui_click_sound.tscn" id="10_t631e"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -23,6 +23,16 @@ script = ExtResource("1_winya")
 gunshot = ExtResource("3_winya")
 gun_spinning = ExtResource("4_prid6")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_t631e")
+expand_mode = 1
+
 [node name="Reference" type="TextureRect" parent="."]
 visible = false
 layout_mode = 1
@@ -30,35 +40,31 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -38.5
-offset_bottom = 38.5
+offset_right = 2688.0
+offset_bottom = 1473.5
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_e5xhn")
 
-[node name="Slant" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = -384.0
-offset_top = -380.00003
-offset_right = 383.0
-offset_bottom = 647.0
-rotation = 0.27452645
-color = Color(0, 0, 0, 0.74509805)
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 9
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 82.0
-offset_top = 129.09418
-offset_right = 325.0
-offset_bottom = -108.09418
-grow_vertical = 2
+offset_left = 2.0
+offset_top = -97.0
+offset_right = 2.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_constants/separation = 20
 alignment = 1
 
 [node name="NewSaveButton" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 toggle_mode = true
 text = "NEW SAVE"
@@ -87,6 +93,7 @@ rotation_speed = 40.0
 [node name="LoadSaveButton" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 toggle_mode = true
 text = "LOAD SAVE"
@@ -115,6 +122,7 @@ rotation_speed = 40.0
 [node name="SettingsButton" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 toggle_mode = true
 text = "SETTINGS"
@@ -143,6 +151,7 @@ rotation_speed = 40.0
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 toggle_mode = true
 text = "QUIT"
@@ -167,20 +176,6 @@ pivot_offset = Vector2(20, 20)
 texture = ExtResource("6_x87vx")
 script = ExtResource("7_dn5jd")
 rotation_speed = 40.0
-
-[node name="Title" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -320.0
-offset_right = 320.0
-offset_bottom = 303.0
-grow_horizontal = 2
-mouse_filter = 2
-texture = ExtResource("6_prid6")
-expand_mode = 3
-stretch_mode = 5
 
 [node name="Sounds" type="Node" parent="."]
 
