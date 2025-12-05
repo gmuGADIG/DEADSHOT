@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="DEADSHOT"
-run/main_scene="uid://crgv6bkolrlyy"
+run/main_scene="uid://by8y1gjlttw6g"
 config/features=PackedStringArray("4.5")
 config/icon="res://temp_art/icon.svg"
 
