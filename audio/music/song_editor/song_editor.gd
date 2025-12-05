@@ -7,8 +7,6 @@ class_name SongEditor
 ## - Inline curve editors for crossfade
 ## - Fine-tune controls with arrow key support
 
-const DEFAULT_SONG_PATH := "res://audio/music/song_resource/default_song.tres"
-
 # Node references
 @onready var music_player: MusicPlayer = $MusicPlayer
 @onready var song_scanner: Node = $SongScanner
@@ -88,65 +86,59 @@ func _on_file_selected(index: int) -> void:
 		music_player.current_song = resource.duplicate()
 		save_path_edit.text = file_path
 	elif resource is AudioStream:
-		var song: Song = load(DEFAULT_SONG_PATH).duplicate()
+		var song := Song.new()
 		song.song_file = resource
-		song.loop_start = 0.0
-		song.loop_end = resource.get_length()
+		song.loop_info = LoopInfo.new()
+		song.loop_info.loop_start = 0.0
+		song.loop_info.loop_end = resource.get_length()
 		music_player.current_song = song
 		save_path_edit.text = file_path.get_basename() + "_song.tres"
 	
+	# Ensure loop_info exists for editing
+	_ensure_loop_info()
 	_sync_ui_from_song()
 	_setup_curve_editors()
 
+func _ensure_loop_info() -> void:
+	var song: Song = music_player.current_song
+	if song and not song.loop_info:
+		song.loop_info = LoopInfo.new()
+		if song.song_file and song.song_file is AudioStream:
+			song.loop_info.loop_end = song.song_file.get_length()
+
 func _sync_ui_from_song() -> void:
-	if not music_player.current_song:
+	if not music_player.current_song or not music_player.current_song.loop_info:
 		return
 	
 	var song: Song = music_player.current_song
+	var loop_info: LoopInfo = song.loop_info
 	var length: float = 0.0
 	if song.song_file and song.song_file is AudioStream:
 		length = song.song_file.get_length()
 	
 	timeline.set_song_length(length)
-	timeline.set_loop_start(song.loop_start)
-	timeline.set_loop_end(song.loop_end)
-	timeline.set_fade_period(song.fade_period)
+	timeline.set_loop_start(loop_info.loop_start)
+	timeline.set_loop_end(loop_info.loop_end)
+	timeline.set_fade_period(loop_info.fade_period)
 	
 	loop_start_spin.max_value = length
 	loop_end_spin.max_value = length
 	fade_period_spin.max_value = length * 0.5
 	
-	loop_start_spin.set_value_no_signal(song.loop_start)
-	loop_end_spin.set_value_no_signal(song.loop_end)
-	fade_period_spin.set_value_no_signal(song.fade_period)
+	loop_start_spin.set_value_no_signal(loop_info.loop_start)
+	loop_end_spin.set_value_no_signal(loop_info.loop_end)
+	fade_period_spin.set_value_no_signal(loop_info.fade_period)
 	gain_slider.set_value_no_signal(song.amplify_db)
 	_update_gain_label(song.amplify_db)
 
 func _setup_curve_editors() -> void:
-	if not music_player.current_song:
+	if not music_player.current_song or not music_player.current_song.loop_info:
 		return
 	
-	var song: Song = music_player.current_song
-	
-	if not song.fade_in_curve:
-		song.fade_in_curve = _create_default_fade_in_curve()
-	if not song.fade_out_curve:
-		song.fade_out_curve = _create_default_fade_out_curve()
-	
-	fade_in_curve_edit.set_curve(song.fade_in_curve)
-	fade_out_curve_edit.set_curve(song.fade_out_curve)
+	var loop_info: LoopInfo = music_player.current_song.loop_info
+	fade_in_curve_edit.set_curve(loop_info.fade_in_curve)
+	fade_out_curve_edit.set_curve(loop_info.fade_out_curve)
 
-func _create_default_fade_in_curve() -> Curve:
-	var curve := Curve.new()
-	curve.add_point(Vector2(0, 0))
-	curve.add_point(Vector2(1, 1))
-	return curve
-
-func _create_default_fade_out_curve() -> Curve:
-	var curve := Curve.new()
-	curve.add_point(Vector2(0, 1))
-	curve.add_point(Vector2(1, 0))
-	return curve
 
 func _update_playhead() -> void:
 	var pos := music_player.get_position()
@@ -167,16 +159,16 @@ func _format_time(seconds: float) -> String:
 	return "%d:%02d" % [mins, secs]
 
 func _update_curve_playheads(pos: float) -> void:
-	if not music_player.current_song:
+	if not music_player.current_song or not music_player.current_song.loop_info:
 		fade_in_curve_edit.set_playhead(-1.0)
 		fade_out_curve_edit.set_playhead(-1.0)
 		return
 	
-	var song := music_player.current_song
-	var fade_start := song.loop_end - song.fade_period
+	var loop_info: LoopInfo = music_player.current_song.loop_info
+	var fade_start := loop_info.loop_end - loop_info.fade_period
 	
-	if pos >= fade_start and pos < song.loop_end and song.fade_period > 0:
-		var t := (pos - fade_start) / song.fade_period
+	if pos >= fade_start and pos < loop_info.loop_end and loop_info.fade_period > 0:
+		var t := (pos - fade_start) / loop_info.fade_period
 		t = clampf(t, 0.0, 1.0)
 		fade_in_curve_edit.set_playhead(t)
 		fade_out_curve_edit.set_playhead(t)
@@ -185,13 +177,13 @@ func _update_curve_playheads(pos: float) -> void:
 		fade_out_curve_edit.set_playhead(-1.0)
 
 func _on_timeline_loop_start_changed(value: float) -> void:
-	if music_player.current_song:
-		music_player.current_song.loop_start = value
+	if music_player.current_song and music_player.current_song.loop_info:
+		music_player.current_song.loop_info.loop_start = value
 		loop_start_spin.set_value_no_signal(value)
 
 func _on_timeline_loop_end_changed(value: float) -> void:
-	if music_player.current_song:
-		music_player.current_song.loop_end = value
+	if music_player.current_song and music_player.current_song.loop_info:
+		music_player.current_song.loop_info.loop_end = value
 		loop_end_spin.set_value_no_signal(value)
 
 func _on_timeline_seek(seek_position: float) -> void:
@@ -212,9 +204,9 @@ func _on_stop_pressed() -> void:
 	music_player.stop()
 
 func _on_preview_loop_pressed() -> void:
-	if not music_player.current_song:
+	if not music_player.current_song or not music_player.current_song.loop_info:
 		return
-	var preview_start := maxf(0.0, music_player.current_song.loop_end - 3.0)
+	var preview_start := maxf(0.0, music_player.current_song.loop_info.loop_end - 3.0)
 	if music_player.is_playing():
 		music_player.seek(preview_start)
 	else:
@@ -224,18 +216,18 @@ func _on_volume_changed(value: float) -> void:
 	music_player.set_volume(value)
 
 func _on_loop_start_spin_changed(value: float) -> void:
-	if music_player.current_song:
-		music_player.current_song.loop_start = value
+	if music_player.current_song and music_player.current_song.loop_info:
+		music_player.current_song.loop_info.loop_start = value
 		timeline.set_loop_start(value)
 
 func _on_loop_end_spin_changed(value: float) -> void:
-	if music_player.current_song:
-		music_player.current_song.loop_end = value
+	if music_player.current_song and music_player.current_song.loop_info:
+		music_player.current_song.loop_info.loop_end = value
 		timeline.set_loop_end(value)
 
 func _on_fade_period_changed(value: float) -> void:
-	if music_player.current_song:
-		music_player.current_song.fade_period = value
+	if music_player.current_song and music_player.current_song.loop_info:
+		music_player.current_song.loop_info.fade_period = value
 		timeline.set_fade_period(value)
 
 func _on_gain_changed(value: float) -> void:
@@ -268,17 +260,15 @@ func _on_save_pressed() -> void:
 		_show_toast("Save failed: " + str(err), Color(1.0, 0.4, 0.4))
 
 func _on_reset_fade_in() -> void:
-	var default_song: Song = load(DEFAULT_SONG_PATH)
-	if default_song and default_song.fade_in_curve:
-		var curve: Curve = default_song.fade_in_curve.duplicate()
-		music_player.current_song.fade_in_curve = curve
+	if music_player.current_song and music_player.current_song.loop_info:
+		var curve: Curve = LoopInfo.new().fade_in_curve
+		music_player.current_song.loop_info.fade_in_curve = curve
 		fade_in_curve_edit.set_curve(curve)
 
 func _on_reset_fade_out() -> void:
-	var default_song: Song = load(DEFAULT_SONG_PATH)
-	if default_song and default_song.fade_out_curve:
-		var curve: Curve = default_song.fade_out_curve.duplicate()
-		music_player.current_song.fade_out_curve = curve
+	if music_player.current_song and music_player.current_song.loop_info:
+		var curve: Curve = LoopInfo.new().fade_out_curve
+		music_player.current_song.loop_info.fade_out_curve = curve
 		fade_out_curve_edit.set_curve(curve)
 
 func _show_toast(message: String, color: Color = Color(0.9, 0.9, 0.9)) -> void:
