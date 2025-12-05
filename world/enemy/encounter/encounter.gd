@@ -5,7 +5,7 @@ extends Area3D
 ## If an encounter is active, this references it.
 ## Otherwise, null.
 static var active_encounter: Encounter = null
-
+var finished_encounter:Array #Test test test
 enum EncounterProgress {
 	WAITING,
 	IN_PROGRESS,
@@ -66,7 +66,12 @@ func start_encounter() -> void:
 	progress = EncounterProgress.IN_PROGRESS
 	active_encounter = self
 	%CameraTracked.enabled = true
-	for obj in get_encounter_objects():
+	
+	var objects := get_encounter_objects()
+	for obj in objects:
+		obj.prepare()
+	
+	for obj in objects:
 		obj.start()
 		await get_tree().create_timer(appear_delay, false).timeout
 
@@ -84,7 +89,7 @@ func end_encounter() -> void:
 
 func _is_encounter_done() -> bool:
 	for o: EncounterObject in get_encounter_objects():
-		if o.is_enemy(): return false
+		if o.blocks_completion(): return false
 	
 	return true
 
@@ -99,7 +104,7 @@ func _on_object_killed(obj: EncounterObject) -> void:
 func _on_body_entered(body: Node3D) -> void:
 	if progress != EncounterProgress.WAITING: return # encounter has already been started
 	
-	if body is Player:
+	if body is Player && _is_encounter_done() == false:
 		start_encounter()
 
 static func is_encounter_active() -> bool:

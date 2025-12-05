@@ -31,7 +31,7 @@ point_count = 8
 
 [node name="PropDemo" instance=ExtResource("1_ip4m7")]
 
-[node name="World" parent="." index="1"]
+[node name="World" parent="." index="2"]
 navigation_mesh = SubResource("NavigationMesh_hxoc3")
 
 [node name="Floor" parent="World" index="0"]

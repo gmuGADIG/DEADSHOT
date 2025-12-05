@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://1s1a4b2buf1o"]
+[gd_scene load_steps=6 format=3 uid="uid://1s1a4b2buf1o"]
 
+[ext_resource type="Theme" uid="uid://cbhjnihlejbf6" path="res://menu/ui_theme.tres" id="1_51p4d"]
 [ext_resource type="Script" uid="uid://c2g1b6ojckef4" path="res://menu/pause_menu/pause_menu.gd" id="1_inj1j"]
-[ext_resource type="Texture2D" uid="uid://bkx0k7n6ahwbu" path="res://menu/pause_menu/Wood Panel.jpg" id="2_51p4d"]
+[ext_resource type="FontFile" uid="uid://doh1s81pnbjh3" path="res://menu/BaskaraDemoRegular.ttf" id="3_1mtac"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1mtac"]
 content_margin_left = 0.0
@@ -15,19 +16,11 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_51p4d"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(0, 0, 0, 0.6)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
+[sub_resource type="LabelSettings" id="LabelSettings_62d6h"]
+font = ExtResource("3_1mtac")
+font_size = 66
 
-[node name="PauseMenu" type="Control" node_paths=PackedStringArray("resume_button", "locker_button", "options_button", "restart_button", "menu_button", "quit_button")]
+[node name="PauseMenu" type="Control" node_paths=PackedStringArray("resume_button", "locker_button", "settings_button", "restart_button", "menu_button")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -35,13 +28,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_51p4d")
 script = ExtResource("1_inj1j")
 resume_button = NodePath("VBoxContainer/ResumeButton")
 locker_button = NodePath("VBoxContainer/LockerButton")
-options_button = NodePath("VBoxContainer/SettingsButton")
+settings_button = NodePath("VBoxContainer/SettingsButton")
 restart_button = NodePath("VBoxContainer/RestartButton")
 menu_button = NodePath("VBoxContainer/MainMenuButton")
-quit_button = NodePath("VBoxContainer/QuitButton")
 
 [node name="TransparentBG" type="Panel" parent="."]
 layout_mode = 1
@@ -52,27 +45,24 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_1mtac")
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_left = -75.0
-offset_top = -100.0
-offset_right = 225.0
-offset_bottom = -100.0
-grow_vertical = 2
-rotation = 0.10471976
-scale = Vector2(1.33, 1.33)
-theme_override_styles/panel = SubResource("StyleBoxFlat_51p4d")
+[node name="Slant" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -384.0
+offset_top = -380.00003
+offset_right = 383.0
+offset_bottom = 647.0
+rotation = 0.27452645
+color = Color(0, 0, 0, 0.74509805)
 
 [node name="DEADSHOT" type="Label" parent="."]
 layout_mode = 0
-offset_left = 25.0
-offset_top = 20.0
-offset_right = 292.0
-offset_bottom = 100.0
+offset_left = 45.0
+offset_top = 40.0
+offset_right = 361.0
+offset_bottom = 139.0
 theme_override_font_sizes/font_size = 50
 text = "DEADSHOT"
+label_settings = SubResource("LabelSettings_62d6h")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -83,191 +73,40 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -551.0
+offset_left = -482.0
 offset_top = -214.0
-offset_right = -351.0
-offset_bottom = 306.0
+offset_right = -282.0
+offset_bottom = 272.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 5
 
-[node name="ResumeButton" type="TextureButton" parent="VBoxContainer"]
+[node name="ResumeButton" type="Button" parent="VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
-texture_normal = ExtResource("2_51p4d")
-texture_pressed = ExtResource("2_51p4d")
-texture_hover = ExtResource("2_51p4d")
-texture_disabled = ExtResource("2_51p4d")
-texture_focused = ExtResource("2_51p4d")
-ignore_texture_size = true
-stretch_mode = 0
+size_flags_vertical = 3
+text = "Resume"
 
-[node name="Label" type="Label" parent="VBoxContainer/ResumeButton"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -32.0
-offset_top = -11.5
-offset_right = 32.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "RESUME"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="LockerButton" type="TextureButton" parent="VBoxContainer"]
+[node name="LockerButton" type="Button" parent="VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
-texture_normal = ExtResource("2_51p4d")
-texture_pressed = ExtResource("2_51p4d")
-texture_hover = ExtResource("2_51p4d")
-texture_disabled = ExtResource("2_51p4d")
-texture_focused = ExtResource("2_51p4d")
-ignore_texture_size = true
-stretch_mode = 0
+size_flags_vertical = 3
+text = "Meat Locker"
 
-[node name="Label" type="Label" parent="VBoxContainer/LockerButton"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -32.0
-offset_top = -11.5
-offset_right = 32.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "MEAT LOCKER"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="SettingsButton" type="TextureButton" parent="VBoxContainer"]
+[node name="SettingsButton" type="Button" parent="VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
-texture_normal = ExtResource("2_51p4d")
-texture_pressed = ExtResource("2_51p4d")
-texture_hover = ExtResource("2_51p4d")
-texture_disabled = ExtResource("2_51p4d")
-texture_focused = ExtResource("2_51p4d")
-ignore_texture_size = true
-stretch_mode = 0
+size_flags_vertical = 3
+text = "Settings"
 
-[node name="Label" type="Label" parent="VBoxContainer/SettingsButton"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -32.0
-offset_top = -11.5
-offset_right = 32.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "SETTINGS"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="RestartButton" type="TextureButton" parent="VBoxContainer"]
+[node name="RestartButton" type="Button" parent="VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
-texture_normal = ExtResource("2_51p4d")
-texture_pressed = ExtResource("2_51p4d")
-texture_hover = ExtResource("2_51p4d")
-texture_disabled = ExtResource("2_51p4d")
-texture_focused = ExtResource("2_51p4d")
-ignore_texture_size = true
-stretch_mode = 0
+size_flags_vertical = 3
+text = "Reload Save"
 
-[node name="Label" type="Label" parent="VBoxContainer/RestartButton"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -32.0
-offset_top = -11.5
-offset_right = 32.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "RESTART FROM
-CHECKPOINT"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="MainMenuButton" type="TextureButton" parent="VBoxContainer"]
+[node name="MainMenuButton" type="Button" parent="VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
-texture_normal = ExtResource("2_51p4d")
-texture_pressed = ExtResource("2_51p4d")
-texture_hover = ExtResource("2_51p4d")
-texture_disabled = ExtResource("2_51p4d")
-texture_focused = ExtResource("2_51p4d")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="Label" type="Label" parent="VBoxContainer/MainMenuButton"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -32.0
-offset_top = -11.5
-offset_right = 32.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "MAIN MENU"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="QuitButton" type="TextureButton" parent="VBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 70)
-layout_mode = 2
-texture_normal = ExtResource("2_51p4d")
-texture_pressed = ExtResource("2_51p4d")
-texture_hover = ExtResource("2_51p4d")
-texture_disabled = ExtResource("2_51p4d")
-texture_focused = ExtResource("2_51p4d")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="Label" type="Label" parent="VBoxContainer/QuitButton"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -32.0
-offset_top = -11.5
-offset_right = 32.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "QUIT GAME"
-horizontal_alignment = 1
-vertical_alignment = 1
+size_flags_vertical = 3
+text = "Main Menu"

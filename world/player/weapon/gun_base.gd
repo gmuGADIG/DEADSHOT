@@ -2,11 +2,12 @@
 class_name Gun
 extends Node3D
 
-## Time in seconds to reload
-@export var reload_time : float = 1.25
-## Max number of bullets in chamber and reserve
-@export var max_chamber : int = 6
-@export var max_reserve : int = 60
+signal fired
+
+@export var reload_time : float = 1.25 ## Time in seconds to reload
+@export var max_chamber : int = 6 ## Max number of bullets in chamber (a single clip)
+@export var max_reserve : int = 60 ## Max number of bullets in the reserve
+@export var ammo_per_pickup : int = 30 ## How much ammo is added when the player gets an ammo pickup
 
 ## Gets set to the max_wep_ammo and max_reserve_ammo from player.
 var chamber_ammo : int:
@@ -24,7 +25,7 @@ var reserve_ammo : int:
 var is_reloading := false
 var bullets_of_fire_unlocked: bool
 
-@onready var player: Player = get_parent()
+@onready var player: Player = Player.instance
 @export var fire_cooldown: float = 0.2
 var fire_timer: float = 0.0
 
@@ -54,14 +55,25 @@ func _process(delta: float) -> void:
 			return
 	 
 		fire()
+		fired.emit()
 	
 	# Reloads the gun as well (if you can shoot, you can reload).
 	if Input.is_action_just_pressed("reload") and is_reloading == false:
 		reload()
+	
+	set_gun_rotation()
 
 @abstract
 func fire() -> void
 	
+
+## Called when an ammo pickup is grabbed.
+## Adds to the gun's reserve.
+## Returns the amount added, since different guns can have different amounts.
+func add_ammo() -> int:
+	reserve_ammo += ammo_per_pickup
+	return ammo_per_pickup
+
 ## Reloads the gun if there are less than the max number of bullets in the chamber and if there are any bullets in the reserve available.
 func reload() -> void:
 	var chamber_diff := max_chamber - chamber_ammo
@@ -73,12 +85,10 @@ func reload() -> void:
 	is_reloading = true
 	
 	# wait `reload_time` seconds, while emitting player_reload_progress_changed every frame
-	var progress := 0.0
-	while progress < 1.0:
-		Global.player_reload_progress_changed.emit(progress)
-		progress += get_process_delta_time() / reload_time
-		await get_tree().process_frame
-	Global.player_reload_progress_changed.emit(1.0)
+	await create_tween().tween_method(
+		Global.player_reload_progress_changed.emit,
+		0., 1., reload_time
+	).finished
 	
 	if (reserve_ammo >= chamber_diff):
 		reserve_ammo -= chamber_diff
@@ -90,3 +100,15 @@ func reload() -> void:
 	is_reloading = false
 	
 	print("reloaded")
+
+## Rotate gun towards aim direction. Affects visuals and (for certain guns) ensures they fire in the desired direction.
+func set_gun_rotation() -> void:
+	self.look_at(player.global_position+player.aim_dir())
+	rotation.x=0.0
+	rotation.z=0.0
+
+func get_bullet_scene() -> PackedScene:
+	if bullets_of_fire_unlocked:
+		return preload("res://world/player/weapon/bullet/fire_bullet.tscn")
+	else:
+		return preload("res://world/player/weapon/bullet/player_bullet.tscn")

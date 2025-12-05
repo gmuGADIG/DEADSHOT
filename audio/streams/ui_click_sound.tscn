@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4hj1uuryjqkf"]
+
+[ext_resource type="AudioStream" uid="uid://bqyu3lhn5fmqa" path="res://audio/enemies/bandit_fire/se_bandit_shot_1.wav" id="1_x71qa"]
+
+[node name="UIClickSound" type="AudioStreamPlayer"]
+stream = ExtResource("1_x71qa")
+volume_db = -7.627

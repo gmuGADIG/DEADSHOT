@@ -25,5 +25,6 @@ shape = SubResource("ConvexPolygonShape3D_101jw")
 
 [node name="EncounterObject" type="Node" parent="."]
 script = ExtResource("2_egdxf")
+start_instant = true
 hide_on_finish = true
 metadata/_custom_type_script = "uid://5yprj03obbfy"

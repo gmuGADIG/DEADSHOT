@@ -205,8 +205,13 @@ func show_skill_panel(skill : SkillDesc) -> void:
 "
 
 [node name="Skill_Tree" type="Control"]
+process_mode = 3
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_dnamn")
 zoom_offset = Vector2(-15, -25)
 
@@ -218,13 +223,34 @@ offset_right = 1488.0
 offset_bottom = 867.0
 color = Color(0, 0, 0, 0.87058824)
 
-[node name="ExitButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 772.0
-offset_top = 567.0
-offset_right = 1131.0
-offset_bottom = 628.0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -313.0
+offset_top = -202.0
+offset_right = -34.0
+offset_bottom = -30.0
+grow_horizontal = 0
+grow_vertical = 0
+alignment = 1
+
+[node name="Reset" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 38
+text = "Reset Skill Tree"
+flat = true
+
+[node name="ExitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 38
 text = "Exit"
+flat = true
 
 [node name="Meat Tree" type="Label" parent="."]
 layout_mode = 0
@@ -236,12 +262,14 @@ scale = Vector2(2, 2)
 text = "Meat Tree"
 
 [node name="SkillButtons" type="Control" parent="."]
+z_index = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Base" parent="SkillButtons" instance=ExtResource("2_3f6vw")]
 layout_mode = 0
@@ -611,8 +639,8 @@ stretch_mode = 5
 
 [node name="SkillBranches" type="Node2D" parent="."]
 unique_name_in_owner = true
-z_index = -1
 
-[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Reset" to="." method="on_skill_tree_reset"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="Overlay/SkillPanel/VSplitContainer/Options/Purchase" to="." method="_on_purchase_pressed"]
 [connection signal="pressed" from="Overlay/SkillPanel/VSplitContainer/Options/Cancel" to="." method="on_skill_unselected"]

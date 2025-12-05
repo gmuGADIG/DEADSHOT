@@ -1,12 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://d3o7riajla512"]
+[gd_scene load_steps=12 format=3 uid="uid://d3o7riajla512"]
 
 [ext_resource type="PackedScene" uid="uid://cr05xakri7lnw" path="res://world/floor/floor_gen.tscn" id="1_plfsl"]
 [ext_resource type="Texture2D" uid="uid://cjbsq7rk6r3h4" path="res://temp_art/gartic/cactus.png" id="2_p5u37"]
-[ext_resource type="Script" path="res://test_scenes/test_coin.gd" id="3_0u0ns"]
+[ext_resource type="Script" uid="uid://duvasrdv76uic" path="res://test_scenes/test_coin.gd" id="3_0u0ns"]
 [ext_resource type="Texture2D" uid="uid://sxaysn4gqoxo" path="res://temp_art/gartic/coin.png" id="3_p5u37"]
 [ext_resource type="PackedScene" uid="uid://nuqmhgq1e2lu" path="res://world/player/player.tscn" id="5_plfsl"]
 [ext_resource type="PackedScene" uid="uid://b4n4rflu3my0v" path="res://world/enemy/longhorn/longhorn.tscn" id="7_byltu"]
 [ext_resource type="PackedScene" uid="uid://cn2ip7hvcayky" path="res://systems/camera/main_cam.tscn" id="7_ppbhs"]
+[ext_resource type="PackedScene" uid="uid://dgq8eujhb7aiv" path="res://world/enemy/bandit/enemy_bandit.tscn" id="8_ppbhs"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_plfsl"]
 vertices = PackedVector3Array(68.84153, 2.3999999, -23.946981, 69.09153, 2.3999999, -23.446981, 71.59153, 0.64999986, -23.446981, 71.09153, 0.64999986, -27.446981, -30.65847, 0.64999986, -28.946981, -33.40847, 0.89999986, -24.446981, -30.90847, 2.3999999, -23.696981, 65.84153, 0.64999986, -28.946981, -33.90847, 0.64999986, -23.696981, -33.90847, 0.64999986, 31.553019, -33.40847, 0.64999986, 35.303017, -30.90847, 2.3999999, 35.303017, -32.928074, 1.3999999, 27.540594, 69.09153, 2.3999999, 35.303017, 71.59153, 0.89999986, 35.303017, 72.09153, 0.64999986, 32.053017, 72.09153, 0.64999986, -20.196981, 70.56653, 1.1499999, -21.971981, 70.60154, 1.3999999, -20.460995, -29.90847, 0.39999983, -22.946981, -29.90847, 0.39999983, 34.803017, 68.09153, 0.39999983, 34.803017, 68.09153, 0.39999983, -22.946981, 68.84153, 2.1499999, 35.803017, 71.09153, 0.64999986, 39.303017, -30.65847, 2.3999999, 35.803017, -32.90847, 0.64999986, 39.303017, -27.40847, 0.64999986, 40.803017, 65.59153, 0.64999986, 40.803017, 67.592316, 1.1499999, 38.042175)
@@ -27,6 +28,7 @@ point_count = 4
 [node name="Player" parent="." instance=ExtResource("5_plfsl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53553, 4.7683716e-07, 0.9444761)
 walk_speed = 20.0
+floor_type = 1
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.92473876, -0.25272667, 0.28458285, 0, 0.74771696, 0.66401756, -0.3806024, -0.61404276, 0.69144285, 0, 0, 0)
@@ -69,5 +71,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.796852, 1, 6.3707905)
 damage = 5.0
 movement_speed = 25.0
 patrol_path = Array[Vector3]([Vector3(10.126128, 1, 6.3707905), Vector3(20.796852, 1, 6.3707905)])
+
+[node name="EnemyBandit" parent="." instance=ExtResource("8_ppbhs")]
+fire_rate = 1.0
+bullet_speed = 50.0
 
 [node name="MainCam" parent="." instance=ExtResource("7_ppbhs")]
