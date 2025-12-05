@@ -21,6 +21,9 @@ enum EncounterProgress {
 ## Optional. If set, finishing the encounter will change to this scene.
 @export var ending_scene: PackedScene = null
 
+## Optional. If set, will play this song during the encounter
+@export var encounter_song: Song
+
 var progress := EncounterProgress.WAITING
 
 func _ready() -> void:
@@ -67,6 +70,8 @@ func start_encounter() -> void:
 	active_encounter = self
 	%CameraTracked.enabled = true
 	
+	MainMusicPlayer.push_song(encounter_song)
+	
 	var objects := get_encounter_objects()
 	for obj in objects:
 		obj.prepare()
@@ -80,6 +85,9 @@ func end_encounter() -> void:
 	progress = EncounterProgress.DONE
 	%CameraTracked.enabled = false
 	active_encounter = null
+	
+	if (MainMusicPlayer.get_current_song() == encounter_song):
+		MainMusicPlayer.pop_song(0.5, 0.0, 2.0)
 	
 	for obj in get_encounter_objects():
 		obj.finish()
