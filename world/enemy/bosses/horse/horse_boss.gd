@@ -156,7 +156,7 @@ func mass_chunks_charge() -> void:
 	for i in range(mass_chunk_amount):
 		var chunk_position : Vector3 = player_position + neutral_spread(0,player_still_spread_distance)
 
-		if not arena_area.is_point_in_arena(chunk_position): #is_point_in_arena caused crash
+		if not (arena_area and arena_area.is_point_in_arena(chunk_position)): #is_point_in_arena caused crash
 			return
 		
 		var bullet_reference: Node3D = splash_obj.instantiate()

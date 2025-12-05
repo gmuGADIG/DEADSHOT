@@ -89,7 +89,7 @@ func end_encounter() -> void:
 
 func _is_encounter_done() -> bool:
 	for o: EncounterObject in get_encounter_objects():
-		if o.is_enemy(): return false
+		if o.blocks_completion(): return false
 	
 	return true
 
