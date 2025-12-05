@@ -1,3 +1,4 @@
+class_name CorruptHeart
 extends Node3D
 
 @export var health : Health
@@ -23,6 +24,9 @@ func _process(delta: float) -> void:
 func on_death() -> void:
 	dying = true
 	$AnimationPlayer.play("death")
+	
+	# Remove encounter metadata so the encounter can end while animating
+	remove_meta("encounter_object")
 	
 	##Steady stream of blood
 	var blood_burst : GPUParticles3D = blood_burst_packed.instantiate()
