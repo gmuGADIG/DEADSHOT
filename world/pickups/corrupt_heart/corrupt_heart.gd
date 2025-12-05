@@ -40,9 +40,10 @@ func on_death() -> void:
 	
 	tween.tween_property($Sprite3D,"scale", Vector3(0.85,0.85,0.85),death_animation_time).set_trans(Tween.TRANS_BOUNCE)
 	
-	
-	
-	await get_tree().create_timer(death_animation_time).timeout
+	await get_tree().create_timer(death_animation_time-$HeartSwishSound.stream.get_length()).timeout
+	$HeartSwishSound.play()
+	#await get_tree().create_timer(death_animation_time).timeout
+	await $HeartSwishSound.finished
 	
 	##Final Burst of blood
 	var final_burst : GPUParticles3D = final_burst_packed.instantiate()
