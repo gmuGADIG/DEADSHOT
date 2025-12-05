@@ -78,5 +78,5 @@ func finish() -> void:
 func is_active() -> bool:
 	return _started
 
-func is_enemy() -> bool:
-	return get_parent() is EnemyBase
+func blocks_completion() -> bool:
+	return get_parent() is EnemyBase or get_parent() is CorruptHeart
