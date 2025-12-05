@@ -1,8 +1,8 @@
-[gd_resource type="Resource" script_class="Song" load_steps=7 format=3]
+[gd_resource type="Resource" script_class="Song" load_steps=7 format=3 uid="uid://qavftaunckrf"]
 
-[ext_resource type="Script" path="res://audio/music/song_resource/loop_info.gd" id="1_5e2rk"]
-[ext_resource type="Script" path="res://audio/music/song_resource/song.gd" id="2_57ecm"]
-[ext_resource type="AudioStream" path="res://audio/music/song_files/town_level_base/Theo_town_base_peaceful.mp3" id="3_p1jq5"]
+[ext_resource type="Script" uid="uid://dah3ryl52vplp" path="res://audio/music/song_resource/loop_info.gd" id="1_5e2rk"]
+[ext_resource type="Script" uid="uid://co2r0p266y1vu" path="res://audio/music/song_resource/song.gd" id="2_57ecm"]
+[ext_resource type="AudioStream" uid="uid://bq5trodmhh5kb" path="res://audio/music/song_files/town_level_base/Theo_town_base_peaceful.mp3" id="3_p1jq5"]
 
 [sub_resource type="Curve" id="Curve_6wsr0"]
 _data = [Vector2(0, 0), 0.0, 1.0, 0, 0, Vector2(1, 1), 1.0, 0.0, 0, 0]

@@ -11,8 +11,7 @@ extends Node3D
 var dying : bool = false
 var death_time : float
 func _ready() -> void:
-	
-	
+	MainMusicPlayer.fade_out()
 	health.killed.connect(on_death)
 	$AnimationPlayer.play("corrupt_heart")
 
