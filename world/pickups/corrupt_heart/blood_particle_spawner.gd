@@ -2,7 +2,7 @@ extends Node3D
 
 @export var particle : PackedScene
 
-func spawndd() -> void:
+func spawn() -> void:
 	var new_particles : GPUParticles3D = particle.instantiate()
 	add_child(new_particles)
 	new_particles.global_position = global_position

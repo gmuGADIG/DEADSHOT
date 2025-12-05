@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://blmxgvtxbyaur"]
+
+[ext_resource type="PackedScene" uid="uid://ci3804ofkibap" path="res://audio/streams/sound_base.tscn" id="1_geb7j"]
+[ext_resource type="AudioStream" uid="uid://dbaa53s78psxi" path="res://audio/world_objects/CorruptHeartSwish.wav" id="2_bdfvd"]
+
+[node name="HeartSwishSound" instance=ExtResource("1_geb7j")]
+stream = ExtResource("2_bdfvd")
+delete_on_finish = true
