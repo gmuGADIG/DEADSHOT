@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="Song" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://audio/music/song_resource/loop_info.gd" id="1_08hgk"]
+[ext_resource type="Script" path="res://audio/music/song_resource/song.gd" id="2_03yat"]
+[ext_resource type="AudioStream" path="res://audio/music/song_files/mines_level/Adrien_mass_boss.mp3" id="3_fouof"]
+
+[sub_resource type="Curve" id="Curve_dowhj"]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 0, Vector2(1, 1), 1.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_77dv3"]
+_data = [Vector2(0, 1), 0.0, -1.0, 0, 0, Vector2(1, 0), -1.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Resource" id="Resource_bexts"]
+script = ExtResource("1_08hgk")
+loop_end = 119.30122
+fade_in_curve = SubResource("Curve_dowhj")
+fade_out_curve = SubResource("Curve_77dv3")
+
+[resource]
+script = ExtResource("2_03yat")
+song_file = ExtResource("3_fouof")
+loop_info = SubResource("Resource_bexts")

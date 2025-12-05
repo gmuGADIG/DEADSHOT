@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Song" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://audio/music/song_resource/loop_info.gd" id="1_xutxy"]
+[ext_resource type="Script" path="res://audio/music/song_resource/song.gd" id="2_b1wq3"]
+[ext_resource type="AudioStream" path="res://audio/music/song_files/town_level_corrupted/Becs_corrupt_town.mp3" id="3_7an4e"]
+
+[sub_resource type="Curve" id="Curve_5nrxu"]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 0, Vector2(1, 1), 1.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_gom21"]
+_data = [Vector2(0, 1), 0.0, -1.0, 0, 0, Vector2(1, 0), -1.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Resource" id="Resource_d4swx"]
+script = ExtResource("1_xutxy")
+loop_start = 10.685
+loop_end = 145.06199999999998
+fade_period = 1.0
+fade_in_curve = SubResource("Curve_5nrxu")
+fade_out_curve = SubResource("Curve_gom21")
+
+[resource]
+script = ExtResource("2_b1wq3")
+song_file = ExtResource("3_7an4e")
+loop_info = SubResource("Resource_d4swx")
