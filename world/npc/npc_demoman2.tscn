@@ -1,13 +1,49 @@
-[gd_scene load_steps=4 format=3 uid="uid://bg0cg3jolk6u"]
+[gd_scene load_steps=8 format=3 uid="uid://bg0cg3jolk6u"]
 
 [ext_resource type="PackedScene" uid="uid://c8ycoujcnafdn" path="res://world/npc/npc_base.tscn" id="1_ruq3k"]
 [ext_resource type="Texture2D" uid="uid://cegfpthfj6eil" path="res://temp_art/gartic/godot_dead.png" id="2_bsmi7"]
-[ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="3_6kmyx"]
+[ext_resource type="Texture2D" uid="uid://bnxgsqgx2hqku" path="res://world/npc/npc_demoman_2.png" id="4_bsmi7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kmyx"]
+atlas = ExtResource("4_bsmi7")
+region = Rect2(0, 0, 827, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lb7wh"]
+atlas = ExtResource("4_bsmi7")
+region = Rect2(827, 0, 827, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7x58"]
+atlas = ExtResource("4_bsmi7")
+region = Rect2(1654, 0, 827, 1024)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vqsoq"]
+animations = [{
+"frames": [{
+"duration": 30.0,
+"texture": SubResource("AtlasTexture_6kmyx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lb7wh")
+}, {
+"duration": 30.0,
+"texture": SubResource("AtlasTexture_g7x58")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lb7wh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [node name="NPCBase" instance=ExtResource("1_ruq3k")]
 
 [node name="Sprite3D" parent="." index="0"]
+visible = false
 texture = ExtResource("2_bsmi7")
 
-[node name="Comment" parent="Sprite3D" index="0" instance=ExtResource("3_6kmyx")]
-text = "Demoman 2"
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." index="2"]
+transform = Transform3D(0.27, 0, 0, 0, 0.23382686, 0.135, 0, -0.135, 0.23382686, 0, 1.223766, 0)
+alpha_cut = 1
+sprite_frames = SubResource("SpriteFrames_vqsoq")
+frame_progress = 0.9476155
