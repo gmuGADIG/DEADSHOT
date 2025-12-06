@@ -8,13 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://8er7o8byf7v1" path="res://world/decoration/well/well.tscn" id="7_7xwwm"]
 [ext_resource type="PackedScene" uid="uid://d1e8myf75tnlv" path="res://world/interactables/cover/cover_cactus_large.tscn" id="8_5rqjd"]
 [ext_resource type="PackedScene" uid="uid://c2bxn6p802s68" path="res://world/interactables/cover/cover_cactus_small.tscn" id="9_jncf5"]
-[ext_resource type="Resource" path="res://audio/music/song_files/desert_level/Matthew_desert_combat_song.tres" id="10_60nak"]
+[ext_resource type="Resource" uid="uid://dgfsfa6177rri" path="res://audio/music/song_files/desert_level/Matthew_desert_combat_song.tres" id="10_60nak"]
 [ext_resource type="PackedScene" uid="uid://bp6l0lw650m8o" path="res://world/blocker/blocker.tscn" id="10_101jw"]
 [ext_resource type="PackedScene" uid="uid://dhb2pgqbfvxoa" path="res://world/enemy/encounter/encounter.tscn" id="10_hfrtt"]
 [ext_resource type="PackedScene" uid="uid://b4n4rflu3my0v" path="res://world/enemy/longhorn/longhorn.tscn" id="11_nn1ho"]
 [ext_resource type="PackedScene" uid="uid://dxdkwdigtcn43" path="res://world/enemy/test/enemy_test.tscn" id="12_nn1ho"]
 [ext_resource type="PackedScene" uid="uid://c7c1lwr411btx" path="res://audio/music/music_player/play_song_for_scene.tscn" id="14_oaism"]
-[ext_resource type="Resource" path="res://audio/music/song_files/desert_level/Nila_desert_song.tres" id="15_guq7u"]
+[ext_resource type="Resource" uid="uid://cckle8iujnl64" path="res://audio/music/song_files/desert_level/Nila_desert_song.tres" id="15_guq7u"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_hfrtt"]
 vertices = PackedVector3Array(-60.25, 0.48999962, 2.674615, -60.25, 0.48999962, 4.424615, -59.5, 0.48999962, 4.674615, -49, 0.48999962, 6.174615, -49, 0.48999962, 0.6746149, -12.5, 0.48999962, 4.424615, -12.25, 0.48999962, 1.4246149, -13.5, 0.48999962, 0.9246149, -13.75, 0.48999962, 5.424615, -48.5, 0.48999962, 0.1746149, -48.5, 0.48999962, 6.674615, -48.25, 0.48999962, 13.924615, -18.75, 0.48999962, 13.924615, -18.5, 0.48999962, -7.825385, -48.5, 0.48999962, -7.825385, 29.25, 0.48999962, 4.424615, 29.5, 0.48999962, 3.924615, 29.25, 0.48999962, 1.6746149, 25.5, 0.48999962, 1.4246149, 26, 0.48999962, 4.424615, -11.25, 0.48999962, 5.174615, -10.75, 0.48999962, -0.07538509, 21.75, 0.48999962, 13.924615, 25.25, 0.48999962, 4.924615, -6.25, 0.48999962, 13.924615, 21.75, 0.48999962, -7.825385, -6.25, 0.48999962, -7.825385)

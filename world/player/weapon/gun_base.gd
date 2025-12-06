@@ -106,6 +106,11 @@ func set_gun_rotation() -> void:
 	self.look_at(player.global_position+player.aim_dir())
 	rotation.x=0.0
 	rotation.z=0.0
+	
+	if rotation.y > 0:
+		scale.x = -1 * abs(scale.x)
+	else:
+		scale.x = abs(scale.x)
 
 func get_bullet_scene() -> PackedScene:
 	if bullets_of_fire_unlocked:
