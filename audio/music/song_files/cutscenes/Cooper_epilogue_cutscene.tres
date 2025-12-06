@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Song" load_steps=4 format=3 uid="uid://bhgog2x24km1d"]
+
+[ext_resource type="Script" uid="uid://co2r0p266y1vu" path="res://audio/music/song_resource/song.gd" id="1_5a7cp"]
+[ext_resource type="Script" uid="uid://b7okmeqcdjwec" path="res://audio/music/song_resource/section.gd" id="2_vnam0"]
+[ext_resource type="AudioStream" uid="uid://lcagyulju8fg" path="res://audio/music/song_files/cutscenes/Cooper_epilogue_cutscene.mp3" id="3_g0jaw"]
+
+[resource]
+script = ExtResource("1_5a7cp")
+song_file = ExtResource("3_g0jaw")
