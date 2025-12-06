@@ -1,23 +1,39 @@
-extends Node2D
+extends Control
 @onready var tap_button : TextureButton = $TextureButton
 @onready var animator : AnimationPlayer = $AnimationPlayer
-@onready var black_screen : ColorRect = $AnimationPlayer/BlackTransitionScreen
+@onready var text : Node2D = $Text
+
+@export var timelines: Array[DialogTimeline]
+@export var next_scene: PackedScene
+
+func play_timeline(timeline_idx: int) -> void:
+	animator.pause()
+	Dialog.play(timelines[timeline_idx])
+	await text_finished()
+	animator.play()
 
 func _ready()->void:
 	tap_button.hide()
-	black_screen.hide()
-	animator.play("new_animation")
-	await animator.animation_finished
-	animator.play("black_transition")
+	
+	animator.play("cutscene")
 	await animator.animation_finished
 	await show_advance_prompt()
-	get_tree().change_scene_to_file("res://world/levels/desert_intro/level_desert_intro.tscn")
+	get_tree().change_scene_to_packed(next_scene)
 	
+	#animator.play("before_dialogue")
+	#await animator.animation_finished
+#
+	#Dialog.play(timeline)
+	#await text_finished()
+	#
+	#animator.play("after_dialogue")
+	#await animator.animation_finished
+
+func text_finished() -> void:
+	while Dialog.panel.visible:
+		await get_tree().process_frame
+
 func show_advance_prompt() -> void:
 	tap_button.show()
-	
 	while not Input.is_action_just_pressed("interact"):
 		await get_tree().process_frame
-	#print("test1")
-	#await tap_button.pressed
-	#print("test2")
