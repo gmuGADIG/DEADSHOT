@@ -1,14 +1,14 @@
 [gd_scene load_steps=11 format=3 uid="uid://dn2iddsfmeuk1"]
 
-[ext_resource type="Script" uid="uid://c1bnxnohhlms" path="res://menu/cutscenes/cutscene.gd" id="1_7thay"]
-[ext_resource type="PackedScene" uid="uid://bueg0v6pvrthp" path="res://world/levels/desert_intro/level_desert_intro.tscn" id="2_20iws"]
-[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="2_ahycu"]
-[ext_resource type="Texture2D" uid="uid://cera4qeb4jduo" path="res://menu/cutscenes/sheriff/cs_sheriff_3.png" id="3_heym7"]
-[ext_resource type="Texture2D" uid="uid://cf6kmw6jnpx03" path="res://menu/cutscenes/sheriff/cs_sheriff_2.png" id="4_ahycu"]
-[ext_resource type="Texture2D" uid="uid://bkbstfe0rka4w" path="res://menu/cutscenes/sheriff/cs_sheriff_1.png" id="5_yfnmi"]
+[ext_resource type="Script" uid="uid://c1bnxnohhlms" path="res://menu/cutscenes/cutscene.gd" id="1_iprbc"]
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="2_xaxsn"]
+[ext_resource type="PackedScene" uid="uid://ohg0len20ido" path="res://world/levels/town/level_town_v4_boss.tscn" id="3_30vfp"]
+[ext_resource type="Texture2D" uid="uid://cera4qeb4jduo" path="res://menu/cutscenes/sheriff/cs_sheriff_3.png" id="4_k6hsi"]
+[ext_resource type="Texture2D" uid="uid://cf6kmw6jnpx03" path="res://menu/cutscenes/sheriff/cs_sheriff_2.png" id="5_jcc6t"]
+[ext_resource type="Texture2D" uid="uid://bkbstfe0rka4w" path="res://menu/cutscenes/sheriff/cs_sheriff_1.png" id="6_h7471"]
 
 [sub_resource type="Resource" id="Resource_yfnmi"]
-script = ExtResource("2_ahycu")
+script = ExtResource("2_xaxsn")
 dialog = "the note reads...
 \"sheriff is evil\""
 metadata/_custom_type_script = "uid://rvaetvwo5p3h"
@@ -102,7 +102,7 @@ tracks/6/keys = {
 
 [sub_resource type="Animation" id="Animation_k2yrb"]
 resource_name = "new_animation"
-length = 10.0
+length = 5.1
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -216,9 +216,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_7thay")
-timelines = Array[ExtResource("2_ahycu")]([SubResource("Resource_yfnmi")])
-next_scene = ExtResource("2_20iws")
+script = ExtResource("1_iprbc")
+timelines = Array[ExtResource("2_xaxsn")]([SubResource("Resource_yfnmi")])
+next_scene = ExtResource("3_30vfp")
 
 [node name="BG" type="ColorRect" parent="."]
 layout_mode = 1
@@ -236,7 +236,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_heym7")
+texture = ExtResource("4_k6hsi")
 expand_mode = 1
 stretch_mode = 6
 
@@ -251,7 +251,7 @@ offset_right = 13.08313
 offset_bottom = 7.359253
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_ahycu")
+texture = ExtResource("5_jcc6t")
 expand_mode = 1
 stretch_mode = 6
 
@@ -262,7 +262,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_yfnmi")
+texture = ExtResource("6_h7471")
 expand_mode = 1
 stretch_mode = 6
 
