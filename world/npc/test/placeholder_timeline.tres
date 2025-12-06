@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://p0gac8lgeity"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_m1cjt"]
+
+[resource]
+script = ExtResource("1_m1cjt")
+dialog = "<writing missing>"
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"
