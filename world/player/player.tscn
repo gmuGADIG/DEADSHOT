@@ -1,9 +1,9 @@
-[gd_scene load_steps=38 format=3 uid="uid://nuqmhgq1e2lu"]
+[gd_scene load_steps=41 format=3 uid="uid://nuqmhgq1e2lu"]
 
 [ext_resource type="Script" uid="uid://llqh4g6obmup" path="res://world/player/player.gd" id="1_bvkkv"]
 [ext_resource type="Texture2D" uid="uid://doi1lgfq8hi21" path="res://world/player/player_sheet.png" id="2_2x47q"]
 [ext_resource type="PackedScene" uid="uid://bas8xwk5nhlq0" path="res://world/player/HUD/hud.tscn" id="2_duds0"]
-[ext_resource type="Script" path="res://world/player/player_animation.gd" id="3_3n4qb"]
+[ext_resource type="Script" uid="uid://dbka0ckv4aeih" path="res://world/player/player_animation.gd" id="3_3n4qb"]
 [ext_resource type="Script" uid="uid://cwjxwkxciij4o" path="res://systems/interaction/interactor.gd" id="3_cvtd2"]
 [ext_resource type="PackedScene" uid="uid://vnurg1w4ttt4" path="res://world/player/weapon/dualies/weapon_dualies.tscn" id="3_jrep8"]
 [ext_resource type="Script" uid="uid://c4s1ohnc08ecy" path="res://world/player/reticle/reticle.gd" id="4_40qjc"]
@@ -88,6 +88,18 @@ region = Rect2(4096, 2048, 1024, 1024)
 atlas = ExtResource("2_2x47q")
 region = Rect2(0, 3072, 1024, 1024)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8tvd"]
+atlas = ExtResource("2_2x47q")
+region = Rect2(0, 6144, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rwc3p"]
+atlas = ExtResource("2_2x47q")
+region = Rect2(1024, 6144, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vsto"]
+atlas = ExtResource("2_2x47q")
+region = Rect2(2048, 6144, 1024, 1024)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_jrep8"]
 animations = [{
 "frames": [{
@@ -154,6 +166,20 @@ animations = [{
 "loop": true,
 "name": &"walking",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8tvd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rwc3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vsto")
+}],
+"loop": false,
+"name": &"whipping",
+"speed": 10.0
 }]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_bvkkv"]
@@ -185,9 +211,8 @@ transform = Transform3D(0.39, 0, 0, 0, 0.33774987, 0.19500007, 0, -0.19500007, 0
 shaded = true
 alpha_cut = 1
 sprite_frames = SubResource("SpriteFrames_jrep8")
-animation = &"walking"
+animation = &"whipping"
 autoplay = "idle"
-frame = 2
 script = ExtResource("3_3n4qb")
 player = NodePath("..")
 

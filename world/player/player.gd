@@ -1,6 +1,7 @@
 class_name Player extends CharacterBody3D
 
 signal player_state_changed
+signal whipped
 
 ## Tracks name of current gun node. CHANGE THIS VARIABLE WHEN GUNS ARE CHANGED.
 static var gun_name := "Shotgun"
