@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="Song" load_steps=10 format=3 uid="uid://bgmpfc7r0btov"]
+
+[ext_resource type="Script" uid="uid://co2r0p266y1vu" path="res://audio/music/song_resource/song.gd" id="1_song"]
+[ext_resource type="Script" uid="uid://b7okmeqcdjwec" path="res://audio/music/song_resource/section.gd" id="2_section"]
+[ext_resource type="AudioStream" uid="uid://capui35egaefg" path="res://audio/music/song_files/cutscenes/Todd_sheriff_cutscene.mp3" id="3_audio"]
+
+[sub_resource type="Curve" id="Curve_l2481"]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 0, Vector2(1, 1), 1.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_p0gf8"]
+_data = [Vector2(0, 1), 0.0, -1.0, 0, 0, Vector2(1, 0), -1.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Resource" id="Resource_opgpk"]
+script = ExtResource("2_section")
+section_name = "suspense"
+section_start = 15.11522424062093
+section_end = 35.515
+loop = true
+fade_period = 0.5
+fade_in_curve = SubResource("Curve_l2481")
+fade_out_curve = SubResource("Curve_p0gf8")
+
+[sub_resource type="Curve" id="Curve_rwjwg"]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 0, Vector2(1, 1), 1.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_abk1k"]
+_data = [Vector2(0, 1), 0.0, -1.0, 0, 0, Vector2(1, 0), -1.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Resource" id="Resource_804uw"]
+script = ExtResource("2_section")
+section_name = "release"
+section_start = 39.528947385152186
+section_end = 45.75698
+fade_in_curve = SubResource("Curve_rwjwg")
+fade_out_curve = SubResource("Curve_abk1k")
+
+[resource]
+script = ExtResource("1_song")
+song_file = ExtResource("3_audio")
+sections = Array[ExtResource("2_section")]([SubResource("Resource_opgpk"), SubResource("Resource_804uw")])

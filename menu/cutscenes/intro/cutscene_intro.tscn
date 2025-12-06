@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://fjrb7e5a1h3a"]
+[gd_scene load_steps=12 format=3 uid="uid://fjrb7e5a1h3a"]
 
 [ext_resource type="Script" uid="uid://c1bnxnohhlms" path="res://menu/cutscenes/cutscene.gd" id="1_uf1or"]
 [ext_resource type="PackedScene" uid="uid://bueg0v6pvrthp" path="res://world/levels/desert_intro/level_desert_intro.tscn" id="2_gxha1"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://condu5ij6xd6e" path="res://menu/cutscenes/intro/cs_intro_3.png" id="4_3njjh"]
 [ext_resource type="Texture2D" uid="uid://de2dfogk2tes1" path="res://menu/cutscenes/intro/cs_intro_2.png" id="5_iqx7x"]
 [ext_resource type="Texture2D" uid="uid://kxjo274x5fml" path="res://menu/cutscenes/intro/cs_intro_1.png" id="6_y565j"]
+[ext_resource type="PackedScene" uid="uid://c7c1lwr411btx" path="res://audio/music/music_player/play_song_for_scene.tscn" id="7_1bf1k"]
+[ext_resource type="Resource" uid="uid://dttkt2twn4q2t" path="res://audio/music/song_files/cutscenes/George_cutscene_prologue.tres" id="8_3njjh"]
 
 [sub_resource type="Animation" id="Animation_vehyx"]
 length = 0.001
@@ -156,7 +158,7 @@ tracks/11/keys = {
 
 [sub_resource type="Animation" id="Animation_k2yrb"]
 resource_name = "new_animation"
-length = 9.3
+length = 19.0
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -165,7 +167,7 @@ tracks/0/path = NodePath("Frame1:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1.7, 2),
+"times": PackedFloat32Array(2.52, 2.82),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -177,7 +179,7 @@ tracks/1/path = NodePath("Frame2:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(4.1000004, 4.4),
+"times": PackedFloat32Array(7.51, 7.81),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -189,7 +191,7 @@ tracks/2/path = NodePath("Frame3:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(6.6000004, 6.8),
+"times": PackedFloat32Array(15.24, 15.54),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -201,7 +203,7 @@ tracks/3/path = NodePath("Frame4:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(9.1, 9.3),
+"times": PackedFloat32Array(18.7, 19),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -213,7 +215,7 @@ tracks/4/path = NodePath("Frame4:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(6.5, 9.3),
+"times": PackedFloat32Array(15.54, 19),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(-44.44458, -25), Vector2(0, 0)]
@@ -225,7 +227,7 @@ tracks/5/path = NodePath("Frame4:size")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(6.5, 9.3),
+"times": PackedFloat32Array(15.54, 19),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(1240.8892, 698), Vector2(1152, 648)]
@@ -237,7 +239,7 @@ tracks/6/path = NodePath("Frame3:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(3.9, 6.9),
+"times": PackedFloat32Array(7.81, 15.54),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(-37.333374, -21)]
@@ -249,7 +251,7 @@ tracks/7/path = NodePath("Frame3:size")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(3.9, 6.9),
+"times": PackedFloat32Array(7.81, 15.54),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(1152, 648), Vector2(1226.6667, 690)]
@@ -261,7 +263,7 @@ tracks/8/path = NodePath("Frame2:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(1.6, 4.4),
+"times": PackedFloat32Array(2.82, 7.81),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(-37.333252, -21)]
@@ -273,7 +275,7 @@ tracks/9/path = NodePath("Frame2:size")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(1.6, 4.4),
+"times": PackedFloat32Array(2.82, 7.81),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(1152, 648), Vector2(1226.6665, 690)]
@@ -285,7 +287,7 @@ tracks/10/path = NodePath("Frame1:position")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0, 2),
+"times": PackedFloat32Array(0, 2.82),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(-39.111206, -22)]
@@ -297,7 +299,7 @@ tracks/11/path = NodePath("Frame1:size")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(0, 2),
+"times": PackedFloat32Array(0, 2.82),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(1152, 648), Vector2(1230.2224, 692)]
@@ -398,4 +400,7 @@ metadata/_edit_use_anchors_ = true
 libraries = {
 &"": SubResource("AnimationLibrary_uh1q5")
 }
-speed_scale = 0.5
+
+[node name="PlaySongForScene" parent="." instance=ExtResource("7_1bf1k")]
+song = ExtResource("8_3njjh")
+immediate = true
