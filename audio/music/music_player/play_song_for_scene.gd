@@ -15,6 +15,7 @@ func _ready() -> void:
 	
 	var is_same_song := MainMusicPlayer.get_current_song() == song
 	if reset_song or not is_same_song:
+		MainMusicPlayer.clear_stack()
 		if not immediate:
 			MainMusicPlayer.play_song(song)
 		else:

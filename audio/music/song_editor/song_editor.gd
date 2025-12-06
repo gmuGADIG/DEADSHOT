@@ -131,7 +131,7 @@ func _on_load_pressed() -> void:
 		var default_section := Section.new("main loop", 0.0, resource.get_length(), true)
 		song.sections.append(default_section)
 		_current_song = song
-		save_path_edit.text = file_path.get_basename() + "_song.tres"
+		save_path_edit.text = file_path.get_basename() + ".tres"
 	
 	_current_section_idx = 0
 	_rebuild_section_dropdown()

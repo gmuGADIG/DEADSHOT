@@ -151,6 +151,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.352249, 0, 0.31310797)
 camera_zoom = 1.7
 appear_delay = 0.025
 ending_scene = ExtResource("9_lm1tg")
+encounter_song = ExtResource("5_s6y2q")
 
 [node name="EncounterShape" type="CollisionShape3D" parent="Encounters/Encounter 2 Real" index="1"]
 transform = Transform3D(3.32, 0, 0, 0, 1, 0, 0, 0, 1.395, 0.18966675, 0, 0)
