@@ -7,19 +7,15 @@ extends Control
 @export var next_scene: PackedScene
 
 func play_timeline(timeline_idx: int) -> void:
-	print("[Cutscene] play_timeline called, pausing at %.2f" % animator.current_animation_position)
 	animator.pause()
 	Dialog.play(timelines[timeline_idx])
 	await text_finished()
-	print("[Cutscene] Dialog done, resuming animation")
 	animator.play()
 
 func goto_music_section(section_name: String, transition_time: float = 0.5) -> void:
-	print("[Cutscene] goto_music_section('%s', %.2f)" % [section_name, transition_time])
 	MainMusicPlayer.goto_section(section_name, transition_time)
 
 func set_music_volume(level: float, duration: float = 0.0) -> void:
-	print("[Cutscene] set_music_volume(%.2f, %.2f)" % [level, duration])
 	MainMusicPlayer.set_volume(level, duration)
 
 func _ready()->void:
@@ -32,7 +28,7 @@ func _ready()->void:
 	
 	#animator.play("before_dialogue")
 	#await animator.animation_finished
-#
+	#
 	#Dialog.play(timeline)
 	#await text_finished()
 	#
