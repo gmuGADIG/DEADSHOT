@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://6ahxaf8mfjcr" path="res://world/pickups/ammo_pickup/ammo_pickup.tscn" id="2_siqd8"]
 [ext_resource type="PackedScene" uid="uid://bp6l0lw650m8o" path="res://world/blocker/blocker.tscn" id="3_j473c"]
 [ext_resource type="PackedScene" uid="uid://bb3qdjspo0kcq" path="res://world/interactables/barrel/barrel.tscn" id="4_5bykt"]
-[ext_resource type="Resource" path="res://audio/music/song_files/town_level_base/Jesse_base_town_combat_song.tres" id="5_s6y2q"]
+[ext_resource type="Resource" uid="uid://bvi8ktop0ysw7" path="res://audio/music/song_files/town_level_base/Jesse_base_town_combat_song.tres" id="5_s6y2q"]
 [ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://world/interactables/cover/cover_boulder.tscn" id="5_siqd8"]
 [ext_resource type="PackedScene" uid="uid://doavrdpyjcdgp" path="res://world/enemy/judge/enemy_judge.tscn" id="6_rldgf"]
 [ext_resource type="PackedScene" uid="uid://dwdhuncnyfmcw" path="res://world/enemy/wilder/wilder.tscn" id="7_41dv2"]
@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://buycij5b3uf5i" path="res://world/npc/paper/paper.tscn" id="12_j473c"]
 [ext_resource type="PackedScene" uid="uid://dwsraqi3f8a1l" path="res://world/interactables/campfire/campfire.tscn" id="13_5bykt"]
 [ext_resource type="PackedScene" uid="uid://c7c1lwr411btx" path="res://audio/music/music_player/play_song_for_scene.tscn" id="16_lm1tg"]
-[ext_resource type="Resource" path="res://audio/music/song_files/town_level_base/Todd_base_town_song.tres" id="17_peyec"]
+[ext_resource type="Resource" uid="uid://ch30xhnxme10k" path="res://audio/music/song_files/town_level_base/Todd_base_town_song.tres" id="17_peyec"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dynrd"]
 size = Vector3(10, 3, 10)

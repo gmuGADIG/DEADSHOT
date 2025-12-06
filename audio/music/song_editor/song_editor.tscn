@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b65ut2jdj4bwf"]
+[gd_scene load_steps=11 format=3 uid="uid://b65ut2jdj4bwf"]
 
 [ext_resource type="Script" uid="uid://chbnigrocj5g" path="res://audio/music/song_editor/song_editor.gd" id="2_editor"]
 [ext_resource type="PackedScene" uid="uid://3lris5j0nmj4" path="res://audio/music/music_player/music_player.tscn" id="3_player"]
@@ -24,16 +24,32 @@ content_margin_left = 12.0
 content_margin_top = 8.0
 content_margin_right = 12.0
 content_margin_bottom = 8.0
-bg_color = Color(0.1, 0.1, 0.12, 1)
+bg_color = Color(0.07, 0.07, 0.09, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color(0.2, 0.2, 0.22, 1)
+border_color = Color(0.15, 0.15, 0.18, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_btn"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+bg_color = Color(0.22, 0.22, 0.26, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.35, 0.35, 0.4, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBox_toast"]
 content_margin_left = 16.0
@@ -116,6 +132,12 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="LoadBtn" type="Button" parent="MainContainer/VBox/HeaderSection/FileRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Load"
+
 [node name="TimelineSection" type="VBoxContainer" parent="MainContainer/VBox"]
 layout_mode = 2
 theme_override_constants/separation = 8
@@ -133,110 +155,129 @@ layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("5_timeline")
 
-[node name="TimeDisplay" type="Label" parent="MainContainer/VBox/TimelineSection"]
-unique_name_in_owner = true
+[node name="PlaybackRow" type="HBoxContainer" parent="MainContainer/VBox/TimelineSection"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
-theme_override_font_sizes/font_size = 14
-text = "--:-- / --:--"
-horizontal_alignment = 1
+theme_override_constants/separation = 12
 
-[node name="ControlsSection" type="PanelContainer" parent="MainContainer/VBox"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBox_panel")
-
-[node name="ControlsVBox" type="VBoxContainer" parent="MainContainer/VBox/ControlsSection"]
-layout_mode = 2
-theme_override_constants/separation = 8
-
-[node name="PlaybackRow" type="HBoxContainer" parent="MainContainer/VBox/ControlsSection/ControlsVBox"]
-layout_mode = 2
-theme_override_constants/separation = 8
-alignment = 1
-
-[node name="PlayBtn" type="Button" parent="MainContainer/VBox/ControlsSection/ControlsVBox/PlaybackRow"]
+[node name="PlayBtn" type="Button" parent="MainContainer/VBox/TimelineSection/PlaybackRow"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 text = "▶ Play"
 
-[node name="StopBtn" type="Button" parent="MainContainer/VBox/ControlsSection/ControlsVBox/PlaybackRow"]
+[node name="StopBtn" type="Button" parent="MainContainer/VBox/TimelineSection/PlaybackRow"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 text = "■ Stop"
 
-[node name="Separator" type="VSeparator" parent="MainContainer/VBox/ControlsSection/ControlsVBox/PlaybackRow"]
+[node name="PlaySectionBtn" type="Button" parent="MainContainer/VBox/TimelineSection/PlaybackRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
+text = "▶ Section"
 
-[node name="PreviewLoopBtn" type="Button" parent="MainContainer/VBox/ControlsSection/ControlsVBox/PlaybackRow"]
+[node name="PreviewLoopBtn" type="Button" parent="MainContainer/VBox/TimelineSection/PlaybackRow"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
 text = "🔄 Preview"
 
-[node name="VolumeRow" type="HBoxContainer" parent="MainContainer/VBox/ControlsSection/ControlsVBox"]
+[node name="Separator1" type="VSeparator" parent="MainContainer/VBox/TimelineSection/PlaybackRow"]
 layout_mode = 2
-theme_override_constants/separation = 12
+
+[node name="VolumeContainer" type="HBoxContainer" parent="MainContainer/VBox/TimelineSection/PlaybackRow"]
+layout_mode = 2
+theme_override_constants/separation = 6
 alignment = 1
 
-[node name="VolumeLabel" type="Label" parent="MainContainer/VBox/ControlsSection/ControlsVBox/VolumeRow"]
+[node name="VolumeLabel" type="Label" parent="MainContainer/VBox/TimelineSection/PlaybackRow/VolumeContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
-text = "Volume:"
+text = "Vol:"
 
-[node name="VolumeSlider" type="HSlider" parent="MainContainer/VBox/ControlsSection/ControlsVBox/VolumeRow"]
+[node name="VolumeSlider" type="HSlider" parent="MainContainer/VBox/TimelineSection/PlaybackRow/VolumeContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+size_flags_vertical = 4
 max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="FineTuneSection" type="PanelContainer" parent="MainContainer/VBox"]
+[node name="Separator2" type="VSeparator" parent="MainContainer/VBox/TimelineSection/PlaybackRow"]
+layout_mode = 2
+
+[node name="TimeDisplay" type="Label" parent="MainContainer/VBox/TimelineSection/PlaybackRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_font_sizes/font_size = 14
+text = "--:-- / --:--"
+horizontal_alignment = 2
+
+[node name="SectionEditorSection" type="PanelContainer" parent="MainContainer/VBox"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBox_panel")
 
-[node name="FineTuneVBox" type="VBoxContainer" parent="MainContainer/VBox/FineTuneSection"]
+[node name="SectionVBox" type="VBoxContainer" parent="MainContainer/VBox/SectionEditorSection"]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="ValuesGrid" type="GridContainer" parent="MainContainer/VBox/FineTuneSection/FineTuneVBox"]
+[node name="SectionColumns" type="HBoxContainer" parent="MainContainer/VBox/SectionEditorSection/SectionVBox"]
 layout_mode = 2
-theme_override_constants/h_separation = 24
-theme_override_constants/v_separation = 8
-columns = 6
+theme_override_constants/separation = 24
 
-[node name="LoopStartLabel" type="Label" parent="MainContainer/VBox/FineTuneSection/FineTuneVBox/ValuesGrid"]
+[node name="LeftColumn" type="VBoxContainer" parent="MainContainer/VBox/SectionEditorSection/SectionVBox/SectionColumns"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="LeftLabel" type="Label" parent="MainContainer/VBox/SectionEditorSection/SectionVBox/SectionColumns/LeftColumn"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.6, 0.6, 1)
+theme_override_font_sizes/font_size = 12
+text = "CURRENT SECTION"
+
+[node name="StartEndRow" type="HBoxContainer" parent="MainContainer/VBox/SectionEditorSection/SectionVBox/SectionColumns/LeftColumn"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="SectionStartLabel" type="Label" parent="MainContainer/VBox/SectionEditorSection/SectionVBox/SectionColumns/LeftColumn/StartEndRow"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.3, 0.7, 0.4, 1)
-text = "Loop Start:"
+text = "Start:"
 
-[node name="LoopStartSpin" type="SpinBox" parent="MainContainer/VBox/FineTuneSection/FineTuneVBox/ValuesGrid"]
+[node name="SectionStartSpin" type="SpinBox" parent="MainContainer/VBox/SectionEditorSection/SectionVBox/SectionColumns/LeftColumn/StartEndRow"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 step = 0.001
 suffix = "s"
 
-[node name="LoopEndLabel" type="Label" parent="MainContainer/VBox/FineTuneSection/FineTuneVBox/ValuesGrid"]
+[node name="SectionEndLabel" type="Label" parent="MainContainer/VBox/SectionEditorSection/SectionVBox/SectionColumns/LeftColumn/StartEndRow"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.7, 0.4, 0.3, 1)
-text = "Loop End:"
+text = "End:"
 
-[node name="LoopEndSpin" type="SpinBox" parent="MainContainer/VBox/FineTuneSection/FineTuneVBox/ValuesGrid"]
+[node name="SectionEndSpin" type="SpinBox" parent="MainContainer/VBox/SectionEditorSection/SectionVBox/SectionColumns/LeftColumn/StartEndRow"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 step = 0.001
 suffix = "s"
 
-[node name="FadePeriodLabel" type="Label" parent="MainContainer/VBox/FineTuneSection/FineTuneVBox/ValuesGrid"]
+[node name="CrossfadeLoopRow" type="HBoxContainer" parent="MainContainer/VBox/SectionEditorSection/SectionVBox/SectionColumns/LeftColumn"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="CrossfadeLabel" type="Label" parent="MainContainer/VBox/SectionEditorSection/SectionVBox/SectionColumns/LeftColumn/CrossfadeLoopRow"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.6, 0.5, 0.3, 1)
 text = "Crossfade:"
 
-[node name="FadePeriodSpin" type="SpinBox" parent="MainContainer/VBox/FineTuneSection/FineTuneVBox/ValuesGrid"]
+[node name="CrossfadeSpin" type="SpinBox" parent="MainContainer/VBox/SectionEditorSection/SectionVBox/SectionColumns/LeftColumn/CrossfadeLoopRow"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
@@ -244,24 +285,74 @@ step = 0.01
 value = 0.2
 suffix = "s"
 
-[node name="GainRow" type="HBoxContainer" parent="MainContainer/VBox/FineTuneSection/FineTuneVBox"]
+[node name="LoopCheckbox" type="CheckBox" parent="MainContainer/VBox/SectionEditorSection/SectionVBox/SectionColumns/LeftColumn/CrossfadeLoopRow"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Loop"
+
+[node name="RightColumn" type="VBoxContainer" parent="MainContainer/VBox/SectionEditorSection/SectionVBox/SectionColumns"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="RightLabel" type="Label" parent="MainContainer/VBox/SectionEditorSection/SectionVBox/SectionColumns/RightColumn"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.6, 0.6, 1)
+theme_override_font_sizes/font_size = 12
+text = "SECTION MANAGEMENT"
+
+[node name="SectionSelectRow" type="HBoxContainer" parent="MainContainer/VBox/SectionEditorSection/SectionVBox/SectionColumns/RightColumn"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="SectionDropdown" type="OptionButton" parent="MainContainer/VBox/SectionEditorSection/SectionVBox/SectionColumns/RightColumn/SectionSelectRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+allow_reselect = true
+
+[node name="RenameSectionBtn" type="Button" parent="MainContainer/VBox/SectionEditorSection/SectionVBox/SectionColumns/RightColumn/SectionSelectRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBox_btn")
+text = "Rename"
+
+[node name="SectionButtons" type="HBoxContainer" parent="MainContainer/VBox/SectionEditorSection/SectionVBox/SectionColumns/RightColumn"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="AddSectionBtn" type="Button" parent="MainContainer/VBox/SectionEditorSection/SectionVBox/SectionColumns/RightColumn/SectionButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "+ Add"
+
+[node name="RemoveSectionBtn" type="Button" parent="MainContainer/VBox/SectionEditorSection/SectionVBox/SectionColumns/RightColumn/SectionButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "- Remove"
+
+[node name="GainRow" type="HBoxContainer" parent="MainContainer/VBox/SectionEditorSection/SectionVBox"]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="GainLabel" type="Label" parent="MainContainer/VBox/FineTuneSection/FineTuneVBox/GainRow"]
+[node name="GainLabel" type="Label" parent="MainContainer/VBox/SectionEditorSection/SectionVBox/GainRow"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.5, 0.6, 0.8, 1)
-text = "Gain:"
+text = "Song Gain:"
 
-[node name="GainSlider" type="HSlider" parent="MainContainer/VBox/FineTuneSection/FineTuneVBox/GainRow"]
+[node name="GainSlider" type="HSlider" parent="MainContainer/VBox/SectionEditorSection/SectionVBox/GainRow"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 min_value = -20.0
 max_value = 6.0
 step = 0.1
 
-[node name="GainValueLabel" type="Label" parent="MainContainer/VBox/FineTuneSection/FineTuneVBox/GainRow"]
+[node name="GainValueLabel" type="Label" parent="MainContainer/VBox/SectionEditorSection/SectionVBox/GainRow"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2

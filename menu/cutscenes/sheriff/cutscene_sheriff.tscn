@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dn2iddsfmeuk1"]
+[gd_scene load_steps=13 format=3 uid="uid://dn2iddsfmeuk1"]
 
 [ext_resource type="Script" uid="uid://c1bnxnohhlms" path="res://menu/cutscenes/cutscene.gd" id="1_iprbc"]
 [ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="2_xaxsn"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cera4qeb4jduo" path="res://menu/cutscenes/sheriff/cs_sheriff_3.png" id="4_k6hsi"]
 [ext_resource type="Texture2D" uid="uid://cf6kmw6jnpx03" path="res://menu/cutscenes/sheriff/cs_sheriff_2.png" id="5_jcc6t"]
 [ext_resource type="Texture2D" uid="uid://bkbstfe0rka4w" path="res://menu/cutscenes/sheriff/cs_sheriff_1.png" id="6_h7471"]
+[ext_resource type="PackedScene" uid="uid://c7c1lwr411btx" path="res://audio/music/music_player/play_song_for_scene.tscn" id="7_30vfp"]
+[ext_resource type="Resource" uid="uid://bgmpfc7r0btov" path="res://audio/music/song_files/cutscenes/Todd_sheriff_cutscene.tres" id="8_k6hsi"]
 
 [sub_resource type="Resource" id="Resource_yfnmi"]
 script = ExtResource("2_xaxsn")
@@ -54,55 +56,31 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Frame3:position")
+tracks/3/path = NodePath("Frame1:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(0, -32)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Frame3:size")
+tracks/4/path = NodePath("Frame1:size")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1152, 648)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Frame1:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Frame1:size")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1152, 648)]
+"values": [Vector2(1267, 713)]
 }
 
 [sub_resource type="Animation" id="Animation_k2yrb"]
-resource_name = "new_animation"
-length = 5.1
+resource_name = "cutscene"
+length = 17.0
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -111,7 +89,7 @@ tracks/0/path = NodePath("Frame1:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1.7, 2),
+"times": PackedFloat32Array(9.7, 10),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -123,7 +101,7 @@ tracks/1/path = NodePath("Frame2:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(2.4, 2.9),
+"times": PackedFloat32Array(10.5, 11),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -135,7 +113,7 @@ tracks/2/path = NodePath("Frame3:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(4.8, 5),
+"times": PackedFloat32Array(16, 17),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -143,63 +121,42 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Frame3:position")
+tracks/3/path = NodePath("Frame1:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(2.3, 5.0999994),
+"times": PackedFloat32Array(0, 10),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(-37.333374, -21)]
+"values": [Vector2(0, -32), Vector2(-115, -32)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Frame3:size")
+tracks/4/path = NodePath("Frame1:size")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(2.3, 5.0999994),
+"times": PackedFloat32Array(0, 10),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1152, 648), Vector2(1226.6667, 690)]
+"values": [Vector2(1267, 713), Vector2(1267, 713)]
 }
-tracks/5/type = "value"
+tracks/5/type = "method"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Frame1:position")
+tracks/5/path = NodePath(".")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 2),
+"times": PackedFloat32Array(10.2, 10.5),
 "transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(-39.111206, -22)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Frame1:size")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1152, 648), Vector2(1230.2224, 692)]
-}
-tracks/7/type = "method"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath(".")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(2.2),
-"transitions": PackedFloat32Array(1),
 "values": [{
 "args": [0],
 "method": &"play_timeline"
+}, {
+"args": ["release", 0.5],
+"method": &"goto_music_section"
 }]
 }
 
@@ -260,6 +217,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -32.0
+offset_right = 115.0
+offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_h7471")
@@ -292,4 +252,8 @@ metadata/_edit_use_anchors_ = true
 libraries = {
 &"": SubResource("AnimationLibrary_uh1q5")
 }
-speed_scale = 0.5
+
+[node name="PlaySongForScene" parent="." instance=ExtResource("7_30vfp")]
+song = ExtResource("8_k6hsi")
+reset_song = true
+immediate = true
