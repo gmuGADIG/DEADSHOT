@@ -25,10 +25,13 @@ size = Vector3(10, 3, 10)
 
 [node name="LevelTown3" instance=ExtResource("1_64v5s")]
 
-[node name="Player" parent="." index="6"]
+[node name="PlaySongForScene" parent="." index="0" instance=ExtResource("15_vk73q")]
+song = ExtResource("16_2pq5m")
+
+[node name="Player" parent="." index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.090755, 0, 48.140087)
 
-[node name="Encounters" type="Node3D" parent="." index="14"]
+[node name="Encounters" type="Node3D" parent="." index="15"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9888, 0.06661462, -0.24382162)
 
 [node name="Encounter 3 Real" parent="Encounters" index="0" instance=ExtResource("2_8nofb")]
@@ -307,8 +310,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5674849, -3.0398369e-06, -3
 [node name="AmmoPickup" parent="Encounters/Encounter 4 Real" index="43" instance=ExtResource("12_862rw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7372551, 0.2041964, 64.23396)
 
-[node name="Campfire" parent="." index="15" instance=ExtResource("12_6u3i3")]
+[node name="Campfire" parent="." index="16" instance=ExtResource("12_6u3i3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.875153, 0.21470356, 47.442585)
-
-[node name="PlaySongForScene" parent="." index="16" instance=ExtResource("15_vk73q")]
-song = ExtResource("16_2pq5m")
