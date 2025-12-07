@@ -30,7 +30,7 @@ var _transition_time_elapsed: float = 0.0
 var _current_transition_duration: float = 1.0
 var _volume_tween: Tween
 var _fade_out_tween: Tween
-var _target_volume: float = 1.0 # perceived 0..1 target for players
+var _target_volume: float = 1.0
 var _is_paused: bool = false
 var _song_stack: Array[Dictionary] = []
 var _bus_indices: Array[int] = []
