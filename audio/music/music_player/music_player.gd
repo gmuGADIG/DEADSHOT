@@ -17,6 +17,7 @@ const MUTE_DB: float = -64.0
 const VOLUME_TRANSITION_TIME: float = 0.2
 const DEFAULT_TRANSITION_TIME: float = 1.0
 const DEFAULT_FADE_OUT_DURATION: float = 2.0
+const PERCEIVED_CURVE_EXPONENT: float = 2.0
 
 @onready var players: Array[AudioStreamPlayer] = [$AudioStreamPlayerA, $AudioStreamPlayerB]
 
@@ -29,7 +30,7 @@ var _transition_time_elapsed: float = 0.0
 var _current_transition_duration: float = 1.0
 var _volume_tween: Tween
 var _fade_out_tween: Tween
-var _target_volume: float = 1.0
+var _target_volume: float = 1.0 # perceived 0..1 target for players
 var _is_paused: bool = false
 var _song_stack: Array[Dictionary] = []
 var _bus_indices: Array[int] = []
@@ -231,11 +232,44 @@ func get_current_section() -> Section:
 	var sections := get_current_sections()
 	return sections[0] if sections.size() > 0 else null
 
-func set_volume(level: float, duration: float = 0.0) -> void:
-	level = clampf(level, 0.0, 1.0)
-	_target_volume = level
-	var target_db := MUTE_DB if level == 0.0 else linear_to_db(level)
+func set_loudness(perceived_level: float, duration: float = 0.0) -> void:
+	perceived_level = clampf(perceived_level, 0.0, 1.0)
+	_target_volume = perceived_level
+	var linear_level := pow(perceived_level, PERCEIVED_CURVE_EXPONENT)
+	_apply_player_volume_db(linear_level, duration)
+
+func set_volume(linear_level: float, duration: float = 0.0) -> void:
+	# Legacy: linear amplitude 0..1
+	linear_level = clampf(linear_level, 0.0, 1.0)
+	_target_volume = pow(maxf(linear_level, 0.0), 1.0 / PERCEIVED_CURVE_EXPONENT)
+	_apply_player_volume_db(linear_level, duration)
+
+func set_master_loudness(perceived_level: float, duration: float = 0.0) -> void:
+	perceived_level = clampf(perceived_level, 0.0, 1.0)
+	var bus_idx := AudioServer.get_bus_index(bus_name)
+	if bus_idx == -1:
+		push_warning("MusicPlayer: Bus '%s' not found for master loudness" % bus_name)
+		return
 	
+	var linear_level := pow(perceived_level, PERCEIVED_CURVE_EXPONENT)
+	var target_db := MUTE_DB if linear_level == 0.0 else linear_to_db(linear_level)
+	AudioServer.set_bus_volume_db(bus_idx, target_db)
+
+func get_volume() -> float:
+	return pow(_target_volume, PERCEIVED_CURVE_EXPONENT)
+
+func get_loudness() -> float:
+	return _target_volume
+
+func get_master_loudness() -> float:
+	var bus_idx := AudioServer.get_bus_index(bus_name)
+	if bus_idx == -1:
+		return _target_volume
+	var linear := db_to_linear(AudioServer.get_bus_volume_db(bus_idx))
+	return pow(linear, 1.0 / PERCEIVED_CURVE_EXPONENT)
+
+func _apply_player_volume_db(linear_level: float, duration: float) -> void:
+	var target_db := MUTE_DB if linear_level == 0.0 else linear_to_db(linear_level)
 	_kill_tween(_volume_tween)
 	if duration > 0.0:
 		_volume_tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
@@ -244,9 +278,6 @@ func set_volume(level: float, duration: float = 0.0) -> void:
 	else:
 		for player in players:
 			player.volume_db = target_db
-
-func get_volume() -> float:
-	return _target_volume
 
 func refresh_amplify() -> void:
 	_set_player_amplify(active_idx, current_song)
