@@ -37,6 +37,7 @@ func set_speed(newspeed: float) ->void:
 
 func _process(delta: float) -> void:
 	global_position += velocity * delta
+	global_position.y = 1.0
 
 func _on_area_entered(area: Area3D) -> void:
 	if area is Hurtbox:
