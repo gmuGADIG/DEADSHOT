@@ -70,7 +70,7 @@ func start_encounter() -> void:
 	active_encounter = self
 	%CameraTracked.enabled = true
 	
-	MainMusicPlayer.push_song(encounter_song)
+	MainMusicPlayer.push_song(encounter_song, 0.0, 0.0)
 	
 	var objects := get_encounter_objects()
 	for obj in objects:
