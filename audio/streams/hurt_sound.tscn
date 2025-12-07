@@ -1,8 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://cjqtb588mlf84"]
+[gd_scene load_steps=6 format=3 uid="uid://cjqtb588mlf84"]
 
 [ext_resource type="PackedScene" uid="uid://ci3804ofkibap" path="res://audio/streams/sound_base.tscn" id="1_2etuh"]
-[ext_resource type="AudioStream" uid="uid://wlnqhs4htixp" path="res://audio/placeholders/test_hurt.wav" id="2_amc8g"]
+[ext_resource type="AudioStream" uid="uid://dgp3m5w6vsegg" path="res://audio/player/pc_hurt/se_player_hurt_h.mp3" id="2_lgnk7"]
+[ext_resource type="AudioStream" uid="uid://iys7wt1mdocr" path="res://audio/player/pc_hurt/se_player_hurt_m.mp3" id="3_0im3q"]
+[ext_resource type="AudioStream" uid="uid://scwv3bjxra8j" path="res://audio/player/pc_hurt/se_player_hurt_l.mp3" id="4_7j6ns"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dpo8s"]
+playback_mode = 1
+streams_count = 3
+stream_0/stream = ExtResource("2_lgnk7")
+stream_1/stream = ExtResource("3_0im3q")
+stream_2/stream = ExtResource("4_7j6ns")
 
 [node name="HurtSound" instance=ExtResource("1_2etuh")]
-stream = ExtResource("2_amc8g")
-delete_on_finish = false
+stream = SubResource("AudioStreamRandomizer_dpo8s")
