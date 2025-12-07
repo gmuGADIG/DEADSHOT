@@ -31,8 +31,25 @@ var current_action: StringName = ""
 @export var mass_targets: Array[Node3D]
 @export var arena_area : ArenaArea
 
+var left_or_right := "right"
+
+func _process(delta: float) -> void:
+	should_move = not is_close_to_destination()
+
+	if not is_close_to_destination():
+		print("horse.gd: velocity.x = ", velocity.x)
+		if velocity.x < 0:
+			left_or_right = "left"
+		else:
+			left_or_right = "right"
+
+	if should_move:
+		$Sprite.animation = "run_" + left_or_right
+	else:
+		$Sprite.animation = "idle_" + left_or_right
+		pass # idle/attack frames
+
 func pick_action() -> void:
-	
 	if len(phase_1_action_names) == 0: return
 	if current_action != "": 
 		print("Action in progress, not picking new action")
@@ -41,6 +58,7 @@ func pick_action() -> void:
 	action_player.play(action_name)
 	current_action = action_name
 	print("picking action ", action_name)
+
 func _ready() -> void:
 	super._ready()
 	timer.connect("timeout", _on_charge_timer_timeout)
@@ -53,6 +71,7 @@ func get_2d_angle(from: Vector3, to: Vector3) -> float:
 	var dot := from.dot(to)
 	var angle := atan2(cross.y, dot)
 	return angle
+
 func stomp_fire_attack() -> void:
 	print("stomp fire")
 	aggro = AggroState.ATTACKING
@@ -75,13 +94,9 @@ func stomp_fire_attack() -> void:
 
 #region Longhorn_funcs
 func longhorn_charge_ready() -> void:
-	
-	
 	print("Charging")
 	
 	shaker.shaking = true
-
-
 
 func longhorn_charge_attack() -> void:
 	is_charging = true
@@ -89,15 +104,13 @@ func longhorn_charge_attack() -> void:
 	%Health.vulnerable = false
 	target = player.global_position
 	print("attacking")
-	
-	
+
 func _on_charge_timer_timeout() -> void:
 	if not is_charging: 
 		current_action = ""
 		roam()
 		pick_action()
-		
-	
+
 func _on_hurter_box_area_entered(area: Area3D) -> void:
 	if area is Hurtbox:
 		var hurtbox : Hurtbox = area
@@ -115,9 +128,8 @@ func action_finished(anim_name: StringName) -> void:
 		current_action = ""
 		super.action_finished(anim_name)
 		roam()
-		
+
 func longhorn_process() -> void:
-	
 	set_movement_target(target);
 	should_move = not is_close_to_destination();
 	if !should_move:
@@ -126,6 +138,7 @@ func longhorn_process() -> void:
 		shaker.shaking = false
 		is_charging = false
 		timer.start(cooldown_time)	
+
 func attack() -> void:
 	if (is_charging):
 		longhorn_process()
@@ -137,7 +150,6 @@ func roam() -> void:
 	aggro = AggroState.HOSTILE
 	if not navigation_agent.is_target_reachable():
 		roam() #try again
-	
 
 func hostile() -> void:
 	if navigation_agent.is_navigation_finished():
@@ -146,8 +158,6 @@ func hostile() -> void:
 #endregion
 
 #region MassChunks_funcs
-
-
 func mass_chunks_charge() -> void:
 	mass_targets.clear()
 	print("Charging chunks")
@@ -179,9 +189,6 @@ func mass_chunks_attack() -> void:
 		bullet_reference.speed = 40
 		
 		bullet_reference.set_target(target_position)
-		
-		
-	
 
 func neutral_spread(min_dist : float, max_dist : float) -> Vector3:
 	var result : Vector3 = Vector3.RIGHT
@@ -189,6 +196,4 @@ func neutral_spread(min_dist : float, max_dist : float) -> Vector3:
 	var distance_multiplier : float = randf_range(min_dist,max_dist)
 	
 	return result.rotated(Vector3.UP,deg_to_rad(angle))*distance_multiplier
-
-
 #endregion
