@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://bweukovpkolvr"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_s76ee"]
+
+[resource]
+script = ExtResource("1_s76ee")
+dialog = "[Cryptic Nomad] Not all sacrifices are noble, and not all men become heroes. People come and go every day, blowing along like grains of sand in the desert."
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"

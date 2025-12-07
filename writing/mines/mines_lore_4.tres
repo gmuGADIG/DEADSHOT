@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://clhgf74gvg10g"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_vtjqp"]
+
+[resource]
+script = ExtResource("1_vtjqp")
+dialog = "[ ]There's a message carved into the rock...
+'It was adored by the people. It felt loved. But the three watching from on high became jealous of its new found worship.'
+'They abandoned it and stripped it of all its joys, leaving it trapped and alone, left without the love it craved, and all without the mercy of a goodbye or a parting glance.'"
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"

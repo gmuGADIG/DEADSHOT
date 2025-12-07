@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://bur76b5qfqa77"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_eaur1"]
+
+[resource]
+script = ExtResource("1_eaur1")
+dialog = "[Cryptic Nomad] Careful with that meat, now. You'd be hard pressed to find a worse fate in this dusty old desert.
+[] You feel so… powerful.
+[Cryptic Nomad] You were warned. It's too late to turn back now.
+"
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"

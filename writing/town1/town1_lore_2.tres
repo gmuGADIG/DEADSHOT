@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://cq5x1tgw2d0w4"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_dfa1j"]
+
+[resource]
+script = ExtResource("1_dfa1j")
+dialog = "[]It’s an incredibly worn note from a journal...
+‘My family and I have made it to our new home alive and well even with the good family friends the Barnes! Must’ve been some divine power keeping us alive through that journey, to what I’m calling Slimwater!’
+‘This has to be the best piece of land in miles! This will be a town of pioneers, miners, and ranchers! We got some good pasture fields and what I think could make a wonderful mine!’
+"
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"
