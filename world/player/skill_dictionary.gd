@@ -10,7 +10,7 @@ enum SkillUID{
 	RIFLE_CHARGE_SHOT = 0b1 << 4, 
 	RIFLE_DAMAGE_2 = 0b1 << 5, #
 	RIFLE_MAG = 0b1 << 6, #
-	RIFLE_EXPLOSIVE_SHOT = 0b1 << 7, 
+	RIFLE_EXPLOSIVE_SHOT = 0b1 << 7, #
 	
 	SHOTGUN = 0b1 << 8, #
 	SHOTGUN_FIRE_RATE = 0b1 << 9, #
@@ -23,10 +23,10 @@ enum SkillUID{
 	DUAL_PISTOL = 0b1 << 15, #
 	PISTOL_FIRE_RATE = 0b1 << 16, #
 	PISTOL_ROLL_COOLDOWN = 0b1 << 17, #
-	PISTOL_DOUBLE_SHOT = 0b1 << 18,
+	PISTOL_DOUBLE_SHOT = 0b1 << 18, #
 	PISTOL_DAMAGE = 0b1 << 19, #
 	PISTOL_MOVEMENT_SPEED = 0b1 << 20, #
-	PISTOL_SALVAGE = 0b1 << 21,
+	PISTOL_SALVAGE = 0b1 << 21, #
 }
 
 static var skill_bitfield : int

@@ -46,6 +46,9 @@ func _on_area_entered(area: Area3D) -> void:
 		var did_damage := hurtbox.hit(dmg)
 		
 		if did_damage:
+			if atk_source == DamageInfo.Source.PLAYER:
+				Player.instance.get_gun().salvage_count += 1
+
 			if explosive:
 				var scene := preload("res://world/bullets/explosion.tscn")
 				var explosion: Explosion = scene.instantiate()
@@ -53,7 +56,6 @@ func _on_area_entered(area: Area3D) -> void:
 
 				get_tree().current_scene.add_child(explosion)
 				explosion.global_position = global_position
-
 
 			queue_free()
 

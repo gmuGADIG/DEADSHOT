@@ -23,6 +23,15 @@ var reserve_ammo : int:
 		reserve_ammo = value
 		Global.player_ammo_reserve_changed.emit(reserve_ammo)
 
+var salvage_count: int = 0:
+	set(v):
+		if SkillSet.has_skill(SkillSet.SkillUID.PISTOL_SALVAGE):
+			salvage_count = v
+			if v >= 10: # assume v is never >= 20
+				salvage_count -= 10
+				reserve_ammo += 4
+				%SalvageProc.play()
+
 var is_reloading := false
 
 @onready var player: Player = Player.instance
@@ -60,8 +69,14 @@ func _process(delta: float) -> void:
 			reload()
 			return
 	 
-		fire()
+		fire(true, 1)
 		fired.emit()
+
+		if SkillSet.has_skill(SkillSet.SkillUID.PISTOL_DOUBLE_SHOT):
+			get_tree().create_timer(.08).timeout.connect(func() -> void:
+				fire(true, .5)
+				fired.emit()
+			)
 	
 	# Reloads the gun as well (if you can shoot, you can reload).
 	if Input.is_action_just_pressed("reload") and is_reloading == false:
@@ -70,7 +85,7 @@ func _process(delta: float) -> void:
 	set_gun_rotation()
 
 @abstract
-func fire() -> void
+func fire(consumes_ammo: bool, damage_mul: float) -> void
 	
 
 ## Called when an ammo pickup is grabbed.
