@@ -17,10 +17,11 @@ collision_layer = 8
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94693, 0)
 shape = SubResource("CylinderShape3D_plfsl")
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
+[node name="Sprite" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 1, 0)
+alpha_cut = 1
 
-[node name="HurtFX" parent="Sprite3D" node_paths=PackedStringArray("health") instance=ExtResource("1_f0luy")]
+[node name="HurtFX" parent="Sprite" node_paths=PackedStringArray("health") instance=ExtResource("1_f0luy")]
 health = NodePath("../../Health")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]

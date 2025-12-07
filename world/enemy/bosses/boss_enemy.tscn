@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dx3l0wduat3tp" path="res://world/enemy/base/enemy_base.tscn" id="1_ktb5c"]
 [ext_resource type="Script" uid="uid://7b0himm6r8el" path="res://world/enemy/bosses/boss_enemy.gd" id="2_eboog"]
-[ext_resource type="Script" path="res://util/sprite_shaker.gd" id="3_7gjwh"]
+[ext_resource type="Script" uid="uid://dy4h4d283fxxn" path="res://util/sprite_shaker.gd" id="3_7gjwh"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_7gjwh"]
 
@@ -16,7 +16,7 @@ unique_name_in_owner = true
 
 [node name="SpriteShaker" type="Node" parent="." index="7" node_paths=PackedStringArray("sprite")]
 script = ExtResource("3_7gjwh")
-sprite = NodePath("../Sprite3D")
+sprite = NodePath("../Sprite")
 noise = SubResource("FastNoiseLite_7gjwh")
 metadata/_custom_type_script = "uid://dy4h4d283fxxn"
 

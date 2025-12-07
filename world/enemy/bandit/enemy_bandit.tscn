@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dgq8eujhb7aiv"]
+[gd_scene load_steps=13 format=3 uid="uid://dgq8eujhb7aiv"]
 
 [ext_resource type="PackedScene" uid="uid://dx3l0wduat3tp" path="res://world/enemy/base/enemy_base.tscn" id="1_j1u5n"]
 [ext_resource type="Script" uid="uid://charttcjx1m72" path="res://world/enemy/bandit/enemy_bandit.gd" id="2_jv5hu"]
@@ -11,6 +11,17 @@
 [ext_resource type="PackedScene" uid="uid://ydnqhfpbxx0f" path="res://audio/enemies/bandit/bandit_hurt.tscn" id="7_nwlji"]
 [ext_resource type="Script" uid="uid://xhcb1o6cugjs" path="res://world/enemy/bandit/play_fired_sound.gd" id="7_ywn7w"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_34fns"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ar7lx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_xuwp2"]
 
 [node name="EnemyBandit" instance=ExtResource("1_j1u5n")]
@@ -18,9 +29,9 @@ script = ExtResource("2_jv5hu")
 fire_rate = 1.0
 bullet_speed = 15.0
 
-[node name="Sprite3D" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 0.99794334, 0.06409709, 0, -0.06409709, 0.99794334, 0, 1.6290603, 0.18859816)
-texture = ExtResource("3_ar7lx")
+[node name="Sprite" parent="." index="1"]
+transform = Transform3D(0.685, 0, 0, 0, 0.5932273, 0.34250015, 0, -0.34250015, 0.5932273, 0, 0.86542356, 0)
+sprite_frames = SubResource("SpriteFrames_34fns")
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." index="3"]
 aabb = AABB(-0.5, 0, -0.5, 1, 1, 1)

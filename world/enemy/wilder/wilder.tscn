@@ -1,12 +1,27 @@
-[gd_scene load_steps=8 format=3 uid="uid://dwdhuncnyfmcw"]
+[gd_scene load_steps=10 format=3 uid="uid://dwdhuncnyfmcw"]
 
-[ext_resource type="Texture2D" uid="uid://dsyqcqueqayou" path="res://temp_art/gartic/the_gartic_phone.png" id="1_0ccam"]
 [ext_resource type="PackedScene" uid="uid://dx3l0wduat3tp" path="res://world/enemy/base/enemy_base.tscn" id="1_pw5bb"]
 [ext_resource type="Script" uid="uid://pewr3uke4fqt" path="res://world/enemy/wilder/wilder.gd" id="1_skiir"]
 [ext_resource type="PackedScene" uid="uid://53setitiasq8" path="res://world/enemy/Enemy Bullets/enemy_bullet.tscn" id="3_b04xd"]
-[ext_resource type="PackedScene" uid="uid://bgo2o5m34pbn6" path="res://audio/streams/wilder_shoot_sound.tscn" id="5_d53cb"]
-[ext_resource type="PackedScene" uid="uid://bc2cuo16dxify" path="res://audio/streams/wilder_death_sound.tscn" id="6_buhvy"]
+[ext_resource type="Texture2D" uid="uid://b0atje0hx0agb" path="res://world/enemy/wilder/wilder_front.png" id="4_b04xd"]
+[ext_resource type="PackedScene" uid="uid://dtrtlfnkaklwl" path="res://audio/streams/wilder_shoot_sound.tscn" id="5_d53cb"]
+[ext_resource type="PackedScene" uid="uid://dqe8jyn23q6w6" path="res://audio/streams/wilder_death_sound.tscn" id="6_buhvy"]
 [ext_resource type="AudioStream" uid="uid://drvscc177esir" path="res://audio/placeholders/test_explode_big.wav" id="7_b04xd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_geoxf"]
+atlas = ExtResource("4_b04xd")
+region = Rect2(0, 0, 1024, 1024)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1ptbf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_geoxf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Wilder" node_paths=PackedStringArray("StuckTimer") instance=ExtResource("1_pw5bb")]
 script = ExtResource("1_skiir")
@@ -15,8 +30,10 @@ bullet = ExtResource("3_b04xd")
 maxTravelDistance = 20.0
 StuckTimer = NodePath("StuckTimer")
 
-[node name="Sprite3D" parent="." index="1"]
-texture = ExtResource("1_0ccam")
+[node name="Sprite" parent="." index="1"]
+transform = Transform3D(0.245, 0, 0, 0, 0.21217619, 0.12250006, 0, -0.12250006, 0.21217619, 0, 1.098109, 0)
+sprite_frames = SubResource("SpriteFrames_1ptbf")
+autoplay = "default"
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." index="3"]
 aabb = AABB(-0.5, 0, -0.5, 1, 1, 1)
