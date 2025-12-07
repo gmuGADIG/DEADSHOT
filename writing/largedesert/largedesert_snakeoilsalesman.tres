@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://bc8recjumkbv1"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_4mypl"]
+
+[resource]
+script = ExtResource("1_4mypl")
+dialog = "[Snake Oil Salesman] “Stupid gunslinger... stupid town... should'a known better than to sell to a town of broke shmucks...not even a single bottle sold!”
+“Nothing left for me here, it's way too crazy for my liking... gotta cut my losses and get outta this hick desert town.”
+“What're you lookin' at, gunslinger? If you don't want a damn bottle, then get outta my face. I'm sick of you, and I’m sick of this godforsaken town.”"
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"

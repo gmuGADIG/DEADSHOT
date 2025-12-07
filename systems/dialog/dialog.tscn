@@ -32,6 +32,7 @@ charToSteam = Array[AudioStream]([ExtResource("2_clngm"), ExtResource("3_3edpr")
 metadata/_custom_type_script = "uid://qxwm2k0huy5n"
 
 [node name="Dialog" type="Control"]
+z_index = 5
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

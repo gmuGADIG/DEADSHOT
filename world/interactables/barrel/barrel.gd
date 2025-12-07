@@ -16,14 +16,11 @@ func hit(bullet: Bullet) -> void:
 	enemy_hurter.monitoring = true
 	set_collision_layer_value(1, false)
 	
-	_animated_sprite.play("rolling")
-	
 	# quantize bullet velocity to nearest vector
 	var directions: Array[Vector3] = [
 		Vector3.LEFT, Vector3.RIGHT, 
 		Vector3.FORWARD, Vector3.BACK
 	]
-	
 	var dot_result := -INF
 	var v := Vector3()
 	for dir in directions:
@@ -31,6 +28,13 @@ func hit(bullet: Bullet) -> void:
 		if d > dot_result:
 			dot_result = d
 			v = dir
+	
+	# play animation (based on direction)
+	match v:
+		Vector3.RIGHT: _animated_sprite.play("rolling_right")
+		Vector3.LEFT: _animated_sprite.play_backwards("rolling_right")
+		Vector3.FORWARD: _animated_sprite.play("rolling_up")
+		Vector3.BACK: _animated_sprite.play_backwards("rolling_up")
 	
 	velocity = v * speed
 	bullet.queue_free()

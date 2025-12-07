@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://bml8kr5i4w3l0"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_kw4bx"]
+
+[resource]
+script = ExtResource("1_kw4bx")
+dialog = "[Demo #1] “Hah! Did ya see that? That weirdo got turned into MUSH!” 
+[Demo #2] “See, I told you we’d find some more of those critters out here!”
+[ ] The skinnier of the two troublemakers notice you approach them. His devilishly toothy smile fades into a frown of disappointment. 
+[Demo #1] “Oh, great, it’s the one and only Fun Police coming to kill the party again.”
+“Hey, didn’t you get kicked outta town or somethin’? I knew we were gettin’ away with more than usual recently, so we just assumed you were on vacation, honestly.”
+[ ] The larger one takes notice of the powerful energy emitting from your body.
+[Demo #2] “Hey…I think our little killjoy is learning to live a little! Seems like they're getting their hands dirty with those creatures we saw!”
+[Demo #1] “Well, I'll be! Whaddya say you meet us over by the caves after we’re done here and we can show you some REAL fun, huh? We’ll be there with or without you, so be there or be square, killjoy!”"
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"

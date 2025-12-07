@@ -77,4 +77,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.978035, -4.7683716e-07, -2.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.154177, 0, -2.2006798)
 
 [node name="Barrel" parent="." index="20" instance=ExtResource("16_srkko")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.872095, 0.78599715, 1.1217097)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.872, 0, 1.122)

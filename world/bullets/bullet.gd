@@ -11,6 +11,7 @@ extends Area3D
 @export var despawn_after_seconds : float = 5.0
 ## How fast the bullet travels.
 @export var speed: float = 40.0
+@export var explosive := false
 
 var velocity: Vector3
 
@@ -45,6 +46,17 @@ func _on_area_entered(area: Area3D) -> void:
 		var did_damage := hurtbox.hit(dmg)
 		
 		if did_damage:
+			if atk_source == DamageInfo.Source.PLAYER:
+				Player.instance.get_gun().salvage_count += 1
+
+			if explosive:
+				var scene := preload("res://world/bullets/explosion.tscn")
+				var explosion: Explosion = scene.instantiate()
+				explosion.atk_source = atk_source
+
+				get_tree().current_scene.add_child(explosion)
+				explosion.global_position = global_position
+
 			queue_free()
 
 func _on_body_entered(body: Node3D) -> void:

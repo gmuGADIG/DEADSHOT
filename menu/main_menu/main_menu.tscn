@@ -7,9 +7,9 @@
 [ext_resource type="AudioStream" uid="uid://dc6lbunkflvv4" path="res://audio/placeholders/funny_bone_man.wav" id="4_prid6"]
 [ext_resource type="Texture2D" uid="uid://bx137n5y4vbmv" path="res://menu/main_menu/main_menu_text.png" id="5_t631e"]
 [ext_resource type="Texture2D" uid="uid://dr0k5wtlmynj6" path="res://temp_art/reticle.png" id="6_x87vx"]
-[ext_resource type="Script" path="res://menu/main_menu/reticle_spin.gd" id="7_dn5jd"]
-[ext_resource type="PackedScene" path="res://audio/streams/ui_hover_sound.tscn" id="9_ub0vu"]
-[ext_resource type="PackedScene" path="res://audio/streams/ui_click_sound.tscn" id="10_t631e"]
+[ext_resource type="Script" uid="uid://co66s5c2pttrb" path="res://menu/main_menu/reticle_spin.gd" id="7_dn5jd"]
+[ext_resource type="PackedScene" uid="uid://d15hbjoa7a2bp" path="res://audio/streams/ui_hover_sound.tscn" id="9_ub0vu"]
+[ext_resource type="PackedScene" uid="uid://b4hj1uuryjqkf" path="res://audio/streams/ui_click_sound.tscn" id="10_t631e"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3

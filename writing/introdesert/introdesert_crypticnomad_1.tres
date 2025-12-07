@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://xtxqim6a0kkg"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_vfhxb"]
+
+[resource]
+script = ExtResource("1_vfhxb")
+dialog = "[Cryptic Nomad] Sit if you want, there's room 'round this fire for the both of us."
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"

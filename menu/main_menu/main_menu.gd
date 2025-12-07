@@ -14,7 +14,7 @@ func _on_new_save_button_pressed() -> void:
 		button_pressed = true
 		play_gunshot_sound()
 		hide_reticles()
-		SceneManager.change_scene_to_file("res://menu/cutscenes/intro/intro_cutscene.tscn")
+		SceneManager.change_scene_to_file("res://menu/cutscenes/intro/cutscene_intro.tscn")
 
 func _on_load_save_button_pressed() -> void:
 	if not button_pressed:

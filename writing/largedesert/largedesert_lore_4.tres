@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://b3fphxdqqcr1d"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_kb3bb"]
+
+[resource]
+script = ExtResource("1_kb3bb")
+dialog = "[ ]It’s a crumpled page from a journal...
+‘I’ve been studying this mare for a while now. Poor thing’s been turned so badly by this curse. I can see she was once tamed, but her figure is so warped, I can’t say I recognize the girl. Every once in a while, she flinches, like there’s something screaming in her ear. I can’t imagine what that curse feels like.’
+[ ]There’s more on the back of the page...
+‘The mare seems a peaceful girl while sleeping. Wish I could say the same! Damn, do I miss having the gunslinger around. I just wish they’d appear out of the darkness and get me out of this pickle. There isn’t a spot on this compass that doesn’t point towards a horde of cursed freaks.’
+[ ]There’s a final entry at the bottom of the page. 
+‘I’m starting to feel a little thin. Cacti don’t produce much fruit around this time, so these monsters really have me cornered.’ 
+‘I miss the gunslinger. I really mean it. They’d have this situation sorted out by now. They’d find a way to bring everybody back from this curse, that mare included, and become the mayor or something! I just know it...that’s the gunslinger I fell in love with!’"
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"

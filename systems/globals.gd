@@ -13,6 +13,9 @@ signal player_reload_progress_changed(value: float)
 
 signal player_stamina_changed(value: float)
 
+signal skill_tree_changed(skill: SkillSet.SkillUID)
+signal skill_removed(skill: SkillSet.SkillUID)
+
 var meat_currency:int = 1000:
 	set(new_val):
 		meat_currency = new_val

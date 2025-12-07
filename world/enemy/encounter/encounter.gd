@@ -65,12 +65,16 @@ func prepare_encounter() -> void:
 		obj.hide()
 
 func start_encounter() -> void:
+	if Save.save_data.object_save_data.is_dead(self):
+		end_encounter()
+		return
+
 	print("Encounter START")
 	progress = EncounterProgress.IN_PROGRESS
 	active_encounter = self
 	%CameraTracked.enabled = true
 	
-	MainMusicPlayer.push_song(encounter_song)
+	MainMusicPlayer.push_song(encounter_song, 0.0, 0.0)
 	
 	var objects := get_encounter_objects()
 	for obj in objects:
@@ -82,6 +86,8 @@ func start_encounter() -> void:
 
 func end_encounter() -> void:
 	print("Encounter END")
+	Save.save_data.object_save_data.mark_dead(self)
+
 	progress = EncounterProgress.DONE
 	%CameraTracked.enabled = false
 	active_encounter = null

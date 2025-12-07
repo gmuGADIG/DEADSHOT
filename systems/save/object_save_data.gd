@@ -10,11 +10,11 @@ func has_campfire(campfire: Campfire) -> bool:
 func add_campfire(campfire: Campfire) -> void:
 	lit_campfires.append(campfire.get_path())
 
-#- Enemies -#
-func mark_dead(enemy: EnemyBase) -> void:
+#- Encounters -#
+func mark_dead(enemy: Encounter) -> void:
 	dead_enemies.append(enemy.get_path())
 	
-func is_dead(enemy: EnemyBase) -> bool:
+func is_dead(enemy: Encounter) -> bool:
 	return dead_enemies.has(enemy.get_path())
 
 #- Save / Load -#

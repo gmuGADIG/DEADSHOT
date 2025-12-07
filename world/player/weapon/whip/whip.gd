@@ -1,5 +1,7 @@
 class_name Whip extends Node3D
 
+signal whipped
+
 @onready var player : Player = get_parent()
 
 
@@ -66,6 +68,8 @@ func _process(delta: float) -> void:
 
 
 func attack() -> void:
+	whipped.emit()
+	
 	var charge_index : int = clampi(int(charge_time/time_per_charge),0,charge_levels.size()-1)
 	var whip_attack_data : WhipAttackData = charge_levels[charge_index]
 	var damage : int= whip_attack_data.damage
