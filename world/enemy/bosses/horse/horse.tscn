@@ -390,6 +390,7 @@ spawn_on_killed = ExtResource("3_o0ar2")
 shape = SubResource("CylinderShape3D_o0ar2")
 
 [node name="Sprite" parent="." index="1"]
+transform = Transform3D(0.2, 0, 0, 0, 0.17320506, 0.100000046, 0, -0.100000046, 0.17320506, 0, 1.5815797, 0)
 sprite_frames = SubResource("SpriteFrames_dc5ks")
 animation = &"idle_left"
 autoplay = "idle_right"

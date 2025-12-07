@@ -44,7 +44,6 @@ material = ExtResource("3_v5nwm")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.202965, 0, 8.371207)
 
 [node name="Horse" parent="." index="7" node_paths=PackedStringArray("roam_points", "floor_area", "arena_area") instance=ExtResource("3_lm8ri")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46483076, 0)
 roam_points = [NodePath("../RoamingPoints/Node3D"), NodePath("../RoamingPoints/Node3D2"), NodePath("../RoamingPoints/Node3D3"), NodePath("../RoamingPoints/Node3D4")]
 spread_angle = 25.0
 rock_speed = 10.0
