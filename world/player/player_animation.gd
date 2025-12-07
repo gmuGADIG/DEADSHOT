@@ -13,6 +13,7 @@ func _ready() -> void:
 	gun.fired.connect(_on_gun_fired)
 	player.player_state_changed.connect(_on_player_state_change)
 	animation_finished.connect(_on_animation_finished)
+	player.whip.whipped.connect(_on_whipped)
 
 
 func _process(_delta: float) -> void:
@@ -37,16 +38,18 @@ func updateSpriteAnimation(animationName: String) -> void:
 		"idle":
 			# If the system tries to set the animation to idle, it won't be allowed to if
 			# the player is in the middle of firing or rolling. That's information they need first.
-			if animation=="rolling"||animation=="shooting":
+			if animation in ["rolling", "shooting", "whipping"]:
 				return
 		"walking":
 			# Similarly, if the system tries to play the walking animation, it'll be stopped if
 			# the player is in the middle of shooting. Shooting takes priority.
-			if animation=="shooting" || player.velocity == Vector3.ZERO:
+			if animation in ["shooting", "whipping"] || player.velocity == Vector3.ZERO:
 				return
 		"shooting":
 			# We stop the sprite before playing the "shooting" animation. This means that if the player needs
 			# to shoot before the animation is finished, the sprite will actually shoot again instead of continuing.
+			stop()
+		"whipping":
 			stop()
 	play(animationName)
 
@@ -54,10 +57,12 @@ func updateSpriteAnimation(animationName: String) -> void:
 func _on_animation_finished() -> void:
 	# if we just finished finished animations that aren't allowed to be cancelled,
 	# we'll set them to something else so the anti-cancel checks don't get confused. 
-	if animation=="shooting"||animation=="rolling": 
+	if animation in ["shooting", "rolling", "whipping"]:
 		animation="idle"
 	updateMovementAnimation(player.current_state)
 
+func _on_whipped() -> void:
+	updateSpriteAnimation("whipping")
 
 func _on_gun_fired() -> void:
 	# The player needs that feedback to see the direction they're shooting in. No matter how they're walking,

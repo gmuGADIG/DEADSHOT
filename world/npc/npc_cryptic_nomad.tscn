@@ -1,0 +1,86 @@
+[gd_scene load_steps=13 format=3 uid="uid://drnl31ofxrsri"]
+
+[ext_resource type="PackedScene" uid="uid://c8ycoujcnafdn" path="res://world/npc/npc_base.tscn" id="1_apov8"]
+[ext_resource type="Texture2D" uid="uid://bl3b1a4m7qyja" path="res://world/npc/npc_cryptic_nomad.png" id="2_1iwnu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0mbe"]
+atlas = ExtResource("2_1iwnu")
+region = Rect2(0, 0, 1028, 1028)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_akfrw"]
+atlas = ExtResource("2_1iwnu")
+region = Rect2(1028, 0, 1028, 1028)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6ugo"]
+atlas = ExtResource("2_1iwnu")
+region = Rect2(2056, 0, 1028, 1028)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2k10"]
+atlas = ExtResource("2_1iwnu")
+region = Rect2(3084, 0, 1028, 1028)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3h73"]
+atlas = ExtResource("2_1iwnu")
+region = Rect2(4112, 0, 1028, 1028)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mthnb"]
+atlas = ExtResource("2_1iwnu")
+region = Rect2(5140, 0, 1028, 1028)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ikrmq"]
+atlas = ExtResource("2_1iwnu")
+region = Rect2(6168, 0, 1028, 1028)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjxme"]
+atlas = ExtResource("2_1iwnu")
+region = Rect2(7196, 0, 1028, 1028)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0b31q"]
+atlas = ExtResource("2_1iwnu")
+region = Rect2(8224, 0, 1028, 1028)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y34tt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0mbe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_akfrw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6ugo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2k10")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l3h73")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mthnb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ikrmq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjxme")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0b31q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="NPCCrypticNomad" instance=ExtResource("1_apov8")]
+
+[node name="Sprite3D" parent="." index="0"]
+visible = false
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." index="2"]
+transform = Transform3D(0.365, 0, 0, 0, 0.3160993, 0.1825, 0, -0.1825, 0.3160993, 0, 1.5860665, 0)
+alpha_cut = 1
+sprite_frames = SubResource("SpriteFrames_y34tt")
+frame_progress = 0.3668083

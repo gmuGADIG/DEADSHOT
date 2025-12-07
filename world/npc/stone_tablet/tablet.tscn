@@ -1,16 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://dwlho1k2eetb1"]
+[gd_scene load_steps=4 format=3 uid="uid://dwlho1k2eetb1"]
 
-[ext_resource type="Texture2D" uid="uid://clcis6jvjdkay" path="res://temp_art/stone_tablet_temp.png" id="1_gbcy0"]
-[ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="2_kvlqy"]
+[ext_resource type="Script" uid="uid://bdild08nlivpj" path="res://world/npc/npc.gd" id="1_gbcy0"]
+[ext_resource type="Texture2D" uid="uid://btqpnemuctfld" path="res://world/npc/stone_tablet/stone_tablet.png" id="2_kvlqy"]
 
-[node name="Tablet" type="Node3D"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rtelh"]
+height = 5.067383
+radius = 1.4501953
+
+[node name="Tablet" type="Area3D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_gbcy0")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 1.5324762, 0)
-pixel_size = 0.0033
+transform = Transform3D(0.5, 0, 0, 0, 0.4330127, 0.25, 0, -0.25, 0.4330127, 0, 0.89099765, 0)
 alpha_cut = 1
-texture = ExtResource("1_gbcy0")
+texture = ExtResource("2_kvlqy")
 
-[node name="UNFINISHED" parent="." instance=ExtResource("2_kvlqy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9037161, 0)
-text = "tablet (wip)"
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_rtelh")

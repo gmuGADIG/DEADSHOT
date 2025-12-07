@@ -86,11 +86,10 @@ var can_shoot := true
 
 #region Builtin Functions
 func _ready() -> void:
-	if Save.save_data.object_save_data.is_dead(self):
-		queue_free()
-		return
+	# if Save.save_data.object_save_data.is_dead(self):
+	# 	queue_free()
+	# 	return
 	
-	randomize()
 	player = get_tree().get_first_node_in_group("player")
 	starting_pos = starting_pos if not starting_pos.is_equal_approx(Vector3.ZERO) else position
 	
@@ -210,7 +209,6 @@ func drop_tonic() -> void:
 		
 func death() -> void:
 	# save that this enemy died
-	Save.save_data.object_save_data.mark_dead(self)
 	
 	# drop stuff
 	drop_tonic()

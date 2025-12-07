@@ -1,18 +1,21 @@
-[gd_scene load_steps=16 format=3 uid="uid://c4lcfae1j0kdx"]
+[gd_scene load_steps=19 format=3 uid="uid://c4lcfae1j0kdx"]
 
 [ext_resource type="PackedScene" uid="uid://cxahvvaidpg32" path="res://world/levels/town/level_town_base.tscn" id="1_64v5s"]
 [ext_resource type="PackedScene" uid="uid://dhb2pgqbfvxoa" path="res://world/enemy/encounter/encounter.tscn" id="2_8nofb"]
 [ext_resource type="PackedScene" uid="uid://bp6l0lw650m8o" path="res://world/blocker/blocker.tscn" id="3_ak673"]
+[ext_resource type="Resource" uid="uid://bin2l0wyprpnw" path="res://audio/music/song_files/town_level_corrupted/Xander_corrupt_town_combat_song.tres" id="3_ug0d2"]
 [ext_resource type="PackedScene" uid="uid://bb3qdjspo0kcq" path="res://world/interactables/barrel/barrel.tscn" id="4_wf0ds"]
 [ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://world/interactables/cover/cover_boulder.tscn" id="5_35bcn"]
 [ext_resource type="PackedScene" uid="uid://dwdhuncnyfmcw" path="res://world/enemy/wilder/wilder.tscn" id="6_rpgrq"]
 [ext_resource type="PackedScene" uid="uid://dgq8eujhb7aiv" path="res://world/enemy/bandit/enemy_bandit.tscn" id="7_06bpv"]
 [ext_resource type="PackedScene" uid="uid://doavrdpyjcdgp" path="res://world/enemy/judge/enemy_judge.tscn" id="8_kiyv6"]
 [ext_resource type="PackedScene" uid="uid://b4n4rflu3my0v" path="res://world/enemy/longhorn/longhorn.tscn" id="9_gvfx8"]
-[ext_resource type="PackedScene" uid="uid://ohg0len20ido" path="res://world/levels/town/level_town_v4_boss.tscn" id="9_l7ewn"]
 [ext_resource type="PackedScene" uid="uid://h4pbrdsf4bcg" path="res://world/enemy/splitter/enemy_splitter.tscn" id="10_ma23k"]
+[ext_resource type="PackedScene" uid="uid://dn2iddsfmeuk1" path="res://menu/cutscenes/sheriff/cutscene_sheriff.tscn" id="11_ug0d2"]
 [ext_resource type="PackedScene" uid="uid://dwsraqi3f8a1l" path="res://world/interactables/campfire/campfire.tscn" id="12_6u3i3"]
 [ext_resource type="PackedScene" uid="uid://6ahxaf8mfjcr" path="res://world/pickups/ammo_pickup/ammo_pickup.tscn" id="12_862rw"]
+[ext_resource type="PackedScene" uid="uid://c7c1lwr411btx" path="res://audio/music/music_player/play_song_for_scene.tscn" id="15_vk73q"]
+[ext_resource type="Resource" uid="uid://tli21qkgcwye" path="res://audio/music/song_files/town_level_corrupted/Becs_corrupt_town_song.tres" id="16_2pq5m"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h2go5"]
 size = Vector3(10, 3, 10)
@@ -22,16 +25,20 @@ size = Vector3(10, 3, 10)
 
 [node name="LevelTown3" instance=ExtResource("1_64v5s")]
 
-[node name="Player" parent="." index="6"]
+[node name="PlaySongForScene" parent="." index="0" instance=ExtResource("15_vk73q")]
+song = ExtResource("16_2pq5m")
+
+[node name="Player" parent="." index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.090755, 0, 48.140087)
 
-[node name="Encounters" type="Node3D" parent="." index="14"]
+[node name="Encounters" type="Node3D" parent="." index="15"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9888, 0.06661462, -0.24382162)
 
 [node name="Encounter 3 Real" parent="Encounters" index="0" instance=ExtResource("2_8nofb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.374382, -0.06661462, 30.351206)
 camera_zoom = 1.7
 appear_delay = 0.015
+encounter_song = ExtResource("3_ug0d2")
 
 [node name="EncounterShape" type="CollisionShape3D" parent="Encounters/Encounter 3 Real" index="1"]
 transform = Transform3D(2.22, 0, 0, 0, 1, 0, 0, 0, 2.025, -0.7020855, 0, -0.38622665)
@@ -106,83 +113,72 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35128975, 0.19067141, -3.7
 [node name="Boulder18" parent="Encounters/Encounter 3 Real" index="24" instance=ExtResource("5_35bcn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.050066, 0.19011831, -3.9758549)
 
-[node name="Boulder19" parent="Encounters/Encounter 3 Real" index="25" instance=ExtResource("5_35bcn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.398184, 0.18987162, -4.054907)
-
-[node name="Boulder20" parent="Encounters/Encounter 3 Real" index="26" instance=ExtResource("5_35bcn")]
+[node name="Boulder20" parent="Encounters/Encounter 3 Real" index="25" instance=ExtResource("5_35bcn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5411777, 0.18947789, -4.181364)
 
-[node name="Boulder21" parent="Encounters/Encounter 3 Real" index="27" instance=ExtResource("5_35bcn")]
+[node name="Boulder21" parent="Encounters/Encounter 3 Real" index="26" instance=ExtResource("5_35bcn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.648485, 0.18906285, -4.3146954)
 
-[node name="Boulder22" parent="Encounters/Encounter 3 Real" index="28" instance=ExtResource("5_35bcn")]
+[node name="Boulder22" parent="Encounters/Encounter 3 Real" index="27" instance=ExtResource("5_35bcn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.86252, 0.19664663, -1.8788185)
 
-[node name="Boulder23" parent="Encounters/Encounter 3 Real" index="29" instance=ExtResource("5_35bcn")]
+[node name="Boulder23" parent="Encounters/Encounter 3 Real" index="28" instance=ExtResource("5_35bcn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3406925, 0.19683704, -1.8177929)
 
-[node name="Boulder24" parent="Encounters/Encounter 3 Real" index="30" instance=ExtResource("5_35bcn")]
+[node name="Boulder24" parent="Encounters/Encounter 3 Real" index="29" instance=ExtResource("5_35bcn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.388443, 0.20259711, 0.032526016)
 
-[node name="Boulder25" parent="Encounters/Encounter 3 Real" index="31" instance=ExtResource("5_35bcn")]
+[node name="Boulder25" parent="Encounters/Encounter 3 Real" index="30" instance=ExtResource("5_35bcn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2825565, 0.20243502, -0.019573212)
 
-[node name="Boulder26" parent="Encounters/Encounter 3 Real" index="32" instance=ExtResource("5_35bcn")]
+[node name="Boulder26" parent="Encounters/Encounter 3 Real" index="31" instance=ExtResource("5_35bcn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8193321, 0.20870826, 1.9951744)
 
-[node name="Boulder27" parent="Encounters/Encounter 3 Real" index="33" instance=ExtResource("5_35bcn")]
+[node name="Boulder27" parent="Encounters/Encounter 3 Real" index="32" instance=ExtResource("5_35bcn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2832546, 0.20746684, 1.5964012)
 
-[node name="Boulder28" parent="Encounters/Encounter 3 Real" index="34" instance=ExtResource("5_35bcn")]
+[node name="Boulder28" parent="Encounters/Encounter 3 Real" index="33" instance=ExtResource("5_35bcn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8226299, 0.2081351, 1.811039)
 
-[node name="Boulder29" parent="Encounters/Encounter 3 Real" index="35" instance=ExtResource("5_35bcn")]
+[node name="Boulder29" parent="Encounters/Encounter 3 Real" index="34" instance=ExtResource("5_35bcn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2881107, 0.20793095, 1.7453384)
 
-[node name="Wilder2" parent="Encounters/Encounter 3 Real" index="36" instance=ExtResource("6_rpgrq")]
+[node name="Wilder2" parent="Encounters/Encounter 3 Real" index="35" instance=ExtResource("6_rpgrq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.106333, 0.00892204, -5.3445225)
 
-[node name="Wilder4" parent="Encounters/Encounter 3 Real" index="37" instance=ExtResource("6_rpgrq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.05037, 0.00892204, -5.4420986)
-
-[node name="Wilder6" parent="Encounters/Encounter 3 Real" index="38" instance=ExtResource("6_rpgrq")]
+[node name="Wilder6" parent="Encounters/Encounter 3 Real" index="36" instance=ExtResource("6_rpgrq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.163064, 0.008922458, -5.262285)
 
-[node name="Wilder8" parent="Encounters/Encounter 3 Real" index="39" instance=ExtResource("6_rpgrq")]
+[node name="Wilder8" parent="Encounters/Encounter 3 Real" index="37" instance=ExtResource("6_rpgrq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6045856, 0.008914828, -5.4816456)
 
-[node name="Wilder10" parent="Encounters/Encounter 3 Real" index="40" instance=ExtResource("6_rpgrq")]
+[node name="Wilder10" parent="Encounters/Encounter 3 Real" index="38" instance=ExtResource("6_rpgrq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.320019, 0.00885427, -5.7448444)
 
-[node name="EnemyTest3" parent="Encounters/Encounter 3 Real" index="41" instance=ExtResource("7_06bpv")]
+[node name="EnemyTest3" parent="Encounters/Encounter 3 Real" index="39" instance=ExtResource("7_06bpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.731713, 4.827976e-06, 5.4380264)
 
-[node name="EnemyTest4" parent="Encounters/Encounter 3 Real" index="42" instance=ExtResource("7_06bpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1243944, 5.7816505e-06, 6.997299)
-
-[node name="EnemyTest5" parent="Encounters/Encounter 3 Real" index="43" instance=ExtResource("7_06bpv")]
+[node name="EnemyTest5" parent="Encounters/Encounter 3 Real" index="40" instance=ExtResource("7_06bpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4562874, 4.827976e-06, 5.0859833)
 
-[node name="EnemyTest6" parent="Encounters/Encounter 3 Real" index="44" instance=ExtResource("7_06bpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4788303, 5.7816505e-06, 7.028908)
-
-[node name="EnemyTest" parent="Encounters/Encounter 3 Real" index="45" instance=ExtResource("8_kiyv6")]
+[node name="EnemyTest" parent="Encounters/Encounter 3 Real" index="41" instance=ExtResource("8_kiyv6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9472313, 2.9206276e-06, -0.06072426)
 
-[node name="EnemyTest2" parent="Encounters/Encounter 3 Real" index="46" instance=ExtResource("8_kiyv6")]
+[node name="EnemyTest2" parent="Encounters/Encounter 3 Real" index="42" instance=ExtResource("8_kiyv6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3151398, 3.874302e-06, 0.22773552)
 
-[node name="AmmoPickup" parent="Encounters/Encounter 3 Real" index="47" instance=ExtResource("12_862rw")]
+[node name="AmmoPickup" parent="Encounters/Encounter 3 Real" index="43" instance=ExtResource("12_862rw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7371492, 0.20419651, 1.2845764)
 
-[node name="AmmoPickup2" parent="Encounters/Encounter 3 Real" index="48" instance=ExtResource("12_862rw")]
+[node name="AmmoPickup2" parent="Encounters/Encounter 3 Real" index="44" instance=ExtResource("12_862rw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4220133, 0.28632832, -47.356922)
 
 [node name="Encounter 4 Real" parent="Encounters" index="1" instance=ExtResource("2_8nofb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.994127, -0.06661462, -21.964973)
 camera_zoom = 1.7
 appear_delay = 0.015
-ending_scene = ExtResource("9_l7ewn")
+ending_scene = ExtResource("11_ug0d2")
+encounter_song = ExtResource("3_ug0d2")
 
 [node name="EncounterShape" type="CollisionShape3D" parent="Encounters/Encounter 4 Real" index="1"]
 transform = Transform3D(2.275, 0, 0, 0, 1, 0, 0, 0, 1.98, 0, 0, 0)
@@ -314,5 +310,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5674849, -3.0398369e-06, -3
 [node name="AmmoPickup" parent="Encounters/Encounter 4 Real" index="43" instance=ExtResource("12_862rw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7372551, 0.2041964, 64.23396)
 
-[node name="Campfire" parent="." index="15" instance=ExtResource("12_6u3i3")]
+[node name="Campfire" parent="." index="16" instance=ExtResource("12_6u3i3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.875153, 0.21470356, 47.442585)

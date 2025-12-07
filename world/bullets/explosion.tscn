@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://k7mggqq4h3i1"]
+
+[ext_resource type="Script" uid="uid://dxk1lo05yd2jo" path="res://world/bullets/explosion.gd" id="1_c8ccv"]
+[ext_resource type="PackedScene" uid="uid://co30kufvambu0" path="res://audio/streams/explosion.tscn" id="1_kp2pm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c8ccv"]
+transparency = 1
+albedo_color = Color(1, 0, 0, 0.52156866)
+
+[sub_resource type="SphereMesh" id="SphereMesh_uo744"]
+material = SubResource("StandardMaterial3D_c8ccv")
+radial_segments = 8
+rings = 8
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_6xxtl"]
+radius = 3.2251148
+
+[node name="Explosion" type="Area3D"]
+collision_mask = 9
+script = ExtResource("1_c8ccv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(6.809941, 0, 0, 0, 6.809941, 0, 0, 0, 6.809941, 0, 0, 0)
+mesh = SubResource("SphereMesh_uo744")
+
+[node name="Explosion" parent="." instance=ExtResource("1_kp2pm")]
+volume_db = 80.0
+unit_size = 100.0
+max_db = 6.0
+autoplay = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_6xxtl")
+
+[node name="Lifetime" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="Lifetime" to="." method="_on_lifetime_timeout"]

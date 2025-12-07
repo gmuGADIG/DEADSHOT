@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://nuqmhgq1e2lu"]
+[gd_scene load_steps=41 format=3 uid="uid://nuqmhgq1e2lu"]
 
 [ext_resource type="Script" uid="uid://llqh4g6obmup" path="res://world/player/player.gd" id="1_bvkkv"]
 [ext_resource type="Texture2D" uid="uid://doi1lgfq8hi21" path="res://world/player/player_sheet.png" id="2_2x47q"]
@@ -88,6 +88,18 @@ region = Rect2(4096, 2048, 1024, 1024)
 atlas = ExtResource("2_2x47q")
 region = Rect2(0, 3072, 1024, 1024)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8tvd"]
+atlas = ExtResource("2_2x47q")
+region = Rect2(0, 6144, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rwc3p"]
+atlas = ExtResource("2_2x47q")
+region = Rect2(1024, 6144, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vsto"]
+atlas = ExtResource("2_2x47q")
+region = Rect2(2048, 6144, 1024, 1024)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_jrep8"]
 animations = [{
 "frames": [{
@@ -154,6 +166,20 @@ animations = [{
 "loop": true,
 "name": &"walking",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8tvd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rwc3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vsto")
+}],
+"loop": false,
+"name": &"whipping",
+"speed": 10.0
 }]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_bvkkv"]
@@ -177,17 +203,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.237, 0)
 [node name="Shotgun" parent="Weapons" instance=ExtResource("11_3n4qb")]
 
 [node name="Dualies" parent="Weapons" instance=ExtResource("3_jrep8")]
+damage = 0.75
 
 [node name="BasicGun" parent="Weapons" instance=ExtResource("4_q1k4r")]
+
+[node name="Rifle" parent="Weapons" instance=ExtResource("4_q1k4r")]
+damage = 4.0
+max_chamber = 4
+max_reserve = 36
+fire_cooldown = 1.0
+
+[node name="GunSprite" parent="Weapons/Rifle" index="1"]
+transform = Transform3D(-2.8867579e-08, -0.27999994, -4.371139e-08, 0, -1.2239187e-08, 1, -0.6604132, 1.2239187e-08, 1.9106855e-15, 0, 0, -1.5684328)
+modulate = Color(0.3, 0.3, 0.3, 1)
 
 [node name="Sprite" type="AnimatedSprite3D" parent="." node_paths=PackedStringArray("player")]
 transform = Transform3D(0.39, 0, 0, 0, 0.33774987, 0.19500007, 0, -0.19500007, 0.33774987, 0.00084251165, 1.6017487, 0)
 shaded = true
 alpha_cut = 1
 sprite_frames = SubResource("SpriteFrames_jrep8")
-animation = &"walking"
+animation = &"whipping"
 autoplay = "idle"
-frame = 2
 script = ExtResource("3_3n4qb")
 player = NodePath("..")
 
@@ -220,8 +256,7 @@ weight = 0.1
 metadata/_custom_type_script = "uid://c1g7056xgtqys"
 
 [node name="HurtboxComponent" type="Area3D" parent="." node_paths=PackedStringArray("health_component")]
-collision_layer = 2
-collision_mask = 0
+collision_layer = 3
 script = ExtResource("7_d3e1v")
 health_component = NodePath("HealthComponent")
 allowed_damage_sources = Array[int]([1, 2])
@@ -277,3 +312,5 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 
 [connection signal="was_hit" from="HurtboxComponent" to="." method="_on_hurtbox_component_was_hit"]
+
+[editable path="Weapons/Rifle"]

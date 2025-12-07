@@ -4,6 +4,7 @@ extends Node3D
 
 signal fired
 
+@export var damage : float = 1.
 @export var reload_time : float = 1.25 ## Time in seconds to reload
 @export var max_chamber : int = 6 ## Max number of bullets in chamber (a single clip)
 @export var max_reserve : int = 60 ## Max number of bullets in the reserve
@@ -22,19 +23,33 @@ var reserve_ammo : int:
 		reserve_ammo = value
 		Global.player_ammo_reserve_changed.emit(reserve_ammo)
 
+var salvage_count: int = 0:
+	set(v):
+		if SkillSet.has_skill(SkillSet.SkillUID.PISTOL_SALVAGE):
+			salvage_count = v
+			if v >= 10: # assume v is never >= 20
+				salvage_count -= 10
+				reserve_ammo += 4
+				%SalvageProc.play()
+
 var is_reloading := false
-var bullets_of_fire_unlocked: bool
 
 @onready var player: Player = Player.instance
 @export var fire_cooldown: float = 0.2
 var fire_timer: float = 0.0
 
 func _ready() -> void:
+	chamber_ammo = get_max_chamber()
+	reserve_ammo = max_reserve
+
+	Global.skill_tree_changed.connect(func(skill: SkillSet.SkillUID) -> void:
+		if skill == SkillSet.SkillUID.RIFLE_MAG or skill == SkillSet.SkillUID.RESPEC:
+			chamber_ammo = get_max_chamber()
+	)
+
+func update_hud() -> void:
 	Global.player_ammo_changed.emit(chamber_ammo)
 	Global.player_ammo_reserve_changed.emit(reserve_ammo)
-	
-	chamber_ammo = max_chamber
-	reserve_ammo = max_reserve
 
 func _process(delta: float) -> void:
 	fire_timer += delta
@@ -42,7 +57,7 @@ func _process(delta: float) -> void:
 	if not player.can_shoot(): return
  
 	# No shooting if you're rolling or the cooldown hasn't ended!
-	if Input.is_action_just_pressed("fire") and fire_timer>=fire_cooldown:
+	if Input.is_action_just_pressed("fire") and fire_timer >= get_fire_cooldown():
 		fire_timer = 0.0
 	
 		## if the player cannot shoot / is reloading, do not fire
@@ -54,8 +69,14 @@ func _process(delta: float) -> void:
 			reload()
 			return
 	 
-		fire()
+		fire(true, 1)
 		fired.emit()
+
+		if SkillSet.has_skill(SkillSet.SkillUID.PISTOL_DOUBLE_SHOT):
+			get_tree().create_timer(.08).timeout.connect(func() -> void:
+				fire(true, .5)
+				fired.emit()
+			)
 	
 	# Reloads the gun as well (if you can shoot, you can reload).
 	if Input.is_action_just_pressed("reload") and is_reloading == false:
@@ -64,7 +85,7 @@ func _process(delta: float) -> void:
 	set_gun_rotation()
 
 @abstract
-func fire() -> void
+func fire(consumes_ammo: bool, damage_mul: float) -> void
 	
 
 ## Called when an ammo pickup is grabbed.
@@ -87,7 +108,7 @@ func reload() -> void:
 	# wait `reload_time` seconds, while emitting player_reload_progress_changed every frame
 	await create_tween().tween_method(
 		Global.player_reload_progress_changed.emit,
-		0., 1., reload_time
+		0., 1., reload_time,
 	).finished
 	
 	if (reserve_ammo >= chamber_diff):
@@ -106,9 +127,40 @@ func set_gun_rotation() -> void:
 	self.look_at(player.global_position+player.aim_dir())
 	rotation.x=0.0
 	rotation.z=0.0
+	
+	if rotation.y > 0:
+		scale.x = -1 * abs(scale.x)
+	else:
+		scale.x = abs(scale.x)
 
 func get_bullet_scene() -> PackedScene:
-	if bullets_of_fire_unlocked:
+	if SkillSet.has_skill(SkillSet.SkillUID.SHOTGUN_FIRE):
 		return preload("res://world/player/weapon/bullet/fire_bullet.tscn")
 	else:
 		return preload("res://world/player/weapon/bullet/player_bullet.tscn")
+
+func get_damage() -> float:
+	var modifier := 1.
+	
+	if SkillSet.has_skill(SkillSet.SkillUID.BASE_DAMAGE): modifier += 1.
+	if SkillSet.has_skill(SkillSet.SkillUID.RIFLE_DAMAGE_1): modifier += 1.
+	if SkillSet.has_skill(SkillSet.SkillUID.RIFLE_DAMAGE_2): modifier += 1.
+	if SkillSet.has_skill(SkillSet.SkillUID.PISTOL_DAMAGE): modifier += 1.
+	
+	return damage * modifier
+
+func get_fire_cooldown() -> float:
+	var modifier := 1.
+	
+	if SkillSet.has_skill(SkillSet.SkillUID.SHOTGUN_FIRE_RATE): modifier *= .5
+	if SkillSet.has_skill(SkillSet.SkillUID.PISTOL_FIRE_RATE): modifier *= .75
+	if SkillSet.has_skill(SkillSet.SkillUID.RIFLE_FIRE_RATE): modifier *= .75
+	
+	return fire_cooldown * modifier
+
+func get_max_chamber() -> int:
+	var ret := max_chamber
+
+	if SkillSet.has_skill(SkillSet.SkillUID.RIFLE_MAG): ret += 2
+
+	return ret

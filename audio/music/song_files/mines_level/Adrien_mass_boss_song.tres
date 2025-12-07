@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Song" load_steps=7 format=3 uid="uid://dtb4tigljrqvr"]
+
+[ext_resource type="Script" uid="uid://co2r0p266y1vu" path="res://audio/music/song_resource/song.gd" id="1_song"]
+[ext_resource type="Script" uid="uid://d2section8music" path="res://audio/music/song_resource/section.gd" id="2_section"]
+[ext_resource type="AudioStream" uid="uid://wkxe372p7t6a" path="res://audio/music/song_files/mines_level/Adrien_mass_boss.mp3" id="3_audio"]
+
+[sub_resource type="Curve" id="Curve_fade_in"]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 0, Vector2(1, 1), 1.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_fade_out"]
+_data = [Vector2(0, 1), 0.0, -1.0, 0, 0, Vector2(1, 0), -1.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Resource" id="Resource_section"]
+script = ExtResource("2_section")
+section_name = "main loop"
+section_start = 0.0
+section_end = 119.30122
+loop = true
+fade_in_curve = SubResource("Curve_fade_in")
+fade_out_curve = SubResource("Curve_fade_out")
+
+[resource]
+script = ExtResource("1_song")
+song_file = ExtResource("3_audio")
+sections = [SubResource("Resource_section")]

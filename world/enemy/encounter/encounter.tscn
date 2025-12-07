@@ -11,7 +11,7 @@ script = ExtResource("1_sgs1t")
 [node name="CameraTracked" type="Node3D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("2_fkkp2")
-weight = 10.0
+weight = 3.0
 enabled = false
 metadata/_custom_type_script = "uid://c1g7056xgtqys"
 

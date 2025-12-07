@@ -10,7 +10,7 @@ radius = 1.6875
 
 [node name="Campfire" type="Area3D"]
 collision_layer = 4
-collision_mask = 0
+collision_mask = 2
 script = ExtResource("2_lvvka")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

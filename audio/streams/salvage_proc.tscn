@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bf8bqkjukwxfj"]
+
+[ext_resource type="AudioStream" uid="uid://bsg0we7wlotpv" path="res://audio/placeholders/test_jump.wav" id="1_yvgja"]
+
+[node name="SalvageProc" type="AudioStreamPlayer"]
+stream = ExtResource("1_yvgja")

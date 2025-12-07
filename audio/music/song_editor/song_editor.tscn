@@ -1,0 +1,488 @@
+[gd_scene load_steps=11 format=3 uid="uid://b65ut2jdj4bwf"]
+
+[ext_resource type="Script" uid="uid://chbnigrocj5g" path="res://audio/music/song_editor/song_editor.gd" id="2_editor"]
+[ext_resource type="PackedScene" uid="uid://3lris5j0nmj4" path="res://audio/music/music_player/music_player.tscn" id="3_player"]
+[ext_resource type="PackedScene" uid="uid://c4qae2ry8qdl4" path="res://audio/music/song_editor/song_scanner.tscn" id="4_scanner"]
+[ext_resource type="Script" uid="uid://vleggn3arult" path="res://audio/music/song_editor/song_timeline.gd" id="5_timeline"]
+[ext_resource type="Script" uid="uid://ktux36k1xr6u" path="res://audio/music/song_editor/curve_editor.gd" id="6_curve_editor"]
+
+[sub_resource type="Curve" id="Curve_fade"]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 0, Vector2(1, 1), 1.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_header"]
+content_margin_left = 12.0
+content_margin_top = 8.0
+content_margin_right = 12.0
+content_margin_bottom = 8.0
+bg_color = Color(0.08, 0.08, 0.1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_panel"]
+content_margin_left = 12.0
+content_margin_top = 8.0
+content_margin_right = 12.0
+content_margin_bottom = 8.0
+bg_color = Color(0.07, 0.07, 0.09, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.15, 0.15, 0.18, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_btn"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+bg_color = Color(0.22, 0.22, 0.26, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.35, 0.35, 0.4, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_toast"]
+content_margin_left = 16.0
+content_margin_top = 8.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0.15, 0.15, 0.18, 0.95)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.3, 0.3, 0.35, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_color = Color(0, 0, 0, 0.3)
+shadow_size = 4
+
+[node name="SongEditor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_editor")
+
+[node name="MusicPlayer" parent="." instance=ExtResource("3_player")]
+song_transition_curve = SubResource("Curve_fade")
+
+[node name="SongScanner" parent="." instance=ExtResource("4_scanner")]
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.06, 0.06, 0.08, 1)
+
+[node name="MainContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 16
+
+[node name="VBox" type="VBoxContainer" parent="MainContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Title" type="Label" parent="MainContainer/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 24
+text = "Song Resource Editor"
+
+[node name="HeaderSection" type="PanelContainer" parent="MainContainer/VBox"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBox_header")
+
+[node name="FileRow" type="HBoxContainer" parent="MainContainer/VBox/HeaderSection"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="FileLabel" type="Label" parent="MainContainer/VBox/HeaderSection/FileRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+text = "Audio Source:"
+
+[node name="FileDropdown" type="OptionButton" parent="MainContainer/VBox/HeaderSection/FileRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LoadBtn" type="Button" parent="MainContainer/VBox/HeaderSection/FileRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Load"
+
+[node name="TimelineSection" type="VBoxContainer" parent="MainContainer/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TimelineLabel" type="Label" parent="MainContainer/VBox/TimelineSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.6, 0.6, 1)
+theme_override_font_sizes/font_size = 12
+text = "TIMELINE — Drag markers to set loop points, click to seek, arrow keys to fine-tune"
+
+[node name="Timeline" type="Control" parent="MainContainer/VBox/TimelineSection"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("5_timeline")
+
+[node name="PlaybackRow" type="HBoxContainer" parent="MainContainer/VBox/TimelineSection"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="PlayBtn" type="Button" parent="MainContainer/VBox/TimelineSection/PlaybackRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "▶ Play"
+
+[node name="StopBtn" type="Button" parent="MainContainer/VBox/TimelineSection/PlaybackRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "■ Stop"
+
+[node name="PlaySectionBtn" type="Button" parent="MainContainer/VBox/TimelineSection/PlaybackRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+text = "▶ Section"
+
+[node name="PreviewLoopBtn" type="Button" parent="MainContainer/VBox/TimelineSection/PlaybackRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+text = "🔄 Preview"
+
+[node name="Separator1" type="VSeparator" parent="MainContainer/VBox/TimelineSection/PlaybackRow"]
+layout_mode = 2
+
+[node name="VolumeContainer" type="HBoxContainer" parent="MainContainer/VBox/TimelineSection/PlaybackRow"]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="VolumeLabel" type="Label" parent="MainContainer/VBox/TimelineSection/PlaybackRow/VolumeContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+text = "Vol:"
+
+[node name="VolumeSlider" type="HSlider" parent="MainContainer/VBox/TimelineSection/PlaybackRow/VolumeContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="Separator2" type="VSeparator" parent="MainContainer/VBox/TimelineSection/PlaybackRow"]
+layout_mode = 2
+
+[node name="TimeDisplay" type="Label" parent="MainContainer/VBox/TimelineSection/PlaybackRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_font_sizes/font_size = 14
+text = "--:-- / --:--"
+horizontal_alignment = 2
+
+[node name="SectionEditorSection" type="PanelContainer" parent="MainContainer/VBox"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBox_panel")
+
+[node name="SectionVBox" type="VBoxContainer" parent="MainContainer/VBox/SectionEditorSection"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="SectionColumns" type="HBoxContainer" parent="MainContainer/VBox/SectionEditorSection/SectionVBox"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="LeftColumn" type="VBoxContainer" parent="MainContainer/VBox/SectionEditorSection/SectionVBox/SectionColumns"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="LeftLabel" type="Label" parent="MainContainer/VBox/SectionEditorSection/SectionVBox/SectionColumns/LeftColumn"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.6, 0.6, 1)
+theme_override_font_sizes/font_size = 12
+text = "CURRENT SECTION"
+
+[node name="StartEndRow" type="HBoxContainer" parent="MainContainer/VBox/SectionEditorSection/SectionVBox/SectionColumns/LeftColumn"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="SectionStartLabel" type="Label" parent="MainContainer/VBox/SectionEditorSection/SectionVBox/SectionColumns/LeftColumn/StartEndRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3, 0.7, 0.4, 1)
+text = "Start:"
+
+[node name="SectionStartSpin" type="SpinBox" parent="MainContainer/VBox/SectionEditorSection/SectionVBox/SectionColumns/LeftColumn/StartEndRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+step = 0.001
+suffix = "s"
+
+[node name="SectionEndLabel" type="Label" parent="MainContainer/VBox/SectionEditorSection/SectionVBox/SectionColumns/LeftColumn/StartEndRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.4, 0.3, 1)
+text = "End:"
+
+[node name="SectionEndSpin" type="SpinBox" parent="MainContainer/VBox/SectionEditorSection/SectionVBox/SectionColumns/LeftColumn/StartEndRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+step = 0.001
+suffix = "s"
+
+[node name="CrossfadeLoopRow" type="HBoxContainer" parent="MainContainer/VBox/SectionEditorSection/SectionVBox/SectionColumns/LeftColumn"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="CrossfadeLabel" type="Label" parent="MainContainer/VBox/SectionEditorSection/SectionVBox/SectionColumns/LeftColumn/CrossfadeLoopRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.5, 0.3, 1)
+text = "Crossfade:"
+
+[node name="CrossfadeSpin" type="SpinBox" parent="MainContainer/VBox/SectionEditorSection/SectionVBox/SectionColumns/LeftColumn/CrossfadeLoopRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+step = 0.01
+value = 0.2
+suffix = "s"
+
+[node name="LoopCheckbox" type="CheckBox" parent="MainContainer/VBox/SectionEditorSection/SectionVBox/SectionColumns/LeftColumn/CrossfadeLoopRow"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Loop"
+
+[node name="RightColumn" type="VBoxContainer" parent="MainContainer/VBox/SectionEditorSection/SectionVBox/SectionColumns"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="RightLabel" type="Label" parent="MainContainer/VBox/SectionEditorSection/SectionVBox/SectionColumns/RightColumn"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.6, 0.6, 1)
+theme_override_font_sizes/font_size = 12
+text = "SECTION MANAGEMENT"
+
+[node name="SectionSelectRow" type="HBoxContainer" parent="MainContainer/VBox/SectionEditorSection/SectionVBox/SectionColumns/RightColumn"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="SectionDropdown" type="OptionButton" parent="MainContainer/VBox/SectionEditorSection/SectionVBox/SectionColumns/RightColumn/SectionSelectRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+allow_reselect = true
+
+[node name="RenameSectionBtn" type="Button" parent="MainContainer/VBox/SectionEditorSection/SectionVBox/SectionColumns/RightColumn/SectionSelectRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBox_btn")
+text = "Rename"
+
+[node name="SectionButtons" type="HBoxContainer" parent="MainContainer/VBox/SectionEditorSection/SectionVBox/SectionColumns/RightColumn"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="AddSectionBtn" type="Button" parent="MainContainer/VBox/SectionEditorSection/SectionVBox/SectionColumns/RightColumn/SectionButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "+ Add"
+
+[node name="RemoveSectionBtn" type="Button" parent="MainContainer/VBox/SectionEditorSection/SectionVBox/SectionColumns/RightColumn/SectionButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "- Remove"
+
+[node name="GainRow" type="HBoxContainer" parent="MainContainer/VBox/SectionEditorSection/SectionVBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="GainLabel" type="Label" parent="MainContainer/VBox/SectionEditorSection/SectionVBox/GainRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 0.6, 0.8, 1)
+text = "Song Gain:"
+
+[node name="GainSlider" type="HSlider" parent="MainContainer/VBox/SectionEditorSection/SectionVBox/GainRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = -20.0
+max_value = 6.0
+step = 0.1
+
+[node name="GainValueLabel" type="Label" parent="MainContainer/VBox/SectionEditorSection/SectionVBox/GainRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 0.6, 0.8, 1)
+text = "+0.0 dB"
+
+[node name="CurveSection" type="PanelContainer" parent="MainContainer/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBox_panel")
+
+[node name="CurveVBox" type="VBoxContainer" parent="MainContainer/VBox/CurveSection"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="CurveLabel" type="Label" parent="MainContainer/VBox/CurveSection/CurveVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.6, 0.6, 1)
+theme_override_font_sizes/font_size = 12
+text = "CROSSFADE CURVES — Edit the shape of the volume transition"
+
+[node name="CurveRow" type="HBoxContainer" parent="MainContainer/VBox/CurveSection/CurveVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="FadeInPanel" type="VBoxContainer" parent="MainContainer/VBox/CurveSection/CurveVBox/CurveRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="FadeInHeader" type="HBoxContainer" parent="MainContainer/VBox/CurveSection/CurveVBox/CurveRow/FadeInPanel"]
+layout_mode = 2
+
+[node name="FadeInLabel" type="Label" parent="MainContainer/VBox/CurveSection/CurveVBox/CurveRow/FadeInPanel/FadeInHeader"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.4, 0.7, 0.5, 1)
+theme_override_font_sizes/font_size = 11
+text = "Fade In (new loop)"
+horizontal_alignment = 1
+
+[node name="ResetFadeInBtn" type="Button" parent="MainContainer/VBox/CurveSection/CurveVBox/CurveRow/FadeInPanel/FadeInHeader"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Reset"
+
+[node name="FadeInCurve" type="Control" parent="MainContainer/VBox/CurveSection/CurveVBox/CurveRow/FadeInPanel"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("6_curve_editor")
+
+[node name="FadeOutPanel" type="VBoxContainer" parent="MainContainer/VBox/CurveSection/CurveVBox/CurveRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="FadeOutHeader" type="HBoxContainer" parent="MainContainer/VBox/CurveSection/CurveVBox/CurveRow/FadeOutPanel"]
+layout_mode = 2
+
+[node name="FadeOutLabel" type="Label" parent="MainContainer/VBox/CurveSection/CurveVBox/CurveRow/FadeOutPanel/FadeOutHeader"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.7, 0.5, 0.4, 1)
+theme_override_font_sizes/font_size = 11
+text = "Fade Out (ending loop)"
+horizontal_alignment = 1
+
+[node name="ResetFadeOutBtn" type="Button" parent="MainContainer/VBox/CurveSection/CurveVBox/CurveRow/FadeOutPanel/FadeOutHeader"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Reset"
+
+[node name="FadeOutCurve" type="Control" parent="MainContainer/VBox/CurveSection/CurveVBox/CurveRow/FadeOutPanel"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("6_curve_editor")
+
+[node name="SaveSection" type="PanelContainer" parent="MainContainer/VBox"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBox_header")
+
+[node name="SaveRow" type="HBoxContainer" parent="MainContainer/VBox/SaveSection"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="SaveLabel" type="Label" parent="MainContainer/VBox/SaveSection/SaveRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+text = "Save Path:"
+
+[node name="SavePathEdit" type="LineEdit" parent="MainContainer/VBox/SaveSection/SaveRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "res://audio/music/my_song.tres"
+
+[node name="SaveBtn" type="Button" parent="MainContainer/VBox/SaveSection/SaveRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "💾 Save"
+
+[node name="Toast" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = 16.0
+offset_right = 100.0
+offset_bottom = 48.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBox_toast")
+
+[node name="ToastLabel" type="Label" parent="Toast"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 12
+text = "Message"
+horizontal_alignment = 1
+vertical_alignment = 1

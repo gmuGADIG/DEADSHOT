@@ -1,14 +1,18 @@
-[gd_scene load_steps=16 format=3 uid="uid://bas8xwk5nhlq0"]
+[gd_scene load_steps=23 format=3 uid="uid://bas8xwk5nhlq0"]
 
 [ext_resource type="Script" uid="uid://clcb8u0fv74qk" path="res://world/player/HUD/heart_display.gd" id="2_swyvw"]
 [ext_resource type="Texture2D" uid="uid://dr4ivc7tmyyha" path="res://world/player/HUD/heart_full.png" id="3_02nes"]
 [ext_resource type="Texture2D" uid="uid://cewx8ggk4t2ff" path="res://world/player/HUD/heart_half.png" id="4_5nwtl"]
 [ext_resource type="Texture2D" uid="uid://be888xpfyrter" path="res://world/player/HUD/heart_empty.png" id="5_4aq5e"]
-[ext_resource type="Script" path="res://world/player/HUD/stamina_display.gd" id="6_02nes"]
-[ext_resource type="Script" path="res://world/player/HUD/ammo_display.gd" id="6_4abqf"]
+[ext_resource type="Script" uid="uid://bjgbfv6mpmikj" path="res://world/player/HUD/stamina_display.gd" id="6_02nes"]
+[ext_resource type="Script" uid="uid://mrxoab4wrnfe" path="res://world/player/HUD/ammo_display.gd" id="6_4abqf"]
 [ext_resource type="Script" uid="uid://bb38eh0qqofj5" path="res://world/player/HUD/meatcounter.gd" id="6_4o0ul"]
-[ext_resource type="Script" path="res://world/player/HUD/player_point.gd" id="7_5nwtl"]
-[ext_resource type="Script" path="res://world/player/HUD/reload_display.gd" id="8_4aq5e"]
+[ext_resource type="Texture2D" uid="uid://dst1s8o2rlmw5" path="res://world/floor/sand/sand_grey-fill.png" id="6_07gs6"]
+[ext_resource type="Script" uid="uid://cwbmvgbihw6wh" path="res://world/player/HUD/player_point.gd" id="7_5nwtl"]
+[ext_resource type="Script" uid="uid://ba7ms35ewwtwe" path="res://world/player/HUD/reload_display.gd" id="8_4aq5e"]
+[ext_resource type="Texture2D" uid="uid://y1h3uww1jns7" path="res://world/enemy/meat/meat.png" id="8_l0aox"]
+[ext_resource type="Shader" uid="uid://cvjqap0m4b8j3" path="res://world/player/HUD/hud.gdshader" id="12_l0aox"]
+[ext_resource type="Script" uid="uid://c8qklemv0wk33" path="res://world/player/HUD/hurt_vfx.gd" id="13_uufss"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5nwtl"]
 font_size = 40
@@ -36,6 +40,21 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
+[sub_resource type="Gradient" id="Gradient_l0aox"]
+offsets = PackedFloat32Array(0, 0.7195122, 0.99390244)
+colors = PackedColorArray(0, 0, 0, 1, 0.07, 0, 0, 1, 0.32, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uufss"]
+gradient = SubResource("Gradient_l0aox")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.84210527, 0.9649123)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uufss"]
+shader = ExtResource("12_l0aox")
+shader_parameter/blood = SubResource("GradientTexture2D_uufss")
+shader_parameter/radius = 1.20000004768372
+
 [node name="Hud" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -47,11 +66,10 @@ grow_vertical = 2
 [node name="Hearts" type="HBoxContainer" parent="."]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 9.0
-offset_top = 576.0
-offset_right = 467.0
-offset_bottom = 630.0
-theme_override_constants/separation = -9
+offset_left = 25.0
+offset_top = 556.0
+offset_right = 495.0
+offset_bottom = 623.0
 script = ExtResource("2_swyvw")
 full_tex = ExtResource("3_02nes")
 half_tex = ExtResource("4_5nwtl")
@@ -114,12 +132,31 @@ grow_horizontal = 0
 grow_vertical = 0
 script = ExtResource("6_4abqf")
 
+[node name="TextureRect" type="TextureRect" parent="Ammo"]
+modulate = Color(0.6509804, 0.67058825, 0.6666667, 1)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -168.0
+offset_top = -93.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("6_07gs6")
+expand_mode = 1
+
 [node name="AmmoLabel" type="Label" parent="Ammo"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 9.0
+offset_right = 7.0
+offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "12 / 48"
@@ -137,19 +174,28 @@ offset_bottom = 133.0
 grow_horizontal = 0
 script = ExtResource("6_4o0ul")
 
-[node name="TempLabel" type="Label" parent="Meat"]
-layout_mode = 0
-offset_left = 65.0
-offset_top = 24.0
-offset_right = 109.0
-offset_bottom = 47.0
-text = "Meat:"
+[node name="Meat Silouehtte" type="TextureRect" parent="Meat"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -175.0
+offset_bottom = 94.0
+grow_horizontal = 0
+texture = ExtResource("8_l0aox")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="MeatLabel" type="Label" parent="Meat"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -12.0
+offset_right = 1.0
+offset_bottom = -12.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "305"
@@ -202,3 +248,13 @@ nine_patch_stretch = true
 texture_under = SubResource("GradientTexture2D_4aq5e")
 texture_progress = SubResource("GradientTexture2D_4o0ul")
 script = ExtResource("8_4aq5e")
+
+[node name="HurtVFX" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_uufss")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("13_uufss")

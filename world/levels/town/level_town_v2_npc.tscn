@@ -21,6 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://dwsraqi3f8a1l" path="res://world/interactables/campfire/campfire.tscn" id="13_jjhs5"]
 [ext_resource type="Resource" uid="uid://qcgif5dvbsmu" path="res://writing/town2/town1_sheriff.tres" id="15_5xvh0"]
 [ext_resource type="Resource" uid="uid://4m486rpoft0h" path="res://writing/town2/town1_barmaid.tres" id="19_qb2qu"]
+[ext_resource type="PackedScene" uid="uid://c7c1lwr411btx" path="res://audio/music/music_player/play_song_for_scene.tscn" id="15_2dx52"]
+[ext_resource type="Resource" path="res://audio/music/song_files/town_level_base/Theo_town_base_peaceful_song.tres" id="16_yq85o"]
 
 [node name="LevelTown2" instance=ExtResource("1_64v5s")]
 
@@ -89,5 +91,8 @@ text = "Snake Oil Salesman"
 
 [node name="Campfire" parent="." index="16" instance=ExtResource("13_jjhs5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7527723, 0, 0)
+
+[node name="PlaySongForScene" parent="." index="17" instance=ExtResource("15_2dx52")]
+song = ExtResource("16_yq85o")
 
 [editable path="NPCs/NPCTest2"]

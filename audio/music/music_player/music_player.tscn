@@ -10,7 +10,6 @@ point_count = 2
 process_mode = 3
 script = ExtResource("1_loqq1")
 song_transition_curve = SubResource("Curve_14d2t")
-song_transition_duration = 2.0
 
 [node name="AudioStreamPlayerA" type="AudioStreamPlayer" parent="."]
 
