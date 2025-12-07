@@ -71,3 +71,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.667057, 0, -3.560543)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.91205, 0, 7.2436666)
 
 [editable path="Player"]
+[editable path="Player/Weapons/Rifle"]
