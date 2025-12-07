@@ -23,12 +23,7 @@ point_count = 28
 
 [node name="LevelTown" instance=ExtResource("1_tcp4o")]
 
-[node name="Comment2" parent="." index="2" instance=ExtResource("2_d6o6r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 7.450581e-09, 1, 12.323263, 2.8352304, 32.200733)
-text = "Town Encounter #3, ment for the other town level when the player returns
-"
-
-[node name="World" parent="." index="3"]
+[node name="World" parent="." index="2"]
 navigation_mesh = SubResource("NavigationMesh_jsebj")
 
 [node name="Floor" parent="World" index="0"]
@@ -137,11 +132,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.821126, 9.536743e-07, 39.1
 [node name="Top" type="Node3D" parent="EntryPoints" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.821126, 9.536743e-07, -37.015163)
 
-[node name="Player" parent="." index="6"]
+[node name="Player" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.14402, 0, 0)
 floor_type = 1
 
-[node name="Houses" type="Node3D" parent="." index="7"]
+[node name="Houses" type="Node3D" parent="." index="6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1851654, 0, -9.456607)
 
 [node name="House" parent="Houses" index="0" instance=ExtResource("7_3kx2l")]
@@ -191,7 +186,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.889627, 0, -23.399918)
 [node name="House14" parent="Houses" index="13" instance=ExtResource("7_3kx2l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.05542, 0, -7.536372)
 
-[node name="Lanterns" type="Node3D" parent="." index="8"]
+[node name="Lanterns" type="Node3D" parent="." index="7"]
 
 [node name="FloorLantern" parent="Lanterns" index="0" instance=ExtResource("8_0fxxf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026645184, 0.059490204, 7.5032425)
@@ -205,28 +200,34 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.951942, -9.536743e-07, 7.2
 [node name="FloorLantern4" parent="Lanterns" index="3" instance=ExtResource("8_0fxxf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.73373, 0, -8.143075)
 
-[node name="Well" parent="." index="9" instance=ExtResource("9_7fok8")]
+[node name="Well" parent="." index="8" instance=ExtResource("9_7fok8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.871329, -1.9345382e-06, -0.6220263)
 
-[node name="Comments" type="Node3D" parent="." index="13"]
+[node name="Comments" type="Node3D" parent="." index="12"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.8584, 0.98787177, 0.89964545)
+visible = false
 
-[node name="Comment2" parent="Comments" index="0" instance=ExtResource("2_d6o6r")]
+[node name="Comment6" parent="Comments" index="0" instance=ExtResource("2_d6o6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 7.450581e-09, 1, -29.535135, 1.8473586, 31.301088)
+text = "Town Encounter #3, ment for the other town level when the player returns
+"
+
+[node name="Comment2" parent="Comments" index="1" instance=ExtResource("2_d6o6r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.06047, 1.0669783, -0.65423644)
 text = "Buildings on this left side named from left to right: Outhouse, bank, saloon, house"
 size = 2.0
 
-[node name="Comment3" parent="Comments" index="1" instance=ExtResource("2_d6o6r")]
+[node name="Comment3" parent="Comments" index="2" instance=ExtResource("2_d6o6r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1548576, -0.98787177, -7.0173354)
 text = "buildings on the right side, the sheriff office and the jail."
 size = 2.0
 
-[node name="Comment4" parent="Comments" index="2" instance=ExtResource("2_d6o6r")]
+[node name="Comment4" parent="Comments" index="3" instance=ExtResource("2_d6o6r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.76309, 1.1395692, -24.049696)
 text = "planned to put general store, water tower, most likely another house and a outhouse"
 size = 2.0
 
-[node name="Comment5" parent="Comments" index="3" instance=ExtResource("2_d6o6r")]
+[node name="Comment5" parent="Comments" index="4" instance=ExtResource("2_d6o6r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.311707, -0.9878699, 18.883303)
 text = "the buildings down here will be a gun store, a abandoned stable with fences, (shown with the two houses on the side). and another house."
 size = 2.0
