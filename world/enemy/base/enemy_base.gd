@@ -132,6 +132,8 @@ func _physics_process(_delta: float) -> void:
 	# the checkpoint.
 	if should_move:
 		var next_position : Vector3 = navigation_agent.get_next_path_position()
+		next_position.y = 0.0
+		
 		var direction : Vector3 = global_position.direction_to(next_position)
 		velocity = direction * movement_speed
 		move_and_slide()
@@ -145,6 +147,7 @@ func _on_visible_on_screen_notifier_3d_screen_entered() -> void:
 #region Behaviour Functions
 ## Sets the movement target of this enemy agent.
 func set_movement_target(movement_target: Vector3) -> void:
+	movement_target.y = 0.0
 	navigation_agent.target_position = movement_target
 
 ## Do once when entering idle

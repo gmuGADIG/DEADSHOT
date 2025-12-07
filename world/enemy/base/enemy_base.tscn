@@ -7,20 +7,21 @@
 [ext_resource type="PackedScene" uid="uid://c2u06fnkx16jv" path="res://systems/attacking/damage/fire/fire_damage.tscn" id="3_f0luy"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_plfsl"]
-height = 2.3742957
+height = 2.4409862
 radius = 0.669922
 
 [node name="Enemy" type="CharacterBody3D" groups=["in_encounter"]]
 collision_layer = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94693, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.222015, 0)
 shape = SubResource("CylinderShape3D_plfsl")
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
+[node name="Sprite" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 1, 0)
+alpha_cut = 1
 
-[node name="HurtFX" parent="Sprite3D" node_paths=PackedStringArray("health") instance=ExtResource("1_f0luy")]
+[node name="HurtFX" parent="Sprite" node_paths=PackedStringArray("health") instance=ExtResource("1_f0luy")]
 health = NodePath("../../Health")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
@@ -30,6 +31,7 @@ unique_name_in_owner = true
 max_health = 10
 
 [node name="Hurtbox" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_1tv51")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23818576, 0)
 collision_layer = 8
 health_component = NodePath("../Health")
 allowed_damage_sources = Array[int]([0, 2])

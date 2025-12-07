@@ -1,19 +1,58 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbt7qhhjoclsd"]
+[gd_scene load_steps=9 format=3 uid="uid://dbt7qhhjoclsd"]
 
-[ext_resource type="Texture2D" uid="uid://d3sodqao5sedc" path="res://temp_art/gartic/rock.png" id="1_oi4u5"]
 [ext_resource type="Script" uid="uid://b8cl6iejhmufr" path="res://world/enemy/bird_swarm/homing_bird.gd" id="1_somxi"]
+[ext_resource type="Texture2D" uid="uid://dv1lfbnniaibb" path="res://world/enemy/bird_swarm/bird_projectile.png" id="2_somxi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mh8fk"]
+atlas = ExtResource("2_somxi")
+region = Rect2(0, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0umwu"]
+atlas = ExtResource("2_somxi")
+region = Rect2(1024, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hnqc7"]
+atlas = ExtResource("2_somxi")
+region = Rect2(2048, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0wi1"]
+atlas = ExtResource("2_somxi")
+region = Rect2(3072, 0, 1024, 1024)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lucgl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mh8fk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0umwu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hnqc7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0wi1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_somxi"]
 
 [node name="HomingBird" type="Area3D"]
 collision_mask = 3
 script = ExtResource("1_somxi")
-atk_damage = 1
 atk_source = 1
+speed = 7.0
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-texture = ExtResource("1_oi4u5")
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.325, 0, 0, 0, 0.325, 0, 0, 0, 0.325, -0.2733947, -0.14315212, 0)
+alpha_cut = 1
+sprite_frames = SubResource("SpriteFrames_lucgl")
+autoplay = "default"
+frame_progress = 0.6252509
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_somxi")

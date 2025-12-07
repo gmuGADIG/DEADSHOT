@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://c2u06fnkx16jv"]
 
 [ext_resource type="Script" uid="uid://5iw8oackfp6s" path="res://systems/attacking/damage/fire/fire_damage.gd" id="1_nr6y6"]
-[ext_resource type="PackedScene" uid="uid://b3cjgdvyt8if7" path="res://audio/streams/fire_hit_sound.tscn" id="2_sqi3f"]
-[ext_resource type="PackedScene" uid="uid://cyjxodkcwpalp" path="res://audio/streams/fire_start_sound.tscn" id="3_a7qfl"]
+[ext_resource type="PackedScene" uid="uid://b56tx6gavm48t" path="res://audio/streams/fire_hit_sound.tscn" id="2_sqi3f"]
+[ext_resource type="PackedScene" uid="uid://cqfi86fpx2hgq" path="res://audio/streams/fire_start_sound.tscn" id="3_a7qfl"]
 
 [node name="FireDamage" type="Node3D"]
 script = ExtResource("1_nr6y6")
