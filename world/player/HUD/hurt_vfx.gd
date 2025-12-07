@@ -17,13 +17,15 @@ func _ready() -> void:
 
 func owch() -> void:
 	# hit stop
+	const HITSTOP_T := .2
 	Engine.time_scale = 0.
-	get_tree().create_timer(.2, true, false, true).timeout.connect(func() -> void: Engine.time_scale = 1.)
+	get_tree().create_timer(HITSTOP_T, true, false, true).timeout.connect(func() -> void: Engine.time_scale = 1.)
 
 	if tween:
 		tween.stop()
 
 	tween = create_tween()
+	tween.set_ignore_time_scale(true)
 	tween.tween_property(self, "radius", max(radius - .2, MAX_RAD), .1)
 	tween.tween_interval(.75)
 	tween.tween_property(self, "radius", MIN_RAD, 1.5) \
