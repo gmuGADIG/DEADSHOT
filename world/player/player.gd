@@ -4,7 +4,7 @@ signal player_state_changed
 signal whipped
 
 ## Tracks name of current gun node. CHANGE THIS VARIABLE WHEN GUNS ARE CHANGED.
-static var gun_name := "Shotgun"
+# static var gun_name := "Shotgun"
 #static var gun_name := "Dualies"
 #static var gun_name := "BasicGun"
 
@@ -68,6 +68,16 @@ var walk_sfx: AudioStreamPlayer3D
 var walk_sfx_timer: Timer
 #endregion
 
+func setup_gun() -> void:
+	for child in $Weapons.get_children():
+		if child is Gun:
+			child.process_mode = Node.PROCESS_MODE_DISABLED
+			child.hide()
+	var gun := get_gun()
+	gun.process_mode = Node.PROCESS_MODE_INHERIT
+	gun.show()
+	gun.update_hud()
+
 #region Builtin Functions
 func _ready() -> void:
 	walk_sfx = generate_walking_sounds() # Sets the player's walking sound.
@@ -78,20 +88,18 @@ func _ready() -> void:
 	walk_sfx_timer.timeout.connect(play_walking_sfx)
 	add_child(walk_sfx_timer)
 
-	for child in $Weapons.get_children():
-		if child is Gun:
-			child.process_mode = Node.PROCESS_MODE_DISABLED
-			child.hide()
-	var gun := get_gun()
-	gun.process_mode = Node.PROCESS_MODE_INHERIT
-	gun.show()
+	setup_gun()
+	Global.skill_tree_changed.connect(func(_skill: SkillSet.SkillUID) -> void:
+		if not get_gun().visible:
+			setup_gun()
+	)
 	
 	instance = self
 	if persisting_data != null:
 		health_component.max_health = persisting_data.max_health
 		health_component.health = persisting_data.health
-		gun.chamber_ammo = persisting_data.curr_chamber
-		gun.reserve_ammo = persisting_data.curr_reserve
+		get_gun().chamber_ammo = persisting_data.curr_chamber
+		get_gun().reserve_ammo = persisting_data.curr_reserve
 	
 	interactor.interaction_started.connect(_on_interaction_started)
 	interactor.interaction_ended.connect(_on_interaction_ended)
@@ -100,6 +108,19 @@ func _ready() -> void:
 	health_component.max_hp_changed.connect(Global.player_max_hp_changed.emit)
 	
 	health_component.killed.connect(_on_killed)
+
+	var hp_skills := [
+		SkillSet.SkillUID.SHOTGUN_HP_1,
+		SkillSet.SkillUID.SHOTGUN_HP_2,
+	]
+	Global.skill_tree_changed.connect(func(skill: SkillSet.SkillUID) -> void:
+		if skill in hp_skills:
+			health_component.modify_max_health(2)
+	)
+	Global.skill_removed.connect(func(skill: SkillSet.SkillUID) -> void:
+		if skill in hp_skills:
+			health_component.modify_max_health(-2)
+	)
 
 func _init() -> void:
 	instance = self
@@ -110,7 +131,8 @@ func _physics_process(delta: float) -> void:
 	
 	if current_state == PlayerState.WALKING:
 		var input_dir : Vector3 = input_direction()
-		velocity = input_dir * walk_speed * speed_multiplier
+
+		velocity = input_dir * walk_speed * speed_multiplier * skill_speed_mul()
 		if input_dir != Vector3.ZERO:
 			previous_input_direction = input_dir
 			if walk_sfx_timer.is_stopped():
@@ -151,6 +173,17 @@ func _on_killed() -> void:
 	get_tree().change_scene_to_file("res://menu/death_menu/death_menu.tscn")
 
 func get_gun() -> Gun:
+	var gun_name := ""
+
+	if SkillSet.has_skill(SkillSet.SkillUID.BOLT_ACTION_RIFLE):
+		gun_name = "Rifle"
+	elif SkillSet.has_skill(SkillSet.SkillUID.SHOTGUN):
+		gun_name = "Shotgun"
+	elif SkillSet.has_skill(SkillSet.SkillUID.DUAL_PISTOL):
+		gun_name = "Dualies"
+	else:
+		gun_name = "BasicGun"
+
 	return get_node("Weapons/" + gun_name)
 
 ## Returns the inputted walking direction on the XZ plane (Y = 0)
@@ -193,7 +226,7 @@ func begin_roll() -> void:
 ## Roll the player in the current direction.
 func roll(delta : float) -> void:
 	var roll_dir : Vector3 = previous_input_direction
-	var roll_speed : float = roll_curve.sample(roll_time)
+	var roll_speed : float = roll_curve.sample(roll_time) * skill_speed_mul()
 	
 	##Influence the dash direction
 	var roll_influence : Vector3 = input_direction()
@@ -259,5 +292,12 @@ func play_walking_sfx() -> void:
 		%WalkPuddle.play() #Need to update to play puddle noise
 	else:
 		walk_sfx.play() #Play normal walking noise
+
+func skill_speed_mul() -> float:
+	var ret := 1.
+	if SkillSet.has_skill(SkillSet.SkillUID.SHOTGUN_MOVEMENT_SPEED): ret *= 1.6
+	if SkillSet.has_skill(SkillSet.SkillUID.PISTOL_MOVEMENT_SPEED): ret *= 1.6
+
+	return ret
 
 #endregion

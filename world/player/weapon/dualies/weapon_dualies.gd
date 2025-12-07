@@ -12,6 +12,6 @@ func add_bullet(gun: Node3D) -> void:
 	# The standard pistol bullet does 2 damage. Each dualie bullet needs to do somewhere between 50-100% of that.
 	# We override the bullet's damage here in code. This could be set up later as an export variable, or as a 
 	# unique bullet scene, but I didn't see the point.
-	bullet.atk_damage = .75
+	bullet.atk_damage = get_damage()
 	bullet.fire(gun, player.aim_dir())
 	chamber_ammo -= 1

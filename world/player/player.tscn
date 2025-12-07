@@ -203,8 +203,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.237, 0)
 [node name="Shotgun" parent="Weapons" instance=ExtResource("11_3n4qb")]
 
 [node name="Dualies" parent="Weapons" instance=ExtResource("3_jrep8")]
+damage = 0.75
 
 [node name="BasicGun" parent="Weapons" instance=ExtResource("4_q1k4r")]
+
+[node name="Rifle" parent="Weapons" instance=ExtResource("4_q1k4r")]
+damage = 4.0
+max_chamber = 4
+max_reserve = 36
+fire_cooldown = 1.0
+
+[node name="GunSprite" parent="Weapons/Rifle" index="1"]
+transform = Transform3D(-2.8867579e-08, -0.27999994, -4.371139e-08, 0, -1.2239187e-08, 1, -0.6604132, 1.2239187e-08, 1.9106855e-15, 0, 0, -1.5684328)
+modulate = Color(0.3, 0.3, 0.3, 1)
 
 [node name="Sprite" type="AnimatedSprite3D" parent="." node_paths=PackedStringArray("player")]
 transform = Transform3D(0.39, 0, 0, 0, 0.33774987, 0.19500007, 0, -0.19500007, 0.33774987, 0.00084251165, 1.6017487, 0)
@@ -301,3 +312,5 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 
 [connection signal="was_hit" from="HurtboxComponent" to="." method="_on_hurtbox_component_was_hit"]
+
+[editable path="Weapons/Rifle"]

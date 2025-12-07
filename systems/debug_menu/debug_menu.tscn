@@ -79,6 +79,12 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Max Ammo"
 
+[node name="MoreMeat" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "MORE MEAT"
+
 [node name="GodMode" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -96,5 +102,6 @@ text = "Quit & Delete Save"
 [connection signal="pressed" from="PanelContainer/VBoxContainer/SkillTreeButton" to="." method="_on_skill_tree_button_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/PropDemoButton" to="." method="_on_prop_demo_button_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/MaxAmmo" to="." method="_on_max_ammo_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/MoreMeat" to="." method="_on_more_meat_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/GodMode" to="." method="_on_god_mode_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/ClearSave" to="." method="_on_clear_save_pressed"]
