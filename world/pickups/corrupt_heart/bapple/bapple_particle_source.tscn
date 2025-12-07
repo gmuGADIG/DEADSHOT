@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://dkqirfskr1ko7"]
+
+[ext_resource type="Shader" uid="uid://buxykrqlibd21" path="res://world/pickups/corrupt_heart/blood_particles/corrupt_heart_blood.gdshader" id="1_ta2pj"]
+[ext_resource type="Script" uid="uid://dx1lob088yrli" path="res://world/pickups/corrupt_heart/bapple/bapple_particle_source.gd" id="2_som57"]
+[ext_resource type="VideoStream" uid="uid://dphijbbdx6ck4" path="res://world/pickups/corrupt_heart/bapple/badapple.ogv" id="3_kesm2"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ta2pj"]
+emission_shape = 4
+emission_point_count = 1
+spread = 180.0
+initial_velocity_max = 2.3999999
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hvqcw"]
+render_priority = 0
+shader = ExtResource("1_ta2pj")
+
+[sub_resource type="QuadMesh" id="QuadMesh_vve5n"]
+material = SubResource("ShaderMaterial_hvqcw")
+
+[node name="BadAppleParticleSource" type="GPUParticles3D" node_paths=PackedStringArray("video_player")]
+emitting = false
+amount = 200
+lifetime = 0.13
+speed_scale = 0.42
+collision_base_size = 1.0
+process_material = SubResource("ParticleProcessMaterial_ta2pj")
+draw_pass_1 = SubResource("QuadMesh_vve5n")
+script = ExtResource("2_som57")
+video_player = NodePath("VideoStreamPlayer")
+max_points = 500
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -480.0
+offset_top = -360.0
+grow_horizontal = 0
+grow_vertical = 0
+stream = ExtResource("3_kesm2")
+volume_db = -13.599998
