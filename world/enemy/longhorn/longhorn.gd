@@ -50,6 +50,7 @@ func attack() -> void:
 func _on_charge_timer_timeout() -> void:
 	timer.stop()
 	shaker.shaking = false
+	velocity = Vector3.ZERO
 	if aggro == AggroState.HOSTILE:
 		target = player.global_position
 		$Sounds/LonghornDashSound.play()

@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://b4n4rflu3my0v"]
+[gd_scene load_steps=23 format=3 uid="uid://b4n4rflu3my0v"]
 
 [ext_resource type="PackedScene" uid="uid://dx3l0wduat3tp" path="res://world/enemy/base/enemy_base.tscn" id="1_qriva"]
 [ext_resource type="Script" uid="uid://dqw3rnmgfv6r7" path="res://world/enemy/longhorn/longhorn.gd" id="2_efxix"]
 [ext_resource type="Texture2D" uid="uid://dtnsuhhtir45v" path="res://world/enemy/longhorn/longhorn.png" id="3_uamdi"]
+[ext_resource type="Script" uid="uid://dcjnlxr6kle7v" path="res://world/enemy/longhorn/longhorn_animator.gd" id="4_3lbiw"]
 [ext_resource type="Script" uid="uid://dy4h4d283fxxn" path="res://util/sprite_shaker.gd" id="4_g07qo"]
 [ext_resource type="PackedScene" uid="uid://bpfklhcte1c5h" path="res://audio/streams/longhorn_die_sound.tscn" id="5_uamdi"]
 [ext_resource type="PackedScene" uid="uid://3cvvvws1lhvd" path="res://audio/streams/longhorn_dash_sound.tscn" id="6_3lbiw"]
@@ -114,14 +115,12 @@ atk_source = 1
 atk_knockback = 1
 proximity_tolerance = 1.5
 
-[node name="CollisionShape3D" parent="." index="0"]
-visible = false
-
 [node name="Sprite" parent="." index="1"]
-transform = Transform3D(0.36, 0, 0, 0, 0.3117691, 0.1800001, 0, -0.1800001, 0.3117691, 0, 1.1507454, 0)
+transform = Transform3D(0.36, 0, 0, 0, 0.3117691, 0.1800001, 0, -0.1800001, 0.3117691, 0, 1.1138115, 0)
 sprite_frames = SubResource("SpriteFrames_toved")
 autoplay = "default"
 frame_progress = 0.40190268
+script = ExtResource("4_3lbiw")
 
 [node name="Health" parent="." index="3"]
 max_health = 5
