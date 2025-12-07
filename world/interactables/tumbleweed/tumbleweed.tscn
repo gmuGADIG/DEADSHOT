@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://ckbr1getgwitd"]
 
-[ext_resource type="Texture2D" uid="uid://bffhswt8p3gcs" path="res://temp_art/gartic/lorax_kirby.png" id="1_deogu"]
+[ext_resource type="Texture2D" uid="uid://b52xbv77pm0tg" path="res://world/interactables/tumbleweed/tumbleweed.png" id="2_petyg"]
 [ext_resource type="Script" uid="uid://cj7ahv37axi56" path="res://world/interactables/tumbleweed/tumbleweed.gd" id="2_pwh0t"]
 [ext_resource type="PackedScene" uid="uid://b7d3oiw27awag" path="res://systems/attacking/hurtbox/hurtbox.tscn" id="3_sqqca"]
 [ext_resource type="Script" uid="uid://5yprj03obbfy" path="res://world/enemy/encounter/encounter_obj.gd" id="4_petyg"]
@@ -11,11 +11,16 @@ size = Vector3(2.0700684, 1.6738281, 1.6230469)
 [node name="Tumbleweed" type="Node3D"]
 script = ExtResource("2_pwh0t")
 
-[node name="Sprite" type="Sprite3D" parent="." groups=["tumbleweed"]]
+[node name="SpriteHolder" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 1.2036158, 0)
+
+[node name="Sprite" type="Sprite3D" parent="SpriteHolder" groups=["tumbleweed"]]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0.9300569, 0)
+transform = Transform3D(0.79999995, 0, 0, 0, 0.79999983, -2.9802322e-08, 0, 2.9802322e-08, 0.79999983, 0.05685252, -0.09483141, 0.04870376)
 rotation_order = 0
-texture = ExtResource("1_deogu")
+offset = Vector2(-19.27, -27.045)
+alpha_cut = 1
+texture = ExtResource("2_petyg")
 
 [node name="Hurtbox" parent="." instance=ExtResource("3_sqqca")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9300569, 0)

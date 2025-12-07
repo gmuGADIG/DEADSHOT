@@ -27,7 +27,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[node name="PauseMenu" type="Control" node_paths=PackedStringArray("resume_button", "locker_button", "options_button", "restart_button", "menu_button", "quit_button")]
+[node name="PauseMenu" type="Control" node_paths=PackedStringArray("resume_button", "locker_button", "settings_button", "restart_button", "menu_button", "quit_button")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -38,7 +38,7 @@ grow_vertical = 2
 script = ExtResource("1_inj1j")
 resume_button = NodePath("VBoxContainer/ResumeButton")
 locker_button = NodePath("VBoxContainer/LockerButton")
-options_button = NodePath("VBoxContainer/SettingsButton")
+settings_button = NodePath("VBoxContainer/SettingsButton")
 restart_button = NodePath("VBoxContainer/RestartButton")
 menu_button = NodePath("VBoxContainer/MainMenuButton")
 quit_button = NodePath("VBoxContainer/QuitButton")

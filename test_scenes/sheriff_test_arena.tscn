@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://cadiwgo0a4kur"]
+
+[ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_igck6"]
+[ext_resource type="Resource" uid="uid://q24ustx30otu" path="res://world/floor/sand/sand.tres" id="2_kiy2f"]
+[ext_resource type="PackedScene" uid="uid://cqcjv8i3rxkbu" path="res://world/enemy/sheriff/sheriff.tscn" id="3_qo756"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_igck6"]
+vertices = PackedVector3Array(-12.865006, 0.4899997, 3.9532561, -12.865006, 0.4899997, 6.203256, -9.115006, 0.4899997, 8.953257, -9.865006, 0.4899997, -3.7967439, -12.365006, 0.4899997, -1.2967439, -1.1150064, 0.4899997, 10.453257, 7.3849936, 0.4899997, 10.453257, 7.3849936, 0.4899997, -5.046744, -1.3650064, 0.4899997, -5.796744, 19.384995, 0.4899997, 9.453257, 20.384995, 0.4899997, 8.953257, 22.884995, 0.4899997, 4.703256, 12.884994, 0.4899997, 10.703257, 22.134995, 0.4899997, -0.04674387, 19.384995, 0.4899997, -2.7967439, 9.884994, 0.4899997, -5.046744)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 4), PackedInt32Array(2, 4, 3), PackedInt32Array(5, 2, 6), PackedInt32Array(6, 2, 3), PackedInt32Array(6, 3, 8), PackedInt32Array(6, 8, 7), PackedInt32Array(10, 9, 11), PackedInt32Array(11, 9, 12), PackedInt32Array(14, 13, 11), PackedInt32Array(15, 14, 7), PackedInt32Array(7, 14, 11), PackedInt32Array(7, 11, 12), PackedInt32Array(7, 12, 6)]
+
+[sub_resource type="Curve3D" id="Curve3D_ybn5w"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -13.051117, 0, -1.6120276, 0, 0, 0, 0, 0, 0, -10.108175, 0, -4.3671193, 0, 0, 0, 0, 0, 0, -0.65320206, 0, -6.5586696, 0, 0, 0, 0, 0, 0, 10.805481, 0, -5.4942026, 0, 0, 0, 0, 0, 0, 19.884758, 0, -3.3026514, 0, 0, 0, 0, 0, 0, 22.827698, 0, -0.2344808, 0, 0, 0, 0, 0, 0, 23.516472, 0, 5.4009356, 0, 0, 0, 0, 0, 0, 20.573536, 0, 9.784039, 0, 0, 0, 0, 0, 0, 13.059643, 0, 11.224199, 0, 0, 0, 0, 0, 0, -0.21488953, 0, 11.161583, 0, 0, 0, 0, 0, 0, -9.231556, 0, 9.5961895, 0, 0, 0, 0, 0, 0, -13.552042, 0, 6.653249),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 12
+
+[node name="SheriffTestArena" instance=ExtResource("1_igck6")]
+
+[node name="World" parent="." index="2"]
+navigation_mesh = SubResource("NavigationMesh_igck6")
+
+[node name="Floor" parent="World" index="0"]
+curve = SubResource("Curve3D_ybn5w")
+material = ExtResource("2_kiy2f")
+
+[node name="Sheriff" parent="." index="9" instance=ExtResource("3_qo756")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.189597, 0, 3.9028397)

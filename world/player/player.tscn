@@ -1,16 +1,20 @@
-[gd_scene load_steps=31 format=3 uid="uid://nuqmhgq1e2lu"]
+[gd_scene load_steps=35 format=3 uid="uid://nuqmhgq1e2lu"]
 
 [ext_resource type="Script" uid="uid://llqh4g6obmup" path="res://world/player/player.gd" id="1_bvkkv"]
 [ext_resource type="Texture2D" uid="uid://doi1lgfq8hi21" path="res://world/player/player_sheet.png" id="2_2x47q"]
 [ext_resource type="PackedScene" uid="uid://bas8xwk5nhlq0" path="res://world/player/HUD/hud.tscn" id="2_duds0"]
+[ext_resource type="Script" uid="uid://dbka0ckv4aeih" path="res://world/player/player_animation.gd" id="3_3n4qb"]
 [ext_resource type="Script" uid="uid://cwjxwkxciij4o" path="res://systems/interaction/interactor.gd" id="3_cvtd2"]
 [ext_resource type="Script" uid="uid://c4s1ohnc08ecy" path="res://world/player/reticle/reticle.gd" id="4_40qjc"]
 [ext_resource type="PackedScene" uid="uid://duf7ry1s34j7o" path="res://world/player/weapon/whip/whip.tscn" id="4_duds0"]
 [ext_resource type="Texture2D" uid="uid://bwm425xkr0vcy" path="res://temp_art/icon.svg" id="4_et4on"]
+[ext_resource type="PackedScene" uid="uid://s0mcou8b7n0v" path="res://systems/attacking/hurt_fx/hurt_fx.tscn" id="4_myh4x"]
 [ext_resource type="PackedScene" uid="uid://vnurg1w4ttt4" path="res://world/player/weapon/dualies/weapon_dualies.tscn" id="5_2x47q"]
 [ext_resource type="Script" uid="uid://do5vs8m1law7o" path="res://systems/attacking/health/health.gd" id="6_thypd"]
 [ext_resource type="Script" uid="uid://lxg83i28nlul" path="res://systems/attacking/hurtbox/hurtbox.gd" id="7_d3e1v"]
 [ext_resource type="Script" uid="uid://c1g7056xgtqys" path="res://systems/camera/camera_tracked.gd" id="11_2x47q"]
+[ext_resource type="PackedScene" uid="uid://dou0ya37mv70s" path="res://audio/streams/roll_sound.tscn" id="14_lbm61"]
+[ext_resource type="PackedScene" uid="uid://cjqtb588mlf84" path="res://audio/streams/hurt_sound.tscn" id="15_jrep8"]
 
 [sub_resource type="Curve" id="Curve_2x47q"]
 _limits = [0.0, 20.0, 0.0, 0.45]
@@ -164,13 +168,18 @@ whip = NodePath("Whip")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94693, 0)
 shape = SubResource("CylinderShape3D_plfsl")
 
-[node name="Sprite" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(0.39011317, 0, 0, 0, 0.33784774, 0.19505659, 0, -0.19505659, 0.33784774, 0.00084251165, 1.6017487, 0)
+[node name="Sprite" type="AnimatedSprite3D" parent="." node_paths=PackedStringArray("player")]
+transform = Transform3D(0.39, 0, 0, 0, 0.33774987, 0.19500007, 0, -0.19500007, 0.33774987, 0.00084251165, 1.6017487, 0)
 shaded = true
 alpha_cut = 1
 sprite_frames = SubResource("SpriteFrames_jrep8")
 animation = &"idle"
 autoplay = "idle"
+script = ExtResource("3_3n4qb")
+player = NodePath("..")
+
+[node name="HurtFX" parent="Sprite" node_paths=PackedStringArray("health") instance=ExtResource("4_myh4x")]
+health = NodePath("../../HurtboxComponent/HealthComponent")
 
 [node name="InteractionArea" type="Area3D" parent="."]
 unique_name_in_owner = true
@@ -245,3 +254,13 @@ omni_range = 25.0
 omni_attenuation = 1.5
 
 [node name="Hud" parent="." instance=ExtResource("2_duds0")]
+
+[node name="Sounds" type="Node3D" parent="."]
+
+[node name="RollSound" parent="Sounds" instance=ExtResource("14_lbm61")]
+unique_name_in_owner = true
+
+[node name="HurtSound" parent="Sounds" instance=ExtResource("15_jrep8")]
+unique_name_in_owner = true
+
+[connection signal="was_hit" from="HurtboxComponent" to="." method="_on_hurtbox_component_was_hit"]
