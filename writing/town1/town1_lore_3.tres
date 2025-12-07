@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://bk4a6f0ud5yod"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_luvng"]
+
+[resource]
+script = ExtResource("1_luvng")
+dialog = "[]It’s an incredibly worn note from a journal...
+’I’m beginning to think father has lost his mind, because this patch of desert is supposed to be our new home? There is no water here to the point we are naming this place “Slimwater” but father says it’s gonna be ok.’
+‘He’s always been so delusionally optimistic. I don’t know what he is even thinking! Taking his daughter of 15 years of age to a place like this, I can only conclude that he is insane. I am glad that Barnes' kid Moses came along, that's a bright spot.’
+"
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"

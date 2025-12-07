@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://bo2vbpueawkeo"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_26e00"]
+
+[resource]
+script = ExtResource("1_26e00")
+dialog = "[Providing Mother] “Why does this have to happen now? We recently had a baby and this terrible infection spread just a few months later. 
+My husband, he... got sick. Things just haven’t been the same since.” 
+“I really thought him being gone would be the downfall of this town. However, the crops started growing. Strangely quick, I don’t even need to care for them.” 
+“I don’t know how to take care of the farm. My husband knew though, he used to feed the whole town. I didn‘t think I'd be able to feed my little boy after his passing.” 
+“I just… I don't know how to feel anymore. The crops are growing so fast. There'll be enough for the entire town. Maybe…maybe this infection isn’t too terrible. But, I hold only fear in my heart, is it really worth all of this pain?”"
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"
