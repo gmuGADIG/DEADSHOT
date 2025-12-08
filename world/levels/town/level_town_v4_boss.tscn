@@ -14,8 +14,8 @@ size = Vector3(24.894531, 3.5175781, 4.6188965)
 
 [node name="Transition" parent="TransitionAreas" index="0" instance=ExtResource("2_4ry00")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.844759, 0, -12.468933)
-target_scene = "uid://d0lbvne2ofk7c"
-target_entry_point = "left"
+target_scene = "uid://c4nw61qu6fyyk"
+target_entry_point = "Left"
 
 [node name="CollisionShape3D" parent="TransitionAreas/Transition" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5639458, 0, -25.812904)

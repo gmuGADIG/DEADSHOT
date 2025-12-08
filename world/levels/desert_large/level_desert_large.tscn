@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://crgv6bkolrlyy"]
+[gd_scene load_steps=32 format=3 uid="uid://crgv6bkolrlyy"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_b00wy"]
 [ext_resource type="Resource" uid="uid://q24ustx30otu" path="res://world/floor/sand/sand.tres" id="2_5t0jw"]
@@ -41,7 +41,10 @@ point_count = 198
 size = Vector3(15.052856, 3, 6.2387695)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n7sqn"]
-size = Vector3(6.3075056, 3, 12.513037)
+size = Vector3(32.375977, 3, 7.5934324)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wy6jc"]
+size = Vector3(19.164154, 3, 9.328455)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qk81x"]
 size = Vector3(10, 3, 10)
@@ -1123,7 +1126,7 @@ appear_delay = 0.2
 encounter_song = ExtResource("19_wy6jc")
 
 [node name="EncounterShape" type="CollisionShape3D" parent="Encounter 3" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.64549637, 0, -7.494733)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.64549637, 0, -5.034931)
 shape = SubResource("BoxShape3D_n7sqn")
 
 [node name="Blocker" parent="Encounter 3" index="1" instance=ExtResource("6_4q5tc")]
@@ -1195,7 +1198,6 @@ shape = SubResource("BoxShape3D_n7sqn")
 
 [node name="Encounter 5" parent="." index="20" instance=ExtResource("9_fpcaa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39858627, 0, 42.398552)
-camera_zoom = 2.0
 appear_delay = 0.2
 encounter_song = ExtResource("14_u25nn")
 
@@ -1230,8 +1232,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.22803, 0, -11.520149)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.092858, 0, -11.520149)
 
 [node name="EncounterShape" type="CollisionShape3D" parent="Encounter 5" index="11"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.171915, 0, 3.0520172)
-shape = SubResource("BoxShape3D_n7sqn")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.566004, 0, 3.919529)
+shape = SubResource("BoxShape3D_wy6jc")
 
 [node name="Wilder" parent="Encounter 5" index="12" instance=ExtResource("11_4q5tc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.55687, 0, -6.2027893)

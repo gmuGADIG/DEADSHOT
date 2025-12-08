@@ -39,7 +39,7 @@ animations = [{
 
 [node name="Wilder" node_paths=PackedStringArray("StuckTimer") instance=ExtResource("1_pw5bb")]
 script = ExtResource("1_skiir")
-timeBetweenShots = 0.4
+timeBetweenShots = 1.0
 bullet = ExtResource("3_b04xd")
 maxTravelDistance = 20.0
 StuckTimer = NodePath("StuckTimer")

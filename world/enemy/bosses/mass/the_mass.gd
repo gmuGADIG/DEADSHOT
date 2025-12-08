@@ -35,6 +35,9 @@ func _ready() -> void:
 			#_on_player_dash()
 	#)
 
+func _process(delta: float) -> void:
+	global_position.y = 0.0
+
 func pick_action() -> void:
 	var new_action : StringName = last_action
 	##HACK again, mildly inoptimal while loop

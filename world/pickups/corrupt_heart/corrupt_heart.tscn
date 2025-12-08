@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cldpmxcx2sdmd" path="res://world/pickups/corrupt_heart/blood_particles/blood_spurt.tscn" id="4_vve5n"]
 [ext_resource type="Script" uid="uid://7ghh0vndiuvx" path="res://world/pickups/corrupt_heart/blood_particle_spawner.gd" id="5_e76c2"]
 [ext_resource type="Script" uid="uid://lxg83i28nlul" path="res://systems/attacking/hurtbox/hurtbox.gd" id="5_uxcdq"]
+[ext_resource type="PackedScene" uid="uid://s0mcou8b7n0v" path="res://systems/attacking/hurt_fx/hurt_fx.tscn" id="5_xlqjo"]
 [ext_resource type="Script" uid="uid://do5vs8m1law7o" path="res://systems/attacking/health/health.gd" id="6_5roo4"]
 [ext_resource type="AudioStream" uid="uid://de23avhh4wkr3" path="res://audio/placeholders/heart_beat1.wav" id="6_kyt37"]
 [ext_resource type="AudioStream" uid="uid://ftg5bow5xo32" path="res://audio/placeholders/heart_beat2.wav" id="7_1n52r"]
@@ -14,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://cnddjimdmtq1s" path="res://audio/streams/heart_drop_sound.tscn" id="11_kyt37"]
 [ext_resource type="PackedScene" uid="uid://blmxgvtxbyaur" path="res://audio/streams/heart_swish_sound.tscn" id="12_1n52r"]
 [ext_resource type="PackedScene" uid="uid://cg651hljdyf12" path="res://audio/streams/heart_ambient_sound.tscn" id="13_k8yj6"]
-[ext_resource type="AudioStream" uid="uid://dbaa53s78psxi" path="res://audio/world_objects/CorruptHeartSwish.wav" id="13_xlqjo"]
 [ext_resource type="PackedScene" uid="uid://dkqirfskr1ko7" path="res://world/pickups/corrupt_heart/bapple/bapple_particle_source.tscn" id="15_gbo0p"]
 
 [sub_resource type="Animation" id="Animation_vve5n"]
@@ -139,6 +139,9 @@ transform = Transform3D(0.5, 0, 0, 0, 0.43301263, 0.25000015, 0, -0.25000015, 0.
 alpha_cut = 1
 texture = ExtResource("1_sj4sw")
 
+[node name="HurtFX" parent="Sprite3D" node_paths=PackedStringArray("health") instance=ExtResource("5_xlqjo")]
+health = NodePath("../../Health")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_uxcdq")
@@ -185,7 +188,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9867293, 0)
 [node name="HeartDropSound" parent="." instance=ExtResource("11_kyt37")]
 
 [node name="HeartSwishSound" parent="." instance=ExtResource("12_1n52r")]
-stream = ExtResource("13_xlqjo")
 
 [node name="HeartAmbientSound" parent="." instance=ExtResource("13_k8yj6")]
 

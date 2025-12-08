@@ -21,7 +21,7 @@ animations = [{
 [node name="EnemyTest" instance=ExtResource("1_67wm8")]
 script = ExtResource("2_l2wwm")
 movement_speed = 3.0
-fire_rate = 1.0
+fire_rate = 4.0
 bullet_speed = 20.0
 
 [node name="Sprite" parent="." index="1"]

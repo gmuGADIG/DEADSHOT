@@ -10,6 +10,7 @@ radius = 0.32080078
 [node name="EnemyBullet" type="Area3D"]
 collision_mask = 3
 script = ExtResource("1_bvla6")
+atk_damage = 1.0
 atk_source = 1
 speed = 15.0
 
