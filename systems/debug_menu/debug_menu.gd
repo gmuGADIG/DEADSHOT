@@ -41,4 +41,3 @@ func _on_clear_save_pressed() -> void:
 
 func _on_more_meat_pressed() -> void:
 	Global.meat_currency += 10000
-
