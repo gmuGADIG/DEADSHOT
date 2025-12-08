@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://by8y1gjlttw6g"]
+[gd_scene load_steps=13 format=3 uid="uid://by8y1gjlttw6g"]
 
 [ext_resource type="Script" uid="uid://cg6umb86w26xh" path="res://menu/main_menu/main_menu.gd" id="1_winya"]
 [ext_resource type="Texture2D" uid="uid://dcavwcmbdms3e" path="res://temp_art/rough_drafts/main_menu.png" id="2_e5xhn"]
@@ -7,9 +7,11 @@
 [ext_resource type="AudioStream" uid="uid://dc6lbunkflvv4" path="res://audio/placeholders/funny_bone_man.wav" id="4_prid6"]
 [ext_resource type="Texture2D" uid="uid://bx137n5y4vbmv" path="res://menu/main_menu/main_menu_text.png" id="5_t631e"]
 [ext_resource type="Texture2D" uid="uid://dr0k5wtlmynj6" path="res://temp_art/reticle.png" id="6_x87vx"]
-[ext_resource type="Script" path="res://menu/main_menu/reticle_spin.gd" id="7_dn5jd"]
-[ext_resource type="PackedScene" path="res://audio/streams/ui_hover_sound.tscn" id="9_ub0vu"]
-[ext_resource type="PackedScene" path="res://audio/streams/ui_click_sound.tscn" id="10_t631e"]
+[ext_resource type="Script" uid="uid://co66s5c2pttrb" path="res://menu/main_menu/reticle_spin.gd" id="7_dn5jd"]
+[ext_resource type="PackedScene" uid="uid://d15hbjoa7a2bp" path="res://audio/streams/ui_hover_sound.tscn" id="9_ub0vu"]
+[ext_resource type="PackedScene" uid="uid://b4hj1uuryjqkf" path="res://audio/streams/ui_click_sound.tscn" id="10_t631e"]
+[ext_resource type="PackedScene" uid="uid://c7c1lwr411btx" path="res://audio/music/music_player/play_song_for_scene.tscn" id="11_rp3yq"]
+[ext_resource type="Resource" uid="uid://datrc28o6vmgc" path="res://audio/music/song_files/misc/Justin_title_song.tres" id="12_c0jbr"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -184,6 +186,10 @@ unique_name_in_owner = true
 
 [node name="UIClickSound" parent="Sounds" instance=ExtResource("10_t631e")]
 unique_name_in_owner = true
+
+[node name="PlaySongForScene" parent="." instance=ExtResource("11_rp3yq")]
+song = ExtResource("12_c0jbr")
+immediate = true
 
 [connection signal="mouse_entered" from="VBoxContainer/NewSaveButton" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/NewSaveButton" to="." method="_on_new_save_button_pressed"]

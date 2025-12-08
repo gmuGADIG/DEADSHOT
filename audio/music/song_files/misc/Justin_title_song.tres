@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Song" load_steps=7 format=3 uid="uid://datrc28o6vmgc"]
+
+[ext_resource type="Script" uid="uid://co2r0p266y1vu" path="res://audio/music/song_resource/song.gd" id="1_ichxc"]
+[ext_resource type="Script" uid="uid://b7okmeqcdjwec" path="res://audio/music/song_resource/section.gd" id="2_64lxq"]
+[ext_resource type="AudioStream" uid="uid://7ui8fttahopc" path="res://audio/music/song_files/misc/Justin_title.mp3" id="3_c2oug"]
+
+[sub_resource type="Curve" id="Curve_r510r"]
+_data = [Vector2(0, 1), 0.0, -0.009708738, 0, 0, Vector2(1, 1), 0.00972759, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_waopa"]
+_data = [Vector2(0, 1), 0.0, -1.0, 0, 0, Vector2(1, 0), -1.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Resource" id="Resource_g3e8l"]
+script = ExtResource("2_64lxq")
+section_name = "main loop"
+section_end = 129.7830839905916
+loop = true
+fade_in_curve = SubResource("Curve_r510r")
+fade_out_curve = SubResource("Curve_waopa")
+
+[resource]
+script = ExtResource("1_ichxc")
+song_file = ExtResource("3_c2oug")
+sections = Array[ExtResource("2_64lxq")]([SubResource("Resource_g3e8l")])
