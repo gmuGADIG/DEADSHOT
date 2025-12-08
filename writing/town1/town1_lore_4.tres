@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://rvh7fcpaqwd8"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_aocho"]
+
+[resource]
+script = ExtResource("1_aocho")
+dialog = "[]It’s an incredibly worn note from a journal...
+’We've been in this big empty ole desert for ‘bout a week now and I've gotta say I'm gettin' real tired o' the sand. We're supposed to be the start of some big ole town, Slimwater.’
+‘At least that's what our family's friend Mr. Nobles keeps sayin'. He dragged his family and ours out here, and all we've done is camp out in tents and burn through water. Oh well, it ain't all bad, the Nobles's girl seems to be takin' quite a likin' to me so at least there's that.’
+"
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"

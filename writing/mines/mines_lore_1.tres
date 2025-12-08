@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://dgtg755c7ctbd"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_shb8g"]
+
+[resource]
+script = ExtResource("1_shb8g")
+dialog = "[ ]There's a message carved into the rock... 
+'The child of two deities has been conceived. This child is said to return the land to its purest form, flourishing with nature, health, and fruits to feed the land.'"
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"

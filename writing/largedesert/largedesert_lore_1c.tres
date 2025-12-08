@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://cp2xul2m6vdq2"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_6cst6"]
+
+[resource]
+script = ExtResource("1_6cst6")
+dialog = "[]Among the torn pieces of paper, you decipher...
+‘...the first died from the bullet in his head. She turned the barrel to her molting wife. I witnessed the dead wife charge at her before the sheriff barely managed to get a shot off.’"
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"

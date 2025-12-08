@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://dglj8h0batkne"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_un7nk"]
+
+[resource]
+script = ExtResource("1_un7nk")
+dialog = "[Femme Fatale]  “Hey, gunslinger—that sure was some killer shooting back there! Been afraid exile’d made ya soft, but you haven’t changed a bit! Good to have you back, anyway.”
+“Oh, don’t’cha worry ‘bout lil’ ol’ me - my trigger finger’s more than itchin’ ta start blastin’ those whatever-those-things-are’s brains outta their skulls! Shame Tweedledope n’ Tweedledick went chargin’ into the desert.. could’a used the warmup.”
+“I always knew, KNEW, Zoa was full’a shit, ‘bout you and ‘bout what happened to our livestock. Remember when I promised to turn her to a memory, the day she kicked ya outta town? That was more than worth the jail time.”
+“Everyone trusted the woman who wouldn’t tell us where her wife was buried, and now this whole town’s a shooting range! At least things are interesting...”"
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"

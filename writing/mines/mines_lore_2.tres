@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://b0ph8y4swfnoa"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_14c3c"]
+
+[resource]
+script = ExtResource("1_14c3c")
+dialog = "[ ]There's a message carved into the rock...
+'Their creation was born, and thus life that was gifted the capability to seed life anew began its crusade.'"
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"

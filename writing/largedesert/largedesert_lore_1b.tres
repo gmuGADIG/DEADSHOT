@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://b1p0h1eubtdtc"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_0xx5d"]
+
+[resource]
+script = ExtResource("1_0xx5d")
+dialog = "[ ]Among the torn pieces of paper, you decipher...
+‘took us to the back room where I saw her...is what’s left of her wife. The sheriff, in tears...round magnum. She pointed the gun at the poor sinner...’"
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"

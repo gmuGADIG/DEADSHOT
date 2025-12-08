@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://bbii4bjpuumyw"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_1s7gc"]
+
+[resource]
+script = ExtResource("1_1s7gc")
+dialog = "[Ancient Lady] \"Abandonment is a terrible thing...
+I see it in you, too—you wear a type of garment unfamiliar to my time of origin, but through it I see parts of that ancient child. The desperate twinkle in one’s eye, as it seeks approval. A namesake.\"
+[ ] The helpless lady’s words ring insignificant to you.
+[Ancient Lady] \"How rudely it speaks of me.
+My life should only be as eternal as its affection for me. I thought by mothering the child, it would permit me to share in its power.\" 
+\"But now you see me here, withering. 
+A child so desperate for its birthright, when a better path lay before it all along...\"
+[ ] You begin to realize she speaks nonsense
+[Ancient Lady] \"Nay. I’ve learned this tongue quickly from the brief time you and your townsfolk have been tied to the child. I hear your thoughts, 'gunslinger.' Lately I struggle to discern which are truly your own.\"
+[] . . ."
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"

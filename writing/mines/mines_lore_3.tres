@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://g6fyl8rqnp2d"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_6vnux"]
+
+[resource]
+script = ExtResource("1_6vnux")
+dialog = "[ ]There's a message carved into the rock...
+'The creation shared its gift with those that answered its call and in turn they made a pact of worship and care. The naive creation accepted their care with glee spreading its newfound joy with others.'"
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"

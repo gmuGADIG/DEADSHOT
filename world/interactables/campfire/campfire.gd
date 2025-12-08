@@ -27,14 +27,17 @@ func interact()->void:
 	
 	if not extinguish:
 		# save game and heal player to max hp
-		Save.save_game()
 		Player.instance.health_component.heal(Player.instance.health_component.max_health)
 		Save.save_data.object_save_data.add_campfire(self)
+
+	Save.save_game()
 			
 	# open campfire menu
 	var menu := preload("res://menu/campfire_menu/campfire_menu.tscn").instantiate()
 	add_child(menu)
 	await menu.tree_exited
+
+	Save.save_game()
 	
 	# extinguish after the menu closes
 	if not extinguish:

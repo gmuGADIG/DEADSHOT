@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://uktn737omygd"]
+
+[ext_resource type="PackedScene" uid="uid://nuqmhgq1e2lu" path="res://world/player/player.tscn" id="2_7rsnv"]
+[ext_resource type="PackedScene" uid="uid://cr05xakri7lnw" path="res://world/floor/floor_gen.tscn" id="3_la6b8"]
+[ext_resource type="Resource" uid="uid://q24ustx30otu" path="res://world/floor/sand/sand.tres" id="4_hwqbw"]
+[ext_resource type="PackedScene" uid="uid://cn2ip7hvcayky" path="res://systems/camera/main_cam.tscn" id="5_edxl2"]
+[ext_resource type="PackedScene" uid="uid://b0ttk38sufgur" path="res://world/pickups/corrupt_heart/corrupt_heart.tscn" id="5_ny4o2"]
+
+[sub_resource type="Curve3D" id="Curve3D_jvic3"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 4.654374, 0, -4.3272734, 0, 0, 0, 0, 0, 0, -6.4774256, 0, -4.265941, 0, 0, 0, 0, 0, 0, -7.4894075, 0, 4.7038975, 0, 0, 0, 0, 0, 0, 5.835019, 0, 4.5965657),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[node name="PuddleTest" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("2_7rsnv")]
+
+[node name="Floor" parent="." instance=ExtResource("3_la6b8")]
+curve = SubResource("Curve3D_jvic3")
+material = ExtResource("4_hwqbw")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.92473876, -0.25272667, 0.28458285, 0, 0.74771696, 0.66401756, -0.3806024, -0.61404276, 0.69144285, 0, 0, 0)
+
+[node name="MainCam" parent="." instance=ExtResource("5_edxl2")]
+transform = Transform3D(1, 0, 0, 0, 0.57357645, 0.81915206, 0, -0.81915206, 0.57357645, 0, 3.8096743, 4.860206)
+
+[node name="CorruptHeart" parent="." instance=ExtResource("5_ny4o2")]

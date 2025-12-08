@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://5typpvnt2fdo"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_yix6t"]
+
+[resource]
+script = ExtResource("1_yix6t")
+dialog = "[Piano Man] “I don’t know what you did to get yourself exiled, but hey, none of my concern. As long as you know you doesn’t show up. Although… I’m astonished you're actually here.”
+“Y’know, I used to play for this whole town. Damn near everybody’d flow into the saloon after a hard day's work, grab some drinks and listen to my music. People used to dance, too.” 
+“You should’ve seen it, pure joy. She used to dance… she’d always do this thing where she’d waltz around the tables… God, she was just so exhausted last I saw her. I hope she’s okay… she has to be.”
+“This damn place used to be so happy... Dancin’, singin’, laughin’... funny how life can just go so wrong, huh? You’d never guess that now.“
+"
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"

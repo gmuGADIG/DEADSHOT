@@ -21,17 +21,18 @@ target_entry_point = "left"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5639458, 0, -25.812904)
 shape = SubResource("BoxShape3D_j4103")
 
-[node name="Player" parent="." index="6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.288485, 0, 4.5333595)
+[node name="Player" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.718742, 0, -4.0061493)
 
-[node name="CorruptHeart" parent="." index="14" instance=ExtResource("2_28xow")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.908998, 0, 1.6071377)
+[node name="CorruptHeart" parent="." index="13" instance=ExtResource("2_28xow")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.504944, 0, -8.864038)
 
-[node name="Comment" parent="." index="15" instance=ExtResource("3_8wq7s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.545789, 0, 3.5805511)
-text = "Here's where the sheriff boss would be"
+[node name="Comment" parent="." index="14" instance=ExtResource("3_8wq7s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.416405, 0, -2.3331199)
+text = "Sheriff is still wip :("
+size = 1.5
 
-[node name="PlaySongForScene" parent="." index="16" instance=ExtResource("5_8uqty")]
+[node name="PlaySongForScene" parent="." index="15" instance=ExtResource("5_8uqty")]
 song = ExtResource("6_w4wah")
 
 [editable path="TransitionAreas/Transition"]

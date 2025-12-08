@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b0ttk38sufgur"]
+[gd_scene load_steps=22 format=3 uid="uid://b0ttk38sufgur"]
 
 [ext_resource type="Texture2D" uid="uid://di2fa8ln64nqe" path="res://world/pickups/corrupt_heart/corrupt_heart.png" id="1_sj4sw"]
 [ext_resource type="Script" uid="uid://1vuuexllss1q" path="res://world/pickups/corrupt_heart/corrupt_heart.gd" id="1_vve5n"]
@@ -10,10 +10,12 @@
 [ext_resource type="Script" uid="uid://do5vs8m1law7o" path="res://systems/attacking/health/health.gd" id="6_5roo4"]
 [ext_resource type="AudioStream" uid="uid://de23avhh4wkr3" path="res://audio/placeholders/heart_beat1.wav" id="6_kyt37"]
 [ext_resource type="AudioStream" uid="uid://ftg5bow5xo32" path="res://audio/placeholders/heart_beat2.wav" id="7_1n52r"]
+[ext_resource type="Script" uid="uid://5yprj03obbfy" path="res://world/enemy/encounter/encounter_obj.gd" id="11_enc"]
 [ext_resource type="PackedScene" uid="uid://cnddjimdmtq1s" path="res://audio/streams/heart_drop_sound.tscn" id="11_kyt37"]
 [ext_resource type="PackedScene" uid="uid://blmxgvtxbyaur" path="res://audio/streams/heart_swish_sound.tscn" id="12_1n52r"]
 [ext_resource type="PackedScene" uid="uid://cg651hljdyf12" path="res://audio/streams/heart_ambient_sound.tscn" id="13_k8yj6"]
-[ext_resource type="Script" uid="uid://5yprj03obbfy" path="res://world/enemy/encounter/encounter_obj.gd" id="11_enc"]
+[ext_resource type="AudioStream" uid="uid://dbaa53s78psxi" path="res://audio/world_objects/CorruptHeartSwish.wav" id="13_xlqjo"]
+[ext_resource type="PackedScene" uid="uid://dkqirfskr1ko7" path="res://world/pickups/corrupt_heart/bapple/bapple_particle_source.tscn" id="15_gbo0p"]
 
 [sub_resource type="Animation" id="Animation_vve5n"]
 length = 0.001
@@ -183,10 +185,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9867293, 0)
 [node name="HeartDropSound" parent="." instance=ExtResource("11_kyt37")]
 
 [node name="HeartSwishSound" parent="." instance=ExtResource("12_1n52r")]
+stream = ExtResource("13_xlqjo")
 
 [node name="HeartAmbientSound" parent="." instance=ExtResource("13_k8yj6")]
+
 [node name="EncounterObject" type="Node" parent="."]
 script = ExtResource("11_enc")
 start_active = true
 start_instant = true
 metadata/_custom_type_script = "uid://5yprj03obbfy"
+
+[node name="BadAppleParticleSource" parent="." node_paths=PackedStringArray("anim", "audio", "sounds_to_silence") instance=ExtResource("15_gbo0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9759511, 0.3366413, 0.9624505)
+anim = NodePath("../AnimationPlayer")
+audio = NodePath("../AudioStreamPlayer3D")
+sounds_to_silence = [NodePath("../HeartAmbientSound")]
+
+[node name="Timer" type="Timer" parent="BadAppleParticleSource"]
+wait_time = 120.0
+one_shot = true
+autostart = true
+
+[connection signal="killed" from="Health" to="BadAppleParticleSource" method="end_playback"]
+[connection signal="timeout" from="BadAppleParticleSource/Timer" to="BadAppleParticleSource" method="begin_bad_apple"]

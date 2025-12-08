@@ -1,17 +1,101 @@
-[gd_scene load_steps=25 format=3 uid="uid://d0sdri7hlk5i3"]
+[gd_scene load_steps=37 format=3 uid="uid://d0sdri7hlk5i3"]
 
 [ext_resource type="PackedScene" uid="uid://c5mugf35c8n0f" path="res://world/enemy/bosses/boss_enemy.tscn" id="1_0ojq6"]
 [ext_resource type="Script" uid="uid://bvjxmtoqmx4bg" path="res://world/enemy/bosses/mass/the_mass.gd" id="2_0ojq6"]
 [ext_resource type="PackedScene" uid="uid://0087idnveyoi" path="res://world/enemy/bosses/mass/attacks/spike_attack.tscn" id="3_2il7s"]
 [ext_resource type="PackedScene" uid="uid://vqmkg8wor6fr" path="res://world/pickups/corrupt_heart/blood_particles/final_burst.tscn" id="3_txmqb"]
-[ext_resource type="Texture2D" uid="uid://bsjg2jy70gbkw" path="res://temp_art/rough_drafts/mass_temp.png" id="3_we0e7"]
 [ext_resource type="PackedScene" uid="uid://xug45fo2qtmw" path="res://world/enemy/bosses/mass/mass_chunk.tscn" id="4_6qvwf"]
+[ext_resource type="Texture2D" uid="uid://qhkt84rb8sf0" path="res://world/enemy/bosses/mass/art/mass_idle.png" id="6_txmqb"]
+[ext_resource type="Texture2D" uid="uid://c5o823jufcxi5" path="res://world/enemy/bosses/mass/art/mass_damage.png" id="6_v1sxx"]
 [ext_resource type="Script" uid="uid://c34j1choqmasd" path="res://world/enemy/bosses/mass/enemy_spitter.gd" id="6_wko6n"]
 [ext_resource type="PackedScene" uid="uid://dxdkwdigtcn43" path="res://world/enemy/test/enemy_test.tscn" id="7_2il7s"]
 [ext_resource type="Texture2D" uid="uid://di2fa8ln64nqe" path="res://world/pickups/corrupt_heart/corrupt_heart.png" id="8_b8f6a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b8f6a"]
 size = Vector3(11.355682, 5.3653564, 3.9311523)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1act"]
+atlas = ExtResource("6_v1sxx")
+region = Rect2(0, 0, 4001, 4002)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdf12"]
+atlas = ExtResource("6_v1sxx")
+region = Rect2(4001, 0, 4001, 4002)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6eq0"]
+atlas = ExtResource("6_v1sxx")
+region = Rect2(8002, 0, 4001, 4002)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1sxx"]
+atlas = ExtResource("6_txmqb")
+region = Rect2(0, 0, 4001, 4001)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2jdb"]
+atlas = ExtResource("6_txmqb")
+region = Rect2(4001, 0, 4001, 4001)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6uyn"]
+atlas = ExtResource("6_txmqb")
+region = Rect2(8002, 0, 4001, 4001)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mu05a"]
+atlas = ExtResource("6_txmqb")
+region = Rect2(12003, 0, 4001, 4001)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7woel"]
+atlas = ExtResource("6_txmqb")
+region = Rect2(0, 4001, 4001, 4001)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6dfcl"]
+atlas = ExtResource("6_txmqb")
+region = Rect2(4001, 4001, 4001, 4001)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1cjuw"]
+atlas = ExtResource("6_txmqb")
+region = Rect2(8002, 4001, 4001, 4001)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o1act"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1act")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdf12")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6eq0")
+}],
+"loop": false,
+"name": &"damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1sxx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2jdb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6uyn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mu05a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7woel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6dfcl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1cjuw")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2il7s"]
 size = Vector3(11.355682, 5.3653564, 3.9311523)
@@ -26,7 +110,7 @@ length = 0.001
 tracks/0/type = "scale_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D")
+tracks/0/path = NodePath("Sprite")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, 0.305, 0.305, 0.305)
@@ -108,14 +192,14 @@ tracks/2/keys = {
 tracks/3/type = "position_3d"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite3D")
+tracks/3/path = NodePath("Sprite")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1.3000002, 1, 0, 0, 0, 1.5, 1, 0, 0.5, 0, 1.6999998, 1, 0, 0, 0, 2.8000002, 1, 0, 0, 0, 3, 1, 0, 0.5, 0, 3.1999998, 1, 0, 0, 0, 4.3, 1, 0, 0, 0, 4.5, 1, 0, 0.5, 0, 4.7, 1, 0, 0, 0)
 tracks/4/type = "scale_3d"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite3D")
+tracks/4/path = NodePath("Sprite")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = PackedFloat32Array(0, 1, 0.305, 0.305, 0.305, 1.3000002, 1, 0.32, 0.27, 0.305, 1.5, 1, 0.27, 0.35, 0.305, 1.6999998, 1, 0.305, 0.305, 0.305, 2.8000002, 1, 0.32, 0.27, 0.305, 3, 1, 0.27, 0.35, 0.305, 3.1999998, 1, 0.305, 0.305, 0.305, 4.3, 1, 0.32, 0.27, 0.305, 4.5, 1, 0.27, 0.35, 0.305, 4.7, 1, 0.305, 0.305, 0.305)
@@ -177,14 +261,14 @@ tracks/0/keys = {
 tracks/1/type = "position_3d"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite3D")
+tracks/1/path = NodePath("Sprite")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.5, 1, 0, 0, 0, 0.6, 1, -0.25, -0.25, 0, 0.7, 1, 0.25, -0.25, 0, 0.79999995, 1, -0.25, -0.25, 0, 0.9, 1, 0.25, -0.25, 0, 1, 1, -0.25, -0.25, 0, 1.1, 1, 0.25, -0.25, 0, 1.1999999, 1, -0.25, -0.25, 0, 1.3, 1, 0.25, -0.25, 0, 1.4, 1, -0.25, -0.25, 0, 1.5, 1, 0.25, -0.25, 0, 1.6, 1, -0.25, -0.25, 0, 1.7, 1, 0.25, -0.25, 0, 1.8, 1, -0.25, -0.25, 0, 1.9, 1, 0.25, -0.25, 0, 1.9999999, 1, -0.25, -0.25, 0, 2.1, 1, 0.25, -0.25, 0, 2.1999998, 1, -0.25, -0.25, 0, 2.3000002, 1, 0.25, -0.25, 0, 2.4, 1, -0.25, -0.25, 0, 2.5, 1, 0.25, -0.25, 0, 2.6, 1, -0.25, -0.25, 0, 2.7000003, 1, 0.25, -0.25, 0, 2.8000002, 1, -0.25, -0.25, 0, 2.9, 1, 0.25, -0.25, 0, 3, 1, -0.25, -0.25, 0, 3.1, 1, 0.25, -0.25, 0, 3.2, 1, 0, 0, 0)
 tracks/2/type = "scale_3d"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite3D")
+tracks/2/path = NodePath("Sprite")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = PackedFloat32Array(0, 1, 0.305, 0.305, 0.305, 0.19999997, 1, 0.27, 0.35, 0.305, 0.30000007, 1, 0.305, 0.305, 0.305, 0.50000006, 1, 0.35, 0.28, 0.305, 3.1, 1, 0.35, 0.28, 0.305, 3.2999997, 1, 0.305, 0.305, 0.305)
@@ -222,14 +306,14 @@ tracks/0/keys = {
 tracks/1/type = "position_3d"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite3D")
+tracks/1/path = NodePath("Sprite")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.19999996, 1, 0, 0, 0, 0.30000007, 1, 0, 0, 0, 0.5, 1, 0, 0, 0, 0.6, 1, -0.25, -0.25, 0, 0.70000005, 1, 0.25, -0.25, 0, 0.8000001, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1.1, 1, -0.25, -0.25, 0, 1.1999999, 1, 0.25, -0.25, 0, 1.3000001, 1, 0, 0, 0, 1.6, 1, 0, 0, 0, 1.7, 1, -0.25, -0.25, 0, 1.8, 1, 0.25, -0.25, 0, 1.8999999, 1, 0, 0, 0, 2.1000004, 1, 0, 0, 0, 2.2000003, 1, -0.25, -0.25, 0, 2.3000002, 1, 0.25, -0.25, 0, 2.4, 1, 0, 0, 0, 2.6000004, 1, 0, 0, 0, 2.7000003, 1, -0.25, -0.25, 0, 2.8000002, 1, 0.25, -0.25, 0, 2.9, 1, 0, 0, 0)
 tracks/2/type = "scale_3d"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite3D")
+tracks/2/path = NodePath("Sprite")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = PackedFloat32Array(0, 1, 0.305, 0.305, 0.305, 0.19999996, 1, 0.27, 0.35, 0.305, 0.30000007, 1, 0.305, 0.305, 0.305, 0.50000006, 1, 0.35, 0.28, 0.305, 2.7999997, 1, 0.35, 0.28, 0.305, 2.9999995, 1, 0.305, 0.305, 0.305)
@@ -255,14 +339,14 @@ tracks/0/keys = {
 tracks/1/type = "position_3d"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite3D")
+tracks/1/path = NodePath("Sprite")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.8000002, 1, 0, 0, 0, 1, 1, 0, 0.5, 0, 1.1999998, 1, 0, 0, 0)
 tracks/2/type = "scale_3d"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite3D")
+tracks/2/path = NodePath("Sprite")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = PackedFloat32Array(0, 1, 0.305, 0.305, 0.305, 0.8000002, 1, 0.32, 0.27, 0.305, 1, 1, 0.27, 0.35, 0.305, 1.1999998, 1, 0.305, 0.305, 0.305)
@@ -313,14 +397,14 @@ tracks/2/keys = {
 tracks/3/type = "position_3d"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite3D")
+tracks/3/path = NodePath("Sprite")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1.0000002, 1, 0, 0, 0, 1.2, 1, 0, 0.5, 0, 1.3999999, 1, 0, 0, 0, 2.2000003, 1, 0, 0, 0, 2.4, 1, 0, 0.5, 0, 2.6, 1, 0, 0, 0, 3.4, 1, 0, 0, 0, 3.6, 1, 0, 0.5, 0, 3.7999997, 1, 0, 0, 0)
 tracks/4/type = "scale_3d"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite3D")
+tracks/4/path = NodePath("Sprite")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = PackedFloat32Array(0, 1, 0.305, 0.305, 0.305, 1.0000002, 1, 0.32, 0.27, 0.305, 1.2, 1, 0.27, 0.35, 0.305, 1.3999999, 1, 0.305, 0.305, 0.305, 2.2000003, 1, 0.32, 0.27, 0.305, 2.4, 1, 0.27, 0.35, 0.305, 2.6, 1, 0.305, 0.305, 0.305, 3.4, 1, 0.32, 0.27, 0.305, 3.6, 1, 0.27, 0.35, 0.305, 3.7999997, 1, 0.305, 0.305, 0.305)
@@ -421,14 +505,14 @@ tracks/0/keys = {
 tracks/1/type = "position_3d"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite3D")
+tracks/1/path = NodePath("Sprite")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.5, 1, 0, 0, 0, 0.6, 1, -0.25, -0.25, 0, 0.7, 1, 0.25, -0.25, 0, 0.79999995, 1, -0.25, -0.25, 0, 0.9, 1, 0.25, -0.25, 0, 1, 1, -0.25, -0.25, 0, 1.1, 1, 0.25, -0.25, 0, 1.1999999, 1, -0.25, -0.25, 0, 1.3, 1, 0.25, -0.25, 0, 1.4, 1, -0.25, -0.25, 0, 1.5, 1, 0.25, -0.25, 0, 1.6, 1, -0.25, -0.25, 0, 1.7, 1, 0.25, -0.25, 0, 1.8, 1, -0.25, -0.25, 0, 1.9, 1, 0.25, -0.25, 0, 1.9999999, 1, -0.25, -0.25, 0, 2.1, 1, 0.25, -0.25, 0, 2.1999998, 1, -0.25, -0.25, 0, 2.3000002, 1, 0.25, -0.25, 0, 2.4, 1, -0.25, -0.25, 0, 2.5, 1, 0.25, -0.25, 0, 2.6, 1, -0.25, -0.25, 0, 2.7000003, 1, 0.25, -0.25, 0, 2.8000002, 1, -0.25, -0.25, 0, 2.9, 1, 0.25, -0.25, 0, 3, 1, -0.25, -0.25, 0, 3.1, 1, 0.25, -0.25, 0, 3.2, 1, 0, 0, 0)
 tracks/2/type = "scale_3d"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite3D")
+tracks/2/path = NodePath("Sprite")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = PackedFloat32Array(0, 1, 0.305, 0.305, 0.305, 0.19999997, 1, 0.27, 0.35, 0.305, 0.30000007, 1, 0.305, 0.305, 0.305, 0.50000006, 1, 0.35, 0.28, 0.305, 3.1, 1, 0.35, 0.28, 0.305, 3.2999997, 1, 0.305, 0.305, 0.305)
@@ -466,14 +550,14 @@ tracks/0/keys = {
 tracks/1/type = "scale_3d"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite3D")
+tracks/1/path = NodePath("Sprite")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = PackedFloat32Array(0, 1, 0.305, 0.305, 0.305, 0.2, 1, 0.305, 0.33, 0.305, 0.4000001, 1, 0.305, 0.34, 0.305, 0.6, 1, 0.305, 0.27, 0.305)
 tracks/2/type = "position_3d"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite3D")
+tracks/2/path = NodePath("Sprite")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = PackedFloat32Array(0.9, 1, 0, 0, 0, 1, 1, 0, -0.25, 0, 1.1, 1, 0, 0, 0, 1.4, 1, 0, 0, 0, 1.5000001, 1, 0, -0.25, 0, 1.6, 1, 0, 0, 0, 1.9, 1, 0, 0, 0, 2, 1, 0, -0.25, 0, 2.1, 1, 0, 0, 0, 2.4, 1, 0, 0, 0, 2.5, 1, 0, -0.25, 0, 2.6, 1, 0, 0, 0, 2.9, 1, 0, 0, 0, 3, 1, 0, -0.25, 0, 3.1, 1, 0, 0, 0)
@@ -625,14 +709,14 @@ tracks/0/keys = {
 tracks/1/type = "position_3d"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite3D")
+tracks/1/path = NodePath("Sprite")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.5, 1, 0, 0, 0, 0.6, 1, -0.25, -0.25, 0, 0.7, 1, 0.25, -0.25, 0, 0.79999995, 1, -0.25, -0.25, 0, 0.9, 1, 0.25, -0.25, 0, 1, 1, -0.25, -0.25, 0, 1.1, 1, 0.25, -0.25, 0, 1.1999999, 1, -0.25, -0.25, 0, 1.3, 1, 0.25, -0.25, 0, 1.4, 1, -0.25, -0.25, 0, 1.5, 1, 0.25, -0.25, 0, 1.6, 1, -0.25, -0.25, 0, 1.7, 1, 0.25, -0.25, 0, 1.8, 1, -0.25, -0.25, 0, 1.9, 1, 0.25, -0.25, 0, 1.9999999, 1, -0.25, -0.25, 0, 2.1, 1, 0.25, -0.25, 0, 2.1999998, 1, -0.25, -0.25, 0, 2.3000002, 1, 0.25, -0.25, 0, 2.4, 1, -0.25, -0.25, 0, 2.5, 1, 0.25, -0.25, 0, 2.6, 1, -0.25, -0.25, 0, 2.7000003, 1, 0.25, -0.25, 0, 2.8000002, 1, -0.25, -0.25, 0, 2.9, 1, 0.25, -0.25, 0, 3, 1, -0.25, -0.25, 0, 3.1, 1, 0.25, -0.25, 0, 3.2, 1, 0, 0, 0)
 tracks/2/type = "scale_3d"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite3D")
+tracks/2/path = NodePath("Sprite")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = PackedFloat32Array(0, 1, 0.305, 0.305, 0.305, 0.19999997, 1, 0.27, 0.35, 0.305, 0.30000007, 1, 0.305, 0.305, 0.305, 0.50000006, 1, 0.35, 0.28, 0.305, 3.1, 1, 0.35, 0.28, 0.305, 3.2999997, 1, 0.305, 0.305, 0.305)
@@ -658,14 +742,14 @@ tracks/0/keys = {
 tracks/1/type = "position_3d"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite3D")
+tracks/1/path = NodePath("Sprite")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.8000002, 1, 0, 0, 0, 1, 1, 0, 0.5, 0, 1.1999998, 1, 0, 0, 0, 1.5, 1, 0, 0, 0)
 tracks/2/type = "scale_3d"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite3D")
+tracks/2/path = NodePath("Sprite")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = PackedFloat32Array(0, 1, 0.305, 0.305, 0.305, 0.8000002, 1, 0.32, 0.27, 0.305, 1, 1, 0.27, 0.35, 0.305, 1.1999998, 1, 0.305, 0.305, 0.305, 1.5, 1, 0.305, 0.305, 0.305)
@@ -677,14 +761,14 @@ step = 0.1
 tracks/0/type = "position_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D")
+tracks/0/path = NodePath("Sprite")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.07692308, 1, 0.25, 0, -0.25, 0.15384616, 1, -0.25, 0, -0.25, 0.23076923, 1, 0.25, 0, 0, 0.30769232, 1, -0.25, 0, 0, 0.3846154, 1, 0, 0, 0, 1.3, 1, 0, 0, 0, 1.4615381, 1, -0.5, 0, 0, 1.6153843, 1, 0.5, 0, 0, 1.7692306, 1, 0, 0, 0, 1.9230769, 1, 0.5, 0, 0, 2.0769227, 1, 0, 0, 0)
 tracks/1/type = "scale_3d"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite3D")
+tracks/1/path = NodePath("Sprite")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = PackedFloat32Array(0, 1, 0.305, 0.305, 0.305, 0.19999993, 1, 0.27, 0.35, 0.305, 0.3000002, 1, 0.305, 0.305, 0.305, 1.0999997, 1, 0.305, 0.305, 0.305, 1.2999995, 1, 0.27, 0.35, 0.305, 1.9999998, 1, 0.27, 0.35, 0.305, 2.1000001, 1, 0.305, 0.305, 0.305, 2.3, 1, 0.35, 0.28, 0.305, 2.3999994, 1, 0.305, 0.305, 0.305)
@@ -747,10 +831,11 @@ action_player = NodePath("ActionPlayer")
 [node name="CollisionShape3D" parent="." index="0"]
 shape = SubResource("BoxShape3D_b8f6a")
 
-[node name="Sprite3D" parent="." index="1"]
-transform = Transform3D(0.305, 0, 0, 0, 0.27642387, 0.12889858, 0, -0.12889858, 0.27642387, 0, 0, 0)
-offset = Vector2(0, 400)
-texture = ExtResource("3_we0e7")
+[node name="Sprite" parent="." index="1"]
+transform = Transform3D(0.305, 0, 0, 0, 0.26413772, 0.15250008, 0, -0.15250008, 0.26413772, 0, 3.2776165, 0)
+sprite_frames = SubResource("SpriteFrames_o1act")
+animation = &"idle"
+autoplay = "idle"
 
 [node name="Health" parent="." index="3"]
 max_health = 400

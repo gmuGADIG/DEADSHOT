@@ -1,19 +1,15 @@
 class_name BirdSwarm
 extends EnemyBase
 
-var timer : float = 0.0;
+var timer : float = randf();
 @export var MELEE_RANGE: float = 0.3
 @export var MELEE_DAMAGE: float = 2
 @export var homing_bird_fire_speed: float = 0.5
 
-
-func fireHomingBird() -> void:
-	var homingBird: HomingBird = preload("res://world/enemy/bird_swarm/homing_bird.tscn").instantiate()
-	get_tree().current_scene.add_child(homingBird)
-	
-	homingBird.atk_damage = 1
-	
-	homingBird.fire(self,player.global_position - self.global_position)
+func fire_bird() -> void:
+	var bird: HomingBird = preload("res://world/enemy/bird_swarm/homing_bird.tscn").instantiate()
+	get_tree().current_scene.add_child(bird)
+	bird.fire(self, global_position.direction_to(player.global_position))
 
 func hostile() -> void:
 	#spawn projectiles when closing in on player
@@ -23,7 +19,7 @@ func hostile() -> void:
 	
 	if distance_to_player > MELEE_RANGE:
 		if(timer >= homing_bird_fire_speed):
-			fireHomingBird()
+			fire_bird()
 			timer = 0;
 	else:
 		attack()

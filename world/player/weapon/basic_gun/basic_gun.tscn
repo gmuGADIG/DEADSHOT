@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cj5uuu7xjsprv"]
+[gd_scene load_steps=5 format=3 uid="uid://cj5uuu7xjsprv"]
 
 [ext_resource type="Script" uid="uid://c3imq3vfbop5k" path="res://world/player/weapon/basic_gun/basic_gun.gd" id="1_gjor4"]
 [ext_resource type="PackedScene" uid="uid://c34cmvuqfmuww" path="res://audio/streams/shoot_sound.tscn" id="2_jjk67"]
+[ext_resource type="PackedScene" uid="uid://bf8bqkjukwxfj" path="res://audio/streams/salvage_proc.tscn" id="3_20vud"]
 [ext_resource type="Texture2D" uid="uid://c06hxwf7a4ef2" path="res://world/player/weapon/basic_gun/revolver.png" id="3_68xih"]
 
 [node name="BasicGun" type="Node3D"]
@@ -12,6 +13,9 @@ script = ExtResource("1_gjor4")
 [node name="ShootSound" parent="Sounds" instance=ExtResource("2_jjk67")]
 unique_name_in_owner = true
 volume_db = -18.641
+
+[node name="SalvageProc" parent="Sounds" instance=ExtResource("3_20vud")]
+unique_name_in_owner = true
 
 [node name="GunSprite" type="Sprite3D" parent="."]
 transform = Transform3D(-1.2239188e-08, -0.27999997, -4.371139e-08, 0, -1.2239188e-08, 1, -0.27999997, 1.2239188e-08, 1.9106855e-15, 0, 0, -1.1174287)

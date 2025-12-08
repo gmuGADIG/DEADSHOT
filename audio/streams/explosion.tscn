@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://co30kufvambu0"]
+
+[ext_resource type="AudioStream" uid="uid://drvscc177esir" path="res://audio/placeholders/test_explode_big.wav" id="1_8lry2"]
+
+[node name="Explosion" type="AudioStreamPlayer3D"]
+stream = ExtResource("1_8lry2")

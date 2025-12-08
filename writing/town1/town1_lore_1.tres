@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://dv8pauw5td42b"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_8kjjs"]
+
+[resource]
+script = ExtResource("1_8kjjs")
+dialog = "[]It’s a slightly worn note from a journal...
+‘It's been a while since I was able to get a good night's sleep in this forsaken town. Though it has brought new light to my long growing suspicions, as a few nights ago I saw the sheriff sneaking off in the dead of night towards the mines.’
+‘It's just as though I can’t trust a single soul in this town, especially since I lost my son. I bet they're all there all in on it, with them saying I need to go to the doctor to finally get some sleep, just so they can jump me at night.’
+"
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"
