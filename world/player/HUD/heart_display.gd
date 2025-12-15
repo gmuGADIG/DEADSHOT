@@ -5,6 +5,7 @@ extends Control
 @export var empty_tex: Texture2D
 
 func _ready() -> void:
+	await Player.instance.player_ready
 	set_hp(Player.instance.health_component.health)
 	set_max_hp(Player.instance.health_component.max_health)
 	

@@ -18,6 +18,7 @@ enum PlayerState {
 #region Variables
 static var persisting_data : PlayerPersistingData
 static var instance : Player
+signal player_ready
 
 var speed_multiplier: float = 1.0
 
@@ -121,6 +122,8 @@ func _ready() -> void:
 		if skill in hp_skills:
 			health_component.modify_max_health(-2)
 	)
+	
+	player_ready.emit()
 
 func _init() -> void:
 	instance = self
