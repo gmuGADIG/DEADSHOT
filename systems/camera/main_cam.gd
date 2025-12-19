@@ -10,6 +10,9 @@ static var instance: MainCam
 func _init() -> void:
 	instance = self
 
+func _ready() -> void:
+	global_position = average_position()
+
 func _process(delta: float) -> void:
 	var target := average_position()
 	if Encounter.is_encounter_active():
