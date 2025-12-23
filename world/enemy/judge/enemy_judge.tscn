@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://doavrdpyjcdgp"]
+[gd_scene load_steps=10 format=3 uid="uid://doavrdpyjcdgp"]
 
 [ext_resource type="PackedScene" uid="uid://dx3l0wduat3tp" path="res://world/enemy/base/enemy_base.tscn" id="1_67wm8"]
-[ext_resource type="Script" uid="uid://c3cy8q01gvyo2" path="res://world/enemy/test/enemy_test.gd" id="2_l2wwm"]
+[ext_resource type="Script" uid="uid://dv072sdd0tk28" path="res://world/enemy/judge/enemy_judge.gd" id="2_q6oaa"]
 [ext_resource type="Texture2D" uid="uid://bxbm1igs7hyp4" path="res://temp_art/gartic/khalid.png" id="3_q6oaa"]
 [ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="4_q6oaa"]
+[ext_resource type="PackedScene" uid="uid://3xv4m4jgpupq" path="res://audio/streams/judge_death.tscn" id="5_0hqsb"]
+[ext_resource type="PackedScene" uid="uid://bgwfrncadc5gu" path="res://audio/streams/judge_reload.tscn" id="6_arffw"]
+[ext_resource type="PackedScene" uid="uid://tbha2e87fcg3" path="res://audio/streams/judge_shoot.tscn" id="7_tl5he"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u7aru"]
 animations = [{
@@ -18,11 +21,12 @@ animations = [{
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_xuwp2"]
 
-[node name="EnemyTest" instance=ExtResource("1_67wm8")]
-script = ExtResource("2_l2wwm")
-movement_speed = 3.0
-fire_rate = 4.0
-bullet_speed = 20.0
+[node name="JudgeEnemy" instance=ExtResource("1_67wm8")]
+script = ExtResource("2_q6oaa")
+movement_speed = 2.5
+initial_bullet_timer = 1.0
+fire_rate = 5.0
+bullet_speed = 15.0
 
 [node name="Sprite" parent="." index="1"]
 transform = Transform3D(0.42, 0, 0, 0, 0.3637306, 0.2100001, 0, -0.2100001, 0.3637306, 0, 1, 0)
@@ -43,6 +47,17 @@ shape = SubResource("CylinderShape3D_xuwp2")
 
 [node name="Comment" parent="." index="9" instance=ExtResource("4_q6oaa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.050803, 0)
+visible = false
 text = "TODO: judge"
 
+[node name="JudgeDeath" parent="." index="10" instance=ExtResource("5_0hqsb")]
+unique_name_in_owner = true
+
+[node name="JudgeReload" parent="." index="11" instance=ExtResource("6_arffw")]
+unique_name_in_owner = true
+
+[node name="JudgeShoot" parent="." index="12" instance=ExtResource("7_tl5he")]
+unique_name_in_owner = true
+
 [connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
+[connection signal="timeout" from="FiringTimer" to="." method="_on_firing_timer_timeout"]
