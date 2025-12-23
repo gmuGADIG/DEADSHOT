@@ -19,7 +19,6 @@ func _ready() -> void:
 	menu_button.pressed.connect(_on_menu_pressed)
 
 	hide()
-	
 
 func _process(_delta: float) -> void:
 	#Makes ESC key toggle pause menu visibility
@@ -37,26 +36,26 @@ func _process(_delta: float) -> void:
 
 
 func _on_resume_pressed() -> void:
-		is_paused = false
-		get_tree().paused = false
-		hide()
+	is_paused = false
+	get_tree().paused = false
+	hide()
 
 func _on_locker_pressed() -> void:
-		#Load Meat Locker
-		var meat_locker_scene := load("res://menu/skill_tree/skill_tree.tscn")
-		submenu = meat_locker_scene.instantiate()
-		add_child(submenu)
+	#Load Meat Locker
+	var meat_locker_scene := load("res://menu/skill_tree/skill_tree.tscn")
+	submenu = meat_locker_scene.instantiate()
+	add_child(submenu)
 
 func _on_settings_pressed() -> void:
-		var options_scene := load("res://menu/options_menu/options_menu.tscn")
-		submenu = options_scene.instantiate()
-		add_child(submenu)
+	var options_scene := load("res://menu/options_menu/options_menu.tscn")
+	submenu = options_scene.instantiate()
+	add_child(submenu)
 
 func _on_restart_pressed() -> void:
-		print("Restart to last campfire")
+	Save.load_game()
 
 func _on_menu_pressed() -> void:
-		get_tree().change_scene_to_file("res://menu/main_menu/main_menu.tscn")
+	get_tree().change_scene_to_file("res://menu/main_menu/main_menu.tscn")
 
 func _exit_tree() -> void: 
 	get_tree().paused = false

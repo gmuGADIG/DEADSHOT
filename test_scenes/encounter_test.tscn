@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dhb2pgqbfvxoa" path="res://world/enemy/encounter/encounter.tscn" id="3_l6ure"]
 [ext_resource type="Resource" uid="uid://ebi2mrpur7b6" path="res://world/floor/rock/rock.tres" id="4_3n565"]
 [ext_resource type="PackedScene" uid="uid://dxdkwdigtcn43" path="res://world/enemy/test/enemy_test.tscn" id="4_732m7"]
-[ext_resource type="PackedScene" uid="uid://dwdhuncnyfmcw" path="res://world/enemy/wilder/wilder.tscn" id="5_nvmc7"]
+[ext_resource type="PackedScene" uid="uid://doavrdpyjcdgp" path="res://world/enemy/judge/enemy_judge.tscn" id="6_71da5"]
 [ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://world/interactables/cover/cover_boulder.tscn" id="6_tw8x1"]
 [ext_resource type="PackedScene" uid="uid://ckbr1getgwitd" path="res://world/interactables/tumbleweed/tumbleweed.tscn" id="7_71da5"]
 
@@ -28,7 +28,7 @@ size = Vector3(14.188232, 3, 10)
 
 [node name="EncounterTest" instance=ExtResource("1_eov2r")]
 
-[node name="World" parent="." index="1"]
+[node name="World" parent="." index="2"]
 navigation_mesh = SubResource("NavigationMesh_hxoc3")
 
 [node name="Floor" parent="World" index="0"]
@@ -44,16 +44,14 @@ shape = SubResource("BoxShape3D_l6ure")
 [node name="Boulder" parent="Encounter" index="1" instance=ExtResource("6_tw8x1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1376429, 0, -1.7203121)
 
-[node name="EnemyTest" parent="Encounter" index="2" instance=ExtResource("4_732m7")]
-
-[node name="Tumbleweed" parent="Encounter" index="3" instance=ExtResource("7_71da5")]
+[node name="Tumbleweed" parent="Encounter" index="2" instance=ExtResource("7_71da5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0016623, 0, -1.8733292)
 
-[node name="Wilder" parent="Encounter" index="4" instance=ExtResource("5_nvmc7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5647469, 0, 1.5274448)
-
-[node name="Boulder2" parent="Encounter" index="5" instance=ExtResource("6_tw8x1")]
+[node name="Boulder2" parent="Encounter" index="3" instance=ExtResource("6_tw8x1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24783134, 0, 3.0624352)
+
+[node name="EnemyTest4" parent="Encounter" index="5" instance=ExtResource("6_71da5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.923584, 0, 0)
 
 [node name="Encounter2" parent="." index="7" instance=ExtResource("3_l6ure")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.185957, 0, 0)
