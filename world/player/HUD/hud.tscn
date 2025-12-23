@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bas8xwk5nhlq0"]
+[gd_scene load_steps=24 format=3 uid="uid://bas8xwk5nhlq0"]
 
 [ext_resource type="Script" uid="uid://clcb8u0fv74qk" path="res://world/player/HUD/heart_display.gd" id="2_swyvw"]
 [ext_resource type="Texture2D" uid="uid://dr4ivc7tmyyha" path="res://world/player/HUD/heart_full.png" id="3_02nes"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://y1h3uww1jns7" path="res://world/enemy/meat/meat.png" id="8_l0aox"]
 [ext_resource type="Shader" uid="uid://cvjqap0m4b8j3" path="res://world/player/HUD/hud.gdshader" id="12_l0aox"]
 [ext_resource type="Script" uid="uid://c8qklemv0wk33" path="res://world/player/HUD/hurt_vfx.gd" id="13_uufss"]
+[ext_resource type="PackedScene" uid="uid://touuxcdpryp5" path="res://world/player/HUD/boss_hp.tscn" id="14_y8by5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5nwtl"]
 font_size = 40
@@ -258,3 +259,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("13_uufss")
+
+[node name="BossHP" parent="." instance=ExtResource("14_y8by5")]
+layout_mode = 1

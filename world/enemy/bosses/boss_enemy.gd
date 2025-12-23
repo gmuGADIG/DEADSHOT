@@ -14,6 +14,8 @@ var last_action : StringName
 func _ready() -> void:
 	super._ready()
 	pick_action()
+	
+	Global.boss_spawned.emit(self)
 
 func pick_action() -> void: ##TODO: Override this
 	pass
