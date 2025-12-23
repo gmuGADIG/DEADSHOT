@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=3 uid="uid://c6w6uo8xmhi08"]
+
+[ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_iduy5"]
+[ext_resource type="Resource" uid="uid://ebi2mrpur7b6" path="res://world/floor/rock/rock.tres" id="2_tomxd"]
+[ext_resource type="PackedScene" uid="uid://bq8indpdvh4bt" path="res://world/enemy/sheriff/sheriff.tscn" id="4_a3u44"]
+[ext_resource type="Script" path="res://world/levels/arena_area.gd" id="4_gojiq"]
+[ext_resource type="PackedScene" uid="uid://cx8e0px578hd7" path="res://slash.tscn" id="5_cqs2k"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_yi0vy"]
+vertices = PackedVector3Array(-19.534193, 0.48999965, -7.307107, -19.534193, 0.48999965, 15.192893, 19.215807, 0.48999965, 15.192893, 19.215807, 0.48999965, -7.307107)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[sub_resource type="Curve3D" id="Curve3D_ronks"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -20.035074, 0, -7.961582, 0, 0, 0, 0, 0, 0, 19.937084, 0, -8.05957, 0, 0, 0, 0, 0, 0, 19.937084, 0, 15.912587, 0, 0, 0, 0, 0, 0, -20.035074, 0, 15.814598),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ne3pg"]
+size = Vector3(38.901546, 1.9389648, 23.009075)
+
+[node name="BossArena" instance=ExtResource("1_iduy5")]
+
+[node name="World" parent="." index="2"]
+navigation_mesh = SubResource("NavigationMesh_yi0vy")
+
+[node name="Floor" parent="World" index="0"]
+curve = SubResource("Curve3D_ronks")
+material = ExtResource("2_tomxd")
+
+[node name="Player" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.202965, 0, 8.371207)
+
+[node name="ArenaArea" type="CollisionShape3D" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11643028, -0.05883789, 4.01169)
+shape = SubResource("BoxShape3D_ne3pg")
+script = ExtResource("4_gojiq")
+
+[node name="Sheriff" parent="." index="10" instance=ExtResource("4_a3u44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2099502, 1.013279e-06, 8.682014)
+star = ExtResource("5_cqs2k")
+timeBetweenShotsMin = 0.5
+timeBetweenShotsMax = 1.5
