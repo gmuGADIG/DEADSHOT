@@ -1,4 +1,4 @@
-extends Control
+class_name SkillTree extends Control
 
 @export var skill_buttons : Array[Skill_Button]
 
@@ -20,10 +20,6 @@ func _ready() -> void:
 	##This has to happen after all the purchase states are set
 	update_state()
 
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("ui_cancel"):
-		_on_exit_button_pressed()
-	
 
 func on_skill_pressed(skill_button : Skill_Button) -> void:
 	if selected_skill_button != null:
