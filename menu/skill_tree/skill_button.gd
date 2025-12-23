@@ -38,15 +38,18 @@ var state : State:
 				skill_branch.default_color = Color(0.5,0.5,0.5)
 				skill_branch.show()
 				$LockIcon.hide()
+				$TextureRect.texture = itemDesc.skill_image
 			State.UNAFFORDABLE:
 				self_modulate = Color(0.5,0.5,0.5)
 				skill_branch.default_color = Color(0.5,0.5,0.5)
 				skill_branch.show()
 				$LockIcon.hide()
+				$TextureRect.texture = itemDesc.skill_image
 			State.LOCKED:
 				self_modulate = Color(0.5,0.5,0.5)
 				skill_branch.hide()
 				$LockIcon.show()
+				$TextureRect.texture = itemDesc.skill_image
 
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
@@ -117,7 +120,7 @@ func purchase() -> void:
 	print(itemDesc.skill_name)
 	Global.meat_currency -= itemDesc.skill_meat_cost
 	state = State.PURCHASED
-	
+	$TextureRect.texture = itemDesc.skill_image_upgraded
 	purchase_made.emit(itemDesc.skill_uid)
 
 func indent() -> void:

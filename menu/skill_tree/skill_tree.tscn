@@ -1,16 +1,20 @@
-[gd_scene load_steps=35 format=3 uid="uid://fkmkprnxsrpf"]
+[gd_scene load_steps=39 format=3 uid="uid://fkmkprnxsrpf"]
 
 [ext_resource type="Script" uid="uid://c6cng071rfahe" path="res://menu/skill_tree/skill_tree.gd" id="1_dnamn"]
 [ext_resource type="PackedScene" uid="uid://7lrs6qjp01ku" path="res://menu/skill_tree/skill_button.tscn" id="2_3f6vw"]
-[ext_resource type="Texture2D" path="res://menu/skill_tree/skill_tree_art/nodes.png" id="3_fin66"]
+[ext_resource type="Texture2D" uid="uid://b5omdxry03i58" path="res://menu/skill_tree/skill_tree_icons/nodes.png" id="3_fin66"]
 [ext_resource type="Script" uid="uid://ce2k6qyx3sk68" path="res://menu/skill_tree/skill_desc.gd" id="4_8qlyr"]
 [ext_resource type="Texture2D" uid="uid://54e4esurd3xm" path="res://temp_art/gartic/gun.png" id="5_3b2bh"]
 [ext_resource type="Texture2D" uid="uid://cv64wt7j01lxl" path="res://menu/skill_tree/skill_tree_icons/damage_up_notupgraded.png" id="5_x1cyl"]
 [ext_resource type="Texture2D" uid="uid://sxaysn4gqoxo" path="res://temp_art/gartic/coin.png" id="6_6jgdw"]
 [ext_resource type="Texture2D" uid="uid://dwdshby6bfsut" path="res://menu/skill_tree/skill_tree_icons/damage_up.png" id="6_lwvla"]
 [ext_resource type="Texture2D" uid="uid://cegfpthfj6eil" path="res://temp_art/gartic/godot_dead.png" id="6_ph0jt"]
+[ext_resource type="Texture2D" uid="uid://cyock4ibunn2y" path="res://menu/skill_tree/skill_tree_icons/rifle2.png" id="7_lwvla"]
+[ext_resource type="Texture2D" uid="uid://dbb2hkjwkrrla" path="res://menu/skill_tree/skill_tree_icons/rifle.png" id="8_8rbpw"]
 [ext_resource type="Script" uid="uid://g60bhhds87wx" path="res://menu/skill_tree/skill_tree_overlay.gd" id="8_oh6w3"]
 [ext_resource type="Texture2D" uid="uid://y1h3uww1jns7" path="res://world/enemy/meat/meat.png" id="8_yrbjn"]
+[ext_resource type="Texture2D" uid="uid://bowfc1vlge31v" path="res://menu/skill_tree/skill_tree_icons/R2_1_NotUpgraded.png" id="9_mygyd"]
+[ext_resource type="Texture2D" uid="uid://bci8ojkjrr8x1" path="res://menu/skill_tree/skill_tree_icons/R2_1_Upgraded.png" id="10_4fwot"]
 
 [sub_resource type="Resource" id="Resource_lmf3w"]
 script = ExtResource("4_8qlyr")
@@ -26,7 +30,8 @@ metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 [sub_resource type="Resource" id="Resource_3b2bh"]
 script = ExtResource("4_8qlyr")
 skill_name = "Bolt Action Rifle"
-skill_image = ExtResource("5_3b2bh")
+skill_image = ExtResource("7_lwvla")
+skill_image_upgraded = ExtResource("8_8rbpw")
 skill_description = "A bolt action rifle, with long precision, able to handle
 more powerful calibers.
 Good ol' reliable!"
@@ -37,7 +42,8 @@ metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 [sub_resource type="Resource" id="Resource_8qlyr"]
 script = ExtResource("4_8qlyr")
 skill_name = "Damage UP"
-skill_image = ExtResource("6_6jgdw")
+skill_image = ExtResource("9_mygyd")
+skill_image_upgraded = ExtResource("10_4fwot")
 skill_description = "Gives your damage a SUPER increase at
 the trade of a lower firing rate."
 skill_meat_cost = 400
