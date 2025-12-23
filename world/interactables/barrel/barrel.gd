@@ -7,7 +7,13 @@ var was_hit := false
 
 
 func _physics_process(_delta: float) -> void:
-	if move_and_slide(): queue_free()
+	if move_and_slide():
+		for i in range(get_slide_collision_count()):
+			var collision := get_slide_collision(i)
+			print(collision.get_collision_count())
+			for j in range(collision.get_collision_count()):
+				if not collision.get_normal(j).is_equal_approx(Vector3.UP):
+					queue_free()
 
 
 func hit(bullet: Bullet) -> void:
