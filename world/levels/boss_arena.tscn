@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_m7nrf"]
 [ext_resource type="Resource" uid="uid://ebi2mrpur7b6" path="res://world/floor/rock/rock.tres" id="2_ne3pg"]
 [ext_resource type="PackedScene" uid="uid://d0sdri7hlk5i3" path="res://world/enemy/bosses/mass/the_mass.tscn" id="3_ne3pg"]
-[ext_resource type="Script" uid="uid://d2wxipl4px3iw" path="res://world/levels/arena_area.gd" id="4_yi0vy"]
+[ext_resource type="Script" path="res://world/levels/arena_area.gd" id="4_yi0vy"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_yi0vy"]
 vertices = PackedVector3Array(-19.534193, 0.48999965, -7.307107, -19.534193, 0.48999965, 15.192893, 19.215807, 0.48999965, 15.192893, 19.215807, 0.48999965, -7.307107)
