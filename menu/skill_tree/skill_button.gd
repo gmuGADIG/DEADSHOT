@@ -55,6 +55,7 @@ func _ready() -> void:
 	#setup_popup()
 	update_purchase_state()
 	$Label.text = itemDesc.skill_name
+	$TextureRect.texture = itemDesc.skill_image
 	# Fix this, make sure line goes in correct place
 	for child in dependencies:
 		skill_branch.add_point(self.global_position + self.size/2)
@@ -116,6 +117,7 @@ func purchase() -> void:
 	print(itemDesc.skill_name)
 	Global.meat_currency -= itemDesc.skill_meat_cost
 	state = State.PURCHASED
+	
 	purchase_made.emit(itemDesc.skill_uid)
 
 func indent() -> void:

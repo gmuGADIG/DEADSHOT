@@ -1,11 +1,13 @@
-[gd_scene load_steps=33 format=3 uid="uid://fkmkprnxsrpf"]
+[gd_scene load_steps=35 format=3 uid="uid://fkmkprnxsrpf"]
 
 [ext_resource type="Script" uid="uid://c6cng071rfahe" path="res://menu/skill_tree/skill_tree.gd" id="1_dnamn"]
 [ext_resource type="PackedScene" uid="uid://7lrs6qjp01ku" path="res://menu/skill_tree/skill_button.tscn" id="2_3f6vw"]
-[ext_resource type="Texture2D" uid="uid://clcis6jvjdkay" path="res://temp_art/stone_tablet_temp.png" id="4_3b2bh"]
+[ext_resource type="Texture2D" path="res://menu/skill_tree/skill_tree_art/nodes.png" id="3_fin66"]
 [ext_resource type="Script" uid="uid://ce2k6qyx3sk68" path="res://menu/skill_tree/skill_desc.gd" id="4_8qlyr"]
 [ext_resource type="Texture2D" uid="uid://54e4esurd3xm" path="res://temp_art/gartic/gun.png" id="5_3b2bh"]
+[ext_resource type="Texture2D" uid="uid://cv64wt7j01lxl" path="res://menu/skill_tree/skill_tree_icons/damage_up_notupgraded.png" id="5_x1cyl"]
 [ext_resource type="Texture2D" uid="uid://sxaysn4gqoxo" path="res://temp_art/gartic/coin.png" id="6_6jgdw"]
+[ext_resource type="Texture2D" uid="uid://dwdshby6bfsut" path="res://menu/skill_tree/skill_tree_icons/damage_up.png" id="6_lwvla"]
 [ext_resource type="Texture2D" uid="uid://cegfpthfj6eil" path="res://temp_art/gartic/godot_dead.png" id="6_ph0jt"]
 [ext_resource type="Script" uid="uid://g60bhhds87wx" path="res://menu/skill_tree/skill_tree_overlay.gd" id="8_oh6w3"]
 [ext_resource type="Texture2D" uid="uid://y1h3uww1jns7" path="res://world/enemy/meat/meat.png" id="8_yrbjn"]
@@ -13,7 +15,8 @@
 [sub_resource type="Resource" id="Resource_lmf3w"]
 script = ExtResource("4_8qlyr")
 skill_name = "Base Damage"
-skill_image = ExtResource("4_3b2bh")
+skill_image = ExtResource("5_x1cyl")
+skill_image_upgraded = ExtResource("6_lwvla")
 skill_description = "Increases the base damage
 of attacks"
 skill_meat_cost = 150
@@ -280,6 +283,7 @@ offset_left = 92.0
 offset_top = 58.0
 offset_right = 152.0
 offset_bottom = 118.0
+texture_normal = ExtResource("3_fin66")
 itemDesc = SubResource("Resource_lmf3w")
 
 [node name="R1" parent="SkillButtons" node_paths=PackedStringArray("dependencies", "evil_dependencies") instance=ExtResource("2_3f6vw")]
@@ -291,6 +295,7 @@ offset_left = 263.0
 offset_top = 27.0
 offset_right = 315.0
 offset_bottom = 86.0
+texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../Base")]
 evil_dependencies = [NodePath("../D1"), NodePath("../B1")]
 itemDesc = SubResource("Resource_3b2bh")
@@ -304,6 +309,7 @@ offset_left = 438.0
 offset_top = 6.0
 offset_right = 490.0
 offset_bottom = 65.0
+texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../R1")]
 evil_dependencies = [NodePath("../D1"), NodePath("../B1")]
 itemDesc = SubResource("Resource_8qlyr")
@@ -317,6 +323,7 @@ offset_left = 442.0
 offset_top = 125.0
 offset_right = 494.0
 offset_bottom = 184.0
+texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../R1")]
 itemDesc = SubResource("Resource_ph0jt")
 
@@ -329,6 +336,7 @@ offset_left = 553.0
 offset_top = 68.0
 offset_right = 605.0
 offset_bottom = 127.0
+texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../R2_1"), NodePath("../R2_2")]
 itemDesc = SubResource("Resource_6jgdw")
 
@@ -341,6 +349,7 @@ offset_left = 671.0
 offset_top = 36.0
 offset_right = 723.0
 offset_bottom = 95.0
+texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../R3")]
 itemDesc = SubResource("Resource_yrbjn")
 
@@ -353,6 +362,7 @@ offset_left = 673.0
 offset_top = 157.0
 offset_right = 725.0
 offset_bottom = 216.0
+texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../R3")]
 itemDesc = SubResource("Resource_oh6w3")
 
@@ -365,6 +375,7 @@ offset_left = 817.0
 offset_top = 93.0
 offset_right = 869.0
 offset_bottom = 152.0
+texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../R4_1"), NodePath("../R4_2")]
 itemDesc = SubResource("Resource_77k0x")
 
@@ -377,6 +388,7 @@ offset_left = 196.0
 offset_top = 152.0
 offset_right = 248.0
 offset_bottom = 211.0
+texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../Base")]
 evil_dependencies = [NodePath("../R1"), NodePath("../B1")]
 itemDesc = SubResource("Resource_fin66")
@@ -390,6 +402,7 @@ offset_left = 256.0
 offset_top = 263.0
 offset_right = 308.0
 offset_bottom = 322.0
+texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../D1")]
 itemDesc = SubResource("Resource_x1cyl")
 
@@ -402,6 +415,7 @@ offset_left = 332.0
 offset_top = 188.0
 offset_right = 384.0
 offset_bottom = 247.0
+texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../D1")]
 itemDesc = SubResource("Resource_lwvla")
 
@@ -414,6 +428,7 @@ offset_left = 385.0
 offset_top = 305.0
 offset_right = 437.0
 offset_bottom = 364.0
+texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../D2_1"), NodePath("../D2_2")]
 itemDesc = SubResource("Resource_8rbpw")
 
@@ -426,6 +441,7 @@ offset_left = 505.0
 offset_top = 333.0
 offset_right = 557.0
 offset_bottom = 392.0
+texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../D3")]
 itemDesc = SubResource("Resource_mygyd")
 
@@ -438,6 +454,7 @@ offset_left = 422.0
 offset_top = 426.0
 offset_right = 474.0
 offset_bottom = 485.0
+texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../D3")]
 itemDesc = SubResource("Resource_4fwot")
 
@@ -450,6 +467,7 @@ offset_left = 544.0
 offset_top = 449.0
 offset_right = 596.0
 offset_bottom = 508.0
+texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../D4_1"), NodePath("../D4_2")]
 itemDesc = SubResource("Resource_idjr8")
 
@@ -462,6 +480,7 @@ offset_left = 74.0
 offset_top = 209.0
 offset_right = 126.0
 offset_bottom = 268.0
+texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../Base")]
 evil_dependencies = [NodePath("../R1"), NodePath("../D1")]
 itemDesc = SubResource("Resource_jggre")
@@ -475,6 +494,7 @@ offset_left = 7.0
 offset_top = 306.0
 offset_right = 59.0
 offset_bottom = 365.0
+texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../B1")]
 itemDesc = SubResource("Resource_luurr")
 
@@ -487,6 +507,7 @@ offset_left = 140.0
 offset_top = 306.0
 offset_right = 192.0
 offset_bottom = 365.0
+texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../B1")]
 itemDesc = SubResource("Resource_2h7kc")
 
@@ -499,6 +520,7 @@ offset_left = 69.0
 offset_top = 401.0
 offset_right = 121.0
 offset_bottom = 460.0
+texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../B2_1"), NodePath("../B2_2")]
 itemDesc = SubResource("Resource_dcxbm")
 
@@ -511,6 +533,7 @@ offset_left = 7.0
 offset_top = 486.0
 offset_right = 59.0
 offset_bottom = 545.0
+texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../B3")]
 itemDesc = SubResource("Resource_qu2j3")
 
@@ -523,6 +546,7 @@ offset_left = 152.0
 offset_top = 481.0
 offset_right = 204.0
 offset_bottom = 540.0
+texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../B3")]
 itemDesc = SubResource("Resource_obulw")
 
@@ -535,6 +559,7 @@ offset_left = 80.0
 offset_top = 568.0
 offset_right = 132.0
 offset_bottom = 627.0
+texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../B4_1"), NodePath("../B4_2")]
 itemDesc = SubResource("Resource_a42n7")
 
