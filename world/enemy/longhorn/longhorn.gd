@@ -12,7 +12,6 @@ var is_stuck:bool = false
 
 @onready var timer: Timer = %ChargeTimer
 @onready var stuck_timer: Timer = $StuckTimer
-@onready var health: Health = %Health
 @onready var shaker: SpriteShaker = %SpriteShaker
 #endregion
 
