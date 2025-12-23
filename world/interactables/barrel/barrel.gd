@@ -7,13 +7,20 @@ var was_hit := false
 
 
 func _physics_process(_delta: float) -> void:
-	if move_and_slide(): queue_free()
+	if move_and_slide():
+		for i in range(get_slide_collision_count()):
+			var collision := get_slide_collision(i)
+			#print(collision.dget_collision_count())
+			for j in range(collision.get_collision_count()):
+				if not collision.get_normal(j).is_equal_approx(Vector3.UP):
+					queue_free()
 
 
 func hit(bullet: Bullet) -> void:
 	if was_hit: return
 	was_hit = true
 	enemy_hurter.monitoring = true
+	enemy_hurter.monitorable = true
 	set_collision_layer_value(1, false)
 	
 	# quantize bullet velocity to nearest vector
