@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://bnbc74ay6h1rl"]
+[gd_scene load_steps=8 format=3 uid="uid://bnbc74ay6h1rl"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_lm8ri"]
-[ext_resource type="Script" uid="uid://bt2qger85ly43" path="res://world/levels/horse_arena.gd" id="2_rvy0h"]
 [ext_resource type="PackedScene" uid="uid://dp00f0nisoyxa" path="res://world/enemy/bosses/horse/horse.tscn" id="3_lm8ri"]
 [ext_resource type="Script" uid="uid://d2wxipl4px3iw" path="res://world/levels/arena_area.gd" id="3_rvy0h"]
 [ext_resource type="Resource" uid="uid://q24ustx30otu" path="res://world/floor/sand/sand.tres" id="3_v5nwm"]
@@ -21,8 +20,6 @@ _data = {
 point_count = 4
 
 [node name="HorseArena" instance=ExtResource("1_lm8ri")]
-script = ExtResource("2_rvy0h")
-customHealth = 250
 
 [node name="Area3D" type="Area3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.286232, 0, 3.5409904)

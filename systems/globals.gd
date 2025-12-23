@@ -16,6 +16,8 @@ signal player_stamina_changed(value: float)
 signal skill_tree_changed(skill: SkillSet.SkillUID)
 signal skill_removed(skill: SkillSet.SkillUID)
 
+signal boss_spawned(boss: BossEnemy)
+
 var meat_currency:int = 1000:
 	set(new_val):
 		meat_currency = new_val

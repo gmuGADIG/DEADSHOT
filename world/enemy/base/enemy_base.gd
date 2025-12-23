@@ -25,6 +25,7 @@ enum AggroState {
 ## The player in the scene.
 @onready var player : Player
 @onready var firing_timer: Timer = %FiringTimer
+@onready var health: Health = %Health
 
 # TODO: change this to the real tonic scene eventually
 ## The tonic scene to drop.
@@ -95,7 +96,7 @@ func _ready() -> void:
 	
 	last_known_player_position = player.global_position if (player != null) else Vector3.ZERO
 	
-	%Health.killed.connect(death)
+	health.killed.connect(death)
 
 	if fire_rate == 0:
 		firing_timer.process_mode = PROCESS_MODE_DISABLED
