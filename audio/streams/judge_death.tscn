@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://3xv4m4jgpupq"]
+
+[ext_resource type="AudioStream" uid="uid://c32ywg75uwtqw" path="res://audio/enemies/judge/Judge.Death.mp3" id="2_7v2h2"]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D"]
+stream = ExtResource("2_7v2h2")

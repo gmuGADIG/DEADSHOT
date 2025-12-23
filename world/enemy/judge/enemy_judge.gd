@@ -1,5 +1,22 @@
 extends EnemyBase
 
+func _ready() -> void:
+	super._ready()
+
+	%Health.killed.connect(func() -> void:
+		var sfx := %JudgeDeath
+		sfx.reparent(get_tree().current_scene)
+		sfx.play()
+	)
+
+var reload_sound_played := false
+func _process(_delta: float) -> void:
+	if firing_timer.time_left > 1.0:
+		reload_sound_played = false
+	elif not reload_sound_played:
+		%JudgeReload.play()
+		reload_sound_played = true
+
 func hostile() -> void:
 	set_movement_target(player.global_position);
 	should_move = not is_close_to_destination();
@@ -8,6 +25,7 @@ func attack() -> void:
 	pass
 
 func shoot_bullet() -> void:
+	%JudgeShoot.play()
 	var dir := global_position.direction_to(player.global_position)
 	var num_bullets: int = 3
 	var angle: float = TAU / 8.
