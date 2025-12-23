@@ -3,14 +3,24 @@ extends Control
 
 static var instance: CampfireMenu
 
+var skill_tree_resource := preload("res://menu/skill_tree/skill_tree.tscn")
+var scene_skill_menu: Node
+
 func _init() -> void:
 	instance = self
 
+
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("ui_cancel"):
+		if not scene_skill_menu:
+			_on_cancel_pressed()
+
+
 func _on_skill_tree_pressed() -> void:
-	var skill_tree := preload("res://menu/skill_tree/skill_tree.tscn").instantiate()
-	add_sibling(skill_tree)
+	scene_skill_menu = skill_tree_resource.instantiate()
+	add_sibling(scene_skill_menu)
 	close()
-	await skill_tree.tree_exited
+	await scene_skill_menu.tree_exited
 	queue_free()
 
 func _on_cancel_pressed() -> void:
