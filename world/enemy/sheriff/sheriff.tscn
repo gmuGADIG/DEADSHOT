@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://cqcjv8i3rxkbu"]
+[gd_scene load_steps=5 format=3 uid="uid://cqcjv8i3rxkbu"]
 
 [ext_resource type="PackedScene" uid="uid://dwdhuncnyfmcw" path="res://world/enemy/wilder/wilder.tscn" id="1_wqu7g"]
 [ext_resource type="Script" uid="uid://cyjssoraty4ok" path="res://world/enemy/sheriff/sheriff.gd" id="2_h2jae"]
+[ext_resource type="PackedScene" uid="uid://cx8e0px578hd7" path="res://slash.tscn" id="3_6d7by"]
 [ext_resource type="PackedScene" uid="uid://dbxsvyvdibova" path="res://world/enemy/Enemy Bullets/sheriff_star.tscn" id="3_e873n"]
 
 [node name="Sheriff" instance=ExtResource("1_wqu7g")]
 script = ExtResource("2_h2jae")
 star = ExtResource("3_e873n")
+slash = ExtResource("3_6d7by")
 timeBetweenShotsMin = 0.8
 timeBetweenShotsMax = 1.2
 
