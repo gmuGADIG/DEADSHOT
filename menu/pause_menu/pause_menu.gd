@@ -25,12 +25,10 @@ func _process(_delta: float) -> void:
 	#Makes ESC key toggle pause menu visibility
 	if(Input.is_action_just_pressed("ui_cancel")):
 		print("PAUSED")
-		if is_paused and submenu and submenu is SkillTree \
-				and (submenu as SkillTree).selected_skill_button:
-			(submenu as SkillTree).on_skill_unselected()
-		elif is_paused and submenu and submenu.visible:
-			submenu.queue_free()
-		elif is_paused:
+		if CampfireMenu.instance:
+			# Pause menu and campfires do not mix
+			return
+		elif is_paused and not submenu:
 			_on_resume_pressed()
 		else:
 			get_tree().paused = true
