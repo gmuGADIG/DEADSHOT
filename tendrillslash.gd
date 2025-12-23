@@ -1,7 +1,7 @@
 class_name Slash
 extends Area3D
 
-@export var atk_damage: int = 3
+@export var atk_damage: int = 1
 @export var atk_source: DamageInfo.Source
 @export var atk_knockback: DamageInfo.KnockbackStrength
 ##the amount of time the slash exists (to be scaled once animation is added)
@@ -21,7 +21,7 @@ func _on_area_entered(area: Area3D) -> void:
 	print("huzah")
 	if area is Hurtbox:
 		var hurtbox: Hurtbox = area
-		var dmg := DamageInfo.new(3, atk_source,atk_knockback, Vector3(0,0,0))
+		var dmg := DamageInfo.new(atk_damage, atk_source,atk_knockback, Vector3(0,0,0))
 		var did_dmg := hurtbox.hit(dmg)
 		
 		if(did_dmg):

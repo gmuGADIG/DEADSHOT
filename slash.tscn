@@ -6,6 +6,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_tocf0"]
 
 [node name="TendrillSlash" type="Area3D"]
+collision_mask = 3
 script = ExtResource("1_tocf0")
 atk_source = 1
 time = 10
@@ -18,3 +19,5 @@ texture = ExtResource("1_bf50k")
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.9, 0, 0)
 shape = SubResource("BoxShape3D_tocf0")
 debug_color = Color(0, 0.6, 0.69803923, 1)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

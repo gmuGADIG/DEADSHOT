@@ -3,9 +3,8 @@
 [ext_resource type="Script" uid="uid://bxbowl7sjix2l" path="res://world/bullets/bullet.gd" id="1_bvla6"]
 [ext_resource type="Texture2D" uid="uid://bwtnybgmm32wg" path="res://world/bullets/bullet.png" id="3_phgxo"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_akls5"]
-height = 0.8574219
-radius = 0.32080078
+[sub_resource type="SphereShape3D" id="SphereShape3D_bvla6"]
+radius = 0.21629289
 
 [node name="EnemyBullet" type="Area3D"]
 collision_mask = 3
@@ -15,13 +14,13 @@ atk_source = 1
 speed = 15.0
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 billboard = 1
 alpha_cut = 1
 texture = ExtResource("3_phgxo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(-4.371139e-08, -1, 0, -4.371139e-08, 1.9106855e-15, -1, 1, -4.371139e-08, -4.371139e-08, 0, 0, 0)
-shape = SubResource("CylinderShape3D_akls5")
+shape = SubResource("SphereShape3D_bvla6")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
