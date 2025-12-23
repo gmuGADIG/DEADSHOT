@@ -163,7 +163,7 @@ offset_top = 103.0
 offset_right = 452.0
 offset_bottom = 170.0
 
-[node name="VFX" type="HSlider" parent="Sign/Control"]
+[node name="SFX" type="HSlider" parent="Sign/Control"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 147.0
@@ -181,7 +181,7 @@ offset_bottom = 145.0
 theme_override_colors/font_color = Color(0.31764707, 0.20392157, 0.09803922, 1)
 text = "%"
 
-[node name="VFXPercentage" type="Label" parent="Sign/Control"]
+[node name="SFXPercentage" type="Label" parent="Sign/Control"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 467.0
@@ -201,7 +201,7 @@ theme_override_colors/font_color = Color(0.31764707, 0.20392157, 0.09803922, 1)
 theme_override_font_sizes/font_size = 36
 text = "MUSIC"
 
-[node name="VFX2" type="Label" parent="Sign/Control"]
+[node name="SFX2" type="Label" parent="Sign/Control"]
 layout_mode = 0
 offset_left = 79.0
 offset_top = 168.0
@@ -209,7 +209,7 @@ offset_right = 128.0
 offset_bottom = 204.0
 theme_override_colors/font_color = Color(0.31764707, 0.20392157, 0.09803922, 1)
 theme_override_font_sizes/font_size = 36
-text = "VFX"
+text = "SFX"
 
 [node name="back_button" type="Button" parent="Sign/Control"]
 layout_mode = 1
@@ -232,5 +232,5 @@ libraries = {
 }
 
 [connection signal="value_changed" from="Sign/Control/Music" to="." method="_on_music_value_changed"]
-[connection signal="value_changed" from="Sign/Control/VFX" to="." method="_on_vfx_value_changed"]
+[connection signal="value_changed" from="Sign/Control/SFX" to="." method="_on_sfx_value_changed"]
 [connection signal="pressed" from="Sign/Control/back_button" to="." method="_on_back_button_pressed"]
