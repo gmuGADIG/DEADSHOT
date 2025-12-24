@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://nuqmhgq1e2lu"]
+[gd_scene load_steps=46 format=3 uid="uid://nuqmhgq1e2lu"]
 
 [ext_resource type="Script" uid="uid://llqh4g6obmup" path="res://world/player/player.gd" id="1_bvkkv"]
 [ext_resource type="Texture2D" uid="uid://doi1lgfq8hi21" path="res://world/player/player_sheet.png" id="2_2x47q"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bwm425xkr0vcy" path="res://temp_art/icon.svg" id="4_et4on"]
 [ext_resource type="PackedScene" uid="uid://s0mcou8b7n0v" path="res://systems/attacking/hurt_fx/hurt_fx.tscn" id="4_myh4x"]
 [ext_resource type="PackedScene" uid="uid://cj5uuu7xjsprv" path="res://world/player/weapon/basic_gun/basic_gun.tscn" id="4_q1k4r"]
+[ext_resource type="Texture2D" uid="uid://btpeenutso7eb" path="res://temp_art/gartic/garfunkle.png" id="5_fn377"]
 [ext_resource type="Script" uid="uid://do5vs8m1law7o" path="res://systems/attacking/health/health.gd" id="6_thypd"]
 [ext_resource type="Script" uid="uid://lxg83i28nlul" path="res://systems/attacking/hurtbox/hurtbox.gd" id="7_d3e1v"]
 [ext_resource type="Script" uid="uid://c1g7056xgtqys" path="res://systems/camera/camera_tracked.gd" id="11_2x47q"]
@@ -27,6 +28,48 @@ point_count = 4
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_plfsl"]
 height = 1.85699
 radius = 0.669922
+
+[sub_resource type="Animation" id="Animation_fn377"]
+resource_name = "flash"
+length = 2.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:player_transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 0.2, 0.8, 0.2, 0.8, 0.2, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_wxa5a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:player_transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wxa5a"]
+_data = {
+&"RESET": SubResource("Animation_wxa5a"),
+&"flash": SubResource("Animation_fn377")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_scey4"]
+transparency = 1
+albedo_texture = ExtResource("5_fn377")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3n4qb"]
 atlas = ExtResource("2_2x47q")
@@ -217,12 +260,18 @@ fire_cooldown = 1.0
 transform = Transform3D(-2.8867579e-08, -0.27999994, -4.371139e-08, 0, -1.2239187e-08, 1, -0.6604132, 1.2239187e-08, 1.9106855e-15, 0, 0, -1.5684328)
 modulate = Color(0.3, 0.3, 0.3, 1)
 
+[node name="InvulnerableFrames" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_wxa5a")
+}
+
 [node name="Sprite" type="AnimatedSprite3D" parent="." node_paths=PackedStringArray("player")]
 transform = Transform3D(0.39, 0, 0, 0, 0.33774987, 0.19500007, 0, -0.19500007, 0.33774987, 0.00084251165, 1.6017487, 0)
+material_override = SubResource("StandardMaterial3D_scey4")
 shaded = true
 alpha_cut = 1
 sprite_frames = SubResource("SpriteFrames_jrep8")
-animation = &"whipping"
+animation = &"rolling"
 autoplay = "idle"
 script = ExtResource("3_3n4qb")
 player = NodePath("..")
@@ -311,6 +360,8 @@ unique_name_in_owner = true
 [node name="WalkPuddle" parent="Sounds" instance=ExtResource("12_3n4qb")]
 unique_name_in_owner = true
 
+[connection signal="frame_changed" from="Sprite" to="Sprite" method="_on_frame_changed"]
 [connection signal="was_hit" from="HurtboxComponent" to="." method="_on_hurtbox_component_was_hit"]
+[connection signal="damaged" from="HurtboxComponent/HealthComponent" to="." method="_on_hurt"]
 
 [editable path="Weapons/Rifle"]
