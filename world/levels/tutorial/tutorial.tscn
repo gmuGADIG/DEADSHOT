@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://d3fww07av6h7"]
+[gd_scene load_steps=24 format=3 uid="uid://d3fww07av6h7"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_utj54"]
 [ext_resource type="Resource" uid="uid://q24ustx30otu" path="res://world/floor/sand/sand.tres" id="2_43df5"]
@@ -39,16 +39,25 @@ shader_parameter/noise = SubResource("NoiseTexture2D_p54y7")
 shader_parameter/colorCurve = SubResource("GradientTexture1D_0ruaa")
 shader_parameter/timed = false
 shader_parameter/speed = 0.6000000285
-shader_parameter/angle = 1.0
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_3rssm"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3rssm"]
 noise = SubResource("FastNoiseLite_3rssm")
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_umgfn"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0ruaa"]
+noise = SubResource("FastNoiseLite_umgfn")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g6a8u"]
 render_priority = 0
 shader = ExtResource("3_g6a8u")
+shader_parameter/progress = 0.5570000739575001
+shader_parameter/width = 0.5
+shader_parameter/noise = SubResource("NoiseTexture2D_0ruaa")
+shader_parameter/colorCurve = SubResource("GradientTexture1D_0ruaa")
+shader_parameter/speed = 0.5
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_umgfn"]
 viewport_path = NodePath("AreaOne/WASDPrompt/SubViewport")

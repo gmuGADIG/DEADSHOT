@@ -13,10 +13,7 @@ uniform sampler2D colorCurve;
 //make this timed or not, if not timed, you must programatically set the burn (such as with a lerp)
 uniform bool timed = true;
 //speed of the burn
-uniform float speed : hint_range(0.0,1.0) = 0.5;
-//hacky way to make this angled, far from perfect. 1.0 is right to left. 0 is bottom to top. outside
-//that range is wierd.
-uniform float angle = 1.0;
+uniform float speed : hint_range(0.0,1.0) = 0.6;
 
 float inverse_lerp(float a, float b, float v){
 	return (v-a)/(b-a);
