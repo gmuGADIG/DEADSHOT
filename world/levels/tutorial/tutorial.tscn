@@ -1,10 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://d3fww07av6h7"]
+[gd_scene load_steps=21 format=3 uid="uid://d3fww07av6h7"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_utj54"]
 [ext_resource type="Resource" uid="uid://q24ustx30otu" path="res://world/floor/sand/sand.tres" id="2_43df5"]
+[ext_resource type="Shader" uid="uid://bh48ke5aircja" path="res://world/levels/tutorial/test.gdshader" id="3_g6a8u"]
+[ext_resource type="Texture2D" uid="uid://bwm425xkr0vcy" path="res://temp_art/icon.svg" id="3_krj53"]
+[ext_resource type="Shader" uid="uid://ciw6e3w0a4088" path="res://world/levels/tutorial/test2.gdshader" id="3_umgfn"]
 [ext_resource type="Texture2D" uid="uid://cb5w6ucpbalty" path="res://world/levels/tutorial/keyboard_w_outline.png" id="3_v0y4b"]
 [ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://world/interactables/cover/cover_boulder.tscn" id="4_4tuq3"]
 [ext_resource type="Texture2D" uid="uid://cay4gmus84v2v" path="res://world/levels/tutorial/keyboard_a_outline.png" id="4_g6a8u"]
+[ext_resource type="Script" uid="uid://c2ynbm1ab6ljs" path="res://world/levels/tutorial/tutorial_prompt.gd" id="4_lrtsq"]
+[ext_resource type="Script" uid="uid://chgslfntk74p4" path="res://world/levels/tutorial/test_2d.gd" id="5_3rssm"]
 [ext_resource type="Texture2D" uid="uid://qmavyaaojdhv" path="res://world/levels/tutorial/keyboard_s_outline.png" id="5_lrtsq"]
 [ext_resource type="Texture2D" uid="uid://jmcw8jw7m54x" path="res://world/levels/tutorial/keyboard_d_outline.png" id="6_krj53"]
 
@@ -16,8 +21,31 @@ _data = {
 }
 point_count = 89
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0ruaa"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_p54y7"]
+noise = SubResource("FastNoiseLite_0ruaa")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3rssm"]
+shader = ExtResource("3_umgfn")
+shader_parameter/progress = 0.7730000842175
+shader_parameter/width = 0.50000002375
+shader_parameter/noise = SubResource("NoiseTexture2D_p54y7")
+shader_parameter/timed = false
+shader_parameter/speed = 0.6000000285
+shader_parameter/angle = 1.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3rssm"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3rssm"]
+noise = SubResource("FastNoiseLite_3rssm")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g6a8u"]
+render_priority = 0
+shader = ExtResource("3_g6a8u")
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_d2au2"]
-viewport_path = NodePath("AreaOne/SubViewport")
+viewport_path = NodePath("AreaOne/WASDPrompt/SubViewport")
 
 [node name="LevelBase" instance=ExtResource("1_utj54")]
 
@@ -28,17 +56,26 @@ material = ExtResource("2_43df5")
 [node name="Player" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.29127, 0, 3.2230406)
 
+[node name="Test" type="Sprite2D" parent="UI" index="2"]
+material = SubResource("ShaderMaterial_3rssm")
+position = Vector2(803, 313)
+texture = ExtResource("3_krj53")
+script = ExtResource("5_3rssm")
+noise = SubResource("NoiseTexture2D_3rssm")
+
 [node name="AreaOne" type="Node3D" parent="." index="9"]
 
 [node name="WASDPrompt" type="Sprite3D" parent="AreaOne" index="0"]
 transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, -58.673145, 3.2792616, 1.7328563)
+material_override = SubResource("ShaderMaterial_g6a8u")
 texture = SubResource("ViewportTexture_d2au2")
+script = ExtResource("4_lrtsq")
 
-[node name="SubViewport" type="SubViewport" parent="AreaOne" index="1"]
+[node name="SubViewport" type="SubViewport" parent="AreaOne/WASDPrompt" index="0"]
 transparent_bg = true
 size = Vector2i(322, 212)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="AreaOne/SubViewport" index="0"]
+[node name="VBoxContainer" type="VBoxContainer" parent="AreaOne/WASDPrompt/SubViewport" index="0"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -53,30 +90,30 @@ grow_vertical = 2
 theme_override_constants/separation = -20
 alignment = 1
 
-[node name="W" type="TextureRect" parent="AreaOne/SubViewport/VBoxContainer" index="0"]
+[node name="W" type="TextureRect" parent="AreaOne/WASDPrompt/SubViewport/VBoxContainer" index="0"]
 layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("3_v0y4b")
 stretch_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="AreaOne/SubViewport/VBoxContainer" index="1"]
+[node name="HBoxContainer" type="HBoxContainer" parent="AreaOne/WASDPrompt/SubViewport/VBoxContainer" index="1"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = -20
 alignment = 1
 
-[node name="A" type="TextureRect" parent="AreaOne/SubViewport/VBoxContainer/HBoxContainer" index="0"]
+[node name="A" type="TextureRect" parent="AreaOne/WASDPrompt/SubViewport/VBoxContainer/HBoxContainer" index="0"]
 layout_mode = 2
 texture = ExtResource("4_g6a8u")
 stretch_mode = 2
 
-[node name="S" type="TextureRect" parent="AreaOne/SubViewport/VBoxContainer/HBoxContainer" index="1"]
+[node name="S" type="TextureRect" parent="AreaOne/WASDPrompt/SubViewport/VBoxContainer/HBoxContainer" index="1"]
 layout_mode = 2
 texture = ExtResource("5_lrtsq")
 stretch_mode = 2
 
-[node name="D" type="TextureRect" parent="AreaOne/SubViewport/VBoxContainer/HBoxContainer" index="2"]
+[node name="D" type="TextureRect" parent="AreaOne/WASDPrompt/SubViewport/VBoxContainer/HBoxContainer" index="2"]
 layout_mode = 2
 texture = ExtResource("6_krj53")
 stretch_mode = 2
