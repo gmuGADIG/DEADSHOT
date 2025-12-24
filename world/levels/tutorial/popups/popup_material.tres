@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://bt3g62fm38lyg"]
+
+[ext_resource type="Shader" uid="uid://bh48ke5aircja" path="res://world/levels/tutorial/test.gdshader" id="1_u4808"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_umgfn"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0ruaa"]
+noise = SubResource("FastNoiseLite_umgfn")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_u4808")
+shader_parameter/progress = -1.0
+shader_parameter/width = 0.70000003325
+shader_parameter/noise = SubResource("NoiseTexture2D_0ruaa")
+shader_parameter/speed = 0.70000003325
