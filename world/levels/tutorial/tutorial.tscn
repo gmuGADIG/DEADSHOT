@@ -1,9 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://d3fww07av6h7"]
+[gd_scene load_steps=22 format=3 uid="uid://d3fww07av6h7"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_utj54"]
 [ext_resource type="Resource" uid="uid://q24ustx30otu" path="res://world/floor/sand/sand.tres" id="2_43df5"]
 [ext_resource type="Shader" uid="uid://bh48ke5aircja" path="res://world/levels/tutorial/test.gdshader" id="3_g6a8u"]
-[ext_resource type="Texture2D" uid="uid://bwm425xkr0vcy" path="res://temp_art/icon.svg" id="3_krj53"]
 [ext_resource type="Shader" uid="uid://ciw6e3w0a4088" path="res://world/levels/tutorial/test2.gdshader" id="3_umgfn"]
 [ext_resource type="Texture2D" uid="uid://cb5w6ucpbalty" path="res://world/levels/tutorial/keyboard_w_outline.png" id="3_v0y4b"]
 [ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://world/interactables/cover/cover_boulder.tscn" id="4_4tuq3"]
@@ -21,6 +20,12 @@ _data = {
 }
 point_count = 89
 
+[sub_resource type="Gradient" id="Gradient_3rssm"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0ruaa"]
+gradient = SubResource("Gradient_3rssm")
+
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_0ruaa"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_p54y7"]
@@ -28,9 +33,10 @@ noise = SubResource("FastNoiseLite_0ruaa")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3rssm"]
 shader = ExtResource("3_umgfn")
-shader_parameter/progress = 0.7730000842175
+shader_parameter/progress = -1.0
 shader_parameter/width = 0.50000002375
 shader_parameter/noise = SubResource("NoiseTexture2D_p54y7")
+shader_parameter/colorCurve = SubResource("GradientTexture1D_0ruaa")
 shader_parameter/timed = false
 shader_parameter/speed = 0.6000000285
 shader_parameter/angle = 1.0
@@ -44,7 +50,7 @@ noise = SubResource("FastNoiseLite_3rssm")
 render_priority = 0
 shader = ExtResource("3_g6a8u")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_d2au2"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_umgfn"]
 viewport_path = NodePath("AreaOne/WASDPrompt/SubViewport")
 
 [node name="LevelBase" instance=ExtResource("1_utj54")]
@@ -59,7 +65,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.29127, 0, 3.2230406)
 [node name="Test" type="Sprite2D" parent="UI" index="2"]
 material = SubResource("ShaderMaterial_3rssm")
 position = Vector2(803, 313)
-texture = ExtResource("3_krj53")
+texture = ExtResource("3_v0y4b")
 script = ExtResource("5_3rssm")
 noise = SubResource("NoiseTexture2D_3rssm")
 
@@ -68,7 +74,7 @@ noise = SubResource("NoiseTexture2D_3rssm")
 [node name="WASDPrompt" type="Sprite3D" parent="AreaOne" index="0"]
 transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, -58.673145, 3.2792616, 1.7328563)
 material_override = SubResource("ShaderMaterial_g6a8u")
-texture = SubResource("ViewportTexture_d2au2")
+texture = SubResource("ViewportTexture_umgfn")
 script = ExtResource("4_lrtsq")
 
 [node name="SubViewport" type="SubViewport" parent="AreaOne/WASDPrompt" index="0"]
