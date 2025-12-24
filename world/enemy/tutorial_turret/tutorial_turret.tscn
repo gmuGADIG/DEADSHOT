@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://djah18vb67at6"]
+
+[ext_resource type="Script" uid="uid://x7hji2y8t5m6" path="res://world/enemy/tutorial_turret/tutorial_turret.gd" id="1_cjcom"]
+[ext_resource type="Texture2D" uid="uid://b0atje0hx0agb" path="res://world/enemy/wilder/wilder_front.png" id="2_2i4pi"]
+[ext_resource type="PackedScene" uid="uid://c5qcjy732bcw2" path="res://world/enemy/Enemy Bullets/tutorial_turret_bullet.tscn" id="2_s5c6m"]
+[ext_resource type="Script" uid="uid://do5vs8m1law7o" path="res://systems/attacking/health/health.gd" id="3_bqgsy"]
+[ext_resource type="PackedScene" uid="uid://s0mcou8b7n0v" path="res://systems/attacking/hurt_fx/hurt_fx.tscn" id="4_3ewb4"]
+[ext_resource type="Script" uid="uid://lxg83i28nlul" path="res://systems/attacking/hurtbox/hurtbox.gd" id="4_s5c6m"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_s5c6m"]
+height = 2.4409862
+radius = 0.40429688
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_cjcom"]
+height = 2.4409862
+radius = 0.669922
+
+[node name="TutorialTurret" type="StaticBody3D"]
+script = ExtResource("1_cjcom")
+bullet = ExtResource("2_s5c6m")
+
+[node name="ShootTimer" type="Timer" parent="."]
+wait_time = 1.75
+autostart = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2682434, 0)
+shape = SubResource("CylinderShape3D_s5c6m")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.245, 0, 0, 0, 0.21217622, 0.1225, 0, -0.1225, 0.21217622, 0, 1.2133334, 0)
+flip_h = true
+texture = ExtResource("2_2i4pi")
+
+[node name="HurtFX" parent="Sprite3D" node_paths=PackedStringArray("health") instance=ExtResource("4_3ewb4")]
+health = NodePath("../../Health")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("3_bqgsy")
+max_health = 3.0
+metadata/_custom_type_script = "uid://do5vs8m1law7o"
+
+[node name="Hurtbox" type="Area3D" parent="." node_paths=PackedStringArray("health_component")]
+script = ExtResource("4_s5c6m")
+health_component = NodePath("../Health")
+allowed_damage_sources = Array[int]([0, 2])
+metadata/_custom_type_script = "uid://lxg83i28nlul"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2682434, 0)
+shape = SubResource("CylinderShape3D_cjcom")
+
+[node name="ShootOrigin" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.70077324, 1.3351865, 0)
+
+[connection signal="timeout" from="ShootTimer" to="." method="shoot"]
+[connection signal="killed" from="Health" to="." method="_on_killed"]
