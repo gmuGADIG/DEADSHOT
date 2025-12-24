@@ -281,9 +281,15 @@ func generate_walking_sounds() -> AudioStreamPlayer3D:
 func _on_interaction_started() -> void:
 	current_state = PlayerState.INTERACTING
 
-## Connects to the was_hit signal on the player's Hurtbox to play a sound.
-func _on_hurtbox_component_was_hit(_dmg: DamageInfo) -> void:
+## Connects to the hurt signal on the player's Health
+func _on_hurt() -> void:
 	%HurtSound.play()
+	%HealthComponent.vulnerable = false
+	$InvulnerableFrames.play("flash")
+	await $InvulnerableFrames.animation_finished
+	%HealthComponent.vulnerable = true
+	
+	
 
 ## Function bound to the signal for ending an interaction
 ## Changes state to Walking by default.

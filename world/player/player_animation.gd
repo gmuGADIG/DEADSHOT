@@ -1,7 +1,12 @@
 extends AnimatedSprite3D
 # This script controls the player's sprite animation and facing direction based on the player movement state and shooting.
 
-
+@export var player_transparency : float:
+	set(new_val):
+		print("SET TRANSPARENCY")
+		player_transparency = new_val
+		var mat : StandardMaterial3D = material_override
+		mat.albedo_color.a = player_transparency
 ## Player reference to check states
 @export var player: Player
 ## Gun reference to check when fired
@@ -84,3 +89,9 @@ func checkSpriteDirection() -> void:
 		flip_h = true
 	elif player.velocity.x > 0:
 		flip_h = false
+
+
+##Evil hack to use material overrides with animated sprites
+func _on_frame_changed() -> void:
+	var mat : StandardMaterial3D = material_override
+	mat.albedo_texture = get_sprite_frames().get_frame_texture(animation, frame)
