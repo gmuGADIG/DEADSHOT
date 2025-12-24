@@ -1,0 +1,99 @@
+[gd_scene load_steps=10 format=3 uid="uid://d3fww07av6h7"]
+
+[ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_utj54"]
+[ext_resource type="Resource" uid="uid://q24ustx30otu" path="res://world/floor/sand/sand.tres" id="2_43df5"]
+[ext_resource type="Texture2D" uid="uid://cb5w6ucpbalty" path="res://world/levels/tutorial/keyboard_w_outline.png" id="3_v0y4b"]
+[ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://world/interactables/cover/cover_boulder.tscn" id="4_4tuq3"]
+[ext_resource type="Texture2D" uid="uid://cay4gmus84v2v" path="res://world/levels/tutorial/keyboard_a_outline.png" id="4_g6a8u"]
+[ext_resource type="Texture2D" uid="uid://qmavyaaojdhv" path="res://world/levels/tutorial/keyboard_s_outline.png" id="5_lrtsq"]
+[ext_resource type="Texture2D" uid="uid://jmcw8jw7m54x" path="res://world/levels/tutorial/keyboard_d_outline.png" id="6_krj53"]
+
+[sub_resource type="Curve3D" id="Curve3D_jjd0d"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -27.180344, 0, -8.22673, 0, 0, 0, 0, 0, 0, -25.950443, 0, -8.86734, 0, 0, 0, 0, 0, 0, -24.130276, 0, -8.441524, 0, 0, 0, 0, 0, 0, -18.831757, 0, -9.28156, 0, 0, 0, 0, 0, 0, -15.252552, 0, -8.485867, 0, 0, 0, 0, 0, 0, -12.584183, 0, -8.207022, 0, 0, 0, 0, 0, 0, -10.424917, 0, -8.509979, 0, 0, 0, 0, 0, 0, -8.406521, 0, -8.903298, 0, 0, 0, 0, 0, 0, -6.08939, 0, -6.8057523, 0, 0, 0, 0, 0, 0, -4.6546116, 0, -9.052669, 0, 0, 0, 0, 0, 0, -1.4060593, 0, -8.890241, 0, 0, 0, 0, 0, 0, -0.18785095, 0, -6.399683, 0, 0, 0, 0, 0, 0, 3.2772713, 0, -6.7245383, 0, 0, 0, 0, 0, 0, 6.0014915, 0, -5.604757, 0, 0, 0, 0, 0, 0, 6.4561863, 0, -2.2640574, 0, 0, 0, 0, 0, 0, 7.2207527, 0, 0.27202764, 0, 0, 0, 0, 0, 0, 9.359488, 0, -2.3392417, 0, 0, 0, 0, 0, 0, 10.573133, 0, -5.88894, 0, 0, 0, 0, 0, 0, 13.101173, 0, -8.575384, 0, 0, 0, 0, 0, 0, 19.610317, 0, -9.4068, 0, 0, 0, 0, 0, 0, 21.915358, 0, -8.575384, 0, 0, 0, 0, 0, 0, 25.830774, 0, -10.069894, 0, 0, 0, 0, 0, 0, 29.61988, 0, -10.354077, 0, 0, 0, 0, 0, 0, 32.966934, 0, -10.606685, 0, 0, 0, 0, 0, 0, 37.92435, 0, -9.375224, 0, 0, 0, 0, 0, 0, 42.039635, 0, -8.575384, 0, 0, 0, 0, 0, 0, 45.898094, 0, 1.0707693, 0, 0, 0, 0, 0, 0, 49.756557, 0, 1.0707693, 0, 0, 0, 0, 0, 0, 49.756557, 0, 4.9292307, 0, 0, 0, 0, 0, 0, 45.898094, 0, 4.9292307, 0, 0, 0, 0, 0, 0, 42.19274, 0, 8.265908, 0, 0, 0, 0, 0, 0, 40.39904, 0, 11.039242, 0, 0, 0, 0, 0, 0, 40.39904, 0, 14.612649, 0, 0, 0, 0, 0, 0, 36.797676, 0, 15.064982, 0, 0, 0, 0, 0, 0, 36.754715, 0, 13.002966, 0, 0, 0, 0, 0, 0, 33.91944, 0, 14.575384, 0, 0, 0, 0, 0, 0, 27.604507, 0, 14.575384, 0, 0, 0, 0, 0, 0, 24.167814, 0, 15.49457, 0, 0, 0, 0, 0, 0, 20.04378, 0, 15.408652, 0, 0, 0, 0, 0, 0, 16.73596, 0, 13.9910145, 0, 0, 0, 0, 0, 0, 13.101173, 0, 14.575384, 0, 0, 0, 0, 0, 0, 11.18474, 0, 9.52443, 0, 0, 0, 0, 0, 0, 8.828763, 0, 7.4546995, 0, 0, 0, 0, 0, 0, 8.135439, 0, 5.5953536, 0, 0, 0, 0, 0, 0, 7.242531, 0, 6.953483, 0, 0, 0, 0, 0, 0, 4.2449055, 0, 9.650735, 0, 0, 0, 0, 0, 0, 2.6693916, 0, 14.575384, 0, 0, 0, 0, 0, 0, -1.1358204, 0, 15.729354, 0, 0, 0, 0, 0, 0, -5.714329, 0, 13.645344, 0, 0, 0, 0, 0, 0, -11.590385, 0, 14.591758, 0, 0, 0, 0, 0, 0, -15.09531, 0, 15.0969715, 0, 0, 0, 0, 0, 0, -18.47393, 0, 14.33915, 0, 0, 0, 0, 0, 0, -21.410492, 0, 15.223275, 0, 0, 0, 0, 0, 0, -26.05215, 0, 15.381155, 0, 0, 0, 0, 0, 0, -27.657211, 0, 14.385095, 0, 0, 0, 0, 0, 0, -28.173435, 0, 12.653911, 0, 0, 0, 0, 0, 0, -28.11742, 0, 8.754273, 0, 0, 0, 0, 0, 0, -28.71299, 0, 7.536067, 0, 0, 0, 0, 0, 0, -34.842064, 0, 6.992461, 0, 0, 0, 0, 0, 0, -38.920647, 0, 6.801916, 0, 0, 0, 0, 0, 0, -43.52262, 0, 6.954114, 0, 0, 0, 0, 0, 0, -47.33271, 0, 7.621846, 0, 0, 0, 0, 0, 0, -51.050087, 0, 7.0519056, 0, 0, 0, 0, 0, 0, -55.967007, 0, 6.6690288, 0, 0, 0, 0, 0, 0, -57.741493, 0, 8.915666, 0, 0, 0, 0, 0, 0, -60.74926, 0, 9.986692, 0, 0, 0, 0, 0, 0, -64.33353, 0, 9.779133, 0, 0, 0, 0, 0, 0, -66.871635, 0, 9.731382, 0, 0, 0, 0, 0, 0, -67.93863, 0, 8.689175, 0, 0, 0, 0, 0, 0, -70.27427, 0, 5.886409, 0, 0, 0, 0, 0, 0, -70.77193, 0, 3.0894098, 0, 0, 0, 0, 0, 0, -70.49633, 0, 1.0833979, 0, 0, 0, 0, 0, 0, -69.312004, 0, -0.950346, 0, 0, 0, 0, 0, 0, -67.781334, 0, -2.7311044, 0, 0, 0, 0, 0, 0, -64.74806, 0, -3.5950723, 0, 0, 0, 0, 0, 0, -61.89457, 0, -4.14781, 0, 0, 0, 0, 0, 0, -59.736046, 0, -2.8842838, 0, 0, 0, 0, 0, 0, -57.72739, 0, -2.2237291, 0, 0, 0, 0, 0, 0, -55.967007, 0, 0.5090008, 0, 0, 0, 0, 0, 0, -48.861904, 0, 0.7792971, 0, 0, 0, 0, 0, 0, -47.81688, 0, 0.26619056, 0, 0, 0, 0, 0, 0, -43.911522, 0, -0.74231225, 0, 0, 0, 0, 0, 0, -39.192837, 0, 0.03407499, 0, 0, 0, 0, 0, 0, -33.661247, 0, -0.47905946, 0, 0, 0, 0, 0, 0, -28.84394, 0, -0.24446501, 0, 0, 0, 0, 0, 0, -27.977112, 0, -1.4013426, 0, 0, 0, 0, 0, 0, -27.78397, 0, -3.5988457, 0, 0, 0, 0, 0, 0, -27.395134, 0, -5.6062517, 0, 0, 0, 0, 0, 0, -28.13211, 0, -7.126648),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 89
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_d2au2"]
+viewport_path = NodePath("AreaOne/SubViewport")
+
+[node name="LevelBase" instance=ExtResource("1_utj54")]
+
+[node name="Floor" parent="World" index="0"]
+curve = SubResource("Curve3D_jjd0d")
+material = ExtResource("2_43df5")
+
+[node name="Player" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.29127, 0, 3.2230406)
+
+[node name="AreaOne" type="Node3D" parent="." index="9"]
+
+[node name="WASDPrompt" type="Sprite3D" parent="AreaOne" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, -58.673145, 3.2792616, 1.7328563)
+texture = SubResource("ViewportTexture_d2au2")
+
+[node name="SubViewport" type="SubViewport" parent="AreaOne" index="1"]
+transparent_bg = true
+size = Vector2i(322, 212)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AreaOne/SubViewport" index="0"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.0
+offset_top = -130.0
+offset_right = 196.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -20
+alignment = 1
+
+[node name="W" type="TextureRect" parent="AreaOne/SubViewport/VBoxContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_v0y4b")
+stretch_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AreaOne/SubViewport/VBoxContainer" index="1"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = -20
+alignment = 1
+
+[node name="A" type="TextureRect" parent="AreaOne/SubViewport/VBoxContainer/HBoxContainer" index="0"]
+layout_mode = 2
+texture = ExtResource("4_g6a8u")
+stretch_mode = 2
+
+[node name="S" type="TextureRect" parent="AreaOne/SubViewport/VBoxContainer/HBoxContainer" index="1"]
+layout_mode = 2
+texture = ExtResource("5_lrtsq")
+stretch_mode = 2
+
+[node name="D" type="TextureRect" parent="AreaOne/SubViewport/VBoxContainer/HBoxContainer" index="2"]
+layout_mode = 2
+texture = ExtResource("6_krj53")
+stretch_mode = 2
+
+[node name="RocksArea" type="Node3D" parent="." index="10"]
+
+[node name="Boulder" parent="RocksArea" index="0" instance=ExtResource("4_4tuq3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.41806, 0, 0.5585108)
+
+[node name="Boulder2" parent="RocksArea" index="1" instance=ExtResource("4_4tuq3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.41806, 0, 2.267736)
+
+[node name="Boulder3" parent="RocksArea" index="2" instance=ExtResource("4_4tuq3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.41806, 0, 3.748671)
+
+[node name="Boulder4" parent="RocksArea" index="3" instance=ExtResource("4_4tuq3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.41806, 0, 5.1590934)
+
+[node name="Boulder5" parent="RocksArea" index="4" instance=ExtResource("4_4tuq3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.41806, 0, 6.268356)
