@@ -91,7 +91,7 @@ func checkSpriteDirection() -> void:
 		flip_h = false
 
 
-##Evil hack to use material overrides with animated sprites
+##HACK: Evil hack to use material overrides with animated sprites
 func _on_frame_changed() -> void:
 	var mat : StandardMaterial3D = material_override
 	mat.albedo_texture = get_sprite_frames().get_frame_texture(animation, frame)
