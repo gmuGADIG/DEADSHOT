@@ -99,7 +99,7 @@ func end_encounter() -> void:
 		obj.finish()
 	
 	if ending_scene != null:
-		get_tree().change_scene_to_packed(ending_scene)
+		SceneManager.change_scene_to_packed(ending_scene)
 
 func _is_encounter_done() -> bool:
 	for o: EncounterObject in get_encounter_objects():

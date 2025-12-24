@@ -5,7 +5,9 @@ extends CanvasLayer
 
 var transition_time : float = -1
 var switched_scenes : bool
-var next_scene : String
+var next_scene : PackedScene
+
+var quit : bool
 
 func in_transition() -> bool:
 	return transition_time >= 0
@@ -13,14 +15,22 @@ func in_transition() -> bool:
 func change_scene_to_file(file_path : String, pause_scene : bool = false) -> void:
 	transition_time = 0
 	switched_scenes = false
-	next_scene = file_path
+	next_scene = load(file_path)
+	$ColorRect.show()
+	get_tree().paused = pause_scene
+
+func change_scene_to_packed(scene : PackedScene, pause_scene : bool = false) -> void:
+	transition_time = 0
+	switched_scenes = false
+	next_scene = scene
 	$ColorRect.show()
 	get_tree().paused = pause_scene
 
 func quit_game() -> void:
 	transition_time = 0
 	switched_scenes = false
-	next_scene = "quit"
+	next_scene = null
+	quit = true
 	$ColorRect.show()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -29,10 +39,10 @@ func _process(delta: float) -> void:
 		transition_time += delta
 		$ColorRect.color.a = fade_curve.sample(clampf(transition_time,fade_curve.min_domain,fade_curve.max_domain))
 		if not switched_scenes and transition_time >= scene_change_time:
-			if next_scene == "quit":
+			if quit:
 				get_tree().quit()
 			else:
-				get_tree().change_scene_to_file(next_scene)
+				get_tree().change_scene_to_packed(next_scene)
 		if transition_time >= fade_curve.max_domain:
 			$ColorRect.hide()
 			transition_time = -1
