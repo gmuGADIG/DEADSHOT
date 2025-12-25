@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://bt3g62fm38lyg"]
 
-[ext_resource type="Shader" uid="uid://bh48ke5aircja" path="res://world/levels/tutorial/test.gdshader" id="1_u4808"]
+[ext_resource type="Shader" uid="uid://bh48ke5aircja" path="res://world/levels/tutorial/tutorial_popup.gdshader" id="1_u4808"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_mji6q"]
 
