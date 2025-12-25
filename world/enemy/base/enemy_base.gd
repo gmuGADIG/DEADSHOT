@@ -188,7 +188,7 @@ func patrol() -> void:
 		patrol_index += 1
 		patrol_index %= patrol_path.size()
 
-## Do once when entering hostile
+##Test
 func enter_hostile() -> void:
 	pass
 

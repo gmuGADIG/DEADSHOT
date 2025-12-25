@@ -1,0 +1,157 @@
+[gd_resource type="SpriteFrames" load_steps=20 format=3 uid="uid://dmswlafp654ob"]
+
+[ext_resource type="Texture2D" uid="uid://doi1lgfq8hi21" path="res://world/player/player_sheet.png" id="1_4vims"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3n4qb"]
+atlas = ExtResource("1_4vims")
+region = Rect2(4096, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_myh4x"]
+atlas = ExtResource("1_4vims")
+region = Rect2(0, 1024, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80mbn"]
+atlas = ExtResource("1_4vims")
+region = Rect2(1024, 1024, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbm61"]
+atlas = ExtResource("1_4vims")
+region = Rect2(2048, 1024, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2x47q"]
+atlas = ExtResource("1_4vims")
+region = Rect2(1024, 3072, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrep8"]
+atlas = ExtResource("1_4vims")
+region = Rect2(2048, 3072, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1k4r"]
+atlas = ExtResource("1_4vims")
+region = Rect2(3072, 3072, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_scey4"]
+atlas = ExtResource("1_4vims")
+region = Rect2(4096, 3072, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fn377"]
+atlas = ExtResource("1_4vims")
+region = Rect2(2048, 5120, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxa5a"]
+atlas = ExtResource("1_4vims")
+region = Rect2(3072, 5120, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xq3gs"]
+atlas = ExtResource("1_4vims")
+region = Rect2(4096, 5120, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hnw2l"]
+atlas = ExtResource("1_4vims")
+region = Rect2(2048, 2048, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gy2m5"]
+atlas = ExtResource("1_4vims")
+region = Rect2(3072, 2048, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tckbl"]
+atlas = ExtResource("1_4vims")
+region = Rect2(4096, 2048, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sacbj"]
+atlas = ExtResource("1_4vims")
+region = Rect2(0, 3072, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8tvd"]
+atlas = ExtResource("1_4vims")
+region = Rect2(0, 6144, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rwc3p"]
+atlas = ExtResource("1_4vims")
+region = Rect2(1024, 6144, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vsto"]
+atlas = ExtResource("1_4vims")
+region = Rect2(2048, 6144, 1024, 1024)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3n4qb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_myh4x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80mbn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbm61")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2x47q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrep8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1k4r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_scey4")
+}],
+"loop": false,
+"name": &"rolling",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fn377")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxa5a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xq3gs")
+}],
+"loop": false,
+"name": &"shooting",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hnw2l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gy2m5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tckbl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sacbj")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8tvd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rwc3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vsto")
+}],
+"loop": false,
+"name": &"whipping",
+"speed": 10.0
+}]

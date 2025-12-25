@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5qcjy732bcw2"]
+
+[ext_resource type="PackedScene" uid="uid://53setitiasq8" path="res://world/enemy/Enemy Bullets/enemy_bullet.tscn" id="1_c51f8"]
+
+[node name="TutorialTurretBullet" instance=ExtResource("1_c51f8")]
+despawn_after_seconds = 4.0
+speed = 10.0
