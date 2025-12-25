@@ -1,7 +1,8 @@
-[gd_scene load_steps=41 format=3 uid="uid://d3fww07av6h7"]
+[gd_scene load_steps=57 format=3 uid="uid://d3fww07av6h7"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_utj54"]
 [ext_resource type="Resource" uid="uid://q24ustx30otu" path="res://world/floor/sand/sand.tres" id="2_43df5"]
+[ext_resource type="PackedScene" uid="uid://dwsraqi3f8a1l" path="res://world/interactables/campfire/campfire.tscn" id="3_4mg6g"]
 [ext_resource type="Texture2D" uid="uid://cb5w6ucpbalty" path="res://world/levels/tutorial/keyboard_w_outline.png" id="3_v0y4b"]
 [ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://world/interactables/cover/cover_boulder.tscn" id="4_4tuq3"]
 [ext_resource type="Texture2D" uid="uid://cay4gmus84v2v" path="res://world/levels/tutorial/keyboard_a_outline.png" id="4_g6a8u"]
@@ -26,6 +27,16 @@
 [ext_resource type="Texture2D" uid="uid://b60vhaqbjmjwj" path="res://world/levels/tutorial/ghost_frames/roll_right/tile020.png" id="20_l5vw8"]
 [ext_resource type="Texture2D" uid="uid://gnmrr0xgba7o" path="res://world/levels/tutorial/ghost_frames/walk_left/tile009.png" id="24_lvejl"]
 [ext_resource type="Texture2D" uid="uid://bslphn7xceh84" path="res://world/levels/tutorial/ghost_frames/walk_left/tile010.png" id="25_1kc47"]
+[ext_resource type="Script" uid="uid://c2ynbm1ab6ljs" path="res://world/levels/tutorial/popups/tutorial_popup.gd" id="26_73vc8"]
+[ext_resource type="Texture2D" uid="uid://cal70g14ycy3p" path="res://world/levels/tutorial/keyboard_space_outline.png" id="26_lvejl"]
+[ext_resource type="Texture2D" uid="uid://bk4qwsigtpxsu" path="res://world/levels/tutorial/keyboard_space.png" id="27_1kc47"]
+[ext_resource type="PackedScene" uid="uid://dhb2pgqbfvxoa" path="res://world/enemy/encounter/encounter.tscn" id="30_p5qup"]
+[ext_resource type="Resource" uid="uid://dgfsfa6177rri" path="res://audio/music/song_files/desert_level/Matthew_desert_combat_song.tres" id="31_51lu8"]
+[ext_resource type="PackedScene" uid="uid://bp6l0lw650m8o" path="res://world/blocker/blocker.tscn" id="32_4mg6g"]
+[ext_resource type="PackedScene" uid="uid://b4n4rflu3my0v" path="res://world/enemy/longhorn/longhorn.tscn" id="33_ejcty"]
+[ext_resource type="PackedScene" uid="uid://c2bxn6p802s68" path="res://world/interactables/cover/cover_cactus_small.tscn" id="34_51lu8"]
+[ext_resource type="PackedScene" uid="uid://d1e8myf75tnlv" path="res://world/interactables/cover/cover_cactus_large.tscn" id="35_4mg6g"]
+[ext_resource type="Script" uid="uid://bec0wby6grqxb" path="res://world/levels/tutorial/popups/campfire_tutorial_popup.gd" id="36_ejcty"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_3rssm"]
 vertices = PackedVector3Array(-23.235306, 0.48999953, -10.278976, -26.735306, 0.48999953, -9.028976, -27.485306, 0.48999953, -7.2789764, -17.235306, 0.48999953, -9.028976, -19.985306, 0.48999953, -10.278976, -18.735306, 0.48999953, -2.0289764, -17.235306, 0.48999953, -2.7789764, -26.985306, 0.48999953, -1.5289764, -19.735306, 0.48999953, -0.77897644, -15.735306, 0.48999953, -3.2789764, -14.735306, 0.48999953, -10.028976, -9.985306, 0.48999953, -3.0289764, -5.235306, 0.48999953, -3.7789764, -4.985306, 0.48999953, -9.528976, 51.264694, 0.48999953, 14.221024, 53.014694, 0.48999953, 14.221024, 53.514694, 0.48999953, 13.971024, 53.514694, 0.48999953, 10.971024, 51.264694, 0.48999953, 12.721024, 40.514694, 0.48999953, 13.971024, 47.514694, 0.48999953, 13.971024, 49.764694, 0.48999953, 12.471024, 46.014694, 0.48999953, -10.028976, 40.014694, 0.48999953, -9.528976, 36.764694, 0.48999953, -8.028976, 55.014694, 0.48999953, 8.221024, 63.014694, 0.48999953, 4.2210236, 63.014694, 0.48999953, 1.9710236, 59.514694, 0.48999953, 1.7210236, 59.014694, 0.48999953, 4.4710236, 58.764694, 0.48999953, 0.97102356, 55.264694, 0.48999953, -8.028976, 35.264694, 0.48999953, 14.721024, 37.764694, 0.48999953, 14.971024, 35.014694, 0.48999953, -8.028976, -1.4853058, 0.48999953, -3.0289764, 10.514694, 0.48999953, -2.7789764, 6.014694, 0.48999953, -9.278976, 3.7646942, 0.48999953, -9.778976, 10.514694, 0.48999953, -9.278976, 17.264694, 0.48999953, -4.2789764, 16.764694, 0.48999953, -8.278976, 16.014694, 0.48999953, -9.278976, 11.764694, 0.48999953, -2.0289764, 14.264694, 0.48999953, 1.2210236, 17.014694, 0.48999953, 1.9710236, 18.014694, 0.48999953, -3.5289764, 31.514694, 0.48999953, 13.471024, 33.764694, 0.48999953, 14.721024, 25.764694, 0.48999953, 9.221024, 22.764694, 0.48999953, 5.4710236, 23.264694, 0.48999953, 7.2210236, 27.264694, 0.48999953, 13.721024, 32.764694, 0.48999953, -8.778976, 27.514694, 0.48999953, -8.028976, 21.014694, 0.48999953, 3.9710236, 23.514694, 0.48999953, -3.7789764, -60.485306, 0.48999953, 9.221024, -57.985306, 0.48999953, 8.221024, -57.735306, 0.48999953, 7.4710236, -56.985306, 0.48999953, 0.47102356, -58.235306, 0.48999953, -1.7789764, -59.735306, 0.48999953, -2.0289764, -61.735306, 0.48999953, -3.2789764, -63.485306, 0.48999953, -3.2789764, -69.735306, 0.48999953, 5.4710236, -68.235306, 0.48999953, 7.4710236, -65.985306, 0.48999953, 9.221024, -55.985306, 0.48999953, 6.2210236, -55.985306, 0.48999953, 1.2210236, -67.485306, 0.48999953, -2.0289764, -69.985306, 0.48999953, 1.7210236, -21.485306, 0.48999953, 6.2210236, -19.235306, 0.48999953, 2.7210236, -19.985306, 0.48999953, 0.97102356, -27.485306, 0.48999953, -0.52897644, -27.485306, 0.48999953, 6.9710236, -30.985306, 0.48999953, -0.02897644, -30.485306, 0.48999953, 6.7210236, -49.735306, 0.48999953, 6.4710236, -46.735306, 0.48999953, 6.9710236, -43.985306, 0.48999953, 6.2210236, -44.485306, 0.48999953, -0.02897644, -49.735306, 0.48999953, 1.4710236, -39.235306, 0.48999953, 6.2210236, -39.235306, 0.48999953, 0.72102356)
@@ -34,10 +45,10 @@ polygons = [PackedInt32Array(0, 2, 1), PackedInt32Array(0, 4, 3), PackedInt32Arr
 [sub_resource type="Curve3D" id="Curve3D_jjd0d"]
 closed = true
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -16.793928, 0.003935814, -9.776968, 0, 0, 0, 0, 0, 0, -15.393276, 0.003935814, -10.6164055, 0, 0, 0, 0, 0, 0, -11.001631, 0.003935814, -10.318094, 0, 0, 0, 0, 0, 0, -6.2128944, 0.003935814, -10.066494, 0, 0, 0, 0, 0, 0, -1.8154416, 0.003935814, -10.395157, 0, 0, 0, 0, 0, 0, 4.2303243, 0.003935814, -10.290846, 0, 0, 0, 0, 0, 0, 8.448372, 0.0029265066, -9.774595, 0, 0, 0, 0, 0, 0, 12.494751, 0.0022243964, -10.318113, 0, 0, 0, 0, 0, 0, 16.29103, 0.0017888888, -9.920034, 0, 0, 0, 0, 0, 0, 16.86739, 0.0014737893, -9.632015, 0, 0, 0, 0, 0, 0, 17.420633, 0.0011376285, -8.370534, 0, 0, 0, 0, 0, 0, 17.553946, 0.00074888504, -6.5754137, 0, 0, 0, 0, 0, 0, 18.042458, 0, -4.1014576, 0, 0, 0, 0, 0, 0, 23.182608, 0, -4.5247793, 0, 0, 0, 0, 0, 0, 24.396254, 0, -5.88894, 0, 0, 0, 0, 0, 0, 26.924294, 0, -8.575384, 0, 0, 0, 0, 0, 0, 33.433437, 0, -9.4068, 0, 0, 0, 0, 0, 0, 35.73848, 0, -8.575384, 0, 0, 0, 0, 0, 0, 39.653893, 0, -10.069894, 0, 0, 0, 0, 0, 0, 43.443, 0, -10.354077, 0, 0, 0, 0, 0, 0, 46.790054, 0, -10.606685, 0, 0, 0, 0, 0, 0, 51.74747, 0, -9.375224, 0, 0, 0, 0, 0, 0, 55.862755, 0, -8.575384, 0, 0, 0, 0, 0, 0, 59.721214, 0, 1.0707693, 0, 0, 0, 0, 0, 0, 63.579678, 0, 1.0707693, 0, 0, 0, 0, 0, 0, 63.579678, 0, 4.9292307, 0, 0, 0, 0, 0, 0, 59.721214, 0, 4.9292307, 0, 0, 0, 0, 0, 0, 56.01586, 0, 8.265908, 0, 0, 0, 0, 0, 0, 54.22216, 0, 11.039242, 0, 0, 0, 0, 0, 0, 54.22216, 0, 14.612649, 0, 0, 0, 0, 0, 0, 50.620796, 0, 15.064982, 0, 0, 0, 0, 0, 0, 50.577835, 0, 13.002966, 0, 0, 0, 0, 0, 0, 47.74256, 0, 14.575384, 0, 0, 0, 0, 0, 0, 41.427628, 0, 14.575384, 0, 0, 0, 0, 0, 0, 37.990936, 0, 15.49457, 0, 0, 0, 0, 0, 0, 33.866898, 0, 15.408652, 0, 0, 0, 0, 0, 0, 30.55908, 0, 13.9910145, 0, 0, 0, 0, 0, 0, 26.924294, 0, 14.575384, 0, 0, 0, 0, 0, 0, 25.00786, 0, 9.52443, 0, 0, 0, 0, 0, 0, 22.651882, 0, 7.4546995, 0, 0, 0, 0, 0, 0, 21.958559, 0, 5.5953536, 0, 0, 0, 0, 0, 0, 17.198929, 0, 2.7019763, 0, 0, 0, 0, 0, 0, 13.645445, 0, 1.632719, 0, 0, 0, 0, 0, 0, 10.521236, 0.0021593769, -2.1574528, 0, 0, 0, 0, 0, 0, 6.8069715, 0.003935814, -2.223353, 0, 0, 0, 0, 0, 0, 3.8407054, 0.003935814, -2.2904382, 0, 0, 0, 0, 0, 0, -1.1503654, 0.003935814, -2.403317, 0, 0, 0, 0, 0, 0, -5.6475277, 0.003935814, -3.1855283, 0, 0, 0, 0, 0, 0, -11.523584, 0.003935814, -2.2391143, 0, 0, 0, 0, 0, 0, -15.4609375, 0.0017435872, -2.6713412, 0, 0, 0, 0, 0, 0, -18.592512, 0, -1.1034956, 0, 0, 0, 0, 0, 0, -19.480896, 0, -0.096286565, 0, 0, 0, 0, 0, 0, -18.458786, 0, 2.3490686, 0, 0, 0, 0, 0, 0, -19.440605, 0, 4.655204, 0, 0, 0, 0, 0, 0, -21.029861, 0, 6.906261, 0, 0, 0, 0, 0, 0, -24.900633, 0, 7.3766823, 0, 0, 0, 0, 0, 0, -28.71299, 0, 7.536067, 0, 0, 0, 0, 0, 0, -34.842064, 0, 6.992461, 0, 0, 0, 0, 0, 0, -38.920647, 0, 6.801916, 0, 0, 0, 0, 0, 0, -43.52262, 0, 6.954114, 0, 0, 0, 0, 0, 0, -47.33271, 0, 7.621846, 0, 0, 0, 0, 0, 0, -51.050087, 0, 7.0519056, 0, 0, 0, 0, 0, 0, -55.967007, 0, 6.6690288, 0, 0, 0, 0, 0, 0, -57.741493, 0, 8.915666, 0, 0, 0, 0, 0, 0, -60.74926, 0, 9.986692, 0, 0, 0, 0, 0, 0, -64.33353, 0, 9.779133, 0, 0, 0, 0, 0, 0, -66.871635, 0, 9.731382, 0, 0, 0, 0, 0, 0, -67.93863, 0, 8.689175, 0, 0, 0, 0, 0, 0, -70.27427, 0, 5.886409, 0, 0, 0, 0, 0, 0, -70.77193, 0, 3.0894098, 0, 0, 0, 0, 0, 0, -70.49633, 0, 1.0833979, 0, 0, 0, 0, 0, 0, -69.312004, 0, -0.950346, 0, 0, 0, 0, 0, 0, -67.781334, 0, -2.7311044, 0, 0, 0, 0, 0, 0, -64.74806, 0, -3.5950723, 0, 0, 0, 0, 0, 0, -61.89457, 0, -4.14781, 0, 0, 0, 0, 0, 0, -59.736046, 0, -2.8842838, 0, 0, 0, 0, 0, 0, -57.72739, 0, -2.2237291, 0, 0, 0, 0, 0, 0, -55.967007, 0, 0.5090008, 0, 0, 0, 0, 0, 0, -48.861904, 0, 0.7792971, 0, 0, 0, 0, 0, 0, -47.81688, 0, 0.26619056, 0, 0, 0, 0, 0, 0, -43.911522, 0, -0.74231225, 0, 0, 0, 0, 0, 0, -39.192837, 0, 0.03407499, 0, 0, 0, 0, 0, 0, -33.661247, 0, -0.47905946, 0, 0, 0, 0, 0, 0, -27.503654, 0, -1.2600698, 0, 0, 0, 0, 0, 0, -28.233952, 0, -5.623146, 0, 0, 0, 0, 0, 0, -27.816868, 0, -9.047663, 0, 0, 0, 0, 0, 0, -25.748219, 0, -10.433041, 0, 0, 0, 0, 0, 0, -22.13312, 0, -11.000229, 0, 0, 0, 0, 0, 0, -20.265158, 0, -11.041307),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -16.793928, 0.003935814, -9.776968, 0, 0, 0, 0, 0, 0, -15.393276, 0.003935814, -10.6164055, 0, 0, 0, 0, 0, 0, -11.001631, 0.003935814, -10.318094, 0, 0, 0, 0, 0, 0, -6.2128944, 0.003935814, -10.066494, 0, 0, 0, 0, 0, 0, -1.8154416, 0.003935814, -10.395157, 0, 0, 0, 0, 0, 0, 4.2303243, 0.003935814, -10.290846, 0, 0, 0, 0, 0, 0, 8.448372, 0.0029265066, -9.774595, 0, 0, 0, 0, 0, 0, 12.494751, 0.0022243964, -10.318113, 0, 0, 0, 0, 0, 0, 16.29103, 0.0017888888, -9.920034, 0, 0, 0, 0, 0, 0, 16.86739, 0.0014737893, -9.632015, 0, 0, 0, 0, 0, 0, 17.420633, 0.0011376285, -8.370534, 0, 0, 0, 0, 0, 0, 17.553946, 0.00074888504, -6.5754137, 0, 0, 0, 0, 0, 0, 18.042458, 0, -4.1014576, 0, 0, 0, 0, 0, 0, 23.182608, 0, -4.5247793, 0, 0, 0, 0, 0, 0, 24.396254, 0, -5.88894, 0, 0, 0, 0, 0, 0, 26.924294, 0, -8.575384, 0, 0, 0, 0, 0, 0, 33.433437, 0, -9.4068, 0, 0, 0, 0, 0, 0, 35.73848, 0, -8.575384, 0, 0, 0, 0, 0, 0, 39.653893, 0, -10.069894, 0, 0, 0, 0, 0, 0, 43.443, 0, -10.354077, 0, 0, 0, 0, 0, 0, 46.790054, 0, -10.606685, 0, 0, 0, 0, 0, 0, 51.74747, 0, -9.375224, 0, 0, 0, 0, 0, 0, 55.862755, 0, -8.575384, 0, 0, 0, 0, 0, 0, 58.52419, 0, -0.18591452, 0, 0, 0, 0, 0, 0, 65.519684, 0, -0.40785837, 0, 0, 0, 0, 0, 0, 66.821, 0, -1.440143, 0, 0, 0, 0, 0, 0, 68.212234, 0, -2.365399, 0, 0, 0, 0, 0, 0, 69.47641, 0, -3.323697, 0, 0, 0, 0, 0, 0, 71.62651, 0, -4.290841, 0, 0, 0, 0, 0, 0, 74.0873, 0, -4.30746, 0, 0, 0, 0, 0, 0, 76.12045, 0, -3.475124, 0, 0, 0, 0, 0, 0, 78.44721, 0, -2.536758, 0, 0, 0, 0, 0, 0, 79.54019, 0, -1.3427842, 0, 0, 0, 0, 0, 0, 80.98652, 0, 0.0050065517, 0, 0, 0, 0, 0, 0, 83.71914, 0, 0.18280941, 0, 0, 0, 0, 0, 0, 88.27241, 0, -0.04671693, 0, 0, 0, 0, 0, 0, 88.14891, 0, 4.3504333, 0, 0, 0, 0, 0, 0, 83.99207, 0, 4.2898903, 0, 0, 0, 0, 0, 0, 80.8835, 0, 4.488002, 0, 0, 0, 0, 0, 0, 79.54425, 0, 5.9659424, 0, 0, 0, 0, 0, 0, 77.770584, 0, 7.3820176, 0, 0, 0, 0, 0, 0, 75.82382, 0, 8.1534, 0, 0, 0, 0, 0, 0, 74.34338, 0, 8.583744, 0, 0, 0, 0, 0, 0, 71.91846, 0, 8.995543, 0, 0, 0, 0, 0, 0, 68.84165, 0, 8.638519, 0, 0, 0, 0, 0, 0, 66.539345, 0, 7.415863, 0, 0, 0, 0, 0, 0, 65.570465, 0, 6.079421, 0, 0, 0, 0, 0, 0, 58.65477, 0, 5.8701706, 0, 0, 0, 0, 0, 0, 56.01586, 0, 8.265908, 0, 0, 0, 0, 0, 0, 54.22216, 0, 11.039242, 0, 0, 0, 0, 0, 0, 52.993015, 0, 11.673848, 0, 0, 0, 0, 0, 0, 50.577835, 0, 13.002966, 0, 0, 0, 0, 0, 0, 47.74256, 0, 14.575384, 0, 0, 0, 0, 0, 0, 41.427628, 0, 14.575384, 0, 0, 0, 0, 0, 0, 37.990936, 0, 15.49457, 0, 0, 0, 0, 0, 0, 33.866898, 0, 15.408652, 0, 0, 0, 0, 0, 0, 30.55908, 0, 13.9910145, 0, 0, 0, 0, 0, 0, 26.924294, 0, 12.536358, 0, 0, 0, 0, 0, 0, 25.00786, 0, 9.52443, 0, 0, 0, 0, 0, 0, 22.651882, 0, 7.4546995, 0, 0, 0, 0, 0, 0, 21.958559, 0, 5.5953536, 0, 0, 0, 0, 0, 0, 17.198929, 0, 2.7019763, 0, 0, 0, 0, 0, 0, 13.645445, 0, 1.632719, 0, 0, 0, 0, 0, 0, 10.521236, 0.0021593769, -1.309134, 0, 0, 0, 0, 0, 0, 6.8069715, 0.003935814, -2.223353, 0, 0, 0, 0, 0, 0, 3.8407054, 0.003935814, -2.2904382, 0, 0, 0, 0, 0, 0, -1.1503654, 0.003935814, -2.403317, 0, 0, 0, 0, 0, 0, -5.6475277, 0.003935814, -3.1855283, 0, 0, 0, 0, 0, 0, -11.523584, 0.003935814, -2.2391143, 0, 0, 0, 0, 0, 0, -15.4609375, 0.0017435872, -2.6713412, 0, 0, 0, 0, 0, 0, -18.592512, 0, -1.1034956, 0, 0, 0, 0, 0, 0, -19.480896, 0, -0.096286565, 0, 0, 0, 0, 0, 0, -18.458786, 0, 2.3490686, 0, 0, 0, 0, 0, 0, -19.440605, 0, 4.655204, 0, 0, 0, 0, 0, 0, -21.029861, 0, 6.906261, 0, 0, 0, 0, 0, 0, -24.900633, 0, 7.3766823, 0, 0, 0, 0, 0, 0, -28.71299, 0, 7.536067, 0, 0, 0, 0, 0, 0, -34.842064, 0, 6.992461, 0, 0, 0, 0, 0, 0, -38.920647, 0, 6.801916, 0, 0, 0, 0, 0, 0, -43.52262, 0, 6.954114, 0, 0, 0, 0, 0, 0, -47.33271, 0, 7.621846, 0, 0, 0, 0, 0, 0, -51.050087, 0, 7.0519056, 0, 0, 0, 0, 0, 0, -55.967007, 0, 6.6690288, 0, 0, 0, 0, 0, 0, -57.741493, 0, 8.915666, 0, 0, 0, 0, 0, 0, -60.74926, 0, 9.986692, 0, 0, 0, 0, 0, 0, -64.33353, 0, 9.779133, 0, 0, 0, 0, 0, 0, -66.871635, 0, 9.731382, 0, 0, 0, 0, 0, 0, -67.93863, 0, 8.689175, 0, 0, 0, 0, 0, 0, -70.27427, 0, 5.886409, 0, 0, 0, 0, 0, 0, -70.77193, 0, 3.0894098, 0, 0, 0, 0, 0, 0, -70.49633, 0, 1.0833979, 0, 0, 0, 0, 0, 0, -69.312004, 0, -0.950346, 0, 0, 0, 0, 0, 0, -67.781334, 0, -2.7311044, 0, 0, 0, 0, 0, 0, -64.74806, 0, -3.5950723, 0, 0, 0, 0, 0, 0, -61.89457, 0, -4.14781, 0, 0, 0, 0, 0, 0, -59.736046, 0, -2.8842838, 0, 0, 0, 0, 0, 0, -57.72739, 0, -2.2237291, 0, 0, 0, 0, 0, 0, -55.967007, 0, 0.5090008, 0, 0, 0, 0, 0, 0, -48.861904, 0, 0.7792971, 0, 0, 0, 0, 0, 0, -47.81688, 0, 0.26619056, 0, 0, 0, 0, 0, 0, -43.911522, 0, -0.74231225, 0, 0, 0, 0, 0, 0, -39.192837, 0, 0.03407499, 0, 0, 0, 0, 0, 0, -33.661247, 0, -0.47905946, 0, 0, 0, 0, 0, 0, -27.503654, 0, -1.2600698, 0, 0, 0, 0, 0, 0, -28.233952, 0, -5.623146, 0, 0, 0, 0, 0, 0, -27.816868, 0, -9.047663, 0, 0, 0, 0, 0, 0, -25.748219, 0, -10.433041, 0, 0, 0, 0, 0, 0, -22.13312, 0, -11.000229, 0, 0, 0, 0, 0, 0, -20.265158, 0, -11.041307),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
-point_count = 89
+point_count = 109
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_umgfn"]
 
@@ -53,7 +64,7 @@ shader_parameter/noise = SubResource("NoiseTexture2D_0ruaa")
 shader_parameter/speed = 0.70000003325
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_umgfn"]
-viewport_path = NodePath("AreaOne/WASDPrompt/SubViewport")
+viewport_path = NodePath("WASDArea/WASDPrompt/SubViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3rssm"]
 render_priority = 0
@@ -94,6 +105,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [SubResource("AtlasTexture_qtbkl")]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RollSpacebar:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
 
 [sub_resource type="Animation" id="Animation_p54y7"]
 resource_name = "dodge_tutorial"
@@ -124,6 +147,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [-26.5, -30.259, -23.019, -23.019]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RollSpacebar:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.875),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("26_lvejl"), ExtResource("27_1kc47"), ExtResource("26_lvejl")]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nmny4"]
 _data = {
@@ -131,7 +166,54 @@ _data = {
 &"dodge_tutorial": SubResource("Animation_p54y7")
 }
 
-[node name="LevelBase" instance=ExtResource("1_utj54")]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lvejl"]
+render_priority = 0
+shader = ExtResource("4_krj53")
+shader_parameter/progress = -1.0
+shader_parameter/width = 0.70000003325
+shader_parameter/noise = SubResource("NoiseTexture2D_l5vw8")
+shader_parameter/speed = 0.70000003325
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mr3yc"]
+size = Vector3(10, 3, 42.81041)
+
+[sub_resource type="GDScript" id="GDScript_4mg6g"]
+script/source = "extends Node3D
+
+
+
+func _ready() -> void:
+	%TutorialEncounter.encounter_over.connect(make_evening)
+	#make_evening()
+
+func make_evening() -> void:
+	var tween : Tween = get_tree().create_tween()
+	tween.set_parallel()
+	tween.tween_property(%Sun,\"rotation:x\",deg_to_rad(-8.9),4.0)
+	tween.tween_property(%Sun,\"color\",Color(255,181,150),4.0)
+	await tween.finished
+	tween = get_tree().create_tween()
+	tween.set_parallel()
+	tween.tween_property(%Sun,\"rotation:x\",deg_to_rad(0.5),4.0)
+	tween.tween_property(%Sun,\"color\",Color(255,181,150),4.0)
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4mg6g"]
+render_priority = 0
+shader = ExtResource("4_krj53")
+shader_parameter/progress = -1.0
+shader_parameter/width = 0.70000003325
+shader_parameter/noise = SubResource("NoiseTexture2D_0ruaa")
+shader_parameter/speed = 0.70000003325
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_4mg6g"]
+viewport_path = NodePath("CampfireArea/CampfirePrompt/SubViewport")
+
+[node name="Tutorial" instance=ExtResource("1_utj54")]
+
+[node name="Sun" parent="." index="1"]
+unique_name_in_owner = true
+transform = Transform3D(0.92473876, -0.2527267, 0.28458288, 0, 0.74771696, 0.66401756, -0.38060242, -0.61404276, 0.69144285, 0, 0, 0)
 
 [node name="World" parent="." index="2"]
 navigation_mesh = SubResource("NavigationMesh_3rssm")
@@ -143,24 +225,24 @@ material = ExtResource("2_43df5")
 [node name="Player" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.29127, 0, 3.2230406)
 
-[node name="AreaOne" type="Node3D" parent="." index="9"]
+[node name="WASDArea" type="Node3D" parent="." index="9"]
 
-[node name="WASDPrompt" type="Sprite3D" parent="AreaOne" index="0"]
+[node name="WASDPrompt" type="Sprite3D" parent="WASDArea" index="0"]
 transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, -58.673145, 3.2792616, 1.7328563)
 material_override = SubResource("ShaderMaterial_umgfn")
 texture = SubResource("ViewportTexture_umgfn")
 script = ExtResource("7_umgfn")
 
-[node name="VanishSound" type="AudioStreamPlayer3D" parent="AreaOne/WASDPrompt" index="0"]
+[node name="VanishSound" type="AudioStreamPlayer3D" parent="WASDArea/WASDPrompt" index="0"]
 stream = ExtResource("5_krj53")
 volume_db = -2.0
 pitch_scale = 0.7
 
-[node name="SubViewport" type="SubViewport" parent="AreaOne/WASDPrompt" index="1"]
+[node name="SubViewport" type="SubViewport" parent="WASDArea/WASDPrompt" index="1"]
 transparent_bg = true
 size = Vector2i(322, 212)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="AreaOne/WASDPrompt/SubViewport" index="0"]
+[node name="VBoxContainer" type="VBoxContainer" parent="WASDArea/WASDPrompt/SubViewport" index="0"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -175,30 +257,30 @@ grow_vertical = 2
 theme_override_constants/separation = -20
 alignment = 1
 
-[node name="W" type="TextureRect" parent="AreaOne/WASDPrompt/SubViewport/VBoxContainer" index="0"]
+[node name="W" type="TextureRect" parent="WASDArea/WASDPrompt/SubViewport/VBoxContainer" index="0"]
 layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("3_v0y4b")
 stretch_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="AreaOne/WASDPrompt/SubViewport/VBoxContainer" index="1"]
+[node name="HBoxContainer" type="HBoxContainer" parent="WASDArea/WASDPrompt/SubViewport/VBoxContainer" index="1"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = -20
 alignment = 1
 
-[node name="A" type="TextureRect" parent="AreaOne/WASDPrompt/SubViewport/VBoxContainer/HBoxContainer" index="0"]
+[node name="A" type="TextureRect" parent="WASDArea/WASDPrompt/SubViewport/VBoxContainer/HBoxContainer" index="0"]
 layout_mode = 2
 texture = ExtResource("4_g6a8u")
 stretch_mode = 2
 
-[node name="S" type="TextureRect" parent="AreaOne/WASDPrompt/SubViewport/VBoxContainer/HBoxContainer" index="1"]
+[node name="S" type="TextureRect" parent="WASDArea/WASDPrompt/SubViewport/VBoxContainer/HBoxContainer" index="1"]
 layout_mode = 2
 texture = ExtResource("5_lrtsq")
 stretch_mode = 2
 
-[node name="D" type="TextureRect" parent="AreaOne/WASDPrompt/SubViewport/VBoxContainer/HBoxContainer" index="2"]
+[node name="D" type="TextureRect" parent="WASDArea/WASDPrompt/SubViewport/VBoxContainer/HBoxContainer" index="2"]
 layout_mode = 2
 texture = ExtResource("6_krj53")
 stretch_mode = 2
@@ -234,11 +316,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.41806, 0, 6.268356)
 [node name="DodgeArea" type="Node3D" parent="." index="11"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.243332, 0.020089865, 12.640262)
 
-[node name="RollPrompt" type="Sprite3D" parent="DodgeArea" index="0"]
-transform = Transform3D(0.39, 0, 0, 0, 0.3377499, 0.195, 0, -0.195, 0.3377499, -26.5, 1.721, -17.307)
+[node name="RollPrompt" type="Sprite3D" parent="DodgeArea" index="0" node_paths=PackedStringArray("spacebar_prompt")]
+transform = Transform3D(0.39, 0, 0, 0, 0.3377499, 0.195, 0, -0.195, 0.3377499, -26.5, 1.721, -16.426336)
 material_override = SubResource("ShaderMaterial_73vc8")
 texture = SubResource("AtlasTexture_qtbkl")
 script = ExtResource("14_l5vw8")
+spacebar_prompt = NodePath("../RollSpacebar")
+required_proximity = 120.0
 
 [node name="VanishSound" type="AudioStreamPlayer3D" parent="DodgeArea/RollPrompt" index="0"]
 stream = ExtResource("5_krj53")
@@ -251,19 +335,121 @@ libraries = {
 &"": SubResource("AnimationLibrary_nmny4")
 }
 
-[node name="TutorialTurret" parent="DodgeArea" index="1" instance=ExtResource("13_0ruaa")]
+[node name="RollSpacebar" type="Sprite3D" parent="DodgeArea" index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.86602527, 0.49999994, 0, -0.49999994, 0.86602527, -33.563248, 2.9391367, -14.647716)
+material_override = SubResource("ShaderMaterial_lvejl")
+script = ExtResource("26_73vc8")
+
+[node name="VanishSound" type="AudioStreamPlayer3D" parent="DodgeArea/RollSpacebar" index="0"]
+stream = ExtResource("5_krj53")
+volume_db = -2.0
+pitch_scale = 0.7
+
+[node name="TutorialTurret" parent="DodgeArea" index="2" instance=ExtResource("13_0ruaa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6723423, 0, -15.813416)
 
-[node name="TutorialTurret2" parent="DodgeArea" index="2" instance=ExtResource("13_0ruaa")]
+[node name="TutorialTurret2" parent="DodgeArea" index="3" instance=ExtResource("13_0ruaa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6723423, 0, -17.327728)
 
-[node name="TutorialTurret3" parent="DodgeArea" index="3" instance=ExtResource("13_0ruaa")]
+[node name="TutorialTurret3" parent="DodgeArea" index="4" instance=ExtResource("13_0ruaa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6723423, 0, -18.86729)
 
-[node name="TutorialTurret4" parent="DodgeArea" index="4" instance=ExtResource("13_0ruaa")]
+[node name="TutorialTurret4" parent="DodgeArea" index="5" instance=ExtResource("13_0ruaa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6723423, 0, -20.035645)
 
-[node name="TutorialTurret5" parent="DodgeArea" index="5" instance=ExtResource("13_0ruaa")]
+[node name="TutorialTurret5" parent="DodgeArea" index="6" instance=ExtResource("13_0ruaa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6723423, 0, -21.766163)
 
+[node name="FightArea" type="Node3D" parent="." index="12"]
+
+[node name="TutorialEncounter" parent="FightArea" index="0" instance=ExtResource("30_p5qup")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.641586, 0, 7.6797676)
+camera_zoom = 1.3
+encounter_song = ExtResource("31_51lu8")
+
+[node name="Blocker" parent="FightArea/TutorialEncounter" index="1" instance=ExtResource("32_4mg6g")]
+transform = Transform3D(1.782, 0, 0, 0, 1, 0, 0, 0, 9.304141, -18.65504, 0, -7.1736593)
+
+[node name="Blocker2" parent="FightArea/TutorialEncounter" index="2" instance=ExtResource("32_4mg6g")]
+transform = Transform3D(1.782, 0, 0, 0, 1, 0, 0, 0, 9.304141, 18.419521, 0, -4.871868)
+
+[node name="EncounterShape" type="CollisionShape3D" parent="FightArea/TutorialEncounter" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.340645, 0, 0.0406456)
+shape = SubResource("BoxShape3D_mr3yc")
+
+[node name="LonghornEnemy" parent="FightArea/TutorialEncounter" index="4" instance=ExtResource("33_ejcty")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.65395, 0, 1.3960257)
+
+[node name="LonghornEnemy2" parent="FightArea/TutorialEncounter" index="5" instance=ExtResource("33_ejcty")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.65395, 0, -11.433658)
+
+[node name="LonghornEnemy3" parent="FightArea/TutorialEncounter" index="6" instance=ExtResource("33_ejcty")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.65395, 0, -5.677229)
+
+[node name="Boulder" parent="FightArea/TutorialEncounter" index="7" instance=ExtResource("4_4tuq3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6646042, 0.17816663, -5.1158886)
+
+[node name="CactusSmall" parent="FightArea/TutorialEncounter" index="8" instance=ExtResource("34_51lu8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03845215, 1.9073486e-06, 4.471773)
+
+[node name="CactusLarge" parent="FightArea/TutorialEncounter" index="9" instance=ExtResource("35_4mg6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.577578, 0.097262144, 0.50429726)
+
+[node name="CactusLarge2" parent="FightArea/TutorialEncounter" index="10" instance=ExtResource("35_4mg6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.731022, 0.09726024, -12.576607)
+
+[node name="CactusSmall2" parent="FightArea/TutorialEncounter" index="11" instance=ExtResource("34_51lu8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.159737, -1.9073486e-06, -12.592278)
+
+[node name="Boulder2" parent="FightArea/TutorialEncounter" index="12" instance=ExtResource("4_4tuq3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.634235, 0.1781658, -5.0593843)
+
+[node name="Boulder3" parent="FightArea/TutorialEncounter" index="13" instance=ExtResource("4_4tuq3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.271, 0.17816675, -0.33653927)
+
+[node name="CampfireArea" type="Node3D" parent="." index="13"]
+script = SubResource("GDScript_4mg6g")
+
+[node name="CampfirePrompt" type="Sprite3D" parent="CampfireArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 72.70014, 3.5668414, 1.3832145)
+material_override = SubResource("ShaderMaterial_4mg6g")
+texture = SubResource("ViewportTexture_4mg6g")
+script = ExtResource("36_ejcty")
+
+[node name="VanishSound" type="AudioStreamPlayer3D" parent="CampfireArea/CampfirePrompt" index="0"]
+stream = ExtResource("5_krj53")
+volume_db = -2.0
+pitch_scale = 0.7
+
+[node name="SubViewport" type="SubViewport" parent="CampfireArea/CampfirePrompt" index="1"]
+transparent_bg = true
+size = Vector2i(197, 207)
+
+[node name="Label" type="Label" parent="CampfireArea/CampfirePrompt/SubViewport" index="0"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -8.5
+offset_right = 20.0
+offset_bottom = 8.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "Save
+&
+Upgrade"
+horizontal_alignment = 1
+
+[node name="Campfire" parent="CampfireArea" index="1" instance=ExtResource("3_4mg6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.611786, -0.07305288, 2.5787382)
+
+[node name="CampfireBlocker" parent="CampfireArea" index="2" instance=ExtResource("32_4mg6g")]
+unique_name_in_owner = true
+transform = Transform3D(1.782, 0, 0, 0, 1, 0, 0, 0, 4.257, 81.67787, 1.9073486e-06, 2.9965715)
+
 [connection signal="texture_changed" from="DodgeArea/RollPrompt" to="DodgeArea/RollPrompt" method="_on_texture_changed"]
+[connection signal="texture_changed" from="DodgeArea/RollSpacebar" to="DodgeArea/RollPrompt" method="_on_roll_spacebar_texture_changed"]

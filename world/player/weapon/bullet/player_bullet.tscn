@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bwtnybgmm32wg" path="res://world/bullets/bullet.png" id="2_0g3v8"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0g3v8"]
-radius = 0.2795053
+radius = 0.3308295
 
 [node name="PlayerBullet" type="Area3D"]
 collision_mask = 9

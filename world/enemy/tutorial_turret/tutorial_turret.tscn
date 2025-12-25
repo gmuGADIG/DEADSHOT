@@ -30,6 +30,7 @@ shape = SubResource("CylinderShape3D_s5c6m")
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.245, 0, 0, 0, 0.21217622, 0.1225, 0, -0.1225, 0.21217622, 0, 1.2133334, 0)
 flip_h = true
+alpha_cut = 1
 texture = ExtResource("2_2i4pi")
 
 [node name="HurtFX" parent="Sprite3D" node_paths=PackedStringArray("health") instance=ExtResource("4_3ewb4")]
