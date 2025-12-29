@@ -147,7 +147,8 @@ func shoot_chunk() -> void:
 	add_sibling(new_chunk)
 	new_chunk.global_position = $BulletSpawnPoint.global_position
 	var target : Vector3 = Player.instance.global_position
-	target += 0.05*Player.instance.velocity*global_position.distance_to(Player.instance.global_position)
+	#Originally at 0.05 * ...
+	target += 0.02*Player.instance.velocity*global_position.distance_to(Player.instance.global_position)
 	new_chunk.set_target(target)
 	#var shoot_angle_rad : float = deg_to_rad(randf_range(-schunk_spread_degrees))
 	#new_chunk.direction = new_chunk.direction.rotated(Vector3.UP,shoot_angle_rad)

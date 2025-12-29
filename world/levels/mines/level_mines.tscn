@@ -131,7 +131,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0744767, 4.7683716e-07, 4.3
 text = "Welcome to the mines :)"
 
 [node name="Player" parent="." index="6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94.792786, 0, 29.460361)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 139.05261, 0, 16.202644)
 floor_type = 2
 
 [node name="Encounter" parent="." index="9" instance=ExtResource("11_rkdtq")]
