@@ -5,7 +5,7 @@ class_name MeatSaveData extends Resource
 func _init() -> void:
 	if Global == null:
 		return
-	Global.meat_currency = 1000
+	Global.meat_currency = 0
 
 func save() -> void:
 	meat = Global.meat_currency
