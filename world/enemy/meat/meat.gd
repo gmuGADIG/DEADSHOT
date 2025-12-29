@@ -5,7 +5,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		return
 	
 	print("Currecny Colletced")
-	Global.meat_currency += 1
+	Global.meat_currency += 10
 	print(Global.meat_currency)
 	
 	# Play the meat pickup sound
