@@ -2,6 +2,11 @@ class_name MeatSaveData extends Resource
 
 @export_storage var meat : int
 
+func _init() -> void:
+	if Global == null:
+		return
+	Global.meat_currency = 0
+
 func save() -> void:
 	meat = Global.meat_currency
 	
