@@ -40,7 +40,10 @@ navigation_mesh = SubResource("NavigationMesh_hfrtt")
 curve = SubResource("Curve3D_vhe22")
 material = ExtResource("2_7h0w7")
 
-[node name="Right" type="Node3D" parent="EntryPoints" index="0"]
+[node name="Left" type="Node3D" parent="EntryPoints" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.45726, 0, 4.0071654)
+
+[node name="Right" type="Node3D" parent="EntryPoints" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.366405, 0, 2.9849052)
 
 [node name="Right" parent="TransitionAreas" index="0" instance=ExtResource("3_vhe22")]

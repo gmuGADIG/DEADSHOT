@@ -1,9 +1,10 @@
-[gd_scene load_steps=57 format=3 uid="uid://d3fww07av6h7"]
+[gd_scene load_steps=58 format=3 uid="uid://d3fww07av6h7"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_utj54"]
 [ext_resource type="Resource" uid="uid://q24ustx30otu" path="res://world/floor/sand/sand.tres" id="2_43df5"]
 [ext_resource type="PackedScene" uid="uid://dwsraqi3f8a1l" path="res://world/interactables/campfire/campfire.tscn" id="3_4mg6g"]
 [ext_resource type="Texture2D" uid="uid://cb5w6ucpbalty" path="res://world/levels/tutorial/keyboard_w_outline.png" id="3_v0y4b"]
+[ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="3_wexlf"]
 [ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://world/interactables/cover/cover_boulder.tscn" id="4_4tuq3"]
 [ext_resource type="Texture2D" uid="uid://cay4gmus84v2v" path="res://world/levels/tutorial/keyboard_a_outline.png" id="4_g6a8u"]
 [ext_resource type="Shader" uid="uid://bh48ke5aircja" path="res://world/levels/tutorial/tutorial_popup.gdshader" id="4_krj53"]
@@ -221,6 +222,11 @@ navigation_mesh = SubResource("NavigationMesh_3rssm")
 [node name="Floor" parent="World" index="0"]
 curve = SubResource("Curve3D_jjd0d")
 material = ExtResource("2_43df5")
+
+[node name="Right" parent="TransitionAreas" index="0" instance=ExtResource("3_wexlf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.14684, 0, 2.0565052)
+target_scene = "uid://bueg0v6pvrthp"
+target_entry_point = "Left"
 
 [node name="Player" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.29127, 0, 3.2230406)
