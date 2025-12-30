@@ -19,7 +19,6 @@ var is_stuck:bool = false
 func hostile() -> void:
 	if timer.is_stopped():
 		print("Charging")
-		health.vulnerable = false
 		shaker.shaking = true
 		timer.start(charge_time)
 
@@ -37,10 +36,8 @@ func attack() -> void:
 		if !should_move || is_stuck:
 			if timer.is_stopped():
 				timer.start(cooldown_time)
-				print("I'm vulny")
 				is_stuck = false
 				stuck_timer.stop()
-				health.vulnerable = true
 				shaker.shaking = false
 				#hurtbox.allowed_damage_sources.insert(0, player_damage_source)
 #endregion
