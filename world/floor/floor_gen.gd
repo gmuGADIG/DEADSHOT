@@ -1,6 +1,10 @@
 @tool
 extends Path3D
 
+@export_tool_button("Update") var update_button := generate
+@export var auto_update := true
+@export var curve_interval := 2.0 ## Higher number = lower resolution edges and better performance
+
 @export var material: FloorMaterial:
 	set(value):
 		material = value
@@ -11,7 +15,7 @@ func _ready() -> void:
 	update_material()
 
 func _on_curve_changed() -> void:
-	generate()
+	if auto_update: generate()
 
 func _get_configuration_warnings() -> PackedStringArray:
 	if curve == null: return ["Missing a curve. Press 'Create Curve' at the top."]
@@ -36,17 +40,23 @@ func update_material() -> void:
 		edge_mat.normal_texture = material.edge_normal
 		fill_mat.albedo_texture = material.fill
 		fill_mat.normal_texture = material.fill_normal
-		
-	
+
+func flatten() -> void:
+	for i in range(curve.point_count):
+		var point := curve.get_point_position(i)
+		if point.y != 0:
+			curve.set_point_position(i, Vector3(point.x, 0, point.z))
 
 func generate() -> void:
 	if curve == null:
 		%Floor.polygon = PackedVector2Array()
 		return
+	
+	flatten()
+	
+	if curve.bake_interval != curve_interval: # necessary check to avoid recomputing points
+		curve.bake_interval = curve_interval
 		
-	
-	update_configuration_warnings()
-	
 	#- Generate Floor -#
 	var polygon: PackedVector2Array = %Floor.polygon
 	var curve_points := curve.get_baked_points()
