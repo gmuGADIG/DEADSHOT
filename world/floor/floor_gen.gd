@@ -17,11 +17,6 @@ func _ready() -> void:
 func _on_curve_changed() -> void:
 	if auto_update: generate()
 
-func _get_configuration_warnings() -> PackedStringArray:
-	if curve == null: return ["Missing a curve. Press 'Create Curve' at the top."]
-	if not is_on_plane(): return ["Points must fall on a plane."]
-	else: return []
-
 func update_material() -> void:
 	if not is_node_ready(): return
 	
@@ -65,9 +60,3 @@ func generate() -> void:
 		var point := curve_points[i]
 		polygon[i] = Vector2(point.x, -point.z)
 	%Floor.polygon = polygon
-
-func is_on_plane() -> bool:
-	for i in range(curve.point_count):
-		var point := curve.get_point_position(i)
-		if point.y != 0: return false
-	return true
