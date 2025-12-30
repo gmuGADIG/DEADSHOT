@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://dbxsvyvdibova"]
+
+[ext_resource type="PackedScene" uid="uid://53setitiasq8" path="res://world/enemy/Enemy Bullets/enemy_bullet.tscn" id="1_7n0g2"]
+[ext_resource type="Script" uid="uid://dfpastllqllfj" path="res://world/enemy/Enemy Bullets/sheriff_star.gd" id="2_5ic6n"]
+[ext_resource type="Texture2D" uid="uid://dr4ivc7tmyyha" path="res://world/player/HUD/heart_full.png" id="3_l5k5e"]
+
+[sub_resource type="Curve" id="Curve_5ic6n"]
+_limits = [0.0, 1.0, 0.0, 3.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5075269, 1), 0.0, 0.0, 0, 0, Vector2(0.99784946, 0), 0.0, 0.0, 0, 0, Vector2(1.4967742, 1), 0.0, 0.0, 0, 0, Vector2(3, 1), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5ic6n"]
+radius = 1.7487499
+
+[node name="SheriffStar" instance=ExtResource("1_7n0g2")]
+script = ExtResource("2_5ic6n")
+sprite_spin_speed = 360.0
+movement_curve = SubResource("Curve_5ic6n")
+skip_slowdown_time = 0.5
+apex_time = 1.0
+atk_damage = 2.0
+speed = 20.0
+
+[node name="Sprite3D" parent="." index="0"]
+transform = Transform3D(0.8, 0, 0, 0, -3.4969112e-08, 0.8, 0, -0.8, -3.4969112e-08, 0, 0, 0)
+billboard = 0
+texture = ExtResource("3_l5k5e")
+
+[node name="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_5ic6n")
