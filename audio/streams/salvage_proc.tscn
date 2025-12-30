@@ -4,3 +4,4 @@
 
 [node name="SalvageProc" type="AudioStreamPlayer"]
 stream = ExtResource("1_yvgja")
+bus = &"SFX"

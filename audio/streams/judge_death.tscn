@@ -4,3 +4,4 @@
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D"]
 stream = ExtResource("2_7v2h2")
+bus = &"SFX"

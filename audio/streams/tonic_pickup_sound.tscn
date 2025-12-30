@@ -5,3 +5,4 @@
 [node name="TonicPickupSound" type="AudioStreamPlayer3D"]
 stream = ExtResource("1_wbcem")
 volume_db = -2.106
+bus = &"SFX"

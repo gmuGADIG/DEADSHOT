@@ -6,3 +6,4 @@
 stream = ExtResource("1_4gjqt")
 volume_db = 33.016
 max_db = 6.0
+bus = &"SFX"

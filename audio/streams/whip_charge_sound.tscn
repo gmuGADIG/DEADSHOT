@@ -1,9 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://cuf4m7g7i2wdk"]
 
-[ext_resource type="PackedScene" uid="uid://ci3804ofkibap" path="res://audio/streams/sound_base.tscn" id="1_67g1k"]
+[ext_resource type="Script" uid="uid://bf14d2iyiqx56" path="res://audio/streams/sound_stream.gd" id="2_67g1k"]
 [ext_resource type="AudioStream" uid="uid://bcq5fl3n4wrqd" path="res://audio/placeholders/whip_placeholders/whip_charge_1.wav" id="2_uhchb"]
 
-[node name="WhipChargeSound" instance=ExtResource("1_67g1k")]
+[node name="WhipChargeSound" type="AudioStreamPlayer3D"]
 stream = ExtResource("2_uhchb")
-autoplay = false
-delete_on_finish = false
+unit_size = 20.0
+panning_strength = 0.5
+bus = &"SFX"
+attenuation_filter_cutoff_hz = 20500.0
+script = ExtResource("2_67g1k")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

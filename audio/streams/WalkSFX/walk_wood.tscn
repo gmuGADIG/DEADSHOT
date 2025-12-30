@@ -28,3 +28,4 @@ stream_10/stream = ExtResource("3_b6n52")
 
 [node name="WalkWood" type="AudioStreamPlayer3D"]
 stream = SubResource("AudioStreamRandomizer_q5qiq")
+bus = &"SFX"
