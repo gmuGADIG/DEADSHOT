@@ -13,6 +13,7 @@ enum PlayerState {
 	WALKING, ## Default state. Player can walk and shoot.
 	ROLLING, ## Dodging / rolling.
 	INTERACTING, ## Interacting with an NPC. Most actions are disabled during this.
+	DEAD, ## State of no health. All actions are disabled in this state.
 }
 
 #region Variables
@@ -172,8 +173,9 @@ static func update_persisting_data() -> void:
 	persisting_data.curr_reserve = instance.get_gun().reserve_ammo
 
 func _on_killed() -> void:
-	#await get_tree().create_timer(0.2, true,true).timeout
-	get_tree().change_scene_to_file("res://menu/death_menu/death_menu.tscn")
+	current_state = PlayerState.DEAD
+	var death_scene := preload("res://menu/death_menu/death_menu.tscn")
+	$"../UI".add_child(death_scene.instantiate())
 
 func get_gun() -> Gun:
 	var gun_name := ""
