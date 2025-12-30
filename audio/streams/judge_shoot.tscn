@@ -21,4 +21,4 @@ stream_5/stream = ExtResource("6_xm53b")
 [node name="JudgeShoot" type="AudioStreamPlayer3D"]
 stream = SubResource("AudioStreamRandomizer_v6nua")
 max_polyphony = 2
-bus = &"VFX"
+bus = &"SFX"

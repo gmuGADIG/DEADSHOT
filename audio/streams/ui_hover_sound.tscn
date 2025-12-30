@@ -5,3 +5,4 @@
 [node name="UIHoverSound" type="AudioStreamPlayer"]
 stream = ExtResource("1_suc1e")
 volume_db = -27.734
+bus = &"SFX"

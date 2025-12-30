@@ -22,3 +22,4 @@ stream_7/stream = ExtResource("8_edlg0")
 
 [node name="WalkPuddle" type="AudioStreamPlayer3D"]
 stream = SubResource("AudioStreamRandomizer_e3w62")
+bus = &"SFX"

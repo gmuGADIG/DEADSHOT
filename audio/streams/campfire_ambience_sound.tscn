@@ -1,10 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://dlk1b6wuqagg6"]
 
-[ext_resource type="PackedScene" uid="uid://ci3804ofkibap" path="res://audio/streams/sound_base.tscn" id="1_amkqf"]
+[ext_resource type="Script" uid="uid://bf14d2iyiqx56" path="res://audio/streams/sound_stream.gd" id="2_2w77x"]
 [ext_resource type="AudioStream" uid="uid://3os7cukrrr0r" path="res://audio/world_objects/se_amb_campfireLoop.wav" id="2_tqqu1"]
 
-[node name="CampfireAmbienceSound" instance=ExtResource("1_amkqf")]
+[node name="CampfireAmbienceSound" type="AudioStreamPlayer3D"]
 stream = ExtResource("2_tqqu1")
 unit_size = 4.0
-panning_strength = 1.0
+bus = &"SFX"
 attenuation_filter_cutoff_hz = 10000.0
+script = ExtResource("2_2w77x")
+
+[connection signal="finished" from="." to="." method="_on_finished"]
