@@ -285,11 +285,9 @@ func _on_interaction_started() -> void:
 func _on_hurt() -> void:
 	%HurtSound.play()
 	%HealthComponent.vulnerable = false
-	$InvulnerableFrames.play("flash")
-	await $InvulnerableFrames.animation_finished
+	%IFrameAnim.play("flash")
+	await %IFrameAnim.animation_finished
 	%HealthComponent.vulnerable = true
-	
-	
 
 ## Function bound to the signal for ending an interaction
 ## Changes state to Walking by default.
