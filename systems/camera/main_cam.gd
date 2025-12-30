@@ -4,8 +4,9 @@ extends Camera3D
 static var instance: MainCam
 
 @export var offset: Vector3
-@export var encounter_zoom: float = 1.0
 @export var smoothing: float
+
+var zoom: float = 1.0
 
 func _init() -> void:
 	instance = self
@@ -14,13 +15,17 @@ func _ready() -> void:
 	global_position = average_position() + offset
 
 func _process(delta: float) -> void:
-	var target := average_position()
-	if Encounter.is_encounter_active():
-		target += offset * Encounter.active_encounter.camera_zoom
-	else:
-		target += offset
+	var target_zoom := (
+		Encounter.active_encounter.camera_zoom
+		if Encounter.is_encounter_active()
+		else 1.0
+	)
 	
-	global_position = target
+	var target := average_position()
+	target += offset * zoom
+	
+	zoom = lerp(zoom, target_zoom, 1.0 - exp(-smoothing * delta))
+	global_position = lerp(global_position, target, 1.0 - exp(-smoothing * delta))
 
 func average_position() -> Vector3:
 	# Do a weighted average on all "camera_tracked" nodes
