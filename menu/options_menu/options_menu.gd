@@ -11,6 +11,11 @@ extends Control
 func _ready() -> void:
 	open()
 
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("ui_cancel"):
+		_on_back_button_pressed()
+
+
 func open() -> void:
 	%Music.value = music_value
 	%VFX.value = vfx_value
