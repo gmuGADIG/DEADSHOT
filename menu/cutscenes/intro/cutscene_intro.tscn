@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://fjrb7e5a1h3a"]
 
 [ext_resource type="Script" uid="uid://c1bnxnohhlms" path="res://menu/cutscenes/cutscene.gd" id="1_uf1or"]
-[ext_resource type="PackedScene" uid="uid://bueg0v6pvrthp" path="res://world/levels/desert_intro/level_desert_intro.tscn" id="2_gxha1"]
+[ext_resource type="PackedScene" uid="uid://d3fww07av6h7" path="res://world/levels/tutorial/tutorial.tscn" id="2_1bf1k"]
 [ext_resource type="Texture2D" uid="uid://es1bhtq87sks" path="res://menu/cutscenes/intro/cs_intro_4.png" id="3_1bf1k"]
 [ext_resource type="Texture2D" uid="uid://condu5ij6xd6e" path="res://menu/cutscenes/intro/cs_intro_3.png" id="4_3njjh"]
 [ext_resource type="Texture2D" uid="uid://de2dfogk2tes1" path="res://menu/cutscenes/intro/cs_intro_2.png" id="5_iqx7x"]
@@ -319,7 +319,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uf1or")
-next_scene = ExtResource("2_gxha1")
+next_scene = ExtResource("2_1bf1k")
 
 [node name="BG" type="ColorRect" parent="."]
 layout_mode = 1
