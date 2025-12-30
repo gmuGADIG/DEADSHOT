@@ -4,3 +4,4 @@
 
 [node name="LonghornDieSound" type="AudioStreamPlayer3D"]
 stream = ExtResource("1_aseh3")
+bus = &"SFX"

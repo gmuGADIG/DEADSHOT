@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://cjqtb588mlf84"]
 
-[ext_resource type="PackedScene" uid="uid://ci3804ofkibap" path="res://audio/streams/sound_base.tscn" id="1_2etuh"]
 [ext_resource type="AudioStream" uid="uid://dgp3m5w6vsegg" path="res://audio/player/pc_hurt/se_player_hurt_h.mp3" id="2_lgnk7"]
 [ext_resource type="AudioStream" uid="uid://iys7wt1mdocr" path="res://audio/player/pc_hurt/se_player_hurt_m.mp3" id="3_0im3q"]
 [ext_resource type="AudioStream" uid="uid://scwv3bjxra8j" path="res://audio/player/pc_hurt/se_player_hurt_l.mp3" id="4_7j6ns"]
+[ext_resource type="Script" uid="uid://bf14d2iyiqx56" path="res://audio/streams/sound_stream.gd" id="4_lgnk7"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dpo8s"]
 playback_mode = 1
@@ -12,5 +12,12 @@ stream_0/stream = ExtResource("2_lgnk7")
 stream_1/stream = ExtResource("3_0im3q")
 stream_2/stream = ExtResource("4_7j6ns")
 
-[node name="HurtSound" instance=ExtResource("1_2etuh")]
+[node name="HurtSound" type="AudioStreamPlayer3D"]
 stream = SubResource("AudioStreamRandomizer_dpo8s")
+unit_size = 20.0
+panning_strength = 0.5
+bus = &"SFX"
+attenuation_filter_cutoff_hz = 20500.0
+script = ExtResource("4_lgnk7")
+
+[connection signal="finished" from="." to="." method="_on_finished"]
