@@ -23,6 +23,7 @@ DebugMenu="*res://systems/debug_menu/debug_menu.tscn"
 SceneManager="*res://systems/scene_switch/scene_switch.tscn"
 MainMusicPlayer="*res://audio/music/music_player/music_player.tscn"
 Fullscreenizer="res://systems/fullscreenizer.gd"
+QTEVFX="*res://qte_vfx/qte_vfx.tscn"
 
 [debug]
 
@@ -134,6 +135,7 @@ pointing/emulate_touch_from_mouse=true
 3d_physics/layer_2="Player"
 3d_physics/layer_3="Interactable"
 3d_physics/layer_4="Enemy"
+3d_physics/layer_5="QTE"
 
 [physics]
 

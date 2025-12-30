@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://dly2uwl8wroak"]
+
+[ext_resource type="Script" uid="uid://p1yc7m2gum7" path="res://qte_vfx/qte_vfx.gd" id="1_ybj5b"]
+[ext_resource type="Shader" uid="uid://c8d8ma5blni51" path="res://qte_vfx/qte_vfx.gdshader" id="2_bfo5j"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_bfo5j"]
+seed = 92
+frequency = 0.0268
+fractal_octaves = 7
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gmlm7"]
+noise = SubResource("FastNoiseLite_bfo5j")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gmlm7"]
+shader = ExtResource("2_bfo5j")
+shader_parameter/base_color = Color(1, 1, 1, 1)
+shader_parameter/noise = SubResource("NoiseTexture2D_gmlm7")
+
+[sub_resource type="Gradient" id="Gradient_shbwg"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jf6wb"]
+gradient = SubResource("Gradient_shbwg")
+width = 384
+height = 384
+
+[node name="QTEVFX" type="CanvasLayer"]
+visible = false
+script = ExtResource("1_ybj5b")
+noise_texture = SubResource("NoiseTexture2D_gmlm7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6392157)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+physics_interpolation_mode = 2
+material = SubResource("ShaderMaterial_gmlm7")
+position = Vector2(508, 305)
+scale = Vector2(0.75, 0.75)
+texture = SubResource("GradientTexture2D_jf6wb")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+unique_name_in_owner = true
