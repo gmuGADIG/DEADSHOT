@@ -60,13 +60,12 @@ offset_right = 2.0
 offset_bottom = -22.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/separation = 20
+theme_override_constants/separation = 40
 alignment = 1
 
 [node name="NewSaveButton" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 75)
+custom_minimum_size = Vector2(190, 75)
 layout_mode = 2
-size_flags_horizontal = 3
 size_flags_vertical = 3
 toggle_mode = true
 text = "NEW SAVE"
@@ -93,9 +92,8 @@ script = ExtResource("7_dn5jd")
 rotation_speed = 40.0
 
 [node name="LoadSaveButton" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 75)
+custom_minimum_size = Vector2(190, 75)
 layout_mode = 2
-size_flags_horizontal = 3
 size_flags_vertical = 3
 toggle_mode = true
 text = "LOAD SAVE"
@@ -122,9 +120,8 @@ script = ExtResource("7_dn5jd")
 rotation_speed = 40.0
 
 [node name="SettingsButton" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 75)
+custom_minimum_size = Vector2(190, 75)
 layout_mode = 2
-size_flags_horizontal = 3
 size_flags_vertical = 3
 toggle_mode = true
 text = "SETTINGS"
@@ -151,9 +148,8 @@ script = ExtResource("7_dn5jd")
 rotation_speed = 40.0
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 75)
+custom_minimum_size = Vector2(190, 75)
 layout_mode = 2
-size_flags_horizontal = 3
 size_flags_vertical = 3
 toggle_mode = true
 text = "QUIT"
