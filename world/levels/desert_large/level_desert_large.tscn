@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://crgv6bkolrlyy"]
+[gd_scene load_steps=33 format=3 uid="uid://crgv6bkolrlyy"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_b00wy"]
 [ext_resource type="Resource" uid="uid://q24ustx30otu" path="res://world/floor/sand/sand.tres" id="2_5t0jw"]
@@ -39,6 +39,9 @@ point_count = 198
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r6j0u"]
 size = Vector3(15.052856, 3, 6.2387695)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_trnsn"]
+size = Vector3(12, 3, 7.593)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n7sqn"]
 size = Vector3(32.375977, 3, 7.5934324)
@@ -1117,7 +1120,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2310295, 0, -4.666794)
 
 [node name="EncounterShape" type="CollisionShape3D" parent="Encounter 2" index="10"]
 transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 1, 0.5999222, 0, -3.6891232)
-shape = SubResource("BoxShape3D_n7sqn")
+shape = SubResource("BoxShape3D_trnsn")
 
 [node name="Encounter 3" parent="." index="18" instance=ExtResource("9_fpcaa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.844, 0, 20.507)
