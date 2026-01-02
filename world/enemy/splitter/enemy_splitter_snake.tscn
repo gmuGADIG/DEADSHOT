@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://dnu585hvkl8ft"]
+
+[ext_resource type="PackedScene" uid="uid://dx3l0wduat3tp" path="res://world/enemy/base/enemy_base.tscn" id="1_kriwo"]
+[ext_resource type="Script" uid="uid://dl504rbwyd7rw" path="res://world/enemy/splitter/enemy_splitter_snake.gd" id="2_moop8"]
+[ext_resource type="Texture2D" uid="uid://dml1uehg5er0v" path="res://temp_art/gartic/doohickey.png" id="3_moop8"]
+[ext_resource type="Texture2D" uid="uid://bspns5244rj6v" path="res://temp_art/gartic/ghost_crying.png" id="3_v6e7y"]
+[ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="4_1qigc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v6e7y"]
+albedo_texture = ExtResource("3_moop8")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ag8ye"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_v6e7y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_xuwp2"]
+
+[node name="EnemyTest" instance=ExtResource("1_kriwo")]
+script = ExtResource("2_moop8")
+movement_speed = 5.0
+fire_rate = 1.0
+bullet_speed = 12.0
+
+[node name="Sprite" parent="." index="1"]
+transform = Transform3D(0.4799793, 0.0038597092, 0.0022284056, -0.004456809, 0.4156742, 0.23998977, 0, -0.24000011, 0.41569212, 0, 1, 0)
+material_override = SubResource("StandardMaterial3D_v6e7y")
+sprite_frames = SubResource("SpriteFrames_ag8ye")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." index="3"]
+aabb = AABB(-0.5, 0, -0.5, 1, 1, 1)
+
+[node name="Health" parent="." index="4"]
+max_health = 2.0
+
+[node name="Damagebox" type="Area3D" parent="." index="6"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Damagebox" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94, 0)
+shape = SubResource("CylinderShape3D_xuwp2")
+
+[node name="Comment" parent="." index="9" instance=ExtResource("4_1qigc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.882946, 0)
+text = "TODO: snake
+"
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
