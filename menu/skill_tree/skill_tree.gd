@@ -8,6 +8,13 @@ class_name SkillTree extends Control
 var selected_skill_button : Skill_Button = null
 
 func _ready() -> void:
+	var parent_name := get_parent().name
+	if parent_name == "PauseMenu":
+		%Reset.hide()
+		%Purchase.hide()
+		# Align exit button with campfire skill tree position
+		%VBoxContainer.position = Vector2(839.0, 490)
+	
 	for child in $SkillButtons.get_children():
 		if child is Skill_Button:
 			skill_buttons.append(child)
@@ -19,7 +26,7 @@ func _ready() -> void:
 	$Overlay.update_meat_display()
 	##This has to happen after all the purchase states are set
 	update_state()
-
+	print(parent_name)
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
