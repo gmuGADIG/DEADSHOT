@@ -26,7 +26,6 @@ func _ready() -> void:
 	$Overlay.update_meat_display()
 	##This has to happen after all the purchase states are set
 	update_state()
-	print(parent_name)
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
