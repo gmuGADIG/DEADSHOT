@@ -4,7 +4,7 @@ signal player_state_changed
 signal whipped
 
 ## Tracks name of current gun node. CHANGE THIS VARIABLE WHEN GUNS ARE CHANGED.
-# static var gun_name := "Shotgun"
+#static var gun_name := "Shotgun"
 #static var gun_name := "Dualies"
 #static var gun_name := "BasicGun"
 
@@ -129,10 +129,7 @@ func _init() -> void:
 	instance = self
 
 func _physics_process(delta: float) -> void:		
-	if Input.is_action_just_pressed("roll") and whip.whip_state == Whip.WhipState.OFF:
-		begin_roll()
-	
-	if current_state == PlayerState.WALKING:
+	if current_state == PlayerState.WALKING:		
 		var input_dir : Vector3 = input_direction()
 
 		velocity = input_dir * walk_speed * speed_multiplier * skill_speed_mul()
@@ -143,6 +140,9 @@ func _physics_process(delta: float) -> void:
 				play_walking_sfx()
 		else:
 			walk_sfx_timer.stop()
+			
+		if Input.is_action_just_pressed("roll") and whip.whip_state == Whip.WhipState.OFF:
+			begin_roll()
 		
 	elif current_state == PlayerState.ROLLING:
 		## We move the velocity vector towards the direction of the movement. 
