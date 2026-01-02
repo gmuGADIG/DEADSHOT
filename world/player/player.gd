@@ -213,9 +213,10 @@ func can_shoot() -> bool:
 
 ## Begins the roll by changing the state and decreasing stamina.
 func begin_roll() -> void:
+	#REDUNDANT
 	# This function only runs when the roll starts.
 	# Get out of here if you're already rolling!
-	if current_state == PlayerState.ROLLING: return
+	#if current_state == PlayerState.ROLLING: return
 	
 	# Factor in stamina
 	if stamina < 1.0: return
