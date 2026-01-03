@@ -17,6 +17,7 @@ signal skill_tree_changed(skill: SkillSet.SkillUID)
 signal skill_removed(skill: SkillSet.SkillUID)
 
 signal boss_spawned(boss: BossEnemy)
+signal entered_boss_encounter
 
 var meat_currency:int = 0:
 	set(new_val):

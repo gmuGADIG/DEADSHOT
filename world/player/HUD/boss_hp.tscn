@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://touuxcdpryp5"]
 
-[ext_resource type="Script" path="res://world/player/HUD/boss_hp_display.gd" id="1_efsdn"]
+[ext_resource type="Script" uid="uid://ntb2sjonudtp" path="res://world/player/HUD/boss_hp_display.gd" id="1_efsdn"]
 [ext_resource type="Texture2D" uid="uid://cb013tk1544rf" path="res://world/player/HUD/boss_health_bar.png" id="2_udml3"]
 
 [sub_resource type="Gradient" id="Gradient_efsdn"]

@@ -12,10 +12,10 @@ var last_action : StringName
 
 #region Behaviour Functions
 func _ready() -> void:
+	Global.entered_boss_encounter.connect(_on_entered_boss_encounter)
+
 	super._ready()
 	pick_action()
-	
-	Global.boss_spawned.emit(self)
 
 func pick_action() -> void: ##TODO: Override this
 	pass
@@ -32,4 +32,7 @@ func attack() -> void:
 
 func _on_visible_on_screen_notifier_3d_screen_entered() -> void:
 	pass #Override base enemy behavior
+	
+func _on_entered_boss_encounter() -> void:
+	Global.boss_spawned.emit(self)
 #endregion

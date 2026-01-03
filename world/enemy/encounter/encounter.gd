@@ -122,6 +122,9 @@ func _on_object_killed(obj: EncounterObject) -> void:
 func _on_body_entered(body: Node3D) -> void:
 	if progress != EncounterProgress.WAITING: return # encounter has already been started
 	
+	if get_node("BossEncounter") != null:
+		Global.entered_boss_encounter.emit()
+	
 	if body is Player && _is_encounter_done() == false:
 		start_encounter()
 
