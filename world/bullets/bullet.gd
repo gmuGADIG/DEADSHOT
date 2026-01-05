@@ -17,7 +17,7 @@ var velocity: Vector3
 
 func _ready() -> void:
 	# Immediately set the despawn timer and wait
-	await get_tree().create_timer(despawn_after_seconds).timeout
+	await get_tree().create_timer(despawn_after_seconds, false).timeout
 	queue_free()
 
 ## Creates the bullet.
