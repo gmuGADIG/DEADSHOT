@@ -8,8 +8,7 @@ class_name SkillTree extends Control
 var selected_skill_button : Skill_Button = null
 
 func _ready() -> void:
-	var parent_name := get_parent().name
-	if parent_name == "PauseMenu":
+	if get_parent() is PauseMenu:
 		%Reset.hide()
 		%Purchase.hide()
 		# Align exit button with campfire skill tree position
