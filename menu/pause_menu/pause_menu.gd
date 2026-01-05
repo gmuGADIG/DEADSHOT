@@ -1,3 +1,4 @@
+class_name PauseMenu
 extends Control
 var is_paused: bool = false
 
