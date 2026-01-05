@@ -12,7 +12,7 @@
 
 [sub_resource type="Resource" id="Resource_kmd03"]
 script = ExtResource("2_kmd03")
-damage = 2
+damage = 1
 knockback = 1
 sound = ExtResource("3_60w6d")
 metadata/_custom_type_script = "uid://dprtuautgwqbv"
@@ -27,7 +27,7 @@ metadata/_custom_type_script = "uid://dprtuautgwqbv"
 
 [sub_resource type="Resource" id="Resource_w5dsa"]
 script = ExtResource("2_kmd03")
-damage = 8
+damage = 10
 knockback = 2
 sprite_glow_brightness = 1.0
 sound = ExtResource("5_nn6fm")

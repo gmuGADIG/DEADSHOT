@@ -64,10 +64,7 @@ func _process(delta: float) -> void:
 		if not Player.instance.can_shoot() or is_reloading == true:
 			return
 		
-		## Reloads gun with left click if no bullets in chamber (keep or remove?)
-		if (chamber_ammo == 0):
-			reload()
-			return
+		
 	 
 		fire(true, 1)
 		fired.emit()
@@ -77,7 +74,11 @@ func _process(delta: float) -> void:
 				fire(true, .5)
 				fired.emit()
 			)
-	
+		
+		## Reloads gun with left click if no bullets in chamber (keep or remove?)
+		if (chamber_ammo == 0):
+			reload()
+			return
 	# Reloads the gun as well (if you can shoot, you can reload).
 	if Input.is_action_just_pressed("reload") and is_reloading == false:
 		reload()

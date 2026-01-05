@@ -10,6 +10,7 @@
 
 [node name="BossEnemy" instance=ExtResource("1_ktb5c")]
 script = ExtResource("2_eboog")
+is_boss = true
 
 [node name="ChargeTimer" type="Timer" parent="." index="6"]
 unique_name_in_owner = true

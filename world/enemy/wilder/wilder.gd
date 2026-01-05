@@ -1,3 +1,4 @@
+class_name Wilder
 extends EnemyBase
 
 ## THE WILDER
@@ -9,7 +10,8 @@ extends EnemyBase
 
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 ## How long to wait between firing a bullet
-@export var timeBetweenShots: float = 0.2
+@export var timeBetweenShotsMin: float = 1
+@export var timeBetweenShotsMax: float = 1
 ## Select what node this fires as a bullet. It has to be of the Bullet class!
 @export var bullet: PackedScene
 ## The most distance the enemy will travel in a single movement cycle
@@ -63,7 +65,7 @@ func hostile() -> void:
 # transitioning between a "hostile" and "attack" state. NEVER set the Wilder's state to ATTACKING!
 func attack() -> void:
 	while true:
-		await get_tree().create_timer(timeBetweenShots, false).timeout
+		await get_tree().create_timer(randf_range(timeBetweenShotsMin,timeBetweenShotsMax), false).timeout
 		if process_mode == ProcessMode.PROCESS_MODE_DISABLED: continue
 		shootBullet()
 

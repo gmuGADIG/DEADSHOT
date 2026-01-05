@@ -21,7 +21,7 @@ func _shake() -> void:
 	create_tween().tween_method(
 		func(t: float) -> void:
 			sprite.position = sprite_pos
-			if t == 0.0: return # set to normal position at the end
+			if t == 1.0: return # set to normal position at the end
 			
 			var rand := Vector3(randf_range(-1, 1), randf_range(-1, 1), randf_range(-1, 1))
 			sprite.position += rand * 0.2,
