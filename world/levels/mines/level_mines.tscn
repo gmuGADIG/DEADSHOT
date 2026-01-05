@@ -133,11 +133,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0744767, 4.7683716e-07, 4.3
 text = "Welcome to the mines :)"
 
 [node name="Player" parent="." index="6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94.792786, 0, 29.460361)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 151.83826, 0, 15.754089)
 floor_type = 2
 
 [node name="Encounter" parent="." index="9" instance=ExtResource("11_rkdtq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.07269, 1.5018328e-06, 4.7655144)
+is_boss_encounter = null
 encounter_song = ExtResource("9_leklp")
 
 [node name="EncounterShape" type="CollisionShape3D" parent="Encounter" index="1"]
@@ -236,6 +237,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.382488, -3.3495767e-06, -8
 
 [node name="Encounter2" parent="." index="11" instance=ExtResource("11_rkdtq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.662285, 0.5700009, 14.503639)
+is_boss_encounter = null
 appear_delay = 0.035
 encounter_song = ExtResource("9_leklp")
 
@@ -359,6 +361,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.774696, -0.3918389, -0.419
 
 [node name="Encounter3" parent="." index="12" instance=ExtResource("11_rkdtq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.78412, -9.628075e-07, 55.259235)
+is_boss_encounter = null
 encounter_song = ExtResource("9_leklp")
 
 [node name="EncounterShape" type="CollisionShape3D" parent="Encounter3" index="1"]
@@ -367,6 +370,7 @@ shape = SubResource("BoxShape3D_1exam")
 
 [node name="Encounter4" parent="." index="13" instance=ExtResource("11_rkdtq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120.119026, -0.7348371, 15.429918)
+is_boss_encounter = null
 camera_zoom = 1.35
 encounter_song = ExtResource("9_leklp")
 
@@ -424,6 +428,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3041153, 0.7273741, 0.75104
 
 [node name="Encounter5" parent="." index="14" instance=ExtResource("11_rkdtq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112.90734, 7.6293945e-06, 36.54578)
+is_boss_encounter = null
 encounter_song = ExtResource("9_leklp")
 
 [node name="EncounterShape" type="CollisionShape3D" parent="Encounter5" index="1"]
@@ -459,6 +464,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.239922, -0.0922896, 8.0210
 
 [node name="Encounter6" parent="." index="15" instance=ExtResource("11_rkdtq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 177.89032, 7.6293945e-06, 17.756916)
+is_boss_encounter = true
 camera_zoom = 1.7
 encounter_song = ExtResource("20_huu48")
 

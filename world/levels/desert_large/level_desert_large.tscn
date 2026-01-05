@@ -115,7 +115,7 @@ target_scene = "uid://c4lcfae1j0kdx"
 target_entry_point = "Bottom"
 
 [node name="Player" parent="." index="5"]
-transform = Transform3D(1.2078707, 0, 0, 0, 1, 0, 0, 0, 1.2078707, 16.788742, 0, -5.0230675)
+transform = Transform3D(1.2078707, 0, 0, 0, 1, 0, 0, 0, 1.2078707, 53.761417, 0, 2.6373158)
 floor_type = 1
 
 [node name="Decor" type="Node" parent="." index="9"]
@@ -1126,6 +1126,7 @@ shape = SubResource("BoxShape3D_trnsn")
 
 [node name="Encounter 3" parent="." index="18" instance=ExtResource("9_fpcaa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.844, 0, 20.507)
+is_boss_encounter = true
 camera_zoom = 1.3
 appear_delay = 0.2
 encounter_song = ExtResource("19_wy6jc")
