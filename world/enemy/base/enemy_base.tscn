@@ -1,20 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://dx3l0wduat3tp"]
+[gd_scene load_steps=9 format=3 uid="uid://dx3l0wduat3tp"]
 
 [ext_resource type="PackedScene" uid="uid://s0mcou8b7n0v" path="res://systems/attacking/hurt_fx/hurt_fx.tscn" id="1_f0luy"]
 [ext_resource type="PackedScene" uid="uid://hiyp7n7uvc4m" path="res://systems/attacking/health/health.tscn" id="2_17eo5"]
 [ext_resource type="PackedScene" uid="uid://b7d3oiw27awag" path="res://systems/attacking/hurtbox/hurtbox.tscn" id="3_1tv51"]
 [ext_resource type="Script" uid="uid://5yprj03obbfy" path="res://world/enemy/encounter/encounter_obj.gd" id="3_17eo5"]
 [ext_resource type="PackedScene" uid="uid://c2u06fnkx16jv" path="res://systems/attacking/damage/fire/fire_damage.tscn" id="3_f0luy"]
-[ext_resource type="Script" uid="uid://dev3iw2x22jhc" path="res://world/enemy/base/qte_handler.gd" id="6_p605v"]
-[ext_resource type="Texture2D" uid="uid://dr0k5wtlmynj6" path="res://temp_art/reticle.png" id="7_li1r7"]
-[ext_resource type="Script" uid="uid://b1gr03ik5vth5" path="res://world/enemy/base/qte_target.gd" id="7_udm0d"]
+[ext_resource type="Script" path="res://world/enemy/base/qte_handler.gd" id="6_p605v"]
+[ext_resource type="PackedScene" uid="uid://bl78b6gav1q1b" path="res://world/enemy/base/qte_target.tscn" id="7_li1r7"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_plfsl"]
 height = 2.4409862
 radius = 0.669922
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_li1r7"]
-radius = 1.9540688
 
 [node name="Enemy" type="CharacterBody3D" groups=["in_encounter"]]
 collision_layer = 8
@@ -58,20 +54,5 @@ metadata/_custom_type_script = "uid://5yprj03obbfy"
 [node name="QTEHandler" type="Node3D" parent="."]
 script = ExtResource("6_p605v")
 
-[node name="QTETarget" type="Area3D" parent="QTEHandler"]
+[node name="QTETarget" parent="QTEHandler" groups=["qte_target"] instance=ExtResource("7_li1r7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.813426, 0)
-collision_layer = 16
-collision_mask = 0
-script = ExtResource("7_udm0d")
-
-[node name="Sprite3D" type="Sprite3D" parent="QTEHandler/QTETarget"]
-sorting_offset = 10000.0
-pixel_size = 0.25
-billboard = 1
-no_depth_test = true
-texture_filter = 0
-texture = ExtResource("7_li1r7")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="QTEHandler/QTETarget"]
-shape = SubResource("SphereShape3D_li1r7")
-debug_color = Color(0.9978655, 0, 0.16666922, 0.41960785)

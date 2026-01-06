@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bl78b6gav1q1b"]
+
+[ext_resource type="Script" uid="uid://b1gr03ik5vth5" path="res://world/enemy/base/qte_target.gd" id="1_lh3p2"]
+[ext_resource type="Texture2D" uid="uid://dr0k5wtlmynj6" path="res://temp_art/reticle.png" id="2_cmhd2"]
+
+[node name="QTETarget" type="Node3D" groups=["qte_target"]]
+script = ExtResource("1_lh3p2")
+
+[node name="NOT_VISIBLE_IN_GAME" type="Sprite3D" parent="."]
+unique_name_in_owner = true
+sorting_offset = 10000.0
+pixel_size = 0.25
+billboard = 1
+no_depth_test = true
+texture_filter = 0
+texture = ExtResource("2_cmhd2")
