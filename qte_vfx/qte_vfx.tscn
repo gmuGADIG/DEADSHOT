@@ -1,12 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://dly2uwl8wroak"]
+[gd_scene load_steps=16 format=3 uid="uid://dly2uwl8wroak"]
 
 [ext_resource type="Script" uid="uid://p1yc7m2gum7" path="res://qte_vfx/qte_vfx.gd" id="1_ybj5b"]
 [ext_resource type="Shader" uid="uid://c8d8ma5blni51" path="res://qte_vfx/qte_vfx.gdshader" id="2_bfo5j"]
 [ext_resource type="Script" uid="uid://bx37fylafrka5" path="res://qte_vfx/bullet_flash.gd" id="2_gmlm7"]
 [ext_resource type="Script" uid="uid://cwhdpsew1ooqc" path="res://qte_vfx/greyscale.gd" id="5_2ric2"]
 [ext_resource type="Shader" uid="uid://bf8jtnk6iuqai" path="res://qte_vfx/greyscale.gdshader" id="5_jf6wb"]
-[ext_resource type="Script" uid="uid://j0c8vwlqhawv" path="res://qte_vfx/qte_target_2d.gd" id="6_unvvj"]
-[ext_resource type="Texture2D" uid="uid://dr0k5wtlmynj6" path="res://temp_art/reticle.png" id="7_unvvj"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_bfo5j"]
 seed = 96
@@ -32,8 +30,32 @@ height = 384
 shader = ExtResource("5_jf6wb")
 shader_parameter/t = 1.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ric2"]
-size = Vector2(35, 35)
+[sub_resource type="Animation" id="Animation_7kdvx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Greyscale/Quad:material:shader_parameter/t")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:engine_timescale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
 
 [sub_resource type="Animation" id="Animation_unvvj"]
 resource_name = "woosh_in"
@@ -92,33 +114,6 @@ tracks/1/keys = {
 "values": [0.35, 1.0]
 }
 
-[sub_resource type="Animation" id="Animation_7kdvx"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Greyscale/Quad:material:shader_parameter/t")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:engine_timescale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7kdvx"]
 _data = {
 &"RESET": SubResource("Animation_7kdvx"),
@@ -167,19 +162,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-
-[node name="Template" type="Node2D" parent="Greyscale"]
-unique_name_in_owner = true
-script = ExtResource("6_unvvj")
-
-[node name="Sprite" type="Sprite2D" parent="Greyscale/Template"]
-texture_filter = 1
-position = Vector2(0.5000019, 0.4999981)
-scale = Vector2(2.9107947, 3.0763047)
-texture = ExtResource("7_unvvj")
-
-[node name="HitboxHint" type="CollisionShape2D" parent="Greyscale/Template"]
-shape = SubResource("RectangleShape2D_2ric2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true

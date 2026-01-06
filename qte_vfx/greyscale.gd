@@ -14,13 +14,12 @@ func start() -> void:
 		if get_node(path).visible:
 			var tween := sprite.create_tween()
 			
-			var old_scale := sprite.scale
 			sprite.scale = Vector2.ZERO
 			sprite.rotation = -TAU * 1
 			
 			tween.set_ignore_time_scale(true)
 			tween.tween_interval(i * 0.2)
-			tween.tween_property(sprite, "scale", old_scale, .45)
+			tween.tween_property(sprite, "scale", sprite.preferred_scale, .45)
 			tween.parallel().tween_property(sprite, "rotation", 0, .45)
 			
 			i += 1
@@ -29,7 +28,7 @@ func start() -> void:
 
 
 func new_target(new_name: String) -> QTETarget2D:
-	var ret: QTETarget2D = template.duplicate()
+	var ret: QTETarget2D = (load("res://qte_vfx/qte_target_2d.tscn") as PackedScene).instantiate()
 	ret.name = new_name
 	add_child(ret)
 	ret.scale = Vector2.ZERO
@@ -43,7 +42,7 @@ func _on_tree_node_added(new_node: Node) -> void:
 		var sprite := new_target(str(hash(new_node.get_path())))
 		sprites[new_node.get_path()] = sprite
 		sprite_ready[new_node.get_path()] = false
-		sprite.scale = Vector2.ONE * new_node.scale.x
+		sprite.preferred_scale = Vector2.ONE * new_node.scale.x
 		sprite.clicked.connect(func() -> void: 
 			if sprite_ready[new_node.get_path()] and not clicked_this_frame:
 				new_node.queue_free()

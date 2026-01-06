@@ -1,6 +1,8 @@
 class_name QTETarget2D
 extends Node2D
 
+var preferred_scale := Vector2.ONE
+
 signal clicked
 
 func _input(event: InputEvent) -> void:
