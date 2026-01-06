@@ -79,7 +79,7 @@ size = Vector3(10, 3, 10)
 size = Vector3(14.224121, 3, 8.940216)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h00ua"]
-size = Vector3(33.1698, 3, 27.83564)
+size = Vector3(33.1698, 3, 16.49741)
 
 [node name="LevelMines" instance=ExtResource("1_nthvq")]
 
@@ -461,28 +461,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.59578705, 0.092282444, -2.7
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.239922, -0.0922896, 8.021019)
 
 [node name="Encounter6" parent="." index="15" instance=ExtResource("11_rkdtq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 177.89032, 7.6293945e-06, 17.756916)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 177.89032, 7.6293945e-06, 1.5933142)
 is_boss_encounter = true
 camera_zoom = 1.7
 encounter_song = ExtResource("20_huu48")
 
 [node name="EncounterShape" type="CollisionShape3D" parent="Encounter6" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08177185, 0.1423645, -2.7622051)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08177185, 0.1423645, 12.801584)
 shape = SubResource("BoxShape3D_8bdu7")
 script = ExtResource("17_skfgv")
 
 [node name="TheMass" parent="Encounter6" index="2" node_paths=PackedStringArray("arena_area") instance=ExtResource("17_eyi7e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.546, 0, -12.717)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.54600525, 0, 2.8467894)
 arena_area = NodePath("Arena")
 
 [node name="Arena" type="CollisionShape3D" parent="Encounter6/TheMass" index="13"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14953613, 0.1423645, 11.664054)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14953613, 0.1423645, 5.994938)
 shape = SubResource("BoxShape3D_h00ua")
 debug_color = Color(0.64, 0, 0.010666504, 1)
 script = ExtResource("17_skfgv")
 
 [node name="Blocker" parent="Encounter6" index="3" instance=ExtResource("12_eyi7e")]
-transform = Transform3D(1.781986, 0, -0.00053118006, 0, 0.99999994, 0, 0.00024884747, 0, 3.804373, -20.067001, -0.080141544, -1.075325)
+transform = Transform3D(1.781986, 0, -0.00053118006, 0, 0.99999994, 0, 0.00024884747, 0, 3.804373, -20.067001, -0.080141544, 14.488465)
 
 [node name="PlaySongForScene" parent="." index="16" instance=ExtResource("23_2joah")]
 song = ExtResource("24_276e6")

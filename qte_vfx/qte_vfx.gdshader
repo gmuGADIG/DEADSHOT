@@ -23,9 +23,9 @@ vec4 boom(vec2 uv) {
 	ret.rgb = mix(base_color * 2.5, vec3(-0.2), 1. - t);
 	ret.a *= 5.;
 	
-	if (distance(uv, vec2(.5)) < 0.05) {
-		return vec4(0.);
-	}
+	//if (distance(uv, vec2(.5)) < 0.05) {
+		//return vec4(0.);
+	//}
 	
 	return ret;
 }
@@ -38,5 +38,6 @@ vec4 circle(vec2 uv) {
 }
 
 void fragment() {
-	COLOR = circle(UV) + boom(UV);
+	//COLOR = circle(UV) + boom(UV);
+	COLOR = boom(UV);
 }

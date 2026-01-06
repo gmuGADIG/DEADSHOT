@@ -50,6 +50,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [1.0, 0.0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:engine_timescale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(0.3, 1),
+"update": 0,
+"values": [1.0, 0.35]
+}
 
 [sub_resource type="Animation" id="Animation_elgan"]
 resource_name = "woosh_out"
@@ -67,6 +79,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0, 1.0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:engine_timescale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.35, 1.0]
+}
 
 [sub_resource type="Animation" id="Animation_7kdvx"]
 length = 0.001
@@ -77,6 +101,18 @@ tracks/0/path = NodePath("Greyscale/Quad:material:shader_parameter/t")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:engine_timescale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -94,6 +130,7 @@ _data = {
 script = ExtResource("1_ybj5b")
 
 [node name="BulletFlash" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
 visible = false
 script = ExtResource("2_gmlm7")
 noise_texture = SubResource("NoiseTexture2D_gmlm7")
@@ -105,7 +142,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0, 0, 0, 0.6392157)
+color = Color(0, 0, 0, 0.81960785)
 
 [node name="BFSprite" type="Sprite2D" parent="BulletFlash"]
 unique_name_in_owner = true
@@ -119,6 +156,7 @@ texture = SubResource("GradientTexture2D_jf6wb")
 unique_name_in_owner = true
 
 [node name="Greyscale" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
 script = ExtResource("5_2ric2")
 
 [node name="Quad" type="ColorRect" parent="Greyscale"]

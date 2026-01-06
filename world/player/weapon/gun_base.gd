@@ -57,7 +57,7 @@ func _process(delta: float) -> void:
 	if not player.can_shoot(): return
  
 	# No shooting if you're rolling or the cooldown hasn't ended!
-	if Input.is_action_just_pressed("fire") and fire_timer >= get_fire_cooldown():
+	if Input.is_action_just_pressed("fire") and fire_timer >= get_fire_cooldown() and not QTEVFX.active:
 		fire_timer = 0.0
 	
 		## if the player cannot shoot / is reloading, do not fire

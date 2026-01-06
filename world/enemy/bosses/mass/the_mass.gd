@@ -140,7 +140,6 @@ func shoot_spike_spin() -> void:
 	
 	spike_spin_angle+=spike_spin_direction*15
 	
-#BUG: uses EnemyBullet but EnemyBullet has been refactored out
 func shoot_chunk() -> void: 
 	var new_chunk : Bullet = chunk.instantiate()
 	add_sibling(new_chunk)

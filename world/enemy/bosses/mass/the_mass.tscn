@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://d0sdri7hlk5i3"]
+[gd_scene load_steps=41 format=3 uid="uid://d0sdri7hlk5i3"]
 
 [ext_resource type="PackedScene" uid="uid://c5mugf35c8n0f" path="res://world/enemy/bosses/boss_enemy.tscn" id="1_0ojq6"]
 [ext_resource type="Script" uid="uid://bvjxmtoqmx4bg" path="res://world/enemy/bosses/mass/the_mass.gd" id="2_0ojq6"]
@@ -9,8 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://qhkt84rb8sf0" path="res://world/enemy/bosses/mass/art/mass_idle.png" id="6_txmqb"]
 [ext_resource type="Texture2D" uid="uid://c5o823jufcxi5" path="res://world/enemy/bosses/mass/art/mass_damage.png" id="6_v1sxx"]
 [ext_resource type="Script" uid="uid://c34j1choqmasd" path="res://world/enemy/bosses/mass/enemy_spitter.gd" id="6_wko6n"]
-[ext_resource type="PackedScene" uid="uid://dxdkwdigtcn43" path="res://world/enemy/test/enemy_test.tscn" id="7_2il7s"]
 [ext_resource type="Texture2D" uid="uid://di2fa8ln64nqe" path="res://world/pickups/corrupt_heart/corrupt_heart.png" id="8_b8f6a"]
+[ext_resource type="PackedScene" uid="uid://b4n4rflu3my0v" path="res://world/enemy/longhorn/longhorn.tscn" id="10_7woel"]
+[ext_resource type="PackedScene" uid="uid://dgq8eujhb7aiv" path="res://world/enemy/bandit/enemy_bandit.tscn" id="11_6dfcl"]
+[ext_resource type="PackedScene" uid="uid://3xv4m4jgpupq" path="res://audio/streams/judge_death.tscn" id="12_1cjuw"]
+[ext_resource type="PackedScene" uid="uid://bl78b6gav1q1b" path="res://world/enemy/base/qte_target.tscn" id="12_c6uyn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b8f6a"]
 size = Vector3(11.355682, 5.3653564, 3.9311523)
@@ -852,7 +855,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9846437, 0)
 
 [node name="EnemySpitter" type="Node3D" parent="." index="8"]
 script = ExtResource("6_wko6n")
-enemy_scenes = Array[PackedScene]([ExtResource("7_2il7s")])
+enemy_scenes = Array[PackedScene]([ExtResource("10_7woel"), ExtResource("11_6dfcl"), ExtResource("12_1cjuw")])
 launch_curve = SubResource("Curve_2il7s")
 
 [node name="SpriteShaker" parent="." index="9"]
@@ -867,3 +870,33 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08410025, 1.9897518, 0)
 visible = false
 texture = ExtResource("8_b8f6a")
+
+[node name="QTETarget" parent="QTEHandler" index="0" instance=ExtResource("12_c6uyn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0352283, 4.501749, 0.61292076)
+
+[node name="QTETarget2" parent="QTEHandler" index="1" instance=ExtResource("12_c6uyn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9632046, 6.267378, -0.33620262)
+
+[node name="QTETarget3" parent="QTEHandler" index="2" instance=ExtResource("12_c6uyn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3223276, 5.957185, 0)
+
+[node name="QTETarget4" parent="QTEHandler" index="3" instance=ExtResource("12_c6uyn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5256147, 4.1593275, 0.5501585)
+
+[node name="QTETarget5" parent="QTEHandler" index="4" instance=ExtResource("12_c6uyn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5672684, 2.6011465, 0)
+
+[node name="QTETarget6" parent="QTEHandler" index="5" instance=ExtResource("12_c6uyn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8658962, 1.1146138, 0)
+
+[node name="QTETarget7" parent="QTEHandler" index="6" instance=ExtResource("12_c6uyn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2302275, 3.219241, 0)
+
+[node name="QTETarget8" parent="QTEHandler" index="7" instance=ExtResource("12_c6uyn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8890734, 0.41871285, 0)
+
+[node name="QTETarget9" parent="QTEHandler" index="8" instance=ExtResource("12_c6uyn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0745599, 0.5847771, 0)
+
+[node name="QTETarget10" parent="QTEHandler" index="9" instance=ExtResource("12_c6uyn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.59782505, 3.112439, 0)
