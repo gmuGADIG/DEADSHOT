@@ -1,5 +1,7 @@
 extends Node3D
 
+var actually_ready := false
+
 var health: Health
 func _ready() -> void:
 	await get_tree().process_frame
@@ -24,7 +26,10 @@ func _ready() -> void:
 		print("huh: ", get_child_count())
 	)
 
+	actually_ready = true
+
 func _process(_delta: float) -> void:
+	if not actually_ready: return
 	# TODO: use exiting_tree family of signals instead?
 	if get_child_count() == 0:
 		health.kill()
