@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c868v8j6fnkvm"]
+
+[ext_resource type="Script" uid="uid://j0c8vwlqhawv" path="res://qte_vfx/qte_target_2d.gd" id="1_0vaa8"]
+[ext_resource type="Texture2D" uid="uid://dr0k5wtlmynj6" path="res://temp_art/reticle.png" id="2_0w2d0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ric2"]
+size = Vector2(35, 35)
+
+[node name="QTETarget2D" type="Node2D"]
+script = ExtResource("1_0vaa8")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0.5000019, 0.4999981)
+scale = Vector2(2.9107947, 3.0763047)
+texture = ExtResource("2_0w2d0")
+
+[node name="HitboxHint" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2ric2")

@@ -17,9 +17,10 @@ func _ready() -> void:
 
 func owch() -> void:
 	# hit stop
-	const HITSTOP_T := .2
-	Engine.time_scale = 0.
-	get_tree().create_timer(HITSTOP_T, true, false, true).timeout.connect(func() -> void: Engine.time_scale = 1.)
+	if not QTEVFX.active:
+		const HITSTOP_T := .2
+		Engine.time_scale = 0.
+		get_tree().create_timer(HITSTOP_T, true, false, true).timeout.connect(func() -> void: Engine.time_scale = 1.)
 
 	if tween:
 		tween.stop()
