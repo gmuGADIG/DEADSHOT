@@ -4,6 +4,7 @@ extends CanvasLayer
 
 var sprites: Dictionary[NodePath, QTETarget2D] = {}
 var sprite_ready: Dictionary[NodePath, bool] = {}
+var clicked_this_frame := false
 
 
 func start() -> void:
@@ -44,9 +45,10 @@ func _on_tree_node_added(new_node: Node) -> void:
 		sprite_ready[new_node.get_path()] = false
 		sprite.scale = Vector2.ONE * new_node.scale.x
 		sprite.clicked.connect(func() -> void: 
-			if sprite_ready[new_node.get_path()]:
+			if sprite_ready[new_node.get_path()] and not clicked_this_frame:
 				new_node.queue_free()
 				%BulletFlash.flash()
+				clicked_this_frame = true
 		)
 
 
@@ -77,5 +79,6 @@ func _process_targets_positions() -> void:
 
 
 func _process(_delta: float) -> void:
+	clicked_this_frame = false
 	_process_targets_visibility()
 	_process_targets_positions()
