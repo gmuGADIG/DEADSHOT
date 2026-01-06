@@ -13,12 +13,13 @@ func start() -> void:
 		if get_node(path).visible:
 			var tween := sprite.create_tween()
 			
+			var old_scale := sprite.scale
 			sprite.scale = Vector2.ZERO
 			sprite.rotation = -TAU * 1
 			
 			tween.set_ignore_time_scale(true)
 			tween.tween_interval(i * 0.2)
-			tween.tween_property(sprite, "scale", Vector2.ONE, .45)
+			tween.tween_property(sprite, "scale", old_scale, .45)
 			tween.parallel().tween_property(sprite, "rotation", 0, .45)
 			
 			i += 1
@@ -41,6 +42,7 @@ func _on_tree_node_added(new_node: Node) -> void:
 		var sprite := new_target(str(hash(new_node.get_path())))
 		sprites[new_node.get_path()] = sprite
 		sprite_ready[new_node.get_path()] = false
+		sprite.scale = Vector2.ONE * new_node.scale.x
 		sprite.clicked.connect(func() -> void: 
 			if sprite_ready[new_node.get_path()]:
 				new_node.queue_free()

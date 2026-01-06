@@ -8,6 +8,7 @@ script = ExtResource("1_lh3p2")
 
 [node name="NOT_VISIBLE_IN_GAME" type="Sprite3D" parent="."]
 unique_name_in_owner = true
+transform = Transform3D(0.31958628, 0, 0, 0, 0.31958628, 0, 0, 0, 0.31958628, 0, 0, 0)
 sorting_offset = 10000.0
 pixel_size = 0.25
 billboard = 1

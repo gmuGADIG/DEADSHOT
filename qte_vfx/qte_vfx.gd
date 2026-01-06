@@ -13,7 +13,6 @@ var active := false
 
 func _process(_delta: float) -> void:
 	%AnimationPlayer.speed_scale = 1. / Engine.time_scale
-	pass
 
 
 func start() -> void:

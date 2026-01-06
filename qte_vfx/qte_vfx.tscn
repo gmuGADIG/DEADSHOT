@@ -33,7 +33,7 @@ shader = ExtResource("5_jf6wb")
 shader_parameter/t = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ric2"]
-size = Vector2(58, 58)
+size = Vector2(35, 35)
 
 [sub_resource type="Animation" id="Animation_unvvj"]
 resource_name = "woosh_in"
@@ -170,13 +170,12 @@ mouse_filter = 2
 
 [node name="Template" type="Node2D" parent="Greyscale"]
 unique_name_in_owner = true
-visible = false
 script = ExtResource("6_unvvj")
 
 [node name="Sprite" type="Sprite2D" parent="Greyscale/Template"]
 texture_filter = 1
 position = Vector2(0.5000019, 0.4999981)
-scale = Vector2(5.181818, 5.363636)
+scale = Vector2(2.9107947, 3.0763047)
 texture = ExtResource("7_unvvj")
 
 [node name="HitboxHint" type="CollisionShape2D" parent="Greyscale/Template"]

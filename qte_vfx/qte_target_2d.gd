@@ -8,6 +8,6 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 			var p := get_local_mouse_position()
-			if maxf(absf(p.x), absf(p.y)) < (58 / 2.):
+			if maxf(absf(p.x), absf(p.y)) < (35 / 2.):
 				print(p)
 				clicked.emit()
