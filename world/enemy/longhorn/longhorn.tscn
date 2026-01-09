@@ -151,8 +151,10 @@ noise = SubResource("FastNoiseLite_4j1ge")
 [node name="Sounds" type="Node3D" parent="." index="11"]
 
 [node name="LonghornDieSound" parent="Sounds" index="0" instance=ExtResource("5_uamdi")]
+bus = &"SFX"
 
 [node name="LonghornDashSound" parent="Sounds" index="1" instance=ExtResource("6_3lbiw")]
+bus = &"SFX"
 
 [node name="StuckTimer" type="Timer" parent="." index="12"]
 

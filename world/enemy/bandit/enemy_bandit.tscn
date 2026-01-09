@@ -67,12 +67,15 @@ script = ExtResource("7_ywn7w")
 
 [node name="BanditDies" parent="Sounds" index="0" instance=ExtResource("5_j5a5e")]
 unique_name_in_owner = true
+bus = &"SFX"
 
 [node name="BanditFire" parent="Sounds" index="1" instance=ExtResource("6_4xph0")]
 unique_name_in_owner = true
+bus = &"SFX"
 
 [node name="BanditHurt" parent="Sounds" index="2" instance=ExtResource("7_nwlji")]
 unique_name_in_owner = true
+bus = &"SFX"
 
 [connection signal="enemy_fired" from="." to="PlayFiredSound" method="_on_enemy_bandit_enemy_fired"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]

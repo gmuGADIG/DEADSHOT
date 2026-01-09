@@ -52,12 +52,15 @@ text = "TODO: judge"
 
 [node name="JudgeDeath" parent="." index="10" instance=ExtResource("5_0hqsb")]
 unique_name_in_owner = true
+bus = &"SFX"
 
 [node name="JudgeReload" parent="." index="11" instance=ExtResource("6_arffw")]
 unique_name_in_owner = true
+bus = &"SFX"
 
 [node name="JudgeShoot" parent="." index="12" instance=ExtResource("7_tl5he")]
 unique_name_in_owner = true
+bus = &"SFX"
 
 [connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
 [connection signal="timeout" from="FiringTimer" to="." method="_on_firing_timer_timeout"]
