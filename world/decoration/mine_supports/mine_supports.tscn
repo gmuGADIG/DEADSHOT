@@ -5,7 +5,7 @@
 [node name="MineSupports" type="Node3D"]
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.67, 0, 0, 0, 0.58023703, 0.335, 0, -0.335, 0.58023703, 0, 1.8806667, 0)
-pixel_size = 0.0033
+transform = Transform3D(0.67, 0, 0, 0, 0.58023703, 0.335, 0, -0.335, 0.58023703, 0, 1.4661171, 0)
+pixel_size = 0.0025
 alpha_cut = 1
 texture = ExtResource("1_nxfew")
