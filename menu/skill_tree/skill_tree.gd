@@ -40,9 +40,9 @@ func on_skill_pressed(skill_button : Skill_Button) -> void:
 	selected_skill_button = skill_button
 	$Overlay.show_skill_panel(skill_button.itemDesc)
 	
-	var tween : Tween = create_tween()
+	var tween : Tween = create_tween().set_parallel().set_trans(Tween.TRANS_QUAD)
 	tween.tween_property(self,"scale",Vector2(zoom_strength,zoom_strength),zoom_time)
-	tween.parallel().tween_property(self,"position",-zoom_strength*(skill_button.global_position+zoom_offset),zoom_time)
+	tween.tween_property(self,"position",-zoom_strength*(skill_button.global_position+zoom_offset),zoom_time)
 	
 	#for skill_button : Skill_Button in skill_buttons:
 		#skill_button.update_state()
@@ -58,9 +58,9 @@ func on_skill_unselected() -> void:
 	selected_skill_button = null
 	$Overlay.hide_skill_panel()
 	
-	var tween : Tween = create_tween()
+	var tween : Tween = create_tween().set_parallel().set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_OUT)
 	tween.tween_property(self,"scale",Vector2(1,1),zoom_time)
-	tween.parallel().tween_property(self,"position",Vector2.ZERO,zoom_time)
+	tween.tween_property(self,"position",Vector2.ZERO,zoom_time)
 
 func on_skill_purchased(skill : SkillSet.SkillUID) -> void:
 	SkillSet.add_skill(skill)
