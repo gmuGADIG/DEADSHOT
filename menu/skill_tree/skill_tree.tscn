@@ -745,9 +745,6 @@ texture = ExtResource("8_yrbjn")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="SkillBranches" type="Node2D" parent="."]
-unique_name_in_owner = true
-
 [connection signal="pressed" from="VBoxContainer/Reset" to="." method="on_skill_tree_reset"]
 [connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="Overlay/SkillPanel/VSplitContainer/Options/Purchase" to="." method="_on_purchase_pressed"]

@@ -1,7 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://7lrs6qjp01ku"]
+[gd_scene load_steps=6 format=3 uid="uid://7lrs6qjp01ku"]
 
 [ext_resource type="Texture2D" uid="uid://bwm425xkr0vcy" path="res://temp_art/icon.svg" id="1_tltrc"]
 [ext_resource type="Script" uid="uid://dnpj3weokw4ps" path="res://menu/skill_tree/skill_button.gd" id="2_k43o4"]
+[ext_resource type="Texture2D" uid="uid://kslw254k7plb" path="res://systems/attacking/hurt_fx/blood_splatter.png" id="3_ux1m3"]
+
+[sub_resource type="Curve" id="Curve_tudnr"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 231.46622, 0, 0, Vector2(0.28740156, 100), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_w20mq"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="skillButton" type="TextureButton"]
 custom_minimum_size = Vector2(60, 60)
@@ -18,20 +27,6 @@ texture_disabled = ExtResource("1_tltrc")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("2_k43o4")
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.19700001
-anchor_top = 1.0
-anchor_right = 0.84300005
-anchor_bottom = 1.0
-offset_left = -4.2440004
-offset_top = -14.0
-offset_right = 3.1639977
-offset_bottom = -2.0
-theme_override_font_sizes/font_size = 8
-text = "Skill Name"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -53,6 +48,28 @@ metadata/_edit_use_anchors_ = true
 unique_name_in_owner = true
 z_index = -1
 position = Vector2(30, 30)
+
+[node name="PurchaseParticles" type="CPUParticles2D" parent="."]
+unique_name_in_owner = true
+show_behind_parent = true
+position = Vector2(29, 31)
+emitting = false
+texture = ExtResource("3_ux1m3")
+lifetime = 4.0
+one_shot = true
+explosiveness = 1.0
+local_coords = true
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 108.7
+initial_velocity_max = 144.93
+damping_min = 14.493
+damping_max = 14.493
+damping_curve = SubResource("Curve_tudnr")
+angle_max = 360.0
+scale_amount_min = 0.05
+scale_amount_max = 0.1
+color_ramp = SubResource("Gradient_w20mq")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

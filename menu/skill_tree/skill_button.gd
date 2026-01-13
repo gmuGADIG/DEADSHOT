@@ -50,7 +50,6 @@ func _ready() -> void:
 	if Engine.is_editor_hint(): return
 	
 	update_purchase_state()
-	$Label.text = itemDesc.skill_name
 	$TextureRect.texture = itemDesc.skill_image
 	
 	# set board texture (circle = 1 icon, square = 2 icons)
@@ -97,10 +96,6 @@ func update_state() -> void:
 	else:
 		state = State.UNAFFORDABLE
 	
-func _process(_delta:float) -> void:
-	if Engine.is_editor_hint():
-		$Label.text = itemDesc.skill_name
-
 func _on_pressed() -> void:
 	if Engine.is_editor_hint(): return
 	if Input.is_action_pressed("quick_purchase"):
@@ -129,6 +124,7 @@ func purchase() -> void:
 	state = State.PURCHASED
 	$TextureRect.texture = itemDesc.skill_image_upgraded
 	purchase_made.emit(itemDesc.skill_uid)
+	%PurchaseParticles.emitting = true
 
 func indent() -> void:
 	var tween : Tween = get_tree().create_tween()
