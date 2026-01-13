@@ -16,12 +16,14 @@ func jump() -> void:
 		tween.kill()
 	
 	tween = create_tween()
+	scale = Vector3.ZERO
 	
 	# Jump to the heavens
-	tween.tween_property(self, "position:y", position.y + 2, 0.5).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "position:y", position.y + 1, 0.5).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	# Moves in x and z directions
 	tween.parallel().tween_property(self, "position:x", position.x + r_x, 0.5).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
 	tween.parallel().tween_property(self, "position:z", position.z + r_z, 0.5).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
+	tween.parallel().tween_property(self, "scale", Vector3.ONE, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
 	
 	# Descend upon the earth and rule all evil
 	tween.tween_property(self, "position:y", position.y, 0.5).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
