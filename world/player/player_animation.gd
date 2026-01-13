@@ -57,7 +57,8 @@ func updateSpriteAnimation(animationName: String) -> void:
 	play(animationName)
 
 func _on_player_death() -> void:
-	play_backwards("rolling")
+	# TODO: death animation? I tried playing rolling backwards but it looped
+	pass
 
 func _on_animation_finished() -> void:
 	# if we just finished finished animations that aren't allowed to be cancelled,
