@@ -1,19 +1,77 @@
-[gd_scene load_steps=8 format=3 uid="uid://h4pbrdsf4bcg"]
+[gd_scene load_steps=17 format=3 uid="uid://h4pbrdsf4bcg"]
 
 [ext_resource type="PackedScene" uid="uid://dx3l0wduat3tp" path="res://world/enemy/base/enemy_base.tscn" id="1_vvwoq"]
 [ext_resource type="Script" uid="uid://4ibonvpu6f6l" path="res://world/enemy/splitter/enemy_splitter.gd" id="2_b3m2j"]
 [ext_resource type="PackedScene" uid="uid://dnu585hvkl8ft" path="res://world/enemy/splitter/enemy_splitter_snake.tscn" id="3_ag8ye"]
-[ext_resource type="Texture2D" uid="uid://bspns5244rj6v" path="res://temp_art/gartic/ghost_crying.png" id="3_b3m2j"]
+[ext_resource type="Texture2D" uid="uid://dvbro87fh26nw" path="res://world/enemy/splitter/splitter_both_walk.png" id="4_ag8ye"]
 [ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="4_b3m2j"]
+[ext_resource type="Texture2D" uid="uid://bwxwv4b1st780" path="res://world/enemy/splitter/splitter_both_attack.png" id="4_glpi8"]
+[ext_resource type="Texture2D" uid="uid://dlo4pn0ms2l1r" path="res://world/enemy/splitter/splitter_both_idle.png" id="6_o7cog"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wp46s"]
+atlas = ExtResource("4_glpi8")
+region = Rect2(1920, 0, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuxad"]
+atlas = ExtResource("4_glpi8")
+region = Rect2(3840, 0, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5duyn"]
+atlas = ExtResource("4_ag8ye")
+region = Rect2(0, 0, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glpi8"]
+atlas = ExtResource("4_ag8ye")
+region = Rect2(1920, 0, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7cog"]
+atlas = ExtResource("4_ag8ye")
+region = Rect2(3840, 0, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pr0k0"]
+atlas = ExtResource("6_o7cog")
+region = Rect2(0, 0, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ginw"]
+atlas = ExtResource("6_o7cog")
+region = Rect2(1920, 0, 1920, 1920)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ag8ye"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_b3m2j")
+"texture": SubResource("AtlasTexture_wp46s")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_tuxad")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5duyn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glpi8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7cog")
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pr0k0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ginw")
+}],
+"loop": true,
+"name": &"idle",
 "speed": 5.0
 }]
 
@@ -27,8 +85,9 @@ fire_rate = 2.0
 bullet_speed = 10.0
 
 [node name="Sprite" parent="." index="1"]
-transform = Transform3D(0.48, 0, 0, 0, 0.41569212, 0.24000011, 0, -0.24000011, 0.41569212, 0, 1, 0)
+transform = Transform3D(0.22, 0, 0, 0, 0.19052556, 0.11000005, 0, -0.11000005, 0.19052556, 0, 0.9461503, -0.1785152)
 sprite_frames = SubResource("SpriteFrames_ag8ye")
+frame_progress = 0.47173887
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." index="3"]
 aabb = AABB(-0.5, 0, -0.5, 1, 1, 1)
