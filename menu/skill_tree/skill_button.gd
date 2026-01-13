@@ -1,4 +1,3 @@
-@tool
 extends TextureButton
 class_name Skill_Button
 
@@ -25,40 +24,61 @@ var state : State:
 	set(new_val):
 		state = new_val
 		
+		update_icon()
+		
 		match state:
 			State.UNSET:
-				self_modulate = Color(1,0,0)
+				modulate = Color(1,0,0)
 			State.PURCHASED:
-				self_modulate = Color(1,1,1)
+				modulate = Color(1,1,1)
 				skill_branch.default_color = Color(1,1,1)
 				skill_branch.show()
 				$LockIcon.hide()
 			State.AFFORDABLE:
-				self_modulate = Color(1,1,1)
+				modulate = Color(1,1,1)
 				skill_branch.default_color = Color(0.5,0.5,0.5)
 				skill_branch.show()
 				$LockIcon.hide()
 			State.UNAFFORDABLE:
-				self_modulate = Color(0.5,0.5,0.5)
+				modulate = Color(0.5,0.5,0.5)
 				skill_branch.default_color = Color(0.5,0.5,0.5)
 				skill_branch.show()
 				$LockIcon.hide()
 			State.LOCKED:
-				self_modulate = Color(0.5,0.5,0.5)
+				modulate = Color(0.2,0.2,0.2)
 				skill_branch.hide()
 				$LockIcon.show()
 
 func _ready() -> void:
-	if Engine.is_editor_hint(): return
-	
-	%SkillBranches.add_child(skill_branch)
-	#setup_popup()
-	update_purchase_state()
+	## Set text
 	$Label.text = itemDesc.skill_name
-	# Fix this, make sure line goes in correct place
+	
+	## Set board (single icon = circle, double icon = square)
+	var board_circle := preload("res://menu/skill_tree/art_boards/board_circle.png")
+	var board_square := preload("res://menu/skill_tree/art_boards/board_square.png")
+	var board := board_circle if itemDesc.icon2 == null else board_square
+	texture_normal = board
+	texture_disabled = board
+	
+	## Check if already unlocked
+	update_purchase_state()
+	
+	## Set connector line
+	%SkillBranches.add_child(skill_branch)
 	for child in dependencies:
 		skill_branch.add_point(self.global_position + self.size/2)
 		skill_branch.add_point(child.global_position + child.size/2)
+
+func update_icon() -> void:
+	var purchased := state == State.PURCHASED
+	var icon1 := itemDesc.icon1
+	var icon2 := itemDesc.icon2
+	
+	if itemDesc.icon2 == null: # only one icon
+		%UpgradeSingle.texture = icon1.purchased if purchased else icon1.unpurchased
+	else: # double icons
+		%UpgradeDouble1.texture = icon1.purchased if purchased else icon1.unpurchased
+		%UpgradeDouble2.texture = icon2.purchased if purchased else icon2.unpurchased
 
 func update_purchase_state() -> void:
 	if SkillSet.has_skill(itemDesc.skill_uid):
@@ -85,10 +105,6 @@ func update_state() -> void:
 		state = State.AFFORDABLE
 	else:
 		state = State.UNAFFORDABLE
-	
-func _process(_delta:float) -> void:
-	if Engine.is_editor_hint():
-		$Label.text = itemDesc.skill_name
 
 func _on_pressed() -> void:
 	if Engine.is_editor_hint(): return
@@ -128,8 +144,3 @@ func shake() -> void:
 	tween.tween_property(self,"rotation_degrees",10, 0.07)
 	tween.tween_property(self,"rotation_degrees",-10, 0.07)
 	tween.tween_property(self,"rotation_degrees",0, 0.07)
-
-#func setup_popup() -> void:
-	#$Skill_Popup/VBoxContainer/Name.text = itemDesc.skill_name
-	#$Skill_Popup/VBoxContainer/Description.text = itemDesc.skill_description
-	#$Skill_Popup/VBoxContainer/TextureRect.texture = itemDesc.skill_image

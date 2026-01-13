@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://7lrs6qjp01ku"]
+[gd_scene load_steps=5 format=3 uid="uid://7lrs6qjp01ku"]
 
 [ext_resource type="Texture2D" uid="uid://bwm425xkr0vcy" path="res://temp_art/icon.svg" id="1_tltrc"]
+[ext_resource type="Texture2D" uid="uid://odf3rkk613vi" path="res://menu/skill_tree/art_boards/board_square.png" id="1_wdb57"]
 [ext_resource type="Script" uid="uid://dnpj3weokw4ps" path="res://menu/skill_tree/skill_button.gd" id="2_k43o4"]
-[ext_resource type="Texture2D" uid="uid://bcudjyrfhmykx" path="res://temp_art/lock.png" id="3_ux1m3"]
+[ext_resource type="Texture2D" uid="uid://ch6l3ofc1yd1f" path="res://menu/skill_tree/art_boards/lock.png" id="4_tudnr"]
 
 [node name="skillButton" type="TextureButton"]
 custom_minimum_size = Vector2(60, 60)
@@ -14,13 +15,60 @@ offset_top = 1.0
 offset_right = 8.311996
 offset_bottom = 2.6799965
 pivot_offset = Vector2(30, 30)
-texture_normal = ExtResource("1_tltrc")
+texture_normal = ExtResource("1_wdb57")
 texture_disabled = ExtResource("1_tltrc")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("2_k43o4")
 
+[node name="UpgradeSingle" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="UpgradeDouble1" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = 6.0
+offset_right = -26.0
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="UpgradeDouble2" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = 29.0
+offset_right = -9.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+
 [node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.19700001
@@ -35,15 +83,20 @@ theme_override_font_sizes/font_size = 8
 text = "Skill Name"
 
 [node name="LockIcon" type="TextureRect" parent="."]
-visible = false
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -7.0
+offset_top = -7.0
+offset_right = 7.0
+offset_bottom = 7.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("3_ux1m3")
+texture = ExtResource("4_tudnr")
 expand_mode = 1
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
