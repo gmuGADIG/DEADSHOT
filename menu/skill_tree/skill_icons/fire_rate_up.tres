@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="SkillIcon" load_steps=4 format=3 uid="uid://vk7llyp83ih8"]
 
-[ext_resource type="Texture2D" uid="uid://qkaxq4qs8c2l" path="res://menu/skill_tree/art_upgrades/reload_up2_m.png" id="1_ayq46"]
+[ext_resource type="Texture2D" uid="uid://qkaxq4qs8c2l" path="res://menu/skill_tree/art_upgrades/fire_rate_up2_m.png" id="1_ayq46"]
 [ext_resource type="Script" uid="uid://dktgjq1e67yxi" path="res://menu/skill_tree/skill_icons/skill_icon.gd" id="1_m1if8"]
-[ext_resource type="Texture2D" uid="uid://c0e4yyf1yw8fb" path="res://menu/skill_tree/art_upgrades/reload_up2_s.png" id="3_o0ple"]
+[ext_resource type="Texture2D" uid="uid://c0e4yyf1yw8fb" path="res://menu/skill_tree/art_upgrades/fire_rate_up2_s.png" id="3_o0ple"]
 
 [resource]
 script = ExtResource("1_m1if8")

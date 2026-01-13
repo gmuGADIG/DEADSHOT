@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dexd4ccfxw3e8"
-path="res://.godot/imported/reload_down_m.png-1754ede4665d4beec75aa471fbcf971f.ctex"
+path="res://.godot/imported/fire_rate_down_m.png-59f6a801bd90484f151efda533c3403a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://menu/skill_tree/art_upgrades/reload_down_m.png"
-dest_files=["res://.godot/imported/reload_down_m.png-1754ede4665d4beec75aa471fbcf971f.ctex"]
+source_file="res://menu/skill_tree/art_upgrades/fire_rate_down_m.png"
+dest_files=["res://.godot/imported/fire_rate_down_m.png-59f6a801bd90484f151efda533c3403a.ctex"]
 
 [params]
 

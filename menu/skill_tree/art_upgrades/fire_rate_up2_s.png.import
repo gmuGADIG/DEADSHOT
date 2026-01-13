@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bag6hy24gfvxi"
-path="res://.godot/imported/reload_down_s.png-c444a0ad9fcd5982aac209a8d90cca09.ctex"
+uid="uid://c0e4yyf1yw8fb"
+path="res://.godot/imported/fire_rate_up2_s.png-b58e054d9d9c6b9b73b6556def46dbb0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://menu/skill_tree/art_upgrades/reload_down_s.png"
-dest_files=["res://.godot/imported/reload_down_s.png-c444a0ad9fcd5982aac209a8d90cca09.ctex"]
+source_file="res://menu/skill_tree/art_upgrades/fire_rate_up2_s.png"
+dest_files=["res://.godot/imported/fire_rate_up2_s.png-b58e054d9d9c6b9b73b6556def46dbb0.ctex"]
 
 [params]
 
