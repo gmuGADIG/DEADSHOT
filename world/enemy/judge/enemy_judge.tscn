@@ -1,18 +1,43 @@
-[gd_scene load_steps=10 format=3 uid="uid://doavrdpyjcdgp"]
+[gd_scene load_steps=14 format=3 uid="uid://doavrdpyjcdgp"]
 
 [ext_resource type="PackedScene" uid="uid://dx3l0wduat3tp" path="res://world/enemy/base/enemy_base.tscn" id="1_67wm8"]
 [ext_resource type="Script" uid="uid://dv072sdd0tk28" path="res://world/enemy/judge/enemy_judge.gd" id="2_q6oaa"]
-[ext_resource type="Texture2D" uid="uid://bxbm1igs7hyp4" path="res://temp_art/gartic/khalid.png" id="3_q6oaa"]
+[ext_resource type="Texture2D" uid="uid://cur1yiwcka8r4" path="res://world/enemy/judge/judge_right.png" id="3_0hqsb"]
 [ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="4_q6oaa"]
 [ext_resource type="PackedScene" uid="uid://3xv4m4jgpupq" path="res://audio/streams/judge_death.tscn" id="5_0hqsb"]
 [ext_resource type="PackedScene" uid="uid://bgwfrncadc5gu" path="res://audio/streams/judge_reload.tscn" id="6_arffw"]
 [ext_resource type="PackedScene" uid="uid://tbha2e87fcg3" path="res://audio/streams/judge_shoot.tscn" id="7_tl5he"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_arffw"]
+atlas = ExtResource("3_0hqsb")
+region = Rect2(0, 0, 1026, 1026)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tl5he"]
+atlas = ExtResource("3_0hqsb")
+region = Rect2(1026, 0, 1026, 1026)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glbwu"]
+atlas = ExtResource("3_0hqsb")
+region = Rect2(2052, 0, 1026, 1026)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxq0p"]
+atlas = ExtResource("3_0hqsb")
+region = Rect2(3078, 0, 1026, 1026)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_u7aru"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_q6oaa")
+"texture": SubResource("AtlasTexture_arffw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tl5he")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glbwu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxq0p")
 }],
 "loop": true,
 "name": &"default",
@@ -29,8 +54,9 @@ fire_rate = 5.0
 bullet_speed = 15.0
 
 [node name="Sprite" parent="." index="1"]
-transform = Transform3D(0.42, 0, 0, 0, 0.3637306, 0.2100001, 0, -0.2100001, 0.3637306, 0, 1, 0)
+transform = Transform3D(0.205, 0, 0, 0, 0.17753518, 0.10250006, 0, -0.10250006, 0.17753518, 0, 0.8574748, 0)
 sprite_frames = SubResource("SpriteFrames_u7aru")
+frame_progress = 0.2738903
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." index="3"]
 aabb = AABB(-0.5, 0, -0.5, 1, 1, 1)
