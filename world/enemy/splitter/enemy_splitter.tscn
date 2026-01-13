@@ -1,12 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://h4pbrdsf4bcg"]
+[gd_scene load_steps=21 format=3 uid="uid://h4pbrdsf4bcg"]
 
 [ext_resource type="PackedScene" uid="uid://dx3l0wduat3tp" path="res://world/enemy/base/enemy_base.tscn" id="1_vvwoq"]
-[ext_resource type="Script" uid="uid://4ibonvpu6f6l" path="res://world/enemy/splitter/enemy_splitter.gd" id="2_b3m2j"]
+[ext_resource type="Script" path="res://world/enemy/splitter/enemy_splitter.gd" id="2_b3m2j"]
 [ext_resource type="PackedScene" uid="uid://dnu585hvkl8ft" path="res://world/enemy/splitter/enemy_splitter_snake.tscn" id="3_ag8ye"]
 [ext_resource type="Texture2D" uid="uid://dvbro87fh26nw" path="res://world/enemy/splitter/splitter_both_walk.png" id="4_ag8ye"]
-[ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="4_b3m2j"]
 [ext_resource type="Texture2D" uid="uid://bwxwv4b1st780" path="res://world/enemy/splitter/splitter_both_attack.png" id="4_glpi8"]
 [ext_resource type="Texture2D" uid="uid://dlo4pn0ms2l1r" path="res://world/enemy/splitter/splitter_both_idle.png" id="6_o7cog"]
+[ext_resource type="Script" uid="uid://b5d5dfn03djx6" path="res://world/enemy/base/enemy_animator/enemy_frames.gd" id="7_o7cog"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wp46s"]
 atlas = ExtResource("4_glpi8")
@@ -15,6 +15,14 @@ region = Rect2(1920, 0, 1920, 1920)
 [sub_resource type="AtlasTexture" id="AtlasTexture_tuxad"]
 atlas = ExtResource("4_glpi8")
 region = Rect2(3840, 0, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pr0k0"]
+atlas = ExtResource("6_o7cog")
+region = Rect2(0, 0, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ginw"]
+atlas = ExtResource("6_o7cog")
+region = Rect2(1920, 0, 1920, 1920)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5duyn"]
 atlas = ExtResource("4_ag8ye")
@@ -27,14 +35,6 @@ region = Rect2(1920, 0, 1920, 1920)
 [sub_resource type="AtlasTexture" id="AtlasTexture_o7cog"]
 atlas = ExtResource("4_ag8ye")
 region = Rect2(3840, 0, 1920, 1920)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pr0k0"]
-atlas = ExtResource("6_o7cog")
-region = Rect2(0, 0, 1920, 1920)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4ginw"]
-atlas = ExtResource("6_o7cog")
-region = Rect2(1920, 0, 1920, 1920)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ag8ye"]
 animations = [{
@@ -51,6 +51,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_pr0k0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ginw")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_5duyn")
 }, {
 "duration": 1.0,
@@ -60,24 +71,35 @@ animations = [{
 "texture": SubResource("AtlasTexture_o7cog")
 }],
 "loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pr0k0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4ginw")
-}],
-"loop": true,
-"name": &"idle",
+"name": &"walk",
 "speed": 5.0
 }]
 
+[sub_resource type="Resource" id="Resource_wp46s"]
+script = ExtResource("7_o7cog")
+clip = "walk"
+metadata/_custom_type_script = "uid://b5d5dfn03djx6"
+
+[sub_resource type="Resource" id="Resource_tuxad"]
+script = ExtResource("7_o7cog")
+clip = "walk"
+flipped = true
+metadata/_custom_type_script = "uid://b5d5dfn03djx6"
+
+[sub_resource type="Resource" id="Resource_pr0k0"]
+script = ExtResource("7_o7cog")
+clip = "attack"
+metadata/_custom_type_script = "uid://b5d5dfn03djx6"
+
+[sub_resource type="Resource" id="Resource_4ginw"]
+script = ExtResource("7_o7cog")
+clip = "attack"
+flipped = true
+metadata/_custom_type_script = "uid://b5d5dfn03djx6"
+
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_xuwp2"]
 
-[node name="EnemyTest" instance=ExtResource("1_vvwoq")]
+[node name="EnemySplitter" instance=ExtResource("1_vvwoq")]
 script = ExtResource("2_b3m2j")
 movement_speed = 3.0
 spawn_on_killed = ExtResource("3_ag8ye")
@@ -87,7 +109,11 @@ bullet_speed = 10.0
 [node name="Sprite" parent="." index="1"]
 transform = Transform3D(0.22, 0, 0, 0, 0.19052556, 0.11000005, 0, -0.11000005, 0.19052556, 0, 0.9461503, -0.1785152)
 sprite_frames = SubResource("SpriteFrames_ag8ye")
-frame_progress = 0.47173887
+animation = &"walk"
+walk_left = SubResource("Resource_wp46s")
+walk_right = SubResource("Resource_tuxad")
+attack_left = SubResource("Resource_pr0k0")
+attack_right = SubResource("Resource_4ginw")
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." index="3"]
 aabb = AABB(-0.5, 0, -0.5, 1, 1, 1)
@@ -101,9 +127,5 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Damagebox" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94, 0)
 shape = SubResource("CylinderShape3D_xuwp2")
-
-[node name="Comment" parent="." index="9" instance=ExtResource("4_b3m2j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.882946, 0)
-text = "TODO: splitter"
 
 [connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
