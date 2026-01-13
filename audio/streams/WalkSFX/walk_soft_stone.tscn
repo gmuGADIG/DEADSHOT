@@ -24,3 +24,4 @@ stream_8/stream = ExtResource("9_54vwf")
 
 [node name="WalkSoftStone" type="AudioStreamPlayer3D"]
 stream = SubResource("AudioStreamRandomizer_ogjv5")
+bus = &"SFX"

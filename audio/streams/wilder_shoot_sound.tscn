@@ -6,5 +6,5 @@
 [node name="WilderShootSound" type="AudioStreamPlayer3D"]
 stream = ExtResource("1_dy8k2")
 volume_db = -14.444
+bus = &"SFX"
 script = ExtResource("2_weup4")
-delete_on_finish = false

@@ -1,16 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkaf7rg6shnxu"]
+[gd_scene load_steps=2 format=3 uid="uid://bkaf7rg6shnxu"]
 
-[ext_resource type="Texture2D" uid="uid://b4dqeqodycqkj" path="res://temp_art/supports_temp.png" id="1_n5a3o"]
-[ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="2_cp5au"]
+[ext_resource type="Texture2D" uid="uid://c1c6db3ihcm7c" path="res://world/decoration/mine_supports/mines_supports.png" id="1_nxfew"]
 
 [node name="MineSupports" type="Node3D"]
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 1.5324762, 0)
-pixel_size = 0.0033
+transform = Transform3D(0.67, 0, 0, 0, 0.58023703, 0.335, 0, -0.335, 0.58023703, 0, 1.4661171, 0)
+pixel_size = 0.0025
 alpha_cut = 1
-texture = ExtResource("1_n5a3o")
-
-[node name="UNFINISHED" parent="." instance=ExtResource("2_cp5au")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0096064, 0)
-text = "(wip)"
+texture = ExtResource("1_nxfew")

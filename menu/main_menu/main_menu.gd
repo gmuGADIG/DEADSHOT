@@ -7,7 +7,7 @@ var button_pressed : bool = false ## When a button is pressed, this is set to tr
 
 func _ready() -> void:
 	if not Save.save_file_exists():
-		$VBoxContainer/LoadSaveButton.hide()
+		$ButtonHolder/LoadSaveButton.hide()
 
 func _on_new_save_button_pressed() -> void:
 	if not button_pressed:
@@ -52,10 +52,10 @@ func _on_button_mouse_entered() -> void:
 
 func hide_reticles() -> void:
 	var reticles := [
-		$VBoxContainer/NewSaveButton/Reticle,
-		$VBoxContainer/LoadSaveButton/Reticle,
-		$VBoxContainer/SettingsButton/Reticle,
-		$VBoxContainer/QuitButton/Reticle
+		$ButtonHolder/NewSaveButton/Reticle,
+		$ButtonHolder/LoadSaveButton/Reticle,
+		$ButtonHolder/SettingsButton/Reticle,
+		$ButtonHolder/QuitButton/Reticle
 	]
 	
 	for r: TextureRect in reticles:

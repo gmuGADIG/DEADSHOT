@@ -4,3 +4,4 @@
 
 [node name="LonghornDashSound" type="AudioStreamPlayer3D"]
 stream = ExtResource("1_ytkni")
+bus = &"SFX"

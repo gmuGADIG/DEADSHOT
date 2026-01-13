@@ -1,15 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://dwe53mhloyir4"]
+[gd_scene load_steps=4 format=3 uid="uid://dwe53mhloyir4"]
 
-[ext_resource type="Texture2D" uid="uid://ddnki8ia30e6x" path="res://temp_art/rough_drafts/cursed_plant.png" id="1_05kov"]
-[ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="2_rwaiw"]
+[ext_resource type="Texture2D" uid="uid://bvlk131plqjlg" path="res://world/decoration/cursed_plant/cursed_plant1.png" id="1_1pns1"]
+[ext_resource type="Script" uid="uid://bkjagf3qoy5eg" path="res://world/decoration/decoration_selector.gd" id="1_05kov"]
+[ext_resource type="Texture2D" uid="uid://bq0vhhpky2xbp" path="res://world/decoration/cursed_plant/cursed_plant2.png" id="3_rwaiw"]
 
 [node name="CursedPlant" type="Node3D"]
+script = ExtResource("1_05kov")
+sprites = Array[Texture2D]([ExtResource("1_1pns1"), ExtResource("3_rwaiw")])
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0.85389555, 0)
-texture = ExtResource("1_05kov")
-
-[node name="UNFINISHED" parent="." instance=ExtResource("2_rwaiw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0149559, 0)
-text = "cursed plant
-(wip)"
+[node name="Sprite" type="Sprite3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(0.415, 0, 0, 0, 0.35940054, 0.2075, 0, -0.2075, 0.35940054, 0, 1.8337401, -0.5621047)
+alpha_cut = 1
+texture = ExtResource("1_1pns1")

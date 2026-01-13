@@ -1,8 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://dtw08j1hawd8p"]
 
-[ext_resource type="PackedScene" uid="uid://ci3804ofkibap" path="res://audio/streams/sound_base.tscn" id="1_3wuvn"]
 [ext_resource type="AudioStream" uid="uid://dffhlop55s35d" path="res://audio/world_objects/CorruptHeartSplatDrop.mp3" id="2_3wuvn"]
+[ext_resource type="Script" uid="uid://bf14d2iyiqx56" path="res://audio/streams/sound_stream.gd" id="2_vu3rr"]
 
-[node name="HeartBurstSound" instance=ExtResource("1_3wuvn")]
+[node name="HeartBurstSound" type="AudioStreamPlayer3D"]
 stream = ExtResource("2_3wuvn")
+unit_size = 20.0
 autoplay = true
+panning_strength = 0.5
+bus = &"SFX"
+attenuation_filter_cutoff_hz = 20500.0
+script = ExtResource("2_vu3rr")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

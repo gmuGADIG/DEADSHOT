@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c6cng071rfahe" path="res://menu/skill_tree/skill_tree.gd" id="1_dnamn"]
 [ext_resource type="PackedScene" uid="uid://7lrs6qjp01ku" path="res://menu/skill_tree/skill_button.tscn" id="2_3f6vw"]
 [ext_resource type="Texture2D" uid="uid://clcis6jvjdkay" path="res://temp_art/stone_tablet_temp.png" id="4_3b2bh"]
-[ext_resource type="Script" path="res://menu/skill_tree/skill_desc.gd" id="4_8qlyr"]
+[ext_resource type="Script" uid="uid://ce2k6qyx3sk68" path="res://menu/skill_tree/skill_desc.gd" id="4_8qlyr"]
 [ext_resource type="Texture2D" uid="uid://54e4esurd3xm" path="res://temp_art/gartic/gun.png" id="5_3b2bh"]
 [ext_resource type="Texture2D" uid="uid://sxaysn4gqoxo" path="res://temp_art/gartic/coin.png" id="6_6jgdw"]
 [ext_resource type="Texture2D" uid="uid://cegfpthfj6eil" path="res://temp_art/gartic/godot_dead.png" id="6_ph0jt"]
@@ -226,6 +226,7 @@ offset_bottom = 867.0
 color = Color(0, 0, 0, 0.87058824)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -241,8 +242,9 @@ grow_vertical = 0
 alignment = 1
 
 [node name="Reset" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 10
 theme_override_font_sizes/font_size = 38
 text = "Reset Skill Tree"
 flat = true
@@ -607,6 +609,7 @@ size_flags_vertical = 10
 alignment = 1
 
 [node name="Purchase" type="Button" parent="Overlay/SkillPanel/VSplitContainer/Options"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 4

@@ -4,7 +4,7 @@ signal player_state_changed
 signal whipped
 
 ## Tracks name of current gun node. CHANGE THIS VARIABLE WHEN GUNS ARE CHANGED.
-# static var gun_name := "Shotgun"
+#static var gun_name := "Shotgun"
 #static var gun_name := "Dualies"
 #static var gun_name := "BasicGun"
 
@@ -130,10 +130,7 @@ func _init() -> void:
 	instance = self
 
 func _physics_process(delta: float) -> void:		
-	if Input.is_action_just_pressed("roll") and whip.whip_state == Whip.WhipState.OFF:
-		begin_roll()
-	
-	if current_state == PlayerState.WALKING:
+	if current_state == PlayerState.WALKING:		
 		var input_dir : Vector3 = input_direction()
 
 		velocity = input_dir * walk_speed * speed_multiplier * skill_speed_mul()
@@ -144,6 +141,9 @@ func _physics_process(delta: float) -> void:
 				play_walking_sfx()
 		else:
 			walk_sfx_timer.stop()
+			
+		if Input.is_action_just_pressed("roll") and whip.whip_state == Whip.WhipState.OFF:
+			begin_roll()
 		
 	elif current_state == PlayerState.ROLLING:
 		## We move the velocity vector towards the direction of the movement. 
@@ -215,9 +215,10 @@ func can_shoot() -> bool:
 
 ## Begins the roll by changing the state and decreasing stamina.
 func begin_roll() -> void:
+	#REDUNDANT
 	# This function only runs when the roll starts.
 	# Get out of here if you're already rolling!
-	if current_state == PlayerState.ROLLING: return
+	#if current_state == PlayerState.ROLLING: return
 	
 	# Factor in stamina
 	if stamina < 1.0: return
@@ -283,9 +284,13 @@ func generate_walking_sounds() -> AudioStreamPlayer3D:
 func _on_interaction_started() -> void:
 	current_state = PlayerState.INTERACTING
 
-## Connects to the was_hit signal on the player's Hurtbox to play a sound.
-func _on_hurtbox_component_was_hit(_dmg: DamageInfo) -> void:
+## Connects to the hurt signal on the player's Health
+func _on_hurt() -> void:
 	%HurtSound.play()
+	%HealthComponent.vulnerable = false
+	%IFrameAnim.play("flash")
+	await %IFrameAnim.animation_finished
+	%HealthComponent.vulnerable = true
 
 ## Function bound to the signal for ending an interaction
 ## Changes state to Walking by default.
