@@ -140,6 +140,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.891663, -0.06959438, -28.
 
 [node name="CursedPlant2" parent="Decor" index="6" instance=ExtResource("9_jw2qs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.0923, -0.06959438, -31.491024)
+type = 1
 
 [node name="CursedPlant3" parent="Decor" index="7" instance=ExtResource("9_jw2qs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.121485, -0.06959438, -29.77686)

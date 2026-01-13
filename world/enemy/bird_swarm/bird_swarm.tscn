@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://by1e10t6ksd64"]
+[gd_scene load_steps=14 format=3 uid="uid://by1e10t6ksd64"]
 
 [ext_resource type="Script" uid="uid://dxqyfeho7h847" path="res://world/enemy/bird_swarm/bird_swarm_enemy.gd" id="1_bpewx"]
 [ext_resource type="PackedScene" uid="uid://dx3l0wduat3tp" path="res://world/enemy/base/enemy_base.tscn" id="2_abcde"]
 [ext_resource type="Texture2D" uid="uid://b8yynpjv5urto" path="res://world/enemy/bird_swarm/bird_swarm.png" id="3_qlioi"]
+[ext_resource type="Script" uid="uid://b5d5dfn03djx6" path="res://world/enemy/base/enemy_animator/enemy_frames.gd" id="4_bpewx"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_qlioi"]
 height = 2.4409862
@@ -40,9 +41,20 @@ animations = [{
 "texture": SubResource("AtlasTexture_qi1sc")
 }],
 "loop": true,
-"name": &"default",
+"name": &"walk",
 "speed": 5.0
 }]
+
+[sub_resource type="Resource" id="Resource_r8xt5"]
+script = ExtResource("4_bpewx")
+clip = "walk"
+flipped = true
+metadata/_custom_type_script = "uid://b5d5dfn03djx6"
+
+[sub_resource type="Resource" id="Resource_5iiix"]
+script = ExtResource("4_bpewx")
+clip = "walk"
+metadata/_custom_type_script = "uid://b5d5dfn03djx6"
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_bpewx"]
 radius = 0.9926758
@@ -59,8 +71,14 @@ shape = SubResource("CylinderShape3D_qlioi")
 transform = Transform3D(0.285, 0, 0, 0, 0.2468172, 0.14250009, 0, -0.14250009, 0.2468172, 0, 1.0416126, 0)
 alpha_cut = 2
 sprite_frames = SubResource("SpriteFrames_ry0kc")
-autoplay = "default"
-frame_progress = 0.4315896
+animation = &"walk"
+autoplay = "walk"
+walk_left = SubResource("Resource_r8xt5")
+walk_right = SubResource("Resource_5iiix")
+attack_enabled = false
+
+[node name="Health" parent="." index="3"]
+max_health = 8.0
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." index="7"]
 aabb = AABB(-0.5, 0, -0.5, 1, 1, 1)

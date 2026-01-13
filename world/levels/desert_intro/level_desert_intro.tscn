@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bueg0v6pvrthp"]
+[gd_scene load_steps=20 format=3 uid="uid://bueg0v6pvrthp"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_ctnal"]
 [ext_resource type="Resource" uid="uid://q24ustx30otu" path="res://world/floor/sand/sand.tres" id="2_7h0w7"]
@@ -12,12 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://bp6l0lw650m8o" path="res://world/blocker/blocker.tscn" id="10_101jw"]
 [ext_resource type="PackedScene" uid="uid://dhb2pgqbfvxoa" path="res://world/enemy/encounter/encounter.tscn" id="10_hfrtt"]
 [ext_resource type="PackedScene" uid="uid://b4n4rflu3my0v" path="res://world/enemy/longhorn/longhorn.tscn" id="11_nn1ho"]
-[ext_resource type="PackedScene" uid="uid://dxdkwdigtcn43" path="res://world/enemy/test/enemy_test.tscn" id="12_nn1ho"]
 [ext_resource type="PackedScene" uid="uid://by1e10t6ksd64" path="res://world/enemy/bird_swarm/bird_swarm.tscn" id="13_guq7u"]
 [ext_resource type="PackedScene" uid="uid://c7c1lwr411btx" path="res://audio/music/music_player/play_song_for_scene.tscn" id="14_oaism"]
 [ext_resource type="PackedScene" uid="uid://dgq8eujhb7aiv" path="res://world/enemy/bandit/enemy_bandit.tscn" id="15_fhs7y"]
 [ext_resource type="Resource" uid="uid://cckle8iujnl64" path="res://audio/music/song_files/desert_level/Nila_desert_song.tres" id="15_guq7u"]
-[ext_resource type="PackedScene" uid="uid://h4pbrdsf4bcg" path="res://world/enemy/splitter/enemy_splitter.tscn" id="16_fhs7y"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_hfrtt"]
 vertices = PackedVector3Array(-60.25, 0.48999962, 2.674615, -60.25, 0.48999962, 4.424615, -59.5, 0.48999962, 4.674615, -49, 0.48999962, 6.174615, -49, 0.48999962, 0.6746149, -12.5, 0.48999962, 4.424615, -12.25, 0.48999962, 1.4246149, -13.5, 0.48999962, 0.9246149, -13.75, 0.48999962, 5.424615, -48.5, 0.48999962, 0.1746149, -48.5, 0.48999962, 6.674615, -48.25, 0.48999962, 13.924615, -18.75, 0.48999962, 13.924615, -18.5, 0.48999962, -7.825385, -48.5, 0.48999962, -7.825385, 29.25, 0.48999962, 4.424615, 29.5, 0.48999962, 3.924615, 29.25, 0.48999962, 1.6746149, 25.5, 0.48999962, 1.4246149, 26, 0.48999962, 4.424615, -11.25, 0.48999962, 5.174615, -10.75, 0.48999962, -0.07538509, 21.75, 0.48999962, 13.924615, 25.25, 0.48999962, 4.924615, -6.25, 0.48999962, 13.924615, 21.75, 0.48999962, -7.825385, -6.25, 0.48999962, -7.825385)
@@ -128,9 +126,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.942047, -1.1106106e-06, -
 
 [node name="CursedPlant" parent="LeftArea/Decoration" index="0" instance=ExtResource("6_f6ib5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.840607, 0, 14.135367)
+type = 1
 
 [node name="CursedPlant2" parent="LeftArea/Decoration" index="1" instance=ExtResource("6_f6ib5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.981382, 0, 14.3921585)
+type = 1
 
 [node name="CursedPlant3" parent="LeftArea/Decoration" index="2" instance=ExtResource("6_f6ib5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.031456, 0, 8.054257)
@@ -158,9 +158,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.303892, 0.22196937, -11.976
 
 [node name="BirdSwarm2" parent="LeftArea/Encounter" index="5" instance=ExtResource("13_guq7u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.899004, 0.2222135, 2.2432709)
-
-[node name="EnemyTest2" parent="LeftArea/Encounter" index="6" instance=ExtResource("12_nn1ho")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.000969, 0.0719198, -5.3679237)
 
 [node name="RightArea" type="Node3D" parent="." index="10"]
 
@@ -191,6 +188,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6024475, 0, -8.81553)
 
 [node name="CursedPlant5" parent="RightArea/Decoration" index="1" instance=ExtResource("6_f6ib5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.922581, 0, -8.826532)
+type = 1
 
 [node name="Well2" parent="RightArea/Decoration" index="2" instance=ExtResource("7_7xwwm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.933622, -0.0001033251, 12.811022)
@@ -213,20 +211,14 @@ shape = SubResource("BoxShape3D_nn1ho")
 [node name="LonghornEnemy" parent="RightArea/Encounter2" index="4" instance=ExtResource("11_nn1ho")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.496662, 0, -13.0119915)
 
-[node name="EnemyTest2" parent="RightArea/Encounter2" index="5" instance=ExtResource("12_nn1ho")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.893251, 0.07179773, 2.8294725)
-
-[node name="BirdSwarm" parent="RightArea/Encounter2" index="6" instance=ExtResource("13_guq7u")]
+[node name="BirdSwarm" parent="RightArea/Encounter2" index="5" instance=ExtResource("13_guq7u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7791195, 0.2218473, -12.142333)
 
-[node name="EnemyBandit" parent="RightArea/Encounter2" index="7" instance=ExtResource("15_fhs7y")]
+[node name="EnemyBandit" parent="RightArea/Encounter2" index="6" instance=ExtResource("15_fhs7y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4116116, 0.054078877, -8.477687)
 
-[node name="EnemyBandit2" parent="RightArea/Encounter2" index="8" instance=ExtResource("15_fhs7y")]
+[node name="EnemyBandit2" parent="RightArea/Encounter2" index="7" instance=ExtResource("15_fhs7y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.474249, 0.054445088, 0.13580227)
-
-[node name="EnemyTest" parent="RightArea/Encounter2" index="9" instance=ExtResource("16_fhs7y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.417187, 0.00036627054, 1.1082869)
 
 [node name="PlaySongForScene" parent="." index="11" instance=ExtResource("14_oaism")]
 song = ExtResource("15_guq7u")
