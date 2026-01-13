@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bi32xnay2st22"
-path.s3tc="res://.godot/imported/judge_left.png-5e96525f94bb281f0564d699a88bcbc2.s3tc.ctex"
+uid="uid://cvagp4e24k873"
+path.s3tc="res://.godot/imported/wilder_shoot.png-552da964e333a3f7f1b5c4259c56724a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://world/enemy/judge/judge_left.png"
-dest_files=["res://.godot/imported/judge_left.png-5e96525f94bb281f0564d699a88bcbc2.s3tc.ctex"]
+source_file="res://world/enemy/wilder/wilder_shoot.png"
+dest_files=["res://.godot/imported/wilder_shoot.png-552da964e333a3f7f1b5c4259c56724a.s3tc.ctex"]
 
 [params]
 
