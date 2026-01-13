@@ -49,6 +49,11 @@ expand_mode = 1
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
+[node name="SkillBranches" type="Node2D" parent="."]
+unique_name_in_owner = true
+z_index = -1
+position = Vector2(30, 30)
+
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -15,7 +15,6 @@ enum State{
 }
 
 
-@onready var skill_branch : Line2D = Line2D.new()
 @export var dependencies : Array[Skill_Button]
 @export var evil_dependencies : Array[Skill_Button] #it is just the opposite of regular dependecies,
 # so if you have any of the dependencies unlocked you cant unlock this one
@@ -30,27 +29,26 @@ var state : State:
 				modulate = Color(1,0,0)
 			State.PURCHASED:
 				modulate = Color(1,1,1)
-				skill_branch.default_color = Color(1,1,1)
-				skill_branch.show()
+				%SkillBranches.modulate = Color(1,1,1)
+				%SkillBranches.show()
 			State.AFFORDABLE:
 				modulate = Color(1,1,1)
-				skill_branch.default_color = Color(0.5,0.5,0.5)
-				skill_branch.show()
+				%SkillBranches.modulate = Color(0.5,0.5,0.5)
+				%SkillBranches.show()
 				$TextureRect.texture = itemDesc.skill_image
 			State.UNAFFORDABLE:
 				modulate = Color(0.5,0.5,0.5)
-				skill_branch.default_color = Color(0.5,0.5,0.5)
-				skill_branch.show()
+				%SkillBranches.modulate = Color(0.5,0.5,0.5)
+				%SkillBranches.show()
 				$TextureRect.texture = itemDesc.skill_image
 			State.LOCKED:
 				modulate = Color(0.35, 0.35, 0.35)
-				skill_branch.hide()
+				%SkillBranches.hide()
 				$TextureRect.texture = itemDesc.skill_image
 
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
 	
-	%SkillBranches.add_child(skill_branch)
 	update_purchase_state()
 	$Label.text = itemDesc.skill_name
 	$TextureRect.texture = itemDesc.skill_image
@@ -66,8 +64,12 @@ func _ready() -> void:
 	
 	# Fix this, make sure line goes in correct place
 	for child in dependencies:
-		skill_branch.add_point(self.global_position + self.size/2)
-		skill_branch.add_point(child.global_position + child.size/2)
+		var line := Line2D.new()
+		line.texture = preload("res://menu/skill_tree/skill_tree_icons/board_connector.png")
+		line.texture_mode = Line2D.LINE_TEXTURE_STRETCH
+		line.add_point(Vector2.ZERO)
+		line.add_point(child.global_position - self.global_position)
+		%SkillBranches.add_child(line)
 
 func update_purchase_state() -> void:
 	if SkillSet.has_skill(itemDesc.skill_uid):
