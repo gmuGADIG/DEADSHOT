@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://fkmkprnxsrpf"]
+[gd_scene load_steps=74 format=3 uid="uid://fkmkprnxsrpf"]
 
 [ext_resource type="Script" uid="uid://c6cng071rfahe" path="res://menu/skill_tree/skill_tree.gd" id="1_dnamn"]
 [ext_resource type="PackedScene" uid="uid://7lrs6qjp01ku" path="res://menu/skill_tree/skill_button.tscn" id="2_3f6vw"]
@@ -46,6 +46,7 @@
 [ext_resource type="Texture2D" uid="uid://cxj67g4ekh5c2" path="res://menu/skill_tree/skill_tree_icons/B4_2-meat.png" id="42_53uy8"]
 [ext_resource type="Texture2D" uid="uid://drqmepj4dmfbf" path="res://menu/skill_tree/skill_tree_icons/salvage2.png" id="43_qmj2f"]
 [ext_resource type="Texture2D" uid="uid://bl62vaymakky" path="res://menu/skill_tree/skill_tree_icons/salvage1.png" id="44_53uy8"]
+[ext_resource type="Texture2D" uid="uid://cs1tx31usork6" path="res://menu/streak.png" id="46_53uy8"]
 
 [sub_resource type="Resource" id="Resource_lmf3w"]
 script = ExtResource("4_8qlyr")
@@ -283,12 +284,97 @@ skill_image_upgraded = ExtResource("44_53uy8")
 skill_uid = 2097152
 metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
-[sub_resource type="GDScript" id="GDScript_77k0x"]
-script/source = "extends PanelContainer
+[sub_resource type="Animation" id="Animation_53uy8"]
+resource_name = "show_panel"
+length = 0.4
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SkillPanel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.4, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SkillPanel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.4, 1),
+"update": 0,
+"values": [Vector2(600, 0), Vector2(547, 0)]
+}
 
-func show_skill_panel(skill : SkillDesc) -> void:
-	pass
-"
+[sub_resource type="Animation" id="Animation_orope"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SkillPanel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SkillPanel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(547, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kk4or"]
+resource_name = "hide_panel"
+length = 0.4
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SkillPanel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.4, 0.4),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SkillPanel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.4, 0.4),
+"update": 0,
+"values": [Vector2(547, 0), Vector2(600, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kk4or"]
+_data = {
+&"RESET": SubResource("Animation_orope"),
+&"hide_panel": SubResource("Animation_kk4or"),
+&"show_panel": SubResource("Animation_53uy8")
+}
 
 [node name="Skill_Tree" type="Control"]
 process_mode = 3
@@ -337,15 +423,6 @@ size_flags_vertical = 3
 theme_override_font_sizes/font_size = 38
 text = "Exit"
 flat = true
-
-[node name="Meat Tree" type="Label" parent="."]
-layout_mode = 0
-offset_left = 945.0
-offset_top = 12.0
-offset_right = 1041.0
-offset_bottom = 35.0
-scale = Vector2(2, 2)
-text = "Meat Tree"
 
 [node name="SkillButtons" type="Control" parent="."]
 z_index = 1
@@ -649,19 +726,37 @@ itemDesc = SubResource("Resource_a42n7")
 [node name="Overlay" type="CanvasLayer" parent="."]
 script = ExtResource("8_oh6w3")
 
-[node name="SkillPanel" type="PanelContainer" parent="Overlay"]
+[node name="SkillPanel" type="Control" parent="Overlay"]
 visible = false
-anchors_preset = -1
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
 anchor_left = 0.4748264
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -0.00024414063
 grow_horizontal = 2
 grow_vertical = 2
-script = SubResource("GDScript_77k0x")
 metadata/_edit_use_anchors_ = true
 
+[node name="BG" type="TextureRect" parent="Overlay/SkillPanel"]
+modulate = Color(1, 1, 1, 0.7921569)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -53.769226
+offset_top = 683.0
+offset_right = 68.99994
+offset_bottom = 807.7178
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5707964
+texture = ExtResource("46_53uy8")
+
 [node name="VSplitContainer" type="VSplitContainer" parent="Overlay/SkillPanel"]
-layout_mode = 2
+layout_mode = 0
+offset_right = 605.0
+offset_bottom = 648.0
 split_offset = 500
 
 [node name="Info" type="VBoxContainer" parent="Overlay/SkillPanel/VSplitContainer"]
@@ -716,12 +811,16 @@ alignment = 1
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 4
+theme_override_font_sizes/font_size = 60
 text = "Purchase"
+flat = true
 
 [node name="Cancel" type="Button" parent="Overlay/SkillPanel/VSplitContainer/Options"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+theme_override_font_sizes/font_size = 60
 text = "Cancel"
+flat = true
 
 [node name="MeatDisplay" type="PanelContainer" parent="Overlay"]
 offset_right = 40.0
@@ -744,6 +843,12 @@ layout_mode = 2
 texture = ExtResource("8_yrbjn")
 expand_mode = 3
 stretch_mode = 5
+
+[node name="Anim" type="AnimationPlayer" parent="Overlay"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_kk4or")
+}
 
 [connection signal="pressed" from="VBoxContainer/Reset" to="." method="on_skill_tree_reset"]
 [connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
