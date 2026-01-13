@@ -2,9 +2,8 @@
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_tkrk8"]
 frequency = 0.0837
-offset = Vector3(0, 0, 37361.86)
-fractal_type = 0
-fractal_octaves = 1
+offset = Vector3(0, 0, 250022.55)
+fractal_octaves = 2
 
 [resource]
 width = 1280
