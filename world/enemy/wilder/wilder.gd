@@ -6,18 +6,17 @@ extends EnemyBase
 
 
 #region Variables
+##Rotates the target position around the wilder to achieve the sporadic movement
+const TARGET_DEVIATION = PI/2.0
 
 ## The amount of time the wilder runs away for before becoming aggro again
 @export var run_away_time_min: float = 1.5
 @export var run_away_time_max: float = 3
+@export var stride_distance: float = 3
 ## Select what node this fires as a bullet. It has to be of the Bullet class!
 @export var bullet: PackedScene
-## The most distance the enemy will travel in a single movement cycle
-@export var maxTravelDistance: float = 5.0
 
 var target_position : Vector3
-var target_random_walk_cycles : int
-var current_random_walk_cycle : int
 ##Checks if the wilder gets stuck during aggro or patrol mode
 var last_position : Vector3
 #endregion
@@ -36,22 +35,22 @@ func _ready() -> void:
 ## FIND A NICE POSITION TO RUN TO
 func enter_patrol() -> void:
 	should_move = true
-	pick_flee_target()
+	pick_target(true)
 	$RunAwayTimer.start(randf_range(run_away_time_min,run_away_time_max))
 	
 ## RUN AWAY randomly,
 func patrol() -> void:
-	print("patrol")
-	var target_dist_squared : float = global_position.distance_squared_to(target_position)
 	if is_close_to_destination() or global_position.is_equal_approx(last_position):
-		pick_flee_target()
+		pick_target(true)
 	last_position = global_position
 
-func pick_flee_target() -> void:
+func pick_target(flee : bool) -> void:
 	target_position = global_position
 	var target_direction : Vector3 = global_position.direction_to(Player.instance.global_position)
-	var random_angle : float = PI+randf_range(-PI/2,PI/2)
-	target_position += target_direction.rotated(Vector3.UP,random_angle)*3
+	var random_angle : float = randf_range(-TARGET_DEVIATION,TARGET_DEVIATION)
+	if flee:
+		random_angle += PI
+	target_position += target_direction.rotated(Vector3.UP,random_angle)*stride_distance
 	
 	target_position = NavigationServer3D.map_get_closest_point(
 		navigation_agent.get_navigation_map(),target_position
@@ -61,7 +60,7 @@ func pick_flee_target() -> void:
 
 func enter_hostile() -> void:
 	should_move = true
-	pick_aggro_target()
+	pick_target(false)
 
 func hostile() -> void:
 	var target_dist_squared : float = global_position.distance_squared_to(target_position)
@@ -72,22 +71,8 @@ func hostile() -> void:
 		switch_state(AggroState.ATTACKING)
 		return
 	if is_close_to_destination() or global_position.is_equal_approx(last_position):
-		pick_aggro_target()
+		pick_target(false)
 	last_position = global_position
-#
-func pick_aggro_target() -> void:
-	target_position = global_position
-	var target_direction : Vector3 = global_position.direction_to(Player.instance.global_position)
-	
-	var random_angle : float = 0
-	target_position += target_direction.rotated(Vector3.UP,random_angle)*3
-	
-	target_position = NavigationServer3D.map_get_closest_point(
-		navigation_agent.get_navigation_map(),target_position
-	)
-	print("target_dir2",target_position)
-	
-	set_movement_target(target_position)
 
 func enter_attack() -> void:
 	print("Attacking!!")

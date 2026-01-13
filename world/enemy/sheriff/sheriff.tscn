@@ -9,8 +9,6 @@
 script = ExtResource("2_h2jae")
 star = ExtResource("3_e873n")
 slash = ExtResource("3_6d7by")
-timeBetweenShotsMin = 0.8
-timeBetweenShotsMax = 1.2
 
 [node name="Health" parent="." index="4"]
 max_health = 20.0
