@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ccw4qikojwtx"]
+[gd_scene load_steps=32 format=3 uid="uid://ccw4qikojwtx"]
 
 [ext_resource type="Script" uid="uid://c1bnxnohhlms" path="res://menu/cutscenes/cutscene.gd" id="1_6mnks"]
 [ext_resource type="Texture2D" uid="uid://bbg0gnlbpf0fc" path="res://menu/cutscenes/outro/cs_outro_4.png" id="3_jhgsw"]
@@ -7,15 +7,23 @@
 [ext_resource type="Shader" uid="uid://d3m00nmbmdtm8" path="res://menu/cutscenes/outro/title_popup.gdshader" id="3_wadoo"]
 [ext_resource type="Texture2D" uid="uid://71qabna43rwk" path="res://menu/cutscenes/outro/Final_Cutscene_4_Foreground.png" id="4_3ysqs"]
 [ext_resource type="Texture2D" uid="uid://d1akhhktl0df5" path="res://menu/cutscenes/outro/cs_outro_3.png" id="4_177g4"]
+[ext_resource type="Script" uid="uid://co2r0p266y1vu" path="res://audio/music/song_resource/song.gd" id="5_kn5rf"]
 [ext_resource type="Texture2D" uid="uid://btwdobgpy70k6" path="res://menu/cutscenes/outro/cs_outro_2.png" id="5_rxwr4"]
 [ext_resource type="Shader" uid="uid://djpvr4i8oxey4" path="res://menu/credits/credits.gdshader" id="5_snh3m"]
 [ext_resource type="Texture2D" uid="uid://coitgvvc5estv" path="res://menu/credits/credits-noise.tres" id="6_3ysqs"]
+[ext_resource type="Resource" uid="uid://datrc28o6vmgc" path="res://audio/music/song_files/misc/Justin_title_song.tres" id="6_43qe3"]
 [ext_resource type="PackedScene" uid="uid://c7c1lwr411btx" path="res://audio/music/music_player/play_song_for_scene.tscn" id="6_jhgsw"]
 [ext_resource type="Texture2D" uid="uid://bavqpevyubkal" path="res://menu/cutscenes/outro/cs_outro_1.png" id="6_wadoo"]
 [ext_resource type="Resource" uid="uid://bhgog2x24km1d" path="res://audio/music/song_files/cutscenes/Cooper_epilogue_cutscene.tres" id="7_177g4"]
 [ext_resource type="Script" uid="uid://740avbeu1wf0" path="res://menu/credits/canvas_group.gd" id="7_o0fyp"]
+[ext_resource type="Resource" uid="uid://cckle8iujnl64" path="res://audio/music/song_files/desert_level/Nila_desert_song.tres" id="7_wpph0"]
 [ext_resource type="Script" uid="uid://decf5fuftpwyu" path="res://menu/credits/scroller.gd" id="8_4jf67"]
+[ext_resource type="Resource" uid="uid://dfovwf7isgyks" path="res://audio/music/song_files/desert_level/Nathan_horse_boss_song.tres" id="8_a24g4"]
 [ext_resource type="FontFile" uid="uid://bhmvsjs1rouun" path="res://menu/credits/CourierPrime-Regular.ttf" id="9_fet1n"]
+[ext_resource type="Resource" uid="uid://tli21qkgcwye" path="res://audio/music/song_files/town_level_corrupted/Becs_corrupt_town_song.tres" id="9_rkkkf"]
+[ext_resource type="Resource" uid="uid://bin2l0wyprpnw" path="res://audio/music/song_files/town_level_corrupted/Xander_corrupt_town_combat_song.tres" id="10_ma4xs"]
+[ext_resource type="Resource" uid="uid://c0871iq1wcy6s" path="res://audio/music/song_files/mines_level/Chris_mines_song.tres" id="11_8k32w"]
+[ext_resource type="Resource" uid="uid://dtb4tigljrqvr" path="res://audio/music/song_files/mines_level/Adrien_mass_boss_song.tres" id="12_fi4tx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iujsx"]
 shader = ExtResource("5_snh3m")
@@ -399,6 +407,7 @@ stretch_mode = 6
 
 [node name="CreditsHandler" type="Node" parent="."]
 script = ExtResource("3_o0fyp")
+songs = Array[ExtResource("5_kn5rf")]([ExtResource("6_43qe3"), ExtResource("7_wpph0"), ExtResource("8_a24g4"), ExtResource("9_rkkkf"), ExtResource("10_ma4xs"), ExtResource("11_8k32w"), ExtResource("12_fi4tx")])
 
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 material = SubResource("ShaderMaterial_iujsx")
@@ -525,9 +534,7 @@ text = "[font=uid://ypol1ssrkffh][shake rate=7.0 level=5 connected=1][font_size=
 [/shake]
 [shake rate=2. level=3 connected=1]Ethan Davis                 UI, Systems, QA Tester
 [/shake]
-[shake rate=2. level=3 connected=1]Ethan Mejias                 Narrative, Characters
-[/shake]
-[shake rate=2. level=3 connected=1]Ethan Mejias                 Narrative, Characters
+[shake rate=2. level=3 connected=1]Ethan Mejias                 Characters, Narrative
 [/shake]
 [shake rate=2. level=3 connected=1]Hanwen Zhang             Enemies/Bosses, Narrative
 [/shake]
