@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bci8ojkjrr8x1"
-path="res://.godot/imported/R2_1_Upgraded.png-ef2ae3c096fa5555b3d0ad72e5ed7e0f.ctex"
+uid="uid://dg6nsfm6dpgad"
+path="res://.godot/imported/B2_2-silver.png-2d0c2d2d37f025c247a9ad3699ce0f66.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://menu/skill_tree/skill_tree_icons/R2_1_Upgraded.png"
-dest_files=["res://.godot/imported/R2_1_Upgraded.png-ef2ae3c096fa5555b3d0ad72e5ed7e0f.ctex"]
+source_file="res://menu/skill_tree/skill_tree_icons/B2_2-silver.png"
+dest_files=["res://.godot/imported/B2_2-silver.png-2d0c2d2d37f025c247a9ad3699ce0f66.ctex"]
 
 [params]
 

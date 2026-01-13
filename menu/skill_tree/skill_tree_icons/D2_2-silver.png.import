@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cv64wt7j01lxl"
-path="res://.godot/imported/damage_up_notupgraded.png-ce2fcdf7c1f581575fe304df05266a78.ctex"
+uid="uid://b85nkqfssbydf"
+path="res://.godot/imported/D2_2-silver.png-d9e0e0eb2df44f462cb0545ff72bb6c1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://menu/skill_tree/skill_tree_icons/damage_up_notupgraded.png"
-dest_files=["res://.godot/imported/damage_up_notupgraded.png-ce2fcdf7c1f581575fe304df05266a78.ctex"]
+source_file="res://menu/skill_tree/skill_tree_icons/D2_2-silver.png"
+dest_files=["res://.godot/imported/D2_2-silver.png-d9e0e0eb2df44f462cb0545ff72bb6c1.ctex"]
 
 [params]
 

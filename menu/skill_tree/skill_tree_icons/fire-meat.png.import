@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwdshby6bfsut"
-path="res://.godot/imported/damage_up.png-8e23a90e56dd4bc88eee4c8139de81dc.ctex"
+uid="uid://b2o5uav77a2hd"
+path="res://.godot/imported/fire-meat.png-04f32b799df56e484daa0716e9c603e4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://menu/skill_tree/skill_tree_icons/damage_up.png"
-dest_files=["res://.godot/imported/damage_up.png-8e23a90e56dd4bc88eee4c8139de81dc.ctex"]
+source_file="res://menu/skill_tree/skill_tree_icons/fire-meat.png"
+dest_files=["res://.godot/imported/fire-meat.png-04f32b799df56e484daa0716e9c603e4.ctex"]
 
 [params]
 
