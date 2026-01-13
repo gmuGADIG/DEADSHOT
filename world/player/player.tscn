@@ -8,11 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://vnurg1w4ttt4" path="res://world/player/weapon/dualies/weapon_dualies.tscn" id="3_jrep8"]
 [ext_resource type="Script" uid="uid://c4s1ohnc08ecy" path="res://world/player/reticle/reticle.gd" id="4_40qjc"]
 [ext_resource type="PackedScene" uid="uid://duf7ry1s34j7o" path="res://world/player/weapon/whip/whip.tscn" id="4_duds0"]
-[ext_resource type="Texture2D" uid="uid://bwm425xkr0vcy" path="res://temp_art/icon.svg" id="4_et4on"]
 [ext_resource type="PackedScene" uid="uid://s0mcou8b7n0v" path="res://systems/attacking/hurt_fx/hurt_fx.tscn" id="4_myh4x"]
 [ext_resource type="PackedScene" uid="uid://cj5uuu7xjsprv" path="res://world/player/weapon/basic_gun/basic_gun.tscn" id="4_q1k4r"]
 [ext_resource type="Script" uid="uid://do5vs8m1law7o" path="res://systems/attacking/health/health.gd" id="6_thypd"]
 [ext_resource type="Script" uid="uid://lxg83i28nlul" path="res://systems/attacking/hurtbox/hurtbox.gd" id="7_d3e1v"]
+[ext_resource type="Texture2D" uid="uid://veqmqpjiki0d" path="res://world/player/reticle/reticle.png" id="10_scey4"]
 [ext_resource type="Script" uid="uid://c1g7056xgtqys" path="res://systems/camera/camera_tracked.gd" id="11_2x47q"]
 [ext_resource type="PackedScene" uid="uid://bqngdxosj3du1" path="res://world/player/weapon/shotgun/shotgun.tscn" id="11_3n4qb"]
 [ext_resource type="PackedScene" uid="uid://pl3x14i1m2kt" path="res://audio/streams/WalkSFX/walk_puddle.tscn" id="12_3n4qb"]
@@ -291,7 +291,7 @@ script = ExtResource("4_40qjc")
 
 [node name="Sprite3D" type="Sprite3D" parent="Aiming/Reticle"]
 transform = Transform3D(0.34999996, 0, 0, 0, 0, 0.34999993, 0, -0.34999993, 0, 0, 0.051027596, 0)
-texture = ExtResource("4_et4on")
+texture = ExtResource("10_scey4")
 
 [node name="CameraTracked" type="Node3D" parent="Aiming/Reticle"]
 script = ExtResource("11_2x47q")

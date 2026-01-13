@@ -6,10 +6,10 @@
 [ext_resource type="AudioStream" uid="uid://dc6lbunkflvv4" path="res://audio/placeholders/funny_bone_man.wav" id="4_prid6"]
 [ext_resource type="Texture2D" uid="uid://couuwyoltb6ql" path="res://menu/main_menu/main_menu_bg.png" id="5_rp3yq"]
 [ext_resource type="Texture2D" uid="uid://pfati0vufsd7" path="res://menu/main_menu/main_menu_player.png" id="6_c0jbr"]
-[ext_resource type="Texture2D" uid="uid://dr0k5wtlmynj6" path="res://temp_art/reticle.png" id="6_x87vx"]
 [ext_resource type="Script" uid="uid://co66s5c2pttrb" path="res://menu/main_menu/reticle_spin.gd" id="7_dn5jd"]
 [ext_resource type="Texture2D" uid="uid://d3fmltuim8c47" path="res://menu/main_menu/menu_player_eye.png" id="7_mij2p"]
 [ext_resource type="Texture2D" uid="uid://k38kdp8yrqo2" path="res://menu/main_menu/main_logo.png" id="8_mij2p"]
+[ext_resource type="Texture2D" uid="uid://veqmqpjiki0d" path="res://world/player/reticle/reticle.png" id="9_mij2p"]
 [ext_resource type="PackedScene" uid="uid://d15hbjoa7a2bp" path="res://audio/streams/ui_hover_sound.tscn" id="9_ub0vu"]
 [ext_resource type="PackedScene" uid="uid://b4hj1uuryjqkf" path="res://audio/streams/ui_click_sound.tscn" id="10_t631e"]
 [ext_resource type="PackedScene" uid="uid://c7c1lwr411btx" path="res://audio/music/music_player/play_song_for_scene.tscn" id="11_rp3yq"]
@@ -26,6 +26,153 @@ height = 128
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Animation" id="Animation_c0jbr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ButtonHolder:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 551)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Player/EyeFlash:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 0.5294118)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Player/EyeFlash:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(306, 83)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Player/EyeFlash:size")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(64, 64)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Player/Eye:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Background:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Background:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Title:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(545, -8)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Title:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("ButtonHolder:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_rp3yq"]
 resource_name = "start"
@@ -176,153 +323,6 @@ tracks/11/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_c0jbr"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ButtonHolder:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2, 551)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Player:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Player:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Player/EyeFlash:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 0, 0, 0.5294118)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Player/EyeFlash:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(306, 83)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Player/EyeFlash:size")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(64, 64)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Player/Eye:modulate")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Background:position")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Background:modulate")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Title:position")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(545, -8)]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Title:modulate")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("ButtonHolder:modulate")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c0jbr"]
 _data = {
 &"RESET": SubResource("Animation_c0jbr"),
@@ -367,7 +367,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 545.0
 offset_top = -8.0
-offset_right = 74.39014
+offset_right = 74.390015
 offset_bottom = -78.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -437,15 +437,16 @@ anchor_left = 0.551
 anchor_top = 0.669
 anchor_right = 0.551
 anchor_bottom = 0.669
-offset_left = -19.983002
-offset_top = -20.025002
-offset_right = 20.017044
-offset_bottom = 19.974998
+offset_left = -20.290009
+offset_top = -27.775002
+offset_right = 39.70999
+offset_bottom = 32.225
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(1.38, 1.38)
-pivot_offset = Vector2(20, 20)
-texture = ExtResource("6_x87vx")
+pivot_offset = Vector2(30, 30)
+texture = ExtResource("9_mij2p")
+expand_mode = 1
 script = ExtResource("7_dn5jd")
 rotation_speed = 40.0
 
@@ -466,15 +467,16 @@ anchor_left = 0.551
 anchor_top = 0.669
 anchor_right = 0.551
 anchor_bottom = 0.669
-offset_left = -19.983002
-offset_top = -20.025002
-offset_right = 20.017044
-offset_bottom = 19.974998
+offset_left = -20.290009
+offset_top = -27.775002
+offset_right = 39.70999
+offset_bottom = 32.225
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(1.38, 1.38)
-pivot_offset = Vector2(20, 20)
-texture = ExtResource("6_x87vx")
+pivot_offset = Vector2(30, 30)
+texture = ExtResource("9_mij2p")
+expand_mode = 1
 script = ExtResource("7_dn5jd")
 rotation_speed = 40.0
 
@@ -495,15 +497,16 @@ anchor_left = 0.551
 anchor_top = 0.669
 anchor_right = 0.551
 anchor_bottom = 0.669
-offset_left = -19.983002
-offset_top = -20.025002
-offset_right = 20.017044
-offset_bottom = 19.974998
+offset_left = -20.290009
+offset_top = -27.775002
+offset_right = 39.70999
+offset_bottom = 32.225
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(1.38, 1.38)
-pivot_offset = Vector2(20, 20)
-texture = ExtResource("6_x87vx")
+pivot_offset = Vector2(30, 30)
+texture = ExtResource("9_mij2p")
+expand_mode = 1
 script = ExtResource("7_dn5jd")
 rotation_speed = 40.0
 
@@ -524,15 +527,16 @@ anchor_left = 0.551
 anchor_top = 0.669
 anchor_right = 0.551
 anchor_bottom = 0.669
-offset_left = -19.983002
-offset_top = -20.025002
-offset_right = 20.017044
-offset_bottom = 19.974998
+offset_left = -20.290009
+offset_top = -27.775002
+offset_right = 39.70999
+offset_bottom = 32.225
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(1.38, 1.38)
-pivot_offset = Vector2(20, 20)
-texture = ExtResource("6_x87vx")
+pivot_offset = Vector2(30, 30)
+texture = ExtResource("9_mij2p")
+expand_mode = 1
 script = ExtResource("7_dn5jd")
 rotation_speed = 40.0
 
