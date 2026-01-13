@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SkillIcon" load_steps=4 format=3 uid="uid://cu2fqkxc8naho"]
+
+[ext_resource type="Script" uid="uid://dktgjq1e67yxi" path="res://menu/skill_tree/skill_icons/skill_icon.gd" id="1_00wgc"]
+[ext_resource type="Texture2D" uid="uid://dlewl42ha4n6s" path="res://menu/skill_tree/art_upgrades/speed_up2_m.png" id="1_tb6dr"]
+[ext_resource type="Texture2D" uid="uid://ce5xj1bdsc57u" path="res://menu/skill_tree/art_upgrades/speed_up2_s.png" id="3_47cbm"]
+
+[resource]
+script = ExtResource("1_00wgc")
+unpurchased = ExtResource("3_47cbm")
+purchased = ExtResource("1_tb6dr")
+metadata/_custom_type_script = "uid://dktgjq1e67yxi"
