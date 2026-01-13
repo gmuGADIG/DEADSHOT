@@ -3,11 +3,14 @@ extends Control
 @export var gunshot: AudioStream
 @export var gun_spinning: AudioStream
 
+@onready var options_save := OptionsSave.new()
+
 var button_pressed : bool = false ## When a button is pressed, this is set to true so no other button can be pressed (e.g. during the start transition)
 
 func _ready() -> void:
 	if not Save.save_file_exists():
 		$ButtonHolder/LoadSaveButton.hide()
+
 
 func _on_new_save_button_pressed() -> void:
 	if not button_pressed:
