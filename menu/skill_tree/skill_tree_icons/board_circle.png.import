@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5omdxry03i58"
-path="res://.godot/imported/nodes.png-998ed4e02bb2dedd660cb180be89311b.ctex"
+uid="uid://rw2danl8f6db"
+path="res://.godot/imported/board_circle.png-4d5105477470534ee8680fda9a3e0b9b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://menu/skill_tree/skill_tree_icons/nodes.png"
-dest_files=["res://.godot/imported/nodes.png-998ed4e02bb2dedd660cb180be89311b.ctex"]
+source_file="res://menu/skill_tree/skill_tree_icons/board_circle.png"
+dest_files=["res://.godot/imported/board_circle.png-4d5105477470534ee8680fda9a3e0b9b.ctex"]
 
 [params]
 

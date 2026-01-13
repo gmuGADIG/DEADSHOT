@@ -59,6 +59,16 @@ func _ready() -> void:
 	update_purchase_state()
 	$Label.text = itemDesc.skill_name
 	$TextureRect.texture = itemDesc.skill_image
+	
+	# set board texture (circle = 1 icon, square = 2 icons)
+	var board := (
+		preload("res://menu/skill_tree/skill_tree_icons/board_square.png")
+		if itemDesc.square_icon
+		else preload("res://menu/skill_tree/skill_tree_icons/board_circle.png")
+	)
+	texture_normal = board
+	texture_disabled = board
+	
 	# Fix this, make sure line goes in correct place
 	for child in dependencies:
 		skill_branch.add_point(self.global_position + self.size/2)

@@ -1,6 +1,7 @@
 extends Resource
 class_name SkillDesc
 
+@export var square_icon := false
 @export var skill_name : String
 @export var skill_image : Texture
 @export var skill_image_upgraded : Texture
