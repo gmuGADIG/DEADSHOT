@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c856fbyc8qaul"]
+
+[ext_resource type="PackedScene" uid="uid://o72hyyjcmpll" path="res://world/interactables/cover/cover_base.tscn" id="1_17rib"]
+[ext_resource type="Texture2D" uid="uid://c7es4c844tfaa" path="res://world/interactables/cover/minecart.png" id="2_rekvv"]
+
+[node name="Minecart" instance=ExtResource("1_17rib")]
+
+[node name="Sprite3D" parent="." index="1"]
+transform = Transform3D(0.26, 0, 0, 0, 0.22516659, 0.13, 0, -0.13, 0.22516659, 0, 0.8846786, 0)
+texture = ExtResource("2_rekvv")
