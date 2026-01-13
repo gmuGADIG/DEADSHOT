@@ -27,35 +27,30 @@ var state : State:
 		
 		match state:
 			State.UNSET:
-				self_modulate = Color(1,0,0)
+				modulate = Color(1,0,0)
 			State.PURCHASED:
-				self_modulate = Color(1,1,1)
+				modulate = Color(1,1,1)
 				skill_branch.default_color = Color(1,1,1)
 				skill_branch.show()
-				$LockIcon.hide()
 			State.AFFORDABLE:
-				self_modulate = Color(1,1,1)
+				modulate = Color(1,1,1)
 				skill_branch.default_color = Color(0.5,0.5,0.5)
 				skill_branch.show()
-				$LockIcon.hide()
 				$TextureRect.texture = itemDesc.skill_image
 			State.UNAFFORDABLE:
-				self_modulate = Color(0.5,0.5,0.5)
+				modulate = Color(0.5,0.5,0.5)
 				skill_branch.default_color = Color(0.5,0.5,0.5)
 				skill_branch.show()
-				$LockIcon.hide()
 				$TextureRect.texture = itemDesc.skill_image
 			State.LOCKED:
-				self_modulate = Color(0.5,0.5,0.5)
+				modulate = Color(0.35, 0.35, 0.35)
 				skill_branch.hide()
-				$LockIcon.show()
 				$TextureRect.texture = itemDesc.skill_image
 
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
 	
 	%SkillBranches.add_child(skill_branch)
-	#setup_popup()
 	update_purchase_state()
 	$Label.text = itemDesc.skill_name
 	$TextureRect.texture = itemDesc.skill_image
@@ -143,8 +138,3 @@ func shake() -> void:
 	tween.tween_property(self,"rotation_degrees",10, 0.07)
 	tween.tween_property(self,"rotation_degrees",-10, 0.07)
 	tween.tween_property(self,"rotation_degrees",0, 0.07)
-
-#func setup_popup() -> void:
-	#$Skill_Popup/VBoxContainer/Name.text = itemDesc.skill_name
-	#$Skill_Popup/VBoxContainer/Description.text = itemDesc.skill_description
-	#$Skill_Popup/VBoxContainer/TextureRect.texture = itemDesc.skill_image
