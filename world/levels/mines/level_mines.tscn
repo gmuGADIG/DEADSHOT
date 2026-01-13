@@ -137,7 +137,7 @@ target_entry_point = "Right"
 [node name="Notes" type="Node3D" parent="." index="5"]
 
 [node name="Player" parent="." index="6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98.14134, 0, 30.27717)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 145.33267, 0, 16.055853)
 floor_type = 2
 
 [node name="Encounter" parent="." index="9" instance=ExtResource("11_rkdtq")]

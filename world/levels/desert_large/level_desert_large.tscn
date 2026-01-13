@@ -115,7 +115,7 @@ target_scene = "uid://c4lcfae1j0kdx"
 target_entry_point = "Bottom"
 
 [node name="Player" parent="." index="5"]
-transform = Transform3D(1.2078707, 0, 0, 0, 1, 0, 0, 0, 1.2078707, 53.761417, 0, 2.6373158)
+transform = Transform3D(1.2078707, 0, 0, 0, 1, 0, 0, 0, 1.2078707, 47.449486, 0, 31.264133)
 floor_type = 1
 
 [node name="Decor" type="Node" parent="." index="9"]
@@ -144,6 +144,7 @@ type = 1
 
 [node name="CursedPlant3" parent="Decor" index="7" instance=ExtResource("9_jw2qs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.121485, -0.06959438, -29.77686)
+type = 1
 
 [node name="Well2" parent="Decor" index="8" instance=ExtResource("7_gq3fs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.905464, -0.09687781, -30.80377)
