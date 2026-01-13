@@ -109,6 +109,7 @@ func _ready() -> void:
 
 ## Call when you want to switch a state. Handles what to do once when entering each state.
 func switch_state(target_state: AggroState) -> void:
+	print(AggroState.keys()[target_state])
 	aggro = target_state
 	match target_state:
 		AggroState.BENIGN when type == EnemyType.IDLE:

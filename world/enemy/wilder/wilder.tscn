@@ -37,11 +37,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Wilder" node_paths=PackedStringArray("StuckTimer") instance=ExtResource("1_pw5bb")]
+[node name="Wilder" instance=ExtResource("1_pw5bb")]
 script = ExtResource("1_skiir")
 bullet = ExtResource("3_b04xd")
 maxTravelDistance = 20.0
-StuckTimer = NodePath("StuckTimer")
+movement_speed = 7.5
+type = 1
 
 [node name="Sprite" parent="." index="1"]
 transform = Transform3D(0.245, 0, 0, 0, 0.21217619, 0.12250006, 0, -0.12250006, 0.21217619, 0, 1.098109, 0)
@@ -56,18 +57,22 @@ aabb = AABB(-0.5, 0, -0.5, 1, 1, 1)
 [node name="Health" parent="." index="4"]
 max_health = 5
 
-[node name="StuckTimer" type="Timer" parent="." index="6"]
-wait_time = 0.2
-autostart = true
+[node name="FiringTimer" parent="." index="6"]
+one_shot = true
 
-[node name="Sounds" type="Node3D" parent="." index="9"]
+[node name="Sounds" type="Node3D" parent="." index="8"]
 
 [node name="WilderShootSound" parent="Sounds" index="0" instance=ExtResource("5_d53cb")]
 unique_name_in_owner = true
+volume_db = 0.0
 
 [node name="WilderDeathSound" parent="Sounds" index="1" instance=ExtResource("6_buhvy")]
 unique_name_in_owner = true
 stream = ExtResource("7_b04xd")
 
+[node name="RunAwayTimer" type="Timer" parent="." index="9"]
+one_shot = true
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
 [connection signal="killed" from="Health" to="." method="_on_killed"]
