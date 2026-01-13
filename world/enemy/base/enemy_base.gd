@@ -25,10 +25,13 @@ enum AggroState {
 ## The player in the scene.
 @onready var player : Player
 @onready var firing_timer: Timer = %FiringTimer
+@onready var health: Health = %Health
 
 # TODO: change this to the real tonic scene eventually
 ## The tonic scene to drop.
 @onready var tonic := preload("res://world/items/tonic/tonic.tscn");
+
+@export var is_boss := false
 
 @export_group("Enemy Stats")
 ## The amount of damage done in an attack.
@@ -56,6 +59,7 @@ enum AggroState {
 var patrol_index : int = 0
 
 @export_subgroup("Bullet Settings")
+@export var initial_bullet_timer: float
 @export var fire_rate: float
 @export var bullet_speed: float
 
@@ -86,6 +90,9 @@ var can_shoot := true
 
 #region Builtin Functions
 func _ready() -> void:
+	if is_boss:
+		Global.entered_boss_encounter.connect(_on_entered_boss_encounter)
+
 	# if Save.save_data.object_save_data.is_dead(self):
 	# 	queue_free()
 	# 	return
@@ -95,14 +102,15 @@ func _ready() -> void:
 	
 	last_known_player_position = player.global_position if (player != null) else Vector3.ZERO
 	
-	%Health.killed.connect(death)
+	health.killed.connect(death)
 
 	if fire_rate == 0:
 		firing_timer.process_mode = PROCESS_MODE_DISABLED
 	else:
-		firing_timer.wait_time = fire_rate
 		firing_timer.timeout.connect(_on_firing_timer_timeout)
-		firing_timer.start()
+		firing_timer.timeout.connect(func() -> void: firing_timer.start(fire_rate))
+		firing_timer.one_shot = true
+		firing_timer.start(initial_bullet_timer if initial_bullet_timer != 0.0 else fire_rate)
 
 ## Call when you want to switch a state. Handles what to do once when entering each state.
 func switch_state(target_state: AggroState) -> void:
@@ -185,7 +193,7 @@ func patrol() -> void:
 		patrol_index += 1
 		patrol_index %= patrol_path.size()
 
-## Do once when entering hostile
+##Test
 func enter_hostile() -> void:
 	pass
 
@@ -250,4 +258,6 @@ func stop_shooting() -> void:
 func set_on_fire() -> void:
 	%FireDamage.set_on_fire()
 
+func _on_entered_boss_encounter() -> void:
+	Global.boss_spawned.emit(self)
 #endregion

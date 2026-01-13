@@ -22,3 +22,4 @@ stream_7/stream = ExtResource("8_ohu72")
 
 [node name="WalkSand" type="AudioStreamPlayer3D"]
 stream = SubResource("AudioStreamRandomizer_tqmrm")
+bus = &"SFX"

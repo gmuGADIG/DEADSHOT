@@ -1,0 +1,224 @@
+[gd_scene load_steps=13 format=3 uid="uid://touuxcdpryp5"]
+
+[ext_resource type="Script" uid="uid://ntb2sjonudtp" path="res://world/player/HUD/boss_hp_display.gd" id="1_efsdn"]
+[ext_resource type="Texture2D" uid="uid://cb013tk1544rf" path="res://world/player/HUD/boss_health_bar.png" id="2_udml3"]
+
+[sub_resource type="Gradient" id="Gradient_efsdn"]
+offsets = PackedFloat32Array(0, 0.22727273, 0.8363636, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.73636365, 0.73636365, 0.73636365, 1, 0.73636365, 0.73636365, 0.73636365, 1, 0.46, 0.46, 0.46, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_udml3"]
+gradient = SubResource("Gradient_efsdn")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efsdn"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_udml3"]
+bg_color = Color(0.31381103, 0.014307455, 0.016001958, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k3rnq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rvwbx"]
+bg_color = Color(0.91, 0.1274, 0.1274, 1)
+
+[sub_resource type="Animation" id="Animation_udml3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.3561945]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/RemoteTransform2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 60)]
+}
+
+[sub_resource type="Animation" id="Animation_k3rnq"]
+resource_name = "hide"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/RemoteTransform2D:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 60), Vector2(0, -22)]
+}
+
+[sub_resource type="Animation" id="Animation_efsdn"]
+resource_name = "show"
+length = 2.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6666667, 1.2333333, 1.5799999, 2.0333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [2.3561945, -0.5561505, 0.19428116, -0.07588563, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/RemoteTransform2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.4),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 60)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_udml3"]
+_data = {
+&"RESET": SubResource("Animation_udml3"),
+&"hide": SubResource("Animation_k3rnq"),
+&"show": SubResource("Animation_efsdn")
+}
+
+[node name="BossHP" type="Control"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+pivot_offset = Vector2(202, 0)
+script = ExtResource("1_efsdn")
+
+[node name="Chain1" type="Line2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-100, -20)
+points = PackedVector2Array(0, 0, 1, 10)
+width = 15.0
+default_color = Color(0.5529558, 0.5529555, 0.5529556, 1)
+texture = SubResource("GradientTexture2D_udml3")
+texture_mode = 2
+
+[node name="Chain2" type="Line2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(100, -20)
+points = PackedVector2Array(0, 0, 0, 9)
+width = 15.0
+default_color = Color(0.5529558, 0.5529555, 0.5529556, 1)
+texture = SubResource("GradientTexture2D_udml3")
+texture_mode = 2
+
+[node name="Pivot" type="Node2D" parent="."]
+position = Vector2(0, -35.93)
+rotation = 2.3561945
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Pivot"]
+position = Vector2(0, 60)
+remote_path = NodePath("../../Board")
+update_rotation = false
+update_scale = false
+
+[node name="Board" type="Node2D" parent="."]
+position = Vector2(-42.42639, -78.35641)
+
+[node name="HPOverlay" type="TextureRect" parent="Board"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -164.0
+offset_right = 164.0
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_udml3")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HealthDecay" type="ProgressBar" parent="Board/HPOverlay"]
+unique_name_in_owner = true
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 26.0
+offset_top = 21.0
+offset_right = -26.0
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_efsdn")
+theme_override_styles/fill = SubResource("StyleBoxFlat_udml3")
+max_value = 1.0
+step = 0.0
+value = 1.0
+show_percentage = false
+
+[node name="HealthBar" type="ProgressBar" parent="Board/HPOverlay"]
+unique_name_in_owner = true
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 26.0
+offset_top = 21.0
+offset_right = -26.0
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_k3rnq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_rvwbx")
+max_value = 1.0
+step = 0.0
+value = 0.24
+show_percentage = false
+
+[node name="Marker1" type="Marker2D" parent="Board"]
+unique_name_in_owner = true
+position = Vector2(-100, 5)
+
+[node name="Marker2" type="Marker2D" parent="Board"]
+unique_name_in_owner = true
+position = Vector2(100, 5)
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_udml3")
+}

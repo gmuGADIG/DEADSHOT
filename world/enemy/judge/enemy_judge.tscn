@@ -1,32 +1,112 @@
-[gd_scene load_steps=7 format=3 uid="uid://doavrdpyjcdgp"]
+[gd_scene load_steps=22 format=3 uid="uid://doavrdpyjcdgp"]
 
 [ext_resource type="PackedScene" uid="uid://dx3l0wduat3tp" path="res://world/enemy/base/enemy_base.tscn" id="1_67wm8"]
-[ext_resource type="Script" uid="uid://c3cy8q01gvyo2" path="res://world/enemy/test/enemy_test.gd" id="2_l2wwm"]
-[ext_resource type="Texture2D" uid="uid://bxbm1igs7hyp4" path="res://temp_art/gartic/khalid.png" id="3_q6oaa"]
+[ext_resource type="Script" path="res://world/enemy/judge/enemy_judge.gd" id="2_q6oaa"]
+[ext_resource type="Texture2D" uid="uid://cur1yiwcka8r4" path="res://world/enemy/judge/judge_right.png" id="3_0hqsb"]
+[ext_resource type="Texture2D" uid="uid://bi32xnay2st22" path="res://world/enemy/judge/judge_left.png" id="3_tl5he"]
 [ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="4_q6oaa"]
+[ext_resource type="PackedScene" uid="uid://3xv4m4jgpupq" path="res://audio/streams/judge_death.tscn" id="5_0hqsb"]
+[ext_resource type="Script" uid="uid://b5d5dfn03djx6" path="res://world/enemy/base/enemy_animator/enemy_frames.gd" id="5_glbwu"]
+[ext_resource type="PackedScene" uid="uid://bgwfrncadc5gu" path="res://audio/streams/judge_reload.tscn" id="6_arffw"]
+[ext_resource type="PackedScene" uid="uid://tbha2e87fcg3" path="res://audio/streams/judge_shoot.tscn" id="7_tl5he"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxaub"]
+atlas = ExtResource("3_tl5he")
+region = Rect2(0, 0, 1026, 1026)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_808ng"]
+atlas = ExtResource("3_tl5he")
+region = Rect2(1026, 0, 1026, 1026)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vyvma"]
+atlas = ExtResource("3_tl5he")
+region = Rect2(2052, 0, 1026, 1026)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gck8i"]
+atlas = ExtResource("3_tl5he")
+region = Rect2(3078, 0, 1026, 1026)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_arffw"]
+atlas = ExtResource("3_0hqsb")
+region = Rect2(0, 0, 1026, 1026)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tl5he"]
+atlas = ExtResource("3_0hqsb")
+region = Rect2(1026, 0, 1026, 1026)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glbwu"]
+atlas = ExtResource("3_0hqsb")
+region = Rect2(2052, 0, 1026, 1026)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxq0p"]
+atlas = ExtResource("3_0hqsb")
+region = Rect2(3078, 0, 1026, 1026)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u7aru"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_q6oaa")
+"texture": SubResource("AtlasTexture_wxaub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_808ng")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vyvma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gck8i")
 }],
 "loop": true,
-"name": &"default",
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_arffw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tl5he")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glbwu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxq0p")
+}],
+"loop": true,
+"name": &"right",
 "speed": 5.0
 }]
 
+[sub_resource type="Resource" id="Resource_kneet"]
+script = ExtResource("5_glbwu")
+clip = "right"
+metadata/_custom_type_script = "uid://b5d5dfn03djx6"
+
+[sub_resource type="Resource" id="Resource_tt5o5"]
+script = ExtResource("5_glbwu")
+clip = "left"
+metadata/_custom_type_script = "uid://b5d5dfn03djx6"
+
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_xuwp2"]
 
-[node name="EnemyTest" instance=ExtResource("1_67wm8")]
-script = ExtResource("2_l2wwm")
-movement_speed = 3.0
-fire_rate = 4.0
-bullet_speed = 20.0
+[node name="JudgeEnemy" instance=ExtResource("1_67wm8")]
+script = ExtResource("2_q6oaa")
+movement_speed = 2.5
+initial_bullet_timer = 1.0
+fire_rate = 5.0
+bullet_speed = 15.0
 
 [node name="Sprite" parent="." index="1"]
-transform = Transform3D(0.42, 0, 0, 0, 0.3637306, 0.2100001, 0, -0.2100001, 0.3637306, 0, 1, 0)
+transform = Transform3D(0.205, 0, 0, 0, 0.17753518, 0.10250006, 0, -0.10250006, 0.17753518, 0, 0.8574748, 0)
 sprite_frames = SubResource("SpriteFrames_u7aru")
+animation = &"right"
+frame = 1
+frame_progress = 0.38158885
+walk_left = SubResource("Resource_kneet")
+walk_right = SubResource("Resource_tt5o5")
+attack_enabled = false
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." index="3"]
 aabb = AABB(-0.5, 0, -0.5, 1, 1, 1)
@@ -43,6 +123,17 @@ shape = SubResource("CylinderShape3D_xuwp2")
 
 [node name="Comment" parent="." index="9" instance=ExtResource("4_q6oaa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.050803, 0)
+visible = false
 text = "TODO: judge"
 
+[node name="JudgeDeath" parent="." index="10" instance=ExtResource("5_0hqsb")]
+unique_name_in_owner = true
+
+[node name="JudgeReload" parent="." index="11" instance=ExtResource("6_arffw")]
+unique_name_in_owner = true
+
+[node name="JudgeShoot" parent="." index="12" instance=ExtResource("7_tl5he")]
+unique_name_in_owner = true
+
 [connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
+[connection signal="timeout" from="FiringTimer" to="." method="_on_firing_timer_timeout"]

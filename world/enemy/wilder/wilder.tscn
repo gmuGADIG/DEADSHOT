@@ -1,45 +1,108 @@
-[gd_scene load_steps=13 format=3 uid="uid://dwdhuncnyfmcw"]
+[gd_scene load_steps=23 format=3 uid="uid://dwdhuncnyfmcw"]
 
 [ext_resource type="PackedScene" uid="uid://dx3l0wduat3tp" path="res://world/enemy/base/enemy_base.tscn" id="1_pw5bb"]
 [ext_resource type="Script" uid="uid://pewr3uke4fqt" path="res://world/enemy/wilder/wilder.gd" id="1_skiir"]
 [ext_resource type="PackedScene" uid="uid://53setitiasq8" path="res://world/enemy/Enemy Bullets/enemy_bullet.tscn" id="3_b04xd"]
-[ext_resource type="Texture2D" uid="uid://b0atje0hx0agb" path="res://world/enemy/wilder/wilder_front.png" id="4_b04xd"]
-[ext_resource type="Texture2D" uid="uid://b4iuouprub66j" path="res://world/enemy/wilder/wilder_back.png" id="5_1ptbf"]
+[ext_resource type="Texture2D" uid="uid://cvagp4e24k873" path="res://world/enemy/wilder/wilder_shoot.png" id="4_1ptbf"]
+[ext_resource type="Script" uid="uid://b5d5dfn03djx6" path="res://world/enemy/base/enemy_animator/enemy_frames.gd" id="4_b04xd"]
+[ext_resource type="Texture2D" uid="uid://daw3qrkhk20v2" path="res://world/enemy/wilder/wilder_walk.png" id="5_1g6n4"]
 [ext_resource type="PackedScene" uid="uid://dtrtlfnkaklwl" path="res://audio/streams/wilder_shoot_sound.tscn" id="5_d53cb"]
-[ext_resource type="Script" uid="uid://b44q8ata3xrg" path="res://world/enemy/wilder/wilder_animator.gd" id="6_1g6n4"]
 [ext_resource type="PackedScene" uid="uid://dqe8jyn23q6w6" path="res://audio/streams/wilder_death_sound.tscn" id="6_buhvy"]
 [ext_resource type="AudioStream" uid="uid://drvscc177esir" path="res://audio/placeholders/test_explode_big.wav" id="7_b04xd"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_geoxf"]
-atlas = ExtResource("4_b04xd")
-region = Rect2(0, 0, 1024, 1024)
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6wyr"]
+atlas = ExtResource("4_1ptbf")
+region = Rect2(1026, 0, 1026, 1026)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0o174"]
+atlas = ExtResource("4_1ptbf")
+region = Rect2(2052, 0, 1026, 1026)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhld6"]
+atlas = ExtResource("4_1ptbf")
+region = Rect2(3078, 0, 1026, 1026)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_818po"]
-atlas = ExtResource("5_1ptbf")
-region = Rect2(0, 0, 1024, 1024)
+atlas = ExtResource("4_1ptbf")
+region = Rect2(0, 0, 1026, 1026)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onecu"]
+atlas = ExtResource("5_1g6n4")
+region = Rect2(0, 0, 1026, 1026)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlduf"]
+atlas = ExtResource("5_1g6n4")
+region = Rect2(1026, 0, 1026, 1026)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7865p"]
+atlas = ExtResource("5_1g6n4")
+region = Rect2(2052, 0, 1026, 1026)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_far2n"]
+atlas = ExtResource("5_1g6n4")
+region = Rect2(3078, 0, 1026, 1026)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1ptbf"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_geoxf")
+"texture": SubResource("AtlasTexture_o6wyr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0o174")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fhld6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_818po")
 }],
-"loop": true,
-"name": &"down",
+"loop": false,
+"name": &"attack",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_818po")
+"texture": SubResource("AtlasTexture_onecu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hlduf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7865p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_far2n")
 }],
 "loop": true,
-"name": &"up",
+"name": &"walk",
 "speed": 5.0
 }]
 
+[sub_resource type="Resource" id="Resource_geoxf"]
+script = ExtResource("4_b04xd")
+clip = "walk"
+flipped = true
+metadata/_custom_type_script = "uid://b5d5dfn03djx6"
+
+[sub_resource type="Resource" id="Resource_1ptbf"]
+script = ExtResource("4_b04xd")
+clip = "walk"
+metadata/_custom_type_script = "uid://b5d5dfn03djx6"
+
+[sub_resource type="Resource" id="Resource_1g6n4"]
+script = ExtResource("4_b04xd")
+clip = "attack"
+flipped = true
+metadata/_custom_type_script = "uid://b5d5dfn03djx6"
+
+[sub_resource type="Resource" id="Resource_818po"]
+script = ExtResource("4_b04xd")
+clip = "attack"
+metadata/_custom_type_script = "uid://b5d5dfn03djx6"
+
 [node name="Wilder" node_paths=PackedStringArray("StuckTimer") instance=ExtResource("1_pw5bb")]
 script = ExtResource("1_skiir")
-timeBetweenShots = 1.0
 bullet = ExtResource("3_b04xd")
 maxTravelDistance = 20.0
 StuckTimer = NodePath("StuckTimer")
@@ -47,9 +110,13 @@ StuckTimer = NodePath("StuckTimer")
 [node name="Sprite" parent="." index="1"]
 transform = Transform3D(0.245, 0, 0, 0, 0.21217619, 0.12250006, 0, -0.12250006, 0.21217619, 0, 1.098109, 0)
 sprite_frames = SubResource("SpriteFrames_1ptbf")
-animation = &"up"
-autoplay = "down"
-script = ExtResource("6_1g6n4")
+animation = &"walk"
+frame = 2
+frame_progress = 0.46029624
+walk_left = SubResource("Resource_geoxf")
+walk_right = SubResource("Resource_1ptbf")
+attack_left = SubResource("Resource_1g6n4")
+attack_right = SubResource("Resource_818po")
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." index="3"]
 aabb = AABB(-0.5, 0, -0.5, 1, 1, 1)

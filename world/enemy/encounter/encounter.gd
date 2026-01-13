@@ -2,6 +2,8 @@
 class_name Encounter
 extends Area3D
 
+signal encounter_over
+
 ## If an encounter is active, this references it.
 ## Otherwise, null.
 static var active_encounter: Encounter = null
@@ -11,6 +13,9 @@ enum EncounterProgress {
 	IN_PROGRESS,
 	DONE,
 }
+
+## Marks this encounter as a "boss encounter", which will activate the health bar.
+@export var is_boss_encounter := false
 
 ## Camera will zoom out this much when the encounter is active.
 @export var camera_zoom := 1.2
@@ -98,8 +103,10 @@ func end_encounter() -> void:
 	for obj in get_encounter_objects():
 		obj.finish()
 	
+	encounter_over.emit()
+	
 	if ending_scene != null:
-		get_tree().change_scene_to_packed(ending_scene)
+		SceneManager.change_scene_to_packed(ending_scene)
 
 func _is_encounter_done() -> bool:
 	for o: EncounterObject in get_encounter_objects():
@@ -117,6 +124,9 @@ func _on_object_killed(obj: EncounterObject) -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	if progress != EncounterProgress.WAITING: return # encounter has already been started
+	
+	if is_boss_encounter:
+		Global.entered_boss_encounter.emit()
 	
 	if body is Player && _is_encounter_done() == false:
 		start_encounter()

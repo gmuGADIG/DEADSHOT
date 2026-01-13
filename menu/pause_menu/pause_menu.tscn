@@ -22,6 +22,7 @@ font_size = 66
 
 [node name="PauseMenu" type="Control" node_paths=PackedStringArray("resume_button", "locker_button", "settings_button", "restart_button", "menu_button")]
 process_mode = 3
+process_priority = -1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
