@@ -13,6 +13,7 @@ enum PlayerState {
 	WALKING, ## Default state. Player can walk and shoot.
 	ROLLING, ## Dodging / rolling.
 	INTERACTING, ## Interacting with an NPC. Most actions are disabled during this.
+	TRANSITIONING  ## Moving between scenes and not accepting input
 }
 
 #region Variables
@@ -53,7 +54,6 @@ var current_state: PlayerState = PlayerState.WALKING:
 	set(new_val):
 		current_state = new_val
 		player_state_changed.emit()
-#endregion
 
 enum FloorType{ ## Where the player is walking
 	WOOD,
@@ -152,6 +152,11 @@ func _physics_process(delta: float) -> void:
 		roll(delta)
 	elif current_state == PlayerState.INTERACTING:
 		velocity = Vector3.ZERO
+	elif current_state == PlayerState.TRANSITIONING:
+		var vel_tween : Tween = create_tween()
+		vel_tween.tween_property(
+			self, "velocity", Vector3.ZERO, 1.5
+		).from(previous_input_direction * walk_speed * 0.8)
 	
 	move_and_slide()
 	position.y = starting_y_pos # ensures that player does not move above starting plane
