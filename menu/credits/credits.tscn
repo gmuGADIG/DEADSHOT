@@ -1,0 +1,351 @@
+[gd_scene load_steps=9 format=3 uid="uid://dgjsk3hfr1wv0"]
+
+[ext_resource type="Texture2D" uid="uid://couuwyoltb6ql" path="res://menu/main_menu/main_menu_bg.png" id="1_1riif"]
+[ext_resource type="Texture2D" uid="uid://k38kdp8yrqo2" path="res://menu/main_menu/main_logo.png" id="2_itdmn"]
+[ext_resource type="Script" uid="uid://decf5fuftpwyu" path="res://menu/credits/scroller.gd" id="2_ofawt"]
+[ext_resource type="Shader" uid="uid://djpvr4i8oxey4" path="res://menu/credits/credits.gdshader" id="2_tkrk8"]
+[ext_resource type="FontFile" uid="uid://bhmvsjs1rouun" path="res://menu/credits/CourierPrime-Regular.ttf" id="3_itdmn"]
+[ext_resource type="Texture2D" uid="uid://coitgvvc5estv" path="res://menu/credits/credits-noise.tres" id="3_u3irj"]
+[ext_resource type="Script" uid="uid://740avbeu1wf0" path="res://menu/credits/canvas_group.gd" id="4_tgtjc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gshuy"]
+shader = ExtResource("2_tkrk8")
+shader_parameter/noise = ExtResource("3_u3irj")
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_1riif")
+expand_mode = 1
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+material = SubResource("ShaderMaterial_gshuy")
+position = Vector2(-311, 19)
+script = ExtResource("4_tgtjc")
+
+[node name="Scroller" type="Control" parent="CanvasGroup"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 556.0
+offset_top = 42.0
+offset_right = 596.0
+offset_bottom = 82.0
+grow_horizontal = 2
+script = ExtResource("2_ofawt")
+
+[node name="Title" type="TextureRect" parent="CanvasGroup/Scroller"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -47.0
+offset_top = 15.0
+offset_right = 621.0
+offset_bottom = 533.3491
+grow_horizontal = 2
+texture = ExtResource("2_itdmn")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasGroup/Scroller"]
+clip_contents = false
+layout_mode = 0
+offset_left = 23.0
+offset_top = 543.0
+offset_right = 541.0
+offset_bottom = 8824.0
+theme_override_colors/font_shadow_color = Color(1, 0.36666667, 0, 1)
+theme_override_constants/paragraph_separation = 0
+theme_override_constants/shadow_outline_size = 12
+theme_override_constants/shadow_offset_x = -2
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 14
+theme_override_fonts/normal_font = ExtResource("3_itdmn")
+theme_override_font_sizes/normal_font_size = 17
+bbcode_enabled = true
+text = "[font=uid://ypol1ssrkffh][shake rate=7.0 level=5 connected=1][font_size=75]Sound[/font_size][/shake][/font]
+
+
+[shake rate=2. level=3 connected=1]Adrian Colon-Flores                          Music
+[/shake]
+[shake rate=2. level=3 connected=1]Alex Dugan                                     SFX
+[/shake]
+[shake rate=2. level=3 connected=1]Alexander Edralin                            Music
+[/shake]
+[shake rate=2. level=3 connected=1]Becs Neuman                                  Music
+[/shake]
+[shake rate=2. level=3 connected=1]Christopher Taylor                           Music
+[/shake]
+[shake rate=2. level=3 connected=1]Dale N                                         SFX
+[/shake]
+[shake rate=2. level=3 connected=1]E                                            Music
+[/shake]
+[shake rate=2. level=3 connected=1]Jesse de la Cruz                             Music
+[/shake]
+[shake rate=2. level=3 connected=1]Justin Lam                                   Music
+[/shake]
+[shake rate=2. level=3 connected=1]Matthew Caldwell                             Music
+[/shake]
+[shake rate=2. level=3 connected=1]Nathan Caruso                                Music
+[/shake]
+[shake rate=2. level=3 connected=1]Theo Serket                                  Music
+[/shake]
+[shake rate=2. level=3 connected=1]january                                        SFX
+[/shake]
+
+[font=uid://ypol1ssrkffh][shake rate=7.0 level=5 connected=1][font_size=75]Programming[/font_size][/shake][/font]
+
+
+[shake rate=2. level=3 connected=1]Camber Boles                Level, Enemies, Player
+[/shake]
+[shake rate=2. level=3 connected=1]Clancy Mahoney                              Player
+[/shake]
+[shake rate=2. level=3 connected=1]Connor Harrison                         UI, Bosses
+[/shake]
+[shake rate=2. level=3 connected=1]Emily Hansen                   UI, Enemies, Player
+[/shake]
+[shake rate=2. level=3 connected=1]Ethan Nguyen                                    UI
+[/shake]
+[shake rate=2. level=3 connected=1]Jamie Wexton                           UI, Enemies
+[/shake]
+[shake rate=2. level=3 connected=1]Jessup Gravitt                 UI, Enemies, Player
+[/shake]
+[shake rate=2. level=3 connected=1]Jordan Myers                                    UI
+[/shake]
+[shake rate=2. level=3 connected=1]Kaiden Zamora-Soon              UI, Bosses, Player
+[/shake]
+[shake rate=2. level=3 connected=1]Kernighan Mitchell                  Level, Enemies
+[/shake]
+[shake rate=2. level=3 connected=1]Martell Collins                            Enemies
+[/shake]
+[shake rate=2. level=3 connected=1]Matthew  N.                             UI, Player
+[/shake]
+[shake rate=2. level=3 connected=1]Maximilian Fowlkes                 Enemies, Player
+[/shake]
+[shake rate=2. level=3 connected=1]Oscar Angleberger                   Level, Enemies
+[/shake]
+[shake rate=2. level=3 connected=1]Rahul Mathew                                    UI
+[/shake]
+[shake rate=2. level=3 connected=1]Shakeeb Uddin                                   UI
+[/shake]
+[shake rate=2. level=3 connected=1]Trinity Himes                                   UI
+[/shake]
+[shake rate=2. level=3 connected=1]Tristan Napoliello                              UI
+[/shake]
+[shake rate=2. level=3 connected=1]Tushar Rangaswamy                          Enemies
+[/shake]
+
+[font=uid://ypol1ssrkffh][shake rate=7.0 level=5 connected=1][font_size=75]Design[/font_size][/shake][/font]
+
+
+[shake rate=2. level=3 connected=1]Adam Levine                              Narrative
+[/shake]
+[shake rate=2. level=3 connected=1]Alexis Doherty            Enemies/Bosses, Weapons,
+                                         QA Tester
+[/shake]
+[shake rate=2. level=3 connected=1]Andrew Zhan                                  Level
+[/shake]
+[shake rate=2. level=3 connected=1]Ari Pashya                   Narrative, Characters
+[/shake]
+[shake rate=2. level=3 connected=1]Ben Roberts                    UI, Enemies/Bosses,
+                                         QA Tester
+[/shake]
+[shake rate=2. level=3 connected=1]Benjamin Wright                   Level, QA Tester
+[/shake]
+[shake rate=2. level=3 connected=1]Chadwick Edralin II                      Narrative
+[/shake]
+[shake rate=2. level=3 connected=1]Clancy Mahoney                           QA Tester
+[/shake]
+[shake rate=2. level=3 connected=1]Connor Reynolds                          Narrative
+[/shake]
+[shake rate=2. level=3 connected=1]Edward Crawley               Narrative, Characters
+[/shake]
+[shake rate=2. level=3 connected=1]Ethan Davis                 UI, Systems, QA Tester
+[/shake]
+[shake rate=2. level=3 connected=1]Ethan Mejias                 Narrative, Characters
+[/shake]
+[shake rate=2. level=3 connected=1]Ethan Mejias                 Narrative, Characters
+[/shake]
+[shake rate=2. level=3 connected=1]Hanwen Zhang             Enemies/Bosses, Narrative
+[/shake]
+[shake rate=2. level=3 connected=1]Jacob Kinney             UI, Skill Tree, QA Tester
+[/shake]
+[shake rate=2. level=3 connected=1]Jeremy Scott                      Level, QA Tester
+[/shake]
+[shake rate=2. level=3 connected=1]Joan Palacios                            QA Tester
+[/shake]
+[shake rate=2. level=3 connected=1]Jordan McGill                     Level, QA Tester
+[/shake]
+[shake rate=2. level=3 connected=1]Jose Semidey                UI, Systems, QA Tester
+[/shake]
+[shake rate=2. level=3 connected=1]Josh Garnett                             Narrative
+[/shake]
+[shake rate=2. level=3 connected=1]Kai Minskey                    UI, Enemies/Bosses,
+                              Weapons, Skill Tree,
+                                Systems, QA Tester
+[/shake]
+[shake rate=2. level=3 connected=1]Kailyn Evans                            Characters
+[/shake]
+[shake rate=2. level=3 connected=1]Kellen Berger                  Weapons, Skill Tree
+[/shake]
+[shake rate=2. level=3 connected=1]Kelley Dugan                        Enemies/Bosses
+[/shake]
+[shake rate=2. level=3 connected=1]Kshaunish Shaik                UI, Enemies/Bosses,
+                              Weapons, Skill Tree,
+                              Systems, Characters,
+                                         QA Tester
+[/shake]
+[shake rate=2. level=3 connected=1]Lily Lofgren                        Enemies/Bosses
+[/shake]
+[shake rate=2. level=3 connected=1]Logan Downs              UI, Skill Tree, QA Tester
+[/shake]
+[shake rate=2. level=3 connected=1]Lukas Brockman                  Weapons, Narrative
+[/shake]
+[shake rate=2. level=3 connected=1]Maggie                                  Characters
+[/shake]
+[shake rate=2. level=3 connected=1]Matthew Hinkle                               Level
+[/shake]
+[shake rate=2. level=3 connected=1]Matthew Ng                        Level, QA Tester
+[/shake]
+[shake rate=2. level=3 connected=1]Micah Dickerson                     Enemies/Bosses
+[/shake]
+[shake rate=2. level=3 connected=1]Michael Haile             UI, Skill Tree, Systems,
+                                         QA Tester
+[/shake]
+[shake rate=2. level=3 connected=1]Nathan Caruso                                Level
+[/shake]
+[shake rate=2. level=3 connected=1]Noah Lee                                     Level
+[/shake]
+[shake rate=2. level=3 connected=1]Ray Patterson                            Narrative
+[/shake]
+[shake rate=2. level=3 connected=1]Shaun Roseberry                          Narrative
+[/shake]
+[shake rate=2. level=3 connected=1]Solomon Kefyalew            UI, Systems, QA Tester
+[/shake]
+[shake rate=2. level=3 connected=1]Toby Schultz                Level, UI, Skill Tree,
+                                 Weapons, Systems,
+                                         QA Tester
+[/shake]
+[shake rate=2. level=3 connected=1]Trinity Himes                       UI, Skill Tree
+[/shake]
+[shake rate=2. level=3 connected=1]Wynona \"Gin\" Pimentel                   Characters
+[/shake]
+
+[font=uid://ypol1ssrkffh][shake rate=7.0 level=5 connected=1][font_size=75]Art[/font_size][/shake][/font]
+
+
+[shake rate=2. level=3 connected=1]Alyssa Jemmott                         Environment
+[/shake]
+[shake rate=2. level=3 connected=1]Ana Mercogliano                        Environment
+[/shake]
+[shake rate=2. level=3 connected=1]Arthur wiggins                                  UI
+[/shake]
+[shake rate=2. level=3 connected=1]Breeana Rivera              Character, Environment
+[/shake]
+[shake rate=2. level=3 connected=1]Celenia Plemmons                        Enemy/Boss
+[/shake]
+[shake rate=2. level=3 connected=1]Emma Cypcar                             Enemy/Boss
+[/shake]
+[shake rate=2. level=3 connected=1]Finch Spear                             Enemy/Boss
+[/shake]
+[shake rate=2. level=3 connected=1]Gloria El Hage                Character, Cutscenes
+[/shake]
+[shake rate=2. level=3 connected=1]Grace Crowley                          Environment
+[/shake]
+[shake rate=2. level=3 connected=1]Ivory Jemmott                          Environment
+[/shake]
+[shake rate=2. level=3 connected=1]Jack Novak                                      UI
+[/shake]
+[shake rate=2. level=3 connected=1]Jay Larsen                    Environment, Weapons
+[/shake]
+[shake rate=2. level=3 connected=1]Jesse Park                             Environment
+[/shake]
+[shake rate=2. level=3 connected=1]Jonah Kossoy                             Character
+[/shake]
+[shake rate=2. level=3 connected=1]Kailyn Evans                             Character
+[/shake]
+[shake rate=2. level=3 connected=1]Kelley Dugan                            Enemy/Boss
+[/shake]
+[shake rate=2. level=3 connected=1]Lily Hesselton                           Cutscenes
+[/shake]
+[shake rate=2. level=3 connected=1]Lily Lofgren                            Enemy/Boss
+[/shake]
+[shake rate=2. level=3 connected=1]Logan Downs                                     UI
+[/shake]
+[shake rate=2. level=3 connected=1]Maggie                                 Environment
+[/shake]
+[shake rate=2. level=3 connected=1]Maya Banks                             Environment
+[/shake]
+[shake rate=2. level=3 connected=1]Mu Ying Yong                            Enemy/Boss
+[/shake]
+[shake rate=2. level=3 connected=1]Sage Moore                              Enemy/Boss
+[/shake]
+[shake rate=2. level=3 connected=1]Wynona \"Gin\" Pimentel                    Character
+[/shake]
+[shake rate=2. level=3 connected=1]max fermayer                 Environment, Weapons,
+                                                UI
+[/shake]
+
+[font=uid://ypol1ssrkffh][shake rate=7.0 level=5 connected=1][font_size=75]Officers[/font_size][/shake][/font]
+
+
+[shake rate=2. level=3 connected=1]Khalid Moosa                             President
+[/shake]
+[shake rate=2. level=3 connected=1]Mira Maclennan                      Vice President
+[/shake]
+[shake rate=2. level=3 connected=1]Joan Palacios                   Production Manager
+[/shake]
+[shake rate=2. level=3 connected=1]Alex Xayavong         Assistant Production Manager
+[/shake]
+[shake rate=2. level=3 connected=1]Kaiden Zamora-Soon                       Webmaster
+[/shake]
+[shake rate=2. level=3 connected=1]Jordan Tatum                             Webmaster
+[/shake]
+[shake rate=2. level=3 connected=1]Jonathan Seek                            Secretary
+[/shake]
+[shake rate=2. level=3 connected=1]Zachary Kim                              Treasurer
+[/shake]
+[shake rate=2. level=3 connected=1]Jesse Park                           Game Director
+[/shake]
+[shake rate=2. level=3 connected=1]Connor Hayes                        Sound Director
+[/shake]
+[shake rate=2. level=3 connected=1]Grace Dorl                Assistant Sound Director
+[/shake]
+[shake rate=2. level=3 connected=1]Michael Campbell           Programming Co-director
+[/shake]
+[shake rate=2. level=3 connected=1]Justin Langdon             Programming Co-director
+[/shake]
+[shake rate=2. level=3 connected=1]Ethan Hayes                        Design Director
+[/shake]
+[shake rate=2. level=3 connected=1]Kshaunish Shaik          Assistant Design Director
+[/shake]
+[shake rate=2. level=3 connected=1]Jordan McGill            Assistant Design Director
+[/shake]
+[shake rate=2. level=3 connected=1]Jonah Kossoy                          Art Director
+[/shake]
+[shake rate=2. level=3 connected=1]Jordan Tatum                Assistant Art Director
+[/shake]
+
+
+
+
+
+[center][wave][font_size=35]Thanks for playing![/font_size][/wave][/center]
+"
+fit_content = true
+scroll_active = false
