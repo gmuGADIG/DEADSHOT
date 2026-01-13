@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://byeig2ued41ht"
-path.s3tc="res://.godot/imported/blacksmith.png-846603452a1531cc096255878f68aa04.s3tc.ctex"
+path.s3tc="res://.godot/imported/npc_blacksmith.png-951eb4904d68167f6d8a0493572e472e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://world/npc/blacksmith.png"
-dest_files=["res://.godot/imported/blacksmith.png-846603452a1531cc096255878f68aa04.s3tc.ctex"]
+source_file="res://world/npc/npc_blacksmith.png"
+dest_files=["res://.godot/imported/npc_blacksmith.png-951eb4904d68167f6d8a0493572e472e.s3tc.ctex"]
 
 [params]
 

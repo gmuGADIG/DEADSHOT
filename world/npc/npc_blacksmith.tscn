@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b81n6pdoa3kip"]
 
 [ext_resource type="PackedScene" uid="uid://c8ycoujcnafdn" path="res://world/npc/npc_base.tscn" id="1_iuq6g"]
-[ext_resource type="Texture2D" uid="uid://byeig2ued41ht" path="res://world/npc/blacksmith.png" id="2_yrplb"]
+[ext_resource type="Texture2D" uid="uid://byeig2ued41ht" path="res://world/npc/npc_blacksmith.png" id="2_yrplb"]
 
 [node name="NPCBase" instance=ExtResource("1_iuq6g")]
 
