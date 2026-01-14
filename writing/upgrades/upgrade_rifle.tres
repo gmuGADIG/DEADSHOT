@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://ce3o8w06b1t8a"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_dvmm6"]
+
+[resource]
+script = ExtResource("1_dvmm6")
+dialog = "[] The Rifle feels nice and heavy, it’ll be a powerful tool."
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"

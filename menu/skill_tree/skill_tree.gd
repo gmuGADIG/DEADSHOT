@@ -85,7 +85,7 @@ func on_skill_tree_reset() -> void:
 			SkillSet.remove_skill(skill_button.itemDesc.skill_uid)
 			Global.meat_currency+=skill_button.itemDesc.skill_meat_cost
 			skill_button.state = Skill_Button.State.UNSET
-			update_state()
 	
+	update_state()
 	Global.skill_tree_changed.emit(SkillSet.SkillUID.RESPEC)
 			

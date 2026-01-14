@@ -121,13 +121,31 @@ func attempt_purchase() -> bool:
 	return false
 
 func purchase() -> void:
-	##TODO: GRANT SKILL
-	print(itemDesc.skill_name)
+	# Purchase
 	Global.meat_currency -= itemDesc.skill_meat_cost
 	state = State.PURCHASED
-	$TextureRect.texture = itemDesc.skill_image_upgraded
 	purchase_made.emit(itemDesc.skill_uid)
+	
+	# Visuals
+	$TextureRect.texture = itemDesc.skill_image_upgraded
 	%PurchaseParticles.emitting = true
+	
+	# Dialogue
+	play_dialogue()
+
+func play_dialogue() -> void:
+	if itemDesc.purchase_timeline != null:
+		Dialog.play(itemDesc.purchase_timeline)
+	else:
+		const generic_timelines: Array[String] = [
+			"res://writing/upgrades/upgrade_generic_1.tres",
+			"res://writing/upgrades/upgrade_generic_2.tres",
+			"res://writing/upgrades/upgrade_generic_3.tres",
+			"res://writing/upgrades/upgrade_generic_4.tres",
+			"res://writing/upgrades/upgrade_generic_5.tres",
+		]
+		var timeline: DialogTimeline = load(generic_timelines.pick_random())
+		Dialog.play(timeline)
 
 func indent() -> void:
 	var tween : Tween = get_tree().create_tween()
