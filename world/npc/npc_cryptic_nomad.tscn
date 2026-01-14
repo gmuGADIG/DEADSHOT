@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://drnl31ofxrsri"]
+[gd_scene load_steps=13 format=3 uid="uid://l48hxjrmvkp"]
 
 [ext_resource type="PackedScene" uid="uid://c8ycoujcnafdn" path="res://world/npc/npc_base.tscn" id="1_apov8"]
 [ext_resource type="Texture2D" uid="uid://bl3b1a4m7qyja" path="res://world/npc/npc_cryptic_nomad.png" id="2_1iwnu"]
@@ -80,7 +80,7 @@ animations = [{
 visible = false
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." index="2"]
-transform = Transform3D(0.365, 0, 0, 0, 0.3160993, 0.1825, 0, -0.1825, 0.3160993, 0, 1.5860665, 0)
+transform = Transform3D(0.365, 0, 0, 0, 0.3160993, 0.1825, 0, -0.1825, 0.3160993, 0, 1.5160575, 0)
 alpha_cut = 1
 sprite_frames = SubResource("SpriteFrames_y34tt")
 frame_progress = 0.3668083

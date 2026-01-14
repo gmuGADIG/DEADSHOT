@@ -5,78 +5,108 @@ extends EnemyBase
 ## The wilder's a terrifying tanky lunatic with a grenade launcher. They zip around spamming grenade projectiles.
 
 
-
 #region Variables
+##Rotates the target position around the wilder to achieve the sporadic movement
+const TARGET_DEVIATION = PI/2.0
 
-var rng: RandomNumberGenerator = RandomNumberGenerator.new()
-## How long to wait between firing a bullet
-@export var timeBetweenShotsMin: float = 1
-@export var timeBetweenShotsMax: float = 1
+## The amount of time the wilder runs away for before becoming aggro again
+@export var run_away_time_min: float = 1.5
+@export var run_away_time_max: float = 3
+@export var stride_distance: float = 3
 ## Select what node this fires as a bullet. It has to be of the Bullet class!
 @export var bullet: PackedScene
-## The most distance the enemy will travel in a single movement cycle
-@export var maxTravelDistance: float = 5.0 
-## Timer used to periodically check if the enemy is moving closer to its destination
-@export var StuckTimer: Timer
-## Stores a past position an arbitrary amount of time in the past to check if the enemy is moving closer to its destination
-var pastPosition: Vector3
+
+var target_position : Vector3
+##Checks if the wilder gets stuck during aggro or patrol mode
+var last_position : Vector3
 #endregion
 
 #region Behaviour Functions
 
 func _ready() -> void:
 	super._ready()
-	attack()
-	stuckCheckLoop()
+	
+	$RunAwayTimer.timeout.connect(func() -> void:
+		switch_state(AggroState.HOSTILE)
+	)
+	switch_state.call_deferred(AggroState.HOSTILE)	
 
 
 ## FIND A NICE POSITION TO RUN TO
-func enter_hostile() -> void:
-	# Get a random point on the navigation mesh and go there.
-	# NOTE: This only works if the current navigation map is FULLY CONTINUOUS and connected.
-	# If there are separate mesh islands, the Wilder will try to go there and never stop.
-	# This is a problem in test scenes, but the actual levels are fine. 
-	var targetPoint: Vector3 = NavigationServer3D.map_get_random_point(get_world_3d().get_navigation_map(), 1, false)
-	var targetIterations: int = 0
+func enter_patrol() -> void:
+	should_move = true
+	pick_target(true)
+	$RunAwayTimer.start(randf_range(run_away_time_min,run_away_time_max))
 	
-	# In this while loop, we test if the target point is too far away and re-roll until it's at a good distance.  
-	# We want to do this because the enemy is meant to move erratically and randomly, and that illusion breaks
-	# if the enemy is running 50 meters out in a straight line before it's able to roll for a new random point.
-	# That's still technically moving between random positions, but it's not visibly chaotic enough.
-	while true:
-		targetIterations+=1
-		if targetPoint.distance_to(self.global_position) > maxTravelDistance:
-			targetPoint = NavigationServer3D.map_get_random_point(get_world_3d().get_navigation_map(), 1, false)
-		else:
-			print(targetIterations)
-			break
-		
-	set_movement_target(targetPoint)
+## RUN AWAY randomly,
+func patrol() -> void:
+	if is_close_to_destination() or global_position.is_equal_approx(last_position):
+		pick_target(true)
+	last_position = global_position
 
-## RUN AROUND
+func pick_target(flee : bool) -> void:
+	target_position = global_position
+	var target_direction : Vector3 = global_position.direction_to(Player.instance.global_position)
+	var random_angle : float = randf_range(-TARGET_DEVIATION,TARGET_DEVIATION)
+	if flee:
+		random_angle += PI
+	target_position += target_direction.rotated(Vector3.UP,random_angle)*stride_distance
+	
+	target_position = NavigationServer3D.map_get_closest_point(
+		navigation_agent.get_navigation_map(),target_position
+	)
+	
+	set_movement_target(target_position)
+
+func enter_hostile() -> void:
+	should_move = true
+	pick_target(false)
+
 func hostile() -> void:
-	#set_movement_target(player.global_position);
-	should_move = not is_close_to_destination();
-	if is_close_to_destination(): switch_state(AggroState.HOSTILE)
+	var target_dist_squared : float = global_position.distance_squared_to(target_position)
+	
+	
+	var close_to_player : bool = 100 > global_position.distance_squared_to(Player.instance.global_position)
+	if close_to_player:
+		switch_state(AggroState.ATTACKING)
+		return
+	if is_close_to_destination() or global_position.is_equal_approx(last_position):
+		pick_target(false)
+	last_position = global_position
 
-## SHOOT AROUND
-# While attack() is in the state machine and is called every frame while the state is HOSTILE,
-# we aren't doing that here. This thing is constantly firing shots while moving around, not
-# transitioning between a "hostile" and "attack" state. NEVER set the Wilder's state to ATTACKING!
-func attack() -> void:
-	while true:
-		await get_tree().create_timer(randf_range(timeBetweenShotsMin,timeBetweenShotsMax), false).timeout
-		if process_mode == ProcessMode.PROCESS_MODE_DISABLED: continue
-		shootBullet()
-
-
+func enter_attack() -> void:
+	print("Attacking!!")
+	should_move = false
+	get_tree().create_timer(0.3).timeout.connect(func() -> void:
+		fire()
+		switch_state(AggroState.BENIGN)
+	)
+	
+	
 ## Create a bullet aimed at the player.
-func shootBullet() -> void:
+func attack() -> void:
+	return
+
+func fire() -> void:
+	barrage()
+	
+func barrage() -> void:
+	var shoot_dir : = getPlayerDirection()
+	shoot(shoot_dir)
+	await get_tree().create_timer(0.1).timeout
+	shoot(shoot_dir)
+	await get_tree().create_timer(0.1).timeout
+	shoot(shoot_dir)
+	await get_tree().create_timer(0.1).timeout
+	
+	
+func shoot(shoot_dir : Vector3) -> void:
 	var newBullet: Bullet = bullet.instantiate()
 	newBullet.atk_source = DamageInfo.Source.ENEMY
 	add_sibling(newBullet)
-	newBullet.fire(self, getPlayerDirection())
+	newBullet.fire(self, shoot_dir)
 	%WilderShootSound.play()
+	
 
 func getPlayerDirection() -> Vector3:
 	# We add 1 to the Y value of this vector to keep it aimed at the player's center of mass, not their origin.
@@ -84,18 +114,18 @@ func getPlayerDirection() -> Vector3:
 	var rawDirection: Vector3 = self.global_position.direction_to(player.global_position + Vector3(0,1,0))
 	return rawDirection.normalized()
 
-## The enemy checks that its position at the moment isn't the same as it was a short time prior. If they're too close, it must be stuck. Re-roll for a new position.
-func stuckCheckLoop() -> void:
-	while true:
-		pastPosition = self.global_position
-		await StuckTimer.timeout
-		if self.global_position.distance_to(pastPosition) < 0.5:
-			switch_state(AggroState.HOSTILE)
-
 func _on_killed() -> void:
 	var die_sound:AudioStreamPlayer3D = %WilderDeathSound
 	die_sound.reparent(get_tree().current_scene)
 	die_sound.play()
-	print("idied")
-	
+
+##INFO: THIS IS IMPORTANT, it overwrites the default behavior of entering agro as soon as it enters the screen
+func _on_visible_on_screen_notifier_3d_screen_entered() -> void:
+	pass
+
 #endregion
+
+
+func _on_visibility_changed() -> void:
+	if visible:
+		switch_state(AggroState.HOSTILE)

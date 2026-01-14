@@ -77,9 +77,11 @@ animations = [{
 
 [node name="Sprite3D" parent="." index="0"]
 transform = Transform3D(0.85, 0, 0, 0, 0.7361216, 0.425, 0, -0.425, 0.7361216, 0, 1.0986961, 0)
+alpha_cut = 1
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Sprite3D" index="0"]
 transform = Transform3D(0.3, 0, 0, 0, 0.29999998, 0, 0, 0, 0.29999998, 0, 0, 0)
+alpha_cut = 1
 sprite_frames = SubResource("SpriteFrames_f8bfr")
 animation = &"new_animation"
 frame_progress = 0.2711292

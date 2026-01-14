@@ -10,14 +10,14 @@
 [ext_resource type="PackedScene" uid="uid://8er7o8byf7v1" path="res://world/decoration/well/well.tscn" id="7_7xwwm"]
 [ext_resource type="PackedScene" uid="uid://d1e8myf75tnlv" path="res://world/interactables/cover/cover_cactus_large.tscn" id="8_5rqjd"]
 [ext_resource type="PackedScene" uid="uid://c2bxn6p802s68" path="res://world/interactables/cover/cover_cactus_small.tscn" id="9_jncf5"]
-[ext_resource type="Resource" uid="uid://dgfsfa6177rri" path="res://audio/music/song_files/desert_level/Matthew_desert_combat_song.tres" id="10_60nak"]
+[ext_resource type="Resource" uid="uid://dj1lgak3vyged" path="res://audio/music/song_files/desert_level/Matthew_desert_combat_song.tres" id="10_60nak"]
 [ext_resource type="PackedScene" uid="uid://bp6l0lw650m8o" path="res://world/blocker/blocker.tscn" id="10_101jw"]
 [ext_resource type="PackedScene" uid="uid://dhb2pgqbfvxoa" path="res://world/enemy/encounter/encounter.tscn" id="10_hfrtt"]
 [ext_resource type="PackedScene" uid="uid://b4n4rflu3my0v" path="res://world/enemy/longhorn/longhorn.tscn" id="11_nn1ho"]
 [ext_resource type="PackedScene" uid="uid://by1e10t6ksd64" path="res://world/enemy/bird_swarm/bird_swarm.tscn" id="13_guq7u"]
-[ext_resource type="PackedScene" uid="uid://c7c1lwr411btx" path="res://audio/music/music_player/play_song_for_scene.tscn" id="14_oaism"]
+[ext_resource type="PackedScene" path="res://audio/music/music_player/play_song_for_scene.tscn" id="14_oaism"]
 [ext_resource type="PackedScene" uid="uid://dgq8eujhb7aiv" path="res://world/enemy/bandit/enemy_bandit.tscn" id="15_fhs7y"]
-[ext_resource type="Resource" uid="uid://cckle8iujnl64" path="res://audio/music/song_files/desert_level/Nila_desert_song.tres" id="15_guq7u"]
+[ext_resource type="Resource" uid="uid://b35x0p4fll1cm" path="res://audio/music/song_files/desert_level/Nila_desert_song.tres" id="15_guq7u"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_hfrtt"]
 vertices = PackedVector3Array(-60.25, 0.48999962, 2.674615, -60.25, 0.48999962, 4.424615, -59.5, 0.48999962, 4.674615, -49, 0.48999962, 6.174615, -49, 0.48999962, 0.6746149, -12.5, 0.48999962, 4.424615, -12.25, 0.48999962, 1.4246149, -13.5, 0.48999962, 0.9246149, -13.75, 0.48999962, 5.424615, -48.5, 0.48999962, 0.1746149, -48.5, 0.48999962, 6.674615, -48.25, 0.48999962, 13.924615, -18.75, 0.48999962, 13.924615, -18.5, 0.48999962, -7.825385, -48.5, 0.48999962, -7.825385, 29.25, 0.48999962, 4.424615, 29.5, 0.48999962, 3.924615, 29.25, 0.48999962, 1.6746149, 25.5, 0.48999962, 1.4246149, 26, 0.48999962, 4.424615, -11.25, 0.48999962, 5.174615, -10.75, 0.48999962, -0.07538509, 21.75, 0.48999962, 13.924615, 25.25, 0.48999962, 4.924615, -6.25, 0.48999962, 13.924615, 21.75, 0.48999962, -7.825385, -6.25, 0.48999962, -7.825385)
@@ -162,7 +162,7 @@ shape = SubResource("BoxShape3D_nn1ho")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7420006, 0, -5.2125683)
 
 [node name="Blocker" parent="LeftArea/Encounter" index="3" instance=ExtResource("10_101jw")]
-transform = Transform3D(1.782, 0, 0, 0, 1, 0, 0, 0, 9.304141, 17.697525, 0, -4.871868)
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 7, 19.25, 0, -5)
 
 [node name="BirdSwarm" parent="LeftArea/Encounter" index="4" instance=ExtResource("13_guq7u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.303892, 0.22196937, -11.976815)
@@ -211,10 +211,10 @@ camera_zoom = 1.3
 encounter_song = ExtResource("10_60nak")
 
 [node name="Blocker" parent="RightArea/Encounter2" index="1" instance=ExtResource("10_101jw")]
-transform = Transform3D(1.782, 0, 0, 0, 1, 0, 0, 0, 9.304141, -17.037071, 0, -4.871868)
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 7, -18.25, 0, -4.785)
 
 [node name="Blocker2" parent="RightArea/Encounter2" index="2" instance=ExtResource("10_101jw")]
-transform = Transform3D(1.782, 0, 0, 0, 1, 0, 0, 0, 9.304141, 19.47855, 0, -4.871868)
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 5, 20.610462, 0, -4.54822)
 
 [node name="EncounterShape" type="CollisionShape3D" parent="RightArea/Encounter2" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.340645, 0, 0.0406456)

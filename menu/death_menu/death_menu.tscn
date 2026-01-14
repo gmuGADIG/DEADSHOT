@@ -1,28 +1,80 @@
-[gd_scene load_steps=5 format=3 uid="uid://cda13rfhy3s2v"]
+[gd_scene load_steps=7 format=3 uid="uid://cda13rfhy3s2v"]
 
-[ext_resource type="Texture2D" uid="uid://cegfpthfj6eil" path="res://temp_art/gartic/godot_dead.png" id="1_0hfil"]
 [ext_resource type="Script" uid="uid://bv567fesukdbq" path="res://menu/death_menu/death_menu.gd" id="1_78wx2"]
 [ext_resource type="PackedScene" uid="uid://c7c1lwr411btx" path="res://audio/music/music_player/play_song_for_scene.tscn" id="3_dja7b"]
 [ext_resource type="Resource" uid="uid://bqvt6ossatd16" path="res://audio/music/song_files/misc/Cooper_death_jingle_song.tres" id="4_vaouj"]
 
-[node name="DeathMenu" type="Node2D"]
+[sub_resource type="Animation" id="Animation_dja7b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_r7wyr"]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.89411765)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vaouj"]
+_data = {
+&"RESET": SubResource("Animation_dja7b"),
+&"start": SubResource("Animation_r7wyr")
+}
+
+[node name="DeathMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_78wx2")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(578.5, 328.00003)
-scale = Vector2(2.5995471, 4.571429)
-texture = ExtResource("1_0hfil")
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_left = 414.0
-offset_top = 466.0
-offset_right = 799.0
-offset_bottom = 739.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -192.5
+offset_top = -273.0
+offset_right = 192.5
+grow_horizontal = 2
+grow_vertical = 0
 
 [node name="LoadSaveButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "LOAD SAVE"
+text = "LOAD FROM LAST SAVE"
 
 [node name="MainMenuButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -35,17 +87,29 @@ theme_override_font_sizes/font_size = 32
 text = "QUIT GAME"
 
 [node name="Label" type="Label" parent="."]
-offset_left = 263.0
-offset_top = -9.0
-offset_right = 867.0
-offset_bottom = 166.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -302.0
+offset_right = 302.0
+offset_bottom = 229.0
+grow_horizontal = 2
 theme_override_font_sizes/font_size = 128
 text = "YOU DIED"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PlaySongForScene" parent="." instance=ExtResource("3_dja7b")]
 song = ExtResource("4_vaouj")
 reset_song = true
 immediate = true
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_vaouj")
+}
+autoplay = "start"
 
 [connection signal="pressed" from="VBoxContainer/LoadSaveButton" to="." method="_on_load_save_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

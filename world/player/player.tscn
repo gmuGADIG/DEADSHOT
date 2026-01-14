@@ -1,7 +1,6 @@
-[gd_scene load_steps=44 format=3 uid="uid://nuqmhgq1e2lu"]
+[gd_scene load_steps=25 format=3 uid="uid://nuqmhgq1e2lu"]
 
 [ext_resource type="Script" uid="uid://llqh4g6obmup" path="res://world/player/player.gd" id="1_bvkkv"]
-[ext_resource type="Texture2D" uid="uid://doi1lgfq8hi21" path="res://world/player/player_sheet.png" id="2_2x47q"]
 [ext_resource type="PackedScene" uid="uid://bas8xwk5nhlq0" path="res://world/player/HUD/hud.tscn" id="2_duds0"]
 [ext_resource type="Script" uid="uid://dbka0ckv4aeih" path="res://world/player/player_animation.gd" id="3_3n4qb"]
 [ext_resource type="Script" uid="uid://cwjxwkxciij4o" path="res://systems/interaction/interactor.gd" id="3_cvtd2"]
@@ -10,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://duf7ry1s34j7o" path="res://world/player/weapon/whip/whip.tscn" id="4_duds0"]
 [ext_resource type="PackedScene" uid="uid://s0mcou8b7n0v" path="res://systems/attacking/hurt_fx/hurt_fx.tscn" id="4_myh4x"]
 [ext_resource type="PackedScene" uid="uid://cj5uuu7xjsprv" path="res://world/player/weapon/basic_gun/basic_gun.tscn" id="4_q1k4r"]
+[ext_resource type="SpriteFrames" uid="uid://dmswlafp654ob" path="res://world/player/player_sprite_frames.tres" id="5_scey4"]
 [ext_resource type="Script" uid="uid://do5vs8m1law7o" path="res://systems/attacking/health/health.gd" id="6_thypd"]
 [ext_resource type="Script" uid="uid://lxg83i28nlul" path="res://systems/attacking/hurtbox/hurtbox.gd" id="7_d3e1v"]
 [ext_resource type="Texture2D" uid="uid://veqmqpjiki0d" path="res://world/player/reticle/reticle.png" id="10_scey4"]
@@ -27,160 +27,6 @@ point_count = 4
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_plfsl"]
 height = 1.85699
 radius = 0.669922
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3n4qb"]
-atlas = ExtResource("2_2x47q")
-region = Rect2(4096, 0, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_myh4x"]
-atlas = ExtResource("2_2x47q")
-region = Rect2(0, 1024, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_80mbn"]
-atlas = ExtResource("2_2x47q")
-region = Rect2(1024, 1024, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lbm61"]
-atlas = ExtResource("2_2x47q")
-region = Rect2(2048, 1024, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2x47q"]
-atlas = ExtResource("2_2x47q")
-region = Rect2(1024, 3072, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jrep8"]
-atlas = ExtResource("2_2x47q")
-region = Rect2(2048, 3072, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q1k4r"]
-atlas = ExtResource("2_2x47q")
-region = Rect2(3072, 3072, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_scey4"]
-atlas = ExtResource("2_2x47q")
-region = Rect2(4096, 3072, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fn377"]
-atlas = ExtResource("2_2x47q")
-region = Rect2(2048, 5120, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wxa5a"]
-atlas = ExtResource("2_2x47q")
-region = Rect2(3072, 5120, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xq3gs"]
-atlas = ExtResource("2_2x47q")
-region = Rect2(4096, 5120, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hnw2l"]
-atlas = ExtResource("2_2x47q")
-region = Rect2(2048, 2048, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gy2m5"]
-atlas = ExtResource("2_2x47q")
-region = Rect2(3072, 2048, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tckbl"]
-atlas = ExtResource("2_2x47q")
-region = Rect2(4096, 2048, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sacbj"]
-atlas = ExtResource("2_2x47q")
-region = Rect2(0, 3072, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a8tvd"]
-atlas = ExtResource("2_2x47q")
-region = Rect2(0, 6144, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rwc3p"]
-atlas = ExtResource("2_2x47q")
-region = Rect2(1024, 6144, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7vsto"]
-atlas = ExtResource("2_2x47q")
-region = Rect2(2048, 6144, 1024, 1024)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_jrep8"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3n4qb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_myh4x")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_80mbn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lbm61")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2x47q")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jrep8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q1k4r")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_scey4")
-}],
-"loop": false,
-"name": &"rolling",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fn377")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wxa5a")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xq3gs")
-}],
-"loop": false,
-"name": &"shooting",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hnw2l")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gy2m5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tckbl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sacbj")
-}],
-"loop": true,
-"name": &"walking",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a8tvd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rwc3p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7vsto")
-}],
-"loop": false,
-"name": &"whipping",
-"speed": 10.0
-}]
 
 [sub_resource type="Animation" id="Animation_wxa5a"]
 length = 0.001
@@ -266,7 +112,7 @@ modulate = Color(0.3, 0.3, 0.3, 1)
 transform = Transform3D(0.39, 0, 0, 0, 0.33774987, 0.19500007, 0, -0.19500007, 0.33774987, 0.00084251165, 1.6017487, 0)
 shaded = true
 alpha_cut = 2
-sprite_frames = SubResource("SpriteFrames_jrep8")
+sprite_frames = ExtResource("5_scey4")
 animation = &"rolling"
 autoplay = "idle"
 script = ExtResource("3_3n4qb")

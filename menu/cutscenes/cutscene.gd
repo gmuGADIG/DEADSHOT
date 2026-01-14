@@ -43,7 +43,7 @@ func _ready()->void:
 	#await animator.animation_finished
 
 func text_finished() -> void:
-	while Dialog.panel.visible:
+	while Dialog.visible:
 		await get_tree().process_frame
 
 func show_advance_prompt() -> void:

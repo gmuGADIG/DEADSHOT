@@ -82,12 +82,16 @@ func show_character() -> void:
 		timer.stop()
 		return
 	check_speed_change()
+	if len(text_box.text) <= text_box.visible_characters:
+		return
 	play_char(text_box.text[text_box.visible_characters])
 	
 	text_box.visible_characters += 1
 
 func check_speed_change() -> void:
 	if not is_text_being_rendered():
+		return
+	if len(text_box.text) <= text_box.visible_characters:
 		return
 	if text_box.text[text_box.visible_characters] != '{':
 		return
