@@ -134,12 +134,12 @@ script = ExtResource("4_mvjcd")
 entry_direction = Vector3(-1, 0, 0)
 
 [node name="Bottom" type="Node3D" parent="EntryPoints" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.401251, 9.536743e-07, 41.76631)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.401251, 9.536743e-07, 46.718662)
 script = ExtResource("4_mvjcd")
 entry_direction = Vector3(0, 0, -1)
 
 [node name="Top" type="Node3D" parent="EntryPoints" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.080943, 9.536743e-07, -39.405308)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.080943, 9.536743e-07, -43.624386)
 script = ExtResource("4_mvjcd")
 entry_direction = Vector3(0, 0, 1)
 
