@@ -131,6 +131,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.942047, -1.1106106e-06, -
 
 [node name="CursedPlant" parent="LeftArea/Decoration" index="0" instance=ExtResource("6_f6ib5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.840607, 0, 14.135367)
+type = 1
 
 [node name="CursedPlant2" parent="LeftArea/Decoration" index="1" instance=ExtResource("6_f6ib5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.981382, 0, 14.3921585)
@@ -189,7 +190,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.754, 0, 11.468)
 
 [node name="CursedPlant4" parent="RightArea/Decoration" index="0" instance=ExtResource("6_f6ib5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6024475, 0, -8.81553)
-type = 1
 
 [node name="CursedPlant5" parent="RightArea/Decoration" index="1" instance=ExtResource("6_f6ib5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.922581, 0, -8.826532)
