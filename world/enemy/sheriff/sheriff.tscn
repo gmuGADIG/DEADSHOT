@@ -2,14 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://dwdhuncnyfmcw" path="res://world/enemy/wilder/wilder.tscn" id="1_wqu7g"]
 [ext_resource type="Script" uid="uid://cyjssoraty4ok" path="res://world/enemy/sheriff/sheriff.gd" id="2_h2jae"]
-[ext_resource type="PackedScene" uid="uid://cx8e0px578hd7" path="res://slash.tscn" id="3_6d7by"]
 [ext_resource type="PackedScene" uid="uid://dbxsvyvdibova" path="res://world/enemy/Enemy Bullets/sheriff_star.tscn" id="3_e873n"]
 [ext_resource type="PackedScene" uid="uid://bl78b6gav1q1b" path="res://world/enemy/base/qte_target.tscn" id="5_8r3kc"]
 
 [node name="Sheriff" instance=ExtResource("1_wqu7g")]
 script = ExtResource("2_h2jae")
+barrage_time = 0.75
 star = ExtResource("3_e873n")
-slash = ExtResource("3_6d7by")
+slash = null
+run_away_time_min = 0.75
+run_away_time_max = 2.5
 timeBetweenShotsMin = 0.8
 timeBetweenShotsMax = 1.2
 is_boss = true
@@ -17,6 +19,7 @@ is_boss = true
 [node name="Health" parent="." index="4"]
 max_health = 20.0
 
+[node name="FiringTimerREAL" type="Timer" parent="." index="10"]
 [node name="QTETarget" parent="QTEHandler" index="0" instance=ExtResource("5_8r3kc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29982, -0.017081022, 0)
 
@@ -28,3 +31,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02726686, 1.8602431, 0)
 
 [node name="QTETarget4" parent="QTEHandler" index="3" instance=ExtResource("5_8r3kc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.018092453, 1.05593, 0)
+>>>>>>> main
