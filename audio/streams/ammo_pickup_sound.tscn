@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4dostmawh7m8"]
+
+[ext_resource type="PackedScene" uid="uid://ci3804ofkibap" path="res://audio/streams/sound_base.tscn" id="1_base"]
+[ext_resource type="AudioStream" uid="uid://ckay0a6f3vth8" path="res://audio/player/se_player_ammoPickUp.mp3" id="1_wmtfg"]
+
+[node name="AmmoPickupSound" instance=ExtResource("1_base")]
+stream = ExtResource("1_wmtfg")
+volume_db = -2.106
+delete_on_finish = true

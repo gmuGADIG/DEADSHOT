@@ -4,8 +4,6 @@ class_name WhipAttackData extends Resource
 @export var knockback : DamageInfo.KnockbackStrength
 @export_category("VFX")
 @export var sprite_glow_brightness : float
-@export_category("SFX")
-@export var sound : AudioStream
 #
 #func _init(damage : int, knockback : DamageInfo.KnockbackStrength, sprite_glow_brightness : float, sound : AudioStream) -> void:
 	#self.damage = damage

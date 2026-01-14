@@ -9,8 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://djn6jyw5vuicu" path="res://audio/enemies/bandit/bandit_dies.tscn" id="5_j5a5e"]
 [ext_resource type="Script" uid="uid://b5d5dfn03djx6" path="res://world/enemy/base/enemy_animator/enemy_frames.gd" id="5_pvoqi"]
 [ext_resource type="PackedScene" uid="uid://d4f1fg4m5hdar" path="res://audio/enemies/bandit/bandit_fire.tscn" id="6_4xph0"]
-[ext_resource type="PackedScene" uid="uid://ydnqhfpbxx0f" path="res://audio/enemies/bandit/bandit_hurt.tscn" id="7_nwlji"]
-[ext_resource type="Script" uid="uid://xhcb1o6cugjs" path="res://world/enemy/bandit/play_fired_sound.gd" id="7_ywn7w"]
+[ext_resource type="Script" path="res://world/enemy/bandit/play_fired_sound.gd" id="7_ywn7w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4nfra"]
 atlas = ExtResource("3_ywn7w")
@@ -144,9 +143,6 @@ max_health = 2.0
 [node name="PlayDeathSound" type="Node3D" parent="Health" index="0"]
 script = ExtResource("4_34fns")
 
-[node name="PlayHurtSound" type="Node3D" parent="Hurtbox" index="2"]
-script = ExtResource("5_arsgg")
-
 [node name="Damagebox" type="Area3D" parent="." index="6"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
@@ -168,11 +164,7 @@ unique_name_in_owner = true
 [node name="BanditFire" parent="Sounds" index="1" instance=ExtResource("6_4xph0")]
 unique_name_in_owner = true
 
-[node name="BanditHurt" parent="Sounds" index="2" instance=ExtResource("7_nwlji")]
-unique_name_in_owner = true
-
 [connection signal="enemy_fired" from="." to="PlayFiredSound" method="_on_enemy_bandit_enemy_fired"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
 [connection signal="killed" from="Health" to="Health/PlayDeathSound" method="_on_health_killed"]
-[connection signal="was_hit" from="Hurtbox" to="Hurtbox/PlayHurtSound" method="_on_hurtbox_was_hit"]
 [connection signal="timeout" from="FiringTimer" to="." method="_on_firing_timer_timeout"]

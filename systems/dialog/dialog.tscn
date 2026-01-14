@@ -85,5 +85,6 @@ metadata/_edit_lock_ = true
 stream = ExtResource("2_qqm2g")
 volume_db = -10.0
 max_polyphony = 2
+bus = &"SFX"
 
 [connection signal="timeout" from="LineTimer" to="." method="show_character"]

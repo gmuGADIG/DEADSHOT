@@ -7,7 +7,12 @@ func shoot() -> void:
 	add_sibling(new_bullet)
 	new_bullet.global_position = $ShootOrigin.global_position
 	new_bullet.velocity = Vector3.LEFT * new_bullet.speed
+	$WilderShootSound.play()
 
 
 func _on_killed() -> void:
+	var sfx := $WilderDeathSound
+	if sfx:
+		sfx.reparent(get_tree().current_scene)
+		sfx.play()
 	queue_free()

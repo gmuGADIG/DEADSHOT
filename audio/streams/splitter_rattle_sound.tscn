@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ga2ksa3u0w2g"]
+
+[ext_resource type="AudioStream" uid="uid://5c8182kg4y2p" path="res://audio/enemies/splitter/se_ememySplitter_spot_1alessandro.mp3" id="1_pxbre"]
+
+[node name="SplitterRattleSound" type="AudioStreamPlayer3D"]
+stream = ExtResource("1_pxbre")
+bus = &"SFX"

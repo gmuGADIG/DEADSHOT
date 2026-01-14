@@ -3,22 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b4chv76syicuf"
-path.s3tc="res://.godot/imported/paper.png-f433acdde30b0f0b7f86260075e46a45.s3tc.ctex"
+path="res://.godot/imported/paper.png-f433acdde30b0f0b7f86260075e46a45.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://world/npc/paper/paper.png"
-dest_files=["res://.godot/imported/paper.png-f433acdde30b0f0b7f86260075e46a45.s3tc.ctex"]
+dest_files=["res://.godot/imported/paper.png-f433acdde30b0f0b7f86260075e46a45.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.9
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

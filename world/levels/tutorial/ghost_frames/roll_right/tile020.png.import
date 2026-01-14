@@ -3,22 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b60vhaqbjmjwj"
-path.s3tc="res://.godot/imported/tile020.png-18ca0832907485c2f6cb7346f3c94984.s3tc.ctex"
+path="res://.godot/imported/tile020.png-18ca0832907485c2f6cb7346f3c94984.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://world/levels/tutorial/ghost_frames/roll_right/tile020.png"
-dest_files=["res://.godot/imported/tile020.png-18ca0832907485c2f6cb7346f3c94984.s3tc.ctex"]
+dest_files=["res://.godot/imported/tile020.png-18ca0832907485c2f6cb7346f3c94984.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.9
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

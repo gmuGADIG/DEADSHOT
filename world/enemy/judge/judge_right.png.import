@@ -3,22 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cur1yiwcka8r4"
-path.s3tc="res://.godot/imported/judge_right.png-194d84fdc0a9b3e902d7d5ea2a81b82b.s3tc.ctex"
+path="res://.godot/imported/judge_right.png-194d84fdc0a9b3e902d7d5ea2a81b82b.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://world/enemy/judge/judge_right.png"
-dest_files=["res://.godot/imported/judge_right.png-194d84fdc0a9b3e902d7d5ea2a81b82b.s3tc.ctex"]
+dest_files=["res://.godot/imported/judge_right.png-194d84fdc0a9b3e902d7d5ea2a81b82b.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.9
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

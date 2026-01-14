@@ -3,22 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://sxaysn4gqoxo"
-path.s3tc="res://.godot/imported/coin.png-ffcbc0f78b6164b2a8b1d37401325b2f.s3tc.ctex"
+path="res://.godot/imported/coin.png-ffcbc0f78b6164b2a8b1d37401325b2f.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://temp_art/gartic/coin.png"
-dest_files=["res://.godot/imported/coin.png-ffcbc0f78b6164b2a8b1d37401325b2f.s3tc.ctex"]
+dest_files=["res://.godot/imported/coin.png-ffcbc0f78b6164b2a8b1d37401325b2f.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.9
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

@@ -3,22 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c1c6db3ihcm7c"
-path.s3tc="res://.godot/imported/mines_supports.png-d6cd2d583871d1220c8761bc0ae46681.s3tc.ctex"
+path="res://.godot/imported/mines_supports.png-d6cd2d583871d1220c8761bc0ae46681.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://world/decoration/mine_supports/mines_supports.png"
-dest_files=["res://.godot/imported/mines_supports.png-d6cd2d583871d1220c8761bc0ae46681.s3tc.ctex"]
+dest_files=["res://.godot/imported/mines_supports.png-d6cd2d583871d1220c8761bc0ae46681.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.9
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

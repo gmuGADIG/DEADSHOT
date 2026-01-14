@@ -26,10 +26,4 @@ func _on_body_entered(body: Node3D) -> void:
 
 func change_scene_smooth(scene_path : String) -> void:
 	var tree := get_tree()
-	var prev_scene : Node = tree.current_scene
-	var next_scene : Node = load(scene_path).instantiate()
-	tree.get_root().add_child(next_scene)
-	prev_scene.hide()
-	prev_scene.queue_free()
-	tree.get_root().remove_child(prev_scene)
-	tree.set_current_scene(next_scene)
+	tree.change_scene_to_file(scene_path)
