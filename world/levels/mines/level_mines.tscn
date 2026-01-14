@@ -1,7 +1,6 @@
-[gd_scene load_steps=46 format=3 uid="uid://c4nw61qu6fyyk"]
+[gd_scene load_steps=45 format=3 uid="uid://c4nw61qu6fyyk"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_nthvq"]
-[ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="2_ohr83"]
 [ext_resource type="Texture2D" uid="uid://48dfxh6s6pk2" path="res://world/backgrounds/cavern_bg.png" id="2_rskgg"]
 [ext_resource type="Resource" uid="uid://ebi2mrpur7b6" path="res://world/floor/rock/rock.tres" id="2_tlwcp"]
 [ext_resource type="Texture2D" uid="uid://ba2eoskeemjii" path="res://world/backgrounds/cave_pillars.png" id="3_3oa8p"]
@@ -131,11 +130,6 @@ entry_direction = Vector3(1, 0, 0)
 
 [node name="TransitionAreas" parent="." index="4"]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -4.200489, 0, 13.822917)
-
-[node name="Left" parent="TransitionAreas" index="0" instance=ExtResource("2_ohr83")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4658823, 0, 11.19899)
-target_scene = "uid://crgv6bkolrlyy"
-target_entry_point = "Right"
 
 [node name="Notes" type="Node3D" parent="." index="5"]
 
