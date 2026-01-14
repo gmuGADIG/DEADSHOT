@@ -6,6 +6,7 @@
 
 [node name="Sheriff" instance=ExtResource("1_wqu7g")]
 script = ExtResource("2_h2jae")
+barrage_time = 0.75
 star = ExtResource("3_e873n")
 slash = null
 run_away_time_min = 0.75
@@ -13,3 +14,5 @@ run_away_time_max = 2.5
 
 [node name="Health" parent="." index="4"]
 max_health = 20.0
+
+[node name="FiringTimerREAL" type="Timer" parent="." index="10"]

@@ -1,21 +1,32 @@
 class_name Sheriff
 extends Wilder
 
+#enum SelectedAttack{
+	#WHIP,
+	#STAR
+#}
+
+@export var barrage_time : float
 @export var star : PackedScene
 @export var slash : PackedScene
 
+#var selected_attack : SelectedAttack = SelectedAttack.STAR
+
+func _ready() -> void:
+	super._ready()
+	$FiringTimerREAL.timeout.connect(func() -> void:
+		if aggro != AggroState.ATTACKING:
+			barrage()
+	)
+	$FiringTimerREAL.start(barrage_time)
+	
+#func pick_target(flee : bool) -> void:
+	#if not flee:
+		#barrage()
+	#super.pick_target(flee)
+
 func fire() -> void:
-	var rng : int = randi_range(1,100)
-	if rng <= 50:
-		var shoot_dir : = getPlayerDirection()
-		shoot(shoot_dir)
-		await get_tree().create_timer(0.1).timeout
-		shoot(shoot_dir)
-		await get_tree().create_timer(0.1).timeout
-		shoot(shoot_dir)
-		await get_tree().create_timer(0.1).timeout
-	else:
-		shoot_star()
+	shoot_star()
 	switch_state(AggroState.BENIGN)
 	
 func shoot_star() -> void:

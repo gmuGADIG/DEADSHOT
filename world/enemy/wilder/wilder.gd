@@ -77,15 +77,20 @@ func hostile() -> void:
 func enter_attack() -> void:
 	print("Attacking!!")
 	should_move = false
-	get_tree().create_timer(0.3).timeout.connect(fire)
+	get_tree().create_timer(0.3).timeout.connect(func() -> void:
+		fire()
+		switch_state(AggroState.BENIGN)
+	)
 	
 	
 ## Create a bullet aimed at the player.
 func attack() -> void:
-	
 	return
 
 func fire() -> void:
+	barrage()
+	
+func barrage() -> void:
 	var shoot_dir : = getPlayerDirection()
 	shoot(shoot_dir)
 	await get_tree().create_timer(0.1).timeout
@@ -94,7 +99,7 @@ func fire() -> void:
 	shoot(shoot_dir)
 	await get_tree().create_timer(0.1).timeout
 	
-	switch_state(AggroState.BENIGN)
+	
 func shoot(shoot_dir : Vector3) -> void:
 	var newBullet: Bullet = bullet.instantiate()
 	newBullet.atk_source = DamageInfo.Source.ENEMY
