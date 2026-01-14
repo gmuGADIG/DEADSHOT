@@ -19,7 +19,7 @@ signal skill_removed(skill: SkillSet.SkillUID)
 signal boss_spawned(boss: BossEnemy)
 signal entered_boss_encounter
 
-var meat_currency:int = 0:
+var meat_currency:int = 999:
 	set(new_val):
 		meat_currency = new_val
 		meat_changed.emit()
