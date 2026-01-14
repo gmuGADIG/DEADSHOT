@@ -15,12 +15,12 @@ func set_on_fire() -> void:
 	on_fire = true
 	
 	dot_timer.start()
-	%FireStartSound.play()
+	# %FireStartSound.play()
 	%FireParticles.emitting = true
 	%FireLight.show()
 
 func _on_dot_timer_timeout() -> void:
-	%FireHitSound.play()
+	# %FireHitSound.play()
 	hurtbox.hit(DamageInfo.new(
 		DMG_PER_HIT * stacks,
 		DamageInfo.Source.PLAYER,

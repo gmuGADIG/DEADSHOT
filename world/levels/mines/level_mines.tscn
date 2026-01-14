@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://c4nw61qu6fyyk"]
+[gd_scene load_steps=46 format=3 uid="uid://c4nw61qu6fyyk"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_nthvq"]
 [ext_resource type="Texture2D" uid="uid://48dfxh6s6pk2" path="res://world/backgrounds/cavern_bg.png" id="2_rskgg"]
@@ -27,6 +27,7 @@
 [ext_resource type="Script" uid="uid://d2wxipl4px3iw" path="res://world/levels/arena_area.gd" id="17_skfgv"]
 [ext_resource type="PackedScene" uid="uid://dwsraqi3f8a1l" path="res://world/interactables/campfire/campfire.tscn" id="19_lrsis"]
 [ext_resource type="Resource" uid="uid://dtb4tigljrqvr" path="res://audio/music/song_files/mines_level/Adrien_mass_boss_song.tres" id="20_huu48"]
+[ext_resource type="PackedScene" uid="uid://ccw4qikojwtx" path="res://menu/cutscenes/outro/cutscene_outro.tscn" id="22_mqp80"]
 [ext_resource type="PackedScene" uid="uid://c7c1lwr411btx" path="res://audio/music/music_player/play_song_for_scene.tscn" id="23_2joah"]
 [ext_resource type="Resource" uid="uid://c0871iq1wcy6s" path="res://audio/music/song_files/mines_level/Chris_mines_song.tres" id="24_276e6"]
 [ext_resource type="PackedScene" uid="uid://bkaf7rg6shnxu" path="res://world/decoration/mine_supports/mine_supports.tscn" id="28_h00ua"]
@@ -510,6 +511,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.99131775, -4.708767e-06, 5.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 177.89032, 7.6293945e-06, 1.5933142)
 is_boss_encounter = true
 camera_zoom = 1.7
+ending_scene = ExtResource("22_mqp80")
 encounter_song = ExtResource("20_huu48")
 
 [node name="EncounterShape" type="CollisionShape3D" parent="Encounter6" index="1"]
