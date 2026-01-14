@@ -13,7 +13,8 @@ enum PlayerState {
 	WALKING, ## Default state. Player can walk and shoot.
 	ROLLING, ## Dodging / rolling.
 	INTERACTING, ## Interacting with an NPC. Most actions are disabled during this.
-	TRANSITIONING  ## Moving between scenes and not accepting input
+	DEAD, ## State of no health. All actions are disabled in this state.
+	TRANSITIONING,  ## Moving between scenes and not accepting input
 }
 
 #region Variables
@@ -155,7 +156,9 @@ func _physics_process(delta: float) -> void:
 	elif current_state == PlayerState.TRANSITIONING:
 		velocity = previous_input_direction * walk_speed * 0.5
 	
-	move_and_slide()
+	if current_state != PlayerState.DEAD:
+		move_and_slide()
+
 	position.y = starting_y_pos # ensures that player does not move above starting plane
 	
 	var is_whipping := whip.whip_state != Whip.WhipState.OFF
@@ -178,11 +181,13 @@ static func update_persisting_data() -> void:
 	
 
 func _on_killed() -> void:
-	#await get_tree().create_timer(0.2, true,true).timeout
 	# Get rid of greyscale
 	if QTEVFX.active:
 		QTEVFX.end()
-	get_tree().change_scene_to_file("res://menu/death_menu/death_menu.tscn")
+
+	current_state = PlayerState.DEAD
+	var death_scene := preload("res://menu/death_menu/death_menu.tscn")
+	$"../UI".add_child(death_scene.instantiate())
 
 func get_gun() -> Gun:
 	var gun_name := ""

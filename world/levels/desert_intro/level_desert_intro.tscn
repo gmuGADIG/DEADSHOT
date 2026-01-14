@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://bueg0v6pvrthp"]
+[gd_scene load_steps=22 format=3 uid="uid://bueg0v6pvrthp"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_ctnal"]
 [ext_resource type="Resource" uid="uid://q24ustx30otu" path="res://world/floor/sand/sand.tres" id="2_7h0w7"]
+[ext_resource type="Texture2D" uid="uid://c5upseoo85lqg" path="res://world/backgrounds/desert_bg_blur.png" id="2_fhs7y"]
 [ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://world/interactables/cover/cover_boulder.tscn" id="3_ab4dd"]
-[ext_resource type="Script" path="res://world/transitions/entry_point.gd" id="3_guq7u"]
+[ext_resource type="Script" uid="uid://5430ylajkno2" path="res://world/transitions/entry_point.gd" id="3_guq7u"]
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="3_vhe22"]
 [ext_resource type="PackedScene" uid="uid://dwe53mhloyir4" path="res://world/decoration/cursed_plant/cursed_plant.tscn" id="6_f6ib5"]
 [ext_resource type="PackedScene" uid="uid://8er7o8byf7v1" path="res://world/decoration/well/well.tscn" id="7_7xwwm"]
@@ -36,12 +37,18 @@ size = Vector3(10, 3, 42.81041)
 
 [node name="LevelDesertIntro" instance=ExtResource("1_ctnal")]
 
+[node name="FullscreenBG" parent="Background" index="0"]
+transform = Transform3D(0.17, 0, 0, 0, 0.097508, 0.093383335, 0, -0.13925585, 0.06538772, 2.5613499, -14.898792, -12.023702)
+offset = Vector2(0, -150)
+modulate = Color(0.627451, 0.627451, 0.627451, 1)
+transparent = true
+texture = ExtResource("2_fhs7y")
+
 [node name="World" parent="." index="2"]
 navigation_mesh = SubResource("NavigationMesh_hfrtt")
 
 [node name="Floor" parent="World" index="0"]
 curve = SubResource("Curve3D_vhe22")
-curve_interval = 2.0
 material = ExtResource("2_7h0w7")
 
 [node name="Left" type="Node3D" parent="EntryPoints" index="0"]
@@ -131,7 +138,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.942047, -1.1106106e-06, -
 
 [node name="CursedPlant" parent="LeftArea/Decoration" index="0" instance=ExtResource("6_f6ib5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.840607, 0, 14.135367)
-type = 1
 
 [node name="CursedPlant2" parent="LeftArea/Decoration" index="1" instance=ExtResource("6_f6ib5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.981382, 0, 14.3921585)
@@ -190,6 +196,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.754, 0, 11.468)
 
 [node name="CursedPlant4" parent="RightArea/Decoration" index="0" instance=ExtResource("6_f6ib5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6024475, 0, -8.81553)
+type = 1
 
 [node name="CursedPlant5" parent="RightArea/Decoration" index="1" instance=ExtResource("6_f6ib5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.922581, 0, -8.826532)

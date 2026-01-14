@@ -16,12 +16,13 @@ static func load_options() -> void:
 		options_save_data = ResourceLoader.load(OPTIONS_SAVE)
 	else:
 		options_save_data = OptionsSave.new()
-		
-	MainMusicPlayer.set_master_loudness(clampf(options_save_data.music_value / 100.0, 0.0, 1.0))
-	AudioServer.set_bus_volume_linear(sfx_bus, options_save_data.sfx_value / 100.0)
+	
+	Options.sfx_value = options_save_data.music_value
+	Options.music_value = options_save_data.sfx_value
 	
 static func save_options() -> void:
-	options_save_data.sfx_value = db_to_linear(AudioServer.get_bus_volume_db(sfx_bus)) * 100
-	options_save_data.music_value = MainMusicPlayer.get_master_loudness() * 100.0
+	print()
+	options_save_data.sfx_value = Options.sfx_value
+	options_save_data.music_value = Options.music_value
 	ResourceSaver.save(options_save_data, OPTIONS_SAVE)
 	

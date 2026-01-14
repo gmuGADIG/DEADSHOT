@@ -38,5 +38,3 @@ script = ExtResource("4_gojiq")
 
 [node name="Sheriff" parent="." index="10" instance=ExtResource("4_a3u44")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2099502, 1.013279e-06, 8.682014)
-timeBetweenShotsMin = 0.5
-timeBetweenShotsMax = 1.5

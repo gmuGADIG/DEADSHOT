@@ -1,9 +1,11 @@
 extends EnemyBase
 
 #region Variables
-@export var charge_time:float
+@export var charge_time_min:float
+@export var charge_time_max:float
 @export var cooldown_time:float
-@export var stuck_time:float
+@export var stuck_time_min:float
+@export var stuck_time_max:float
 @export var atk_source: DamageInfo.Source
 @export var atk_knockback: DamageInfo.KnockbackStrength
 
@@ -20,7 +22,7 @@ func hostile() -> void:
 	if timer.is_stopped():
 		print("Charging")
 		shaker.shaking = true
-		timer.start(charge_time)
+		timer.start(randf_range(charge_time_min,charge_time_max))
 
 
 func attack() -> void:
@@ -29,7 +31,7 @@ func attack() -> void:
 		
 		if stuck_timer.is_stopped():
 			print("starting stuck timer!")
-			stuck_timer.start(stuck_time)
+			stuck_timer.start(randf_range(stuck_time_min,stuck_time_max))
 		
 		should_move = not is_close_to_destination()
 		

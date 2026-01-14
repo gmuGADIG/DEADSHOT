@@ -108,9 +108,11 @@ radius = 0.669922
 
 [node name="LonghornEnemy" instance=ExtResource("1_qriva")]
 script = ExtResource("2_efxix")
-charge_time = 1.0
+charge_time_min = 0.6
+charge_time_max = 1.5
 cooldown_time = 1.5
-stuck_time = 3.0
+stuck_time_min = 2.75
+stuck_time_max = 3.5
 atk_source = 1
 atk_knockback = 1
 proximity_tolerance = 1.5
@@ -151,8 +153,10 @@ noise = SubResource("FastNoiseLite_4j1ge")
 [node name="Sounds" type="Node3D" parent="." index="11"]
 
 [node name="LonghornDieSound" parent="Sounds" index="0" instance=ExtResource("5_uamdi")]
+bus = &"SFX"
 
 [node name="LonghornDashSound" parent="Sounds" index="1" instance=ExtResource("6_3lbiw")]
+bus = &"SFX"
 
 [node name="StuckTimer" type="Timer" parent="." index="12"]
 

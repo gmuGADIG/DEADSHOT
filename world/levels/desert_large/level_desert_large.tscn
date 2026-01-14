@@ -1,8 +1,9 @@
-[gd_scene load_steps=33 format=3 uid="uid://crgv6bkolrlyy"]
+[gd_scene load_steps=34 format=3 uid="uid://crgv6bkolrlyy"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_b00wy"]
 [ext_resource type="Resource" uid="uid://q24ustx30otu" path="res://world/floor/sand/sand.tres" id="2_5t0jw"]
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="2_8watp"]
+[ext_resource type="Texture2D" uid="uid://c5upseoo85lqg" path="res://world/backgrounds/desert_bg_blur.png" id="2_trnsn"]
 [ext_resource type="PackedScene" uid="uid://d1e8myf75tnlv" path="res://world/interactables/cover/cover_cactus_large.tscn" id="4_xa3ak"]
 [ext_resource type="PackedScene" uid="uid://bp6l0lw650m8o" path="res://world/blocker/blocker.tscn" id="6_4q5tc"]
 [ext_resource type="Script" uid="uid://5430ylajkno2" path="res://world/transitions/entry_point.gd" id="6_trnsn"]
@@ -55,6 +56,13 @@ size = Vector3(10, 3, 10)
 
 [node name="LevelDesertLarge" instance=ExtResource("1_b00wy")]
 
+[node name="FullscreenBG" parent="Background" index="0"]
+transform = Transform3D(0.17, 0, 0, 0, 0.097508, 0.093383335, 0, -0.13925585, 0.06538772, 2.5613499, -14.898792, -12.023702)
+offset = Vector2(0, -150)
+modulate = Color(0.6255971, 0.6255971, 0.6255971, 1)
+transparent = true
+texture = ExtResource("2_trnsn")
+
 [node name="Sun" parent="." index="1"]
 transform = Transform3D(1.1169649, -0.25272667, 0.34373936, 0, 0.74771696, 0.8020474, -0.45971853, -0.61404276, 0.8351737, 0.42948622, -1.6040947, -2.130066)
 
@@ -92,7 +100,6 @@ transform = Transform3D(0.8279032, 0, 0, 0, 1, 0, 0, 0, 0.8279032, 43.861973, 0,
 [node name="Floor" parent="World" index="9"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.178001, 0, 12.104001)
 curve = SubResource("Curve3D_5t0jw")
-curve_interval = 2.0
 material = ExtResource("2_5t0jw")
 
 [node name="EntryPoints" parent="." index="3"]
@@ -143,6 +150,7 @@ type = 1
 
 [node name="CursedPlant3" parent="Decor" index="7" instance=ExtResource("9_jw2qs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.121485, -0.06959438, -29.77686)
+type = 1
 
 [node name="Well2" parent="Decor" index="8" instance=ExtResource("7_gq3fs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.905464, -0.09687781, -30.80377)
