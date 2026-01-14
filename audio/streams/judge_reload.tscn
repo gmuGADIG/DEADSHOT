@@ -1,9 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://bgwfrncadc5gu"]
 
-[ext_resource type="AudioStream" uid="uid://cral5c4ol75w8" path="res://audio/enemies/judge/se_gun_rem_pump_1.wav" id="1_4gjqt"]
+[ext_resource type="AudioStream" uid="uid://gsbwx1mc5opx" path="res://audio/enemies/judge/se_gun_rem_pump_1.mp3" id="1_4gjqt"]
 
 [node name="JudgeReload" type="AudioStreamPlayer3D"]
 stream = ExtResource("1_4gjqt")
-volume_db = 33.016
 max_db = 6.0
 bus = &"SFX"

@@ -1,6 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://djn6jyw5vuicu"]
 
-[ext_resource type="AudioStream" uid="uid://btq4usey4ba53" path="res://audio/placeholders/explosion.wav" id="1_js418"]
+[ext_resource type="AudioStream" uid="uid://5id04lwlk733" path="res://audio/enemies/bandit/bandit_death.mp3" id="1_js418"]
 
 [node name="BanditDies" type="AudioStreamPlayer3D"]
 stream = ExtResource("1_js418")
+volume_db = 4.0
