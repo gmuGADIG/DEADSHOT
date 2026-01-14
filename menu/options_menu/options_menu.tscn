@@ -162,6 +162,7 @@ offset_left = 147.0
 offset_top = 103.0
 offset_right = 452.0
 offset_bottom = 170.0
+step = 5.0
 
 [node name="SFX" type="HSlider" parent="Sign/Control"]
 unique_name_in_owner = true
@@ -170,6 +171,7 @@ offset_left = 147.0
 offset_top = 174.0
 offset_right = 446.0
 offset_bottom = 194.0
+step = 5.0
 
 [node name="MusicPercentage" type="Label" parent="Sign/Control"]
 unique_name_in_owner = true

@@ -1,12 +1,21 @@
+class_name Options
 extends Control
+
+static var sfx_value : float = 100:
+	set(new_val):
+		sfx_value = new_val
+		AudioServer.set_bus_volume_linear(AudioServer.get_bus_index("SFX"), new_val / 100.0)
+	
+static var music_value :float = 100:
+	set(new_val):
+		music_value = new_val
+		MainMusicPlayer.set_master_loudness(clampf(new_val / 100.0, 0.0, 1.0))
+
 @export var back_button : Button
 
 @onready var music_bus := AudioServer.get_bus_index("Music")
 @onready var sfx_bus := AudioServer.get_bus_index("SFX")
 
-# Volumes from 0 to 100
-@onready var sfx_value := db_to_linear(AudioServer.get_bus_volume_db(sfx_bus)) * 100
-@onready var music_value := MainMusicPlayer.get_master_loudness() * 100.0
 
 func _ready() -> void:
 	open()

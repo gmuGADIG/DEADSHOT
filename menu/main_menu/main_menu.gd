@@ -35,8 +35,11 @@ func _on_options_button_pressed() -> void:
 	
 	var options: Control = load("res://menu/options_menu/options_menu.tscn").instantiate()
 	add_child(options)
-	await options.tree_exiting # options menus frees itself when closed
-	button_pressed = false
+	await options.tree_exiting.connect(func() -> void:
+		%SettingsButton.button_pressed = false
+		button_pressed = false
+	) # options menus frees itself when closed
+	
 
 func _on_quit_button_pressed() -> void:
 	if not button_pressed:

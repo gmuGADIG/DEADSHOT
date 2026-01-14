@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://dc6lbunkflvv4" path="res://audio/placeholders/funny_bone_man.wav" id="4_prid6"]
 [ext_resource type="Texture2D" uid="uid://couuwyoltb6ql" path="res://menu/main_menu/main_menu_bg.png" id="5_rp3yq"]
 [ext_resource type="Texture2D" uid="uid://pfati0vufsd7" path="res://menu/main_menu/main_menu_player.png" id="6_c0jbr"]
-[ext_resource type="Script" path="res://menu/main_menu/reticle_spin.gd" id="7_dn5jd"]
+[ext_resource type="Script" uid="uid://co66s5c2pttrb" path="res://menu/main_menu/reticle_spin.gd" id="7_dn5jd"]
 [ext_resource type="Texture2D" uid="uid://d3fmltuim8c47" path="res://menu/main_menu/menu_player_eye.png" id="7_mij2p"]
 [ext_resource type="Texture2D" uid="uid://k38kdp8yrqo2" path="res://menu/main_menu/main_logo.png" id="8_mij2p"]
 [ext_resource type="Texture2D" uid="uid://veqmqpjiki0d" path="res://world/player/reticle/reticle.png" id="9_mij2p"]
