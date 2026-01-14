@@ -1,10 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://c04no3yhhwjuw"]
 
-[ext_resource type="AudioStream" uid="uid://ducaacaocxjru" path="res://audio/placeholders/whip_placeholders/whip_swing.wav" id="1_nd431"]
+[ext_resource type="AudioStream" uid="uid://c0nxw3srj87qf" path="res://audio/player/se_player_castWhip.mp3" id="1_2b0gw"]
 [ext_resource type="Script" uid="uid://bf14d2iyiqx56" path="res://audio/streams/sound_stream.gd" id="2_2b0gw"]
 
 [node name="WhipSwingSound" type="AudioStreamPlayer3D"]
-stream = ExtResource("1_nd431")
+stream = ExtResource("1_2b0gw")
+volume_db = 12.0
 unit_size = 20.0
 panning_strength = 0.5
 bus = &"SFX"

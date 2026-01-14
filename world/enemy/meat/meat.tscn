@@ -2,13 +2,14 @@
 
 [ext_resource type="Script" uid="uid://cjc1c5htrkn3h" path="res://world/enemy/meat/meat.gd" id="1_0eps3"]
 [ext_resource type="Texture2D" uid="uid://y1h3uww1jns7" path="res://world/enemy/meat/meat.png" id="2_imkur"]
-[ext_resource type="PackedScene" uid="uid://b5vlxcdry8ktn" path="res://world/enemy/meat/meat_pickup_label.tscn" id="2_m5qmh"]
+[ext_resource type="PackedScene" uid="uid://coau3goy0qtlb" path="res://audio/streams/meat_pickup_sound.tscn" id="2_m5qmh"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_4xl38"]
 
 [node name="Meat" type="Node3D"]
 script = ExtResource("1_0eps3")
-label_scene = ExtResource("2_m5qmh")
+
+[node name="MeatPickupSound" parent="." instance=ExtResource("2_m5qmh")]
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.30500004, 0, 0, 0, 0.26413777, 0.15250002, 0, -0.15250002, 0.26413777, 0, 0.4678592, 0)

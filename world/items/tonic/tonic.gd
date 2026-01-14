@@ -43,7 +43,6 @@ func on_pickup(body: Node3D) -> void:
 		var sfx: AudioStreamPlayer3D = %TonicPickupSound
 		sfx.reparent(get_tree().current_scene)
 		sfx.play()
-		sfx.finished.connect(sfx.queue_free)
 		
 		var label_instance := Label3D.new()
 		label_instance.text = "Tonic +2"

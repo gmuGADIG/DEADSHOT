@@ -8,6 +8,10 @@ func grab_ammo() -> void:
 	var gun: Gun = Player.instance.get_gun()
 	var ammo_added := gun.add_ammo()
 	
+	var sfx := $AmmoPickupSound
+	sfx.reparent(get_tree().current_scene)
+	sfx.play()
+	
 	var flavor_text := preload("res://world/pickups/ammo_pickup/ammo_grab_text/ammo_grab_text.tscn").instantiate()
 	flavor_text.set_ammo(ammo_added)
 	flavor_text.position = self.position
