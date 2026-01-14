@@ -3,22 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b0atje0hx0agb"
-path.s3tc="res://.godot/imported/wilder_front.png-206ca4afb2848c464daa68ce49dc3bfb.s3tc.ctex"
+path="res://.godot/imported/wilder_front.png-206ca4afb2848c464daa68ce49dc3bfb.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://world/enemy/wilder/wilder_front.png"
-dest_files=["res://.godot/imported/wilder_front.png-206ca4afb2848c464daa68ce49dc3bfb.s3tc.ctex"]
+dest_files=["res://.godot/imported/wilder_front.png-206ca4afb2848c464daa68ce49dc3bfb.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.9
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

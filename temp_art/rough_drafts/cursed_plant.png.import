@@ -3,22 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ddnki8ia30e6x"
-path.s3tc="res://.godot/imported/cursed_plant.png-d6c9661d9a7c2cc7d1b52c1165cb0f53.s3tc.ctex"
+path="res://.godot/imported/cursed_plant.png-d6c9661d9a7c2cc7d1b52c1165cb0f53.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://temp_art/rough_drafts/cursed_plant.png"
-dest_files=["res://.godot/imported/cursed_plant.png-d6c9661d9a7c2cc7d1b52c1165cb0f53.s3tc.ctex"]
+dest_files=["res://.godot/imported/cursed_plant.png-d6c9661d9a7c2cc7d1b52c1165cb0f53.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.9
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

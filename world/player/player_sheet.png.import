@@ -3,22 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://doi1lgfq8hi21"
-path.s3tc="res://.godot/imported/player_sheet.png-3407503ab9a41a7438fdc9bcfff35f09.s3tc.ctex"
+path="res://.godot/imported/player_sheet.png-3407503ab9a41a7438fdc9bcfff35f09.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://world/player/player_sheet.png"
-dest_files=["res://.godot/imported/player_sheet.png-3407503ab9a41a7438fdc9bcfff35f09.s3tc.ctex"]
+dest_files=["res://.godot/imported/player_sheet.png-3407503ab9a41a7438fdc9bcfff35f09.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.9
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

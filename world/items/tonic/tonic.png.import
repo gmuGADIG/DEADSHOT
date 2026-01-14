@@ -3,22 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://6jgt8xv3eflx"
-path.s3tc="res://.godot/imported/tonic.png-6b41f13cdf9f0e2d6ecd10b24b6d1bce.s3tc.ctex"
+path="res://.godot/imported/tonic.png-6b41f13cdf9f0e2d6ecd10b24b6d1bce.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://world/items/tonic/tonic.png"
-dest_files=["res://.godot/imported/tonic.png-6b41f13cdf9f0e2d6ecd10b24b6d1bce.s3tc.ctex"]
+dest_files=["res://.godot/imported/tonic.png-6b41f13cdf9f0e2d6ecd10b24b6d1bce.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.9
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

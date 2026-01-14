@@ -3,22 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://owkl68s3lwrr"
-path.s3tc="res://.godot/imported/duck.png-4b4eee1bed0b95212b88072c9667c0cb.s3tc.ctex"
+path="res://.godot/imported/duck.png-4b4eee1bed0b95212b88072c9667c0cb.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://temp_art/gartic/duck.png"
-dest_files=["res://.godot/imported/duck.png-4b4eee1bed0b95212b88072c9667c0cb.s3tc.ctex"]
+dest_files=["res://.godot/imported/duck.png-4b4eee1bed0b95212b88072c9667c0cb.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.9
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
