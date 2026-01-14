@@ -8,7 +8,6 @@ func _ready() -> void:
 	age = alpha_curve.min_domain
 
 func _physics_process(delta: float) -> void:
-	print(age)
 	modulate.a = alpha_curve.sample(age)
 	
 	age += delta
