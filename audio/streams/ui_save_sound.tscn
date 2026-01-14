@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwcbfbg3dbjjp"]
+
+[ext_resource type="AudioStream" uid="uid://y6dltlm628tl" path="res://audio/ui/se_uiSaveGame.wav" id="1_gvg50"]
+
+[node name="UISaveSound" type="AudioStreamPlayer"]
+stream = ExtResource("1_gvg50")
+volume_db = -12.0
+bus = &"SFX"

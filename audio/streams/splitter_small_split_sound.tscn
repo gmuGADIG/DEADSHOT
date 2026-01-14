@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1c4fovnhg75n"]
+
+[ext_resource type="AudioStream" uid="uid://7baqnj2s6lwv" path="res://audio/enemies/splitter/se_ememySplitter_Split_2alessandro.mp3" id="1_8ghkh"]
+[ext_resource type="PackedScene" uid="uid://ci3804ofkibap" path="res://audio/streams/sound_base.tscn" id="1_base"]
+
+[node name="SplitterSmallSplitSound" instance=ExtResource("1_base")]
+stream = ExtResource("1_8ghkh")
+volume_db = 3.0
+delete_on_finish = true

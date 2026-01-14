@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://djah18vb67at6"]
+[gd_scene load_steps=11 format=3 uid="uid://djah18vb67at6"]
 
 [ext_resource type="Script" uid="uid://x7hji2y8t5m6" path="res://world/enemy/tutorial_turret/tutorial_turret.gd" id="1_cjcom"]
 [ext_resource type="Texture2D" uid="uid://b0atje0hx0agb" path="res://world/enemy/wilder/wilder_front.png" id="2_2i4pi"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://do5vs8m1law7o" path="res://systems/attacking/health/health.gd" id="3_bqgsy"]
 [ext_resource type="PackedScene" uid="uid://s0mcou8b7n0v" path="res://systems/attacking/hurt_fx/hurt_fx.tscn" id="4_3ewb4"]
 [ext_resource type="Script" uid="uid://lxg83i28nlul" path="res://systems/attacking/hurtbox/hurtbox.gd" id="4_s5c6m"]
+[ext_resource type="PackedScene" uid="uid://dqe8jyn23q6w6" path="res://audio/streams/wilder_death_sound.tscn" id="7_0jggp"]
+[ext_resource type="PackedScene" uid="uid://dtrtlfnkaklwl" path="res://audio/streams/wilder_shoot_sound.tscn" id="8_h6ti2"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_s5c6m"]
 height = 2.4409862
@@ -53,6 +55,11 @@ shape = SubResource("CylinderShape3D_cjcom")
 
 [node name="ShootOrigin" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.70077324, 1.3351865, 0)
+
+[node name="WilderDeathSound" parent="." instance=ExtResource("7_0jggp")]
+
+[node name="WilderShootSound" parent="." instance=ExtResource("8_h6ti2")]
+delete_on_finish = true
 
 [connection signal="timeout" from="ShootTimer" to="." method="shoot"]
 [connection signal="killed" from="Health" to="." method="_on_killed"]

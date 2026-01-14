@@ -28,24 +28,23 @@ var whip_state : WhipState = WhipState.OFF:
 		whip_state = new_val
 		match new_val:
 			WhipState.OFF:
-				$Attack/ChargeUpSprite3D.hide()
-				$Attack/SwingSprite3D.hide()
+				%WhipHeld.hide()
+				%WhipSwing.hide()
 			WhipState.CHARGING:
-				$Attack/ChargeUpSprite3D.show()
-				$Attack/SwingSprite3D.hide()
+				$WhipChargeSound.play()
+				%WhipHeld.show()
+				%WhipSwing.hide()
 			WhipState.ATTACKING:
-				$Attack/ChargeUpSprite3D.hide()
-				$Attack/SwingSprite3D.show()
+				%WhipHeld.hide()
+				%WhipSwing.show()
+				%WhipSwing.play()
 		
 
 func update_charge_fx(charge_index : float) -> void:
 	if charge_index < 0 or charge_index >= charge_levels.size():
 		return
-	var whip_charge_info : WhipAttackData = charge_levels[charge_index]
-	$Attack/ChargeUpSprite3D/ChargeUpOutline.modulate.a = whip_charge_info.sprite_glow_brightness
-	$WhipChargeSound.stream = whip_charge_info.sound
-	$WhipChargeSound.play()
-
+	#var whip_charge_info : WhipAttackData = charge_levels[charge_index]
+	#$Attack/ChargeUpSprite3D/ChargeUpOutline.modulate.a = whip_charge_info.sprite_glow_brightness
 
 func _ready() -> void:
 	$WindupTimer.timeout.connect(attack)
@@ -63,6 +62,7 @@ func _process(delta: float) -> void:
 		charge_time += delta
 		if not Input.is_action_pressed("whip"):
 			whip_state = WhipState.ATTACKING
+			$WhipChargeSound.stop()
 			$WhipSwingSound.play()
 			$WindupTimer.start(windup_time)
 
@@ -78,6 +78,7 @@ func attack() -> void:
 	for area : Area3D in $Attack/Area3D.get_overlapping_areas():
 		print(area)
 		if area is Hurtbox:
-			area.hit(DamageInfo.new(damage,DamageInfo.Source.PLAYER,kb,kb_dir))
+			if area.hit(DamageInfo.new(damage,DamageInfo.Source.PLAYER,kb,kb_dir)):
+				Player.instance.get_gun().reserve_ammo += 1
 	charge_time = -100
 	$CooldownTimer.start(cooldown_time)

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cjbsq7rk6r3h4" path="res://temp_art/gartic/cactus.png" id="2_7te3a"]
 [ext_resource type="Resource" uid="uid://q24ustx30otu" path="res://world/floor/sand/sand.tres" id="2_sonm7"]
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="4_l2hbl"]
-[ext_resource type="PackedScene" uid="uid://dxdkwdigtcn43" path="res://world/enemy/test/enemy_test.tscn" id="5_7te3a"]
+[ext_resource type="Script" path="res://world/transitions/entry_point.gd" id="6_sonm7"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_m15ci"]
 vertices = PackedVector3Array(-7.75, 0.4899999, 1.5, -7.25, 0.4899999, 3.25, -6.75, 0.4899999, 3.5, -7.75, 0.4899999, 0.75, -11.25, 0.4899999, 0.75, -10.75, 0.4899999, 1.5, -2.75, 0.4899999, 3.5, 7.5, 0.4899999, -0.75, 7.25, 0.4899999, -2.25, -7.25, 0.4899999, -2.25, 15.5, 0.4899999, 1.5, 15.5, 0.4899999, 0.5, 15.25, 0.4899999, -0.25, 8.5, 0.4899999, -0.25, 9.5, 0.4899999, 6.5, -2.25, 0.4899999, 6.25, -1.75, 0.4899999, 6.5, 20.25, 0.4899999, 1.25, 20.25, 0.4899999, 0.75)
@@ -12,6 +12,7 @@ polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Arr
 
 [sub_resource type="Curve3D" id="Curve3D_m15ci"]
 closed = true
+bake_interval = 2.0
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, -12, 0, 0, 0, 0, 0, 0, 0, 0, -8, 0, 0, 0, 0, 0, 0, 0, 0, -8, 0, -3, 0, 0, 0, 0, 0, 0, 8, 0, -3, 0, 0, 0, 0, 0, 0, 8, 0, -1, 0, 0, 0, 0, 0, 0, 16, 0, -1, 0, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 0, 0, 21, 0, 2, 0, 0, 0, 0, 0, 0, 16, 0, 2, 0, 0, 0, 0, 0, 0, 10, 0, 7, 0, 0, 0, 0, 0, 0, -3, 0, 7, 0, 0, 0, 0, 0, 0, -3, 0, 4, 0, 0, 0, 0, 0, 0, -8, 0, 4, 0, 0, 0, 0, 0, 0, -8, 0, 2, 0, 0, 0, 0, 0, 0, -12, 0, 2),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
@@ -20,11 +21,22 @@ point_count = 16
 
 [node name="DemoB" instance=ExtResource("1_m15ci")]
 
-[node name="World" parent="." index="1"]
+[node name="Left" parent="." index="2" instance=ExtResource("4_l2hbl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.630439, 0, 0.8172647)
+target_scene = "uid://btuw2i28k0axl"
+target_entry_point = "Right"
+
+[node name="Right" parent="." index="3" instance=ExtResource("4_l2hbl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.351158, 0, 0.9043428)
+target_scene = "uid://iqjqbj46lpwy"
+target_entry_point = "TODO"
+
+[node name="World" parent="." index="4"]
 navigation_mesh = SubResource("NavigationMesh_m15ci")
 
 [node name="Floor" parent="World" index="0"]
 curve = SubResource("Curve3D_m15ci")
+curve_interval = 2.0
 material = ExtResource("2_sonm7")
 
 [node name="Cactus4" type="Sprite3D" parent="World" index="1"]
@@ -37,31 +49,22 @@ transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -6.585593,
 alpha_cut = 1
 texture = ExtResource("2_7te3a")
 
-[node name="EnemyTest" parent="World" index="3" instance=ExtResource("5_7te3a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.573572, 0.21243405, 0.4986601)
-
-[node name="Cactus6" type="Sprite3D" parent="World" index="4"]
+[node name="Cactus6" type="Sprite3D" parent="World" index="3"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 6.5182443, 1.35212, -0.7042122)
 alpha_cut = 1
 texture = ExtResource("2_7te3a")
 
-[node name="Cactus7" type="Sprite3D" parent="World" index="5"]
+[node name="Cactus7" type="Sprite3D" parent="World" index="4"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 8.573559, 1.35212, 5.04492)
 alpha_cut = 1
 texture = ExtResource("2_7te3a")
 
-[node name="Left" parent="." index="2" instance=ExtResource("4_l2hbl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.630439, 0, 0.8172647)
-target_scene = "uid://btuw2i28k0axl"
-target_entry_point = "Right"
-
-[node name="Right" parent="." index="3" instance=ExtResource("4_l2hbl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.351158, 0, 0.9043428)
-target_scene = "uid://iqjqbj46lpwy"
-target_entry_point = "TODO"
-
 [node name="Left" type="Marker3D" parent="EntryPoints" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9683146, 9.536743e-07, 0.95861363)
+script = ExtResource("6_sonm7")
+entry_direction = Vector3(1, 0, 0)
 
 [node name="Right" type="Marker3D" parent="EntryPoints" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.898302, 0, 0.96318436)
+script = ExtResource("6_sonm7")
+entry_direction = Vector3(-1, 0, 0)

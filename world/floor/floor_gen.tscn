@@ -11,14 +11,12 @@ uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lofne"]
 resource_local_to_scene = true
-render_priority = -1
-transparency = 1
+transparency = 4
 uv1_scale = Vector3(0.5, 2, 1)
 uv1_offset = Vector3(0, 1.495, 0)
 
 [node name="Floor" type="Path3D"]
 script = ExtResource("1_ub512")
-curve_interval = null
 
 [node name="Walls" type="CSGPolygon3D" parent="."]
 unique_name_in_owner = true

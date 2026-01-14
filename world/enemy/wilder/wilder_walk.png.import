@@ -3,22 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://daw3qrkhk20v2"
-path.s3tc="res://.godot/imported/wilder_walk.png-86f9db142c7cf914c2bdbc96ac8a273c.s3tc.ctex"
+path="res://.godot/imported/wilder_walk.png-86f9db142c7cf914c2bdbc96ac8a273c.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://world/enemy/wilder/wilder_walk.png"
-dest_files=["res://.godot/imported/wilder_walk.png-86f9db142c7cf914c2bdbc96ac8a273c.s3tc.ctex"]
+dest_files=["res://.godot/imported/wilder_walk.png-86f9db142c7cf914c2bdbc96ac8a273c.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.9
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

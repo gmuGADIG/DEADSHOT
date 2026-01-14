@@ -1,16 +1,41 @@
-[gd_scene load_steps=8 format=3 uid="uid://ohg0len20ido"]
+[gd_scene load_steps=13 format=3 uid="uid://ohg0len20ido"]
 
 [ext_resource type="PackedScene" uid="uid://cxahvvaidpg32" path="res://world/levels/town/level_town_base.tscn" id="1_83ufp"]
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="2_4ry00"]
 [ext_resource type="PackedScene" uid="uid://b0ttk38sufgur" path="res://world/pickups/corrupt_heart/corrupt_heart.tscn" id="2_28xow"]
+[ext_resource type="PackedScene" uid="uid://dhb2pgqbfvxoa" path="res://world/enemy/encounter/encounter.tscn" id="2_q05pj"]
 [ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="3_8wq7s"]
 [ext_resource type="PackedScene" uid="uid://c7c1lwr411btx" path="res://audio/music/music_player/play_song_for_scene.tscn" id="5_8uqty"]
 [ext_resource type="Resource" uid="uid://tli21qkgcwye" path="res://audio/music/song_files/town_level_corrupted/Becs_corrupt_town_song.tres" id="6_w4wah"]
+[ext_resource type="PackedScene" uid="uid://cqcjv8i3rxkbu" path="res://world/enemy/sheriff/sheriff.tscn" id="7_w4wah"]
+[ext_resource type="PackedScene" uid="uid://bp6l0lw650m8o" path="res://world/blocker/blocker.tscn" id="8_5x431"]
+[ext_resource type="PackedScene" uid="uid://crroyl2puavcb" path="res://world/decoration/floor_lantern/floor_lantern.tscn" id="9_ob8eb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jglpt"]
+size = Vector3(104.64801, 3, 87.21155)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j4103"]
 size = Vector3(24.894531, 3.5175781, 4.6188965)
 
 [node name="LevelTown4" instance=ExtResource("1_83ufp")]
+
+[node name="Encounter" parent="." index="4" instance=ExtResource("2_q05pj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.0338202)
+is_boss_encounter = true
+
+[node name="Sheriff" parent="Encounter" index="0" instance=ExtResource("7_w4wah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.328011, 0.4819467, -6.921501)
+spawn_on_killed = ExtResource("2_28xow")
+
+[node name="Blocker" parent="Encounter" index="1" instance=ExtResource("8_5x431")]
+transform = Transform3D(0.26523644, 0, -24.977686, 0, 1, 0, 6.273395, 0, 1.0560458, 11.560854, -1.9073486e-06, -36.49329)
+
+[node name="CameraTracked" parent="Encounter" index="2"]
+weight = 0.0
+
+[node name="EncounterShape" type="CollisionShape3D" parent="Encounter" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.693695, 0, -3.4606323)
+shape = SubResource("BoxShape3D_jglpt")
 
 [node name="Transition" parent="TransitionAreas" index="0" instance=ExtResource("2_4ry00")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.844759, 0, -12.468933)
@@ -21,11 +46,8 @@ target_entry_point = "Left"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5639458, 0, -25.812904)
 shape = SubResource("BoxShape3D_j4103")
 
-[node name="Player" parent="." index="5"]
+[node name="Player" parent="." index="6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.718742, 0, -4.0061493)
-
-[node name="CorruptHeart" parent="." index="13" instance=ExtResource("2_28xow")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.504944, 0, -8.864038)
 
 [node name="Comment" parent="." index="14" instance=ExtResource("3_8wq7s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.416405, 0, -2.3331199)
@@ -35,4 +57,11 @@ size = 1.5
 [node name="PlaySongForScene" parent="." index="15" instance=ExtResource("5_8uqty")]
 song = ExtResource("6_w4wah")
 
+[node name="FloorLantern" parent="." index="16" instance=ExtResource("9_ob8eb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47596312, 0.073197365, -36.256653)
+
+[node name="FloorLantern2" parent="." index="17" instance=ExtResource("9_ob8eb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.922262, 0.16328049, -36.76721)
+
+[editable path="Encounter"]
 [editable path="TransitionAreas/Transition"]

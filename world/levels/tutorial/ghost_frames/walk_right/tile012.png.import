@@ -3,22 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://s5ruj172qlnx"
-path.s3tc="res://.godot/imported/tile012.png-0625f77f13b283ed8baaf8435f9e3b7c.s3tc.ctex"
+path="res://.godot/imported/tile012.png-0625f77f13b283ed8baaf8435f9e3b7c.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://world/levels/tutorial/ghost_frames/walk_right/tile012.png"
-dest_files=["res://.godot/imported/tile012.png-0625f77f13b283ed8baaf8435f9e3b7c.s3tc.ctex"]
+dest_files=["res://.godot/imported/tile012.png-0625f77f13b283ed8baaf8435f9e3b7c.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.9
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

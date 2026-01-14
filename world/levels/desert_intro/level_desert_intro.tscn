@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://bueg0v6pvrthp"]
+[gd_scene load_steps=21 format=3 uid="uid://bueg0v6pvrthp"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_ctnal"]
 [ext_resource type="Resource" uid="uid://q24ustx30otu" path="res://world/floor/sand/sand.tres" id="2_7h0w7"]
 [ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://world/interactables/cover/cover_boulder.tscn" id="3_ab4dd"]
+[ext_resource type="Script" path="res://world/transitions/entry_point.gd" id="3_guq7u"]
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="3_vhe22"]
 [ext_resource type="PackedScene" uid="uid://dwe53mhloyir4" path="res://world/decoration/cursed_plant/cursed_plant.tscn" id="6_f6ib5"]
 [ext_resource type="PackedScene" uid="uid://8er7o8byf7v1" path="res://world/decoration/well/well.tscn" id="7_7xwwm"]
@@ -45,9 +46,13 @@ material = ExtResource("2_7h0w7")
 
 [node name="Left" type="Node3D" parent="EntryPoints" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.45726, 0, 4.0071654)
+script = ExtResource("3_guq7u")
+entry_direction = Vector3(1, 0, 0)
 
 [node name="Right" type="Node3D" parent="EntryPoints" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.366405, 0, 2.9849052)
+script = ExtResource("3_guq7u")
+entry_direction = Vector3(-1, 0, 0)
 
 [node name="Right" parent="TransitionAreas" index="0" instance=ExtResource("3_vhe22")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.841705, 0, 3.148212)

@@ -3,22 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d1jsipxyxaci5"
-path.s3tc="res://.godot/imported/shotgun.png-c44fcb4579d05c5e772bfa6521b3c460.s3tc.ctex"
+path="res://.godot/imported/shotgun.png-c44fcb4579d05c5e772bfa6521b3c460.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://world/player/weapon/shotgun/shotgun.png"
-dest_files=["res://.godot/imported/shotgun.png-c44fcb4579d05c5e772bfa6521b3c460.s3tc.ctex"]
+dest_files=["res://.godot/imported/shotgun.png-c44fcb4579d05c5e772bfa6521b3c460.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.9
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

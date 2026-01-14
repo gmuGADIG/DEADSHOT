@@ -3,22 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cxt4sf0q07x8h"
-path.s3tc="res://.godot/imported/horse_attack_left.png-382c3a6b5bb0fa3ebe50a7ff3d5d7be8.s3tc.ctex"
+path="res://.godot/imported/horse_attack_left.png-382c3a6b5bb0fa3ebe50a7ff3d5d7be8.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://world/enemy/bosses/horse/art/horse_attack_left.png"
-dest_files=["res://.godot/imported/horse_attack_left.png-382c3a6b5bb0fa3ebe50a7ff3d5d7be8.s3tc.ctex"]
+dest_files=["res://.godot/imported/horse_attack_left.png-382c3a6b5bb0fa3ebe50a7ff3d5d7be8.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.9
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

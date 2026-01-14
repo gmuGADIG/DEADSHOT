@@ -3,22 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c7es4c844tfaa"
-path.s3tc="res://.godot/imported/minecart.png-535d81c87a1030ec58cacd941a0ee350.s3tc.ctex"
+path="res://.godot/imported/minecart.png-535d81c87a1030ec58cacd941a0ee350.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://world/interactables/cover/minecart.png"
-dest_files=["res://.godot/imported/minecart.png-535d81c87a1030ec58cacd941a0ee350.s3tc.ctex"]
+dest_files=["res://.godot/imported/minecart.png-535d81c87a1030ec58cacd941a0ee350.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.9
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

@@ -3,22 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bsjg2jy70gbkw"
-path.s3tc="res://.godot/imported/mass_temp.png-d984f385feec77a78b7c6b7f7f0c5844.s3tc.ctex"
+path="res://.godot/imported/mass_temp.png-d984f385feec77a78b7c6b7f7f0c5844.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://temp_art/rough_drafts/mass_temp.png"
-dest_files=["res://.godot/imported/mass_temp.png-d984f385feec77a78b7c6b7f7f0c5844.s3tc.ctex"]
+dest_files=["res://.godot/imported/mass_temp.png-d984f385feec77a78b7c6b7f7f0c5844.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.9
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

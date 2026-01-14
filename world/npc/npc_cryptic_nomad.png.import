@@ -3,22 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bl3b1a4m7qyja"
-path.s3tc="res://.godot/imported/npc_cryptic_nomad.png-ef4d14e43c40627abdea78ac7fc6f08f.s3tc.ctex"
+path="res://.godot/imported/npc_cryptic_nomad.png-ef4d14e43c40627abdea78ac7fc6f08f.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://world/npc/npc_cryptic_nomad.png"
-dest_files=["res://.godot/imported/npc_cryptic_nomad.png-ef4d14e43c40627abdea78ac7fc6f08f.s3tc.ctex"]
+dest_files=["res://.godot/imported/npc_cryptic_nomad.png-ef4d14e43c40627abdea78ac7fc6f08f.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.9
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

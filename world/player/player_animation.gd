@@ -29,7 +29,7 @@ func _on_player_state_change() -> void:
 ## Update if the player is walking or rolling
 func updateMovementAnimation(state: Player.PlayerState) -> void:
 	match state:
-		player.PlayerState.WALKING:
+		player.PlayerState.WALKING, player.PlayerState.TRANSITIONING:
 			updateSpriteAnimation("walking")
 		player.PlayerState.ROLLING:
 			updateSpriteAnimation("rolling")

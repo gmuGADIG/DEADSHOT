@@ -14,6 +14,7 @@ enum PlayerState {
 	ROLLING, ## Dodging / rolling.
 	INTERACTING, ## Interacting with an NPC. Most actions are disabled during this.
 	DEAD, ## State of no health. All actions are disabled in this state.
+	TRANSITIONING,  ## Moving between scenes and not accepting input
 }
 
 #region Variables
@@ -54,7 +55,6 @@ var current_state: PlayerState = PlayerState.WALKING:
 	set(new_val):
 		current_state = new_val
 		player_state_changed.emit()
-#endregion
 
 enum FloorType{ ## Where the player is walking
 	WOOD,
@@ -153,9 +153,14 @@ func _physics_process(delta: float) -> void:
 		roll(delta)
 	elif current_state == PlayerState.INTERACTING:
 		velocity = Vector3.ZERO
+	elif current_state == PlayerState.TRANSITIONING:
+		velocity = previous_input_direction * walk_speed * 0.5
 	
 	move_and_slide()
 	position.y = starting_y_pos # ensures that player does not move above starting plane
+	
+	var is_whipping := whip.whip_state != Whip.WhipState.OFF
+	%Weapons.visible = not is_whipping
 
 ## We use the proper process function to update stamina, since it appears on the HUD and that could be drawn faster than the physics tickrate.
 func _process(delta: float) -> void:
@@ -171,8 +176,13 @@ static func update_persisting_data() -> void:
 	persisting_data.health = instance.health_component.health
 	persisting_data.curr_chamber = instance.get_gun().chamber_ammo
 	persisting_data.curr_reserve = instance.get_gun().reserve_ammo
+	
 
 func _on_killed() -> void:
+	# Get rid of greyscale
+	if QTEVFX.active:
+		QTEVFX.end()
+
 	current_state = PlayerState.DEAD
 	var death_scene := preload("res://menu/death_menu/death_menu.tscn")
 	$"../UI".add_child(death_scene.instantiate())

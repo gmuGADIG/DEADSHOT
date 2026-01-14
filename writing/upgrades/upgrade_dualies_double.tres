@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://bv4xh61l5m38d"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_ajktb"]
+
+[resource]
+script = ExtResource("1_ajktb")
+dialog = "[] Why shoot once when you can shoot twice?"
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://8v6ojhjimtxe"]
+
+[ext_resource type="AudioStream" uid="uid://dbu6sm5lfp51i" path="res://audio/placeholders/tonic_pickup_ph.wav" id="1_ior4e"]
+
+[node name="PaperPickupSound" type="AudioStreamPlayer3D"]
+stream = ExtResource("1_ior4e")
+bus = &"SFX"
