@@ -156,7 +156,9 @@ func _physics_process(delta: float) -> void:
 	elif current_state == PlayerState.TRANSITIONING:
 		velocity = previous_input_direction * walk_speed * 0.5
 	
-	move_and_slide()
+	if current_state != PlayerState.DEAD:
+		move_and_slide()
+
 	position.y = starting_y_pos # ensures that player does not move above starting plane
 	
 	var is_whipping := whip.whip_state != Whip.WhipState.OFF
