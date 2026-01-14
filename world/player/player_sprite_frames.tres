@@ -1,6 +1,10 @@
-[gd_resource type="SpriteFrames" load_steps=20 format=3 uid="uid://dmswlafp654ob"]
+[gd_resource type="SpriteFrames" load_steps=21 format=3 uid="uid://dmswlafp654ob"]
 
 [ext_resource type="Texture2D" uid="uid://doi1lgfq8hi21" path="res://world/player/player_sheet.png" id="1_4vims"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4vims"]
+atlas = ExtResource("1_4vims")
+region = Rect2(4096, 3072, 1024, 1024)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3n4qb"]
 atlas = ExtResource("1_4vims")
@@ -76,6 +80,14 @@ region = Rect2(2048, 6144, 1024, 1024)
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4vims")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 8.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3n4qb")

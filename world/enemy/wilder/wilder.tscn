@@ -132,10 +132,12 @@ autostart = true
 
 [node name="WilderShootSound" parent="Sounds" index="0" instance=ExtResource("5_d53cb")]
 unique_name_in_owner = true
+bus = &"SFX"
 
 [node name="WilderDeathSound" parent="Sounds" index="1" instance=ExtResource("6_buhvy")]
 unique_name_in_owner = true
 stream = ExtResource("7_b04xd")
+bus = &"SFX"
 
 [connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
 [connection signal="killed" from="Health" to="." method="_on_killed"]
