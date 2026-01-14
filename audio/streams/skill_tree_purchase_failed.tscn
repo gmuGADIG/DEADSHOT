@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cudn3jrx3b6it"]
+
+[ext_resource type="AudioStream" uid="uid://e5qxl4k5r0le" path="res://audio/ui/se_skillTreeMenu_purchaseFail.mp3" id="1_6q8t0"]
+
+[node name="SkillTreePurchaseFailedSound" type="AudioStreamPlayer"]
+stream = ExtResource("1_6q8t0")
+volume_db = -9.0
+bus = &"SFX"

@@ -176,6 +176,9 @@ static func update_persisting_data() -> void:
 
 func _on_killed() -> void:
 	#await get_tree().create_timer(0.2, true,true).timeout
+	# Get rid of greyscale
+	if QTEVFX.active:
+		QTEVFX.end()
 	get_tree().change_scene_to_file("res://menu/death_menu/death_menu.tscn")
 
 func get_gun() -> Gun:

@@ -1,19 +1,62 @@
-[gd_scene load_steps=33 format=3 uid="uid://fkmkprnxsrpf"]
+[gd_scene load_steps=78 format=3 uid="uid://fkmkprnxsrpf"]
 
 [ext_resource type="Script" uid="uid://c6cng071rfahe" path="res://menu/skill_tree/skill_tree.gd" id="1_dnamn"]
 [ext_resource type="PackedScene" uid="uid://7lrs6qjp01ku" path="res://menu/skill_tree/skill_button.tscn" id="2_3f6vw"]
-[ext_resource type="Texture2D" uid="uid://clcis6jvjdkay" path="res://temp_art/stone_tablet_temp.png" id="4_3b2bh"]
+[ext_resource type="Texture2D" uid="uid://b5omdxry03i58" path="res://menu/skill_tree/skill_tree_icons/board_square.png" id="3_fin66"]
 [ext_resource type="Script" uid="uid://ce2k6qyx3sk68" path="res://menu/skill_tree/skill_desc.gd" id="4_8qlyr"]
-[ext_resource type="Texture2D" uid="uid://54e4esurd3xm" path="res://temp_art/gartic/gun.png" id="5_3b2bh"]
-[ext_resource type="Texture2D" uid="uid://sxaysn4gqoxo" path="res://temp_art/gartic/coin.png" id="6_6jgdw"]
-[ext_resource type="Texture2D" uid="uid://cegfpthfj6eil" path="res://temp_art/gartic/godot_dead.png" id="6_ph0jt"]
+[ext_resource type="Texture2D" uid="uid://cv64wt7j01lxl" path="res://menu/skill_tree/skill_tree_icons/damage_up-silver.png" id="5_x1cyl"]
+[ext_resource type="Texture2D" uid="uid://dwdshby6bfsut" path="res://menu/skill_tree/skill_tree_icons/damage_up-meat.png" id="6_lwvla"]
+[ext_resource type="Texture2D" uid="uid://cyock4ibunn2y" path="res://menu/skill_tree/skill_tree_icons/rifle2.png" id="7_lwvla"]
+[ext_resource type="Texture2D" uid="uid://dbb2hkjwkrrla" path="res://menu/skill_tree/skill_tree_icons/rifle.png" id="8_8rbpw"]
 [ext_resource type="Script" uid="uid://g60bhhds87wx" path="res://menu/skill_tree/skill_tree_overlay.gd" id="8_oh6w3"]
 [ext_resource type="Texture2D" uid="uid://y1h3uww1jns7" path="res://world/enemy/meat/meat.png" id="8_yrbjn"]
+[ext_resource type="Texture2D" uid="uid://bowfc1vlge31v" path="res://menu/skill_tree/skill_tree_icons/R2_1-silver.png" id="9_mygyd"]
+[ext_resource type="Texture2D" uid="uid://bci8ojkjrr8x1" path="res://menu/skill_tree/skill_tree_icons/R2_1-meat.png" id="10_4fwot"]
+[ext_resource type="Texture2D" uid="uid://c1lxfg0hr7t5k" path="res://menu/skill_tree/skill_tree_icons/R2_2-silver D2_1-silver.png" id="11_4fwot"]
+[ext_resource type="Texture2D" uid="uid://cvemo7p777ipq" path="res://menu/skill_tree/skill_tree_icons/R2_2-meat D2_1-meat.png" id="12_idjr8"]
+[ext_resource type="Texture2D" uid="uid://dncw7xy4m6nwd" path="res://menu/skill_tree/skill_tree_icons/tnt-silver.png" id="13_jggre"]
+[ext_resource type="Texture2D" uid="uid://dulu3n1khoj0w" path="res://menu/skill_tree/skill_tree_icons/tnt-meat.png" id="14_luurr"]
+[ext_resource type="Texture2D" uid="uid://csbrxvikq7id1" path="res://menu/skill_tree/skill_tree_icons/R4_1-silver.png" id="15_qu2j3"]
+[ext_resource type="Texture2D" uid="uid://bui8visoa56ku" path="res://menu/skill_tree/skill_tree_icons/R4_1-meat.png" id="16_obulw"]
+[ext_resource type="Texture2D" uid="uid://cfttscqlonnyy" path="res://menu/skill_tree/skill_tree_icons/R4_2-silver.png" id="17_a42n7"]
+[ext_resource type="Texture2D" uid="uid://bgaesl452keps" path="res://menu/skill_tree/skill_tree_icons/R4_2-meat.png" id="18_e6pkm"]
+[ext_resource type="Texture2D" uid="uid://c3f0gd0buiuap" path="res://menu/skill_tree/skill_tree_icons/shotung2.png" id="19_obulw"]
+[ext_resource type="Texture2D" uid="uid://dq44al2yu0diw" path="res://menu/skill_tree/skill_tree_icons/chargeshot-silver.png" id="19_qpsim"]
+[ext_resource type="Texture2D" uid="uid://c4bodu5kfpkse" path="res://menu/skill_tree/skill_tree_icons/shotgun.png" id="20_a42n7"]
+[ext_resource type="Texture2D" uid="uid://bfphmnx74h8k0" path="res://menu/skill_tree/skill_tree_icons/chargeshot-meat.png" id="20_jjotp"]
+[ext_resource type="Texture2D" uid="uid://b85nkqfssbydf" path="res://menu/skill_tree/skill_tree_icons/D2_2-silver.png" id="21_e6pkm"]
+[ext_resource type="Texture2D" uid="uid://dtk535mpawgql" path="res://menu/skill_tree/skill_tree_icons/D2_2-meat.png" id="22_2obiv"]
+[ext_resource type="Texture2D" uid="uid://bpdvrt0apxr56" path="res://menu/skill_tree/skill_tree_icons/knockback-silver.png" id="23_vaffb"]
+[ext_resource type="Texture2D" uid="uid://ql3qrr0b6b7g" path="res://menu/skill_tree/skill_tree_icons/knockback-meat.png" id="24_osh48"]
+[ext_resource type="Texture2D" uid="uid://cyr34jmfogggj" path="res://menu/skill_tree/skill_tree_icons/D4_1-silver.png" id="25_b3yvt"]
+[ext_resource type="Texture2D" uid="uid://btraran224yp0" path="res://menu/skill_tree/skill_tree_icons/D4_1-meat.png" id="26_d4xvn"]
+[ext_resource type="Texture2D" uid="uid://cscse80a2sosc" path="res://menu/skill_tree/skill_tree_icons/D4_2-silver.png" id="27_vs1q0"]
+[ext_resource type="Texture2D" uid="uid://dyg2gs0167hfl" path="res://menu/skill_tree/skill_tree_icons/D4_2-meat.png" id="28_lhrif"]
+[ext_resource type="Texture2D" uid="uid://cfihfvev4srkc" path="res://menu/skill_tree/skill_tree_icons/fire-silver.png" id="29_vs1q0"]
+[ext_resource type="Texture2D" uid="uid://b2o5uav77a2hd" path="res://menu/skill_tree/skill_tree_icons/fire-meat.png" id="30_lhrif"]
+[ext_resource type="Texture2D" uid="uid://vud66lio7sc2" path="res://menu/skill_tree/skill_tree_icons/dual-pistols2.png" id="31_lhrif"]
+[ext_resource type="Texture2D" uid="uid://c7ha3qqeb2ovm" path="res://menu/skill_tree/skill_tree_icons/dual-pistols.png" id="32_y1f1q"]
+[ext_resource type="Texture2D" uid="uid://drs8mft3v2c36" path="res://menu/skill_tree/skill_tree_icons/B2_1-silver.png" id="33_04v6b"]
+[ext_resource type="Texture2D" uid="uid://bc77qrgacku24" path="res://menu/skill_tree/skill_tree_icons/B2_1-meat.png" id="34_0ppb8"]
+[ext_resource type="Texture2D" uid="uid://dg6nsfm6dpgad" path="res://menu/skill_tree/skill_tree_icons/B2_2-silver.png" id="35_ba6jm"]
+[ext_resource type="Texture2D" uid="uid://dlihetqekrhvv" path="res://menu/skill_tree/skill_tree_icons/B2_2-meat.png" id="36_dxovw"]
+[ext_resource type="Texture2D" uid="uid://b8puwqft4j5c0" path="res://menu/skill_tree/skill_tree_icons/B4_1-silver.png" id="39_21kvf"]
+[ext_resource type="Texture2D" uid="uid://bg1hwbchqywys" path="res://menu/skill_tree/skill_tree_icons/B4_1-meat.png" id="40_ulc3x"]
+[ext_resource type="Texture2D" uid="uid://cgjsev1icl473" path="res://menu/skill_tree/skill_tree_icons/B4_2-silver.png" id="41_qmj2f"]
+[ext_resource type="Texture2D" uid="uid://cxj67g4ekh5c2" path="res://menu/skill_tree/skill_tree_icons/B4_2-meat.png" id="42_53uy8"]
+[ext_resource type="Texture2D" uid="uid://drqmepj4dmfbf" path="res://menu/skill_tree/skill_tree_icons/salvage2.png" id="43_qmj2f"]
+[ext_resource type="Texture2D" uid="uid://bl62vaymakky" path="res://menu/skill_tree/skill_tree_icons/salvage1.png" id="44_53uy8"]
+[ext_resource type="Texture2D" uid="uid://cs1tx31usork6" path="res://menu/streak.png" id="46_53uy8"]
+[ext_resource type="PackedScene" uid="uid://cgwbktyy1u6vc" path="res://audio/streams/skill_tree_enter_sound.tscn" id="48_6dxvt"]
+[ext_resource type="PackedScene" uid="uid://vpotudbwuxyo" path="res://audio/streams/skill_tree_exit_sound.tscn" id="49_bfeqj"]
+[ext_resource type="PackedScene" uid="uid://cudn3jrx3b6it" path="res://audio/streams/skill_tree_purchase_failed.tscn" id="50_uareu"]
+[ext_resource type="PackedScene" uid="uid://b7qfyf6vhsdqg" path="res://audio/streams/skill_tree_purchase_successful.tscn" id="51_probc"]
 
 [sub_resource type="Resource" id="Resource_lmf3w"]
 script = ExtResource("4_8qlyr")
 skill_name = "Base Damage"
-skill_image = ExtResource("4_3b2bh")
+skill_image = ExtResource("5_x1cyl")
+skill_image_upgraded = ExtResource("6_lwvla")
 skill_description = "Increases the base damage
 of attacks"
 skill_meat_cost = 15
@@ -23,7 +66,8 @@ metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 [sub_resource type="Resource" id="Resource_3b2bh"]
 script = ExtResource("4_8qlyr")
 skill_name = "Bolt Action Rifle"
-skill_image = ExtResource("5_3b2bh")
+skill_image = ExtResource("7_lwvla")
+skill_image_upgraded = ExtResource("8_8rbpw")
 skill_description = "A bolt action rifle, with long precision, able to handle
 more powerful calibers.
 Good ol' reliable!"
@@ -33,8 +77,10 @@ metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
 [sub_resource type="Resource" id="Resource_8qlyr"]
 script = ExtResource("4_8qlyr")
+square_icon = true
 skill_name = "Damage UP"
-skill_image = ExtResource("6_6jgdw")
+skill_image = ExtResource("9_mygyd")
+skill_image_upgraded = ExtResource("10_4fwot")
 skill_description = "Gives your damage a SUPER increase at
 the trade of a lower firing rate."
 skill_meat_cost = 40
@@ -43,8 +89,10 @@ metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
 [sub_resource type="Resource" id="Resource_ph0jt"]
 script = ExtResource("4_8qlyr")
+square_icon = true
 skill_name = "Fire Rate UP"
-skill_image = ExtResource("6_6jgdw")
+skill_image = ExtResource("11_4fwot")
+skill_image_upgraded = ExtResource("12_idjr8")
 skill_description = "Gives your fire rate a SUPER boost at the
 exchange for dealing less damage"
 skill_meat_cost = 40
@@ -54,16 +102,19 @@ metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 [sub_resource type="Resource" id="Resource_6jgdw"]
 script = ExtResource("4_8qlyr")
 skill_name = "TNT Shot"
-skill_image = ExtResource("5_3b2bh")
-skill_description = "tgrsyifhese (: tnt haha explosion
-"
+skill_image = ExtResource("13_jggre")
+skill_image_upgraded = ExtResource("14_luurr")
+skill_description = "Gives your bullets an explosive punch."
 skill_meat_cost = 60
 skill_uid = 128
 metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
 [sub_resource type="Resource" id="Resource_yrbjn"]
 script = ExtResource("4_8qlyr")
+square_icon = true
 skill_name = "Rifle DMG 2"
+skill_image = ExtResource("15_qu2j3")
+skill_image_upgraded = ExtResource("16_obulw")
 skill_description = "Upgrade the damage you deal at the expense of lowering the amount of HP you have."
 skill_meat_cost = 70
 skill_uid = 32
@@ -71,7 +122,10 @@ metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
 [sub_resource type="Resource" id="Resource_oh6w3"]
 script = ExtResource("4_8qlyr")
+square_icon = true
 skill_name = "Rifle Mag"
+skill_image = ExtResource("17_a42n7")
+skill_image_upgraded = ExtResource("18_e6pkm")
 skill_description = "Upgrade your magazine length allowing you to hold more bullets at the cost of slower movement speed."
 skill_meat_cost = 70
 skill_uid = 64
@@ -79,8 +133,9 @@ metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
 [sub_resource type="Resource" id="Resource_77k0x"]
 script = ExtResource("4_8qlyr")
-skill_description = "Chargeing or whatever
-8>[ ^)]  -Tenna"
+skill_image = ExtResource("19_qpsim")
+skill_image_upgraded = ExtResource("20_jjotp")
+skill_description = "Hold down fire to charge bullets. Release to shoot."
 skill_meat_cost = 70
 skill_uid = 128
 metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
@@ -88,7 +143,8 @@ metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 [sub_resource type="Resource" id="Resource_fin66"]
 script = ExtResource("4_8qlyr")
 skill_name = "Double Barrel Shotgun"
-skill_image = ExtResource("6_ph0jt")
+skill_image = ExtResource("19_obulw")
+skill_image_upgraded = ExtResource("20_a42n7")
 skill_description = "A simple double-barrel shotgun, favoring fire power over fire rate and accuracy. Packs a punch!"
 skill_meat_cost = 25
 skill_uid = 256
@@ -96,7 +152,10 @@ metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
 [sub_resource type="Resource" id="Resource_x1cyl"]
 script = ExtResource("4_8qlyr")
+square_icon = true
 skill_name = "Fire Rate"
+skill_image = ExtResource("11_4fwot")
+skill_image_upgraded = ExtResource("12_idjr8")
 skill_description = "Increase the firing rate of your shotgun, but lowers the damage it deals"
 skill_meat_cost = 40
 skill_uid = 512
@@ -104,7 +163,10 @@ metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
 [sub_resource type="Resource" id="Resource_lwvla"]
 script = ExtResource("4_8qlyr")
+square_icon = true
 skill_name = "HP"
+skill_image = ExtResource("21_e6pkm")
+skill_image_upgraded = ExtResource("22_2obiv")
 skill_description = "Increase the amount of your HP at the expense of lowering the fire rate of your shotgun."
 skill_meat_cost = 40
 skill_uid = 1024
@@ -113,6 +175,8 @@ metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 [sub_resource type="Resource" id="Resource_8rbpw"]
 script = ExtResource("4_8qlyr")
 skill_name = "Knockback"
+skill_image = ExtResource("23_vaffb")
+skill_image_upgraded = ExtResource("24_osh48")
 skill_description = "Packing a punch with every shot!"
 skill_meat_cost = 60
 skill_uid = 2048
@@ -120,24 +184,32 @@ metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
 [sub_resource type="Resource" id="Resource_mygyd"]
 script = ExtResource("4_8qlyr")
-skill_name = "HP UP"
-skill_description = "Increase the amount of your HP, but the size of your magazines decreases."
-skill_meat_cost = 70
-skill_uid = 4096
-metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
-
-[sub_resource type="Resource" id="Resource_4fwot"]
-script = ExtResource("4_8qlyr")
-skill_name = "Movement Speed"
+square_icon = true
+skill_name = "Speed"
+skill_image = ExtResource("25_b3yvt")
+skill_image_upgraded = ExtResource("26_d4xvn")
 skill_description = "An upgrade for your legs, increasing your movement speed at the cost of having a lower firing rate."
 skill_meat_cost = 70
 skill_uid = 8192
 metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
+[sub_resource type="Resource" id="Resource_4fwot"]
+script = ExtResource("4_8qlyr")
+square_icon = true
+skill_name = "HP"
+skill_image = ExtResource("27_vs1q0")
+skill_image_upgraded = ExtResource("28_lhrif")
+skill_description = "Increase the amount of your HP, but the size of your magazines decreases."
+skill_meat_cost = 70
+skill_uid = 4096
+metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
+
 [sub_resource type="Resource" id="Resource_idjr8"]
 script = ExtResource("4_8qlyr")
 skill_name = "Fire"
-skill_description = "fire or smth"
+skill_image = ExtResource("29_vs1q0")
+skill_image_upgraded = ExtResource("30_lhrif")
+skill_description = "Bullets set enemies on fire."
 skill_meat_cost = 70
 skill_uid = 16384
 metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
@@ -145,7 +217,8 @@ metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 [sub_resource type="Resource" id="Resource_jggre"]
 script = ExtResource("4_8qlyr")
 skill_name = "Dual Pistols"
-skill_image = ExtResource("5_3b2bh")
+skill_image = ExtResource("31_lhrif")
+skill_image_upgraded = ExtResource("32_y1f1q")
 skill_description = "A 2 for 1 special! The dual pistols have a faster firing rate in exchange over the damage it inflicts. A classic choice!"
 skill_meat_cost = 25
 skill_uid = 32768
@@ -153,7 +226,10 @@ metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
 [sub_resource type="Resource" id="Resource_luurr"]
 script = ExtResource("4_8qlyr")
+square_icon = true
 skill_name = "Fire Rate UP"
+skill_image = ExtResource("33_04v6b")
+skill_image_upgraded = ExtResource("34_0ppb8")
 skill_description = "Upgrade the fire rate of your guns in exchange for having a smaller magazine size."
 skill_meat_cost = 40
 skill_uid = 65536
@@ -161,7 +237,10 @@ metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
 [sub_resource type="Resource" id="Resource_2h7kc"]
 script = ExtResource("4_8qlyr")
+square_icon = true
 skill_name = "Roll Cooldown"
+skill_image = ExtResource("35_ba6jm")
+skill_image_upgraded = ExtResource("36_dxovw")
 skill_description = "Reduce the cooldown timer of your roll ability at the expense of lowering your HP."
 skill_meat_cost = 40
 skill_uid = 131072
@@ -170,15 +249,19 @@ metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 [sub_resource type="Resource" id="Resource_dcxbm"]
 script = ExtResource("4_8qlyr")
 skill_name = "Double Shot"
-skill_description = "Fire two shots at once
-(i dont know this one)"
+skill_image = ExtResource("5_x1cyl")
+skill_image_upgraded = ExtResource("6_lwvla")
+skill_description = "Each pistol fires twice in quick succession."
 skill_meat_cost = 60
 skill_uid = 262144
 metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
 [sub_resource type="Resource" id="Resource_qu2j3"]
 script = ExtResource("4_8qlyr")
+square_icon = true
 skill_name = "Damage UP"
+skill_image = ExtResource("39_21kvf")
+skill_image_upgraded = ExtResource("40_ulc3x")
 skill_description = "Upgrade the damage output of your guns, but lower the distance of the roll ability."
 skill_meat_cost = 70
 skill_uid = 524288
@@ -186,7 +269,10 @@ metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
 [sub_resource type="Resource" id="Resource_obulw"]
 script = ExtResource("4_8qlyr")
+square_icon = true
 skill_name = "Movement Speed"
+skill_image = ExtResource("41_qmj2f")
+skill_image_upgraded = ExtResource("42_53uy8")
 skill_description = "An upgrade for your legs, increasing your movement speed at the cost of having a lower firing rate."
 skill_meat_cost = 70
 skill_uid = 1048576
@@ -195,16 +281,104 @@ metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 [sub_resource type="Resource" id="Resource_a42n7"]
 script = ExtResource("4_8qlyr")
 skill_name = "Salvage"
+skill_image = ExtResource("43_qmj2f")
+skill_image_upgraded = ExtResource("44_53uy8")
+skill_description = "Collect some ammo back for every ten shots landed."
 skill_meat_cost = 70
 skill_uid = 2097152
 metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
-[sub_resource type="GDScript" id="GDScript_77k0x"]
-script/source = "extends PanelContainer
+[sub_resource type="Animation" id="Animation_orope"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SkillPanel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SkillPanel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(547, 0)]
+}
 
-func show_skill_panel(skill : SkillDesc) -> void:
-	pass
-"
+[sub_resource type="Animation" id="Animation_kk4or"]
+resource_name = "hide_panel"
+length = 0.4
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SkillPanel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.4, 0.4),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SkillPanel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.4, 0.4),
+"update": 0,
+"values": [Vector2(547, 0), Vector2(600, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_53uy8"]
+resource_name = "show_panel"
+length = 0.4
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SkillPanel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.4, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SkillPanel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.4, 1),
+"update": 0,
+"values": [Vector2(600, 0), Vector2(547, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kk4or"]
+_data = {
+&"RESET": SubResource("Animation_orope"),
+&"hide_panel": SubResource("Animation_kk4or"),
+&"show_panel": SubResource("Animation_53uy8")
+}
 
 [node name="Skill_Tree" type="Control"]
 process_mode = 3
@@ -256,15 +430,6 @@ theme_override_font_sizes/font_size = 38
 text = "Exit"
 flat = true
 
-[node name="Meat Tree" type="Label" parent="."]
-layout_mode = 0
-offset_left = 945.0
-offset_top = 12.0
-offset_right = 1041.0
-offset_bottom = 35.0
-scale = Vector2(2, 2)
-text = "Meat Tree"
-
 [node name="SkillButtons" type="Control" parent="."]
 z_index = 1
 layout_mode = 1
@@ -284,6 +449,7 @@ offset_left = 92.0
 offset_top = 58.0
 offset_right = 152.0
 offset_bottom = 118.0
+texture_normal = ExtResource("3_fin66")
 itemDesc = SubResource("Resource_lmf3w")
 
 [node name="R1" parent="SkillButtons" node_paths=PackedStringArray("dependencies", "evil_dependencies") instance=ExtResource("2_3f6vw")]
@@ -295,6 +461,7 @@ offset_left = 263.0
 offset_top = 27.0
 offset_right = 315.0
 offset_bottom = 86.0
+texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../Base")]
 evil_dependencies = [NodePath("../D1"), NodePath("../B1")]
 itemDesc = SubResource("Resource_3b2bh")
@@ -308,6 +475,7 @@ offset_left = 438.0
 offset_top = 6.0
 offset_right = 490.0
 offset_bottom = 65.0
+texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../R1")]
 evil_dependencies = [NodePath("../D1"), NodePath("../B1")]
 itemDesc = SubResource("Resource_8qlyr")
@@ -321,6 +489,7 @@ offset_left = 442.0
 offset_top = 125.0
 offset_right = 494.0
 offset_bottom = 184.0
+texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../R1")]
 itemDesc = SubResource("Resource_ph0jt")
 
@@ -333,6 +502,7 @@ offset_left = 553.0
 offset_top = 68.0
 offset_right = 605.0
 offset_bottom = 127.0
+texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../R2_1"), NodePath("../R2_2")]
 itemDesc = SubResource("Resource_6jgdw")
 
@@ -345,6 +515,7 @@ offset_left = 671.0
 offset_top = 36.0
 offset_right = 723.0
 offset_bottom = 95.0
+texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../R3")]
 itemDesc = SubResource("Resource_yrbjn")
 
@@ -357,6 +528,7 @@ offset_left = 673.0
 offset_top = 157.0
 offset_right = 725.0
 offset_bottom = 216.0
+texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../R3")]
 itemDesc = SubResource("Resource_oh6w3")
 
@@ -369,6 +541,7 @@ offset_left = 817.0
 offset_top = 93.0
 offset_right = 869.0
 offset_bottom = 152.0
+texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../R4_1"), NodePath("../R4_2")]
 itemDesc = SubResource("Resource_77k0x")
 
@@ -381,6 +554,7 @@ offset_left = 196.0
 offset_top = 152.0
 offset_right = 248.0
 offset_bottom = 211.0
+texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../Base")]
 evil_dependencies = [NodePath("../R1"), NodePath("../B1")]
 itemDesc = SubResource("Resource_fin66")
@@ -394,6 +568,7 @@ offset_left = 256.0
 offset_top = 263.0
 offset_right = 308.0
 offset_bottom = 322.0
+texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../D1")]
 itemDesc = SubResource("Resource_x1cyl")
 
@@ -406,6 +581,7 @@ offset_left = 332.0
 offset_top = 188.0
 offset_right = 384.0
 offset_bottom = 247.0
+texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../D1")]
 itemDesc = SubResource("Resource_lwvla")
 
@@ -418,6 +594,7 @@ offset_left = 385.0
 offset_top = 305.0
 offset_right = 437.0
 offset_bottom = 364.0
+texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../D2_1"), NodePath("../D2_2")]
 itemDesc = SubResource("Resource_8rbpw")
 
@@ -430,6 +607,7 @@ offset_left = 505.0
 offset_top = 333.0
 offset_right = 557.0
 offset_bottom = 392.0
+texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../D3")]
 itemDesc = SubResource("Resource_mygyd")
 
@@ -442,6 +620,7 @@ offset_left = 422.0
 offset_top = 426.0
 offset_right = 474.0
 offset_bottom = 485.0
+texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../D3")]
 itemDesc = SubResource("Resource_4fwot")
 
@@ -454,6 +633,7 @@ offset_left = 544.0
 offset_top = 449.0
 offset_right = 596.0
 offset_bottom = 508.0
+texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../D4_1"), NodePath("../D4_2")]
 itemDesc = SubResource("Resource_idjr8")
 
@@ -463,9 +643,10 @@ anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 74.0
-offset_top = 209.0
-offset_right = 126.0
-offset_bottom = 268.0
+offset_top = 210.0
+offset_right = 134.0
+offset_bottom = 270.0
+texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../Base")]
 evil_dependencies = [NodePath("../R1"), NodePath("../D1")]
 itemDesc = SubResource("Resource_jggre")
@@ -479,6 +660,7 @@ offset_left = 7.0
 offset_top = 306.0
 offset_right = 59.0
 offset_bottom = 365.0
+texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../B1")]
 itemDesc = SubResource("Resource_luurr")
 
@@ -491,6 +673,7 @@ offset_left = 140.0
 offset_top = 306.0
 offset_right = 192.0
 offset_bottom = 365.0
+texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../B1")]
 itemDesc = SubResource("Resource_2h7kc")
 
@@ -503,6 +686,7 @@ offset_left = 69.0
 offset_top = 401.0
 offset_right = 121.0
 offset_bottom = 460.0
+texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../B2_1"), NodePath("../B2_2")]
 itemDesc = SubResource("Resource_dcxbm")
 
@@ -515,6 +699,7 @@ offset_left = 7.0
 offset_top = 486.0
 offset_right = 59.0
 offset_bottom = 545.0
+texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../B3")]
 itemDesc = SubResource("Resource_qu2j3")
 
@@ -527,6 +712,7 @@ offset_left = 152.0
 offset_top = 481.0
 offset_right = 204.0
 offset_bottom = 540.0
+texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../B3")]
 itemDesc = SubResource("Resource_obulw")
 
@@ -539,25 +725,44 @@ offset_left = 80.0
 offset_top = 568.0
 offset_right = 132.0
 offset_bottom = 627.0
+texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../B4_1"), NodePath("../B4_2")]
 itemDesc = SubResource("Resource_a42n7")
 
 [node name="Overlay" type="CanvasLayer" parent="."]
 script = ExtResource("8_oh6w3")
 
-[node name="SkillPanel" type="PanelContainer" parent="Overlay"]
+[node name="SkillPanel" type="Control" parent="Overlay"]
 visible = false
-anchors_preset = -1
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
 anchor_left = 0.4748264
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -0.00024414063
 grow_horizontal = 2
 grow_vertical = 2
-script = SubResource("GDScript_77k0x")
 metadata/_edit_use_anchors_ = true
 
+[node name="BG" type="TextureRect" parent="Overlay/SkillPanel"]
+modulate = Color(1, 1, 1, 0.7921569)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -53.769226
+offset_top = 683.0
+offset_right = 68.99994
+offset_bottom = 807.7178
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5707964
+texture = ExtResource("46_53uy8")
+
 [node name="VSplitContainer" type="VSplitContainer" parent="Overlay/SkillPanel"]
-layout_mode = 2
+layout_mode = 0
+offset_right = 605.0
+offset_bottom = 648.0
 split_offset = 500
 
 [node name="Info" type="VBoxContainer" parent="Overlay/SkillPanel/VSplitContainer"]
@@ -613,12 +818,16 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 4
+theme_override_font_sizes/font_size = 60
 text = "Purchase"
+flat = true
 
 [node name="Cancel" type="Button" parent="Overlay/SkillPanel/VSplitContainer/Options"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+theme_override_font_sizes/font_size = 60
 text = "Cancel"
+flat = true
 
 [node name="MeatDisplay" type="PanelContainer" parent="Overlay"]
 offset_right = 40.0
@@ -642,8 +851,21 @@ texture = ExtResource("8_yrbjn")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="SkillBranches" type="Node2D" parent="."]
+[node name="Anim" type="AnimationPlayer" parent="Overlay"]
 unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_kk4or")
+}
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="SkillTreeEnterSound" parent="SFX" instance=ExtResource("48_6dxvt")]
+
+[node name="SkillTreeExitSound" parent="SFX" instance=ExtResource("49_bfeqj")]
+
+[node name="SkillTreePurchaseFailedSound" parent="SFX" instance=ExtResource("50_uareu")]
+
+[node name="SkillTreePurchaseSuccessfulSound" parent="SFX" instance=ExtResource("51_probc")]
 
 [connection signal="pressed" from="VBoxContainer/Reset" to="." method="on_skill_tree_reset"]
 [connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

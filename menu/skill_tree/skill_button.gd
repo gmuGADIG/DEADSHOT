@@ -15,7 +15,6 @@ enum State{
 }
 
 
-@onready var skill_branch : Line2D = Line2D.new()
 @export var dependencies : Array[Skill_Button]
 @export var evil_dependencies : Array[Skill_Button] #it is just the opposite of regular dependecies,
 # so if you have any of the dependencies unlocked you cant unlock this one
@@ -27,38 +26,49 @@ var state : State:
 		
 		match state:
 			State.UNSET:
-				self_modulate = Color(1,0,0)
+				modulate = Color(1,0,0)
 			State.PURCHASED:
-				self_modulate = Color(1,1,1)
-				skill_branch.default_color = Color(1,1,1)
-				skill_branch.show()
-				$LockIcon.hide()
+				modulate = Color(1,1,1)
+				%SkillBranches.modulate = Color(1,1,1)
+				%SkillBranches.show()
 			State.AFFORDABLE:
-				self_modulate = Color(1,1,1)
-				skill_branch.default_color = Color(0.5,0.5,0.5)
-				skill_branch.show()
-				$LockIcon.hide()
+				modulate = Color(1,1,1)
+				%SkillBranches.modulate = Color(0.5,0.5,0.5)
+				%SkillBranches.show()
+				$TextureRect.texture = itemDesc.skill_image
 			State.UNAFFORDABLE:
-				self_modulate = Color(0.5,0.5,0.5)
-				skill_branch.default_color = Color(0.5,0.5,0.5)
-				skill_branch.show()
-				$LockIcon.hide()
+				modulate = Color(0.5,0.5,0.5)
+				%SkillBranches.modulate = Color(0.5,0.5,0.5)
+				%SkillBranches.show()
+				$TextureRect.texture = itemDesc.skill_image
 			State.LOCKED:
-				self_modulate = Color(0.5,0.5,0.5)
-				skill_branch.hide()
-				$LockIcon.show()
+				modulate = Color(0.35, 0.35, 0.35)
+				%SkillBranches.hide()
+				$TextureRect.texture = itemDesc.skill_image
 
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
 	
-	%SkillBranches.add_child(skill_branch)
-	#setup_popup()
 	update_purchase_state()
-	$Label.text = itemDesc.skill_name
+	$TextureRect.texture = itemDesc.skill_image
+	
+	# set board texture (circle = 1 icon, square = 2 icons)
+	var board := (
+		preload("res://menu/skill_tree/skill_tree_icons/board_square.png")
+		if itemDesc.square_icon
+		else preload("res://menu/skill_tree/skill_tree_icons/board_circle.png")
+	)
+	texture_normal = board
+	texture_disabled = board
+	
 	# Fix this, make sure line goes in correct place
 	for child in dependencies:
-		skill_branch.add_point(self.global_position + self.size/2)
-		skill_branch.add_point(child.global_position + child.size/2)
+		var line := Line2D.new()
+		line.texture = preload("res://menu/skill_tree/skill_tree_icons/board_connector.png")
+		line.texture_mode = Line2D.LINE_TEXTURE_STRETCH
+		line.add_point(Vector2.ZERO)
+		line.add_point(child.global_position - self.global_position)
+		%SkillBranches.add_child(line)
 
 func update_purchase_state() -> void:
 	if SkillSet.has_skill(itemDesc.skill_uid):
@@ -86,10 +96,6 @@ func update_state() -> void:
 	else:
 		state = State.UNAFFORDABLE
 	
-func _process(_delta:float) -> void:
-	if Engine.is_editor_hint():
-		$Label.text = itemDesc.skill_name
-
 func _on_pressed() -> void:
 	if Engine.is_editor_hint(): return
 	if Input.is_action_pressed("quick_purchase"):
@@ -101,22 +107,27 @@ func _on_pressed() -> void:
 			
 	#if player level or prev skill is acheived, allow it, or deny it
 
-func attempt_purchase() -> void:
+# Returns whether the purchase was a success
+func attempt_purchase() -> bool:
 	match state:
 		State.AFFORDABLE:
 			purchase()
 			indent()
+			return true
 		State.UNAFFORDABLE, State.LOCKED:
 			shake()
 		State.PURCHASED:
 			indent()
+	return false
 
 func purchase() -> void:
 	##TODO: GRANT SKILL
 	print(itemDesc.skill_name)
 	Global.meat_currency -= itemDesc.skill_meat_cost
 	state = State.PURCHASED
+	$TextureRect.texture = itemDesc.skill_image_upgraded
 	purchase_made.emit(itemDesc.skill_uid)
+	%PurchaseParticles.emitting = true
 
 func indent() -> void:
 	var tween : Tween = get_tree().create_tween()
@@ -128,8 +139,3 @@ func shake() -> void:
 	tween.tween_property(self,"rotation_degrees",10, 0.07)
 	tween.tween_property(self,"rotation_degrees",-10, 0.07)
 	tween.tween_property(self,"rotation_degrees",0, 0.07)
-
-#func setup_popup() -> void:
-	#$Skill_Popup/VBoxContainer/Name.text = itemDesc.skill_name
-	#$Skill_Popup/VBoxContainer/Description.text = itemDesc.skill_description
-	#$Skill_Popup/VBoxContainer/TextureRect.texture = itemDesc.skill_image

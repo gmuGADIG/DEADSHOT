@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwsraqi3f8a1l"]
+[gd_scene load_steps=6 format=3 uid="uid://dwsraqi3f8a1l"]
 
 [ext_resource type="SpriteFrames" uid="uid://s3e0dwwb00o3" path="res://world/interactables/campfire/campfire_frames.tres" id="2_5undl"]
 [ext_resource type="Script" uid="uid://bn6avupkkqnrl" path="res://world/interactables/campfire/campfire.gd" id="2_lvvka"]
 [ext_resource type="PackedScene" uid="uid://dlk1b6wuqagg6" path="res://audio/streams/campfire_ambience_sound.tscn" id="3_lvvka"]
+[ext_resource type="PackedScene" uid="uid://dwcbfbg3dbjjp" path="res://audio/streams/ui_save_sound.tscn" id="4_35fmf"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_35fmf"]
 height = 1.1269531
@@ -36,3 +37,5 @@ omni_range = 15.0
 [node name="CampfireAmbienceSound" parent="." instance=ExtResource("3_lvvka")]
 unique_name_in_owner = true
 autoplay = true
+
+[node name="UISaveSound" parent="." instance=ExtResource("4_35fmf")]

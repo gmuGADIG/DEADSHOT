@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7qfyf6vhsdqg"]
+
+[ext_resource type="AudioStream" uid="uid://d73vx4l8ixvk" path="res://audio/ui/se_skillTreeMenu_purchaseSuccessful_1.mp3" id="1_4ubsb"]
+[ext_resource type="AudioStream" uid="uid://bjwhfapjfsoj8" path="res://audio/ui/se_skillTreeMenu_purchaseSuccessful_2.mp3" id="2_f6xby"]
+[ext_resource type="AudioStream" uid="uid://berly63sbysfy" path="res://audio/ui/se_skillTreeMenu_purchaseSuccessful_3.mp3" id="3_5w3qf"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_wnic7"]
+streams_count = 3
+stream_0/stream = ExtResource("1_4ubsb")
+stream_1/stream = ExtResource("2_f6xby")
+stream_2/stream = ExtResource("3_5w3qf")
+
+[node name="SkillTreePurchaseSuccessfulSound" type="AudioStreamPlayer"]
+stream = SubResource("AudioStreamRandomizer_wnic7")
+volume_db = -9.0
+bus = &"SFX"

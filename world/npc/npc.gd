@@ -9,4 +9,6 @@ func _ready() -> void:
 
 func interact() -> void:
 	if Dialog.play(timeline):
+		if $PaperPickupSound:
+			$PaperPickupSound.play()
 		await Dialog.timeline_ended

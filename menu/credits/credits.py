@@ -81,7 +81,7 @@ with open('gdignored/credits.csv', newline='') as csvfile:
     _ = next(i) # skip first line
 
     for row in i:
-        name = row[1]
+        name = row[1].strip()
         categories = re.split(regex, row[3])
 
         if name in people_dict: # if person exists, just update the list of categories
