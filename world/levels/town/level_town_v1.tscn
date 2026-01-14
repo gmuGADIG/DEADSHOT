@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cxahvvaidpg32" path="res://world/levels/town/level_town_base.tscn" id="1_vhep4"]
 [ext_resource type="PackedScene" uid="uid://dhb2pgqbfvxoa" path="res://world/enemy/encounter/encounter.tscn" id="2_ovvcg"]
+[ext_resource type="Texture2D" uid="uid://c5upseoo85lqg" path="res://world/backgrounds/desert_bg_blur.png" id="2_s6y2q"]
 [ext_resource type="PackedScene" uid="uid://6ahxaf8mfjcr" path="res://world/pickups/ammo_pickup/ammo_pickup.tscn" id="2_siqd8"]
 [ext_resource type="PackedScene" uid="uid://bp6l0lw650m8o" path="res://world/blocker/blocker.tscn" id="3_j473c"]
 [ext_resource type="PackedScene" uid="uid://bb3qdjspo0kcq" path="res://world/interactables/barrel/barrel.tscn" id="4_5bykt"]
@@ -26,6 +27,14 @@ size = Vector3(9.885742, 3, 10)
 
 [node name="LevelTown1" instance=ExtResource("1_vhep4")]
 
+[node name="FullscreenBG" parent="Background" index="0"]
+transform = Transform3D(0.17, 0, 0, 0, 0.097508, 0.093383335, 0, -0.13925585, 0.06538772, 2.5613499, -14.898792, -12.023702)
+offset = Vector2(0, -150)
+modulate = Color(0.627451, 0.627451, 0.627451, 1)
+transparent = true
+texture = ExtResource("2_s6y2q")
+
+[node name="Encounters" type="Node3D" parent="." index="13"]
 [node name="Blocker" parent="." index="13" instance=ExtResource("3_j473c")]
 transform = Transform3D(24.228458, 0, 0, 0, 1, 0, 0, 0, 1.6617925, 11.886657, 0.20419258, -24.36583)
 

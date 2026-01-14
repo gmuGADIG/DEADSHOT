@@ -86,6 +86,8 @@ size = Vector3(33.1698, 3, 16.49741)
 [node name="LevelMines" instance=ExtResource("1_nthvq")]
 
 [node name="FullscreenBG" parent="Background" index="0"]
+transform = Transform3D(0.15, 0, 0, 0, 0.08603647, 0.093383335, 0, -0.122872815, 0.06538772, 2.5613499, -14.898792, -12.023702)
+transparent = true
 texture = ExtResource("2_rskgg")
 
 [node name="World" parent="." index="2"]
@@ -94,7 +96,6 @@ navigation_mesh = SubResource("NavigationMesh_ci4pn")
 [node name="Floor" parent="World" index="0"]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -4.200489, 0, 13.980255)
 curve = SubResource("Curve3D_nthvq")
-curve_interval = 2.0
 material = ExtResource("2_tlwcp")
 
 [node name="Floor" parent="World/Floor" index="1"]
