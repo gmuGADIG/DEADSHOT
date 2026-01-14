@@ -17,21 +17,24 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	updateMovementAnimation(player.current_state)
+	if player.current_state != Player.PlayerState.DEAD:
+		updateMovementAnimation(player.current_state)
 	if player.velocity == Vector3.ZERO: updateSpriteAnimation("idle")
 	checkSpriteDirection()
 
 
 func _on_player_state_change() -> void:
 	updateMovementAnimation(player.current_state)
-	
+
 ## Update if the player is walking or rolling
 func updateMovementAnimation(state: Player.PlayerState) -> void:
 	match state:
-		player.PlayerState.WALKING:
+		player.PlayerState.WALKING, player.PlayerState.TRANSITIONING:
 			updateSpriteAnimation("walking")
 		player.PlayerState.ROLLING:
 			updateSpriteAnimation("rolling")
+		player.PlayerState.DEAD:
+			_on_player_death()
 
 func updateSpriteAnimation(animationName: String) -> void:
 	match animationName:
@@ -53,12 +56,19 @@ func updateSpriteAnimation(animationName: String) -> void:
 			stop()
 	play(animationName)
 
+func _on_player_death() -> void:
+	# TODO: death animation? I tried playing rolling backwards but it looped
+	pass
 
 func _on_animation_finished() -> void:
 	# if we just finished finished animations that aren't allowed to be cancelled,
 	# we'll set them to something else so the anti-cancel checks don't get confused. 
 	if animation in ["shooting", "rolling", "whipping"]:
 		animation="idle"
+	elif player.current_state == Player.PlayerState.DEAD:
+		play("dead")
+		speed_scale = 0
+		return
 	updateMovementAnimation(player.current_state)
 
 func _on_whipped() -> void:

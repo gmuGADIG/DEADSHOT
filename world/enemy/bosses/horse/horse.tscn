@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://dp00f0nisoyxa"]
+[gd_scene load_steps=54 format=3 uid="uid://dp00f0nisoyxa"]
 
 [ext_resource type="PackedScene" uid="uid://c5mugf35c8n0f" path="res://world/enemy/bosses/boss_enemy.tscn" id="1_bulbf"]
 [ext_resource type="Script" uid="uid://caif4brdw52j8" path="res://world/enemy/bosses/horse/horse_boss.gd" id="2_23ymh"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://de08wyp685o85" path="res://world/enemy/bosses/horse/art/horse_idle_right.png" id="5_u5yt6"]
 [ext_resource type="Texture2D" uid="uid://cyupoqq628ujj" path="res://world/enemy/bosses/horse/art/horse_run_left.png" id="6_s7005"]
 [ext_resource type="Texture2D" uid="uid://qq7lou0rqlxh" path="res://world/enemy/bosses/horse/art/horse_run_right.png" id="7_nq2we"]
+[ext_resource type="PackedScene" uid="uid://bl78b6gav1q1b" path="res://world/enemy/base/qte_target.tscn" id="10_nq2we"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_o0ar2"]
 height = 2.3742957
@@ -396,7 +397,7 @@ animation = &"idle_left"
 autoplay = "idle_right"
 
 [node name="Health" parent="." index="3"]
-max_health = 40.0
+max_health = 110.0
 
 [node name="CollisionShape3D" parent="Hurtbox" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2055829, 0)
@@ -420,5 +421,23 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HurterBox" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2055829, 0)
 shape = SubResource("CylinderShape3D_skegu")
+
+[node name="QTETarget" parent="QTEHandler" index="0" instance=ExtResource("10_nq2we")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3754015, 2.5681574, 0)
+
+[node name="QTETarget2" parent="QTEHandler" index="1" instance=ExtResource("10_nq2we")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.97722375, 1.2373949, 0)
+
+[node name="QTETarget3" parent="QTEHandler" index="2" instance=ExtResource("10_nq2we")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.86050284, -0.049373627, 0)
+
+[node name="QTETarget4" parent="QTEHandler" index="3" instance=ExtResource("10_nq2we")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.517493, -0.16174531, 0)
+
+[node name="QTETarget5" parent="QTEHandler" index="4" instance=ExtResource("10_nq2we")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2735666, 0.8590765, 0)
+
+[node name="QTETarget6" parent="QTEHandler" index="5" instance=ExtResource("10_nq2we")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1493335, 2.0781267, 0)
 
 [connection signal="area_entered" from="HurterBox" to="." method="_on_hurter_box_area_entered"]

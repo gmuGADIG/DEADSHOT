@@ -1,9 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://b56tx6gavm48t"]
 
-[ext_resource type="PackedScene" uid="uid://ci3804ofkibap" path="res://audio/streams/sound_base.tscn" id="1_d03m1"]
 [ext_resource type="AudioStream" uid="uid://c6fh3mivba1sg" path="res://audio/placeholders/test_beep.wav" id="1_jky5y"]
+[ext_resource type="Script" uid="uid://bf14d2iyiqx56" path="res://audio/streams/sound_stream.gd" id="2_jky5y"]
 
-[node name="FireHitSound" instance=ExtResource("1_d03m1")]
+[node name="FireHitSound" type="AudioStreamPlayer3D"]
 stream = ExtResource("1_jky5y")
-autoplay = false
-delete_on_finish = false
+unit_size = 20.0
+panning_strength = 0.5
+bus = &"SFX"
+attenuation_filter_cutoff_hz = 20500.0
+script = ExtResource("2_jky5y")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

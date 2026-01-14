@@ -57,24 +57,18 @@ func _process(delta: float) -> void:
 	if not player.can_shoot(): return
  
 	# No shooting if you're rolling or the cooldown hasn't ended!
-	if Input.is_action_just_pressed("fire") and fire_timer >= get_fire_cooldown():
+	if Input.is_action_just_pressed("fire") and fire_timer >= get_fire_cooldown() and not QTEVFX.active:
 		fire_timer = 0.0
 	
 		## if the player cannot shoot / is reloading, do not fire
-		if not Player.instance.can_shoot() or is_reloading == true:
+		if (not Player.instance.can_shoot()) or is_reloading or chamber_ammo <= 0:
+			if chamber_ammo <= 0 and not is_reloading:
+				reload()
 			return
-		
-		
 	 
 		fire(true, 1)
 		fired.emit()
 
-		if SkillSet.has_skill(SkillSet.SkillUID.PISTOL_DOUBLE_SHOT):
-			get_tree().create_timer(.08).timeout.connect(func() -> void:
-				fire(true, .5)
-				fired.emit()
-			)
-		
 		## Reloads gun with left click if no bullets in chamber (keep or remove?)
 		if (chamber_ammo == 0):
 			reload()

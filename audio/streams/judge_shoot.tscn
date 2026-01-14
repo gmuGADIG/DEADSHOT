@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://tbha2e87fcg3"]
 
-[ext_resource type="AudioStream" uid="uid://dob2n8xtru5xb" path="res://audio/enemies/judge/se_judge_shot_1.wav" id="1_gl3ug"]
-[ext_resource type="AudioStream" uid="uid://cuauqf161ecrk" path="res://audio/enemies/judge/se_judge_shot_2.wav" id="2_8hnr0"]
-[ext_resource type="AudioStream" uid="uid://c2v68lrfcufha" path="res://audio/enemies/judge/se_judge_shot_3.wav" id="3_3rtql"]
-[ext_resource type="AudioStream" uid="uid://cmbi8r6tx051o" path="res://audio/enemies/judge/se_judge_shot_4.wav" id="4_3raes"]
-[ext_resource type="AudioStream" uid="uid://dbu7pjq1ytsch" path="res://audio/enemies/judge/se_judge_shot_5.wav" id="5_elb0l"]
-[ext_resource type="AudioStream" uid="uid://psqebcgiog27" path="res://audio/enemies/judge/se_judge_shot_6.wav" id="6_xm53b"]
+[ext_resource type="AudioStream" uid="uid://bjxi5iu03fkl8" path="res://audio/enemies/judge/se_judge_shot_1.mp3" id="1_gl3ug"]
+[ext_resource type="AudioStream" uid="uid://chb7ci03wugg2" path="res://audio/enemies/judge/se_judge_shot_2.mp3" id="2_8hnr0"]
+[ext_resource type="AudioStream" uid="uid://3avyk28n6wpm" path="res://audio/enemies/judge/se_judge_shot_3.mp3" id="3_3rtql"]
+[ext_resource type="AudioStream" uid="uid://bl66ojwspovsc" path="res://audio/enemies/judge/se_judge_shot_4.mp3" id="4_3raes"]
+[ext_resource type="AudioStream" uid="uid://bx4cgmu7w8fwi" path="res://audio/enemies/judge/se_judge_shot_5.mp3" id="5_elb0l"]
+[ext_resource type="AudioStream" uid="uid://de8f1i5hx0j20" path="res://audio/enemies/judge/se_judge_shot_6.mp3" id="6_xm53b"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_v6nua"]
 random_pitch = 1.12
@@ -20,5 +20,6 @@ stream_5/stream = ExtResource("6_xm53b")
 
 [node name="JudgeShoot" type="AudioStreamPlayer3D"]
 stream = SubResource("AudioStreamRandomizer_v6nua")
+volume_db = -4.66
 max_polyphony = 2
-bus = &"VFX"
+bus = &"SFX"

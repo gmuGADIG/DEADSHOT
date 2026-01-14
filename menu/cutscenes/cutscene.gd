@@ -6,6 +6,8 @@ extends Control
 @export var timelines: Array[DialogTimeline]
 @export var next_scene: PackedScene
 
+@export var auto_advance := false
+
 func play_timeline(timeline_idx: int) -> void:
 	animator.pause()
 	Dialog.play(timelines[timeline_idx])
@@ -22,8 +24,13 @@ func _ready()->void:
 	tap_button.hide()
 	
 	animator.play("cutscene")
+
+	# animator.seek(50.) # TODO: remove this line
+	# MainMusicPlayer.seek(50.) # TODO: remove this line
+
 	await animator.animation_finished
-	await show_advance_prompt()
+	if not auto_advance:
+		await show_advance_prompt()
 	get_tree().change_scene_to_packed(next_scene)
 	
 	#animator.play("before_dialogue")
@@ -36,7 +43,7 @@ func _ready()->void:
 	#await animator.animation_finished
 
 func text_finished() -> void:
-	while Dialog.panel.visible:
+	while Dialog.visible:
 		await get_tree().process_frame
 
 func show_advance_prompt() -> void:

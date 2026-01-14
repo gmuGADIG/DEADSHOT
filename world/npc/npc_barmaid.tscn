@@ -1,20 +1,87 @@
-[gd_scene load_steps=6 format=3 uid="uid://ck3lifhncrfx2"]
+[gd_scene load_steps=13 format=3 uid="uid://ck3lifhncrfx2"]
 
 [ext_resource type="PackedScene" uid="uid://c8ycoujcnafdn" path="res://world/npc/npc_base.tscn" id="1_3l5q5"]
-[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="2_uvxkt"]
-[ext_resource type="Texture2D" uid="uid://btpeenutso7eb" path="res://temp_art/gartic/garfunkle.png" id="3_jqyea"]
-[ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="4_uvxkt"]
+[ext_resource type="Texture2D" uid="uid://dtpif04sbmkh2" path="res://world/npc/npc_piano_man.png" id="2_wyayk"]
+[ext_resource type="Texture2D" uid="uid://2no8kejpwrs1" path="res://world/npc/npc_barmaid.png" id="3_nkqli"]
 
-[sub_resource type="Resource" id="Resource_wfwcm"]
-script = ExtResource("2_uvxkt")
-metadata/_custom_type_script = "uid://rvaetvwo5p3h"
+[sub_resource type="AtlasTexture" id="AtlasTexture_khe31"]
+atlas = ExtResource("2_wyayk")
+region = Rect2(1, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1c7i"]
+atlas = ExtResource("2_wyayk")
+region = Rect2(1025, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqhol"]
+atlas = ExtResource("2_wyayk")
+region = Rect2(2049, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_viqlc"]
+atlas = ExtResource("2_wyayk")
+region = Rect2(3073, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4kwqm"]
+atlas = ExtResource("3_nkqli")
+region = Rect2(0, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pv314"]
+atlas = ExtResource("3_nkqli")
+region = Rect2(1024, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_guirm"]
+atlas = ExtResource("3_nkqli")
+region = Rect2(2048, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_878n2"]
+atlas = ExtResource("3_nkqli")
+region = Rect2(3072, 0, 1024, 1024)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f8bfr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khe31")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1c7i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fqhol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_viqlc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4kwqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pv314")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_guirm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_878n2")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 12.0
+}]
 
 [node name="NPCBase" instance=ExtResource("1_3l5q5")]
-timelime = SubResource("Resource_wfwcm")
 
 [node name="Sprite3D" parent="." index="0"]
-texture = ExtResource("3_jqyea")
+transform = Transform3D(0.85, 0, 0, 0, 0.7361216, 0.425, 0, -0.425, 0.7361216, 0, 1.0986961, 0)
+alpha_cut = 1
 
-[node name="Comment" parent="." index="2" instance=ExtResource("4_uvxkt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.713434, 0.15157759)
-text = "Barmaid"
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Sprite3D" index="0"]
+transform = Transform3D(0.3, 0, 0, 0, 0.29999998, 0, 0, 0, 0.29999998, 0, 0, 0)
+alpha_cut = 1
+sprite_frames = SubResource("SpriteFrames_f8bfr")
+animation = &"new_animation"
+frame_progress = 0.2711292

@@ -1,12 +1,51 @@
-[gd_scene load_steps=11 format=3 uid="uid://ccw4qikojwtx"]
+[gd_scene load_steps=32 format=3 uid="uid://ccw4qikojwtx"]
 
 [ext_resource type="Script" uid="uid://c1bnxnohhlms" path="res://menu/cutscenes/cutscene.gd" id="1_6mnks"]
 [ext_resource type="Texture2D" uid="uid://bbg0gnlbpf0fc" path="res://menu/cutscenes/outro/cs_outro_4.png" id="3_jhgsw"]
+[ext_resource type="Script" uid="uid://cu2q6j6d7nkgg" path="res://menu/cutscenes/outro/credits_handler.gd" id="3_o0fyp"]
+[ext_resource type="Texture2D" uid="uid://k38kdp8yrqo2" path="res://menu/main_menu/main_logo.png" id="3_rxwr4"]
+[ext_resource type="Shader" uid="uid://d3m00nmbmdtm8" path="res://menu/cutscenes/outro/title_popup.gdshader" id="3_wadoo"]
+[ext_resource type="Texture2D" uid="uid://71qabna43rwk" path="res://menu/cutscenes/outro/Final_Cutscene_4_Foreground.png" id="4_3ysqs"]
 [ext_resource type="Texture2D" uid="uid://d1akhhktl0df5" path="res://menu/cutscenes/outro/cs_outro_3.png" id="4_177g4"]
+[ext_resource type="Script" uid="uid://co2r0p266y1vu" path="res://audio/music/song_resource/song.gd" id="5_kn5rf"]
 [ext_resource type="Texture2D" uid="uid://btwdobgpy70k6" path="res://menu/cutscenes/outro/cs_outro_2.png" id="5_rxwr4"]
+[ext_resource type="Shader" uid="uid://djpvr4i8oxey4" path="res://menu/credits/credits.gdshader" id="5_snh3m"]
+[ext_resource type="Texture2D" uid="uid://coitgvvc5estv" path="res://menu/credits/credits-noise.tres" id="6_3ysqs"]
+[ext_resource type="Resource" uid="uid://datrc28o6vmgc" path="res://audio/music/song_files/misc/Justin_title_song.tres" id="6_43qe3"]
 [ext_resource type="PackedScene" uid="uid://c7c1lwr411btx" path="res://audio/music/music_player/play_song_for_scene.tscn" id="6_jhgsw"]
 [ext_resource type="Texture2D" uid="uid://bavqpevyubkal" path="res://menu/cutscenes/outro/cs_outro_1.png" id="6_wadoo"]
 [ext_resource type="Resource" uid="uid://bhgog2x24km1d" path="res://audio/music/song_files/cutscenes/Cooper_epilogue_cutscene.tres" id="7_177g4"]
+[ext_resource type="Script" uid="uid://740avbeu1wf0" path="res://menu/credits/canvas_group.gd" id="7_o0fyp"]
+[ext_resource type="Resource" uid="uid://cckle8iujnl64" path="res://audio/music/song_files/desert_level/Nila_desert_song.tres" id="7_wpph0"]
+[ext_resource type="Script" uid="uid://decf5fuftpwyu" path="res://menu/credits/scroller.gd" id="8_4jf67"]
+[ext_resource type="Resource" uid="uid://dfovwf7isgyks" path="res://audio/music/song_files/desert_level/Nathan_horse_boss_song.tres" id="8_a24g4"]
+[ext_resource type="FontFile" uid="uid://bhmvsjs1rouun" path="res://menu/credits/CourierPrime-Regular.ttf" id="9_fet1n"]
+[ext_resource type="Resource" uid="uid://tli21qkgcwye" path="res://audio/music/song_files/town_level_corrupted/Becs_corrupt_town_song.tres" id="9_rkkkf"]
+[ext_resource type="Resource" uid="uid://bin2l0wyprpnw" path="res://audio/music/song_files/town_level_corrupted/Xander_corrupt_town_combat_song.tres" id="10_ma4xs"]
+[ext_resource type="Resource" uid="uid://c0871iq1wcy6s" path="res://audio/music/song_files/mines_level/Chris_mines_song.tres" id="11_8k32w"]
+[ext_resource type="Resource" uid="uid://dtb4tigljrqvr" path="res://audio/music/song_files/mines_level/Adrien_mass_boss_song.tres" id="12_fi4tx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iujsx"]
+shader = ExtResource("5_snh3m")
+shader_parameter/noise = ExtResource("6_3ysqs")
+shader_parameter/alpha_map = ExtResource("4_3ysqs")
+shader_parameter/alpha_threshold = 0.06000000215148
+shader_parameter/flame_threshold = 0.035000000963979996
+shader_parameter/burn_end = 0.08500000333898
+shader_parameter/burn_start = 0.032000000821479996
+shader_parameter/LINE = 0.03000000072648
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1yjov"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wadoo"]
+noise = SubResource("FastNoiseLite_1yjov")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oejch"]
+shader = ExtResource("3_wadoo")
+shader_parameter/progress = 2.0
+shader_parameter/width = 0.7
+shader_parameter/noise = SubResource("NoiseTexture2D_wadoo")
+shader_parameter/speed = 0.5
 
 [sub_resource type="Animation" id="Animation_vehyx"]
 length = 0.001
@@ -49,116 +88,116 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Frame4:modulate")
+tracks/3/path = NodePath("Frame4:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector2(0, 0)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Frame4:position")
+tracks/4/path = NodePath("Frame4:size")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(1152, 648)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Frame4:size")
+tracks/5/path = NodePath("Frame3:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1152, 648)]
+"values": [Vector2(0, 0)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Frame3:position")
+tracks/6/path = NodePath("Frame3:size")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(1152, 648)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Frame3:size")
+tracks/7/path = NodePath("Frame2:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1152, 648)]
+"values": [Vector2(0, 0)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Frame2:position")
+tracks/8/path = NodePath("Frame2:size")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(1152, 648)]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Frame2:size")
+tracks/9/path = NodePath("Frame1:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1152, 648)]
+"values": [Vector2(0, 0)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Frame1:position")
+tracks/10/path = NodePath("Frame1:size")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(1152, 648)]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("Frame1:size")
+tracks/11/path = NodePath("CanvasGroup/Scroller/Title:material:shader_parameter/progress")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1152, 648)]
+"values": [2.0]
 }
 
 [sub_resource type="Animation" id="Animation_k2yrb"]
 resource_name = "cutscene"
-length = 54.0
-step = 0.1
+length = 60.0
+step = 1.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -198,110 +237,124 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Frame4:modulate")
+tracks/3/path = NodePath("Frame4:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(53.7, 54),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(42.4, 51.3),
+"transitions": PackedFloat32Array(0.5, 3),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Vector2(-108.44446, -61), Vector2(0, 0)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Frame4:position")
+tracks/4/path = NodePath("Frame4:size")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(42.7, 54),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(42.4, 51.3),
+"transitions": PackedFloat32Array(0.5, 3),
 "update": 0,
-"values": [Vector2(-44.44458, -25), Vector2(0, 0)]
+"values": [Vector2(1368.8889, 770), Vector2(1152, 648)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Frame4:size")
+tracks/5/path = NodePath("Frame3:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(42.7, 54),
+"times": PackedFloat32Array(26.4, 42.7),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1240.8892, 698), Vector2(1152, 648)]
+"values": [Vector2(0, 0), Vector2(-37.333374, -21)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Frame3:position")
+tracks/6/path = NodePath("Frame3:size")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(26.4, 42.7),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(-37.333374, -21)]
+"values": [Vector2(1152, 648), Vector2(1226.6667, 690)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Frame3:size")
+tracks/7/path = NodePath("Frame2:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(26.4, 42.7),
+"times": PackedFloat32Array(13.2, 26.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1152, 648), Vector2(1226.6667, 690)]
+"values": [Vector2(0, 0), Vector2(-37.333252, -21)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Frame2:position")
+tracks/8/path = NodePath("Frame2:size")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(13.2, 26.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(-37.333252, -21)]
+"values": [Vector2(1152, 648), Vector2(1226.6665, 690)]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Frame2:size")
+tracks/9/path = NodePath("Frame1:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(13.2, 26.4),
+"times": PackedFloat32Array(0, 13.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1152, 648), Vector2(1226.6665, 690)]
+"values": [Vector2(0, 0), Vector2(-39.111206, -22)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Frame1:position")
+tracks/10/path = NodePath("Frame1:size")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "times": PackedFloat32Array(0, 13.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(-39.111206, -22)]
+"values": [Vector2(1152, 648), Vector2(1230.2224, 692)]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("Frame1:size")
+tracks/11/path = NodePath("CanvasGroup/Scroller/Title:material:shader_parameter/progress")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(0, 13.2),
+"times": PackedFloat32Array(43.5, 46),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1152, 648), Vector2(1230.2224, 692)]
+"values": [2.0, -1.0]
+}
+tracks/12/type = "method"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("CreditsHandler")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(58),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"start"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uh1q5"]
@@ -318,6 +371,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6mnks")
+auto_advance = true
 
 [node name="BG" type="ColorRect" parent="."]
 layout_mode = 1
@@ -338,6 +392,332 @@ grow_vertical = 2
 texture = ExtResource("3_jhgsw")
 expand_mode = 1
 stretch_mode = 6
+
+[node name="Frame5" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_3ysqs")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="CreditsHandler" type="Node" parent="."]
+script = ExtResource("3_o0fyp")
+songs = Array[ExtResource("5_kn5rf")]([ExtResource("6_43qe3"), ExtResource("7_wpph0"), ExtResource("8_a24g4"), ExtResource("9_rkkkf"), ExtResource("10_ma4xs"), ExtResource("11_8k32w"), ExtResource("12_fi4tx")])
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+material = SubResource("ShaderMaterial_iujsx")
+position = Vector2(-311, 19)
+script = ExtResource("7_o0fyp")
+
+[node name="Scroller" type="Node2D" parent="CanvasGroup"]
+unique_name_in_owner = true
+script = ExtResource("8_4jf67")
+scroll_speed = 30.0
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasGroup/Scroller"]
+clip_contents = false
+offset_left = 915.0
+offset_top = 543.0
+offset_right = 1433.0
+offset_bottom = 8824.0
+theme_override_colors/font_shadow_color = Color(1, 0.36666667, 0, 1)
+theme_override_constants/paragraph_separation = 0
+theme_override_constants/shadow_outline_size = 12
+theme_override_constants/shadow_offset_x = -2
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 14
+theme_override_fonts/normal_font = ExtResource("9_fet1n")
+theme_override_font_sizes/normal_font_size = 17
+bbcode_enabled = true
+text = "[font=uid://ypol1ssrkffh][shake rate=7.0 level=5 connected=1][font_size=75]Sound[/font_size][/shake][/font]
+
+
+[shake rate=2. level=3 connected=1]Adrian Colon-Flores                          Music
+[/shake]
+[shake rate=2. level=3 connected=1]Alex Dugan                                     SFX
+[/shake]
+[shake rate=2. level=3 connected=1]Alexander Edralin                            Music
+[/shake]
+[shake rate=2. level=3 connected=1]Becs Neuman                                  Music
+[/shake]
+[shake rate=2. level=3 connected=1]Christopher Taylor                           Music
+[/shake]
+[shake rate=2. level=3 connected=1]Dale N                                         SFX
+[/shake]
+[shake rate=2. level=3 connected=1]E                                            Music
+[/shake]
+[shake rate=2. level=3 connected=1]Jesse de la Cruz                             Music
+[/shake]
+[shake rate=2. level=3 connected=1]Justin Lam                                   Music
+[/shake]
+[shake rate=2. level=3 connected=1]Matthew Caldwell                             Music
+[/shake]
+[shake rate=2. level=3 connected=1]Nathan Caruso                                Music
+[/shake]
+[shake rate=2. level=3 connected=1]Theo Serket                                  Music
+[/shake]
+[shake rate=2. level=3 connected=1]january                                        SFX
+[/shake]
+
+[font=uid://ypol1ssrkffh][shake rate=7.0 level=5 connected=1][font_size=75]Programming[/font_size][/shake][/font]
+
+
+[shake rate=2. level=3 connected=1]Camber Boles                Level, Enemies, Player
+[/shake]
+[shake rate=2. level=3 connected=1]Clancy Mahoney                              Player
+[/shake]
+[shake rate=2. level=3 connected=1]Connor Harrison                         UI, Bosses
+[/shake]
+[shake rate=2. level=3 connected=1]Emily Hansen                   UI, Enemies, Player
+[/shake]
+[shake rate=2. level=3 connected=1]Ethan Nguyen                                    UI
+[/shake]
+[shake rate=2. level=3 connected=1]Jamie Wexton                           UI, Enemies
+[/shake]
+[shake rate=2. level=3 connected=1]Jessup Gravitt                 UI, Enemies, Player
+[/shake]
+[shake rate=2. level=3 connected=1]Jordan Myers                                    UI
+[/shake]
+[shake rate=2. level=3 connected=1]Kaiden Zamora-Soon              UI, Bosses, Player
+[/shake]
+[shake rate=2. level=3 connected=1]Kernighan Mitchell                  Level, Enemies
+[/shake]
+[shake rate=2. level=3 connected=1]Martell Collins                            Enemies
+[/shake]
+[shake rate=2. level=3 connected=1]Matthew  N.                             UI, Player
+[/shake]
+[shake rate=2. level=3 connected=1]Maximilian Fowlkes                 Enemies, Player
+[/shake]
+[shake rate=2. level=3 connected=1]Oscar Angleberger                   Level, Enemies
+[/shake]
+[shake rate=2. level=3 connected=1]Rahul Mathew                                    UI
+[/shake]
+[shake rate=2. level=3 connected=1]Shakeeb Uddin                                   UI
+[/shake]
+[shake rate=2. level=3 connected=1]Trinity Himes                                   UI
+[/shake]
+[shake rate=2. level=3 connected=1]Tristan Napoliello                              UI
+[/shake]
+[shake rate=2. level=3 connected=1]Tushar Rangaswamy                          Enemies
+[/shake]
+
+[font=uid://ypol1ssrkffh][shake rate=7.0 level=5 connected=1][font_size=75]Design[/font_size][/shake][/font]
+
+
+[shake rate=2. level=3 connected=1]Adam Levine                              Narrative
+[/shake]
+[shake rate=2. level=3 connected=1]Alexis Doherty            Enemies/Bosses, Weapons,
+                                         QA Tester
+[/shake]
+[shake rate=2. level=3 connected=1]Andrew Zhan                                  Level
+[/shake]
+[shake rate=2. level=3 connected=1]Ari Pashya                   Narrative, Characters
+[/shake]
+[shake rate=2. level=3 connected=1]Ben Roberts                    UI, Enemies/Bosses,
+                                         QA Tester
+[/shake]
+[shake rate=2. level=3 connected=1]Benjamin Wright                   Level, QA Tester
+[/shake]
+[shake rate=2. level=3 connected=1]Chadwick Edralin II                      Narrative
+[/shake]
+[shake rate=2. level=3 connected=1]Clancy Mahoney                           QA Tester
+[/shake]
+[shake rate=2. level=3 connected=1]Connor Reynolds                          Narrative
+[/shake]
+[shake rate=2. level=3 connected=1]Edward Crawley               Narrative, Characters
+[/shake]
+[shake rate=2. level=3 connected=1]Ethan Davis                 UI, Systems, QA Tester
+[/shake]
+[shake rate=2. level=3 connected=1]Ethan Mejias                 Characters, Narrative
+[/shake]
+[shake rate=2. level=3 connected=1]Hanwen Zhang             Enemies/Bosses, Narrative
+[/shake]
+[shake rate=2. level=3 connected=1]Jacob Kinney             UI, Skill Tree, QA Tester
+[/shake]
+[shake rate=2. level=3 connected=1]Jeremy Scott                      Level, QA Tester
+[/shake]
+[shake rate=2. level=3 connected=1]Joan Palacios                            QA Tester
+[/shake]
+[shake rate=2. level=3 connected=1]Jordan McGill                     Level, QA Tester
+[/shake]
+[shake rate=2. level=3 connected=1]Jose Semidey                UI, Systems, QA Tester
+[/shake]
+[shake rate=2. level=3 connected=1]Josh Garnett                             Narrative
+[/shake]
+[shake rate=2. level=3 connected=1]Kai Minskey                    UI, Enemies/Bosses,
+                              Weapons, Skill Tree,
+                                Systems, QA Tester
+[/shake]
+[shake rate=2. level=3 connected=1]Kailyn Evans                            Characters
+[/shake]
+[shake rate=2. level=3 connected=1]Kellen Berger                  Weapons, Skill Tree
+[/shake]
+[shake rate=2. level=3 connected=1]Kelley Dugan                        Enemies/Bosses
+[/shake]
+[shake rate=2. level=3 connected=1]Kshaunish Shaik                UI, Enemies/Bosses,
+                              Weapons, Skill Tree,
+                              Systems, Characters,
+                                         QA Tester
+[/shake]
+[shake rate=2. level=3 connected=1]Lily Lofgren                        Enemies/Bosses
+[/shake]
+[shake rate=2. level=3 connected=1]Logan Downs              UI, Skill Tree, QA Tester
+[/shake]
+[shake rate=2. level=3 connected=1]Lukas Brockman                  Weapons, Narrative
+[/shake]
+[shake rate=2. level=3 connected=1]Maggie                                  Characters
+[/shake]
+[shake rate=2. level=3 connected=1]Matthew Hinkle                               Level
+[/shake]
+[shake rate=2. level=3 connected=1]Matthew Ng                        Level, QA Tester
+[/shake]
+[shake rate=2. level=3 connected=1]Micah Dickerson                     Enemies/Bosses
+[/shake]
+[shake rate=2. level=3 connected=1]Michael Haile             UI, Skill Tree, Systems,
+                                         QA Tester
+[/shake]
+[shake rate=2. level=3 connected=1]Nathan Caruso                                Level
+[/shake]
+[shake rate=2. level=3 connected=1]Noah Lee                                     Level
+[/shake]
+[shake rate=2. level=3 connected=1]Ray Patterson                            Narrative
+[/shake]
+[shake rate=2. level=3 connected=1]Shaun Roseberry                          Narrative
+[/shake]
+[shake rate=2. level=3 connected=1]Solomon Kefyalew            UI, Systems, QA Tester
+[/shake]
+[shake rate=2. level=3 connected=1]Toby Schultz                Level, UI, Skill Tree,
+                                 Weapons, Systems,
+                                         QA Tester
+[/shake]
+[shake rate=2. level=3 connected=1]Trinity Himes                       UI, Skill Tree
+[/shake]
+[shake rate=2. level=3 connected=1]Wynona \"Gin\" Pimentel                   Characters
+[/shake]
+
+[font=uid://ypol1ssrkffh][shake rate=7.0 level=5 connected=1][font_size=75]Art[/font_size][/shake][/font]
+
+
+[shake rate=2. level=3 connected=1]Alyssa Jemmott                         Environment
+[/shake]
+[shake rate=2. level=3 connected=1]Ana Mercogliano                        Environment
+[/shake]
+[shake rate=2. level=3 connected=1]Arthur wiggins                                  UI
+[/shake]
+[shake rate=2. level=3 connected=1]Breeana Rivera              Character, Environment
+[/shake]
+[shake rate=2. level=3 connected=1]Celenia Plemmons                        Enemy/Boss
+[/shake]
+[shake rate=2. level=3 connected=1]Emma Cypcar                             Enemy/Boss
+[/shake]
+[shake rate=2. level=3 connected=1]Finch Spear                             Enemy/Boss
+[/shake]
+[shake rate=2. level=3 connected=1]Gloria El Hage                Character, Cutscenes
+[/shake]
+[shake rate=2. level=3 connected=1]Grace Crowley                          Environment
+[/shake]
+[shake rate=2. level=3 connected=1]Ivory Jemmott                          Environment
+[/shake]
+[shake rate=2. level=3 connected=1]Jack Novak                                      UI
+[/shake]
+[shake rate=2. level=3 connected=1]Jay Larsen                    Environment, Weapons
+[/shake]
+[shake rate=2. level=3 connected=1]Jesse Park                             Environment
+[/shake]
+[shake rate=2. level=3 connected=1]Jonah Kossoy                             Character
+[/shake]
+[shake rate=2. level=3 connected=1]Kailyn Evans                             Character
+[/shake]
+[shake rate=2. level=3 connected=1]Kelley Dugan                            Enemy/Boss
+[/shake]
+[shake rate=2. level=3 connected=1]Lily Hesselton                           Cutscenes
+[/shake]
+[shake rate=2. level=3 connected=1]Lily Lofgren                            Enemy/Boss
+[/shake]
+[shake rate=2. level=3 connected=1]Logan Downs                                     UI
+[/shake]
+[shake rate=2. level=3 connected=1]Maggie                                 Environment
+[/shake]
+[shake rate=2. level=3 connected=1]Maya Banks                             Environment
+[/shake]
+[shake rate=2. level=3 connected=1]Mu Ying Yong                            Enemy/Boss
+[/shake]
+[shake rate=2. level=3 connected=1]Sage Moore                              Enemy/Boss
+[/shake]
+[shake rate=2. level=3 connected=1]Wynona \"Gin\" Pimentel                    Character
+[/shake]
+[shake rate=2. level=3 connected=1]max fermayer                 Environment, Weapons,
+                                                UI
+[/shake]
+
+[font=uid://ypol1ssrkffh][shake rate=7.0 level=5 connected=1][font_size=75]Officers[/font_size][/shake][/font]
+
+
+[shake rate=2. level=3 connected=1]Khalid Moosa                             President
+[/shake]
+[shake rate=2. level=3 connected=1]Mira Maclennan                      Vice President
+[/shake]
+[shake rate=2. level=3 connected=1]Joan Palacios                   Production Manager
+[/shake]
+[shake rate=2. level=3 connected=1]Alex Xayavong         Assistant Production Manager
+[/shake]
+[shake rate=2. level=3 connected=1]Kaiden Zamora-Soon                       Webmaster
+[/shake]
+[shake rate=2. level=3 connected=1]Jordan Tatum                             Webmaster
+[/shake]
+[shake rate=2. level=3 connected=1]Jonathan Seek                            Secretary
+[/shake]
+[shake rate=2. level=3 connected=1]Zachary Kim                              Treasurer
+[/shake]
+[shake rate=2. level=3 connected=1]Jesse Park                           Game Director
+[/shake]
+[shake rate=2. level=3 connected=1]Connor Hayes                        Sound Director
+[/shake]
+[shake rate=2. level=3 connected=1]Grace Dorl                Assistant Sound Director
+[/shake]
+[shake rate=2. level=3 connected=1]Michael Campbell           Programming Co-director
+[/shake]
+[shake rate=2. level=3 connected=1]Justin Langdon             Programming Co-director
+[/shake]
+[shake rate=2. level=3 connected=1]Ethan Hayes                        Design Director
+[/shake]
+[shake rate=2. level=3 connected=1]Kshaunish Shaik          Assistant Design Director
+[/shake]
+[shake rate=2. level=3 connected=1]Jordan McGill            Assistant Design Director
+[/shake]
+[shake rate=2. level=3 connected=1]Jonah Kossoy                          Art Director
+[/shake]
+[shake rate=2. level=3 connected=1]Jordan Tatum                Assistant Art Director
+[/shake]
+
+
+
+
+
+[center][wave][font_size=35]Thanks for playing![/font_size][/wave][/center]
+"
+fit_content = true
+scroll_active = false
+
+[node name="Title" type="TextureRect" parent="CanvasGroup/Scroller"]
+material = SubResource("ShaderMaterial_oejch")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 987.0
+offset_top = 41.998024
+offset_right = 1359.5715
+offset_bottom = 409.99783
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_rxwr4")
+expand_mode = 1
 
 [node name="Frame3" type="TextureRect" parent="."]
 layout_mode = 1

@@ -3,11 +3,14 @@ extends Control
 @export var gunshot: AudioStream
 @export var gun_spinning: AudioStream
 
+@onready var options_save := OptionsSave.new()
+
 var button_pressed : bool = false ## When a button is pressed, this is set to true so no other button can be pressed (e.g. during the start transition)
 
 func _ready() -> void:
 	if not Save.save_file_exists():
-		$VBoxContainer/LoadSaveButton.hide()
+		$ButtonHolder/LoadSaveButton.hide()
+
 
 func _on_new_save_button_pressed() -> void:
 	if not button_pressed:
@@ -32,8 +35,11 @@ func _on_options_button_pressed() -> void:
 	
 	var options: Control = load("res://menu/options_menu/options_menu.tscn").instantiate()
 	add_child(options)
-	await options.tree_exiting # options menus frees itself when closed
-	button_pressed = false
+	await options.tree_exiting.connect(func() -> void:
+		%SettingsButton.button_pressed = false
+		button_pressed = false
+	) # options menus frees itself when closed
+	
 
 func _on_quit_button_pressed() -> void:
 	if not button_pressed:
@@ -52,10 +58,10 @@ func _on_button_mouse_entered() -> void:
 
 func hide_reticles() -> void:
 	var reticles := [
-		$VBoxContainer/NewSaveButton/Reticle,
-		$VBoxContainer/LoadSaveButton/Reticle,
-		$VBoxContainer/SettingsButton/Reticle,
-		$VBoxContainer/QuitButton/Reticle
+		$ButtonHolder/NewSaveButton/Reticle,
+		$ButtonHolder/LoadSaveButton/Reticle,
+		$ButtonHolder/SettingsButton/Reticle,
+		$ButtonHolder/QuitButton/Reticle
 	]
 	
 	for r: TextureRect in reticles:

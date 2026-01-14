@@ -8,11 +8,18 @@ size = Vector3(1.8884277, 3.5175781, 4.6188965)
 [node name="Transition" type="Area3D"]
 collision_mask = 2
 script = ExtResource("1_2gi1b")
-target_scene = null
-target_entry_point = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_1yi3g")
 debug_color = Color(0, 11.708403, 13.469126, 1)
+
+[node name="Fade" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

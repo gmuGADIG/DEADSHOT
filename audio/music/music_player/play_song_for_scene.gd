@@ -13,7 +13,7 @@ func _ready() -> void:
 	if not song:
 		return
 	
-	var is_same_song := MainMusicPlayer.get_current_song() == song
+	var is_same_song : bool = MainMusicPlayer.get_current_song() == song
 	if reset_song or not is_same_song:
 		MainMusicPlayer.clear_stack()
 		if not immediate:

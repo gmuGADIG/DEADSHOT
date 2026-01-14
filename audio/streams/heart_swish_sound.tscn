@@ -1,8 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://blmxgvtxbyaur"]
 
-[ext_resource type="PackedScene" uid="uid://ci3804ofkibap" path="res://audio/streams/sound_base.tscn" id="1_geb7j"]
 [ext_resource type="AudioStream" uid="uid://dbaa53s78psxi" path="res://audio/world_objects/CorruptHeartSwish.wav" id="2_bdfvd"]
+[ext_resource type="Script" uid="uid://bf14d2iyiqx56" path="res://audio/streams/sound_stream.gd" id="2_geb7j"]
 
-[node name="HeartSwishSound" instance=ExtResource("1_geb7j")]
+[node name="HeartSwishSound" type="AudioStreamPlayer3D"]
 stream = ExtResource("2_bdfvd")
+unit_size = 20.0
+panning_strength = 0.5
+bus = &"SFX"
+attenuation_filter_cutoff_hz = 20500.0
+script = ExtResource("2_geb7j")
 delete_on_finish = true
+
+[connection signal="finished" from="." to="." method="_on_finished"]

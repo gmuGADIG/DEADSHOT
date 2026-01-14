@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://o72hyyjcmpll"]
+[gd_scene load_steps=10 format=3 uid="uid://o72hyyjcmpll"]
 
 [ext_resource type="Script" uid="uid://cb3yu5tln4q1x" path="res://world/interactables/cover/cover.gd" id="1_wykub"]
 [ext_resource type="PackedScene" uid="uid://s0mcou8b7n0v" path="res://systems/attacking/hurt_fx/hurt_fx.tscn" id="2_fgkal"]
@@ -9,6 +9,43 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_wykub"]
 size = Vector3(2.2208252, 1, 1)
 
+[sub_resource type="Animation" id="Animation_pgrg7"]
+resource_name = "break"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.5235988, 0, 0), Vector3(-1.5707964, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fgkal"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.5235988, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jck08"]
+_data = {
+&"RESET": SubResource("Animation_fgkal"),
+&"break": SubResource("Animation_pgrg7")
+}
+
 [node name="Cover" type="StaticBody3D"]
 script = ExtResource("1_wykub")
 
@@ -17,7 +54,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49776256, 0)
 shape = SubResource("BoxShape3D_wykub")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, -0.02, 0)
 
 [node name="HurtFX" parent="Sprite3D" node_paths=PackedStringArray("health") instance=ExtResource("2_fgkal")]
 health = NodePath("../../HealthComponent")
@@ -40,5 +77,11 @@ shape = SubResource("BoxShape3D_wykub")
 [node name="EncounterObject" type="Node" parent="."]
 script = ExtResource("4_4urkj")
 metadata/_custom_type_script = "uid://5yprj03obbfy"
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_jck08")
+}
 
 [connection signal="killed" from="HealthComponent" to="." method="_on_killed"]

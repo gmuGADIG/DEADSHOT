@@ -1,0 +1,170 @@
+[gd_scene load_steps=16 format=3 uid="uid://dly2uwl8wroak"]
+
+[ext_resource type="Script" uid="uid://p1yc7m2gum7" path="res://qte_vfx/qte_vfx.gd" id="1_ybj5b"]
+[ext_resource type="Shader" uid="uid://c8d8ma5blni51" path="res://qte_vfx/qte_vfx.gdshader" id="2_bfo5j"]
+[ext_resource type="Script" uid="uid://bx37fylafrka5" path="res://qte_vfx/bullet_flash.gd" id="2_gmlm7"]
+[ext_resource type="Script" uid="uid://cwhdpsew1ooqc" path="res://qte_vfx/greyscale.gd" id="5_2ric2"]
+[ext_resource type="Shader" uid="uid://bf8jtnk6iuqai" path="res://qte_vfx/greyscale.gdshader" id="5_jf6wb"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_bfo5j"]
+seed = 96
+frequency = 0.0268
+fractal_octaves = 7
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gmlm7"]
+noise = SubResource("FastNoiseLite_bfo5j")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gmlm7"]
+shader = ExtResource("2_bfo5j")
+shader_parameter/base_color = Color(1, 1, 1, 1)
+shader_parameter/noise = SubResource("NoiseTexture2D_gmlm7")
+
+[sub_resource type="Gradient" id="Gradient_shbwg"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jf6wb"]
+gradient = SubResource("Gradient_shbwg")
+width = 384
+height = 384
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2ric2"]
+shader = ExtResource("5_jf6wb")
+shader_parameter/t = 1.0
+
+[sub_resource type="Animation" id="Animation_7kdvx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Greyscale/Quad:material:shader_parameter/t")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:engine_timescale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_unvvj"]
+resource_name = "woosh_in"
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Greyscale/Quad:material:shader_parameter/t")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(0.3, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:engine_timescale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(0.3, 1),
+"update": 0,
+"values": [1.0, 0.35]
+}
+
+[sub_resource type="Animation" id="Animation_elgan"]
+resource_name = "woosh_out"
+length = 1.5
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Greyscale/Quad:material:shader_parameter/t")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:engine_timescale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.35, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7kdvx"]
+_data = {
+&"RESET": SubResource("Animation_7kdvx"),
+&"woosh_in": SubResource("Animation_unvvj"),
+&"woosh_out": SubResource("Animation_elgan")
+}
+
+[node name="QTEVFX" type="Node2D"]
+script = ExtResource("1_ybj5b")
+
+[node name="BulletFlash" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("2_gmlm7")
+noise_texture = SubResource("NoiseTexture2D_gmlm7")
+
+[node name="ColorRect" type="ColorRect" parent="BulletFlash"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.81960785)
+
+[node name="BFSprite" type="Sprite2D" parent="BulletFlash"]
+unique_name_in_owner = true
+physics_interpolation_mode = 2
+material = SubResource("ShaderMaterial_gmlm7")
+position = Vector2(508, 305)
+scale = Vector2(0.75, 0.75)
+texture = SubResource("GradientTexture2D_jf6wb")
+
+[node name="BFCanvasModulate" type="CanvasModulate" parent="BulletFlash"]
+unique_name_in_owner = true
+
+[node name="Greyscale" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+script = ExtResource("5_2ric2")
+
+[node name="Quad" type="ColorRect" parent="Greyscale"]
+material = SubResource("ShaderMaterial_2ric2")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_7kdvx")
+}

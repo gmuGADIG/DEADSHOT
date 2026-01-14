@@ -31,6 +31,7 @@ func interact()->void:
 		Save.save_data.object_save_data.add_campfire(self)
 
 	Save.save_game()
+	$UISaveSound.play()
 			
 	# open campfire menu
 	var menu := preload("res://menu/campfire_menu/campfire_menu.tscn").instantiate()
@@ -38,6 +39,7 @@ func interact()->void:
 	await menu.tree_exited
 
 	Save.save_game()
+	$UISaveSound.play()
 	
 	# extinguish after the menu closes
 	if not extinguish:

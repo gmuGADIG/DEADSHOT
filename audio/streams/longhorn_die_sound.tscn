@@ -1,6 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://bpfklhcte1c5h"]
 
-[ext_resource type="AudioStream" uid="uid://drvscc177esir" path="res://audio/placeholders/test_explode_big.wav" id="1_aseh3"]
+[ext_resource type="AudioStream" uid="uid://msq0b4dmjoqr" path="res://audio/enemies/longhorn/longhorn_death.mp3" id="1_aseh3"]
 
 [node name="LonghornDieSound" type="AudioStreamPlayer3D"]
 stream = ExtResource("1_aseh3")
+bus = &"SFX"

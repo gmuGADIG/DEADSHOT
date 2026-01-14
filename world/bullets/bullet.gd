@@ -17,7 +17,7 @@ var velocity: Vector3
 
 func _ready() -> void:
 	# Immediately set the despawn timer and wait
-	await get_tree().create_timer(despawn_after_seconds).timeout
+	await get_tree().create_timer(despawn_after_seconds, false).timeout
 	queue_free()
 
 ## Creates the bullet.
@@ -27,9 +27,9 @@ func fire(gun: Node3D, direction: Vector3) -> void:
 
 ## Optionally aims the bullet towards a given point.
 func set_target(target: Vector3) -> void:
-	var dir := target - global_position
+	var dir := self.global_position.direction_to(target)
 	dir.y = 0
-	velocity = dir.normalized() * speed
+	velocity = dir * speed
 	
 ## Optionally overrides the bullet speed with code.
 func set_speed(newspeed: float) ->void:

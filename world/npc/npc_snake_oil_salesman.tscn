@@ -1,0 +1,108 @@
+[gd_scene load_steps=16 format=3 uid="uid://b4a6qry8kyr87"]
+
+[ext_resource type="PackedScene" uid="uid://c8ycoujcnafdn" path="res://world/npc/npc_base.tscn" id="1_pfuky"]
+[ext_resource type="Texture2D" uid="uid://dtpif04sbmkh2" path="res://world/npc/npc_piano_man.png" id="2_8flnb"]
+[ext_resource type="Texture2D" uid="uid://bc5tai8bw04hy" path="res://world/npc/npc_snake_oil_salesman.png" id="3_8flnb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khe31"]
+atlas = ExtResource("2_8flnb")
+region = Rect2(1, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1c7i"]
+atlas = ExtResource("2_8flnb")
+region = Rect2(1025, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqhol"]
+atlas = ExtResource("2_8flnb")
+region = Rect2(2049, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_viqlc"]
+atlas = ExtResource("2_8flnb")
+region = Rect2(3073, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oh4km"]
+atlas = ExtResource("3_8flnb")
+region = Rect2(0, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7yu5"]
+atlas = ExtResource("3_8flnb")
+region = Rect2(1024, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41ql4"]
+atlas = ExtResource("3_8flnb")
+region = Rect2(3072, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gu8mj"]
+atlas = ExtResource("3_8flnb")
+region = Rect2(2048, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwpn2"]
+atlas = ExtResource("3_8flnb")
+region = Rect2(4096, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18rhc"]
+atlas = ExtResource("3_8flnb")
+region = Rect2(5120, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hkvj"]
+atlas = ExtResource("3_8flnb")
+region = Rect2(6144, 0, 1024, 1024)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pyw5j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khe31")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1c7i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fqhol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_viqlc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oh4km")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7yu5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_41ql4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gu8mj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwpn2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18rhc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0hkvj")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="NPCBase" instance=ExtResource("1_pfuky")]
+
+[node name="Sprite3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 3.8717766, 0)
+alpha_cut = 1
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Sprite3D" index="0"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -2.3426242, -1.3525145)
+alpha_cut = 1
+sprite_frames = SubResource("SpriteFrames_pyw5j")
+animation = &"new_animation"
+frame_progress = 0.4784661

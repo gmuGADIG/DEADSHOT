@@ -5,7 +5,7 @@ extends Node
 @export var shake_speed := 300.
 
 @export var shaking := false
-@export var sprite: AnimatedSprite3D
+@export var sprite: SpriteBase3D
 @export var noise: FastNoiseLite
 
 @onready var initial_sprite_transform := sprite.transform

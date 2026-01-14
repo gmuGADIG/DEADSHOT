@@ -1,14 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://c13bgcrak26ua"]
+[gd_scene load_steps=3 format=3 uid="uid://c13bgcrak26ua"]
 
 [ext_resource type="PackedScene" uid="uid://c8ycoujcnafdn" path="res://world/npc/npc_base.tscn" id="1_64da6"]
-[ext_resource type="Texture2D" uid="uid://y1h3uww1jns7" path="res://world/enemy/meat/meat.png" id="2_52jms"]
-[ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="3_800xt"]
+[ext_resource type="Texture2D" uid="uid://bejpmuiv2etbh" path="res://world/npc/npc_sheriff.png" id="2_fp48a"]
 
 [node name="NPCBase" instance=ExtResource("1_64da6")]
 
 [node name="Sprite3D" parent="." index="0"]
-texture = ExtResource("2_52jms")
-
-[node name="Comment" parent="Sprite3D" index="0" instance=ExtResource("3_800xt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.392803, 0.6803547)
-text = "Sheriff"
+transform = Transform3D(0.3, 0, 0, 0, 0.25980762, 0.15, 0, -0.15, 0.25980762, 0, 1.2800548, 0)
+alpha_cut = 1
+texture = ExtResource("2_fp48a")

@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://bcya35sf6hpfw"]
+
+[ext_resource type="PackedScene" uid="uid://c8ycoujcnafdn" path="res://world/npc/npc_base.tscn" id="1_7mly6"]
+[ext_resource type="Texture2D" uid="uid://bvju12jjyqbxr" path="res://world/npc/npc_ancient_lady.png" id="2_8tvt1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pudnd"]
+atlas = ExtResource("2_8tvt1")
+region = Rect2(0, 0, 1495, 1668)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrju8"]
+atlas = ExtResource("2_8tvt1")
+region = Rect2(1495, 0, 1495, 1668)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00qia"]
+atlas = ExtResource("2_8tvt1")
+region = Rect2(2990, 0, 1495, 1668)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3uy8"]
+atlas = ExtResource("2_8tvt1")
+region = Rect2(4485, 0, 1495, 1668)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktwpc"]
+atlas = ExtResource("2_8tvt1")
+region = Rect2(5980, 0, 1495, 1668)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpgn1"]
+atlas = ExtResource("2_8tvt1")
+region = Rect2(7475, 0, 1495, 1668)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_masx1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pudnd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xrju8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00qia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3uy8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ktwpc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kpgn1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="NPCAncientLady" instance=ExtResource("1_7mly6")]
+
+[node name="Sprite3D" parent="." index="0"]
+visible = false
+alpha_cut = 1
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." index="2"]
+transform = Transform3D(0.23, 0, 0, 0, 0.19918585, 0.115, 0, -0.115, 0.19918585, 0.17543745, 1.4877459, 0)
+alpha_cut = 1
+sprite_frames = SubResource("SpriteFrames_masx1")

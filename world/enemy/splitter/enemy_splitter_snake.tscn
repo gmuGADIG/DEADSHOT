@@ -1,0 +1,100 @@
+[gd_scene load_steps=15 format=3 uid="uid://dnu585hvkl8ft"]
+
+[ext_resource type="PackedScene" uid="uid://dx3l0wduat3tp" path="res://world/enemy/base/enemy_base.tscn" id="1_kriwo"]
+[ext_resource type="Script" uid="uid://dl504rbwyd7rw" path="res://world/enemy/splitter/enemy_splitter_snake.gd" id="2_moop8"]
+[ext_resource type="Texture2D" uid="uid://ctw0y5ujwbskf" path="res://world/enemy/splitter/splitter_a_attack.png" id="3_kriwo"]
+[ext_resource type="Texture2D" uid="uid://bhmg7pjpsixt5" path="res://world/enemy/splitter/splitter_a_walk.png" id="3_mqq23"]
+[ext_resource type="PackedScene" uid="uid://ch1vxok4wnv5h" path="res://audio/streams/splitter_death_sound.tscn" id="5_qh2r8"]
+[ext_resource type="PackedScene" uid="uid://wn3tbdpyvukm" path="res://audio/streams/splitter_small_rattle_sound.tscn" id="7_m15n5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qigc"]
+atlas = ExtResource("3_kriwo")
+region = Rect2(0, 0, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sn2hl"]
+atlas = ExtResource("3_kriwo")
+region = Rect2(1920, 0, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qh2r8"]
+atlas = ExtResource("3_kriwo")
+region = Rect2(3840, 0, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kriwo"]
+atlas = ExtResource("3_mqq23")
+region = Rect2(0, 0, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_moop8"]
+atlas = ExtResource("3_mqq23")
+region = Rect2(1920, 0, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6e7y"]
+atlas = ExtResource("3_mqq23")
+region = Rect2(3840, 0, 1920, 1920)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ag8ye"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1qigc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sn2hl")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_qh2r8")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kriwo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_moop8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6e7y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_xuwp2"]
+
+[node name="EnemyTest" instance=ExtResource("1_kriwo")]
+script = ExtResource("2_moop8")
+movement_speed = 5.0
+fire_rate = 1.0
+bullet_speed = 12.0
+
+[node name="Sprite" parent="." index="1"]
+transform = Transform3D(0.12999439, 0.001045338, 0.0006035264, -0.0012070524, 0.11257843, 0.06499722, -6.0535965e-11, -0.06500002, 0.11258328, 0, 0.5566895, 0)
+sprite_frames = SubResource("SpriteFrames_ag8ye")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." index="3"]
+aabb = AABB(-0.5, 0, -0.5, 1, 1, 1)
+
+[node name="Health" parent="." index="4"]
+max_health = 2.0
+
+[node name="Damagebox" type="Area3D" parent="." index="6"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Damagebox" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94, 0)
+shape = SubResource("CylinderShape3D_xuwp2")
+
+[node name="Sounds" type="Node3D" parent="." index="10"]
+
+[node name="SplitterDeathSound" parent="Sounds" index="0" instance=ExtResource("5_qh2r8")]
+unit_size = 10.0
+panning_strength = 1.0
+attenuation_filter_cutoff_hz = 5000.0
+script = null
+
+[node name="SplitterSmallRattleSound" parent="Sounds" index="1" instance=ExtResource("7_m15n5")]
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]

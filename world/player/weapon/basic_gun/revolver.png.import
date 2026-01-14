@@ -3,22 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c06hxwf7a4ef2"
-path.s3tc="res://.godot/imported/revolver.png-7c503ebbc57464980f6b177ffbaf0cb9.s3tc.ctex"
+path="res://.godot/imported/revolver.png-7c503ebbc57464980f6b177ffbaf0cb9.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://world/player/weapon/basic_gun/revolver.png"
-dest_files=["res://.godot/imported/revolver.png-7c503ebbc57464980f6b177ffbaf0cb9.s3tc.ctex"]
+dest_files=["res://.godot/imported/revolver.png-7c503ebbc57464980f6b177ffbaf0cb9.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.9
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

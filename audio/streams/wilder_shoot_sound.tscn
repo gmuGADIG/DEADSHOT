@@ -1,10 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtrtlfnkaklwl"]
+[gd_scene load_steps=7 format=3 uid="uid://dtrtlfnkaklwl"]
 
-[ext_resource type="AudioStream" uid="uid://hej4hmx0ms4s" path="res://audio/placeholders/test_smack.wav" id="1_dy8k2"]
+[ext_resource type="AudioStream" uid="uid://uub4h6su07rc" path="res://audio/enemies/wilder/wilder_shoot-001.mp3" id="1_w82qb"]
 [ext_resource type="Script" uid="uid://bf14d2iyiqx56" path="res://audio/streams/sound_stream.gd" id="2_weup4"]
+[ext_resource type="AudioStream" uid="uid://c8iywcjwoe5do" path="res://audio/enemies/wilder/wilder_shoot-002.mp3" id="2_xgmts"]
+[ext_resource type="AudioStream" uid="uid://bwxbqog7c4esl" path="res://audio/enemies/wilder/wilder_shoot-003.mp3" id="3_58g53"]
+[ext_resource type="AudioStream" uid="uid://d4awb7cmcavtk" path="res://audio/enemies/wilder/wilder_shoot-004.mp3" id="4_bdlhd"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_etmxu"]
+streams_count = 4
+stream_0/stream = ExtResource("1_w82qb")
+stream_1/stream = ExtResource("2_xgmts")
+stream_2/stream = ExtResource("3_58g53")
+stream_3/stream = ExtResource("4_bdlhd")
 
 [node name="WilderShootSound" type="AudioStreamPlayer3D"]
-stream = ExtResource("1_dy8k2")
-volume_db = -14.444
+stream = SubResource("AudioStreamRandomizer_etmxu")
+volume_db = -5.124
+bus = &"SFX"
 script = ExtResource("2_weup4")
-delete_on_finish = false

@@ -31,6 +31,8 @@ enum AggroState {
 ## The tonic scene to drop.
 @onready var tonic := preload("res://world/items/tonic/tonic.tscn");
 
+@export var is_boss := false
+
 @export_group("Enemy Stats")
 ## The amount of damage done in an attack.
 @export var damage : float = 1
@@ -88,6 +90,9 @@ var can_shoot := true
 
 #region Builtin Functions
 func _ready() -> void:
+	if is_boss:
+		Global.entered_boss_encounter.connect(_on_entered_boss_encounter)
+
 	# if Save.save_data.object_save_data.is_dead(self):
 	# 	queue_free()
 	# 	return
@@ -254,4 +259,6 @@ func stop_shooting() -> void:
 func set_on_fire() -> void:
 	%FireDamage.set_on_fire()
 
+func _on_entered_boss_encounter() -> void:
+	Global.boss_spawned.emit(self)
 #endregion

@@ -3,6 +3,7 @@ extends Control
 @export var full_tex: Texture2D
 @export var half_tex: Texture2D
 @export var empty_tex: Texture2D
+var tween : Tween
 
 func _ready() -> void:
 	await Player.instance.player_ready
@@ -28,3 +29,11 @@ func set_max_hp(max_hp: float) -> void:
 	var hearts := ceili(float(max_hp) / 2)
 	for i in range(get_child_count()):
 		get_child(i).visible = (i < hearts)
+	
+	if tween and tween.is_valid():
+		tween.kill()
+	
+	tween = create_tween()
+	
+	tween.tween_property(self, "scale", Vector2(1.1,1.1), 0.3).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "scale", Vector2(1,1), 0.3).set_ease(Tween.EASE_IN)

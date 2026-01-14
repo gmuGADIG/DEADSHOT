@@ -4,7 +4,7 @@ signal player_state_changed
 signal whipped
 
 ## Tracks name of current gun node. CHANGE THIS VARIABLE WHEN GUNS ARE CHANGED.
-# static var gun_name := "Shotgun"
+#static var gun_name := "Shotgun"
 #static var gun_name := "Dualies"
 #static var gun_name := "BasicGun"
 
@@ -13,6 +13,8 @@ enum PlayerState {
 	WALKING, ## Default state. Player can walk and shoot.
 	ROLLING, ## Dodging / rolling.
 	INTERACTING, ## Interacting with an NPC. Most actions are disabled during this.
+	DEAD, ## State of no health. All actions are disabled in this state.
+	TRANSITIONING,  ## Moving between scenes and not accepting input
 }
 
 #region Variables
@@ -53,7 +55,6 @@ var current_state: PlayerState = PlayerState.WALKING:
 	set(new_val):
 		current_state = new_val
 		player_state_changed.emit()
-#endregion
 
 enum FloorType{ ## Where the player is walking
 	WOOD,
@@ -129,10 +130,7 @@ func _init() -> void:
 	instance = self
 
 func _physics_process(delta: float) -> void:		
-	if Input.is_action_just_pressed("roll") and whip.whip_state == Whip.WhipState.OFF:
-		begin_roll()
-	
-	if current_state == PlayerState.WALKING:
+	if current_state == PlayerState.WALKING:		
 		var input_dir : Vector3 = input_direction()
 
 		velocity = input_dir * walk_speed * speed_multiplier * skill_speed_mul()
@@ -143,6 +141,9 @@ func _physics_process(delta: float) -> void:
 				play_walking_sfx()
 		else:
 			walk_sfx_timer.stop()
+			
+		if Input.is_action_just_pressed("roll") and whip.whip_state == Whip.WhipState.OFF:
+			begin_roll()
 		
 	elif current_state == PlayerState.ROLLING:
 		## We move the velocity vector towards the direction of the movement. 
@@ -152,9 +153,16 @@ func _physics_process(delta: float) -> void:
 		roll(delta)
 	elif current_state == PlayerState.INTERACTING:
 		velocity = Vector3.ZERO
+	elif current_state == PlayerState.TRANSITIONING:
+		velocity = previous_input_direction * walk_speed * 0.5
 	
-	move_and_slide()
+	if current_state != PlayerState.DEAD:
+		move_and_slide()
+
 	position.y = starting_y_pos # ensures that player does not move above starting plane
+	
+	var is_whipping := whip.whip_state != Whip.WhipState.OFF
+	%Weapons.visible = not is_whipping
 
 ## We use the proper process function to update stamina, since it appears on the HUD and that could be drawn faster than the physics tickrate.
 func _process(delta: float) -> void:
@@ -170,10 +178,16 @@ static func update_persisting_data() -> void:
 	persisting_data.health = instance.health_component.health
 	persisting_data.curr_chamber = instance.get_gun().chamber_ammo
 	persisting_data.curr_reserve = instance.get_gun().reserve_ammo
+	
 
 func _on_killed() -> void:
-	#await get_tree().create_timer(0.2, true,true).timeout
-	get_tree().change_scene_to_file("res://menu/death_menu/death_menu.tscn")
+	# Get rid of greyscale
+	if QTEVFX.active:
+		QTEVFX.end()
+
+	current_state = PlayerState.DEAD
+	var death_scene := preload("res://menu/death_menu/death_menu.tscn")
+	$"../UI".add_child(death_scene.instantiate())
 
 func get_gun() -> Gun:
 	var gun_name := ""
@@ -213,9 +227,10 @@ func can_shoot() -> bool:
 
 ## Begins the roll by changing the state and decreasing stamina.
 func begin_roll() -> void:
+	#REDUNDANT
 	# This function only runs when the roll starts.
 	# Get out of here if you're already rolling!
-	if current_state == PlayerState.ROLLING: return
+	#if current_state == PlayerState.ROLLING: return
 	
 	# Factor in stamina
 	if stamina < 1.0: return
