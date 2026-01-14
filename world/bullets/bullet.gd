@@ -27,7 +27,7 @@ func fire(gun: Node3D, direction: Vector3) -> void:
 
 ## Optionally aims the bullet towards a given point.
 func set_target(target: Vector3) -> void:
-	var dir := target - position
+	var dir := target - global_position
 	dir.y = 0
 	velocity = dir.normalized() * speed
 	

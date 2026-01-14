@@ -40,7 +40,6 @@ animations = [{
 [node name="Wilder" instance=ExtResource("1_pw5bb")]
 script = ExtResource("1_skiir")
 bullet = ExtResource("3_b04xd")
-maxTravelDistance = 20.0
 movement_speed = 7.5
 type = 1
 

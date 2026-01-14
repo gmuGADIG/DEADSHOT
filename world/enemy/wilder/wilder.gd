@@ -77,7 +77,7 @@ func hostile() -> void:
 func enter_attack() -> void:
 	print("Attacking!!")
 	should_move = false
-	get_tree().create_timer(0.3).timeout.connect(fire_gun)
+	get_tree().create_timer(0.3).timeout.connect(fire)
 	
 	
 ## Create a bullet aimed at the player.
@@ -85,7 +85,7 @@ func attack() -> void:
 	
 	return
 
-func fire_gun() -> void:
+func fire() -> void:
 	var shoot_dir : = getPlayerDirection()
 	shoot(shoot_dir)
 	await get_tree().create_timer(0.1).timeout
