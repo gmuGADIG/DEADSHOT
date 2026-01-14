@@ -71,6 +71,7 @@ offset_left = 25.0
 offset_top = 556.0
 offset_right = 495.0
 offset_bottom = 623.0
+pivot_offset = Vector2(235, 33.5)
 script = ExtResource("2_swyvw")
 full_tex = ExtResource("3_02nes")
 half_tex = ExtResource("4_5nwtl")
@@ -173,6 +174,7 @@ anchor_right = 1.0
 offset_left = -174.0
 offset_bottom = 133.0
 grow_horizontal = 0
+pivot_offset = Vector2(87, 50)
 script = ExtResource("6_4o0ul")
 
 [node name="MeatSilhouette" type="TextureRect" parent="Meat"]
