@@ -8,3 +8,6 @@
 [node name="Sprite3D" parent="." index="1"]
 transform = Transform3D(0.26, 0, 0, 0, 0.22516659, 0.13, 0, -0.13, 0.22516659, 0, 0.8846786, 0)
 texture = ExtResource("2_rekvv")
+
+[node name="HealthComponent" parent="." index="2"]
+max_health = 3.0
