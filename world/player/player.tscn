@@ -238,6 +238,8 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.237, 0)
 
 [node name="Shotgun" parent="Weapons" instance=ExtResource("11_3n4qb")]
+number_of_shots_fired = 5
+spread = 0.1
 damage = 1.0
 reload_time = 0.65
 fire_cooldown = 0.2
