@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://d0sdri7hlk5i3"]
+[gd_scene load_steps=43 format=3 uid="uid://d0sdri7hlk5i3"]
 
 [ext_resource type="PackedScene" uid="uid://c5mugf35c8n0f" path="res://world/enemy/bosses/boss_enemy.tscn" id="1_0ojq6"]
 [ext_resource type="Script" uid="uid://bvjxmtoqmx4bg" path="res://world/enemy/bosses/mass/the_mass.gd" id="2_0ojq6"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://doavrdpyjcdgp" path="res://world/enemy/judge/enemy_judge.tscn" id="12_7woel"]
 [ext_resource type="PackedScene" uid="uid://bl78b6gav1q1b" path="res://world/enemy/base/qte_target.tscn" id="12_c6uyn"]
 [ext_resource type="PackedScene" uid="uid://by1e10t6ksd64" path="res://world/enemy/bird_swarm/bird_swarm.tscn" id="13_6dfcl"]
+[ext_resource type="PackedScene" uid="uid://cib43ohphwab7" path="res://audio/streams/boss_death_sound.tscn" id="16_1cjuw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b8f6a"]
 size = Vector3(11.355682, 5.3653564, 3.9311523)
@@ -907,3 +908,5 @@ amount = 1000
 lifetime = 1.0
 emission_shape = 3
 emission_box_extents = Vector3(1, 0.105, 5.695)
+
+[node name="BossDeathSound" parent="." index="16" instance=ExtResource("16_1cjuw")]

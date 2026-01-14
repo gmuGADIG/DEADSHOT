@@ -1,0 +1,29 @@
+[gd_scene load_steps=9 format=3 uid="uid://bfc3ee2ec64xs"]
+
+[ext_resource type="AudioStream" uid="uid://deqf8hqxskhbt" path="res://audio/bosses/sheriff_shot-001.mp3" id="1_kirma"]
+[ext_resource type="AudioStream" uid="uid://b8ahfvex304ge" path="res://audio/bosses/sheriff_shot-002.mp3" id="2_gnfvb"]
+[ext_resource type="AudioStream" uid="uid://blac61p7gom8q" path="res://audio/bosses/sheriff_shot-003.mp3" id="3_g7e2t"]
+[ext_resource type="AudioStream" uid="uid://kx17txc8020t" path="res://audio/bosses/sheriff_shot-004.mp3" id="4_t4ek5"]
+[ext_resource type="AudioStream" uid="uid://bfhf00882v854" path="res://audio/bosses/sheriff_shot-005.mp3" id="5_kqc73"]
+[ext_resource type="AudioStream" uid="uid://buqw7jx47oib8" path="res://audio/bosses/sheriff_shot-006.mp3" id="6_10tsc"]
+[ext_resource type="Script" uid="uid://bf14d2iyiqx56" path="res://audio/streams/sound_stream.gd" id="7_aof8e"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_35sv0"]
+streams_count = 6
+stream_0/stream = ExtResource("1_kirma")
+stream_1/stream = ExtResource("2_gnfvb")
+stream_2/stream = ExtResource("3_g7e2t")
+stream_3/stream = ExtResource("4_t4ek5")
+stream_4/stream = ExtResource("5_kqc73")
+stream_5/stream = ExtResource("6_10tsc")
+
+[node name="SheriffShootSound" type="AudioStreamPlayer3D"]
+stream = SubResource("AudioStreamRandomizer_35sv0")
+volume_db = -7.778
+unit_size = 20.0
+panning_strength = 0.5
+bus = &"SFX"
+attenuation_filter_cutoff_hz = 20500.0
+script = ExtResource("7_aof8e")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

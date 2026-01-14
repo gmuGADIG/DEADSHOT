@@ -24,8 +24,21 @@ func _ready() -> void:
 	#if not flee:
 		#barrage()
 	#super.pick_target(flee)
+	
+func shoot(shoot_dir : Vector3) -> void:
+	var newBullet: Bullet = bullet.instantiate()
+	newBullet.atk_source = DamageInfo.Source.ENEMY
+	add_sibling(newBullet)
+	newBullet.fire(self, shoot_dir)
+	$SheriffShootSound.play()
+	
+func _on_killed() -> void:
+	var die_sound:AudioStreamPlayer3D = $BossDeathSound
+	die_sound.reparent(get_tree().current_scene)
+	die_sound.play()
 
 func fire() -> void:
+	$SheriffShootSound.play()
 	shoot_star()
 	switch_state(AggroState.BENIGN)
 	

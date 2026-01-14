@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cib43ohphwab7"]
+
+[ext_resource type="AudioStream" uid="uid://ciw5q2gam5co2" path="res://audio/bosses/se_boss_death.mp3" id="1_ua5l3"]
+[ext_resource type="Script" uid="uid://bf14d2iyiqx56" path="res://audio/streams/sound_stream.gd" id="2_fq3yd"]
+
+[node name="BossDeathSound" type="AudioStreamPlayer3D"]
+stream = ExtResource("1_ua5l3")
+volume_db = 1.553
+bus = &"SFX"
+script = ExtResource("2_fq3yd")
