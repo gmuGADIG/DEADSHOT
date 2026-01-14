@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://ohg0len20ido"]
+[gd_scene load_steps=14 format=3 uid="uid://ohg0len20ido"]
 
 [ext_resource type="PackedScene" uid="uid://cxahvvaidpg32" path="res://world/levels/town/level_town_base.tscn" id="1_83ufp"]
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="2_4ry00"]
 [ext_resource type="PackedScene" uid="uid://b0ttk38sufgur" path="res://world/pickups/corrupt_heart/corrupt_heart.tscn" id="2_28xow"]
+[ext_resource type="Texture2D" uid="uid://c5upseoo85lqg" path="res://world/backgrounds/desert_bg_blur.png" id="2_jglpt"]
 [ext_resource type="PackedScene" uid="uid://dhb2pgqbfvxoa" path="res://world/enemy/encounter/encounter.tscn" id="2_q05pj"]
 [ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="3_8wq7s"]
 [ext_resource type="PackedScene" uid="uid://c7c1lwr411btx" path="res://audio/music/music_player/play_song_for_scene.tscn" id="5_8uqty"]
@@ -18,6 +19,12 @@ size = Vector3(104.64801, 3, 87.21155)
 size = Vector3(24.894531, 3.5175781, 4.6188965)
 
 [node name="LevelTown4" instance=ExtResource("1_83ufp")]
+
+[node name="FullscreenBG" parent="Background" index="0"]
+transform = Transform3D(0.17, 0, 0, 0, 0.097508, 0.093383335, 0, -0.13925585, 0.06538772, 2.5613499, -14.898792, -12.023702)
+modulate = Color(0.627451, 0.627451, 0.627451, 1)
+transparent = true
+texture = ExtResource("2_jglpt")
 
 [node name="Encounter" parent="." index="4" instance=ExtResource("2_q05pj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.0338202)

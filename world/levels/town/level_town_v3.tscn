@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://c4lcfae1j0kdx"]
+[gd_scene load_steps=20 format=3 uid="uid://c4lcfae1j0kdx"]
 
 [ext_resource type="PackedScene" uid="uid://cxahvvaidpg32" path="res://world/levels/town/level_town_base.tscn" id="1_64v5s"]
 [ext_resource type="PackedScene" uid="uid://dhb2pgqbfvxoa" path="res://world/enemy/encounter/encounter.tscn" id="2_8nofb"]
 [ext_resource type="PackedScene" uid="uid://bp6l0lw650m8o" path="res://world/blocker/blocker.tscn" id="3_ak673"]
 [ext_resource type="Resource" uid="uid://bin2l0wyprpnw" path="res://audio/music/song_files/town_level_corrupted/Xander_corrupt_town_combat_song.tres" id="3_ug0d2"]
+[ext_resource type="Texture2D" uid="uid://c5upseoo85lqg" path="res://world/backgrounds/desert_bg_blur.png" id="4_vk73q"]
 [ext_resource type="PackedScene" uid="uid://bb3qdjspo0kcq" path="res://world/interactables/barrel/barrel.tscn" id="4_wf0ds"]
 [ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://world/interactables/cover/cover_boulder.tscn" id="5_35bcn"]
 [ext_resource type="PackedScene" uid="uid://dwdhuncnyfmcw" path="res://world/enemy/wilder/wilder.tscn" id="6_rpgrq"]
@@ -27,6 +28,13 @@ size = Vector3(10, 3, 10)
 
 [node name="PlaySongForScene" parent="." index="0" instance=ExtResource("15_vk73q")]
 song = ExtResource("16_2pq5m")
+
+[node name="FullscreenBG" parent="Background" index="0"]
+transform = Transform3D(0.17, 0, 0, 0, 0.097508, 0.093383335, 0, -0.13925585, 0.06538772, 2.5613499, -14.898792, -12.023702)
+offset = Vector2(0, -150)
+modulate = Color(0.627451, 0.627451, 0.627451, 1)
+transparent = true
+texture = ExtResource("4_vk73q")
 
 [node name="Player" parent="." index="6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.090755, 0, 48.140087)

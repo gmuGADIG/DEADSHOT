@@ -1,6 +1,7 @@
-[gd_scene load_steps=60 format=3 uid="uid://d3fww07av6h7"]
+[gd_scene load_steps=61 format=3 uid="uid://d3fww07av6h7"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_utj54"]
+[ext_resource type="Texture2D" uid="uid://c5upseoo85lqg" path="res://world/backgrounds/desert_bg_blur.png" id="2_3lybb"]
 [ext_resource type="Resource" uid="uid://q24ustx30otu" path="res://world/floor/sand/sand.tres" id="2_43df5"]
 [ext_resource type="PackedScene" uid="uid://dwsraqi3f8a1l" path="res://world/interactables/campfire/campfire.tscn" id="3_4mg6g"]
 [ext_resource type="Texture2D" uid="uid://cb5w6ucpbalty" path="res://world/levels/tutorial/keyboard_w_outline.png" id="3_v0y4b"]
@@ -215,6 +216,13 @@ viewport_path = NodePath("CampfireArea/CampfirePrompt/SubViewport")
 
 [node name="Tutorial" instance=ExtResource("1_utj54")]
 
+[node name="FullscreenBG" parent="Background" index="0"]
+transform = Transform3D(0.17, 0, 0, 0, 0.097508, 0.093383335, 0, -0.13925585, 0.06538772, 2.5613499, -14.898792, -12.023702)
+offset = Vector2(0, -150)
+modulate = Color(0.627451, 0.627451, 0.627451, 1)
+transparent = true
+texture = ExtResource("2_3lybb")
+
 [node name="Sun" parent="." index="1"]
 unique_name_in_owner = true
 transform = Transform3D(0.92473876, -0.2527267, 0.28458288, 0, 0.74771696, 0.66401756, -0.38060242, -0.61404276, 0.69144285, 0, 0, 0)
@@ -224,7 +232,6 @@ navigation_mesh = SubResource("NavigationMesh_3rssm")
 
 [node name="Floor" parent="World" index="0"]
 curve = SubResource("Curve3D_jjd0d")
-curve_interval = 2.0
 material = ExtResource("2_43df5")
 
 [node name="Right" parent="TransitionAreas" index="0" instance=ExtResource("3_wexlf")]
