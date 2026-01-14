@@ -78,6 +78,7 @@ func attack() -> void:
 	for area : Area3D in $Attack/Area3D.get_overlapping_areas():
 		print(area)
 		if area is Hurtbox:
-			area.hit(DamageInfo.new(damage,DamageInfo.Source.PLAYER,kb,kb_dir))
+			if area.hit(DamageInfo.new(damage,DamageInfo.Source.PLAYER,kb,kb_dir)):
+				Player.instance.get_gun().reserve_ammo += 1
 	charge_time = -100
 	$CooldownTimer.start(cooldown_time)

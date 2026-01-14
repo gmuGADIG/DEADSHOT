@@ -62,6 +62,8 @@ func _process(delta: float) -> void:
 	
 		## if the player cannot shoot / is reloading, do not fire
 		if (not Player.instance.can_shoot()) or is_reloading or chamber_ammo <= 0:
+			if chamber_ammo <= 0 and not is_reloading:
+				reload()
 			return
 	 
 		fire(true, 1)
