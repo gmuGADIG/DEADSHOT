@@ -121,6 +121,7 @@ wait_time = 0.1
 stream = ExtResource("2_qqm2g")
 volume_db = -10.0
 max_polyphony = 2
+bus = &"SFX"
 
 [node name="InputBlocker" type="Control" parent="."]
 layout_mode = 3

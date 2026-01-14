@@ -5,3 +5,4 @@
 [node name="BanditDies" type="AudioStreamPlayer3D"]
 stream = ExtResource("1_js418")
 volume_db = 4.0
+bus = &"SFX"

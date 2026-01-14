@@ -19,3 +19,4 @@ stream_5/stream = ExtResource("6_ll83a")
 [node name="BanditFire" type="AudioStreamPlayer3D"]
 stream = SubResource("AudioStreamRandomizer_d1qxb")
 volume_db = -4.0
+bus = &"SFX"

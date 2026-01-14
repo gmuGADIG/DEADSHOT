@@ -151,6 +151,7 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8038194, 0)
 attenuation_model = 2
 volume_db = 5.0
+bus = &"SFX"
 
 [node name="BloodValve1" type="Node3D" parent="."]
 transform = Transform3D(0.93969256, -0.3420201, 0, 0.29619807, 0.8137976, 0.5, -0.17101005, -0.46984628, 0.8660254, -0.37806785, 2.0317316, -0.5496088)

@@ -1,13 +1,13 @@
 [gd_scene load_steps=11 format=3 uid="uid://dgq8eujhb7aiv"]
 
 [ext_resource type="PackedScene" uid="uid://dx3l0wduat3tp" path="res://world/enemy/base/enemy_base.tscn" id="1_j1u5n"]
-[ext_resource type="Script" uid="uid://charttcjx1m72" path="res://world/enemy/bandit/enemy_bandit.gd" id="2_jv5hu"]
+[ext_resource type="Script" path="res://world/enemy/bandit/enemy_bandit.gd" id="2_jv5hu"]
 [ext_resource type="Texture2D" uid="uid://deg2yflx7vkqd" path="res://temp_art/gartic/business_man.png" id="3_ar7lx"]
-[ext_resource type="Script" uid="uid://b7gnqrtvmdboc" path="res://world/enemy/bandit/play_death_sound.gd" id="4_34fns"]
+[ext_resource type="Script" path="res://world/enemy/bandit/play_death_sound.gd" id="4_34fns"]
 [ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="4_jv5hu"]
 [ext_resource type="PackedScene" uid="uid://djn6jyw5vuicu" path="res://audio/enemies/bandit/bandit_dies.tscn" id="5_j5a5e"]
 [ext_resource type="PackedScene" uid="uid://d4f1fg4m5hdar" path="res://audio/enemies/bandit/bandit_fire.tscn" id="6_4xph0"]
-[ext_resource type="Script" uid="uid://xhcb1o6cugjs" path="res://world/enemy/bandit/play_fired_sound.gd" id="7_ywn7w"]
+[ext_resource type="Script" path="res://world/enemy/bandit/play_fired_sound.gd" id="7_ywn7w"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_34fns"]
 animations = [{

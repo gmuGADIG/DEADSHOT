@@ -61,10 +61,8 @@ func _process(delta: float) -> void:
 		fire_timer = 0.0
 	
 		## if the player cannot shoot / is reloading, do not fire
-		if not Player.instance.can_shoot() or is_reloading == true:
+		if (not Player.instance.can_shoot()) or is_reloading or chamber_ammo <= 0:
 			return
-		
-		
 	 
 		fire(true, 1)
 		fired.emit()

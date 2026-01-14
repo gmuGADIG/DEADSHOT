@@ -900,3 +900,9 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.0745599, 0.5847771, 0)
 
 [node name="QTETarget10" parent="QTEHandler" index="9" instance=ExtResource("12_c6uyn")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.59782505, 3.112439, 0)
+
+[node name="FireParticles" parent="." index="15"]
+amount = 1000
+lifetime = 1.0
+emission_shape = 3
+emission_box_extents = Vector3(1, 0.105, 5.695)
