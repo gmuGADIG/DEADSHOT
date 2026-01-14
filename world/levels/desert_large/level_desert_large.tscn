@@ -150,7 +150,6 @@ type = 1
 
 [node name="CursedPlant3" parent="Decor" index="7" instance=ExtResource("9_jw2qs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.121485, -0.06959438, -29.77686)
-type = 1
 
 [node name="Well2" parent="Decor" index="8" instance=ExtResource("7_gq3fs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.905464, -0.09687781, -30.80377)
@@ -159,6 +158,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.905464, -0.09687781, -30.
 
 [node name="Boulder2" parent="Boulder" index="0" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1.290982, 0, 0, 0, 1.282253, 0, 0, 0, 1, 18.462555, 0, -26.663982)
+is_sand_rock = true
 
 [node name="Boulder61" parent="Boulder" index="1" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1.2688177, 0, 0, 0, 1.3015649, 0, 0, 0, 1, 22.740221, 0, 41.444736)
@@ -168,6 +168,7 @@ transform = Transform3D(0.96980196, 0, 0, 0, 1.1448435, 0, 0, 0, 1, 22.740221, 0
 
 [node name="Boulder82" parent="Boulder" index="3" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.276018, 0, 41.444736)
+is_sand_rock = true
 
 [node name="Boulder98" parent="Boulder" index="4" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.048338, 0, 41.444736)
@@ -177,12 +178,14 @@ transform = Transform3D(1.2688177, 0, 0, 0, 1.3015649, 0, 0, 0, 1, 15.584135, 0,
 
 [node name="Boulder103" parent="Boulder" index="6" instance=ExtResource("7_afdcq")]
 transform = Transform3D(0.96980196, 0, 0, 0, 1.1448435, 0, 0, 0, 1, 13.13685, 0, 41.444736)
+is_sand_rock = true
 
 [node name="Boulder104" parent="Boulder" index="7" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.672647, 0, 41.444736)
 
 [node name="Boulder105" parent="Boulder" index="8" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.444967, 0, 41.444736)
+is_sand_rock = true
 
 [node name="Boulder106" parent="Boulder" index="9" instance=ExtResource("7_afdcq")]
 transform = Transform3D(0.96980196, 0, 0, 0, 1.1448435, 0, 0, 0, 1, 5.9807644, 0, 41.444736)
@@ -201,6 +204,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6078205, 0, 41.444736)
 
 [node name="Boulder137" parent="Boulder" index="14" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.948748, 0, 38.635036)
+is_sand_rock = true
 
 [node name="Boulder138" parent="Boulder" index="15" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.321121, 0, 36.878723)
@@ -210,9 +214,11 @@ transform = Transform3D(1.2305019, 0, 0, 0, 1.4900881, 0, 0, 0, 1, -2.948748, 0,
 
 [node name="Boulder181" parent="Boulder" index="17" instance=ExtResource("7_afdcq")]
 transform = Transform3D(0.96980196, 0, 0, 0, 1.1448435, 0, 0, 0, 1, 0.07207191, 0, 40.014378)
+is_sand_rock = true
 
 [node name="Boulder182" parent="Boulder" index="18" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3565942, 0, 38.635036)
+is_sand_rock = true
 
 [node name="Boulder183" parent="Boulder" index="19" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1.2688177, 0, 0, 0, 1.3015649, 0, 0, 0, 1, -0.10927379, 0, 37.293606)
@@ -228,6 +234,7 @@ transform = Transform3D(1.2688177, 0, 0, 0, 1.3015649, 0, 0, 0, 1, -8.519308, 0,
 
 [node name="Boulder140" parent="Boulder" index="23" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1.2305019, 0, 0, 0, 1.4900881, 0, 0, 0, 1, 20.276018, 0, 42.39588)
+is_sand_rock = true
 
 [node name="Boulder142" parent="Boulder" index="24" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1.2305019, 0, 0, 0, 1.4900881, 0, 0, 0, 1, 15.584135, 0, 42.39588)
@@ -240,18 +247,23 @@ transform = Transform3D(1.2688177, 0, 0, 0, 1.3015649, 0, 0, 0, 1, 8.444967, 0, 
 
 [node name="Boulder146" parent="Boulder" index="27" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.361272, 0, 42.39588)
+is_sand_rock = true
 
 [node name="Boulder147" parent="Boulder" index="28" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0140395, 0, 42.80044)
+is_sand_rock = true
 
 [node name="Boulder148" parent="Boulder" index="29" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1.2305019, 0, 0, 0, 1.4900881, 0, 0, 0, 1, -5.717371, 0, 42.80044)
+is_sand_rock = true
 
 [node name="Boulder149" parent="Boulder" index="30" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1436176, 0, 42.39588)
+is_sand_rock = true
 
 [node name="Boulder150" parent="Boulder" index="31" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6078205, 0, 42.39588)
+is_sand_rock = true
 
 [node name="Boulder113" parent="Boulder" index="32" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1.2688177, 0, 0, 0, 1.3015649, 0, 0, 0, 1, -10.746988, 0, 41.893204)
@@ -279,18 +291,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.768867, 0, 43.07625)
 
 [node name="Boulder157" parent="Boulder" index="40" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.23307, 0, 42.399265)
+is_sand_rock = true
 
 [node name="Boulder118" parent="Boulder" index="41" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1.2305019, 0, 0, 0, 1.4900881, 0, 0, 0, 1, 14.620546, 0, 34.824833)
+is_sand_rock = true
 
 [node name="Boulder119" parent="Boulder" index="42" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.535006, 0, 34.824833)
+is_sand_rock = true
 
 [node name="Boulder120" parent="Boulder" index="43" instance=ExtResource("7_afdcq")]
 transform = Transform3D(0.96980196, 0, 0, 0, 1.1448435, 0, 0, 0, 1, 8.81036, 0, 34.824833)
+is_sand_rock = true
 
 [node name="Boulder121" parent="Boulder" index="44" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.216005, 0, 35.013725)
+is_sand_rock = true
 
 [node name="Boulder122" parent="Boulder" index="45" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1.2305019, 0, 0, 0, 1.4900881, 0, 0, 0, 1, 2.751802, 0, 35.11929)
@@ -303,6 +320,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4718716, 0, 35.128082)
 
 [node name="Boulder125" parent="Boulder" index="48" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.37258, 0, 35.006832)
+is_sand_rock = true
 
 [node name="Boulder126" parent="Boulder" index="49" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1.2305019, 0, 0, 0, 1.4900881, 0, 0, 0, 1, -6.836783, 0, 34.824833)
@@ -318,21 +336,27 @@ transform = Transform3D(1.2305019, 0, 0, 0, 1.4900881, 0, 0, 0, 1, -21.132036, 0
 
 [node name="Boulder133" parent="Boulder" index="53" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.462032, 0, 35.96537)
+is_sand_rock = true
 
 [node name="Boulder134" parent="Boulder" index="54" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.223284, 0, 34.824833)
+is_sand_rock = true
 
 [node name="Boulder135" parent="Boulder" index="55" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1.2305019, 0, 0, 0, 1.4900881, 0, 0, 0, 1, -28.153915, 0, 35.10123)
+is_sand_rock = true
 
 [node name="Boulder159" parent="Boulder" index="56" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.054323, 0, 33.674843)
+is_sand_rock = true
 
 [node name="Boulder160" parent="Boulder" index="57" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.438826, 0, 33.674843)
+is_sand_rock = true
 
 [node name="Boulder161" parent="Boulder" index="58" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1.2305019, 0, 0, 0, 1.4900881, 0, 0, 0, 1, 7.6611547, -4.7683716e-07, 33.702885)
+is_sand_rock = true
 
 [node name="Boulder162" parent="Boulder" index="59" instance=ExtResource("7_afdcq")]
 transform = Transform3D(0.96980196, 0, 0, 0, 1.1448435, 0, 0, 0, 1, 5.216005, 0, 32.986732)
@@ -345,12 +369,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.52412176, 0, 33.674843)
 
 [node name="Boulder165" parent="Boulder" index="62" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1.2305019, 0, 0, 0, 1.4900881, 0, 0, 0, 1, -1.9400811, 0, 33.15987)
+is_sand_rock = true
 
 [node name="Boulder166" parent="Boulder" index="63" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1.2688177, 0, 0, 0, 1.3015649, 0, 0, 0, 1, -4.37258, 0, 33.674843)
+is_sand_rock = true
 
 [node name="Boulder167" parent="Boulder" index="64" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1.2305019, 0, 0, 0, 1.4900881, 0, 0, 0, 1, -6.836783, 0, 33.674843)
+is_sand_rock = true
 
 [node name="Boulder168" parent="Boulder" index="65" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.064463, 0, 33.674843)
@@ -378,24 +405,31 @@ transform = Transform3D(1.2305019, 0, 0, 0, 1.4900881, 0, 0, 0, 1, -25.689713, 0
 
 [node name="Boulder176" parent="Boulder" index="73" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.153915, 0, 32.80188)
+is_sand_rock = true
 
 [node name="Boulder3" parent="Boulder" index="74" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.201342, 0, -25.439987)
+is_sand_rock = true
 
 [node name="Boulder4" parent="Boulder" index="75" instance=ExtResource("7_afdcq")]
 transform = Transform3D(0.83459115, 0, 0, 0, 0.7861674, 0, 0, 0, 1, 18.515718, 0, -24.007412)
+is_sand_rock = true
 
 [node name="Boulder13" parent="Boulder" index="76" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.203053, 0, -41.806667)
+is_sand_rock = true
 
 [node name="Boulder14" parent="Boulder" index="77" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.609634, 0, -29.286337)
+is_sand_rock = true
 
 [node name="Boulder15" parent="Boulder" index="78" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.599365, 0, -21.032024)
+is_sand_rock = true
 
 [node name="Boulder16" parent="Boulder" index="79" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.56257, 0, -20.168098)
+is_sand_rock = true
 
 [node name="Boulder17" parent="Boulder" index="80" instance=ExtResource("7_afdcq")]
 transform = Transform3D(0.99955344, 0, 0, 0, 1.2261647, 0, 0, 0, 1, 54.16677, 0.0055340454, -32.826992)
@@ -426,33 +460,43 @@ transform = Transform3D(0.98707056, 0, 0, 0, 1.4465672, 0, 0, 0, 1, 59.345703, 0
 
 [node name="Boulder26" parent="Boulder" index="89" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.959663, 0, -35.98452)
+is_sand_rock = true
 
 [node name="Boulder27" parent="Boulder" index="90" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.549232, 0, -35.120594)
+is_sand_rock = true
 
 [node name="Boulder28" parent="Boulder" index="91" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.45375, 0, -25.200073)
+is_sand_rock = true
 
 [node name="Boulder29" parent="Boulder" index="92" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.172813, 0, -26.799654)
+is_sand_rock = true
 
 [node name="Boulder30" parent="Boulder" index="93" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.372345, 0, -25.935728)
+is_sand_rock = true
 
 [node name="Boulder31" parent="Boulder" index="94" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.66239, 0, -41.36199)
+is_sand_rock = true
 
 [node name="Boulder48" parent="Boulder" index="95" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.24283, 0, -43.20014)
+is_sand_rock = true
 
 [node name="Boulder49" parent="Boulder" index="96" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 0.99999917, 0, 0, 0, 1, 46.650867, 0, -44.589993)
+is_sand_rock = true
 
 [node name="Boulder32" parent="Boulder" index="97" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.975586, 0, -37.44664)
+is_sand_rock = true
 
 [node name="Boulder33" parent="Boulder" index="98" instance=ExtResource("7_afdcq")]
 transform = Transform3D(0.98707056, 0, 0, 0, 1.4465672, 0, 0, 0, 1, 53.615906, 0.009867648, -50.105534)
+is_sand_rock = true
 
 [node name="Boulder34" parent="Boulder" index="99" instance=ExtResource("7_afdcq")]
 transform = Transform3D(0.98707056, 0, 0, 0, 1.4465672, 0, 0, 0, 1, 45.05704, 0.009867648, -48.67296)
@@ -468,18 +512,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.73085, 0, -39.48809)
 
 [node name="Boulder38" parent="Boulder" index="103" instance=ExtResource("7_afdcq")]
 transform = Transform3D(0.98707056, 0, 0, 0, 1.4465672, 0, 0, 0, 1, 50.399742, 0.009867648, -38.62417)
+is_sand_rock = true
 
 [node name="Boulder39" parent="Boulder" index="104" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.10166, 0, -33.58955)
+is_sand_rock = true
 
 [node name="Boulder40" parent="Boulder" index="105" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.69123, 0, -32.725624)
+is_sand_rock = true
 
 [node name="Boulder41" parent="Boulder" index="106" instance=ExtResource("7_afdcq")]
 transform = Transform3D(0.98707056, 0, 0, 0, 1.4465672, 0, 0, 0, 1, 44.617477, 0.009867648, -36.2292)
+is_sand_rock = true
 
 [node name="Boulder42" parent="Boulder" index="107" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.73525, 0, -32.116318)
+is_sand_rock = true
 
 [node name="Boulder43" parent="Boulder" index="108" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.815395, 0, -31.252392)
@@ -498,18 +547,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.096004, 0, -47.021103)
 
 [node name="Boulder50" parent="Boulder" index="113" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.835144, 0, -32.975746)
+is_sand_rock = true
 
 [node name="Boulder51" parent="Boulder" index="114" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.043785, 0, -43.05408)
+is_sand_rock = true
 
 [node name="Boulder52" parent="Boulder" index="115" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.35698, 0, -42.190155)
+is_sand_rock = true
 
 [node name="Boulder53" parent="Boulder" index="116" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.70621, 0, -35.995907)
+is_sand_rock = true
 
 [node name="Boulder54" parent="Boulder" index="117" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.4774, 0, -39.49948)
+is_sand_rock = true
 
 [node name="Boulder58" parent="Boulder" index="118" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.721672, 0, -7.20222)
@@ -543,27 +597,35 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.372345, 0, -10.673348)
 
 [node name="Boulder68" parent="Boulder" index="128" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.66239, 0, -23.048187)
+is_sand_rock = true
 
 [node name="Boulder69" parent="Boulder" index="129" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.975586, 0, -22.184261)
+is_sand_rock = true
 
 [node name="Boulder70" parent="Boulder" index="130" instance=ExtResource("7_afdcq")]
 transform = Transform3D(0.98707056, 0, 0, 0, 1.4465672, 0, 0, 0, 1, 55.415447, 0.009867648, -25.65829)
+is_sand_rock = true
 
 [node name="Boulder71" parent="Boulder" index="131" instance=ExtResource("7_afdcq")]
 transform = Transform3D(0.98707056, 0, 0, 0, 1.4465672, 0, 0, 0, 1, 57.718704, 0.009867648, -19.333218)
+is_sand_rock = true
 
 [node name="Boulder72" parent="Boulder" index="132" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.324818, 0, -15.990012)
+is_sand_rock = true
 
 [node name="Boulder74" parent="Boulder" index="133" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.835144, 0, -17.713367)
+is_sand_rock = true
 
 [node name="Boulder75" parent="Boulder" index="134" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.70621, 0, -20.733528)
+is_sand_rock = true
 
 [node name="Boulder76" parent="Boulder" index="135" instance=ExtResource("7_afdcq")]
 transform = Transform3D(0.98707056, 0, 0, 0, 1.4465672, 0, 0, 0, 1, 64.37369, 0.009867648, -24.237103)
+is_sand_rock = true
 
 [node name="Boulder77" parent="Boulder" index="136" instance=ExtResource("7_afdcq")]
 transform = Transform3D(0.98707056, 0, 0, 0, 1.4465672, 0, 0, 0, 1, 54.74409, 0.009867648, -4.202219)
@@ -573,36 +635,47 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.599365, 0, -2.7696447)
 
 [node name="Boulder96" parent="Boulder" index="138" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1.2923584, 0, 0, 0, 1.4739027, 0, 0, 0, 1, 45.169918, 0, 43.63462)
+is_sand_rock = true
 
 [node name="Boulder79" parent="Boulder" index="139" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.56257, 0, -1.9057188)
+is_sand_rock = true
 
 [node name="Boulder97" parent="Boulder" index="140" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1.1022565, 0, 0, 0, 1.0835551, 0, 0, 0, 1, 47.91468, 0, 43.747307)
+is_sand_rock = true
 
 [node name="Boulder115" parent="Boulder" index="141" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.18941, 0, 43.747307)
+is_sand_rock = true
 
 [node name="Boulder99" parent="Boulder" index="142" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.008038, 0, 52.497635)
+is_sand_rock = true
 
 [node name="Boulder101" parent="Boulder" index="143" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1.1764411, 0, 0, 0, 1.107636, 0, 0, 0, 1, 58.008038, 0, 49.35544)
+is_sand_rock = true
 
 [node name="Boulder100" parent="Boulder" index="144" instance=ExtResource("7_afdcq")]
 transform = Transform3D(0.86115557, 0, 0, 0, 0.7165921, 0, 0, 0, 1, 58.347263, 0, 50.732838)
+is_sand_rock = true
 
 [node name="Boulder80" parent="Boulder" index="145" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.1657, 0, -14.564613)
+is_sand_rock = true
 
 [node name="Boulder81" parent="Boulder" index="146" instance=ExtResource("7_afdcq")]
 transform = Transform3D(0.98707056, 0, 0, 0, 1.4465672, 0, 0, 0, 1, 47.11121, 0.009867648, -5.3797474)
+is_sand_rock = true
 
 [node name="Boulder83" parent="Boulder" index="147" instance=ExtResource("7_afdcq")]
 transform = Transform3D(0.98707056, 0, 0, 0, 1.4465672, 0, 0, 0, 1, 53.21208, 0.009867648, -23.09797)
+is_sand_rock = true
 
 [node name="Boulder84" parent="Boulder" index="148" instance=ExtResource("7_afdcq")]
 transform = Transform3D(0.98707056, 0, 0, 0, 1.4465672, 0, 0, 0, 1, 44.70317, 0.009867648, -16.858215)
+is_sand_rock = true
 
 [node name="Boulder85" parent="Boulder" index="149" instance=ExtResource("7_afdcq")]
 transform = Transform3D(0.9995442, 0, 0.0042934883, 0, 1.2261647, 0, -0.0042915796, 0, 0.99998885, 51.06208, 0.0055340454, -9.654552)
@@ -636,24 +709,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.706207, 0, -17.733528)
 
 [node name="Boulder95" parent="Boulder" index="159" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.4774, 0, -21.237103)
+is_sand_rock = true
 
 [node name="Boulder55" parent="Boulder" index="160" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.11664, 0, -49.12497)
+is_sand_rock = true
 
 [node name="Boulder56" parent="Boulder" index="161" instance=ExtResource("7_afdcq")]
 transform = Transform3D(0.98707056, 0, 0, 0, 1.4465672, 0, 0, 0, 1, 67.560745, 0.009867648, -48.261044)
+is_sand_rock = true
 
 [node name="Boulder57" parent="Boulder" index="162" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.4774, 0, -51.764618)
+is_sand_rock = true
 
 [node name="Boulder5" parent="Boulder" index="163" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1.0925164, 0, 0, 0, 1.1768042, 0, 0, 0, 1, 17.042234, 0, -23.143486)
+is_sand_rock = true
 
 [node name="Boulder6" parent="Boulder" index="164" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.21336, 0, -25.230072)
+is_sand_rock = true
 
 [node name="Boulder7" parent="Boulder" index="165" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.94015527, 0, -28.280933)
+is_sand_rock = true
 
 [node name="Boulder8" parent="Boulder" index="166" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1.4503537, 0, 0, 0, 1.3819566, 0, 0, 0, 1, 5.402849, 0, -30.094995)
@@ -675,51 +755,66 @@ transform = Transform3D(1.2678529, 0, 0, 0, 1.232722, 0, 0, 0, 1, -23.86171, 0, 
 
 [node name="Boulder186" parent="Boulder" index="172" instance=ExtResource("7_afdcq")]
 transform = Transform3D(0.9629105, 0, 0, 0, 0.8171087, 0, 0, 0, 1, -22.46311, 0, -47.836815)
+is_sand_rock = true
 
 [node name="Boulder191" parent="Boulder" index="173" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1.1712296, 0, 0, 0, 1.1494986, 0, 0, 0, 1, -29.355133, 0, -41.274326)
+is_sand_rock = true
 
 [node name="Boulder192" parent="Boulder" index="174" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.481443, 0, -38.273003)
+is_sand_rock = true
 
 [node name="Boulder187" parent="Boulder" index="175" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1.2096481, 0, 0, 0, 0.8852302, 0, 0, 0, 1, -20.35679, 0, -47.014374)
+is_sand_rock = true
 
 [node name="Boulder188" parent="Boulder" index="176" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.436127, 0, -45.822716)
+is_sand_rock = true
 
 [node name="Boulder193" parent="Boulder" index="177" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1.3549886, 0, 0, 0, 1.2969809, 0, 0, 0, 1, -9.258751, 0, -53.656746)
+is_sand_rock = true
 
 [node name="Boulder194" parent="Boulder" index="178" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.04722, 0, -52.367424)
 
 [node name="Boulder190" parent="Boulder" index="179" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1.336647, 0, 0, 0, 0.9793772, 0, 0, 0, 1, -36.49206, 0, -35.45912)
+is_sand_rock = true
 
 [node name="Boulder189" parent="Boulder" index="180" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1.1467829, 0, 0, 0, 1.1092021, 0, 0, 0, 1, -21.237366, 0, -31.913988)
+is_sand_rock = true
 
 [node name="Boulder189" parent="Boulder/Boulder189" index="5" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.075893, 0, 6.8111553)
+is_sand_rock = true
 
 [node name="Boulder189" parent="Boulder/Boulder189/Boulder189" index="5" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03686905, 0, 6.3094063)
+is_sand_rock = true
 
 [node name="Boulder189" parent="Boulder/Boulder189/Boulder189/Boulder189" index="5" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3393936, 0, 10.11944)
+is_sand_rock = true
 
 [node name="Boulder" parent="Boulder" index="181" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.172527, 0, 16.591171)
+is_sand_rock = true
 
 [node name="Boulder177" parent="Boulder" index="182" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1.0358658, 0, 0, 0, 1.32748, 0, 0, 0, 1, 49.751564, -1.04103066e-07, 11.667501)
+is_sand_rock = true
 
 [node name="Boulder178" parent="Boulder" index="183" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.03144, 0, 22.872759)
+is_sand_rock = true
 
 [node name="Boulder179" parent="Boulder" index="184" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1.0358658, 0, 0, 0, 1.32748, 0, 0, 0, 1, 69.22636, -1.04103066e-07, 10.562204)
+is_sand_rock = true
 
 [node name="Boulder180" parent="Boulder" index="185" instance=ExtResource("7_afdcq")]
 transform = Transform3D(1.0358658, 0, 0, 0, 1.32748, 0, 0, 0, 1, 63.93683, 1.1618804e-06, 25.436176)
