@@ -28,12 +28,6 @@ size = Vector3(10, 3, 10)
 [node name="PlaySongForScene" parent="." index="0" instance=ExtResource("15_vk73q")]
 song = ExtResource("16_2pq5m")
 
-[node name="Bottom" parent="EntryPoints" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.401251, 9.536743e-07, 49.430523)
-
-[node name="Top" parent="EntryPoints" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.080943, 9.536743e-07, -42.999382)
-
 [node name="Player" parent="." index="6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.090755, 0, 48.140087)
 

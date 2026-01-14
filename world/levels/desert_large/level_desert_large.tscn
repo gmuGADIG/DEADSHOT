@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://crgv6bkolrlyy"]
+[gd_scene load_steps=33 format=3 uid="uid://crgv6bkolrlyy"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_b00wy"]
 [ext_resource type="Resource" uid="uid://q24ustx30otu" path="res://world/floor/sand/sand.tres" id="2_5t0jw"]
@@ -18,7 +18,6 @@
 [ext_resource type="PackedScene" uid="uid://6ahxaf8mfjcr" path="res://world/pickups/ammo_pickup/ammo_pickup.tscn" id="12_jw2qs"]
 [ext_resource type="PackedScene" uid="uid://b4n4rflu3my0v" path="res://world/enemy/longhorn/longhorn.tscn" id="12_qk81x"]
 [ext_resource type="PackedScene" uid="uid://dgq8eujhb7aiv" path="res://world/enemy/bandit/enemy_bandit.tscn" id="13_4q5tc"]
-[ext_resource type="PackedScene" uid="uid://dxdkwdigtcn43" path="res://world/enemy/test/enemy_test.tscn" id="13_r6j0u"]
 [ext_resource type="PackedScene" uid="uid://doavrdpyjcdgp" path="res://world/enemy/judge/enemy_judge.tscn" id="14_4q5tc"]
 [ext_resource type="PackedScene" uid="uid://dp00f0nisoyxa" path="res://world/enemy/bosses/horse/horse.tscn" id="14_b84ov"]
 [ext_resource type="Resource" uid="uid://dgfsfa6177rri" path="res://audio/music/song_files/desert_level/Matthew_desert_combat_song.tres" id="14_u25nn"]
@@ -149,7 +148,6 @@ type = 1
 
 [node name="CursedPlant3" parent="Decor" index="7" instance=ExtResource("9_jw2qs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.121485, -0.06959438, -29.77686)
-type = 1
 
 [node name="Well2" parent="Decor" index="8" instance=ExtResource("7_gq3fs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.905464, -0.09687781, -30.80377)
@@ -1058,14 +1056,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3581638, 0.061111998, -1.3
 [node name="LonghornEnemy" parent="Encounter 1" index="10" instance=ExtResource("12_qk81x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -3)
 
-[node name="EnemyTest" parent="Encounter 1" index="11" instance=ExtResource("13_r6j0u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.194376, -4.7683716e-07, 2.933094)
+[node name="LonghornEnemy2" parent="Encounter 1" index="11" instance=ExtResource("12_qk81x")]
 
-[node name="EnemyTest3" parent="Encounter 1" index="12" instance=ExtResource("13_r6j0u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.194376, -4.7683716e-07, -4.039711)
+[node name="BirdSwarm2" parent="Encounter 1" index="12" instance=ExtResource("16_bgh4w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.317768, 0, -1.7946358)
 
-[node name="EnemyTest2" parent="Encounter 1" index="13" instance=ExtResource("13_r6j0u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6241207, -4.7683716e-07, -3.4596825)
+[node name="BirdSwarm" parent="Encounter 1" index="13" instance=ExtResource("16_bgh4w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.265981, 0, 4.288494)
 
 [node name="Encounter 2" parent="." index="17" instance=ExtResource("9_fpcaa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.84442, -0.08259392, -3.3797207)
