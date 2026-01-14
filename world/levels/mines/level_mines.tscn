@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://c4nw61qu6fyyk"]
+[gd_scene load_steps=46 format=3 uid="uid://c4nw61qu6fyyk"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_nthvq"]
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="2_ohr83"]
@@ -12,13 +12,14 @@
 [ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="4_svmac"]
 [ext_resource type="PackedScene" uid="uid://b4n4rflu3my0v" path="res://world/enemy/longhorn/longhorn.tscn" id="5_ci4pn"]
 [ext_resource type="PackedScene" uid="uid://dwdhuncnyfmcw" path="res://world/enemy/wilder/wilder.tscn" id="6_fb8xb"]
+[ext_resource type="Script" uid="uid://5430ylajkno2" path="res://world/transitions/entry_point.gd" id="7_mqp80"]
 [ext_resource type="Resource" uid="uid://cifkmhsi3x77d" path="res://audio/music/song_files/mines_level/Elizabeth_mines_combat_song.tres" id="9_leklp"]
 [ext_resource type="PackedScene" uid="uid://dhb2pgqbfvxoa" path="res://world/enemy/encounter/encounter.tscn" id="11_rkdtq"]
 [ext_resource type="PackedScene" uid="uid://3o8nbg2v248a" path="res://world/interactables/puddle/puddle.tscn" id="12_akuqq"]
 [ext_resource type="PackedScene" uid="uid://bp6l0lw650m8o" path="res://world/blocker/blocker.tscn" id="12_eyi7e"]
 [ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://world/interactables/cover/cover_boulder.tscn" id="12_rkdtq"]
 [ext_resource type="PackedScene" uid="uid://bb3qdjspo0kcq" path="res://world/interactables/barrel/barrel.tscn" id="13_1exam"]
-[ext_resource type="PackedScene" uid="uid://c856fbyc8qaul" path="res://world/interactables/cover/cover_minecart.tscn" id="13_r5uq5"]
+[ext_resource type="PackedScene" path="res://world/interactables/cover/cover_minecart.tscn" id="13_r5uq5"]
 [ext_resource type="PackedScene" uid="uid://6ahxaf8mfjcr" path="res://world/pickups/ammo_pickup/ammo_pickup.tscn" id="14_5qrk3"]
 [ext_resource type="PackedScene" uid="uid://h4pbrdsf4bcg" path="res://world/enemy/splitter/enemy_splitter.tscn" id="16_lrsis"]
 [ext_resource type="PackedScene" uid="uid://doavrdpyjcdgp" path="res://world/enemy/judge/enemy_judge.tscn" id="16_skfgv"]
@@ -32,7 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://bkaf7rg6shnxu" path="res://world/decoration/mine_supports/mine_supports.tscn" id="28_h00ua"]
 [ext_resource type="PackedScene" uid="uid://crroyl2puavcb" path="res://world/decoration/floor_lantern/floor_lantern.tscn" id="29_g51pv"]
 [ext_resource type="PackedScene" uid="uid://by1e10t6ksd64" path="res://world/enemy/bird_swarm/bird_swarm.tscn" id="31_rewlr"]
-[ext_resource type="PackedScene" uid="uid://bcya35sf6hpfw" path="res://world/npc/npc_ancient_lady.tscn" id="32_smnpg"]
+[ext_resource type="PackedScene" path="res://world/npc/npc_ancient_lady.tscn" id="32_smnpg"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_ci4pn"]
 vertices = PackedVector3Array(31.360775, 0.35881376, -28.744022, 24.610775, 0.35881376, -28.744022, 24.860775, 0.35881376, -16.994022, 31.360775, 0.35881376, -16.744022, 34.110775, 0.35881376, -10.244022, 36.110775, 0.35881376, -10.244022, 35.860775, 0.35881376, -15.994022, 34.110775, 0.35881376, -15.994022, 36.610775, 0.35881376, -16.744022, 38.610775, 0.35881376, -28.744022, 33.360775, 0.35881376, -16.744022, 38.610775, 0.35881376, -16.744022, 46.860775, 0.35881376, -16.744022, 47.610775, 0.35881376, -28.744022, 24.110775, 0.35881376, 4.0059776, 22.360775, 0.35881376, 4.0059776, 22.610775, 0.35881376, 5.2559776, 24.360775, 0.35881376, 5.2559776, 33.610775, 0.35881376, -7.2440224, 24.860775, 0.35881376, -7.4940224, 24.860775, 0.35881376, 3.2559776, 24.860775, 0.35881376, 5.7559776, 36.860775, 0.35881376, 15.755978, 36.860775, 0.35881376, 17.505978, 38.610775, 0.35881376, 17.505978, 38.610775, 0.35881376, 15.755978, 24.860775, 0.35881376, 15.505978, 36.360775, 0.35881376, 15.255978, 49.110775, 0.35881376, -6.9940224, 36.860775, 0.35881376, -7.2440224, 36.110775, 0.35881376, -8.244022, 34.110775, 0.35881376, -7.9940224, 39.360775, 0.35881376, 15.255978, 48.860775, 0.35881376, 15.255978, -9.639226, 0.35881376, 1.5059776, -9.639226, 0.35881376, 5.0059776, -8.139226, 0.35881376, 5.0059776, -7.639226, 0.35881376, 1.5059776, 6.610774, 0.35881376, 3.2559776, 6.360774, 0.35881376, -6.7440224, 6.610774, 0.35881376, 5.2559776, -7.139226, 0.35881376, 5.7559776, -6.889226, 0.35881376, 0.75597763, 7.360774, 0.35881376, 4.0059776, -6.889226, 0.35881376, 11.255978, 6.110774, 0.35881376, 11.005978, -6.639226, 0.35881376, -6.9940224, 195.11078, 0.35881376, 1.2559776, 187.86078, 0.35881376, -4.2440224, 177.61078, 0.35881376, -5.9940224, 165.36078, 0.35881376, -4.2440224, 158.86078, 0.35881376, 2.5059776, 160.61078, 0.35881376, 14.255978, 197.61078, 0.35881376, 14.255978, 88.11077, 0.35881376, 23.005978, 88.36077, 0.35881376, 24.755978, 92.11077, 0.35881376, 24.255978, 92.61077, 0.35881376, 4.2559776, 58.360775, 0.35881376, 15.755978, 58.360775, 0.35881376, 22.505978, 61.860775, 0.35881376, 23.005978, 59.360775, 0.35881376, 3.7559776, 80.61077, 0.35881376, -2.2440224, 72.11077, 0.35881376, -2.2440224, 133.61078, 0.35881376, 17.505978, 133.61078, 0.35881376, 15.005978, 131.61078, 0.35881376, 15.005978, 130.61078, 0.35881376, 17.505978, 130.11078, 0.35881376, 18.255978, 130.61078, 0.35881376, 14.505978, 130.36078, 0.35881376, 4.7559776, 106.61077, 0.35881376, 4.5059776, 106.11077, 0.35881376, 28.255978, 112.61077, 0.35881376, 27.005978, 129.86078, 0.35881376, 27.255978, 130.36078, 0.35881376, 27.005978, 111.61077, 0.35881376, 28.255978, 111.61077, 0.35881376, 27.505978, 160.11078, 0.35881376, 15.005978, 158.36078, 0.35881376, 15.005978, 158.36078, 0.35881376, 17.255978, 160.11078, 0.35881376, 17.255978, 160.86078, 0.35881376, 18.255978, 162.36078, 0.35881376, 29.255978, 185.61078, 0.35881376, 34.255978, 195.61078, 0.35881376, 29.005978, 172.86078, 0.35881376, 34.755978, 163.11078, 0.35881376, 30.005978, 182.36078, 0.35881376, 34.505978, 44.860775, 0.35881376, 31.005978, 46.610775, 0.35881376, 31.005978, 46.360775, 0.35881376, 29.255978, 44.360775, 0.35881376, 31.505978, 39.610775, 0.35881376, 29.255978, 38.860775, 0.35881376, 28.755978, 37.110775, 0.35881376, 40.255978, 43.860775, 0.35881376, 40.255978, 61.860775, 0.35881376, 31.005978, 61.860775, 0.35881376, 28.505978, 61.360775, 0.35881376, 28.255978, 57.860775, 0.35881376, 28.755978, 61.360775, 0.35881376, 23.255978, 88.36077, 0.35881376, 28.255978, 86.11077, 0.35881376, 28.505978, 85.86077, 0.35881376, 31.255978, 93.11077, 0.35881376, 28.755978, 92.36077, 0.35881376, 28.005978, 104.11077, 0.35881376, 31.755978, 104.36077, 0.35881376, 29.255978, 105.86077, 0.35881376, 29.255978, 104.36077, 0.35881376, 34.005978, 111.86077, 0.35881376, 32.255978, 113.61077, 0.35881376, 32.505978, 103.36077, 0.35881376, 42.505978, 113.36077, 0.35881376, 42.755978, 119.61077, 0.35881376, 42.755978, 119.86077, 0.35881376, 42.255978, 119.86077, 0.35881376, 33.255978)
@@ -124,7 +125,9 @@ size = Vector3(26.19918, 4.6989746, 1)
 transform = Transform3D(-1, -3.1196299e-09, 8.73671e-08, 0, 0.9993631, 0.035684407, -8.742278e-08, 0.035684407, -0.9993631, -4.200489, 0, 13.822917)
 
 [node name="Left" type="Node3D" parent="EntryPoints" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4517651, -0.24530947, 10.127427)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9276977, -0.24530946, 10.127427)
+script = ExtResource("7_mqp80")
+entry_direction = Vector3(1, 0, 0)
 
 [node name="TransitionAreas" parent="." index="4"]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -4.200489, 0, 13.822917)

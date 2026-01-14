@@ -4,8 +4,8 @@
 [ext_resource type="Resource" uid="uid://ebi2mrpur7b6" path="res://world/floor/rock/rock.tres" id="3_lkd7d"]
 [ext_resource type="Texture2D" uid="uid://ba2eoskeemjii" path="res://world/backgrounds/cave_pillars.png" id="4_uml48"]
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="4_yl5fl"]
+[ext_resource type="Script" path="res://world/transitions/entry_point.gd" id="6_shw0w"]
 [ext_resource type="PackedScene" uid="uid://bb3qdjspo0kcq" path="res://world/interactables/barrel/barrel.tscn" id="7_7mnxm"]
-[ext_resource type="PackedScene" uid="uid://dxdkwdigtcn43" path="res://world/enemy/test/enemy_test.tscn" id="7_v2m6r"]
 [ext_resource type="Texture2D" uid="uid://48dfxh6s6pk2" path="res://world/backgrounds/cavern_bg.png" id="8_6otf1"]
 [ext_resource type="PackedScene" uid="uid://dtqb8q8qomq31" path="res://world/pickups/corrupt_heart/blood_particles/blood_burst.tscn" id="8_v2m6r"]
 [ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://world/interactables/cover/cover_boulder.tscn" id="11_lw5uw"]
@@ -18,6 +18,7 @@ polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Arr
 
 [sub_resource type="Curve3D" id="Curve3D_hxoc3"]
 closed = true
+bake_interval = 2.0
 _data = {
 "points": PackedVector3Array(-0.79925346, 0, 1.1016395, 0.79925346, 0, -1.1016395, -7.7055573, 0, -3.9079268, -1.283371, 0, -0.616333, 1.283371, 0, 0.616333, 15.428068, 0, -3.9784892, 0.15898514, 0, -0.7170719, -0.15898514, 0, 0.7170719, 16.032757, 0, -0.04988442, -0.33026695, 0, -1.0321295, 0.33026695, 0, 1.0321295, 20.974693, 0, 0.3364469, 0.13352203, 0, -0.28435802, -0.13352203, 0, 0.28435802, 20.897396, 0, 2.284358, 0.13913631, 0, -0.41740918, -0.13913631, 0, 0.41740918, 15.98124, 0, 1.9751656, 0.5598459, 0, -0.5154171, -0.5598459, 0, 0.5154171, 15.860613, 0, 5.0322595, 1.244214, 0, 1.496664, -1.244214, 0, -1.496664, -7.3523626, 0, 4.809549),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
@@ -77,10 +78,13 @@ navigation_mesh = SubResource("NavigationMesh_hxoc3")
 
 [node name="Floor" parent="World" index="0"]
 curve = SubResource("Curve3D_hxoc3")
+curve_interval = 2.0
 material = ExtResource("3_lkd7d")
 
 [node name="Right" type="Marker3D" parent="EntryPoints" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.214909, 0, 0.96318436)
+script = ExtResource("6_shw0w")
+entry_direction = Vector3(-1, 0, 0)
 
 [node name="BloodBurst" parent="." index="7" instance=ExtResource("8_v2m6r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.812037, 4.0206768e-08, 0.9198234)
@@ -88,24 +92,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.812037, 4.0206768e-08, 0.91
 [node name="Barrel" parent="." index="9" instance=ExtResource("7_7mnxm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1067781, 1.1097358, 0)
 
-[node name="EnemyTest" parent="." index="10" instance=ExtResource("7_v2m6r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.939002, 0, 0)
-movement_speed = 0.0
-
-[node name="Boulder" parent="." index="12" instance=ExtResource("11_lw5uw")]
+[node name="Boulder" parent="." index="11" instance=ExtResource("11_lw5uw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1497498, 0, -1.890513)
 
-[node name="Boulder2" parent="." index="13" instance=ExtResource("11_lw5uw")]
+[node name="Boulder2" parent="." index="12" instance=ExtResource("11_lw5uw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7385912, 0, 3.4624243)
 
-[node name="Boulder3" parent="." index="14" instance=ExtResource("11_lw5uw")]
+[node name="Boulder3" parent="." index="13" instance=ExtResource("11_lw5uw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.027086, 0, -1.4749694)
 
-[node name="FloorLantern" parent="." index="15" instance=ExtResource("12_shw0w")]
+[node name="FloorLantern" parent="." index="14" instance=ExtResource("12_shw0w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.084494, 4.7683716e-07, 2.5329204)
 
-[node name="FloorLantern2" parent="." index="16" instance=ExtResource("12_shw0w")]
+[node name="FloorLantern2" parent="." index="15" instance=ExtResource("12_shw0w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5376377, 4.7683716e-07, 2.0982232)
 
-[node name="Campfire" parent="." index="18" instance=ExtResource("11_shw0w")]
+[node name="Campfire" parent="." index="17" instance=ExtResource("11_shw0w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.28934, 0, 0.9363847)
