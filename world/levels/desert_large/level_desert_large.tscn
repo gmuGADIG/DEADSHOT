@@ -1,10 +1,11 @@
-[gd_scene load_steps=33 format=3 uid="uid://crgv6bkolrlyy"]
+[gd_scene load_steps=34 format=3 uid="uid://crgv6bkolrlyy"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_b00wy"]
 [ext_resource type="Resource" uid="uid://q24ustx30otu" path="res://world/floor/sand/sand.tres" id="2_5t0jw"]
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="2_8watp"]
 [ext_resource type="PackedScene" uid="uid://d1e8myf75tnlv" path="res://world/interactables/cover/cover_cactus_large.tscn" id="4_xa3ak"]
 [ext_resource type="PackedScene" uid="uid://bp6l0lw650m8o" path="res://world/blocker/blocker.tscn" id="6_4q5tc"]
+[ext_resource type="Script" uid="uid://5430ylajkno2" path="res://world/transitions/entry_point.gd" id="6_trnsn"]
 [ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://world/interactables/cover/cover_boulder.tscn" id="7_afdcq"]
 [ext_resource type="PackedScene" uid="uid://8er7o8byf7v1" path="res://world/decoration/well/well.tscn" id="7_gq3fs"]
 [ext_resource type="PackedScene" uid="uid://bb3qdjspo0kcq" path="res://world/interactables/barrel/barrel.tscn" id="8_afdcq"]
@@ -100,9 +101,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10973072, 0, 1.4328089)
 
 [node name="Left" type="Node3D" parent="EntryPoints" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.711521, -4.7683716e-07, 0.8270476)
+script = ExtResource("6_trnsn")
+entry_direction = Vector3(0, 0, -1)
 
 [node name="Right" type="Node3D" parent="EntryPoints" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.105401, 0, 26.48222)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.47255, 0, 26.078396)
+script = ExtResource("6_trnsn")
+entry_direction = Vector3(0, 0, 1)
 
 [node name="Entry_North" parent="TransitionAreas" index="0" instance=ExtResource("2_8watp")]
 transform = Transform3D(-5.2797706e-08, 0, 1.2078707, 0, 1, 0, -1.2078707, 0, -5.2797706e-08, 9.721218, 0, 4.781355)
@@ -144,6 +149,7 @@ type = 1
 
 [node name="CursedPlant3" parent="Decor" index="7" instance=ExtResource("9_jw2qs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.121485, -0.06959438, -29.77686)
+type = 1
 
 [node name="Well2" parent="Decor" index="8" instance=ExtResource("7_gq3fs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.905464, -0.09687781, -30.80377)
