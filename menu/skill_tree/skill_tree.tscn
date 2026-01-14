@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://fkmkprnxsrpf"]
+[gd_scene load_steps=87 format=3 uid="uid://fkmkprnxsrpf"]
 
 [ext_resource type="Script" uid="uid://c6cng071rfahe" path="res://menu/skill_tree/skill_tree.gd" id="1_dnamn"]
 [ext_resource type="PackedScene" uid="uid://7lrs6qjp01ku" path="res://menu/skill_tree/skill_button.tscn" id="2_3f6vw"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cv64wt7j01lxl" path="res://menu/skill_tree/skill_tree_icons/damage_up-silver.png" id="5_x1cyl"]
 [ext_resource type="Texture2D" uid="uid://dwdshby6bfsut" path="res://menu/skill_tree/skill_tree_icons/damage_up-meat.png" id="6_lwvla"]
 [ext_resource type="Texture2D" uid="uid://cyock4ibunn2y" path="res://menu/skill_tree/skill_tree_icons/rifle2.png" id="7_lwvla"]
+[ext_resource type="Resource" uid="uid://ce3o8w06b1t8a" path="res://writing/upgrades/upgrade_rifle.tres" id="7_smw4h"]
 [ext_resource type="Texture2D" uid="uid://dbb2hkjwkrrla" path="res://menu/skill_tree/skill_tree_icons/rifle.png" id="8_8rbpw"]
 [ext_resource type="Script" uid="uid://g60bhhds87wx" path="res://menu/skill_tree/skill_tree_overlay.gd" id="8_oh6w3"]
 [ext_resource type="Texture2D" uid="uid://y1h3uww1jns7" path="res://world/enemy/meat/meat.png" id="8_yrbjn"]
@@ -15,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://c1lxfg0hr7t5k" path="res://menu/skill_tree/skill_tree_icons/R2_2-silver D2_1-silver.png" id="11_4fwot"]
 [ext_resource type="Texture2D" uid="uid://cvemo7p777ipq" path="res://menu/skill_tree/skill_tree_icons/R2_2-meat D2_1-meat.png" id="12_idjr8"]
 [ext_resource type="Texture2D" uid="uid://dncw7xy4m6nwd" path="res://menu/skill_tree/skill_tree_icons/tnt-silver.png" id="13_jggre"]
+[ext_resource type="Resource" uid="uid://c0soea0snwpsv" path="res://writing/upgrades/upgrade_rifle_tnt.tres" id="14_c5yhh"]
 [ext_resource type="Texture2D" uid="uid://dulu3n1khoj0w" path="res://menu/skill_tree/skill_tree_icons/tnt-meat.png" id="14_luurr"]
 [ext_resource type="Texture2D" uid="uid://csbrxvikq7id1" path="res://menu/skill_tree/skill_tree_icons/R4_1-silver.png" id="15_qu2j3"]
 [ext_resource type="Texture2D" uid="uid://bui8visoa56ku" path="res://menu/skill_tree/skill_tree_icons/R4_1-meat.png" id="16_obulw"]
@@ -25,13 +27,17 @@
 [ext_resource type="Texture2D" uid="uid://c4bodu5kfpkse" path="res://menu/skill_tree/skill_tree_icons/shotgun.png" id="20_a42n7"]
 [ext_resource type="Texture2D" uid="uid://bfphmnx74h8k0" path="res://menu/skill_tree/skill_tree_icons/chargeshot-meat.png" id="20_jjotp"]
 [ext_resource type="Texture2D" uid="uid://b85nkqfssbydf" path="res://menu/skill_tree/skill_tree_icons/D2_2-silver.png" id="21_e6pkm"]
+[ext_resource type="Resource" uid="uid://cjs8lc7aks5pi" path="res://writing/upgrades/upgrade_rifle_charge.tres" id="21_xwaw0"]
 [ext_resource type="Texture2D" uid="uid://dtk535mpawgql" path="res://menu/skill_tree/skill_tree_icons/D2_2-meat.png" id="22_2obiv"]
 [ext_resource type="Texture2D" uid="uid://bpdvrt0apxr56" path="res://menu/skill_tree/skill_tree_icons/knockback-silver.png" id="23_vaffb"]
 [ext_resource type="Texture2D" uid="uid://ql3qrr0b6b7g" path="res://menu/skill_tree/skill_tree_icons/knockback-meat.png" id="24_osh48"]
+[ext_resource type="Resource" uid="uid://cdd87h10oxr1i" path="res://writing/upgrades/upgrade_shotgun.tres" id="24_wqbrr"]
 [ext_resource type="Texture2D" uid="uid://cyr34jmfogggj" path="res://menu/skill_tree/skill_tree_icons/D4_1-silver.png" id="25_b3yvt"]
 [ext_resource type="Texture2D" uid="uid://btraran224yp0" path="res://menu/skill_tree/skill_tree_icons/D4_1-meat.png" id="26_d4xvn"]
 [ext_resource type="Texture2D" uid="uid://cscse80a2sosc" path="res://menu/skill_tree/skill_tree_icons/D4_2-silver.png" id="27_vs1q0"]
 [ext_resource type="Texture2D" uid="uid://dyg2gs0167hfl" path="res://menu/skill_tree/skill_tree_icons/D4_2-meat.png" id="28_lhrif"]
+[ext_resource type="Resource" uid="uid://btuiip1xeoscj" path="res://writing/upgrades/upgrade_shotgun_fire.tres" id="29_44444"]
+[ext_resource type="Resource" uid="uid://c0howh5pmev" path="res://writing/upgrades/upgrade_shotgun_knockback.tres" id="29_c5yhh"]
 [ext_resource type="Texture2D" uid="uid://cfihfvev4srkc" path="res://menu/skill_tree/skill_tree_icons/fire-silver.png" id="29_vs1q0"]
 [ext_resource type="Texture2D" uid="uid://b2o5uav77a2hd" path="res://menu/skill_tree/skill_tree_icons/fire-meat.png" id="30_lhrif"]
 [ext_resource type="Texture2D" uid="uid://vud66lio7sc2" path="res://menu/skill_tree/skill_tree_icons/dual-pistols2.png" id="31_lhrif"]
@@ -40,15 +46,18 @@
 [ext_resource type="Texture2D" uid="uid://bc77qrgacku24" path="res://menu/skill_tree/skill_tree_icons/B2_1-meat.png" id="34_0ppb8"]
 [ext_resource type="Texture2D" uid="uid://dg6nsfm6dpgad" path="res://menu/skill_tree/skill_tree_icons/B2_2-silver.png" id="35_ba6jm"]
 [ext_resource type="Texture2D" uid="uid://dlihetqekrhvv" path="res://menu/skill_tree/skill_tree_icons/B2_2-meat.png" id="36_dxovw"]
+[ext_resource type="Resource" uid="uid://cdmrdohmwy7uu" path="res://writing/upgrades/upgrade_dualies.tres" id="38_fuigo"]
 [ext_resource type="Texture2D" uid="uid://b8puwqft4j5c0" path="res://menu/skill_tree/skill_tree_icons/B4_1-silver.png" id="39_21kvf"]
 [ext_resource type="Texture2D" uid="uid://bg1hwbchqywys" path="res://menu/skill_tree/skill_tree_icons/B4_1-meat.png" id="40_ulc3x"]
 [ext_resource type="Texture2D" uid="uid://cgjsev1icl473" path="res://menu/skill_tree/skill_tree_icons/B4_2-silver.png" id="41_qmj2f"]
 [ext_resource type="Texture2D" uid="uid://cxj67g4ekh5c2" path="res://menu/skill_tree/skill_tree_icons/B4_2-meat.png" id="42_53uy8"]
 [ext_resource type="Texture2D" uid="uid://drqmepj4dmfbf" path="res://menu/skill_tree/skill_tree_icons/salvage2.png" id="43_qmj2f"]
 [ext_resource type="Texture2D" uid="uid://bl62vaymakky" path="res://menu/skill_tree/skill_tree_icons/salvage1.png" id="44_53uy8"]
+[ext_resource type="Resource" uid="uid://bv4xh61l5m38d" path="res://writing/upgrades/upgrade_dualies_double.tres" id="45_61ywr"]
 [ext_resource type="Texture2D" uid="uid://cs1tx31usork6" path="res://menu/streak.png" id="46_53uy8"]
 [ext_resource type="PackedScene" uid="uid://cgwbktyy1u6vc" path="res://audio/streams/skill_tree_enter_sound.tscn" id="48_6dxvt"]
 [ext_resource type="PackedScene" uid="uid://vpotudbwuxyo" path="res://audio/streams/skill_tree_exit_sound.tscn" id="49_bfeqj"]
+[ext_resource type="Resource" uid="uid://dbrlrt5uu218" path="res://writing/upgrades/upgrade_dualies_scavange.tres" id="50_rc5vl"]
 [ext_resource type="PackedScene" uid="uid://cudn3jrx3b6it" path="res://audio/streams/skill_tree_purchase_failed.tscn" id="50_uareu"]
 [ext_resource type="PackedScene" uid="uid://b7qfyf6vhsdqg" path="res://audio/streams/skill_tree_purchase_successful.tscn" id="51_probc"]
 
@@ -73,6 +82,7 @@ more powerful calibers.
 Good ol' reliable!"
 skill_meat_cost = 25
 skill_uid = 2
+purchase_timeline = ExtResource("7_smw4h")
 metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
 [sub_resource type="Resource" id="Resource_8qlyr"]
@@ -107,6 +117,7 @@ skill_image_upgraded = ExtResource("14_luurr")
 skill_description = "Gives your bullets an explosive punch."
 skill_meat_cost = 60
 skill_uid = 128
+purchase_timeline = ExtResource("14_c5yhh")
 metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
 [sub_resource type="Resource" id="Resource_yrbjn"]
@@ -138,6 +149,7 @@ skill_image_upgraded = ExtResource("20_jjotp")
 skill_description = "Hold down fire to charge bullets. Release to shoot."
 skill_meat_cost = 70
 skill_uid = 128
+purchase_timeline = ExtResource("21_xwaw0")
 metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
 [sub_resource type="Resource" id="Resource_fin66"]
@@ -148,6 +160,7 @@ skill_image_upgraded = ExtResource("20_a42n7")
 skill_description = "A simple double-barrel shotgun, favoring fire power over fire rate and accuracy. Packs a punch!"
 skill_meat_cost = 25
 skill_uid = 256
+purchase_timeline = ExtResource("24_wqbrr")
 metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
 [sub_resource type="Resource" id="Resource_x1cyl"]
@@ -180,6 +193,7 @@ skill_image_upgraded = ExtResource("24_osh48")
 skill_description = "Packing a punch with every shot!"
 skill_meat_cost = 60
 skill_uid = 2048
+purchase_timeline = ExtResource("29_c5yhh")
 metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
 [sub_resource type="Resource" id="Resource_mygyd"]
@@ -212,6 +226,7 @@ skill_image_upgraded = ExtResource("30_lhrif")
 skill_description = "Bullets set enemies on fire."
 skill_meat_cost = 70
 skill_uid = 16384
+purchase_timeline = ExtResource("29_44444")
 metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
 [sub_resource type="Resource" id="Resource_jggre"]
@@ -222,6 +237,7 @@ skill_image_upgraded = ExtResource("32_y1f1q")
 skill_description = "A 2 for 1 special! The dual pistols have a faster firing rate in exchange over the damage it inflicts. A classic choice!"
 skill_meat_cost = 25
 skill_uid = 32768
+purchase_timeline = ExtResource("38_fuigo")
 metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
 [sub_resource type="Resource" id="Resource_luurr"]
@@ -254,6 +270,7 @@ skill_image_upgraded = ExtResource("6_lwvla")
 skill_description = "Each pistol fires twice in quick succession."
 skill_meat_cost = 60
 skill_uid = 262144
+purchase_timeline = ExtResource("45_61ywr")
 metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
 [sub_resource type="Resource" id="Resource_qu2j3"]
@@ -286,6 +303,7 @@ skill_image_upgraded = ExtResource("44_53uy8")
 skill_description = "Collect some ammo back for every ten shots landed."
 skill_meat_cost = 70
 skill_uid = 2097152
+purchase_timeline = ExtResource("50_rc5vl")
 metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
 [sub_resource type="Animation" id="Animation_orope"]
@@ -473,8 +491,8 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 438.0
 offset_top = 6.0
-offset_right = 490.0
-offset_bottom = 65.0
+offset_right = 498.0
+offset_bottom = 66.0
 texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../R1")]
 evil_dependencies = [NodePath("../D1"), NodePath("../B1")]

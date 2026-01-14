@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://c1dar8odnyq6n"]
+[gd_scene load_steps=38 format=3 uid="uid://c1dar8odnyq6n"]
 
 [ext_resource type="Script" uid="uid://0ti8jktscn8w" path="res://systems/dialog/dialog.gd" id="1_luyus"]
 [ext_resource type="AudioStream" uid="uid://bdsxandq2bhjy" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkA.wav" id="2_clngm"]
@@ -25,66 +25,178 @@
 [ext_resource type="AudioStream" uid="uid://dxn806b3l8hmt" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkW.wav" id="23_6gu7l"]
 [ext_resource type="AudioStream" uid="uid://cs4qt0nkxm26g" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkY.wav" id="24_t5xj8"]
 [ext_resource type="Script" uid="uid://qxwm2k0huy5n" path="res://systems/dialog/voicebank.gd" id="25_ge1t5"]
+[ext_resource type="Shader" uid="uid://d3m00nmbmdtm8" path="res://menu/cutscenes/outro/title_popup.gdshader" id="26_d8ird"]
+[ext_resource type="Texture2D" uid="uid://r6b11vwb18y2" path="res://systems/dialog/dialogue_box.png" id="27_b5a57"]
+[ext_resource type="FontFile" uid="uid://doh1s81pnbjh3" path="res://menu/BaskaraDemoRegular.ttf" id="28_g3aw5"]
 
 [sub_resource type="Resource" id="Resource_yftcr"]
 script = ExtResource("25_ge1t5")
 charToSteam = Array[AudioStream]([ExtResource("2_clngm"), ExtResource("3_3edpr"), ExtResource("4_d8ird"), ExtResource("5_b5a57"), ExtResource("6_g3aw5"), ExtResource("7_c3yfu"), ExtResource("8_rx78u"), ExtResource("9_8dijw"), ExtResource("10_n0y2v"), ExtResource("11_xh5wg"), ExtResource("12_3vydk"), ExtResource("13_u5vpv"), ExtResource("14_n7pwu"), ExtResource("15_a7m4a"), ExtResource("16_lt5gy"), ExtResource("17_jriru"), ExtResource("19_1cmqs"), ExtResource("20_a8fr3"), ExtResource("21_1h77j"), ExtResource("22_3qou2"), ExtResource("23_6gu7l"), ExtResource("24_t5xj8")])
 metadata/_custom_type_script = "uid://qxwm2k0huy5n"
 
-[node name="Dialog" type="Control"]
-z_index = 5
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_c3yfu"]
+frequency = 0.0147
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rx78u"]
+height = 128
+noise = SubResource("FastNoiseLite_c3yfu")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d8ird"]
+shader = ExtResource("26_d8ird")
+shader_parameter/progress = -0.65999998385
+shader_parameter/width = 0.7
+shader_parameter/noise = SubResource("NoiseTexture2D_rx78u")
+shader_parameter/speed = 0.5
+
+[sub_resource type="FontVariation" id="FontVariation_n0y2v"]
+base_font = ExtResource("28_g3aw5")
+variation_embolden = 1.18
+spacing_glyph = 2
+spacing_top = 5
+spacing_bottom = -9
+
+[sub_resource type="Animation" id="Animation_d8ird"]
+resource_name = "show"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Box:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.78000013205, -0.77999998955]
+}
+
+[sub_resource type="Animation" id="Animation_b5a57"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Box/SubViewport/Panel:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.0]
+}
+
+[sub_resource type="Animation" id="Animation_g3aw5"]
+resource_name = "hide"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Box:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.65999998385, 1.3200001102]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c3yfu"]
+_data = {
+&"RESET": SubResource("Animation_b5a57"),
+&"hide": SubResource("Animation_g3aw5"),
+&"show": SubResource("Animation_d8ird")
+}
+
+[node name="Dialog" type="CanvasLayer"]
 script = ExtResource("1_luyus")
 sfx = SubResource("Resource_yftcr")
 
 [node name="LineTimer" type="Timer" parent="."]
 wait_time = 0.1
 
-[node name="Panel" type="Panel" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -287.0
-offset_top = -180.0
-offset_right = 213.0
-grow_horizontal = 2
-grow_vertical = 0
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_qqm2g")
+volume_db = -10.0
+max_polyphony = 2
+bus = &"SFX"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
-layout_mode = 1
+[node name="InputBlocker" type="Control" parent="."]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Speaker" type="RichTextLabel" parent="Panel/VBoxContainer"]
-layout_mode = 2
+[node name="Box" type="SubViewportContainer" parent="."]
+material = SubResource("ShaderMaterial_d8ird")
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -324.5
+offset_top = -200.0
+offset_right = 324.5
+grow_horizontal = 2
+grow_vertical = 0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="Box"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(649, 200)
+render_target_update_mode = 4
+
+[node name="Panel" type="TextureRect" parent="Box/SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("27_b5a57")
+expand_mode = 1
+
+[node name="Speaker" type="RichTextLabel" parent="Box/SubViewport"]
+unique_name_in_owner = true
+clip_contents = false
+offset_left = 56.5
+offset_top = 4.0
+offset_right = 556.5
+offset_bottom = 36.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/normal_font = SubResource("FontVariation_n0y2v")
+theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
 text = "Sheriff"
 fit_content = true
 
-[node name="Speech" type="RichTextLabel" parent="Panel/VBoxContainer"]
-layout_mode = 2
+[node name="Speech" type="RichTextLabel" parent="Box/SubViewport"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 65.5
+offset_top = 39.0
+offset_right = -65.5
+grow_horizontal = 2
+grow_vertical = 2
 bbcode_enabled = true
 text = "Dialog"
 fit_content = true
 scroll_active = false
-metadata/_edit_lock_ = true
+visible_characters_behavior = 1
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_qqm2g")
-volume_db = -10.0
-max_polyphony = 2
-bus = &"SFX"
+[node name="Anim" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_c3yfu")
+}
 
 [connection signal="timeout" from="LineTimer" to="." method="show_character"]
