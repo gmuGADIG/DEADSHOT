@@ -206,7 +206,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.555187, -0.06661456, -3.53
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.6706986, 0, -3.960771)
 
 [node name="Campfire" parent="." index="15" instance=ExtResource("13_5bykt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.734806, -0.04697272, -4.8202686)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.734806, -0.04697272, -3.9989414)
 
 [node name="AmmoPickup2" parent="." index="16" instance=ExtResource("2_siqd8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.527174, 0.2041933, 5.0708036)

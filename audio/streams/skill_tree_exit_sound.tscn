@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://vpotudbwuxyo"]
+
+[ext_resource type="AudioStream" uid="uid://bph5hkaapnea2" path="res://audio/ui/se_skillTreeMenu_exit.mp3" id="1_gevye"]
+
+[node name="SkillTreeExitSound" type="AudioStreamPlayer"]
+stream = ExtResource("1_gevye")
+volume_db = -12.977
+bus = &"SFX"
