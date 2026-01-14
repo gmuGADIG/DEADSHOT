@@ -71,6 +71,7 @@ offset_left = 25.0
 offset_top = 556.0
 offset_right = 495.0
 offset_bottom = 623.0
+pivot_offset = Vector2(235, 33.5)
 script = ExtResource("2_swyvw")
 full_tex = ExtResource("3_02nes")
 half_tex = ExtResource("4_5nwtl")
