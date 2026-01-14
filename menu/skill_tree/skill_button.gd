@@ -107,15 +107,18 @@ func _on_pressed() -> void:
 			
 	#if player level or prev skill is acheived, allow it, or deny it
 
-func attempt_purchase() -> void:
+# Returns whether the purchase was a success
+func attempt_purchase() -> bool:
 	match state:
 		State.AFFORDABLE:
 			purchase()
 			indent()
+			return true
 		State.UNAFFORDABLE, State.LOCKED:
 			shake()
 		State.PURCHASED:
 			indent()
+	return false
 
 func purchase() -> void:
 	##TODO: GRANT SKILL

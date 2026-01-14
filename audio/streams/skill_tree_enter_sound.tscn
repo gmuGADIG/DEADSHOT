@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgwbktyy1u6vc"]
+
+[ext_resource type="AudioStream" uid="uid://dlwruhhjagipq" path="res://audio/ui/se_skillTreeMenu_enter.mp3" id="1_8p8rf"]
+
+[node name="SkillTreeEnterSound" type="AudioStreamPlayer"]
+stream = ExtResource("1_8p8rf")
+volume_db = -13.931
+bus = &"SFX"
