@@ -1,14 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://coau3goy0qtlb"]
+[gd_scene load_steps=2 format=3 uid="uid://coau3goy0qtlb"]
 
-[ext_resource type="AudioStream" uid="uid://bsxp7603mjq0x" path="res://audio/placeholders/test_unlock.wav" id="1_iumw7"]
-[ext_resource type="Script" uid="uid://bf14d2iyiqx56" path="res://audio/streams/sound_stream.gd" id="2_1l30j"]
+[ext_resource type="PackedScene" uid="uid://ci3804ofkibap" path="res://audio/streams/sound_base.tscn" id="1_base"]
+[ext_resource type="AudioStream" uid="uid://dffhlop55s35d" path="res://audio/world_objects/CorruptHeartSplatDrop.mp3" id="1_1l30j"]
 
-[node name="MeatPickupSound" type="AudioStreamPlayer3D"]
-stream = ExtResource("1_iumw7")
-unit_size = 20.0
-panning_strength = 0.5
-bus = &"SFX"
-attenuation_filter_cutoff_hz = 20500.0
-script = ExtResource("2_1l30j")
-
-[connection signal="finished" from="." to="." method="_on_finished"]
+[node name="MeatPickupSound" instance=ExtResource("1_base")]
+stream = ExtResource("1_1l30j")
+delete_on_finish = true

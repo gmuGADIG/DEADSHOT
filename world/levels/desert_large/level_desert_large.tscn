@@ -103,18 +103,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.47255, 0, 26.078396)
 script = ExtResource("6_trnsn")
 entry_direction = Vector3(0, 0, 1)
 
-[node name="Entry_North" parent="TransitionAreas" index="0" instance=ExtResource("2_8watp")]
-transform = Transform3D(-5.2797706e-08, 0, 1.2078707, 0, 1, 0, -1.2078707, 0, -5.2797706e-08, 9.721218, 0, 4.781355)
-target_scene = "uid://blppqsxslhh07"
-target_entry_point = "Right"
+[node name="Left" type="Node3D" parent="EntryPoints" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.711521, -4.7683716e-07, 0.8270476)
+script = ExtResource("6_trnsn")
+entry_direction = Vector3(0, 0, -1)
 
-[node name="Right" parent="TransitionAreas" index="1" instance=ExtResource("2_8watp")]
+[node name="Right" parent="TransitionAreas" index="0" instance=ExtResource("2_8watp")]
 transform = Transform3D(-5.2797706e-08, 0, 1.2078707, 0, 1, 0, -1.2078707, 0, -5.2797706e-08, 9.900384, 0, 25.25497)
 target_scene = "uid://c4lcfae1j0kdx"
 target_entry_point = "Bottom"
 
 [node name="Player" parent="." index="5"]
-transform = Transform3D(1.2078707, 0, 0, 0, 1, 0, 0, 0, 1.2078707, 47.449486, 0, 31.264133)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.449486, 0, 31.264133)
 floor_type = 1
 
 [node name="Decor" type="Node" parent="." index="9"]
