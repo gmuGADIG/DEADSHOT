@@ -15,6 +15,7 @@ func _on_body_entered(body: Node3D) -> void:
 	EntryPoints.set_entry_point(target_entry_point)
 	
 	player.current_state = Player.PlayerState.TRANSITIONING
+	player.collision_mask = 0
 	fade_panel.color = Color(0,0,0,0)
 	fade_panel.show()
 	var fade_tween : Tween = create_tween()
