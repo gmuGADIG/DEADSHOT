@@ -1,7 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://3xv4m4jgpupq"]
 
-[ext_resource type="AudioStream" uid="uid://c32ywg75uwtqw" path="res://audio/enemies/judge/Judge.Death.mp3" id="2_7v2h2"]
+[ext_resource type="AudioStream" uid="uid://d2ihxigi6n2gn" path="res://audio/enemies/judge/judge_death.mp3" id="1_nimlx"]
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D"]
-stream = ExtResource("2_7v2h2")
+stream = ExtResource("1_nimlx")
+volume_db = 5.5
 bus = &"SFX"
