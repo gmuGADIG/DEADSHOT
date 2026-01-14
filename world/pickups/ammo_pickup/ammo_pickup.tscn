@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://6ahxaf8mfjcr"]
+[gd_scene load_steps=5 format=3 uid="uid://6ahxaf8mfjcr"]
 
 [ext_resource type="Script" uid="uid://fu8skx76i6t4" path="res://world/pickups/ammo_pickup/ammo_pickup.gd" id="1_66mbw"]
 [ext_resource type="Texture2D" uid="uid://cv1gfgy1dth2g" path="res://world/pickups/ammo_pickup/ammo_pickup.png" id="1_k1l7w"]
+[ext_resource type="PackedScene" uid="uid://b4dostmawh7m8" path="res://audio/streams/ammo_pickup_sound.tscn" id="3_66mbw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_shw0w"]
 
@@ -17,5 +18,7 @@ texture = ExtResource("1_k1l7w")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_shw0w")
+
+[node name="AmmoPickupSound" parent="." instance=ExtResource("3_66mbw")]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
