@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://duf7ry1s34j7o"]
+[gd_scene load_steps=17 format=3 uid="uid://duf7ry1s34j7o"]
 
 [ext_resource type="Script" uid="uid://xcp2500ab7cg" path="res://world/player/weapon/whip/whip.gd" id="1_ox2ft"]
 [ext_resource type="Script" uid="uid://dprtuautgwqbv" path="res://world/player/weapon/whip/whip_attack_data.gd" id="2_kmd03"]
-[ext_resource type="Texture2D" uid="uid://sxaysn4gqoxo" path="res://temp_art/gartic/coin.png" id="2_u54gi"]
-[ext_resource type="Texture2D" uid="uid://gds0k2gwfygi" path="res://temp_art/gartic/coin_white.png" id="4_lyq0n"]
+[ext_resource type="Texture2D" uid="uid://bpdv4ruy6aprj" path="res://world/player/weapon/whip/whip_attack.png" id="3_qsilx"]
+[ext_resource type="Texture2D" uid="uid://c7k335hohuqf0" path="res://world/player/weapon/whip/whip.png" id="4_qsilx"]
+[ext_resource type="Script" uid="uid://dy4h4d283fxxn" path="res://util/sprite_shaker.gd" id="5_n5nal"]
 [ext_resource type="PackedScene" uid="uid://cuf4m7g7i2wdk" path="res://audio/streams/whip_charge_sound.tscn" id="8_kksg7"]
 [ext_resource type="PackedScene" uid="uid://c04no3yhhwjuw" path="res://audio/streams/whip_swing_sound.tscn" id="9_nn6fm"]
 
@@ -29,6 +30,38 @@ metadata/_custom_type_script = "uid://dprtuautgwqbv"
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ox2ft"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5nal"]
+atlas = ExtResource("3_qsilx")
+region = Rect2(0, 0, 1500, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60w6d"]
+atlas = ExtResource("3_qsilx")
+region = Rect2(1500, 0, 1500, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kksg7"]
+atlas = ExtResource("3_qsilx")
+region = Rect2(3000, 0, 1500, 1024)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nn6fm"]
+animations = [{
+"frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_n5nal")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60w6d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kksg7")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 10.0
+}]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_n5nal"]
+frequency = 0.1809
+
 [node name="Whip" type="Node3D"]
 script = ExtResource("1_ox2ft")
 windup_time = 0.1
@@ -46,20 +79,27 @@ collision_mask = 9
 transform = Transform3D(6, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 shape = SubResource("SphereShape3D_ox2ft")
 
-[node name="SwingSprite3D" type="Sprite3D" parent="Attack"]
-transform = Transform3D(5.401, 0, 0, 0, -9.568422e-08, -1.027, 0, 2.189, -4.4891593e-08, 0.12, 0, 0)
+[node name="WhipSwing" type="AnimatedSprite3D" parent="Attack"]
+unique_name_in_owner = true
+transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, -0.5, 0, 0.5, -2.1855694e-08, 0.119999886, 0, 0)
 visible = false
-texture = ExtResource("2_u54gi")
+sprite_frames = SubResource("SpriteFrames_nn6fm")
+animation = &"attack"
+autoplay = "attack"
+frame = 2
+frame_progress = 1.0
 
-[node name="ChargeUpSprite3D" type="Sprite3D" parent="Attack"]
-transform = Transform3D(1.5, 0, 0, 0, -6.556708e-08, -1.5, 0, 1.5, -6.556708e-08, -1.5, 0, 0)
+[node name="WhipHeld" type="Sprite3D" parent="Attack" node_paths=PackedStringArray("sprite")]
+unique_name_in_owner = true
+transform = Transform3D(0.425, 0, 0, 0, -1.857734e-08, -0.99999994, 0, 0.425, -4.3711385e-08, -1.8303798, 0.5748016, 0.4362812)
 visible = false
-texture = ExtResource("2_u54gi")
-
-[node name="ChargeUpOutline" type="Sprite3D" parent="Attack/ChargeUpSprite3D"]
-transform = Transform3D(1.0666667, 0, 0, 0, 1.0666667, -3.5527137e-15, 0, 3.5527137e-15, 1.0666667, 0, 2.9140925e-09, 0.06666667)
-modulate = Color(1, 1, 1, 0)
-texture = ExtResource("4_lyq0n")
+texture = ExtResource("4_qsilx")
+script = ExtResource("5_n5nal")
+shake_intensity = 0.5
+shake_speed = 600.0
+shaking = true
+sprite = NodePath(".")
+noise = SubResource("FastNoiseLite_n5nal")
 
 [node name="WindupTimer" type="Timer" parent="."]
 one_shot = true

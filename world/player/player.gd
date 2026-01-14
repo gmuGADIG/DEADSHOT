@@ -157,6 +157,9 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	position.y = starting_y_pos # ensures that player does not move above starting plane
+	
+	var is_whipping := whip.whip_state != Whip.WhipState.OFF
+	%Weapons.visible = not is_whipping
 
 ## We use the proper process function to update stamina, since it appears on the HUD and that could be drawn faster than the physics tickrate.
 func _process(delta: float) -> void:

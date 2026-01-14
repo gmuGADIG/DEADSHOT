@@ -28,22 +28,23 @@ var whip_state : WhipState = WhipState.OFF:
 		whip_state = new_val
 		match new_val:
 			WhipState.OFF:
-				$Attack/ChargeUpSprite3D.hide()
-				$Attack/SwingSprite3D.hide()
+				%WhipHeld.hide()
+				%WhipSwing.hide()
 			WhipState.CHARGING:
 				$WhipChargeSound.play()
-				$Attack/ChargeUpSprite3D.show()
-				$Attack/SwingSprite3D.hide()
+				%WhipHeld.show()
+				%WhipSwing.hide()
 			WhipState.ATTACKING:
-				$Attack/ChargeUpSprite3D.hide()
-				$Attack/SwingSprite3D.show()
+				%WhipHeld.hide()
+				%WhipSwing.show()
+				%WhipSwing.play()
 		
 
 func update_charge_fx(charge_index : float) -> void:
 	if charge_index < 0 or charge_index >= charge_levels.size():
 		return
-	var whip_charge_info : WhipAttackData = charge_levels[charge_index]
-	$Attack/ChargeUpSprite3D/ChargeUpOutline.modulate.a = whip_charge_info.sprite_glow_brightness
+	#var whip_charge_info : WhipAttackData = charge_levels[charge_index]
+	#$Attack/ChargeUpSprite3D/ChargeUpOutline.modulate.a = whip_charge_info.sprite_glow_brightness
 
 func _ready() -> void:
 	$WindupTimer.timeout.connect(attack)
