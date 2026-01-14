@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dgq8eujhb7aiv"]
+[gd_scene load_steps=28 format=3 uid="uid://dgq8eujhb7aiv"]
 
 [ext_resource type="PackedScene" uid="uid://dx3l0wduat3tp" path="res://world/enemy/base/enemy_base.tscn" id="1_j1u5n"]
 [ext_resource type="Script" uid="uid://charttcjx1m72" path="res://world/enemy/bandit/enemy_bandit.gd" id="2_jv5hu"]
@@ -97,10 +97,24 @@ animations = [{
 
 [sub_resource type="Resource" id="Resource_xbgce"]
 script = ExtResource("5_pvoqi")
+clip = "shoot"
 metadata/_custom_type_script = "uid://b5d5dfn03djx6"
 
 [sub_resource type="Resource" id="Resource_5dhfk"]
 script = ExtResource("5_pvoqi")
+clip = "shoot"
+flipped = true
+metadata/_custom_type_script = "uid://b5d5dfn03djx6"
+
+[sub_resource type="Resource" id="Resource_arsgg"]
+script = ExtResource("5_pvoqi")
+clip = "shoot"
+metadata/_custom_type_script = "uid://b5d5dfn03djx6"
+
+[sub_resource type="Resource" id="Resource_ywn7w"]
+script = ExtResource("5_pvoqi")
+clip = "shoot"
+flipped = true
 metadata/_custom_type_script = "uid://b5d5dfn03djx6"
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_xuwp2"]
@@ -118,6 +132,8 @@ animation = &"shoot"
 autoplay = "shoot"
 walk_left = SubResource("Resource_xbgce")
 walk_right = SubResource("Resource_5dhfk")
+attack_left = SubResource("Resource_arsgg")
+attack_right = SubResource("Resource_ywn7w")
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." index="3"]
 aabb = AABB(-0.5, 0, -0.5, 1, 1, 1)
