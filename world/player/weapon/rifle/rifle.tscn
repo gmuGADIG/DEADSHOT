@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dyikhdsyflso3"]
 
 [ext_resource type="Script" uid="uid://c3imq3vfbop5k" path="res://world/player/weapon/basic_gun/basic_gun.gd" id="1_6i8i4"]
-[ext_resource type="PackedScene" uid="uid://c34cmvuqfmuww" path="res://audio/streams/shoot_sound.tscn" id="2_3wjm7"]
+[ext_resource type="PackedScene" uid="uid://c34cmvuqfmuww" path="res://audio/streams/player_shoot_sound.tscn" id="2_3wjm7"]
 [ext_resource type="PackedScene" uid="uid://bf8bqkjukwxfj" path="res://audio/streams/salvage_proc.tscn" id="3_rc1su"]
 [ext_resource type="Texture2D" uid="uid://bsjuuqpesbwb6" path="res://world/player/weapon/rifle/rifle.png" id="4_6i8i4"]
 
@@ -17,7 +17,6 @@ fire_cooldown = 1.0
 
 [node name="ShootSound" parent="Sounds" instance=ExtResource("2_3wjm7")]
 unique_name_in_owner = true
-volume_db = -6.0
 
 [node name="SalvageProc" parent="Sounds" instance=ExtResource("3_rc1su")]
 unique_name_in_owner = true

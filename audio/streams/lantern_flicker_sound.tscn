@@ -5,9 +5,10 @@
 
 [node name="LanternFlickerSound" type="AudioStreamPlayer3D"]
 stream = ExtResource("2_lantern")
-unit_size = 40.0
-max_distance = 100.0
+volume_db = -14.0
+unit_size = 1.5
 autoplay = true
+max_distance = 6.0
 bus = &"SFX"
 attenuation_filter_cutoff_hz = 10000.0
 script = ExtResource("1_lantern")

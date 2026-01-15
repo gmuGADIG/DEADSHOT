@@ -59,7 +59,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.70077324, 1.3351865, 0)
 [node name="WilderDeathSound" parent="." instance=ExtResource("7_0jggp")]
 
 [node name="WilderShootSound" parent="." instance=ExtResource("8_h6ti2")]
-delete_on_finish = true
+volume_db = -6.0
+max_db = 0.0
 
 [connection signal="timeout" from="ShootTimer" to="." method="shoot"]
 [connection signal="killed" from="Health" to="." method="_on_killed"]

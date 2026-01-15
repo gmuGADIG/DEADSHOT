@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cjuuefpldxnv" path="res://world/backgrounds/desert_bg.png" id="2_q3pnm"]
 [ext_resource type="Resource" uid="uid://q24ustx30otu" path="res://world/floor/sand/sand.tres" id="3_q3pnm"]
 [ext_resource type="Texture2D" uid="uid://b1chcsvryv8et" path="res://world/backgrounds/stalagmite2.png" id="4_3hdfd"]
-[ext_resource type="Script" uid="uid://5430ylajkno2" path="res://world/transitions/entry_point.gd" id="4_mvjcd"]
+[ext_resource type="Script" path="res://world/transitions/entry_point.gd" id="4_mvjcd"]
 [ext_resource type="Texture2D" uid="uid://42ip2l07gewq" path="res://world/levels/town/building2.png" id="5_3hdfd"]
 [ext_resource type="Texture2D" uid="uid://d4iomax3x56yw" path="res://world/decoration/buildings/general_store.png" id="5_5qvel"]
 [ext_resource type="Texture2D" uid="uid://dogpjy022cabi" path="res://world/decoration/buildings/sheriff_office.png" id="5_ad2bl"]
@@ -74,6 +74,8 @@ entry_direction = Vector3(0, 0, 1)
 
 [node name="Player" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.0829, 0, 0)
+walk_speed = null
+roll_influence_strength = null
 floor_type = 1
 
 [node name="Mine" type="Node3D" parent="." index="6"]

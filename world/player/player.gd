@@ -73,7 +73,7 @@ enum FloorType{ ## Where the player is walking
 
 @onready var starting_y_pos : float = position.y
 
-var walk_sfx: AudioStreamPlayer3D
+var walk_sfx: AudioStreamPlayer
 var walk_sfx_timer: Timer
 #endregion
 
@@ -293,7 +293,7 @@ func update_stamina(delta: float) -> void:
 
 # Determines what sound the player should make when walking, and generates
 # the audio stream player that plays that sound
-func generate_walking_sounds() -> AudioStreamPlayer3D: 
+func generate_walking_sounds() -> AudioStreamPlayer: 
 	var soundEffect : PackedScene
 	
 	match floor_type:

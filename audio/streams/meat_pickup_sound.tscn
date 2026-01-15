@@ -1,8 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://coau3goy0qtlb"]
 
-[ext_resource type="PackedScene" uid="uid://ci3804ofkibap" path="res://audio/streams/sound_base.tscn" id="1_base"]
 [ext_resource type="AudioStream" uid="uid://dffhlop55s35d" path="res://audio/world_objects/CorruptHeartSplatDrop.mp3" id="1_1l30j"]
 
-[node name="MeatPickupSound" instance=ExtResource("1_base")]
+[node name="MeatPickupSound" type="AudioStreamPlayer"]
 stream = ExtResource("1_1l30j")
-delete_on_finish = true
+volume_db = -6.0
+bus = &"SFX"
+
+[connection signal="finished" from="." to="." method="_on_finished"]
