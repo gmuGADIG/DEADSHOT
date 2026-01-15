@@ -134,11 +134,16 @@ func set_gun_rotation() -> void:
 	else:
 		scale.x = abs(scale.x)
 
-func get_bullet_scene() -> PackedScene:
+func get_bullet() -> Bullet:
+	var scene: PackedScene
 	if SkillSet.has_skill(SkillSet.SkillUID.SHOTGUN_FIRE):
-		return preload("res://world/player/weapon/bullet/fire_bullet.tscn")
+		scene =preload("res://world/player/weapon/bullet/fire_bullet.tscn")
 	else:
-		return preload("res://world/player/weapon/bullet/player_bullet.tscn")
+		scene = preload("res://world/player/weapon/bullet/player_bullet.tscn")
+	
+	var ret := scene.instantiate() as Bullet
+	ret.atk_knockback = DamageInfo.KnockbackStrength.STRONG if SkillSet.has_skill(SkillSet.SkillUID.SHOTGUN_KNOCKBACK) else DamageInfo.KnockbackStrength.NORMAL
+	return ret
 
 func get_damage() -> float:
 	var modifier := 1.0

@@ -92,6 +92,16 @@ var can_shoot := true
 func _ready() -> void:
 	if is_boss:
 		Global.entered_boss_encounter.connect(_on_entered_boss_encounter)
+	
+	if not is_boss:
+		(%Hurtbox as Hurtbox).was_hit.connect(func(dmg: DamageInfo) -> void:
+			var v := velocity
+
+			velocity = (dmg.get_knockback() / get_process_delta_time()) * 0.35
+			move_and_slide()
+
+			velocity = v
+		)
 
 	# if Save.save_data.object_save_data.is_dead(self):
 	# 	queue_free()

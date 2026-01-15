@@ -1,7 +1,7 @@
 extends Gun
 
 func fire(consumes_ammo: bool, damage_mul: float) -> void:
-	var bullet : Bullet = get_bullet_scene().instantiate()
+	var bullet : Bullet = get_bullet()
 	get_tree().current_scene.add_child(bullet)
 	bullet.fire(self, Player.instance.aim_dir())
 	bullet.atk_damage = get_damage() * damage_mul
