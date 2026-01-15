@@ -7,4 +7,4 @@ func _process(_delta: float) -> void:
 	position += -cam.basis.z * 50.0
 	position += cam.basis.y * 10.0
 	position.x *= 0.8
-	position.z *= 1.3
+	position.z *= 0.7

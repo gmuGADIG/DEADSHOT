@@ -1,18 +1,78 @@
-[gd_scene load_steps=3 format=3 uid="uid://c8a3ul47e6b2y"]
+[gd_scene load_steps=11 format=3 uid="uid://c8a3ul47e6b2y"]
 
 [ext_resource type="PackedScene" uid="uid://o72hyyjcmpll" path="res://world/interactables/cover/cover_base.tscn" id="1_tjdp8"]
 [ext_resource type="Texture2D" uid="uid://d3sodqao5sedc" path="res://temp_art/gartic/rock.png" id="2_4f4eh"]
+[ext_resource type="Texture2D" uid="uid://6fidvbd66rxk" path="res://world/interactables/cover/rock0.png" id="3_4t13m"]
+[ext_resource type="Texture2D" uid="uid://dctdrfc07i7rh" path="res://world/interactables/cover/rock1.png" id="4_5x6lf"]
+[ext_resource type="Texture2D" uid="uid://m7ji05720b8c" path="res://world/interactables/cover/rock2.png" id="5_m55jr"]
+[ext_resource type="PackedScene" uid="uid://s0mcou8b7n0v" path="res://systems/attacking/hurt_fx/hurt_fx.tscn" id="6_5x6lf"]
+[ext_resource type="Texture2D" uid="uid://bqb5jgwgoy142" path="res://world/interactables/cover/sandrock0.png" id="6_pg07k"]
+[ext_resource type="Texture2D" uid="uid://dkduo8oqcypd7" path="res://world/interactables/cover/sandrock1.png" id="7_dhxnl"]
+[ext_resource type="Texture2D" uid="uid://dx74krymmls0r" path="res://world/interactables/cover/sandrock2.png" id="8_5pwk4"]
 
-[node name="Boulder" instance=ExtResource("1_tjdp8")]
+[sub_resource type="SpriteFrames" id="SpriteFrames_vhyus"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_4t13m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5x6lf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_m55jr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_pg07k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_dhxnl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5pwk4")
+}],
+"loop": true,
+"name": &"sand",
+"speed": 5.0
+}]
+
+[node name="Boulder" node_paths=PackedStringArray("damage_states") instance=ExtResource("1_tjdp8")]
+damage_states = NodePath("Node3D/AnimatedSprite3D")
 
 [node name="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.024841309, 0, 0)
 
 [node name="Sprite3D" parent="." index="1"]
 transform = Transform3D(0.5, 0, 0, 0, 0.4330127, 0.25, 0, -0.25, 0.4330127, 0, -0.02, 0.383)
+visible = false
 offset = Vector2(0, 221.67)
 alpha_cut = 1
 texture = ExtResource("2_4f4eh")
 
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Sprite3D" index="1"]
+remote_path = NodePath("../../Node3D")
+update_position = false
+update_scale = false
+
 [node name="HealthComponent" parent="." index="2"]
-max_health = 1.0
+max_health = 2.0
+
+[node name="Node3D" type="Node3D" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0, 0)
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Node3D" index="0"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 1, 0.08013952, 0.5409485, 0.0048493086)
+sprite_frames = SubResource("SpriteFrames_vhyus")
+animation = &"sand"
+
+[node name="HurtFX2" parent="Node3D/AnimatedSprite3D" index="0" node_paths=PackedStringArray("health") instance=ExtResource("6_5x6lf")]
+transform = Transform3D(1.6894097, 0, 0, 0, 1.7205484, -0.13089877, 0, 0.028645024, 0.49139816, -0.27077696, -3.2962017, -0.3662214)
+health = NodePath("../../../HealthComponent")
+bleed = false
+
+[connection signal="damaged" from="HealthComponent" to="." method="_on_health_component_damaged"]

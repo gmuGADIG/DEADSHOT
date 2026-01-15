@@ -1,22 +1,23 @@
-[gd_scene load_steps=62 format=3 uid="uid://df6g13jaf5vl5"]
+[gd_scene load_steps=63 format=3 uid="uid://df6g13jaf5vl5"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_utj54"]
+[ext_resource type="Texture2D" uid="uid://c5upseoo85lqg" path="res://world/backgrounds/desert_bg_blur.png" id="2_3lybb"]
 [ext_resource type="Resource" uid="uid://q24ustx30otu" path="res://world/floor/sand/sand.tres" id="2_43df5"]
 [ext_resource type="PackedScene" uid="uid://dwsraqi3f8a1l" path="res://world/interactables/campfire/campfire.tscn" id="3_4mg6g"]
 [ext_resource type="Texture2D" uid="uid://cb5w6ucpbalty" path="res://world/levels/tutorial/keyboard_w_outline.png" id="3_v0y4b"]
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="3_wexlf"]
 [ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://world/interactables/cover/cover_boulder.tscn" id="4_4tuq3"]
 [ext_resource type="Texture2D" uid="uid://cay4gmus84v2v" path="res://world/levels/tutorial/keyboard_a_outline.png" id="4_g6a8u"]
-[ext_resource type="Shader" path="res://world/levels/tutorial/tutorial_popup.gdshader" id="4_krj53"]
+[ext_resource type="Shader" uid="uid://bh48ke5aircja" path="res://world/levels/tutorial/tutorial_popup.gdshader" id="4_krj53"]
 [ext_resource type="AudioStream" uid="uid://8euokby3546j" path="res://world/levels/tutorial/683096__florianreichelt__woosh.mp3" id="5_krj53"]
 [ext_resource type="Texture2D" uid="uid://qmavyaaojdhv" path="res://world/levels/tutorial/keyboard_s_outline.png" id="5_lrtsq"]
 [ext_resource type="Texture2D" uid="uid://jmcw8jw7m54x" path="res://world/levels/tutorial/keyboard_d_outline.png" id="6_krj53"]
-[ext_resource type="Script" path="res://world/levels/tutorial/popups/wasd_tutorial_popup.gd" id="7_umgfn"]
+[ext_resource type="Script" uid="uid://bypu6jscxva7v" path="res://world/levels/tutorial/popups/wasd_tutorial_popup.gd" id="7_umgfn"]
 [ext_resource type="Texture2D" uid="uid://ccdo8dukpkoy" path="res://world/levels/tutorial/mouse_left_outline.png" id="10_umgfn"]
-[ext_resource type="Script" path="res://world/levels/tutorial/popups/fire_tutorial_popup.gd" id="11_3rssm"]
-[ext_resource type="PackedScene" path="res://world/enemy/tutorial_turret/tutorial_turret.tscn" id="13_0ruaa"]
+[ext_resource type="Script" uid="uid://bjb1hb4oino4k" path="res://world/levels/tutorial/popups/fire_tutorial_popup.gd" id="11_3rssm"]
+[ext_resource type="PackedScene" uid="uid://djah18vb67at6" path="res://world/enemy/tutorial_turret/tutorial_turret.tscn" id="13_0ruaa"]
 [ext_resource type="Texture2D" uid="uid://bxwqtkooeeu88" path="res://world/levels/tutorial/popups/tutorial_player_sheet.png" id="13_p54y7"]
-[ext_resource type="Script" path="res://world/levels/tutorial/popups/roll_tutorial_popup.gd" id="14_l5vw8"]
+[ext_resource type="Script" uid="uid://dxhhvehl522py" path="res://world/levels/tutorial/popups/roll_tutorial_popup.gd" id="14_l5vw8"]
 [ext_resource type="Texture2D" uid="uid://lv2a748321df" path="res://world/levels/tutorial/ghost_frames/walk_left/tile011.png" id="15_l5vw8"]
 [ext_resource type="Texture2D" uid="uid://ddvuo13nrt47u" path="res://world/levels/tutorial/ghost_frames/standing_right/tile004.png" id="15_xu60v"]
 [ext_resource type="Texture2D" uid="uid://b2ndpulyjg0vx" path="res://world/levels/tutorial/ghost_frames/walk_left/tile008.png" id="16_73vc8"]
@@ -28,20 +29,20 @@
 [ext_resource type="Texture2D" uid="uid://b60vhaqbjmjwj" path="res://world/levels/tutorial/ghost_frames/roll_right/tile020.png" id="20_l5vw8"]
 [ext_resource type="Texture2D" uid="uid://gnmrr0xgba7o" path="res://world/levels/tutorial/ghost_frames/walk_left/tile009.png" id="24_lvejl"]
 [ext_resource type="Texture2D" uid="uid://bslphn7xceh84" path="res://world/levels/tutorial/ghost_frames/walk_left/tile010.png" id="25_1kc47"]
-[ext_resource type="Script" path="res://world/levels/tutorial/popups/tutorial_popup.gd" id="26_73vc8"]
+[ext_resource type="Script" uid="uid://c2ynbm1ab6ljs" path="res://world/levels/tutorial/popups/tutorial_popup.gd" id="26_73vc8"]
 [ext_resource type="Texture2D" uid="uid://cal70g14ycy3p" path="res://world/levels/tutorial/keyboard_space_outline.png" id="26_lvejl"]
 [ext_resource type="Texture2D" uid="uid://bk4qwsigtpxsu" path="res://world/levels/tutorial/keyboard_space.png" id="27_1kc47"]
 [ext_resource type="PackedScene" uid="uid://dhb2pgqbfvxoa" path="res://world/enemy/encounter/encounter.tscn" id="30_p5qup"]
-[ext_resource type="Resource" uid="uid://dj1lgak3vyged" path="res://audio/music/song_files/desert_level/Matthew_desert_combat_song.tres" id="31_51lu8"]
+[ext_resource type="Resource" uid="uid://dgfsfa6177rri" path="res://audio/music/song_files/desert_level/Matthew_desert_combat_song.tres" id="31_51lu8"]
 [ext_resource type="PackedScene" uid="uid://bp6l0lw650m8o" path="res://world/blocker/blocker.tscn" id="32_4mg6g"]
 [ext_resource type="PackedScene" uid="uid://b4n4rflu3my0v" path="res://world/enemy/longhorn/longhorn.tscn" id="33_ejcty"]
 [ext_resource type="PackedScene" uid="uid://c2bxn6p802s68" path="res://world/interactables/cover/cover_cactus_small.tscn" id="34_51lu8"]
 [ext_resource type="PackedScene" uid="uid://d1e8myf75tnlv" path="res://world/interactables/cover/cover_cactus_large.tscn" id="35_4mg6g"]
-[ext_resource type="Script" path="res://world/levels/tutorial/popups/campfire_tutorial_popup.gd" id="36_ejcty"]
-[ext_resource type="PackedScene" path="res://audio/music/music_player/play_song_for_scene.tscn" id="39_f4wlm"]
-[ext_resource type="Resource" uid="uid://b35x0p4fll1cm" path="res://audio/music/song_files/desert_level/Nila_desert_song.tres" id="40_3lybb"]
+[ext_resource type="Script" uid="uid://bec0wby6grqxb" path="res://world/levels/tutorial/popups/campfire_tutorial_popup.gd" id="36_ejcty"]
+[ext_resource type="PackedScene" uid="uid://c7c1lwr411btx" path="res://audio/music/music_player/play_song_for_scene.tscn" id="39_f4wlm"]
+[ext_resource type="Resource" uid="uid://cckle8iujnl64" path="res://audio/music/song_files/desert_level/Nila_desert_song.tres" id="40_3lybb"]
 [ext_resource type="PackedScene" uid="uid://l48hxjrmvkp" path="res://world/npc/npc_cryptic_nomad.tscn" id="41_6l7xd"]
-[ext_resource type="Resource" path="res://writing/introdesert/introdesert_crypticnomad_1.tres" id="42_r5xhr"]
+[ext_resource type="Resource" uid="uid://xtxqim6a0kkg" path="res://writing/introdesert/introdesert_crypticnomad_1.tres" id="42_r5xhr"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_3rssm"]
 vertices = PackedVector3Array(-23.235306, 0.48999953, -10.278976, -26.735306, 0.48999953, -9.028976, -27.485306, 0.48999953, -7.2789764, -17.235306, 0.48999953, -9.028976, -19.985306, 0.48999953, -10.278976, -18.735306, 0.48999953, -2.0289764, -17.235306, 0.48999953, -2.7789764, -26.985306, 0.48999953, -1.5289764, -19.735306, 0.48999953, -0.77897644, -15.735306, 0.48999953, -3.2789764, -14.735306, 0.48999953, -10.028976, -9.985306, 0.48999953, -3.0289764, -5.235306, 0.48999953, -3.7789764, -4.985306, 0.48999953, -9.528976, 51.264694, 0.48999953, 14.221024, 53.014694, 0.48999953, 14.221024, 53.514694, 0.48999953, 13.971024, 53.514694, 0.48999953, 10.971024, 51.264694, 0.48999953, 12.721024, 40.514694, 0.48999953, 13.971024, 47.514694, 0.48999953, 13.971024, 49.764694, 0.48999953, 12.471024, 46.014694, 0.48999953, -10.028976, 40.014694, 0.48999953, -9.528976, 36.764694, 0.48999953, -8.028976, 55.014694, 0.48999953, 8.221024, 63.014694, 0.48999953, 4.2210236, 63.014694, 0.48999953, 1.9710236, 59.514694, 0.48999953, 1.7210236, 59.014694, 0.48999953, 4.4710236, 58.764694, 0.48999953, 0.97102356, 55.264694, 0.48999953, -8.028976, 35.264694, 0.48999953, 14.721024, 37.764694, 0.48999953, 14.971024, 35.014694, 0.48999953, -8.028976, -1.4853058, 0.48999953, -3.0289764, 10.514694, 0.48999953, -2.7789764, 6.014694, 0.48999953, -9.278976, 3.7646942, 0.48999953, -9.778976, 10.514694, 0.48999953, -9.278976, 17.264694, 0.48999953, -4.2789764, 16.764694, 0.48999953, -8.278976, 16.014694, 0.48999953, -9.278976, 11.764694, 0.48999953, -2.0289764, 14.264694, 0.48999953, 1.2210236, 17.014694, 0.48999953, 1.9710236, 18.014694, 0.48999953, -3.5289764, 31.514694, 0.48999953, 13.471024, 33.764694, 0.48999953, 14.721024, 25.764694, 0.48999953, 9.221024, 22.764694, 0.48999953, 5.4710236, 23.264694, 0.48999953, 7.2210236, 27.264694, 0.48999953, 13.721024, 32.764694, 0.48999953, -8.778976, 27.514694, 0.48999953, -8.028976, 21.014694, 0.48999953, 3.9710236, 23.514694, 0.48999953, -3.7789764, -60.485306, 0.48999953, 9.221024, -57.985306, 0.48999953, 8.221024, -57.735306, 0.48999953, 7.4710236, -56.985306, 0.48999953, 0.47102356, -58.235306, 0.48999953, -1.7789764, -59.735306, 0.48999953, -2.0289764, -61.735306, 0.48999953, -3.2789764, -63.485306, 0.48999953, -3.2789764, -69.735306, 0.48999953, 5.4710236, -68.235306, 0.48999953, 7.4710236, -65.985306, 0.48999953, 9.221024, -55.985306, 0.48999953, 6.2210236, -55.985306, 0.48999953, 1.2210236, -67.485306, 0.48999953, -2.0289764, -69.985306, 0.48999953, 1.7210236, -21.485306, 0.48999953, 6.2210236, -19.235306, 0.48999953, 2.7210236, -19.985306, 0.48999953, 0.97102356, -27.485306, 0.48999953, -0.52897644, -27.485306, 0.48999953, 6.9710236, -30.985306, 0.48999953, -0.02897644, -30.485306, 0.48999953, 6.7210236, -49.735306, 0.48999953, 6.4710236, -46.735306, 0.48999953, 6.9710236, -43.985306, 0.48999953, 6.2210236, -44.485306, 0.48999953, -0.02897644, -49.735306, 0.48999953, 1.4710236, -39.235306, 0.48999953, 6.2210236, -39.235306, 0.48999953, 0.72102356)
@@ -217,6 +218,13 @@ viewport_path = NodePath("CampfireArea/CampfirePrompt/SubViewport")
 
 [node name="Tutorial" instance=ExtResource("1_utj54")]
 
+[node name="FullscreenBG" parent="Background" index="0"]
+transform = Transform3D(0.17, 0, 0, 0, 0.097508, 0.093383335, 0, -0.13925585, 0.06538772, 2.5613499, -14.898792, -12.023702)
+offset = Vector2(0, -150)
+modulate = Color(0.627451, 0.627451, 0.627451, 1)
+transparent = true
+texture = ExtResource("2_3lybb")
+
 [node name="Sun" parent="." index="1"]
 unique_name_in_owner = true
 transform = Transform3D(0.92473876, -0.2527267, 0.28458288, 0, 0.74771696, 0.66401756, -0.38060242, -0.61404276, 0.69144285, 0, 0, 0)
@@ -226,7 +234,6 @@ navigation_mesh = SubResource("NavigationMesh_3rssm")
 
 [node name="Floor" parent="World" index="0"]
 curve = SubResource("Curve3D_jjd0d")
-curve_interval = 2.0
 material = ExtResource("2_43df5")
 
 [node name="Right" parent="TransitionAreas" index="0" instance=ExtResource("3_wexlf")]
@@ -315,15 +322,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.41806, 0, 0.5585108)
 
 [node name="Boulder2" parent="RocksArea" index="2" instance=ExtResource("4_4tuq3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.41806, 0, 2.267736)
+is_sand_rock = true
 
 [node name="Boulder3" parent="RocksArea" index="3" instance=ExtResource("4_4tuq3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.41806, 0, 3.748671)
+is_sand_rock = true
 
 [node name="Boulder4" parent="RocksArea" index="4" instance=ExtResource("4_4tuq3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.41806, 0, 5.1590934)
 
 [node name="Boulder5" parent="RocksArea" index="5" instance=ExtResource("4_4tuq3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.41806, 0, 6.268356)
+is_sand_rock = true
 
 [node name="DodgeArea" type="Node3D" parent="." index="11"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.243332, 0.020089865, 12.640262)
@@ -401,6 +411,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.65395, 0, -5.677229)
 
 [node name="Boulder" parent="FightArea/TutorialEncounter" index="7" instance=ExtResource("4_4tuq3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6646042, 0.17816663, -5.1158886)
+is_sand_rock = true
 
 [node name="CactusSmall" parent="FightArea/TutorialEncounter" index="8" instance=ExtResource("34_51lu8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03845215, 1.9073486e-06, 4.471773)
@@ -416,6 +427,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.159737, -1.9073486e-06, -1
 
 [node name="Boulder2" parent="FightArea/TutorialEncounter" index="12" instance=ExtResource("4_4tuq3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.634235, 0.1781658, -5.0593843)
+is_sand_rock = true
 
 [node name="Boulder3" parent="FightArea/TutorialEncounter" index="13" instance=ExtResource("4_4tuq3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.271, 0.17816675, -0.33653927)
