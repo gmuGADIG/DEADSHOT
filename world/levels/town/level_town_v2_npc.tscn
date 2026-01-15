@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cgpuvir86nykf"]
+[gd_scene load_steps=30 format=3 uid="uid://cgpuvir86nykf"]
 
 [ext_resource type="PackedScene" uid="uid://cxahvvaidpg32" path="res://world/levels/town/level_town_base.tscn" id="1_64v5s"]
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="2_jjhs5"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://c7c1lwr411btx" path="res://audio/music/music_player/play_song_for_scene.tscn" id="15_2dx52"]
 [ext_resource type="Resource" uid="uid://qcgif5dvbsmu" path="res://writing/town2/town2_sheriff.tres" id="15_5xvh0"]
 [ext_resource type="Resource" uid="uid://qavftaunckrf" path="res://audio/music/song_files/town_level_base/Theo_town_base_peaceful_song.tres" id="16_yq85o"]
+[ext_resource type="Resource" uid="uid://5typpvnt2fdo" path="res://writing/town2/town2_pianoman.tres" id="17_mnux4"]
 [ext_resource type="Resource" uid="uid://4m486rpoft0h" path="res://writing/town2/town2_barmaid.tres" id="19_qb2qu"]
 [ext_resource type="PackedScene" uid="uid://buycij5b3uf5i" path="res://world/npc/paper/paper.tscn" id="24_coc24"]
 [ext_resource type="Resource" uid="uid://bk4a6f0ud5yod" path="res://writing/town1/town1_lore_3.tres" id="25_08fa1"]
@@ -157,6 +158,7 @@ timeline = ExtResource("5_a026l")
 
 [node name="Demoman2" parent="NPCs" index="1" instance=ExtResource("4_g27ds")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.011575, 1.9073486e-06, -30.782246)
+timeline = ExtResource("5_a026l")
 
 [node name="FemmeFatale" parent="NPCs" index="2" instance=ExtResource("5_dla4e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.913641, 0.06661221, -14.031868)
@@ -180,6 +182,7 @@ timeline = ExtResource("15_5xvh0")
 
 [node name="PianoMan" parent="NPCs" index="7" instance=ExtResource("11_455ow")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.235628, 0.066610776, -2.2234116)
+timeline = ExtResource("17_mnux4")
 
 [node name="BarMaid" parent="NPCs" index="8" instance=ExtResource("11_o8nib")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.141584, 0.06661221, -4.1248364)
