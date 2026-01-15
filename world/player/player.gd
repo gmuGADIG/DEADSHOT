@@ -17,9 +17,15 @@ enum PlayerState {
 	TRANSITIONING,  ## Moving between scenes and not accepting input
 }
 
+
 #region Variables
 static var persisting_data : PlayerPersistingData
 static var instance : Player
+
+@onready var desert_particles : CPUParticles3D = $DesertAmbientParticles
+@onready var cave_particles : CPUParticles3D = $CaveAmbientParticles
+
+
 signal player_ready
 
 var speed_multiplier: float = 1.0
@@ -82,6 +88,7 @@ func setup_gun() -> void:
 
 #region Builtin Functions
 func _ready() -> void:
+	
 	walk_sfx = generate_walking_sounds() # Sets the player's walking sound.
 	walk_sfx_timer = Timer.new()
 	
@@ -202,6 +209,16 @@ func get_gun() -> Gun:
 		gun_name = "BasicGun"
 
 	return get_node("Weapons/" + gun_name)
+
+func set_ambience(ambience_type : Level.AmbienceType) -> void:
+	match ambience_type:
+		Level.AmbienceType.DESERT:
+			desert_particles.emitting = true
+			cave_particles.emitting = false
+		Level.AmbienceType.CAVE:
+			desert_particles.emitting = false
+			cave_particles.emitting = true
+	pass
 
 ## Returns the inputted walking direction on the XZ plane (Y = 0)
 func input_direction() -> Vector3:
