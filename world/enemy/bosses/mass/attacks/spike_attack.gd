@@ -10,6 +10,9 @@ var age : float = -1
 func prime() -> void:
 	age = 0
 
+func _ready() -> void:
+	if $SpikePierceSound:
+		$SpikePierceSound.play()
 
 func _process(delta: float) -> void:
 	if age >= delay: ##Do attack

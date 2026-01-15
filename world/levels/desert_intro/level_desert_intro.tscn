@@ -1,22 +1,26 @@
-[gd_scene load_steps=21 format=3 uid="uid://bueg0v6pvrthp"]
+[gd_scene load_steps=25 format=3 uid="uid://bueg0v6pvrthp"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_ctnal"]
 [ext_resource type="Resource" uid="uid://q24ustx30otu" path="res://world/floor/sand/sand.tres" id="2_7h0w7"]
+[ext_resource type="Texture2D" uid="uid://cjuuefpldxnv" path="res://world/backgrounds/desert_bg.png" id="2_lkarh"]
 [ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://world/interactables/cover/cover_boulder.tscn" id="3_ab4dd"]
-[ext_resource type="Script" path="res://world/transitions/entry_point.gd" id="3_guq7u"]
+[ext_resource type="Script" uid="uid://5430ylajkno2" path="res://world/transitions/entry_point.gd" id="3_guq7u"]
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="3_vhe22"]
 [ext_resource type="PackedScene" uid="uid://dwe53mhloyir4" path="res://world/decoration/cursed_plant/cursed_plant.tscn" id="6_f6ib5"]
 [ext_resource type="PackedScene" uid="uid://8er7o8byf7v1" path="res://world/decoration/well/well.tscn" id="7_7xwwm"]
 [ext_resource type="PackedScene" uid="uid://d1e8myf75tnlv" path="res://world/interactables/cover/cover_cactus_large.tscn" id="8_5rqjd"]
 [ext_resource type="PackedScene" uid="uid://c2bxn6p802s68" path="res://world/interactables/cover/cover_cactus_small.tscn" id="9_jncf5"]
-[ext_resource type="Resource" uid="uid://dj1lgak3vyged" path="res://audio/music/song_files/desert_level/Matthew_desert_combat_song.tres" id="10_60nak"]
+[ext_resource type="Resource" uid="uid://dgfsfa6177rri" path="res://audio/music/song_files/desert_level/Matthew_desert_combat_song.tres" id="10_60nak"]
 [ext_resource type="PackedScene" uid="uid://bp6l0lw650m8o" path="res://world/blocker/blocker.tscn" id="10_101jw"]
 [ext_resource type="PackedScene" uid="uid://dhb2pgqbfvxoa" path="res://world/enemy/encounter/encounter.tscn" id="10_hfrtt"]
 [ext_resource type="PackedScene" uid="uid://b4n4rflu3my0v" path="res://world/enemy/longhorn/longhorn.tscn" id="11_nn1ho"]
 [ext_resource type="PackedScene" uid="uid://by1e10t6ksd64" path="res://world/enemy/bird_swarm/bird_swarm.tscn" id="13_guq7u"]
-[ext_resource type="PackedScene" path="res://audio/music/music_player/play_song_for_scene.tscn" id="14_oaism"]
+[ext_resource type="PackedScene" uid="uid://c7c1lwr411btx" path="res://audio/music/music_player/play_song_for_scene.tscn" id="14_oaism"]
 [ext_resource type="PackedScene" uid="uid://dgq8eujhb7aiv" path="res://world/enemy/bandit/enemy_bandit.tscn" id="15_fhs7y"]
-[ext_resource type="Resource" uid="uid://b35x0p4fll1cm" path="res://audio/music/song_files/desert_level/Nila_desert_song.tres" id="15_guq7u"]
+[ext_resource type="Resource" uid="uid://cckle8iujnl64" path="res://audio/music/song_files/desert_level/Nila_desert_song.tres" id="15_guq7u"]
+[ext_resource type="Texture2D" uid="uid://bawb4ny3wnsng" path="res://world/interactables/cover/cactus_new.png" id="19_k0wl7"]
+[ext_resource type="Texture2D" uid="uid://bo8fih3lgc5oj" path="res://world/backgrounds/stalagmite3.png" id="20_lkarh"]
+[ext_resource type="Texture2D" uid="uid://b1chcsvryv8et" path="res://world/backgrounds/stalagmite2.png" id="21_vvfi1"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_hfrtt"]
 vertices = PackedVector3Array(-60.25, 0.48999962, 2.674615, -60.25, 0.48999962, 4.424615, -59.5, 0.48999962, 4.674615, -49, 0.48999962, 6.174615, -49, 0.48999962, 0.6746149, -12.5, 0.48999962, 4.424615, -12.25, 0.48999962, 1.4246149, -13.5, 0.48999962, 0.9246149, -13.75, 0.48999962, 5.424615, -48.5, 0.48999962, 0.1746149, -48.5, 0.48999962, 6.674615, -48.25, 0.48999962, 13.924615, -18.75, 0.48999962, 13.924615, -18.5, 0.48999962, -7.825385, -48.5, 0.48999962, -7.825385, 29.25, 0.48999962, 4.424615, 29.5, 0.48999962, 3.924615, 29.25, 0.48999962, 1.6746149, 25.5, 0.48999962, 1.4246149, 26, 0.48999962, 4.424615, -11.25, 0.48999962, 5.174615, -10.75, 0.48999962, -0.07538509, 21.75, 0.48999962, 13.924615, 25.25, 0.48999962, 4.924615, -6.25, 0.48999962, 13.924615, 21.75, 0.48999962, -7.825385, -6.25, 0.48999962, -7.825385)
@@ -36,12 +40,17 @@ size = Vector3(10, 3, 42.81041)
 
 [node name="LevelDesertIntro" instance=ExtResource("1_ctnal")]
 
+[node name="FullscreenBG" parent="Background" index="0"]
+transform = Transform3D(0.15, 0, 0, 0, 0.08603647, 0.08273436, 0, -0.122872815, 0.057931222, 2.5613499, -14.898792, -12.023702)
+modulate = Color(0.35906908, 0.35906908, 0.35906908, 1)
+transparent = true
+texture = ExtResource("2_lkarh")
+
 [node name="World" parent="." index="2"]
 navigation_mesh = SubResource("NavigationMesh_hfrtt")
 
 [node name="Floor" parent="World" index="0"]
 curve = SubResource("Curve3D_vhe22")
-curve_interval = 2.0
 material = ExtResource("2_7h0w7")
 
 [node name="Left" type="Node3D" parent="EntryPoints" index="0"]
@@ -69,6 +78,7 @@ floor_type = 1
 
 [node name="Cover4" parent="LeftArea/Objects" index="0" instance=ExtResource("3_ab4dd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.52269, 0, 8.912547)
+is_sand_rock = true
 
 [node name="Cover5" parent="LeftArea/Objects" index="1" instance=ExtResource("3_ab4dd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.65821, 0, 7.2070494)
@@ -81,21 +91,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.36438, 0, 11.959286)
 
 [node name="Cover24" parent="LeftArea/Objects" index="4" instance=ExtResource("3_ab4dd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.733109, 0, 12.37442)
+is_sand_rock = true
 
 [node name="Cover26" parent="LeftArea/Objects" index="5" instance=ExtResource("3_ab4dd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.398027, 0, -1.0391006)
+is_sand_rock = true
 
 [node name="Cover27" parent="LeftArea/Objects" index="6" instance=ExtResource("3_ab4dd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.76265, 0, -1.4922876)
+is_sand_rock = true
 
 [node name="Cover2" parent="LeftArea/Objects" index="7" instance=ExtResource("3_ab4dd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.811764, 0, 13.397232)
+is_sand_rock = true
 
 [node name="Cover8" parent="LeftArea/Objects" index="8" instance=ExtResource("3_ab4dd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.46646, 0, -0.66427994)
+is_sand_rock = true
 
 [node name="Cover9" parent="LeftArea/Objects" index="9" instance=ExtResource("3_ab4dd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.317463, 0, -2.3697777)
+is_sand_rock = true
 
 [node name="Cover10" parent="LeftArea/Objects" index="10" instance=ExtResource("3_ab4dd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.520504, 0, -4.230528)
@@ -105,9 +121,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.398483, 0, -5.6140976)
 
 [node name="Cover14" parent="LeftArea/Objects" index="12" instance=ExtResource("3_ab4dd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.811764, 0, -7.474848)
+is_sand_rock = true
 
 [node name="Cover11" parent="LeftArea/Objects" index="13" instance=ExtResource("3_ab4dd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.64122, 0, 2.382)
+is_sand_rock = true
 
 [node name="Cover12" parent="LeftArea/Objects" index="14" instance=ExtResource("3_ab4dd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.222847, 0, 3.820405)
@@ -130,15 +148,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.942047, -1.1106106e-06, -
 [node name="Decoration" type="Node3D" parent="LeftArea" index="1"]
 
 [node name="CursedPlant" parent="LeftArea/Decoration" index="0" instance=ExtResource("6_f6ib5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.840607, 0, 14.135367)
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -44.840607, 0, 14.135367)
 type = 1
 
 [node name="CursedPlant2" parent="LeftArea/Decoration" index="1" instance=ExtResource("6_f6ib5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.981382, 0, 14.3921585)
+transform = Transform3D(-1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, -21.981382, 0, 14.3921585)
 type = 1
 
 [node name="CursedPlant3" parent="LeftArea/Decoration" index="2" instance=ExtResource("6_f6ib5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.031456, 0, 8.054257)
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -33.031456, 0, 8.054257)
 
 [node name="Well" parent="LeftArea/Decoration" index="3" instance=ExtResource("7_7xwwm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.132736, -0.000102848266, -7.629016)
@@ -189,10 +207,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.754, 0, 11.468)
 [node name="Decoration" type="Node3D" parent="RightArea" index="1"]
 
 [node name="CursedPlant4" parent="RightArea/Decoration" index="0" instance=ExtResource("6_f6ib5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6024475, 0, -8.81553)
+transform = Transform3D(1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, -1.6024475, 0, -8.81553)
 
 [node name="CursedPlant5" parent="RightArea/Decoration" index="1" instance=ExtResource("6_f6ib5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.922581, 0, -8.826532)
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 14.922581, 0, -8.826532)
 type = 1
 
 [node name="Well2" parent="RightArea/Decoration" index="2" instance=ExtResource("7_7xwwm")]
@@ -227,3 +245,222 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.474249, 0.054445088, 0.1358
 
 [node name="PlaySongForScene" parent="." index="11" instance=ExtResource("14_oaism")]
 song = ExtResource("15_guq7u")
+
+[node name="Decoration" type="Node3D" parent="." index="12"]
+
+[node name="Cacti" type="Node3D" parent="Decoration" index="0"]
+
+[node name="Cactus" type="Sprite3D" parent="Decoration/Cacti" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, -44.159325, 1.2945466, 20.696043)
+modulate = Color(1, 1, 1, 0.58431375)
+alpha_cut = 2
+texture = ExtResource("19_k0wl7")
+
+[node name="Cactus2" type="Sprite3D" parent="Decoration/Cacti" index="1"]
+transform = Transform3D(0.875, 0, 0, 0, 0.7577722, 0.4375, 0, -0.4375, 0.7577722, -53.961617, 1.2945466, 10.3799715)
+flip_h = true
+modulate = Color(1, 1, 1, 0.58431375)
+alpha_cut = 2
+texture = ExtResource("19_k0wl7")
+
+[node name="Cactus3" type="Sprite3D" parent="Decoration/Cacti" index="2"]
+transform = Transform3D(0.875, 0, 0, 0, 0.7577722, 0.4375, 0, -0.4375, 0.7577722, -53.0466, 1.2945466, -4.9416685)
+modulate = Color(1, 1, 1, 0.58431375)
+alpha_cut = 2
+texture = ExtResource("19_k0wl7")
+
+[node name="Cactus4" type="Sprite3D" parent="Decoration/Cacti" index="3"]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, -40.70644, 1.2945457, -14.083634)
+flip_h = true
+modulate = Color(1, 1, 1, 0.58431375)
+alpha_cut = 2
+texture = ExtResource("19_k0wl7")
+
+[node name="Cactus5" type="Sprite3D" parent="Decoration/Cacti" index="4"]
+transform = Transform3D(1.12, 0, 0, 0, 0.9699484, 0.56, 0, -0.56, 0.9699484, -27.682095, 1.2945457, -12.714946)
+flip_h = true
+modulate = Color(1, 1, 1, 0.58431375)
+alpha_cut = 2
+texture = ExtResource("19_k0wl7")
+
+[node name="Cactus6" type="Sprite3D" parent="Decoration/Cacti" index="5"]
+transform = Transform3D(0.875, 0, 0, 0, 0.7577722, 0.4375, 0, -0.4375, 0.7577722, -11.876202, 1.2945457, -8.342353)
+flip_h = true
+modulate = Color(1, 1, 1, 0.58431375)
+alpha_cut = 2
+texture = ExtResource("19_k0wl7")
+
+[node name="Cactus7" type="Sprite3D" parent="Decoration/Cacti" index="6"]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, -16.347786, 1.2945457, -14.771981)
+modulate = Color(1, 1, 1, 0.58431375)
+alpha_cut = 2
+texture = ExtResource("19_k0wl7")
+
+[node name="Cactus8" type="Sprite3D" parent="Decoration/Cacti" index="7"]
+transform = Transform3D(0.875, 0, 0, 0, 0.7577722, 0.4375, 0, -0.4375, 0.7577722, -1.0150394, 1.2945457, -13.61916)
+modulate = Color(1, 1, 1, 0.58431375)
+alpha_cut = 2
+texture = ExtResource("19_k0wl7")
+
+[node name="Cactus9" type="Sprite3D" parent="Decoration/Cacti" index="8"]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 9.656338, 1.2945457, -17.348671)
+modulate = Color(1, 1, 1, 0.58431375)
+alpha_cut = 2
+texture = ExtResource("19_k0wl7")
+
+[node name="Cactus10" type="Sprite3D" parent="Decoration/Cacti" index="9"]
+transform = Transform3D(1.12, 0, 0, 0, 0.9699484, 0.56, 0, -0.56, 0.9699484, -13.600925, 1.2945447, 13.062035)
+flip_h = true
+modulate = Color(1, 1, 1, 0.58431375)
+alpha_cut = 2
+texture = ExtResource("19_k0wl7")
+
+[node name="Cactus11" type="Sprite3D" parent="Decoration/Cacti" index="10"]
+transform = Transform3D(0.875, 0, 0, 0, 0.7577722, 0.4375, 0, -0.4375, 0.7577722, -21.475845, 1.2945447, 19.327127)
+flip_h = true
+modulate = Color(1, 1, 1, 0.58431375)
+alpha_cut = 2
+texture = ExtResource("19_k0wl7")
+
+[node name="Cactus12" type="Sprite3D" parent="Decoration/Cacti" index="11"]
+transform = Transform3D(1.12, 0, 0, 0, 0.9699484, 0.56, 0, -0.56, 0.9699484, -31.990124, 1.2945447, 18.498106)
+modulate = Color(1, 1, 1, 0.58431375)
+alpha_cut = 2
+texture = ExtResource("19_k0wl7")
+
+[node name="Cactus13" type="Sprite3D" parent="Decoration/Cacti" index="12"]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, -1.2413635, 1.2945447, 19.477886)
+flip_h = true
+modulate = Color(1, 1, 1, 0.58431375)
+alpha_cut = 2
+texture = ExtResource("19_k0wl7")
+
+[node name="Cactus14" type="Sprite3D" parent="Decoration/Cacti" index="13"]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 13.555858, 1.2945437, 15.683582)
+modulate = Color(1, 1, 1, 0.58431375)
+alpha_cut = 2
+texture = ExtResource("19_k0wl7")
+
+[node name="Cactus15" type="Sprite3D" parent="Decoration/Cacti" index="14"]
+transform = Transform3D(1.12, 0, 0, 0, 0.9699484, 0.56, 0, -0.56, 0.9699484, 28.239193, 1.2945437, 7.623583)
+modulate = Color(1, 1, 1, 0.58431375)
+alpha_cut = 2
+texture = ExtResource("19_k0wl7")
+
+[node name="Cactus16" type="Sprite3D" parent="Decoration/Cacti" index="15"]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 27.822319, 1.2945428, -4.2592106)
+modulate = Color(1, 1, 1, 0.58431375)
+alpha_cut = 2
+texture = ExtResource("19_k0wl7")
+
+[node name="Cactus17" type="Sprite3D" parent="Decoration/Cacti" index="16"]
+transform = Transform3D(0.875, 0, 0, 0, 0.7577722, 0.4375, 0, -0.4375, 0.7577722, 20.654804, 1.2945418, -10.801439)
+flip_h = true
+modulate = Color(1, 1, 1, 0.58431375)
+alpha_cut = 2
+texture = ExtResource("19_k0wl7")
+
+[node name="Spikes" type="Node3D" parent="Decoration" index="1"]
+
+[node name="Spike" type="Sprite3D" parent="Decoration/Spikes" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, -59.75121, 1.2945447, 8.557435)
+modulate = Color(1, 1, 1, 0.58431375)
+alpha_cut = 2
+texture = ExtResource("20_lkarh")
+
+[node name="Spike2" type="Sprite3D" parent="Decoration/Spikes" index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, -39.395473, 1.2945437, 17.720663)
+flip_h = true
+modulate = Color(1, 1, 1, 0.58431375)
+alpha_cut = 2
+texture = ExtResource("20_lkarh")
+
+[node name="Spike3" type="Sprite3D" parent="Decoration/Spikes" index="2"]
+transform = Transform3D(0.875, 0, 0, 0, 0.7577722, 0.4375, 0, -0.4375, 0.7577722, -25.973148, 1.2945437, 17.58927)
+modulate = Color(1, 1, 1, 0.58431375)
+alpha_cut = 2
+texture = ExtResource("21_vvfi1")
+
+[node name="Spike4" type="Sprite3D" parent="Decoration/Spikes" index="3"]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, -34.83701, 1.2945437, -11.17616)
+flip_h = true
+modulate = Color(1, 1, 1, 0.58431375)
+alpha_cut = 2
+texture = ExtResource("20_lkarh")
+
+[node name="Spike5" type="Sprite3D" parent="Decoration/Spikes" index="4"]
+transform = Transform3D(1.12, 0, 0, 0, 0.9699484, 0.56, 0, -0.56, 0.9699484, -46.73665, 1.2945437, -12.937265)
+modulate = Color(1, 1, 1, 0.58431375)
+alpha_cut = 2
+texture = ExtResource("20_lkarh")
+
+[node name="Spike6" type="Sprite3D" parent="Decoration/Spikes" index="5"]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, -53.00651, 1.2945437, -9.62765)
+modulate = Color(1, 1, 1, 0.58431375)
+alpha_cut = 2
+texture = ExtResource("21_vvfi1")
+
+[node name="Spike7" type="Sprite3D" parent="Decoration/Spikes" index="6"]
+transform = Transform3D(1.12, 0, 0, 0, 0.9699484, 0.56, 0, -0.56, 0.9699484, -51.74838, 1.2945428, -16.928505)
+modulate = Color(1, 1, 1, 0.58431375)
+alpha_cut = 2
+texture = ExtResource("21_vvfi1")
+
+[node name="Spike8" type="Sprite3D" parent="Decoration/Spikes" index="7"]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, -34.841213, 1.2945428, -16.80115)
+flip_h = true
+modulate = Color(1, 1, 1, 0.58431375)
+alpha_cut = 2
+texture = ExtResource("20_lkarh")
+
+[node name="Spike9" type="Sprite3D" parent="Decoration/Spikes" index="8"]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, -22.380394, 1.2945428, -17.49442)
+flip_h = true
+modulate = Color(1, 1, 1, 0.58431375)
+alpha_cut = 2
+texture = ExtResource("20_lkarh")
+
+[node name="Spike10" type="Sprite3D" parent="Decoration/Spikes" index="9"]
+transform = Transform3D(0.875, 0, 0, 0, 0.7577722, 0.4375, 0, -0.4375, 0.7577722, -9.051368, 1.2945428, -12.0751705)
+flip_h = true
+modulate = Color(1, 1, 1, 0.58431375)
+alpha_cut = 2
+texture = ExtResource("21_vvfi1")
+
+[node name="Spike11" type="Sprite3D" parent="Decoration/Spikes" index="10"]
+transform = Transform3D(1.12, 0, 0, 0, 0.9699484, 0.56, 0, -0.56, 0.9699484, 3.9474535, 1.2945428, -13.738703)
+modulate = Color(1, 1, 1, 0.58431375)
+alpha_cut = 2
+texture = ExtResource("20_lkarh")
+
+[node name="Spike12" type="Sprite3D" parent="Decoration/Spikes" index="11"]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 15.899991, 1.2945428, -14.682463)
+flip_h = true
+modulate = Color(1, 1, 1, 0.58431375)
+alpha_cut = 2
+texture = ExtResource("20_lkarh")
+
+[node name="Spike13" type="Sprite3D" parent="Decoration/Spikes" index="12"]
+transform = Transform3D(0.875, 0, 0, 0, 0.7577722, 0.4375, 0, -0.4375, 0.7577722, -7.1892405, 1.2945428, -19.817303)
+modulate = Color(1, 1, 1, 0.58431375)
+alpha_cut = 2
+texture = ExtResource("21_vvfi1")
+
+[node name="Spike14" type="Sprite3D" parent="Decoration/Spikes" index="13"]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 24.587742, 1.2945437, -18.125145)
+modulate = Color(1, 1, 1, 0.58431375)
+alpha_cut = 2
+texture = ExtResource("21_vvfi1")
+
+[node name="Spike15" type="Sprite3D" parent="Decoration/Spikes" index="14"]
+transform = Transform3D(1.12, 0, 0, 0, 0.9699484, 0.56, 0, -0.56, 0.9699484, 8.288618, 1.2945437, 17.903954)
+flip_h = true
+modulate = Color(1, 1, 1, 0.58431375)
+alpha_cut = 2
+texture = ExtResource("20_lkarh")
+
+[node name="Spike16" type="Sprite3D" parent="Decoration/Spikes" index="15"]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, -15.592064, 1.2945437, 15.627718)
+modulate = Color(1, 1, 1, 0.58431375)
+alpha_cut = 2
+texture = ExtResource("21_vvfi1")

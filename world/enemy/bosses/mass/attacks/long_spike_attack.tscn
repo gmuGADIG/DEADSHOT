@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://beoykunmng3vq"]
+[gd_scene load_steps=4 format=3 uid="uid://beoykunmng3vq"]
 
 [ext_resource type="PackedScene" uid="uid://0087idnveyoi" path="res://world/enemy/bosses/mass/attacks/spike_attack.tscn" id="1_ltni0"]
+[ext_resource type="PackedScene" uid="uid://cd33htarb7nvt" path="res://audio/streams/spike_pierce_sound.tscn" id="2_y6y8y"]
 
 [sub_resource type="Curve" id="Curve_ltni0"]
 _limits = [0.0, 1.0, 0.0, 2.5]
@@ -9,3 +10,5 @@ point_count = 4
 
 [node name="SpikeAttack" instance=ExtResource("1_ltni0")]
 spike_curve = SubResource("Curve_ltni0")
+
+[node name="SpikePierceSound2" parent="." index="2" instance=ExtResource("2_y6y8y")]

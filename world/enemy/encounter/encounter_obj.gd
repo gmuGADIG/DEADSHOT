@@ -17,7 +17,7 @@ var _started := false
 
 func _ready() -> void:
 	# Set parent metadata and group
-	print("Added metadata to '%s'" % get_parent().name)
+	print("Added metadata to '%s'" % get_parent().get_path())
 	get_parent().set_meta("encounter_object", self)
 	self.add_to_group("encounter_object")
 	

@@ -39,7 +39,7 @@ enum AggroState {
 ## Controls the speed of the enemy agent.
 @export var movement_speed : float = 10.0
 ## Rate of the tonic dropping, from 0 to 1.
-@export_range(0.0, 1.0, 0.01) var tonic_drop_rate : float = 0.5
+@export_range(0.0, 1.0, 0.01) var tonic_drop_rate : float = 0.15
 ## What node, if any, spawns when the enemy dies.
 @export var spawn_on_killed: PackedScene = preload("res://world/enemy/meat/meat.tscn")
 
@@ -114,6 +114,7 @@ func _ready() -> void:
 
 ## Call when you want to switch a state. Handles what to do once when entering each state.
 func switch_state(target_state: AggroState) -> void:
+	print(AggroState.keys()[target_state])
 	aggro = target_state
 	match target_state:
 		AggroState.BENIGN when type == EnemyType.IDLE:

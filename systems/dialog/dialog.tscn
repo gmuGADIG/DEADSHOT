@@ -55,23 +55,6 @@ spacing_glyph = 2
 spacing_top = 5
 spacing_bottom = -9
 
-[sub_resource type="Animation" id="Animation_d8ird"]
-resource_name = "show"
-length = 0.5
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Box:material:shader_parameter/progress")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [1.78000013205, -0.77999998955]
-}
-
 [sub_resource type="Animation" id="Animation_b5a57"]
 length = 0.001
 tracks/0/type = "value"
@@ -103,6 +86,23 @@ tracks/0/keys = {
 "values": [-0.65999998385, 1.3200001102]
 }
 
+[sub_resource type="Animation" id="Animation_d8ird"]
+resource_name = "show"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Box:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.78000013205, -0.77999998955]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c3yfu"]
 _data = {
 &"RESET": SubResource("Animation_b5a57"),
@@ -115,7 +115,7 @@ script = ExtResource("1_luyus")
 sfx = SubResource("Resource_yftcr")
 
 [node name="LineTimer" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.05
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_qqm2g")
@@ -187,6 +187,7 @@ offset_top = 39.0
 offset_right = -65.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 22
 bbcode_enabled = true
 text = "Dialog"
 fit_content = true

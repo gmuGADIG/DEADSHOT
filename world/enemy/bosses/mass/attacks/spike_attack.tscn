@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://0087idnveyoi"]
+[gd_scene load_steps=7 format=3 uid="uid://0087idnveyoi"]
 
 [ext_resource type="Script" uid="uid://dmk1nbg50kxbk" path="res://world/enemy/bosses/mass/attacks/spike_attack.gd" id="1_d6t4n"]
 [ext_resource type="Texture2D" uid="uid://dr0k5wtlmynj6" path="res://temp_art/reticle.png" id="1_n57c1"]
+[ext_resource type="PackedScene" uid="uid://cd33htarb7nvt" path="res://audio/streams/spike_pierce_sound.tscn" id="4_8us06"]
 [ext_resource type="Texture2D" uid="uid://buf15wb2e1tep" path="res://temp_art/spike.png" id="4_cuwb1"]
 
 [sub_resource type="Curve" id="Curve_cuwb1"]
@@ -37,5 +38,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Spike/DamageArea"]
 shape = SubResource("CylinderShape3D_cuwb1")
+
+[node name="SpikePierceSound" parent="." instance=ExtResource("4_8us06")]
 
 [connection signal="area_entered" from="Spike/DamageArea" to="." method="_on_damage_area_area_entered"]

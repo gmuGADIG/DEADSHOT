@@ -1,21 +1,84 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqcjv8i3rxkbu"]
+[gd_scene load_steps=14 format=3 uid="uid://cqcjv8i3rxkbu"]
 
 [ext_resource type="PackedScene" uid="uid://dwdhuncnyfmcw" path="res://world/enemy/wilder/wilder.tscn" id="1_wqu7g"]
 [ext_resource type="Script" uid="uid://cyjssoraty4ok" path="res://world/enemy/sheriff/sheriff.gd" id="2_h2jae"]
-[ext_resource type="PackedScene" uid="uid://cx8e0px578hd7" path="res://slash.tscn" id="3_6d7by"]
 [ext_resource type="PackedScene" uid="uid://dbxsvyvdibova" path="res://world/enemy/Enemy Bullets/sheriff_star.tscn" id="3_e873n"]
+[ext_resource type="PackedScene" uid="uid://cib43ohphwab7" path="res://audio/streams/boss_death_sound.tscn" id="5_0um12"]
 [ext_resource type="PackedScene" uid="uid://bl78b6gav1q1b" path="res://world/enemy/base/qte_target.tscn" id="5_8r3kc"]
+[ext_resource type="PackedScene" uid="uid://bfc3ee2ec64xs" path="res://audio/streams/sheriff_shoot_sound.tscn" id="6_0um12"]
+[ext_resource type="Texture2D" uid="uid://clk37atmfl6r2" path="res://world/enemy/sheriff/sheriff-shoot.png" id="4_kj5b0"]
+[ext_resource type="Texture2D" uid="uid://bkvpym4ivj7ux" path="res://world/enemy/sheriff/sheriff-run0.png" id="5_2mxdq"]
+[ext_resource type="Texture2D" uid="uid://xgm7mb6paxp0" path="res://world/enemy/sheriff/sheriff-run1.png" id="6_qhal6"]
+[ext_resource type="Script" uid="uid://b5d5dfn03djx6" path="res://world/enemy/base/enemy_animator/enemy_frames.gd" id="7_mlm5f"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x7apv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_kj5b0")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_2mxdq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qhal6")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_ogm7x"]
+script = ExtResource("7_mlm5f")
+clip = "walk"
+metadata/_custom_type_script = "uid://b5d5dfn03djx6"
+
+[sub_resource type="Resource" id="Resource_bquto"]
+script = ExtResource("7_mlm5f")
+clip = "walk"
+flipped = true
+metadata/_custom_type_script = "uid://b5d5dfn03djx6"
+
+[sub_resource type="Resource" id="Resource_lodko"]
+script = ExtResource("7_mlm5f")
+clip = "attack"
+metadata/_custom_type_script = "uid://b5d5dfn03djx6"
+
+[sub_resource type="Resource" id="Resource_i12ud"]
+script = ExtResource("7_mlm5f")
+clip = "attack"
+flipped = true
+metadata/_custom_type_script = "uid://b5d5dfn03djx6"
 
 [node name="Sheriff" instance=ExtResource("1_wqu7g")]
 script = ExtResource("2_h2jae")
+barrage_time = 0.75
 star = ExtResource("3_e873n")
-slash = ExtResource("3_6d7by")
-timeBetweenShotsMin = 0.8
-timeBetweenShotsMax = 1.2
+slash = null
+run_away_time_min = 0.75
+run_away_time_max = 2.5
 is_boss = true
+
+[node name="Sprite" parent="." index="1"]
+flip_h = true
+sprite_frames = SubResource("SpriteFrames_x7apv")
+animation = &"attack"
+autoplay = "attack"
+frame_progress = 0.81689405
+walk_left = SubResource("Resource_ogm7x")
+walk_right = SubResource("Resource_bquto")
+attack_left = SubResource("Resource_lodko")
+attack_right = SubResource("Resource_i12ud")
 
 [node name="Health" parent="." index="4"]
 max_health = 20.0
+
+[node name="FiringTimerREAL" type="Timer" parent="." index="10"]
 
 [node name="QTETarget" parent="QTEHandler" index="0" instance=ExtResource("5_8r3kc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29982, -0.017081022, 0)
@@ -28,3 +91,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02726686, 1.8602431, 0)
 
 [node name="QTETarget4" parent="QTEHandler" index="3" instance=ExtResource("5_8r3kc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.018092453, 1.05593, 0)
+
+[node name="BossDeathSound" parent="." index="14" instance=ExtResource("5_0um12")]
+
+[node name="SheriffShootSound" parent="." index="15" instance=ExtResource("6_0um12")]

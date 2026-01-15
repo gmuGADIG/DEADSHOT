@@ -17,6 +17,9 @@ extends Node3D
 func _ready() -> void:
 	if randomize_type: type = _random_index()
 	update_sprite()
+	
+	if not Engine.is_editor_hint():
+		if randf() < 0.5: scale.x *= -1
 
 func update_sprite() -> void:
 	if sprites.size() == 0: return

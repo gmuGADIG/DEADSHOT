@@ -1,35 +1,47 @@
+class_name Sheriff
 extends Wilder
 
+#enum SelectedAttack{
+	#WHIP,
+	#STAR
+#}
+
+@export var barrage_time : float
 @export var star : PackedScene
 @export var slash : PackedScene
 
-func attack() -> void:
-	while true:
-		if process_mode == ProcessMode.PROCESS_MODE_DISABLED: continue
-		
-		var dist_squared := global_position.distance_squared_to(Player.instance.global_position)
-		print(dist_squared)
-		if dist_squared <= 22:
-			var old_speed := movement_speed
-			movement_speed = old_speed *0.25
-			await get_tree().create_timer(0.5, false).timeout
-			do_slash()
-			await get_tree().create_timer(0.5, false).timeout
-			movement_speed = old_speed
-			continue
-		
-		var rng : int = randi_range(1,100)
-		if rng <= 80 :
-			await get_tree().create_timer(randf_range(timeBetweenShotsMin,timeBetweenShotsMax), false).timeout
-			shootBullet()
-		else:
-			var old_speed := movement_speed
-			movement_speed = 0
-			await get_tree().create_timer(1, false).timeout
-			shoot_star()
-			await get_tree().create_timer(2.0, false).timeout
-			movement_speed = old_speed
+#var selected_attack : SelectedAttack = SelectedAttack.STAR
 
+func _ready() -> void:
+	super._ready()
+	$FiringTimerREAL.timeout.connect(func() -> void:
+		if aggro != AggroState.ATTACKING:
+			barrage()
+	)
+	$FiringTimerREAL.start(barrage_time)
+	
+#func pick_target(flee : bool) -> void:
+	#if not flee:
+		#barrage()
+	#super.pick_target(flee)
+	
+func shoot(shoot_dir : Vector3) -> void:
+	var newBullet: Bullet = bullet.instantiate()
+	newBullet.atk_source = DamageInfo.Source.ENEMY
+	add_sibling(newBullet)
+	newBullet.fire(self, shoot_dir)
+	$SheriffShootSound.play()
+	
+func _on_killed() -> void:
+	var die_sound:AudioStreamPlayer3D = $BossDeathSound
+	die_sound.reparent(get_tree().current_scene)
+	die_sound.play()
+
+func fire() -> void:
+	$SheriffShootSound.play()
+	shoot_star()
+	switch_state(AggroState.BENIGN)
+	
 func shoot_star() -> void:
 	var new_star : = star.instantiate()
 	new_star.atk_source = DamageInfo.Source.ENEMY
