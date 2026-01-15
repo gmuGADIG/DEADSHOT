@@ -840,6 +840,7 @@ spawn_on_killed = ExtResource("6_s2jdb")
 shape = SubResource("BoxShape3D_b8f6a")
 
 [node name="Sprite" parent="." index="1"]
+process_mode = 1
 transform = Transform3D(0.305, 0, 0, 0, 0.26413772, 0.15250008, 0, -0.15250008, 0.26413772, 0, 0, 0)
 offset = Vector2(0, 1000)
 sprite_frames = SubResource("SpriteFrames_o1act")
@@ -868,6 +869,10 @@ process_mode = 4
 libraries = {
 &"": SubResource("AnimationLibrary_k1noq")
 }
+
+[node name="EncounterObject" parent="." index="11"]
+start_active = true
+start_instant = true
 
 [node name="FakeChunk" type="Sprite3D" parent="." index="12"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08410025, 1.9897518, 0)
@@ -913,4 +918,3 @@ emission_box_extents = Vector3(1, 0.105, 5.695)
 [node name="BossDeathSound" parent="." index="16" instance=ExtResource("16_1cjuw")]
 
 [node name="FleshStreamSound" parent="." index="17" instance=ExtResource("17_o1act")]
-delete_on_finish = false

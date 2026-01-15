@@ -416,6 +416,10 @@ libraries = {
 &"": SubResource("AnimationLibrary_dc5ks")
 }
 
+[node name="EncounterObject" parent="." index="9"]
+start_active = true
+start_instant = true
+
 [node name="HurterBox" type="Area3D" parent="." index="10"]
 collision_layer = 0
 collision_mask = 2

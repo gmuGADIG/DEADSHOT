@@ -6,6 +6,8 @@ static var instance: MainCam
 @export var offset: Vector3
 @export var smoothing: float
 
+@onready var base_rotation: Vector3 = rotation
+
 var zoom: float = 1.0
 
 func _init() -> void:
@@ -26,6 +28,8 @@ func _process(delta: float) -> void:
 	
 	zoom = lerp(zoom, target_zoom, 1.0 - exp(-smoothing * delta))
 	global_position = lerp(global_position, target, 1.0 - exp(-smoothing * delta))
+	
+	rotation = lerp(rotation, base_rotation, 1.0 - exp(-smoothing * delta)) # necessary when animating the rotation
 
 func average_position() -> Vector3:
 	# Do a weighted average on all "camera_tracked" nodes

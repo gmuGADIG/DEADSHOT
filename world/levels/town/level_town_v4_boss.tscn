@@ -1,24 +1,252 @@
-[gd_scene load_steps=14 format=3 uid="uid://ohg0len20ido"]
+[gd_scene load_steps=17 format=3 uid="uid://ohg0len20ido"]
 
 [ext_resource type="PackedScene" uid="uid://cxahvvaidpg32" path="res://world/levels/town/level_town_base.tscn" id="1_83ufp"]
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="2_4ry00"]
 [ext_resource type="PackedScene" uid="uid://b0ttk38sufgur" path="res://world/pickups/corrupt_heart/corrupt_heart.tscn" id="2_28xow"]
-[ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="3_8wq7s"]
+[ext_resource type="Script" uid="uid://dgstp78b1s2ry" path="res://world/levels/town/town_v4.gd" id="2_q1x3c"]
+[ext_resource type="Resource" uid="uid://bem7o0b7nb3tn" path="res://writing/sheriff/sheriff_pre.tres" id="3_dwx1n"]
+[ext_resource type="Resource" uid="uid://dik8lqpuw1pt2" path="res://writing/sheriff/sheriff_post.tres" id="4_44t27"]
 [ext_resource type="Resource" uid="uid://becxyi6a0wlmk" path="res://audio/music/song_files/town_level_corrupted/RA_Sheriff_Theme.tres" id="4_q1x3c"]
-[ext_resource type="PackedScene" uid="uid://c7c1lwr411btx" path="res://audio/music/music_player/play_song_for_scene.tscn" id="5_8uqty"]
 [ext_resource type="PackedScene" uid="uid://dhb2pgqbfvxoa" path="res://world/enemy/encounter/encounter.tscn" id="6_5x431"]
-[ext_resource type="Resource" uid="uid://tli21qkgcwye" path="res://audio/music/song_files/town_level_corrupted/Becs_corrupt_town_song.tres" id="6_w4wah"]
 [ext_resource type="PackedScene" uid="uid://cqcjv8i3rxkbu" path="res://world/enemy/sheriff/sheriff.tscn" id="7_w4wah"]
 [ext_resource type="PackedScene" uid="uid://bp6l0lw650m8o" path="res://world/blocker/blocker.tscn" id="8_5x431"]
-[ext_resource type="PackedScene" uid="uid://crroyl2puavcb" path="res://world/decoration/floor_lantern/floor_lantern.tscn" id="9_ob8eb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jglpt"]
-size = Vector3(32.375977, 3, 17.013636)
+size = Vector3(60.117188, 3, 17.013636)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j4103"]
 size = Vector3(24.894531, 3.5175781, 4.6188965)
 
-[node name="LevelTown4" instance=ExtResource("1_83ufp")]
+[sub_resource type="Animation" id="Animation_jglpt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(43.8995, 0, -5.457872)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainCam:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(43.904827, 3.5055885, -4.2544575)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MainCam:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.9599311, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Encounter/Sheriff:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(28.153046, 0.4819467, -3.9800243)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Encounter/Sheriff:process_mode")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Player:process_mode")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MainCam:process_mode")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_q05pj"]
+resource_name = "start"
+length = 7.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.73333335, 1.5),
+"transitions": PackedFloat32Array(0.70710677, 1),
+"update": 0,
+"values": [Vector3(44.066807, 0, -7.71004), Vector3(43.97272, 0, -3.8569374)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainCam:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.6000001, 5.0333333, 7),
+"transitions": PackedFloat32Array(-2, -2, -2, 1),
+"update": 0,
+"values": [Vector3(43.904827, 3.5055885, -4.2544575), Vector3(43.904827, 7.386441, -0.4554944), Vector3(39.838272, 7.386441, 0.64952993), Vector3(38.215706, 5.765753, -0.12602389)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MainCam:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.6000001),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Vector3(-0.5235988, 0, 0), Vector3(-0.9599311, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Encounter/Sheriff:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(3.7, 4, 4.5, 4.8, 5.3, 5.6),
+"transitions": PackedFloat32Array(0.73204285, 1, 0.73204285, 1, 0.73204285, 1),
+"update": 0,
+"values": [Vector3(28.153046, 0.4819467, -3.9800243), Vector3(29.828396, 0.4819467, -3.9800243), Vector3(29.828396, 0.4819467, -3.9800243), Vector3(31.910671, 0.4819467, -3.9800243), Vector3(31.910671, 0.4819467, -3.9800243), Vector3(33.901, 0.482, -3.98)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Encounter/Sheriff:process_mode")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Player:process_mode")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MainCam:process_mode")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_q1x3c"]
+resource_name = "fight"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Encounter/Sheriff:process_mode")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player:process_mode")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MainCam:process_mode")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q1x3c"]
+_data = {
+&"RESET": SubResource("Animation_jglpt"),
+&"fight": SubResource("Animation_q1x3c"),
+&"start": SubResource("Animation_q05pj")
+}
+
+[node name="LevelTown4" node_paths=PackedStringArray("encounter", "anim", "sheriff") instance=ExtResource("1_83ufp")]
+script = ExtResource("2_q1x3c")
+encounter = NodePath("Encounter")
+anim = NodePath("Anim")
+sheriff = NodePath("Encounter/Sheriff")
+pre_timeline = ExtResource("3_dwx1n")
+post_timeline = ExtResource("4_44t27")
 
 [node name="FullscreenBG" parent="Background" index="0"]
 transform = Transform3D(0.114, 0, 0, 0, 0.06538772, 0.09338334, 0, -0.09338334, 0.06538772, 2.5613499, -14.898792, -12.023702)
@@ -29,7 +257,8 @@ is_boss_encounter = true
 encounter_song = ExtResource("4_q1x3c")
 
 [node name="Sheriff" parent="Encounter" index="0" instance=ExtResource("7_w4wah")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.328011, 0.4819467, -6.921501)
+process_mode = 4
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.153046, 0.4819467, -3.9800243)
 run_away_time_min = 1.0
 run_away_time_max = 2.0
 spawn_on_killed = ExtResource("2_28xow")
@@ -41,7 +270,7 @@ transform = Transform3D(0.26523644, 0, -24.977686, 0, 1, 0, 6.273395, 0, 1.05604
 weight = 0.0
 
 [node name="EncounterShape" type="CollisionShape3D" parent="Encounter" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.693695, 0, 1.2494688)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.5643, 0, 1.2494688)
 shape = SubResource("BoxShape3D_jglpt")
 
 [node name="Transition" parent="TransitionAreas" index="0" instance=ExtResource("2_4ry00")]
@@ -53,7 +282,8 @@ target_entry_point = "Left"
 shape = SubResource("BoxShape3D_j4103")
 
 [node name="Player" parent="." index="6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.718742, 0, -4.0061493)
+process_mode = 4
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.8995, 0, -5.457872)
 
 [node name="CursedPlant" parent="Decoration/Plants" index="0"]
 transform = Transform3D(-1, 0, 0, 0, 1, -1.509958e-07, 0, 1.509958e-07, 1, 12.97214, 9.536743e-07, 0.8534193)
@@ -176,19 +406,14 @@ transform = Transform3D(1, 0, 0, 0, 1, -1.509958e-07, 0, 1.509958e-07, 1, 69.452
 transform = Transform3D(1, 0, 0, 0, 1, -1.509958e-07, 0, 1.509958e-07, 1, 75.89809, 1.001358e-05, 1.5761139)
 type = 1
 
-[node name="Comment" parent="." index="13" instance=ExtResource("3_8wq7s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.416405, 0, -2.3331199)
-text = "Sheriff is still wip :("
-size = 1.5
+[node name="MainCam" parent="." index="13"]
+process_mode = 4
+transform = Transform3D(1, 0, 0, 0, 0.57357645, 0.81915206, 0, -0.81915206, 0.57357645, 43.904827, 3.5055885, -4.2544575)
 
-[node name="PlaySongForScene" parent="." index="14" instance=ExtResource("5_8uqty")]
-song = ExtResource("6_w4wah")
-
-[node name="FloorLantern" parent="." index="15" instance=ExtResource("9_ob8eb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47596312, 0.073197365, -36.256653)
-
-[node name="FloorLantern2" parent="." index="16" instance=ExtResource("9_ob8eb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.922262, 0.16328049, -36.76721)
+[node name="Anim" type="AnimationPlayer" parent="." index="16"]
+libraries = {
+&"": SubResource("AnimationLibrary_q1x3c")
+}
 
 [editable path="Encounter"]
 [editable path="TransitionAreas/Transition"]
