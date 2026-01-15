@@ -688,11 +688,12 @@ transform = Transform3D(1.6253002, 0, 0, 0, 1.1914436, 0, 0, 0, 2, -5.25486, 0, 
 [node name="Boulder2" parent="Encounter5" index="20" instance=ExtResource("12_rkdtq")]
 transform = Transform3D(0.9231997, 0, 0, 0, 0.8995768, 0, 0, 0, 1.2030001, 3.4590454, 0, -1.824955)
 
-[node name="Encounter6" parent="." index="14" node_paths=PackedStringArray("anim") instance=ExtResource("11_rkdtq")]
+[node name="Encounter6" parent="." index="14" node_paths=PackedStringArray("anim", "mass") instance=ExtResource("11_rkdtq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 177.89032, 7.6293945e-06, 1.5933142)
 script = ExtResource("25_xnxv1")
 anim = NodePath("MassAnim")
 pre_timeline = ExtResource("26_d5wqa")
+mass = NodePath("TheMass")
 is_boss_encounter = true
 camera_zoom = 1.7
 ending_scene = ExtResource("22_mqp80")
