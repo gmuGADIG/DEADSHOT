@@ -125,10 +125,18 @@ func _ready() -> void:
 	Global.skill_tree_changed.connect(func(skill: SkillSet.SkillUID) -> void:
 		if skill in hp_skills:
 			health_component.modify_max_health(2)
+		if skill == SkillSet.SkillUID.PISTOL_ROLL_COOLDOWN:
+			health_component.modify_max_health(-2)
+		if skill == SkillSet.SkillUID.RIFLE_DAMAGE_2:
+			health_component.modify_max_health(-2)
 	)
 	Global.skill_removed.connect(func(skill: SkillSet.SkillUID) -> void:
 		if skill in hp_skills:
 			health_component.modify_max_health(-2)
+		if skill == SkillSet.SkillUID.PISTOL_ROLL_COOLDOWN:
+			health_component.modify_max_health(2)
+		if skill == SkillSet.SkillUID.RIFLE_DAMAGE_2:
+			health_component.modify_max_health(2)
 	)
 	
 	player_ready.emit()
@@ -265,7 +273,8 @@ func roll(delta : float) -> void:
 	
 	##Apply velocity
 	velocity = roll_dir * roll_speed
-	roll_time += delta
+	var mul := 1. if not SkillSet.has_skill(SkillSet.SkillUID.PISTOL_DAMAGE) else 2.
+	roll_time += delta * mul
 	
 	if roll_time >= roll_curve.max_domain:
 		health_component.vulnerable = true
@@ -344,6 +353,7 @@ func skill_speed_mul() -> float:
 	var ret := 1.
 	if SkillSet.has_skill(SkillSet.SkillUID.SHOTGUN_MOVEMENT_SPEED): ret *= 1.6
 	if SkillSet.has_skill(SkillSet.SkillUID.PISTOL_MOVEMENT_SPEED): ret *= 1.6
+	if SkillSet.has_skill(SkillSet.SkillUID.RIFLE_MAG): ret *= .8
 
 	return ret
 

@@ -43,8 +43,14 @@ func _ready() -> void:
 	reserve_ammo = max_reserve
 
 	Global.skill_tree_changed.connect(func(skill: SkillSet.SkillUID) -> void:
-		if skill == SkillSet.SkillUID.RIFLE_MAG or skill == SkillSet.SkillUID.RESPEC:
+		if skill in [
+			SkillSet.SkillUID.RIFLE_MAG,
+			SkillSet.SkillUID.RESPEC,
+			SkillSet.SkillUID.PISTOL_FIRE_RATE,
+			SkillSet.SkillUID.SHOTGUN_HP_2,
+		]:
 			chamber_ammo = get_max_chamber()
+		# if skill == SkillSet.SkillUID.RIFLE_MAG or skill == SkillSet.SkillUID.RESPEC:
 	)
 
 func update_hud() -> void:
@@ -141,6 +147,9 @@ func get_damage() -> float:
 	if SkillSet.has_skill(SkillSet.SkillUID.RIFLE_DAMAGE_1): modifier += 1.
 	if SkillSet.has_skill(SkillSet.SkillUID.RIFLE_DAMAGE_2): modifier += 1.
 	if SkillSet.has_skill(SkillSet.SkillUID.PISTOL_DAMAGE): modifier += 1.
+
+	if SkillSet.has_skill(SkillSet.SkillUID.PISTOL_ROLL_COOLDOWN): modifier -= 1.
+	if SkillSet.has_skill(SkillSet.SkillUID.RIFLE_FIRE_RATE): modifier -= 1.
 	
 	return damage * modifier
 
@@ -150,6 +159,11 @@ func get_fire_cooldown() -> float:
 	if SkillSet.has_skill(SkillSet.SkillUID.SHOTGUN_FIRE_RATE): modifier *= .5
 	if SkillSet.has_skill(SkillSet.SkillUID.PISTOL_FIRE_RATE): modifier *= .75
 	if SkillSet.has_skill(SkillSet.SkillUID.RIFLE_FIRE_RATE): modifier *= .75
+
+	if SkillSet.has_skill(SkillSet.SkillUID.SHOTGUN_HP_1): modifier *= 2.
+	if SkillSet.has_skill(SkillSet.SkillUID.RIFLE_DAMAGE_1): modifier *= 1.5
+	if SkillSet.has_skill(SkillSet.SkillUID.SHOTGUN_FIRE_RATE): modifier *= 2
+	if SkillSet.has_skill(SkillSet.SkillUID.PISTOL_MOVEMENT_SPEED): modifier *= 2
 	
 	return fire_cooldown * modifier
 
@@ -157,5 +171,7 @@ func get_max_chamber() -> int:
 	var ret := max_chamber
 
 	if SkillSet.has_skill(SkillSet.SkillUID.RIFLE_MAG): ret += 2
+	if SkillSet.has_skill(SkillSet.SkillUID.PISTOL_FIRE_RATE): ret -= 4
+	if SkillSet.has_skill(SkillSet.SkillUID.SHOTGUN_HP_2): ret -= 1
 
 	return ret
