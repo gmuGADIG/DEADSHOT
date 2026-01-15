@@ -342,8 +342,8 @@ func play_walking_sfx() -> void:
 
 func skill_speed_mul() -> float:
 	var ret := 1.
-	if SkillSet.has_skill(SkillSet.SkillUID.SHOTGUN_MOVEMENT_SPEED): ret *= 1.6
-	if SkillSet.has_skill(SkillSet.SkillUID.PISTOL_MOVEMENT_SPEED): ret *= 1.6
+	if SkillSet.has_skill(SkillSet.SkillUID.SHOTGUN_MOVEMENT_SPEED): ret *= 1.3
+	if SkillSet.has_skill(SkillSet.SkillUID.PISTOL_MOVEMENT_SPEED): ret *= 1.3
 
 	return ret
 
