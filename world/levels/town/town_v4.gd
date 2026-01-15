@@ -2,6 +2,7 @@ extends Node3D
 
 @export var encounter: Encounter
 @export var anim: AnimationPlayer
+@export var sheriff: Sheriff
 @export var pre_timeline: DialogTimeline
 @export var post_timeline: DialogTimeline
 
@@ -15,6 +16,7 @@ func _ready() -> void:
 	await Dialog.timeline_ended
 	
 	anim.play("fight")
+	Global.boss_spawned.emit(sheriff)
 	await Global.player_max_hp_changed # hacky way to wait for the corrupt heart to break
 	await get_tree().create_timer(1.0, false).timeout # bit of extra wait
 	

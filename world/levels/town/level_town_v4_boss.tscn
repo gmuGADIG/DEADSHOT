@@ -240,10 +240,11 @@ _data = {
 &"start": SubResource("Animation_q05pj")
 }
 
-[node name="LevelTown4" node_paths=PackedStringArray("encounter", "anim") instance=ExtResource("1_83ufp")]
+[node name="LevelTown4" node_paths=PackedStringArray("encounter", "anim", "sheriff") instance=ExtResource("1_83ufp")]
 script = ExtResource("2_q1x3c")
 encounter = NodePath("Encounter")
 anim = NodePath("Anim")
+sheriff = NodePath("Encounter/Sheriff")
 pre_timeline = ExtResource("3_dwx1n")
 post_timeline = ExtResource("4_44t27")
 
