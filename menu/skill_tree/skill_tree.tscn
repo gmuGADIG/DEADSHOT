@@ -68,7 +68,7 @@ skill_image = ExtResource("5_x1cyl")
 skill_image_upgraded = ExtResource("6_lwvla")
 skill_description = "Increases the base damage
 of attacks"
-skill_meat_cost = 5
+skill_meat_cost = 15
 skill_uid = 1
 metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
