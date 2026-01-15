@@ -63,12 +63,13 @@ func _ready() -> void:
 	
 	# Fix this, make sure line goes in correct place
 	for child in dependencies:
-		var line := Line2D.new()
-		line.texture = preload("res://menu/skill_tree/skill_tree_icons/board_connector.png")
-		line.texture_mode = Line2D.LINE_TEXTURE_STRETCH
-		line.add_point(Vector2.ZERO)
-		line.add_point(child.global_position - self.global_position)
-		%SkillBranches.add_child(line)
+		if child.state != State.LOCKED:
+			var line := Line2D.new()
+			line.texture = preload("res://menu/skill_tree/skill_tree_icons/board_connector.png")
+			line.texture_mode = Line2D.LINE_TEXTURE_STRETCH
+			line.add_point(Vector2.ZERO)
+			line.add_point(child.global_position - self.global_position)
+			%SkillBranches.add_child(line)
 
 func update_purchase_state() -> void:
 	if SkillSet.has_skill(itemDesc.skill_uid):
