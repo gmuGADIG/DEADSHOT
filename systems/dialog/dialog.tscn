@@ -187,6 +187,7 @@ offset_top = 39.0
 offset_right = -65.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 22
 bbcode_enabled = true
 text = "Dialog"
 fit_content = true
