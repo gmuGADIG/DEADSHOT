@@ -24,8 +24,8 @@
 [ext_resource type="Resource" uid="uid://5typpvnt2fdo" path="res://writing/town2/town2_pianoman.tres" id="17_mnux4"]
 [ext_resource type="Resource" uid="uid://4m486rpoft0h" path="res://writing/town2/town2_barmaid.tres" id="19_qb2qu"]
 [ext_resource type="PackedScene" uid="uid://buycij5b3uf5i" path="res://world/npc/paper/paper.tscn" id="24_coc24"]
-[ext_resource type="Resource" uid="uid://bk4a6f0ud5yod" path="res://writing/town1/town1_lore_3.tres" id="25_08fa1"]
-[ext_resource type="Resource" uid="uid://cq5x1tgw2d0w4" path="res://writing/town1/town1_lore_2.tres" id="25_15b3b"]
+[ext_resource type="Resource" uid="uid://clo6e78g8wb15" path="res://writing/town2/town2_lore_1.tres" id="24_fdohc"]
+[ext_resource type="Resource" uid="uid://rvh7fcpaqwd8" path="res://writing/town1/town1_lore_4.tres" id="24_mnux4"]
 [ext_resource type="PackedScene" uid="uid://bp6l0lw650m8o" path="res://world/blocker/blocker.tscn" id="26_15b3b"]
 [ext_resource type="PackedScene" uid="uid://b4a6qry8kyr87" path="res://world/npc/npc_snake_oil_salesman.tscn" id="27_a8ktv"]
 [ext_resource type="Resource" uid="uid://cpufebvpxqwqf" path="res://writing/town2/town2_snakeoilsalesman.tres" id="28_mnux4"]
@@ -181,11 +181,11 @@ transform = Transform3D(1, 0, 0, 0, 0.9999999, 0.0005061455, 0, -0.0005061455, 0
 timeline = ExtResource("15_5xvh0")
 
 [node name="PianoMan" parent="NPCs" index="7" instance=ExtResource("11_455ow")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.235628, 0.066610776, -2.2234116)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.28347, 0.066610776, -3.6588979)
 timeline = ExtResource("17_mnux4")
 
 [node name="BarMaid" parent="NPCs" index="8" instance=ExtResource("11_o8nib")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.141584, 0.06661221, -4.1248364)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.013563, 0.06661221, -3.9105172)
 priority = 1
 timeline = ExtResource("19_qb2qu")
 
@@ -195,13 +195,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.091451, 0, -37.270107)
 [node name="PlaySongForScene" parent="." index="15" instance=ExtResource("15_2dx52")]
 song = ExtResource("16_yq85o")
 
-[node name="Paper" parent="." index="16" instance=ExtResource("24_coc24")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0330362, 0, 29.95389)
-timeline = ExtResource("25_08fa1")
+[node name="Paper3" parent="." index="16" instance=ExtResource("24_coc24")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.467825, 0, -4.9570293)
+timeline = ExtResource("24_fdohc")
 
-[node name="Paper2" parent="." index="17" instance=ExtResource("24_coc24")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.15159, 0, -24.575459)
-timeline = ExtResource("25_15b3b")
+[node name="Paper" parent="." index="17" instance=ExtResource("24_coc24")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.7099285, 0, 26.630793)
+timeline = ExtResource("24_mnux4")
 
 [node name="Blocker" parent="." index="18" instance=ExtResource("26_15b3b")]
 transform = Transform3D(7.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 11.437695, 0, 41.34909)

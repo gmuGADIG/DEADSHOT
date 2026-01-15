@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_l0rjb")
-dialog = "[] My Rifle has become stronger, I have become stronger"
+dialog = "[ ] Your rifle has become stronger, so YOU have become stronger."
 metadata/_custom_type_script = "uid://rvaetvwo5p3h"
