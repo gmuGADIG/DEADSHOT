@@ -7,6 +7,12 @@ signal whipped
 #static var gun_name := "Shotgun"
 #static var gun_name := "Dualies"
 #static var gun_name := "BasicGun"
+enum FootstepState{
+	FIRST = 0,
+	LEFT = -1,
+	RIGHT = 1
+}
+var footstep_state : FootstepState = FootstepState.FIRST
 
 ## These are the states that the player can be in. States control what the player can do.
 enum PlayerState {
@@ -35,6 +41,7 @@ var speed_multiplier: float = 1.0
 @export var walk_speed: float = 8.0
 @export var roll_curve : Curve
 @export var roll_influence_strength: float = 3 ## Controls how much player input affects steering when mid-roll.
+@export var footstep : PackedScene
 
 @export_category("Dependencies")
 @export var health_component : Health
@@ -148,6 +155,7 @@ func _physics_process(delta: float) -> void:
 				play_walking_sfx()
 		else:
 			walk_sfx_timer.stop()
+			footstep_state = FootstepState.FIRST
 			
 		if Input.is_action_just_pressed("roll") and whip.whip_state == Whip.WhipState.OFF:
 			begin_roll()
@@ -327,6 +335,23 @@ func _on_interaction_ended() -> void:
 	current_state = PlayerState.WALKING
 
 func play_walking_sfx() -> void:
+	if current_state == PlayerState.ROLLING:
+		return
+	if footstep_state == FootstepState.FIRST:
+		footstep_state = FootstepState.RIGHT
+	else:
+		var new_footstep := footstep.instantiate()
+		add_sibling(new_footstep)
+		new_footstep.global_position = $FootstepEmitter.global_position
+		if footstep_state == FootstepState.RIGHT:
+			new_footstep.global_position += velocity.normalized().rotated(Vector3.UP,-PI/2)*0.2
+			footstep_state = FootstepState.LEFT
+		else:
+			new_footstep.global_position += velocity.normalized().rotated(Vector3.UP,PI/2)*0.2
+			footstep_state = FootstepState.RIGHT
+		
+	
+	print("STEP")
 	if(speed_multiplier == 0.5): #Check if player is in puddle
 		%WalkPuddle.play() #Need to update to play puddle noise
 	else:

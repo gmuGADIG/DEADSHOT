@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://llqh4g6obmup" path="res://world/player/player.gd" id="1_bvkkv"]
 [ext_resource type="PackedScene" uid="uid://bas8xwk5nhlq0" path="res://world/player/HUD/hud.tscn" id="2_duds0"]
+[ext_resource type="PackedScene" uid="uid://5drje4gqbllh" path="res://world/player/footstep.tscn" id="2_fn377"]
 [ext_resource type="Script" uid="uid://dbka0ckv4aeih" path="res://world/player/player_animation.gd" id="3_3n4qb"]
 [ext_resource type="Script" uid="uid://cwjxwkxciij4o" path="res://systems/interaction/interactor.gd" id="3_cvtd2"]
 [ext_resource type="PackedScene" uid="uid://vnurg1w4ttt4" path="res://world/player/weapon/dualies/weapon_dualies.tscn" id="3_jrep8"]
@@ -96,6 +97,7 @@ size = Vector2(0.1, 0.1)
 collision_layer = 2
 script = ExtResource("1_bvkkv")
 roll_curve = SubResource("Curve_2x47q")
+footstep = ExtResource("2_fn377")
 health_component = NodePath("HurtboxComponent/HealthComponent")
 whip = NodePath("Whip")
 
@@ -263,6 +265,8 @@ spread = 180.0
 gravity = Vector3(0, 0, 0)
 initial_velocity_min = 1.0
 initial_velocity_max = 3.0
+[node name="FootstepEmitter" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0.88683414)
 
 [connection signal="frame_changed" from="Sprite" to="Sprite" method="_on_frame_changed"]
 [connection signal="was_hit" from="HurtboxComponent" to="." method="_on_hurtbox_component_was_hit"]
