@@ -35,7 +35,7 @@
 transform = Transform3D(0.114, 0, 0, 0, 0.06538772, 0.09338334, 0, -0.09338334, 0.06538772, 2.5613499, -14.898792, -12.023702)
 
 [node name="Right" parent="TransitionAreas" index="0" instance=ExtResource("2_jjhs5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.78856, 0, -0.065726995)
+transform = Transform3D(4.603244, 0, 0, 0, 1, 0, 0, 0, 1, 11.162678, 4.7683716e-07, -46.524185)
 target_scene = "uid://crgv6bkolrlyy"
 target_entry_point = "Left"
 
@@ -43,17 +43,21 @@ target_entry_point = "Left"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.87167, 9.536743e-07, 0.112309456)
 
 [node name="CursedPlant" parent="Decoration/Plants" index="0"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 12.97214, 9.536743e-07, 0.8534193)
+transform = Transform3D(1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, 12.97214, 9.536743e-07, 0.8534193)
 type = 0
 
 [node name="CursedPlant2" parent="Decoration/Plants" index="1"]
 type = 1
 
 [node name="CursedPlant4" parent="Decoration/Plants" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, 18.474659, 9.536743e-07, 6.7301674)
 type = 1
 
 [node name="CursedPlant5" parent="Decoration/Plants" index="3"]
 type = 0
+
+[node name="CursedPlant8" parent="Decoration/Plants" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, 18.810091, 9.536743e-07, -4.9426026)
 
 [node name="CursedPlant10" parent="Decoration/Plants" index="5"]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9783115, 1.4305115e-06, -9.392471)
@@ -70,6 +74,9 @@ type = 0
 transform = Transform3D(1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, -17.492502, 1.4305115e-06, -6.4950757)
 type = 0
 
+[node name="CursedPlant14" parent="Decoration/Plants" index="9"]
+transform = Transform3D(1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, -29.900177, 1.4305115e-06, -6.175735)
+
 [node name="CursedPlant15" parent="Decoration/Plants" index="10"]
 type = 1
 
@@ -80,24 +87,25 @@ transform = Transform3D(1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, -34.03
 transform = Transform3D(1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, -32.909473, 2.3841858e-06, 7.652792)
 
 [node name="CursedPlant23" parent="Decoration/Plants" index="16"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 17.446877, 2.861023e-06, 26.883415)
+transform = Transform3D(1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, 17.446877, 2.861023e-06, 26.883415)
 
 [node name="CursedPlant24" parent="Decoration/Plants" index="17"]
-transform = Transform3D(1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, 18.273832, 2.861023e-06, 26.007109)
+transform = Transform3D(-1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, 18.273832, 2.861023e-06, 26.007109)
 type = 1
 
 [node name="CursedPlant25" parent="Decoration/Plants" index="18"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 16.776598, 2.861023e-06, 25.373657)
+transform = Transform3D(1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, 16.776598, 2.861023e-06, 25.373657)
 type = 1
 
 [node name="CursedPlant26" parent="Decoration/Plants" index="19"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 4.370305, 3.8146973e-06, 35.17614)
+transform = Transform3D(1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, 4.370305, 3.8146973e-06, 35.17614)
 
 [node name="CursedPlant27" parent="Decoration/Plants" index="20"]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 5.191036, 4.7683716e-06, 36.09765)
 type = 1
 
 [node name="CursedPlant34" parent="Decoration/Plants" index="21"]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 22.798418, 8.583069e-06, -26.086636)
 type = 1
 
 [node name="CursedPlant36" parent="Decoration/Plants" index="22"]
@@ -108,15 +116,17 @@ type = 1
 transform = Transform3D(1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, 2.2396097, 9.536743e-06, -20.82966)
 
 [node name="CursedPlant38" parent="Decoration/Plants" index="24"]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 36.191753, 9.536743e-06, -7.5530405)
 type = 0
 
 [node name="CursedPlant39" parent="Decoration/Plants" index="25"]
 transform = Transform3D(1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, 35.34773, 9.536743e-06, -7.8378057)
 
 [node name="CursedPlant40" parent="Decoration/Plants" index="26"]
-transform = Transform3D(1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, 37.62572, 9.536743e-06, -8.360826)
+transform = Transform3D(-1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, 37.62572, 9.536743e-06, -8.360826)
 
 [node name="CursedPlant41" parent="Decoration/Plants" index="27"]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 52.512173, 9.536743e-06, -7.0858536)
 type = 0
 
 [node name="CursedPlant43" parent="Decoration/Plants" index="28"]
@@ -124,7 +134,7 @@ transform = Transform3D(1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, 45.336
 type = 1
 
 [node name="CursedPlant44" parent="Decoration/Plants" index="29"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 46.146416, 1.04904175e-05, 5.404521)
+transform = Transform3D(1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, 46.146416, 1.04904175e-05, 5.404521)
 type = 0
 
 [node name="CursedPlant45" parent="Decoration/Plants" index="30"]
@@ -134,10 +144,10 @@ type = 1
 type = 1
 
 [node name="CursedPlant50" parent="Decoration/Plants" index="33"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 69.45258, 1.001358e-05, -2.4362075)
+transform = Transform3D(1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, 69.45258, 1.001358e-05, -2.4362075)
 
 [node name="CursedPlant51" parent="Decoration/Plants" index="34"]
-transform = Transform3D(1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, 75.89809, 1.001358e-05, 1.5761139)
+transform = Transform3D(-1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, 75.89809, 1.001358e-05, 1.5761139)
 
 [node name="NPCs" type="Node3D" parent="." index="13"]
 
