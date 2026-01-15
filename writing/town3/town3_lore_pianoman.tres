@@ -4,14 +4,11 @@
 
 [resource]
 script = ExtResource("1_wtriw")
-dialog = "[ ]It’s a fresh sheet of paper.
-‘I can’t believe I’ve spent all this time hiding here in this stupid barrel…’
-‘I used to be someone! I used to be the big, bad muscle that would wreck a bar fight on the daily!’
-‘And now look where I am, cowering in fear in the face of a bunch of stupid zombies.’
-‘I need to get out there and do something! I can’t just lose my status as the fearsome powerhouse of this town!’
-‘I’m one of the Lions for cryin’ out loud! Lions don’t back down. They get up and fight!’
-‘Yeah! That’s what I’m gonna do! I’m gonna fight those bastards!’
-‘Yeah.’
-‘Maybe tomorrow.’
--C. Lion"
+dialog = "[ ]It’s a fresh note.
+‘Callie.’
+‘Those damned things came back and forced us all into a corner. I’ve made peace with myself that this place may very well be my tomb.’
+‘I don’t feel empty. I could’ve left long ago when the soul of Slimwater dried up, but I stayed for this Saloon. I’m choosing to die in a place full of cherished memories. Past love, past happiness.’ 
+‘If you are reading this, I hope you’ve managed to get away safely, and that a grim fate no longer lies in your way.’
+‘I never held a note for you when I played, Callie. It’d ruin the rhythm of your beautiful dancing. So don’t hold your breath for me, Callie. Don’t linger here. You’ve made this life worth living to me, Callie. I love you.’
+‘Sincerely, Felipe’"
 metadata/_custom_type_script = "uid://rvaetvwo5p3h"

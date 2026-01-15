@@ -4,4 +4,10 @@
 
 [resource]
 script = ExtResource("1_l2h1c")
+dialog = "[Slug] \"He…\"
+\"We didn’t think they would…\"
+\"God, is he STUPID?\"
+\"We could’ve just turned on our heels and booked it...\"
+\"My ears are ringing…\"
+[ ] His loss is not of your concern. Leave him to his own consequences. "
 metadata/_custom_type_script = "uid://rvaetvwo5p3h"

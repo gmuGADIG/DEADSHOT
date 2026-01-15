@@ -4,4 +4,13 @@
 
 [resource]
 script = ExtResource("1_1rlw3")
+dialog = "[Barmaid] “Oh. It’s you again. Why are you always finding me during such sad times?”
+[ ] She wipes her eyes. Another death? Probably that piano player. Not your concern.
+[Barmaid] “Haha...not so long ago I was worried about my looks...”
+“Do you believe in God?”
+“...”
+[ ] What would a mortal know about deities?
+[Barmaid] “Why are you looking at me like that?”
+“If there is a god up there, if any higher power is up there, please... help Felipe come back.”
+[ ] This conversation is a waste of time. As are these mines..."
 metadata/_custom_type_script = "uid://rvaetvwo5p3h"
