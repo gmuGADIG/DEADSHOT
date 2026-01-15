@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://crgv6bkolrlyy"]
+[gd_scene load_steps=52 format=3 uid="uid://crgv6bkolrlyy"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_b00wy"]
 [ext_resource type="Resource" uid="uid://q24ustx30otu" path="res://world/floor/sand/sand.tres" id="2_5t0jw"]
@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cjuuefpldxnv" path="res://world/backgrounds/desert_bg.png" id="2_trnsn"]
 [ext_resource type="PackedScene" uid="uid://d1e8myf75tnlv" path="res://world/interactables/cover/cover_cactus_large.tscn" id="4_xa3ak"]
 [ext_resource type="PackedScene" uid="uid://bp6l0lw650m8o" path="res://world/blocker/blocker.tscn" id="6_4q5tc"]
-[ext_resource type="Script" uid="uid://5430ylajkno2" path="res://world/transitions/entry_point.gd" id="6_trnsn"]
+[ext_resource type="Script" path="res://world/transitions/entry_point.gd" id="6_trnsn"]
 [ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://world/interactables/cover/cover_boulder.tscn" id="7_afdcq"]
 [ext_resource type="PackedScene" uid="uid://8er7o8byf7v1" path="res://world/decoration/well/well.tscn" id="7_gq3fs"]
 [ext_resource type="PackedScene" uid="uid://bb3qdjspo0kcq" path="res://world/interactables/barrel/barrel.tscn" id="8_afdcq"]
@@ -23,7 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://dp00f0nisoyxa" path="res://world/enemy/bosses/horse/horse.tscn" id="14_b84ov"]
 [ext_resource type="Resource" uid="uid://dgfsfa6177rri" path="res://audio/music/song_files/desert_level/Matthew_desert_combat_song.tres" id="14_u25nn"]
 [ext_resource type="PackedScene" uid="uid://by1e10t6ksd64" path="res://world/enemy/bird_swarm/bird_swarm.tscn" id="16_bgh4w"]
-[ext_resource type="Resource" uid="uid://dfovwf7isgyks" path="res://audio/music/song_files/desert_level/Nathan_horse_boss_song.tres" id="19_wy6jc"]
+[ext_resource type="Resource" uid="uid://b8tbns1l0a0fv" path="res://audio/music/song_files/desert_level/Nathan_horse_boss_song.tres" id="19_wy6jc"]
 [ext_resource type="Script" uid="uid://cvp3wk4dqwu5l" path="res://world/enemy/encounter/horse_encounter.gd" id="21_vun7f"]
 [ext_resource type="Resource" uid="uid://dfye3mbaka8i3" path="res://writing/largedesert/largedesert_pre_boss.tres" id="22_q41oy"]
 [ext_resource type="Resource" uid="uid://cb8t7vwx4xu3p" path="res://writing/largedesert/largedesert_post_boss.tres" id="23_ptnw0"]
@@ -33,6 +33,17 @@
 [ext_resource type="Texture2D" uid="uid://bo8fih3lgc5oj" path="res://world/backgrounds/stalagmite3.png" id="28_tid2h"]
 [ext_resource type="Texture2D" uid="uid://b1chcsvryv8et" path="res://world/backgrounds/stalagmite2.png" id="29_mf1js"]
 [ext_resource type="PackedScene" uid="uid://crroyl2puavcb" path="res://world/decoration/floor_lantern/floor_lantern.tscn" id="30_ehym8"]
+[ext_resource type="PackedScene" uid="uid://drnl31ofxrsri" path="res://world/npc/npc_cryptic_nomad.tscn" id="34_e2bp0"]
+[ext_resource type="Resource" uid="uid://bweukovpkolvr" path="res://writing/largedesert/largedesert_crypticnomad.tres" id="35_52dvu"]
+[ext_resource type="PackedScene" uid="uid://b4a6qry8kyr87" path="res://world/npc/npc_snake_oil_salesman.tscn" id="36_jssub"]
+[ext_resource type="Resource" uid="uid://bc8recjumkbv1" path="res://writing/largedesert/largedesert_snakeoilsalesman.tres" id="37_rx7v0"]
+[ext_resource type="PackedScene" uid="uid://buycij5b3uf5i" path="res://world/npc/paper/paper.tscn" id="38_ty0sy"]
+[ext_resource type="Resource" uid="uid://cp2xul2m6vdq2" path="res://writing/largedesert/largedesert_lore_1c.tres" id="39_52dvu"]
+[ext_resource type="Resource" uid="uid://c8ppkgst6t0hp" path="res://writing/largedesert/largedesert_lore_2.tres" id="39_wl8lg"]
+[ext_resource type="Resource" uid="uid://upmdb67b45r8" path="res://writing/largedesert/largedesert_lore_4.tres" id="40_mu2wr"]
+[ext_resource type="Resource" uid="uid://b3fphxdqqcr1d" path="res://writing/largedesert/largedesert_lore_3.tres" id="41_24bnj"]
+[ext_resource type="Resource" uid="uid://b0pnhbcwl554l" path="res://writing/largedesert/largedesert_lore_1a.tres" id="42_s3tp0"]
+[ext_resource type="Resource" uid="uid://b1p0h1eubtdtc" path="res://writing/largedesert/largedesert_lore_1b.tres" id="43_hlixd"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_afdcq"]
 vertices = PackedVector3Array(50.2892, 0.25, -32.80208, 49.7892, 0.25, -33.30208, 48.7892, 0.25, -33.80208, 24.0392, 0.25, -33.80208, 24.0392, 0.25, -30.802078, 25.5392, 0.25, -30.802078, 26.2892, 0.25, -30.302078, 32.7892, 0.25, -34.55208, 50.5392, 0.25, -29.302078, 45.2892, 0.25, -33.80208, 38.7892, 0.25, -33.30208, 50.0392, 0.25, -20.802078, 28.2892, 0.25, -24.302078, 28.2892, 0.25, -22.302078, 27.7892, 0.25, -12.302078, 50.0392, 0.25, -12.052078, 50.7892, 0.25, -18.302078, 27.2892, 0.5, -20.802078, 6.7892, 0.25, -20.552078, 10.7892, 0.25, -20.552078, 10.7892, 0.25, -24.802078, 4.7892, 0.25, -22.052078, -10.9608, 0.25, -31.552078, -12.2108, 0.25, -31.052078, -11.9608, 0.25, -23.552078, -9.9608, 0.25, -22.052078, 17.2892, 0.25, -29.802078, 13.2892, 0.25, -32.80208, 12.7892, 0.25, -26.802078, -20.2108, 0.25, -32.55208, -19.9608, 0.25, -31.052078, -7.7108, 0.25, -33.30208, -21.9608, 0.25, -31.052078, -22.4608, 0.25, -32.55208, -23.2108, 0.25, -10.302078, -20.9608, 0.25, -16.552078, -25.4608, 0.25, -20.052078, -42.4608, 0.25, -7.3020782, -41.7108, 0.25, -7.3020782, -41.2108, 0.25, -9.302078, -42.4608, 0.25, -21.302078, -22.9608, 0.25, -30.052078, -28.9608, 0.25, -29.302078, -27.4608, 0.25, -6.0520782, -23.4608, 0.25, -8.302078, -35.2108, 0.25, -6.0520782, -33.2108, 0.25, -25.552078, -38.2108, 0.25, -24.302078, -23.7108, 0.25, -24.552078, -25.4608, 0.25, -21.552078, -39.9608, 0.25, -9.302078, 7.0392, 0.25, -18.552078, 10.7892, 0.5, -17.302078, 2.0391998, 0.25, -13.052078, 10.0392, 0.25, -14.302078, 6.0392, 0.25, -16.802078, -3.4608002, 0.25, -15.552078, -2.7108002, 0.25, -13.302078, -4.2108, 0.25, -12.802078, -6.7108, 0.25, -15.302078, -4.7108, 0.25, -11.802078, -11.9608, 0.25, -13.302078, -11.7108, 0.25, -10.552078, -10.7108, 0.25, -9.052078, -5.4608, 0.25, -8.802078, 26.5392, 0.25, -5.8020782, 26.5392, 0.5, -2.5520782, 27.2892, 0.25, -1.8020782, 27.7892, 0.25, -10.552078, 27.0392, 0.5, -9.302078, 27.5392, 0.25, 0.44792175, 50.2892, 0.25, 0.44792175, 50.5392, 0.25, -7.0520782, -3.7108002, 0.25, -10.552078, -2.9608002, 0.25, -7.5520782, 4.2892, 0.25, -7.5520782, 4.5392, 0.25, -10.552078, 6.7892, 0.25, 0.19792175, 6.0392, 0.25, 0.94792175, 9.5392, 0.25, 1.4479218, 7.0392, 0.25, -1.0520782, 10.7892, 0.5, -1.3020782, 7.0392, 0.25, -4.5520782, 5.7892, 0.25, -6.8020782, 9.7892, 0.5, -10.052078, 10.5392, 0.25, -9.302078, -24.4608, 0.25, 4.9479218, -23.4608, 0.25, 4.4479218, -24.4608, 0.25, 3.9479218, -40.7108, 0.25, 4.1979218, -42.2108, 0.25, 5.1979218, -41.7108, 0.25, 1.4479218, -42.4608, 0.25, 1.6979218, -41.4608, 0.25, 3.4479218, -41.7108, 0.25, -5.3020782, -42.4608, 0.25, -5.3020782, -42.4608, 0.25, -0.052078247, -41.7108, 0.25, 0.19792175, 45.5392, 0.25, 9.947922, 47.2892, 0.25, 9.447922, 47.7892, 0.25, 7.9479218, 26.7892, 0.5, 2.1979218, 27.2892, 0.5, 5.4479218, 30.5392, 0.25, 8.197922, 49.5392, 0.25, 6.9479218, 36.2892, 0.5, 17.197922, 44.5392, 0.25, 10.947922, 41.0392, 0.5, 17.197922, 31.2892, 0.25, 10.697922, 9.2892, 0.5, 11.947922, 10.2892, 0.5, 11.447922, 10.5392, 0.5, 9.447922, 8.7892, 0.25, 5.6979218, 8.7892, 0.25, 3.4479218, 5.0392, 0.25, 1.4479218, -2.2108002, 0.5, 15.197922, 1.5391998, 0.5, 15.197922, 2.0391998, 0.5, 11.947922, -2.4608002, 0.25, 11.447922, -2.4608002, 0.25, 2.1979218, -2.9608002, 0.25, 10.447922, -0.7108002, 0.25, 1.4479218, 46.7892, 0.5, 34.19792, 49.0392, 0.5, 33.19792, 50.0392, 0.5, 31.947922, 36.0392, 0.5, 17.947922, 41.7892, 0.5, 18.197922, 49.7892, 0.5, 18.697922, 29.0392, 0.5, 18.197922, 27.7892, 0.5, 19.447922, 28.5392, 0.5, 23.947922, 27.2892, 0.5, 36.19792, 33.5392, 0.5, 36.44792, 33.5392, 0.5, 34.69792, 27.2892, 0.5, 34.19792, 34.2892, 0.5, 34.19792, 26.2892, 0.5, 30.697922, 49.2892, 0.5, 18.197922, 1.2891998, 0.5, 35.19792, 1.0391998, 0.5, 32.94792, -1.9608002, 0.5, 32.94792, -2.2108002, 0.5, 35.19792, 1.7891998, 0.5, 35.44792, -3.2108002, 0.5, 35.44792, -3.2108002, 0.5, 50.44792, 1.7891998, 0.5, 49.94792, -9.7108, 0.5, 34.44792, -13.2108, 0.5, 35.44792, -14.9608, 0.5, 49.44792, -13.2108, 0.5, 51.69792, -14.9608, 0.5, 35.44792, -19.2108, 0.5, 49.69792, -16.4608, 0.5, 50.19792, -19.2108, 0.5, 35.44792, -21.2108, 0.5, 36.19792, -19.7108, 0.5, 50.44792, 11.0392, 0.5, 36.94792, 10.0392, 0.5, 35.94792, 8.7892, 0.5, 35.44792, 15.5392, 0.5, 50.94792, 15.5392, 0.5, 47.44792, 13.2892, 0.5, 47.44792, 11.0392, 0.5, 52.19792, 12.2892, 0.5, 52.19792, 11.0392, 0.5, 46.44792, 12.0392, 0.5, 42.69792, 12.0392, 0.5, 40.69792, -32.4608, 0.5, 41.69792, -33.2108, 0.5, 43.94792, -32.2108, 0.5, 44.19792, -31.9608, 0.5, 50.19792, -31.2108, 0.5, 51.19792, -29.7108, 0.5, 51.94792, -30.9608, 0.5, 47.69792, -28.4608, 0.5, 35.69792, -30.9608, 0.5, 35.94792, -32.2108, 0.5, 37.69792, -30.9608, 0.5, 45.69792, -24.9608, 0.5, 36.94792, -21.2108, 0.5, 51.69792, 27.0392, 0.5, 44.69792, 33.5392, 0.5, 44.69792, 42.0392, 0.5, 45.19792, 42.7892, 0.5, 45.19792, 42.2892, 0.5, 44.44792, 42.2892, 0.5, 42.94792, 37.7892, 0.5, 45.94792, 39.0392, 0.5, 46.69792, 40.0392, 0.5, 46.69792, 40.0392, 0.5, 41.19792, 37.7892, 0.5, 41.94792, 37.0392, 0.5, 43.69792, 43.2892, 0.5, 53.69792, 41.7892, 0.5, 53.69792, 41.7892, 0.5, 55.44792, 50.7892, 0.5, 50.94792, 50.7892, 0.5, 49.69792, 50.0392, 0.5, 48.44792, 45.2892, 0.5, 42.94792, 44.7892, 0.5, 46.44792, 45.5392, 0.5, 47.44792, 50.5392, 0.5, 44.19792, 50.0392, 0.5, 42.94792, 45.5392, 0.5, 52.44792, 48.7892, 0.5, 55.44792, 49.2892, 0.5, 54.94792, 38.7892, 0.5, 52.94792, 36.7892, 0.5, 50.44792, 34.5392, 0.5, 49.94792, 26.5392, 0.5, 48.19792, 33.5392, 0.5, 49.19792, 23.5392, 0.5, 48.94792, 23.5392, 0.5, 55.44792, 16.5392, 0.5, 51.19792, 20.2892, 0.5, 46.69792, 18.0392, 0.5, 54.94792, 22.7892, 0.5, 48.94792)
@@ -127,7 +138,7 @@ target_scene = "uid://c4lcfae1j0kdx"
 target_entry_point = "Bottom"
 
 [node name="Player" parent="." index="5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.449486, 0, 31.264133)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.449486, 0, -45.45904)
 floor_type = 1
 
 [node name="Decor" type="Node" parent="." index="9"]
@@ -1034,7 +1045,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.758186, 0, -35.4757)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.10988, 0, -51.478714)
 
 [node name="Campfire6" parent="Campfires" index="2" instance=ExtResource("9_mkqt0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.13811, 0, 30.63556)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.76785, 0, 30.94145)
 
 [node name="Barrels" type="Node" parent="." index="14"]
 
@@ -1932,3 +1943,35 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.434433, 0, 25.183636)
 
 [node name="FloorLantern2" parent="." index="25" instance=ExtResource("30_ehym8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6873455, 0, 25.714201)
+
+[node name="NPCCrypticNomad" parent="." index="26" instance=ExtResource("34_e2bp0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7092495, 0.09224975, -10.191919)
+timeline = ExtResource("35_52dvu")
+
+[node name="NPCBase" parent="." index="27" instance=ExtResource("36_jssub")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.663504, 0.147, -35.875614)
+timeline = ExtResource("37_rx7v0")
+
+[node name="Paper6" parent="." index="28" instance=ExtResource("38_ty0sy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.16892, -0.016448975, -29.117624)
+timeline = ExtResource("39_52dvu")
+
+[node name="Paper" parent="." index="29" instance=ExtResource("38_ty0sy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4975004, -0.016450882, -28.842106)
+timeline = ExtResource("39_wl8lg")
+
+[node name="Paper2" parent="." index="30" instance=ExtResource("38_ty0sy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.22603, -0.016444206, 36.092133)
+timeline = ExtResource("40_mu2wr")
+
+[node name="Paper3" parent="." index="31" instance=ExtResource("38_ty0sy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.273556, -0.01646614, 30.79958)
+timeline = ExtResource("41_24bnj")
+
+[node name="Paper4" parent="." index="32" instance=ExtResource("38_ty0sy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.41909, -0.016450882, -34.374813)
+timeline = ExtResource("42_s3tp0")
+
+[node name="Paper5" parent="." index="33" instance=ExtResource("38_ty0sy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.77576, -0.016450882, -50.943985)
+timeline = ExtResource("43_hlixd")
