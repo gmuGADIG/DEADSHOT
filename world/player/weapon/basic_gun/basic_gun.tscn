@@ -7,6 +7,7 @@
 
 [node name="BasicGun" type="Node3D"]
 script = ExtResource("1_gjor4")
+ammo_per_pickup = 20
 
 [node name="Sounds" type="Node3D" parent="."]
 

@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cjuuefpldxnv" path="res://world/backgrounds/desert_bg.png" id="2_trnsn"]
 [ext_resource type="PackedScene" uid="uid://d1e8myf75tnlv" path="res://world/interactables/cover/cover_cactus_large.tscn" id="4_xa3ak"]
 [ext_resource type="PackedScene" uid="uid://bp6l0lw650m8o" path="res://world/blocker/blocker.tscn" id="6_4q5tc"]
-[ext_resource type="Script" uid="uid://5430ylajkno2" path="res://world/transitions/entry_point.gd" id="6_trnsn"]
+[ext_resource type="Script" path="res://world/transitions/entry_point.gd" id="6_trnsn"]
 [ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://world/interactables/cover/cover_boulder.tscn" id="7_afdcq"]
 [ext_resource type="PackedScene" uid="uid://8er7o8byf7v1" path="res://world/decoration/well/well.tscn" id="7_gq3fs"]
 [ext_resource type="PackedScene" uid="uid://bb3qdjspo0kcq" path="res://world/interactables/barrel/barrel.tscn" id="8_afdcq"]
@@ -24,7 +24,7 @@
 [ext_resource type="Resource" uid="uid://dgfsfa6177rri" path="res://audio/music/song_files/desert_level/Matthew_desert_combat_song.tres" id="14_u25nn"]
 [ext_resource type="PackedScene" uid="uid://by1e10t6ksd64" path="res://world/enemy/bird_swarm/bird_swarm.tscn" id="16_bgh4w"]
 [ext_resource type="Resource" uid="uid://dfovwf7isgyks" path="res://audio/music/song_files/desert_level/Nathan_horse_boss_song.tres" id="19_wy6jc"]
-[ext_resource type="PackedScene" uid="uid://c7c1lwr411btx" path="res://audio/music/music_player/play_song_for_scene.tscn" id="23_wy6jc"]
+[ext_resource type="PackedScene" path="res://audio/music/music_player/play_song_for_scene.tscn" id="23_wy6jc"]
 [ext_resource type="Resource" uid="uid://cckle8iujnl64" path="res://audio/music/song_files/desert_level/Nila_desert_song.tres" id="24_trnsn"]
 [ext_resource type="Texture2D" uid="uid://bawb4ny3wnsng" path="res://world/interactables/cover/cactus_new.png" id="27_stsvq"]
 [ext_resource type="Texture2D" uid="uid://bo8fih3lgc5oj" path="res://world/backgrounds/stalagmite3.png" id="28_tid2h"]
@@ -145,14 +145,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.559052, 0, -33.06453)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.493797, 0, -35.470795)
 
 [node name="CursedPlant" parent="Decor" index="5" instance=ExtResource("9_jw2qs")]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -36.891663, -0.06959438, -28.970417)
+transform = Transform3D(1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, -36.891663, -0.06959438, -28.970417)
 
 [node name="CursedPlant2" parent="Decor" index="6" instance=ExtResource("9_jw2qs")]
-transform = Transform3D(1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, -39.0923, -0.06959438, -31.491024)
+transform = Transform3D(-1, 0, 0, 0, 1, -1.509958e-07, 0, 1.509958e-07, 1, -39.0923, -0.06959438, -31.491024)
 type = 1
 
 [node name="CursedPlant3" parent="Decor" index="7" instance=ExtResource("9_jw2qs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.121485, -0.06959438, -29.77686)
+transform = Transform3D(-1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, -20.121485, -0.06959438, -29.77686)
 
 [node name="Well2" parent="Decor" index="8" instance=ExtResource("7_gq3fs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.905464, -0.09687781, -30.80377)

@@ -141,12 +141,12 @@ func get_bullet_scene() -> PackedScene:
 		return preload("res://world/player/weapon/bullet/player_bullet.tscn")
 
 func get_damage() -> float:
-	var modifier := 1.
+	var modifier := 1.0
 	
-	if SkillSet.has_skill(SkillSet.SkillUID.BASE_DAMAGE): modifier += 1.
-	if SkillSet.has_skill(SkillSet.SkillUID.RIFLE_DAMAGE_1): modifier += 1.
-	if SkillSet.has_skill(SkillSet.SkillUID.RIFLE_DAMAGE_2): modifier += 1.
-	if SkillSet.has_skill(SkillSet.SkillUID.PISTOL_DAMAGE): modifier += 1.
+	if SkillSet.has_skill(SkillSet.SkillUID.BASE_DAMAGE): modifier += 0.5
+	if SkillSet.has_skill(SkillSet.SkillUID.RIFLE_DAMAGE_1): modifier += 0.5
+	if SkillSet.has_skill(SkillSet.SkillUID.RIFLE_DAMAGE_2): modifier += 0.5
+	if SkillSet.has_skill(SkillSet.SkillUID.PISTOL_DAMAGE): modifier += 0.5
 
 	if SkillSet.has_skill(SkillSet.SkillUID.PISTOL_ROLL_COOLDOWN): modifier -= 1.
 	if SkillSet.has_skill(SkillSet.SkillUID.RIFLE_FIRE_RATE): modifier -= 1.
@@ -156,7 +156,7 @@ func get_damage() -> float:
 func get_fire_cooldown() -> float:
 	var modifier := 1.
 	
-	if SkillSet.has_skill(SkillSet.SkillUID.SHOTGUN_FIRE_RATE): modifier *= .5
+	if SkillSet.has_skill(SkillSet.SkillUID.SHOTGUN_FIRE_RATE): modifier *= .75
 	if SkillSet.has_skill(SkillSet.SkillUID.PISTOL_FIRE_RATE): modifier *= .75
 	if SkillSet.has_skill(SkillSet.SkillUID.RIFLE_FIRE_RATE): modifier *= .75
 
