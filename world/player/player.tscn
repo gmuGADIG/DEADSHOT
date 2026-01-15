@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://nuqmhgq1e2lu"]
+[gd_scene load_steps=34 format=3 uid="uid://nuqmhgq1e2lu"]
 
 [ext_resource type="Script" uid="uid://llqh4g6obmup" path="res://world/player/player.gd" id="1_bvkkv"]
 [ext_resource type="PackedScene" uid="uid://bas8xwk5nhlq0" path="res://world/player/HUD/hud.tscn" id="2_duds0"]
@@ -20,6 +20,8 @@
 [ext_resource type="PackedScene" uid="uid://pl3x14i1m2kt" path="res://audio/streams/WalkSFX/walk_puddle.tscn" id="12_3n4qb"]
 [ext_resource type="PackedScene" uid="uid://dou0ya37mv70s" path="res://audio/streams/roll_sound.tscn" id="14_lbm61"]
 [ext_resource type="PackedScene" uid="uid://cjqtb588mlf84" path="res://audio/streams/hurt_sound.tscn" id="15_jrep8"]
+[ext_resource type="Texture2D" uid="uid://gds0k2gwfygi" path="res://temp_art/gartic/coin_white.png" id="19_fn377"]
+[ext_resource type="QuadMesh" uid="uid://cdwprxyr25kqj" path="res://world/player/sand_particle_mesh.tres" id="20_xq3gs"]
 
 [sub_resource type="Curve" id="Curve_2x47q"]
 _limits = [0.0, 20.0, 0.0, 0.45]
@@ -69,6 +71,31 @@ _data = {
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_bvkkv"]
 height = 0.27978516
 radius = 0.8881836
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fn377"]
+transparency = 1
+albedo_color = Color(0.40784314, 0.4, 0.39215687, 1)
+albedo_texture = ExtResource("19_fn377")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_xq3gs"]
+material = SubResource("StandardMaterial3D_fn377")
+size = Vector2(0.1, 0.1)
+
+[sub_resource type="Gradient" id="Gradient_hnw2l"]
+offsets = PackedFloat32Array(0, 0.7781955, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hnw2l"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.40784314, 0.4, 0.39215687, 1)
+albedo_texture = ExtResource("19_fn377")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_gy2m5"]
+material = SubResource("StandardMaterial3D_hnw2l")
+size = Vector2(0.1, 0.1)
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("health_component", "whip") groups=["player"]]
 collision_layer = 2
@@ -195,8 +222,69 @@ unique_name_in_owner = true
 [node name="WalkPuddle" parent="Sounds" instance=ExtResource("12_3n4qb")]
 unique_name_in_owner = true
 
+[node name="DesertAmbientParticles" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.058, 0)
+emitting = false
+amount = 70
+lifetime = 8.0
+mesh = ExtResource("20_xq3gs")
+emission_shape = 3
+emission_box_extents = Vector3(20, 0.1, 20)
+direction = Vector3(1, 0.7, 0)
+spread = 15.0
+gravity = Vector3(0, -0.5, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 3.0
+
+[node name="CaveAmbientParticles" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+amount = 100
+lifetime = 8.0
+mesh = SubResource("QuadMesh_xq3gs")
+emission_shape = 3
+emission_box_extents = Vector3(20, 5, 20)
+direction = Vector3(0, 1, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 3.0
+
 [node name="FootstepEmitter" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0.88683414)
+
+[node name="RollDesertParticles" type="CPUParticles3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.1924758, 0)
+emitting = false
+amount = 12
+lifetime = 1.5
+one_shot = true
+mesh = ExtResource("20_xq3gs")
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, -1, 0)
+spread = 20.0
+gravity = Vector3(1, -1.5, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 5.0
+color_ramp = SubResource("Gradient_hnw2l")
+
+[node name="RollCaveParticles" type="CPUParticles3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.1924758, 0)
+emitting = false
+amount = 12
+lifetime = 1.5
+one_shot = true
+mesh = SubResource("QuadMesh_gy2m5")
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, -1, 0)
+spread = 20.0
+gravity = Vector3(1, -1.5, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 5.0
+color_ramp = SubResource("Gradient_hnw2l")
 
 [node name="AudioListener3D" type="AudioListener3D" parent="."]
 

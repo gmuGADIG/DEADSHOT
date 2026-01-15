@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cjuuefpldxnv" path="res://world/backgrounds/desert_bg.png" id="2_trnsn"]
 [ext_resource type="PackedScene" uid="uid://d1e8myf75tnlv" path="res://world/interactables/cover/cover_cactus_large.tscn" id="4_xa3ak"]
 [ext_resource type="PackedScene" uid="uid://bp6l0lw650m8o" path="res://world/blocker/blocker.tscn" id="6_4q5tc"]
-[ext_resource type="Script" uid="uid://5430ylajkno2" path="res://world/transitions/entry_point.gd" id="6_trnsn"]
+[ext_resource type="Script" path="res://world/transitions/entry_point.gd" id="6_trnsn"]
 [ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://world/interactables/cover/cover_boulder.tscn" id="7_afdcq"]
 [ext_resource type="PackedScene" uid="uid://8er7o8byf7v1" path="res://world/decoration/well/well.tscn" id="7_gq3fs"]
 [ext_resource type="PackedScene" uid="uid://bb3qdjspo0kcq" path="res://world/interactables/barrel/barrel.tscn" id="8_afdcq"]

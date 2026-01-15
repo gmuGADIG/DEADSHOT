@@ -23,9 +23,15 @@ enum PlayerState {
 	TRANSITIONING,  ## Moving between scenes and not accepting input
 }
 
+
 #region Variables
 static var persisting_data : PlayerPersistingData
 static var instance : Player
+
+@onready var desert_particles : CPUParticles3D = $DesertAmbientParticles
+@onready var cave_particles : CPUParticles3D = $CaveAmbientParticles
+
+
 signal player_ready
 
 var speed_multiplier: float = 1.0
@@ -89,6 +95,7 @@ func setup_gun() -> void:
 
 #region Builtin Functions
 func _ready() -> void:
+	
 	walk_sfx = generate_walking_sounds() # Sets the player's walking sound.
 	walk_sfx_timer = Timer.new()
 	
@@ -221,6 +228,19 @@ func get_gun() -> Gun:
 
 	return get_node("Weapons/" + gun_name)
 
+func set_ambience(ambience_type : Level.AmbienceType) -> void:
+	match ambience_type:
+		Level.AmbienceType.DESERT:
+			desert_particles.emitting = true
+			cave_particles.emitting = false
+			%RollDesertParticles.show()
+			%RollCaveParticles.hide()
+		Level.AmbienceType.CAVE:
+			desert_particles.emitting = false
+			cave_particles.emitting = true
+			%RollDesertParticles.hide()
+			%RollCaveParticles.show()
+
 ## Returns the inputted walking direction on the XZ plane (Y = 0)
 func input_direction() -> Vector3:
 	var input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -254,7 +274,15 @@ func begin_roll() -> void:
 	if stamina < 1.0: return
 	stamina -= 1.0
 	
+	var mul := 1. if not SkillSet.has_skill(SkillSet.SkillUID.PISTOL_DAMAGE) else .5
 	%RollSound.play()
+
+	%RollDesertParticles.lifetime = roll_curve.max_domain * mul
+	%RollDesertParticles.emitting = true
+
+	%RollCaveParticles.lifetime = roll_curve.max_domain * mul
+	%RollCaveParticles.emitting = true
+
 	current_state = PlayerState.ROLLING
 	health_component.vulnerable = false
 	roll_time = 0
@@ -344,7 +372,8 @@ func play_walking_sfx() -> void:
 		else:
 			new_footstep.global_position += velocity.normalized().rotated(Vector3.UP,PI/2)*0.2
 			footstep_state = FootstepState.RIGHT
-		
+		if desert_particles.emitting:
+			new_footstep.sand_kick()
 	
 	print("STEP")
 	if(speed_multiplier == 0.5): #Check if player is in puddle
