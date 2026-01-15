@@ -24,7 +24,7 @@
 [ext_resource type="AudioStream" uid="uid://dxn806b3l8hmt" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkW.wav" id="23_6gu7l"]
 [ext_resource type="AudioStream" uid="uid://cs4qt0nkxm26g" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkY.wav" id="24_t5xj8"]
 [ext_resource type="Script" uid="uid://qxwm2k0huy5n" path="res://systems/dialog/voicebank.gd" id="25_ge1t5"]
-[ext_resource type="Shader" path="res://menu/cutscenes/outro/title_popup.gdshader" id="26_d8ird"]
+[ext_resource type="Shader" uid="uid://d3m00nmbmdtm8" path="res://menu/cutscenes/outro/title_popup.gdshader" id="26_d8ird"]
 [ext_resource type="Texture2D" uid="uid://r6b11vwb18y2" path="res://systems/dialog/dialogue_box.png" id="27_b5a57"]
 [ext_resource type="FontFile" uid="uid://doh1s81pnbjh3" path="res://menu/BaskaraDemoRegular.ttf" id="28_g3aw5"]
 
@@ -42,7 +42,7 @@ noise = SubResource("FastNoiseLite_c3yfu")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d8ird"]
 shader = ExtResource("26_d8ird")
-shader_parameter/progress = -0.65999998385
+shader_parameter/progress = 2.0
 shader_parameter/width = 0.7
 shader_parameter/noise = SubResource("NoiseTexture2D_rx78u")
 shader_parameter/speed = 0.5
@@ -59,7 +59,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Box/SubViewport/Panel:material:shader_parameter/progress")
+tracks/0/path = NodePath("Box:material:shader_parameter/progress")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
