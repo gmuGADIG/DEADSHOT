@@ -26,6 +26,7 @@ stream_8/stream = ExtResource("10_hhebq")
 stream_9/stream = ExtResource("11_qech7")
 stream_10/stream = ExtResource("3_b6n52")
 
-[node name="WalkWood" type="AudioStreamPlayer3D"]
+[node name="WalkWood" type="AudioStreamPlayer"]
 stream = SubResource("AudioStreamRandomizer_q5qiq")
+volume_db = -6.0
 bus = &"SFX"

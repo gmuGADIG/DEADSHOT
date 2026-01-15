@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://k7mggqq4h3i1"]
 
-[ext_resource type="Script" uid="uid://dxk1lo05yd2jo" path="res://world/bullets/explosion.gd" id="1_c8ccv"]
+[ext_resource type="Script" path="res://world/bullets/explosion.gd" id="1_c8ccv"]
 [ext_resource type="PackedScene" uid="uid://co30kufvambu0" path="res://audio/streams/explosion.tscn" id="1_kp2pm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c8ccv"]
@@ -24,9 +24,9 @@ transform = Transform3D(6.809941, 0, 0, 0, 6.809941, 0, 0, 0, 6.809941, 0, 0, 0)
 mesh = SubResource("SphereMesh_uo744")
 
 [node name="Explosion" parent="." instance=ExtResource("1_kp2pm")]
-volume_db = 80.0
+volume_db = 0.0
 unit_size = 100.0
-max_db = 6.0
+max_db = 0.0
 autoplay = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

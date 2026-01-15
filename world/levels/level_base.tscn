@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://bk60c4813t663"]
+[gd_scene load_steps=12 format=3 uid="uid://bk60c4813t663"]
 
+[ext_resource type="Script" uid="uid://q10x2xcwg00c" path="res://world/levels/level.gd" id="1_0l2rd"]
 [ext_resource type="PackedScene" uid="uid://cr05xakri7lnw" path="res://world/floor/floor_gen.tscn" id="1_8hxjk"]
 [ext_resource type="Script" uid="uid://cjhe4i28xn2ne" path="res://world/backgrounds/background.gd" id="2_ay16i"]
 [ext_resource type="PackedScene" uid="uid://nuqmhgq1e2lu" path="res://world/player/player.tscn" id="2_nnb1h"]
@@ -38,6 +39,7 @@ adjustment_brightness = 0.95
 adjustment_contrast = 1.2
 
 [node name="LevelBase" type="Node3D"]
+script = ExtResource("1_0l2rd")
 
 [node name="Background" type="Node3D" parent="."]
 

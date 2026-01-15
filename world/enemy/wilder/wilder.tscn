@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dwdhuncnyfmcw"]
+[gd_scene load_steps=22 format=3 uid="uid://dwdhuncnyfmcw"]
 
 [ext_resource type="PackedScene" uid="uid://dx3l0wduat3tp" path="res://world/enemy/base/enemy_base.tscn" id="1_pw5bb"]
 [ext_resource type="Script" uid="uid://pewr3uke4fqt" path="res://world/enemy/wilder/wilder.gd" id="1_skiir"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://daw3qrkhk20v2" path="res://world/enemy/wilder/wilder_walk.png" id="5_1g6n4"]
 [ext_resource type="PackedScene" uid="uid://dtrtlfnkaklwl" path="res://audio/streams/wilder_shoot_sound.tscn" id="5_d53cb"]
 [ext_resource type="PackedScene" uid="uid://dqe8jyn23q6w6" path="res://audio/streams/wilder_death_sound.tscn" id="6_buhvy"]
-[ext_resource type="AudioStream" uid="uid://drvscc177esir" path="res://audio/placeholders/test_explode_big.wav" id="7_b04xd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o6wyr"]
 atlas = ExtResource("4_1ptbf")
@@ -101,7 +100,7 @@ script = ExtResource("4_b04xd")
 clip = "attack"
 metadata/_custom_type_script = "uid://b5d5dfn03djx6"
 
-[node name="Wilder" node_paths=PackedStringArray("StuckTimer") instance=ExtResource("1_pw5bb")]
+[node name="Wilder" instance=ExtResource("1_pw5bb")]
 script = ExtResource("1_skiir")
 bullet = ExtResource("3_b04xd")
 movement_speed = 7.5
@@ -131,13 +130,9 @@ one_shot = true
 
 [node name="WilderShootSound" parent="Sounds" index="0" instance=ExtResource("5_d53cb")]
 unique_name_in_owner = true
-volume_db = 0.0
-bus = &"SFX"
 
 [node name="WilderDeathSound" parent="Sounds" index="1" instance=ExtResource("6_buhvy")]
 unique_name_in_owner = true
-stream = ExtResource("7_b04xd")
-bus = &"SFX"
 
 [node name="RunAwayTimer" type="Timer" parent="." index="9"]
 one_shot = true

@@ -1,0 +1,24 @@
+[gd_scene load_steps=8 format=3 uid="uid://bnr7lhv607nvp"]
+
+[ext_resource type="AudioStream" uid="uid://bjxi5iu03fkl8" path="res://audio/enemies/judge/se_judge_shot_1.mp3" id="1_r4oy5"]
+[ext_resource type="AudioStream" uid="uid://chb7ci03wugg2" path="res://audio/enemies/judge/se_judge_shot_2.mp3" id="2_2wdue"]
+[ext_resource type="AudioStream" uid="uid://3avyk28n6wpm" path="res://audio/enemies/judge/se_judge_shot_3.mp3" id="3_bn4i4"]
+[ext_resource type="AudioStream" uid="uid://bl66ojwspovsc" path="res://audio/enemies/judge/se_judge_shot_4.mp3" id="4_b3was"]
+[ext_resource type="AudioStream" uid="uid://bx4cgmu7w8fwi" path="res://audio/enemies/judge/se_judge_shot_5.mp3" id="5_j74rk"]
+[ext_resource type="AudioStream" uid="uid://de8f1i5hx0j20" path="res://audio/enemies/judge/se_judge_shot_6.mp3" id="6_ofn0s"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_35sv0"]
+streams_count = 6
+stream_0/stream = ExtResource("1_r4oy5")
+stream_1/stream = ExtResource("2_2wdue")
+stream_2/stream = ExtResource("3_bn4i4")
+stream_3/stream = ExtResource("4_b3was")
+stream_4/stream = ExtResource("5_j74rk")
+stream_5/stream = ExtResource("6_ofn0s")
+
+[node name="ShootSound" type="AudioStreamPlayer"]
+stream = SubResource("AudioStreamRandomizer_35sv0")
+volume_db = -5.0
+bus = &"SFX"
+
+[connection signal="finished" from="." to="." method="_on_finished"]

@@ -1,14 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dou0ya37mv70s"]
+[gd_scene load_steps=2 format=3 uid="uid://dou0ya37mv70s"]
 
 [ext_resource type="AudioStream" uid="uid://c3s43tnih4twj" path="res://audio/player/Roll_PC.wav" id="2_8mxbc"]
-[ext_resource type="Script" uid="uid://bf14d2iyiqx56" path="res://audio/streams/sound_stream.gd" id="2_x1eh1"]
 
-[node name="RollSound" type="AudioStreamPlayer3D"]
+[node name="RollSound" type="AudioStreamPlayer"]
 stream = ExtResource("2_8mxbc")
-unit_size = 20.0
-panning_strength = 0.5
+volume_db = -3.0
 bus = &"SFX"
-attenuation_filter_cutoff_hz = 20500.0
-script = ExtResource("2_x1eh1")
 
 [connection signal="finished" from="." to="." method="_on_finished"]

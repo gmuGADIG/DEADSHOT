@@ -4,4 +4,5 @@
 
 [node name="Explosion" type="AudioStreamPlayer3D"]
 stream = ExtResource("1_8lry2")
+volume_db = -10.0
 bus = &"SFX"

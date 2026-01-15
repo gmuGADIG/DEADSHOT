@@ -20,6 +20,7 @@ stream_5/stream = ExtResource("6_hxir0")
 stream_6/stream = ExtResource("7_cif0f")
 stream_7/stream = ExtResource("8_edlg0")
 
-[node name="WalkPuddle" type="AudioStreamPlayer3D"]
+[node name="WalkPuddle" type="AudioStreamPlayer"]
 stream = SubResource("AudioStreamRandomizer_e3w62")
+volume_db = -6.0
 bus = &"SFX"
