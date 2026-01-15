@@ -4,5 +4,5 @@
 
 [node name="SkillTreeEnterSound" type="AudioStreamPlayer"]
 stream = ExtResource("1_8p8rf")
-volume_db = -13.931
+volume_db = -8.0
 bus = &"SFX"

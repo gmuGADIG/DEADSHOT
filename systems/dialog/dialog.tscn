@@ -1,8 +1,7 @@
-[gd_scene load_steps=38 format=3 uid="uid://c1dar8odnyq6n"]
+[gd_scene load_steps=37 format=3 uid="uid://c1dar8odnyq6n"]
 
 [ext_resource type="Script" uid="uid://0ti8jktscn8w" path="res://systems/dialog/dialog.gd" id="1_luyus"]
 [ext_resource type="AudioStream" uid="uid://bdsxandq2bhjy" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkA.wav" id="2_clngm"]
-[ext_resource type="AudioStream" uid="uid://dc6lbunkflvv4" path="res://audio/placeholders/funny_bone_man.wav" id="2_qqm2g"]
 [ext_resource type="AudioStream" uid="uid://b5lhglep41wwx" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkB.wav" id="3_3edpr"]
 [ext_resource type="AudioStream" uid="uid://db7o75hm7770g" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkC.wav" id="4_d8ird"]
 [ext_resource type="AudioStream" uid="uid://ccdtwcvjao0e3" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkD.wav" id="5_b5a57"]
@@ -25,7 +24,7 @@
 [ext_resource type="AudioStream" uid="uid://dxn806b3l8hmt" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkW.wav" id="23_6gu7l"]
 [ext_resource type="AudioStream" uid="uid://cs4qt0nkxm26g" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkY.wav" id="24_t5xj8"]
 [ext_resource type="Script" uid="uid://qxwm2k0huy5n" path="res://systems/dialog/voicebank.gd" id="25_ge1t5"]
-[ext_resource type="Shader" uid="uid://d3m00nmbmdtm8" path="res://menu/cutscenes/outro/title_popup.gdshader" id="26_d8ird"]
+[ext_resource type="Shader" path="res://menu/cutscenes/outro/title_popup.gdshader" id="26_d8ird"]
 [ext_resource type="Texture2D" uid="uid://r6b11vwb18y2" path="res://systems/dialog/dialogue_box.png" id="27_b5a57"]
 [ext_resource type="FontFile" uid="uid://doh1s81pnbjh3" path="res://menu/BaskaraDemoRegular.ttf" id="28_g3aw5"]
 
@@ -118,7 +117,7 @@ sfx = SubResource("Resource_yftcr")
 wait_time = 0.05
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_qqm2g")
+stream = ExtResource("2_clngm")
 volume_db = -10.0
 max_polyphony = 2
 bus = &"SFX"

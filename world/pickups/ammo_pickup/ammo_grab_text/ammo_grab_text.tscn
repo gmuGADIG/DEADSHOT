@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://ds01j6o85shug"]
+[gd_scene load_steps=5 format=3 uid="uid://ds01j6o85shug"]
 
 [ext_resource type="Script" uid="uid://c7u3aeica623x" path="res://world/pickups/ammo_pickup/ammo_grab_text/ammo_grab_text.gd" id="1_61ayg"]
-[ext_resource type="AudioStream" uid="uid://bsxp7603mjq0x" path="res://audio/placeholders/test_unlock.wav" id="2_24kid"]
 
 [sub_resource type="Animation" id="Animation_57pi4"]
 resource_name = "collect"
@@ -101,9 +100,6 @@ text = "+%d Bullets"
 font_size = 48
 outline_size = 0
 
-[node name="AmmoGrabSound" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("2_24kid")
-autoplay = true
 
 [node name="Anim" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
