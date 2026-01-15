@@ -148,7 +148,7 @@ skill_image = ExtResource("19_qpsim")
 skill_image_upgraded = ExtResource("20_jjotp")
 skill_description = "Hold down fire to charge bullets. Release to shoot."
 skill_meat_cost = 70
-skill_uid = 128
+skill_uid = 16
 purchase_timeline = ExtResource("21_xwaw0")
 metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
