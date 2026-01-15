@@ -529,11 +529,11 @@ transform = Transform3D(1, 0, 0, 0, 0.9999999, 0.0005061455, 0, -0.0005061455, 0
 timeline = ExtResource("15_5xvh0")
 
 [node name="PianoMan" parent="NPCs" index="7" instance=ExtResource("11_455ow")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.28347, 0.066610776, -3.6588979)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.235628, 0.066610776, -2.2234116)
 timeline = ExtResource("17_mnux4")
 
 [node name="BarMaid" parent="NPCs" index="8" instance=ExtResource("11_o8nib")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.013563, 0.06661221, -3.9105172)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.141584, 0.06661221, -4.1248364)
 priority = 1
 timeline = ExtResource("19_qb2qu")
 
@@ -578,4 +578,5 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 0)
