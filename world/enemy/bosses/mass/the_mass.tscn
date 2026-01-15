@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://0087idnveyoi" path="res://world/enemy/bosses/mass/attacks/spike_attack.tscn" id="3_2il7s"]
 [ext_resource type="PackedScene" uid="uid://vqmkg8wor6fr" path="res://world/pickups/corrupt_heart/blood_particles/final_burst.tscn" id="3_txmqb"]
 [ext_resource type="PackedScene" uid="uid://xug45fo2qtmw" path="res://world/enemy/bosses/mass/mass_chunk.tscn" id="4_6qvwf"]
-[ext_resource type="PackedScene" uid="uid://b0ttk38sufgur" path="res://world/pickups/corrupt_heart/corrupt_heart.tscn" id="6_s2jdb"]
+[ext_resource type="PackedScene" uid="uid://cvi20gl0r32he" path="res://world/enemy/bosses/mass/the_mass_death_anim.tscn" id="6_o1act"]
 [ext_resource type="Texture2D" uid="uid://qhkt84rb8sf0" path="res://world/enemy/bosses/mass/art/mass_idle.png" id="6_txmqb"]
 [ext_resource type="Texture2D" uid="uid://c5o823jufcxi5" path="res://world/enemy/bosses/mass/art/mass_damage.png" id="6_v1sxx"]
 [ext_resource type="Script" uid="uid://c34j1choqmasd" path="res://world/enemy/bosses/mass/enemy_spitter.gd" id="6_wko6n"]
@@ -834,7 +834,7 @@ enemy_spawn_dist_max = 18.0
 phase_1_action_names = Array[StringName]([&"phase_1_rapid_spike", &"phase_1_spike_field", &"phase_1_spit_enemy", &"phase_1_chunk"])
 phase_2_action_names = Array[StringName]([&"phase_2_rapid_spike", &"phase_2_spike_field", &"phase_2_spit_enemy", &"phase_2_chunk"])
 action_player = NodePath("ActionPlayer")
-spawn_on_killed = ExtResource("6_s2jdb")
+spawn_on_killed = ExtResource("6_o1act")
 
 [node name="CollisionShape3D" parent="." index="0"]
 shape = SubResource("BoxShape3D_b8f6a")

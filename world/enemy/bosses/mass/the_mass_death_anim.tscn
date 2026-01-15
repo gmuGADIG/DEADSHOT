@@ -1,0 +1,168 @@
+[gd_scene load_steps=24 format=3 uid="uid://cvi20gl0r32he"]
+
+[ext_resource type="Texture2D" uid="uid://c5o823jufcxi5" path="res://world/enemy/bosses/mass/art/mass_damage.png" id="1_l7mbg"]
+[ext_resource type="Texture2D" uid="uid://b7l2e1hnul8w0" path="res://world/enemy/bosses/mass/art/the_mass_death_anim.png" id="2_q0463"]
+[ext_resource type="Texture2D" uid="uid://qhkt84rb8sf0" path="res://world/enemy/bosses/mass/art/mass_idle.png" id="3_g1ot4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1act"]
+atlas = ExtResource("1_l7mbg")
+region = Rect2(0, 0, 4001, 4002)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdf12"]
+atlas = ExtResource("1_l7mbg")
+region = Rect2(4001, 0, 4001, 4002)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6eq0"]
+atlas = ExtResource("1_l7mbg")
+region = Rect2(8002, 0, 4001, 4002)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4tvjm"]
+atlas = ExtResource("2_q0463")
+region = Rect2(0, 0, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwsor"]
+atlas = ExtResource("2_q0463")
+region = Rect2(1920, 0, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6pgs"]
+atlas = ExtResource("2_q0463")
+region = Rect2(3840, 0, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3m8d"]
+atlas = ExtResource("2_q0463")
+region = Rect2(5760, 0, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_etths"]
+atlas = ExtResource("2_q0463")
+region = Rect2(7680, 0, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5pul"]
+atlas = ExtResource("2_q0463")
+region = Rect2(0, 1920, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o43mk"]
+atlas = ExtResource("2_q0463")
+region = Rect2(1920, 1920, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6d7b5"]
+atlas = ExtResource("2_q0463")
+region = Rect2(3840, 1920, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8r5h"]
+atlas = ExtResource("2_q0463")
+region = Rect2(5760, 1920, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1sxx"]
+atlas = ExtResource("3_g1ot4")
+region = Rect2(0, 0, 4001, 4001)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2jdb"]
+atlas = ExtResource("3_g1ot4")
+region = Rect2(4001, 0, 4001, 4001)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6uyn"]
+atlas = ExtResource("3_g1ot4")
+region = Rect2(8002, 0, 4001, 4001)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mu05a"]
+atlas = ExtResource("3_g1ot4")
+region = Rect2(12003, 0, 4001, 4001)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7woel"]
+atlas = ExtResource("3_g1ot4")
+region = Rect2(0, 4001, 4001, 4001)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6dfcl"]
+atlas = ExtResource("3_g1ot4")
+region = Rect2(4001, 4001, 4001, 4001)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1cjuw"]
+atlas = ExtResource("3_g1ot4")
+region = Rect2(8002, 4001, 4001, 4001)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w824i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1act")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdf12")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6eq0")
+}],
+"loop": false,
+"name": &"damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4tvjm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwsor")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w6pgs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3m8d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_etths")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5pul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o43mk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6d7b5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8r5h")
+}],
+"loop": false,
+"name": &"death anim",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1sxx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2jdb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6uyn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mu05a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7woel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6dfcl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1cjuw")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="TheMassDeathAnim" type="Node3D"]
+
+[node name="Sprite" type="AnimatedSprite3D" parent="."]
+process_mode = 1
+transform = Transform3D(0.305, 0, 0, 0, 0.26413772, 0.15250008, 0, -0.15250008, 0.26413772, 0, -1.3105441, 0)
+offset = Vector2(0, 1000)
+alpha_cut = 1
+sprite_frames = SubResource("SpriteFrames_w824i")
+animation = &"death anim"
+autoplay = "death anim"
+frame_progress = 0.69633853

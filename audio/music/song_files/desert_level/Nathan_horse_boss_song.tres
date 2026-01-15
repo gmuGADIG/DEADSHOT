@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Song" load_steps=7 format=3 uid="uid://b8tbns1l0a0fv"]
+[gd_resource type="Resource" script_class="Song" load_steps=7 format=3 uid="uid://dfovwf7isgyks"]
 
 [ext_resource type="Script" uid="uid://co2r0p266y1vu" path="res://audio/music/song_resource/song.gd" id="1_0hhjs"]
 [ext_resource type="Script" uid="uid://b7okmeqcdjwec" path="res://audio/music/song_resource/section.gd" id="2_lmix2"]
