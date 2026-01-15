@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5j8mh2n4lawp"]
+
+[ext_resource type="Script" uid="uid://bf14d2iyiqx56" path="res://audio/streams/sound_stream.gd" id="1_lantern"]
+[ext_resource type="AudioStream" uid="uid://b414xtio2tums" path="res://audio/environment/se_obj_caveLanternLoop.mp3" id="2_lantern"]
+
+[node name="LanternFlickerSound" type="AudioStreamPlayer3D"]
+stream = ExtResource("2_lantern")
+unit_size = 40.0
+max_distance = 100.0
+autoplay = true
+bus = &"SFX"
+attenuation_filter_cutoff_hz = 10000.0
+script = ExtResource("1_lantern")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

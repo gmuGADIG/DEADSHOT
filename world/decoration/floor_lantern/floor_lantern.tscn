@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://crroyl2puavcb"]
+[gd_scene load_steps=3 format=3 uid="uid://crroyl2puavcb"]
 
 [ext_resource type="Texture2D" uid="uid://cxaemlgpudhuc" path="res://world/decoration/floor_lantern/floor_lantern.png" id="1_0kxcn"]
+[ext_resource type="PackedScene" uid="uid://b5j8mh2n4lawp" path="res://audio/streams/lantern_flicker_sound.tscn" id="2_lantern"]
 
 [node name="FloorLantern" type="Node3D"]
 
@@ -15,3 +16,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 light_color = Color(1, 0.8413333, 0.65999997, 1)
 light_energy = 2.0
 omni_range = 10.0
+
+[node name="LanternFlickerSound" parent="." instance=ExtResource("2_lantern")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+volume_db = 10.0
+unit_size = 2.0
+max_distance = 10.0

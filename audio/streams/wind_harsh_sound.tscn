@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://drm3k8w1vxq5p"]
+
+[ext_resource type="Script" uid="uid://bf14d2iyiqx56" path="res://audio/streams/sound_stream.gd" id="1_harsh"]
+[ext_resource type="AudioStream" uid="uid://1mcq53h2oq3i" path="res://audio/environment/se_amb_windWhistle.mp3" id="2_harsh"]
+
+[node name="WindHarshSound" type="AudioStreamPlayer3D"]
+stream = ExtResource("2_harsh")
+volume_db = -15.0
+unit_size = 80.0
+autoplay = true
+bus = &"SFX"
+attenuation_filter_cutoff_hz = 10000.0
+script = ExtResource("1_harsh")
+
+[connection signal="finished" from="." to="." method="_on_finished"]
