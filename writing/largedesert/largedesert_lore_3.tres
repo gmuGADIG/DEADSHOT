@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://b3fphxdqqcr1d"]
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://oqcntp1hyelg"]
 
 [ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_j8gu6"]
 
