@@ -198,6 +198,8 @@ unique_name_in_owner = true
 [node name="FootstepEmitter" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0.88683414)
 
+[node name="AudioListener3D" type="AudioListener3D" parent="."]
+
 [connection signal="frame_changed" from="Sprite" to="Sprite" method="_on_frame_changed"]
 [connection signal="was_hit" from="HurtboxComponent" to="." method="_on_hurtbox_component_was_hit"]
 [connection signal="damaged" from="HurtboxComponent/HealthComponent" to="." method="_on_hurt"]
