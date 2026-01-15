@@ -148,13 +148,12 @@ func get_bullet() -> Bullet:
 func get_damage() -> float:
 	var modifier := 1.0
 	
-	if SkillSet.has_skill(SkillSet.SkillUID.BASE_DAMAGE): modifier += 0.5
-	if SkillSet.has_skill(SkillSet.SkillUID.RIFLE_DAMAGE_1): modifier += 0.5
-	if SkillSet.has_skill(SkillSet.SkillUID.RIFLE_DAMAGE_2): modifier += 0.5
-	if SkillSet.has_skill(SkillSet.SkillUID.PISTOL_DAMAGE): modifier += 0.5
+	if SkillSet.has_skill(SkillSet.SkillUID.BASE_DAMAGE): modifier += 0.3
+	if SkillSet.has_skill(SkillSet.SkillUID.RIFLE_DAMAGE_1): modifier += 0.3
+	if SkillSet.has_skill(SkillSet.SkillUID.RIFLE_DAMAGE_2): modifier += 0.3
+	if SkillSet.has_skill(SkillSet.SkillUID.PISTOL_DAMAGE): modifier += 0.15
 
-	if SkillSet.has_skill(SkillSet.SkillUID.PISTOL_ROLL_COOLDOWN): modifier -= 1.
-	if SkillSet.has_skill(SkillSet.SkillUID.RIFLE_FIRE_RATE): modifier -= 1.
+	if SkillSet.has_skill(SkillSet.SkillUID.RIFLE_FIRE_RATE): modifier -= .3
 	
 	return damage * modifier
 
@@ -162,13 +161,13 @@ func get_fire_cooldown() -> float:
 	var modifier := 1.
 	
 	if SkillSet.has_skill(SkillSet.SkillUID.SHOTGUN_FIRE_RATE): modifier *= .75
-	if SkillSet.has_skill(SkillSet.SkillUID.PISTOL_FIRE_RATE): modifier *= .75
+	if SkillSet.has_skill(SkillSet.SkillUID.PISTOL_FIRE_RATE): modifier *= .90
 	if SkillSet.has_skill(SkillSet.SkillUID.RIFLE_FIRE_RATE): modifier *= .75
 
-	if SkillSet.has_skill(SkillSet.SkillUID.SHOTGUN_HP_1): modifier *= 2.
-	if SkillSet.has_skill(SkillSet.SkillUID.RIFLE_DAMAGE_1): modifier *= 1.5
-	if SkillSet.has_skill(SkillSet.SkillUID.SHOTGUN_FIRE_RATE): modifier *= 2
-	if SkillSet.has_skill(SkillSet.SkillUID.PISTOL_MOVEMENT_SPEED): modifier *= 2
+	if SkillSet.has_skill(SkillSet.SkillUID.SHOTGUN_HP_1): modifier *= 1.4
+	if SkillSet.has_skill(SkillSet.SkillUID.RIFLE_DAMAGE_1): modifier *= 1.4
+	if SkillSet.has_skill(SkillSet.SkillUID.SHOTGUN_FIRE_RATE): modifier *= 1.3
+	if SkillSet.has_skill(SkillSet.SkillUID.PISTOL_MOVEMENT_SPEED): modifier *= 1.3
 	
 	return fire_cooldown * modifier
 

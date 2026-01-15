@@ -285,7 +285,8 @@ func roll(delta : float) -> void:
 ## Called every frame if the player is in combat.
 func update_stamina(delta: float) -> void:
 	if Encounter.is_encounter_active():
-		stamina += STAMINA_RECHARGE_RATE * delta
+		var roll_bonus := 1.5 if SkillSet.has_skill(SkillSet.SkillUID.PISTOL_ROLL_COOLDOWN) else 1.0
+		stamina += STAMINA_RECHARGE_RATE * roll_bonus * delta
 		stamina = clampf(stamina, 0.0, 3.0)
 	else:
 		stamina = 3.0

@@ -9,10 +9,10 @@
 script = ExtResource("1_vbc65")
 spread = 0.1
 damage = 0.5
-reload_time = 2.0
+reload_time = 1.0
 max_chamber = 2
 ammo_per_pickup = 20
-fire_cooldown = 0.4
+fire_cooldown = 0.65
 
 [node name="Sounds" type="Node3D" parent="."]
 
