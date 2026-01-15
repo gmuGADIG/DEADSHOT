@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cxahvvaidpg32" path="res://world/levels/town/level_town_base.tscn" id="1_83ufp"]
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="2_4ry00"]
 [ext_resource type="PackedScene" uid="uid://b0ttk38sufgur" path="res://world/pickups/corrupt_heart/corrupt_heart.tscn" id="2_28xow"]
-[ext_resource type="Script" uid="uid://dgstp78b1s2ry" path="res://world/levels/town/town_v4.gd" id="2_q1x3c"]
+[ext_resource type="Script" path="res://world/levels/town/town_v4.gd" id="2_q1x3c"]
 [ext_resource type="Resource" uid="uid://bem7o0b7nb3tn" path="res://writing/sheriff/sheriff_pre.tres" id="3_dwx1n"]
 [ext_resource type="Resource" uid="uid://dik8lqpuw1pt2" path="res://writing/sheriff/sheriff_post.tres" id="4_44t27"]
 [ext_resource type="Resource" uid="uid://becxyi6a0wlmk" path="res://audio/music/song_files/town_level_corrupted/RA_Sheriff_Theme.tres" id="4_q1x3c"]
