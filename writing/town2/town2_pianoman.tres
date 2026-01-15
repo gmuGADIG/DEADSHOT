@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://5typpvnt2fdo"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_yix6t"]
+
+[resource]
+script = ExtResource("1_yix6t")
+dialog = "[Felipe] “It was enough mystery to me when you were exiled for murder, but why on earth you’d come back to Slimwater puzzles me beyond words.”
+“Probably thought this town would still be like the good times, huh? Damn near everybody'd flow into the saloon after a hard day's work, grab some drinks, and listen to me tickle the ivory. People danced.”
+“Remember Eleanor, Zoa’s late wife? Always brightened up the place with her free spirit. She made the town feel like a family. Never needed a drink to do it, either. A shame she fell ill...forget what it was that killed her.”
+“For me, though, it was Callie. God, she’d weave a waltz around the tables every night. But like everybody else, she’s too busy surviving now to spend time truly living.”
+“I hold on to the good I once saw in these people. That’s why I don’t mind you being here, gunslinger—I could never look at you bitterly. Maybe I’m too sentimental for my own good.”"
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"

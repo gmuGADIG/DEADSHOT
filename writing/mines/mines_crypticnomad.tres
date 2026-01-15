@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://ducs014twb0md"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_v1s7s"]
+
+[resource]
+script = ExtResource("1_v1s7s")
+dialog = "[Cryptic Nomad]“You're too far gone to go back now. Best be careful now, cause that angel on your shoulder whispering in your ear's hidin' horns, and the path you walk ain't as righteous as it seems.”"
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"

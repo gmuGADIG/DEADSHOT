@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://dfye3mbaka8i3"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_bv0l6"]
+
+[resource]
+script = ExtResource("1_bv0l6")
+dialog = "[ ] You, a former exile, are starting to make a new name for yourself. 
+You’ve slain many monsters, grown more powerful in combat, and stood tall above the cowardice of the townsfolk.
+Ahead is a sad creature. One that is in tremendous pain. 
+You can’t just wait for the sheriff to “find a cure.\"
+Kill the monster. Prove that you are a hero capable of mercy."
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"

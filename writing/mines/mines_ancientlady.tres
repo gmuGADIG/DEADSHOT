@@ -4,14 +4,16 @@
 
 [resource]
 script = ExtResource("1_1s7gc")
-dialog = "[Ancient Lady] \"Abandonment is a terrible thing...
-I see it in you, too—you wear a type of garment unfamiliar to my time of origin, but through it I see parts of that ancient child. The desperate twinkle in one’s eye, as it seeks approval. A namesake.\"
-[ ] The helpless lady’s words ring insignificant to you.
-[Ancient Lady] \"How rudely it speaks of me.
-My life should only be as eternal as its affection for me. I thought by mothering the child, it would permit me to share in its power.\" 
-\"But now you see me here, withering. 
-A child so desperate for its birthright, when a better path lay before it all along...\"
-[ ] You begin to realize she speaks nonsense
-[Ancient Lady] \"Nay. I’ve learned this tongue quickly from the brief time you and your townsfolk have been tied to the child. I hear your thoughts, 'gunslinger.' Lately I struggle to discern which are truly your own.\"
-[] . . ."
+dialog = "[Feathered Lady] “Abandonment is a terrible thing...”
+“I see it in you, too. That desperate twinkle in one’s eye as they vie for approval. The shapeless child would bear it, too, if it only had a face of its own...a face for its mothers to love.”
+[ ] The lady’s words ring insignificant to you.
+[Feathered Lady] “Nay, I know the meaning these words carry—I’ve learned them well in the brief time you and your townsfolk have been tied to the child.”
+[ ] The lady speaks nonsensically.
+[Feathered Lady] “Those words are a mere taste of its cruelty. 
+The child was always envious that I would walk the land of its ancestors and pray to them.”
+“Now it traps me in a bramble of its own creation, with roots that drain its blessing of vitality from me. An insatiable hunger for undivided worship...”
+[ ] You cannot make sense of this lady. Best to move along.
+[Feathered Lady] “Yes, move along. I hear your thoughts, ‘gunslinger.’” “Lately I struggle to discern which are truly your own. Some, though...some give me hope. Ah, yes...some bring me peace.”
+[ ] ...
+[ ] Which thoughts are those, gunslinger?"
 metadata/_custom_type_script = "uid://rvaetvwo5p3h"

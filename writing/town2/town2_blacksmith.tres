@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://b3ut0g1tlpn2r"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_1bwlt"]
+
+[resource]
+script = ExtResource("1_1bwlt")
+dialog = "[Wilhelm]\"I’m going to say this once and only once for the sake of your safety, but this bedeviled plague’s much more than you can handle. I don’t know how or why you would ever come back from your exile, but I’m warning you: don’t try to be a hero, kid.\"
+\"I promise you, nothing good has ever come from it. All you’ll ever do is confuse stupidity for bravery and get yourself killed. You think you’re the first one to have tried to drive out this madness? Men much stronger than you have, and all o’them died, those damned fools.\"
+\"In fact, you remind me of someone I know. Well, I suppose I should say someone I KNEW. 
+My son. Strong as he was, he made the same mistake of trying to play the hero, and only the Lord knows where he is now.\"
+\"If you aren’t gonna do it for yourself, then do it for the old man who has seen it happen time and time again. The last thing I need happening in this broken town is another man losing their life over this nonsense. Please, save yourself while you still can.\"
+[ ]You are not discouraged. You are much more powerful than the son of this blacksmith.
+"
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"

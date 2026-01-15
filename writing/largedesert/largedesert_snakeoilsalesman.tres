@@ -4,7 +4,9 @@
 
 [resource]
 script = ExtResource("1_4mypl")
-dialog = "[Snake Oil Salesman] “Stupid gunslinger... stupid town... should'a known better than to sell to a town of broke shmucks...not even a single bottle sold!”
-“Nothing left for me here, it's way too crazy for my liking... gotta cut my losses and get outta this hick desert town.”
-“What're you lookin' at, gunslinger? If you don't want a damn bottle, then get outta my face. I'm sick of you, and I’m sick of this godforsaken town.”"
+dialog = "[Shady Salesman] “Stupid gunslinger... stupid town... should'a known better than to sell to a town of broke shmucks...not even a single bottle sold!”
+“Nothing left for me here. And it’s way too crazy for my liking... gotta cut my losses and get outta this hick desert town.”
+\"...\"
+“Huh? What're you lookin' at, gunslinger? If you don't want a damn bottle, then get outta my face. I'm sick of you and this godforsaken town!”
+[ ] At last, the shady salesman gives up on harassing the townsfolk about a cure."
 metadata/_custom_type_script = "uid://rvaetvwo5p3h"

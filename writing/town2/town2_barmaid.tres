@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://4m486rpoft0h"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_ple87"]
+
+[resource]
+script = ExtResource("1_ple87")
+dialog = "[Callie] \"This is horrible! My clothes, my hair, my makeup... it's all horrible! Those goddamned monsters, upending everything like this... I've never felt this disgusting in my entire life!”
+“And don’t you go thinkin’ that you’re any better, ya gunslinger. You’re just like me. Falling from grace must be pretty common around here.“
+“Ugh, what is Felipe going to think, seeing me in this awful state...?”
+“What’s with that stupid look? Damn right, I’m thinking about Felipe. What are you gonna do, tattle on me? Careful now! Might get yourself exiled again.”"
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"
