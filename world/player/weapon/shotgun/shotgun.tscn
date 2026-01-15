@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bqngdxosj3du1"]
 
 [ext_resource type="Script" uid="uid://nxr5s1a8netl" path="res://world/player/weapon/shotgun/shotgun.gd" id="1_vbc65"]
-[ext_resource type="PackedScene" uid="uid://bnr7lhv607nvp" path="res://audio/streams/shotgun_shoot_sound.tscn" id="2_575tb"]
+[ext_resource type="PackedScene" uid="uid://bnr7lhv607nvp" path="res://audio/streams/player_shotgun_shoot_sound.tscn" id="2_575tb"]
 [ext_resource type="Texture2D" uid="uid://d1jsipxyxaci5" path="res://world/player/weapon/shotgun/shotgun.png" id="3_575tb"]
 [ext_resource type="PackedScene" uid="uid://bf8bqkjukwxfj" path="res://audio/streams/salvage_proc.tscn" id="3_x0e6x"]
 

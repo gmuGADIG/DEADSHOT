@@ -36,6 +36,11 @@ omni_range = 15.0
 
 [node name="CampfireAmbienceSound" parent="." instance=ExtResource("3_lvvka")]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9410042, -0.10651529)
+volume_db = -22.0
+unit_size = 60.0
+max_db = 0.0
 autoplay = true
+max_distance = 4.0
 
 [node name="UISaveSound" parent="." instance=ExtResource("4_35fmf")]

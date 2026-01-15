@@ -1,15 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cuf4m7g7i2wdk"]
+[gd_scene load_steps=2 format=3 uid="uid://cuf4m7g7i2wdk"]
 
 [ext_resource type="AudioStream" uid="uid://mv6xgcxnkmco" path="res://audio/player/se_player_chargeWhip.mp3" id="1_67g1k"]
-[ext_resource type="Script" uid="uid://bf14d2iyiqx56" path="res://audio/streams/sound_stream.gd" id="2_67g1k"]
 
-[node name="WhipChargeSound" type="AudioStreamPlayer3D"]
+[node name="WhipChargeSound" type="AudioStreamPlayer"]
 stream = ExtResource("1_67g1k")
-volume_db = 10.0
-unit_size = 20.0
-panning_strength = 0.5
 bus = &"SFX"
-attenuation_filter_cutoff_hz = 20500.0
-script = ExtResource("2_67g1k")
 
 [connection signal="finished" from="." to="." method="_on_finished"]
