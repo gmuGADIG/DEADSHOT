@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://bem7o0b7nb3tn"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_7qcty"]
+
+[resource]
+script = ExtResource("1_7qcty")
+dialog = "[Sheriff Zoa] “Supposin’ nobody taught you it’s rude to scrounge around another person’s stuff. Thought exile would serve you some much needed lessons, but I see I was wrong.”
+“See, gunslinger, our town here is helpless. It pulls at the strings of the heart, doesn’t it? First, we help outta the goodness of our hearts...but the praise comin’ after? It’s like those tunes you just can’t resist dancin’ to.”
+”So I danced. I danced with a real devil, same one sittin’ on your shoulders. And now, by no fault other than my own, this town’s at the precipice of a terrible fate. I tried to betray that shapeless devil, and now it’s bent on vengeance.”
+“Gunslinger. Even with my hand on my holster...I’m begging you to yield. If you’re not just another cruel punishment from that devil, you’ll listen to me. You’ve got plenty of that devil’s substance on your person, don’t you? Just enough to research a cure.”
+[ ]You can’t shake the way the Sheriff upended your life. You can’t understand why she’d bring this town to ruin.
+“...I can feel it. You’ve made up your mind.”
+“I just hope that when you find your horse in those mines, swallowed by this curse, with no clue how to fix her...you finally understand the strength I lack to kill my own people.”"
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"

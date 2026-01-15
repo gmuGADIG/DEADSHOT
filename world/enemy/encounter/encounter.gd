@@ -67,7 +67,8 @@ func prepare_encounter() -> void:
 	print("Encounter prepared...")
 	progress = EncounterProgress.WAITING
 	for obj in get_encounter_objects():
-		obj.hide()
+		if not obj.start_active:
+			obj.hide()
 
 func start_encounter() -> void:
 	if Save.save_data.object_save_data.is_dead(self):

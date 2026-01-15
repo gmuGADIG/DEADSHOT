@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://dik8lqpuw1pt2"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_b5srv"]
+
+[resource]
+script = ExtResource("1_b5srv")
+dialog = "[ ]At last, your deliverance arrives. Zoa is no longer around to drag this town down with her.
+...
+The Sheriff claimed your beloved steed was in the mines to the east. Perhaps she’s safer there...should you really bother making that risky voyage?"
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"

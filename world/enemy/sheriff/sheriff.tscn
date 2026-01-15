@@ -1,13 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://cqcjv8i3rxkbu"]
+[gd_scene load_steps=16 format=3 uid="uid://cqcjv8i3rxkbu"]
 
 [ext_resource type="PackedScene" uid="uid://dwdhuncnyfmcw" path="res://world/enemy/wilder/wilder.tscn" id="1_wqu7g"]
 [ext_resource type="Script" uid="uid://cyjssoraty4ok" path="res://world/enemy/sheriff/sheriff.gd" id="2_h2jae"]
 [ext_resource type="PackedScene" uid="uid://dbxsvyvdibova" path="res://world/enemy/Enemy Bullets/sheriff_star.tscn" id="3_e873n"]
+[ext_resource type="Texture2D" uid="uid://clk37atmfl6r2" path="res://world/enemy/sheriff/sheriff-shoot.png" id="4_kj5b0"]
 [ext_resource type="PackedScene" uid="uid://cib43ohphwab7" path="res://audio/streams/boss_death_sound.tscn" id="5_0um12"]
+[ext_resource type="Texture2D" uid="uid://bkvpym4ivj7ux" path="res://world/enemy/sheriff/sheriff-run0.png" id="5_2mxdq"]
 [ext_resource type="PackedScene" uid="uid://bl78b6gav1q1b" path="res://world/enemy/base/qte_target.tscn" id="5_8r3kc"]
 [ext_resource type="PackedScene" uid="uid://bfc3ee2ec64xs" path="res://audio/streams/sheriff_shoot_sound.tscn" id="6_0um12"]
-[ext_resource type="Texture2D" uid="uid://clk37atmfl6r2" path="res://world/enemy/sheriff/sheriff-shoot.png" id="4_kj5b0"]
-[ext_resource type="Texture2D" uid="uid://bkvpym4ivj7ux" path="res://world/enemy/sheriff/sheriff-run0.png" id="5_2mxdq"]
 [ext_resource type="Texture2D" uid="uid://xgm7mb6paxp0" path="res://world/enemy/sheriff/sheriff-run1.png" id="6_qhal6"]
 [ext_resource type="Script" uid="uid://b5d5dfn03djx6" path="res://world/enemy/base/enemy_animator/enemy_frames.gd" id="7_mlm5f"]
 
@@ -69,6 +69,7 @@ flip_h = true
 sprite_frames = SubResource("SpriteFrames_x7apv")
 animation = &"attack"
 autoplay = "attack"
+frame = 0
 frame_progress = 0.81689405
 walk_left = SubResource("Resource_ogm7x")
 walk_right = SubResource("Resource_bquto")
@@ -77,6 +78,10 @@ attack_right = SubResource("Resource_i12ud")
 
 [node name="Health" parent="." index="4"]
 max_health = 20.0
+
+[node name="EncounterObject" parent="." index="7"]
+start_active = true
+start_instant = true
 
 [node name="FiringTimerREAL" type="Timer" parent="." index="10"]
 
