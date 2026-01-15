@@ -7,7 +7,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		return
 	
 	print("Currecny Colletced")
-	Global.meat_currency += 3
+	Global.meat_currency += 10
 	print(Global.meat_currency)
 	
 	var label_instance := Label3D.new()
