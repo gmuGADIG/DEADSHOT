@@ -7,7 +7,6 @@
 
 [node name="Dualies" type="Node3D"]
 script = ExtResource("1_albja")
-damage = 0.75
 reload_time = 1.5
 max_chamber = 12
 max_reserve = 72
