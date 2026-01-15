@@ -4,6 +4,7 @@ extends Node3D
 
 signal fired
 
+@export_exp_easing var shake_easing : float = 0.
 @export var damage : float = 1.
 @export var reload_time : float = 1.25 ## Time in seconds to reload
 @export var max_chamber : int = 6 ## Max number of bullets in chamber (a single clip)
@@ -37,6 +38,12 @@ var is_reloading := false
 @onready var player: Player = Player.instance
 @export var fire_cooldown: float = 0.2
 var fire_timer: float = 0.0
+var charge_timer: float = 0.
+
+const CHARGE_TIME := 2.
+const CHARGE_DMG_MIN := 0.5
+const CHARGE_DMG_MAX := 4.0
+const SHAKE_INTENSITY := 0.5
 
 func _ready() -> void:
 	chamber_ammo = get_max_chamber()
@@ -57,33 +64,71 @@ func update_hud() -> void:
 	Global.player_ammo_changed.emit(chamber_ammo)
 	Global.player_ammo_reserve_changed.emit(reserve_ammo)
 
-func _process(delta: float) -> void:
-	fire_timer += delta
-	
-	if not player.can_shoot(): return
- 
-	# No shooting if you're rolling or the cooldown hasn't ended!
-	if Input.is_action_just_pressed("fire") and fire_timer >= get_fire_cooldown() and not QTEVFX.active:
-		fire_timer = 0.0
-	
-		## if the player cannot shoot / is reloading, do not fire
-		if (not Player.instance.can_shoot()) or is_reloading or chamber_ammo <= 0:
-			if chamber_ammo <= 0 and not is_reloading:
-				reload()
-			return
-	 
-		fire(true, 1)
+func _process_fire_charge_shot(delta: float) -> bool:
+	if Input.is_action_pressed("fire"):
+		charge_timer = min(CHARGE_TIME, charge_timer + (delta / get_fire_cooldown_mul()))
+
+		return false
+
+	if Input.is_action_just_released("fire"):
+		fire_timer = 0.
+
+		fire(true, remap(charge_timer, 0., CHARGE_TIME, CHARGE_DMG_MIN, CHARGE_DMG_MAX))
+		charge_timer = 0.
 		fired.emit()
 
-		## Reloads gun with left click if no bullets in chamber (keep or remove?)
-		if (chamber_ammo == 0):
-			reload()
-			return
+		return true
+
+	return false
+
+func _process_fire_no_charge_shot() -> bool:
+	if not Input.is_action_just_pressed("fire"):
+		return false
+
+	fire_timer = 0.0
+	fire(true, 1)
+	fired.emit()
+	return true
+
+func _process(delta: float) -> void:
+	fire_timer += delta
+
+	var shaker: SpriteShaker = get_node_or_null("%SpriteShaker")
+	if shaker: 
+		var t := inverse_lerp(0., CHARGE_TIME, charge_timer)
+		shaker.shake_intensity = lerp(
+			0.,
+			SHAKE_INTENSITY,
+			ease(t, shake_easing)
+		)
+
+	if player.can_shoot() and not is_reloading: set_gun_rotation()
+
+	if not player.can_shoot(): return
+	if QTEVFX.active: return
+
+	# reload if the player tries to shoot with no ammo
+	if Input.is_action_pressed("fire") and chamber_ammo <= 0 and not is_reloading:
+		reload()
+		return
+	
+	# can't shoot if cooldown isn't done
+	if fire_timer <= get_fire_cooldown(): return
+	# can't shoot if reloading
+	if is_reloading: return
+
+	var shot := false
+	if SkillSet.has_skill(SkillSet.SkillUID.RIFLE_CHARGE_SHOT):
+		shot = _process_fire_charge_shot(delta)
+	else:
+		shot = _process_fire_no_charge_shot()
+
+	if shot and chamber_ammo <= 0:
+		reload()
+ 
 	# Reloads the gun as well (if you can shoot, you can reload).
 	if Input.is_action_just_pressed("reload") and is_reloading == false:
 		reload()
-	
-	set_gun_rotation()
 
 @abstract
 func fire(consumes_ammo: bool, damage_mul: float) -> void
@@ -157,7 +202,7 @@ func get_damage() -> float:
 	
 	return damage * modifier
 
-func get_fire_cooldown() -> float:
+func get_fire_cooldown_mul() -> float:
 	var modifier := 1.
 	
 	if SkillSet.has_skill(SkillSet.SkillUID.SHOTGUN_FIRE_RATE): modifier *= .75
@@ -168,8 +213,12 @@ func get_fire_cooldown() -> float:
 	if SkillSet.has_skill(SkillSet.SkillUID.RIFLE_DAMAGE_1): modifier *= 1.4
 	if SkillSet.has_skill(SkillSet.SkillUID.SHOTGUN_FIRE_RATE): modifier *= 1.3
 	if SkillSet.has_skill(SkillSet.SkillUID.PISTOL_MOVEMENT_SPEED): modifier *= 1.3
-	
-	return fire_cooldown * modifier
+
+	return modifier
+
+
+func get_fire_cooldown() -> float:
+	return fire_cooldown * get_fire_cooldown_mul()
 
 func get_max_chamber() -> int:
 	var ret := max_chamber
