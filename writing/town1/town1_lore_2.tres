@@ -4,8 +4,9 @@
 
 [resource]
 script = ExtResource("1_dfa1j")
-dialog = "[]It’s an incredibly worn note from a journal...
-‘My family and I have made it to our new home alive and well even with the good family friends the Barnes! Must’ve been some divine power keeping us alive through that journey, to what I’m calling Slimwater!’
-‘This has to be the best piece of land in miles! This will be a town of pioneers, miners, and ranchers! We got some good pasture fields and what I think could make a wonderful mine!’
-"
+dialog = "[ ]It’s a barely-preserved page that blew out of a journal...
+‘Yeehaw, we’ve made it out of Dodge now! Found ourselves in the midst of a field where the land opens into a basin. The lake’s gone thin with age—slim, sure, but not empty, and the water’s still in motion if you keep your eye on it for long enough.’
+‘The ground darkens when I kneel—means it’s good for planting crops. Yup! Definitely the best piece of land in miles. We got good fields for pasture, and what I think could make a wonderful mine.’
+‘I’ve been a fool my whole life, and this rut I'm in is no exception. All this effort to run away from the debtors back home, just to land in a brand new hole. I probably shoulda listened to ma and just put my money where my mouth was. But momma didn’t raise a quitter either, so I s’pose I’ll work with what I have here.’
+[ ]This dates back a few decades.      "
 metadata/_custom_type_script = "uid://rvaetvwo5p3h"

@@ -33,7 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://bo8fih3lgc5oj" path="res://world/backgrounds/stalagmite3.png" id="28_tid2h"]
 [ext_resource type="Texture2D" uid="uid://b1chcsvryv8et" path="res://world/backgrounds/stalagmite2.png" id="29_mf1js"]
 [ext_resource type="PackedScene" uid="uid://crroyl2puavcb" path="res://world/decoration/floor_lantern/floor_lantern.tscn" id="30_ehym8"]
-[ext_resource type="PackedScene" uid="uid://l48hxjrmvkp" path="res://world/npc/npc_cryptic_nomad.tscn" id="34_e2bp0"]
+[ext_resource type="PackedScene" uid="uid://drnl31ofxrsri" path="res://world/npc/npc_cryptic_nomad.tscn" id="34_e2bp0"]
 [ext_resource type="Resource" uid="uid://bweukovpkolvr" path="res://writing/largedesert/largedesert_crypticnomad.tres" id="35_52dvu"]
 [ext_resource type="PackedScene" uid="uid://b4a6qry8kyr87" path="res://world/npc/npc_snake_oil_salesman.tscn" id="36_jssub"]
 [ext_resource type="Resource" uid="uid://bc8recjumkbv1" path="res://writing/largedesert/largedesert_snakeoilsalesman.tres" id="37_rx7v0"]
@@ -138,7 +138,7 @@ target_scene = "uid://c4lcfae1j0kdx"
 target_entry_point = "Bottom"
 
 [node name="Player" parent="." index="5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.03888, 0, 30.769474)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.164238, 0, -27.39719)
 floor_type = 1
 
 [node name="Decor" type="Node" parent="." index="9"]
@@ -1953,7 +1953,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.663504, 0.147, -35.875614
 timeline = ExtResource("37_rx7v0")
 
 [node name="Paper6" parent="." index="28" instance=ExtResource("38_ty0sy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.16892, -0.016448975, -29.117624)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.969, -0.016448975, -26.917841)
 timeline = ExtResource("39_52dvu")
 
 [node name="Paper" parent="." index="29" instance=ExtResource("38_ty0sy")]

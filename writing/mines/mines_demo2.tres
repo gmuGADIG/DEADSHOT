@@ -4,10 +4,12 @@
 
 [resource]
 script = ExtResource("1_l2h1c")
-dialog = "[Slug] \"He…\"
-\"We didn’t think they would…\"
-\"God, is he STUPID?\"
-\"We could’ve just turned on our heels and booked it...\"
-\"My ears are ringing…\"
-[ ] His loss is not of your concern. Leave him to his own consequences. "
+dialog = "[Slug] “Guh... Biff, he...” 
+[ ] The demolitionist speaks to you through sniffles and tears. 
+[Slug] “We had our fun when those lil’ critters came back. Used double the gunpowder for some real fat splatterin’, but...”
+“Ugh, we.... We just wanted to cause a ruckus like we always do! But there was this, this thin little pup who was sneakin’ around all scared-like. We noticed it after we had set the charges.” 
+“I saw it in his eyes. Biff’s always had a soft spot for those fuzzy fellas. He didn’t want the lil guy to get hurt. So he…he…” 
+“Gah, that idiot! Why did we think double-packing our dynamite was a good idea?!” 
+“We coulda turned heel and just picked up that pup before the blast, but now...” “I don’t know what I’m supposed to do without him.” 
+[ ] His loss is not of your concern. Leave him to his own consequences."
 metadata/_custom_type_script = "uid://rvaetvwo5p3h"

@@ -4,11 +4,11 @@
 
 [resource]
 script = ExtResource("1_vfhxb")
-dialog = "[Cryptic Nomad] “Please, sit.”
+dialog = "[Cryptic Nomad] “Please, sit. There's room round this fire for the both of us.”
 “You’ve made quite an effort to come back to this old nest of yours. Many thought your wings were clipped for good...guessin’ you’re here to prove otherwise.”
 “I don’t mind you, though, gunslinger. Sit by my fire as long as you’d like.”
 “...”
-“Hmm? That meat you’re roasting’s not the kind that goes clean over heat—”
+“Hmm? That meat you’re roasting’s not the kind that goes clean over heat. You’d be hard pressed to find a worse meal in this—”
 “...”
 [ ] After taking a bite of the meat, you feel a surge of strength.
 [Cryptic Nomad] “...Hmph. Vulture.”"
