@@ -1,6 +1,45 @@
 [gd_scene load_steps=5 format=3 uid="uid://ds01j6o85shug"]
 
-[ext_resource type="Script" uid="uid://c7u3aeica623x" path="res://world/pickups/ammo_pickup/ammo_grab_text/ammo_grab_text.gd" id="1_61ayg"]
+[ext_resource type="Script" uid="uid://c7u3aeica623x" path="res://world/pickups/ammo_pickup/pickup_text/pickup_text.gd" id="1_le8xr"]
+
+[sub_resource type="Animation" id="Animation_61ayg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.7112785, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_57pi4"]
 resource_name = "collect"
@@ -42,53 +81,14 @@ tracks/2/keys = {
 "values": [Vector3(2, 2, 2), Vector3(1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_61ayg"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Label:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0.7112785, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Label:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Label:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(1, 1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_61ayg"]
 _data = {
 &"RESET": SubResource("Animation_61ayg"),
 &"collect": SubResource("Animation_57pi4")
 }
 
-[node name="AmmoGrabText" type="Node3D"]
-script = ExtResource("1_61ayg")
+[node name="PickupText" type="Node3D"]
+script = ExtResource("1_le8xr")
 
 [node name="Label" type="Label3D" parent="."]
 unique_name_in_owner = true
@@ -99,7 +99,6 @@ render_priority = 10
 text = "+%d Bullets"
 font_size = 48
 outline_size = 0
-
 
 [node name="Anim" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
