@@ -11,7 +11,7 @@ func _process(delta: float) -> void:
 	# Set health decay bar
 	%HealthDecay.value = max(%HealthBar.value, %HealthDecay.value - .1 * delta)
 
-func _on_boss_spawned(boss: BossEnemy) -> void:
+func _on_boss_spawned(boss: EnemyBase) -> void:
 	%Anim.play("show")
 	_set_hp(1.0)
 	

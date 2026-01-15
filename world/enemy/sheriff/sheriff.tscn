@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cyjssoraty4ok" path="res://world/enemy/sheriff/sheriff.gd" id="2_h2jae"]
 [ext_resource type="PackedScene" uid="uid://dbxsvyvdibova" path="res://world/enemy/Enemy Bullets/sheriff_star.tscn" id="3_e873n"]
 [ext_resource type="PackedScene" uid="uid://cib43ohphwab7" path="res://audio/streams/boss_death_sound.tscn" id="5_0um12"]
+[ext_resource type="PackedScene" uid="uid://bl78b6gav1q1b" path="res://world/enemy/base/qte_target.tscn" id="5_8r3kc"]
 [ext_resource type="PackedScene" uid="uid://bfc3ee2ec64xs" path="res://audio/streams/sheriff_shoot_sound.tscn" id="6_0um12"]
 [ext_resource type="Texture2D" uid="uid://clk37atmfl6r2" path="res://world/enemy/sheriff/sheriff-shoot.png" id="4_kj5b0"]
 [ext_resource type="Texture2D" uid="uid://bkvpym4ivj7ux" path="res://world/enemy/sheriff/sheriff-run0.png" id="5_2mxdq"]
@@ -53,7 +54,6 @@ script = ExtResource("7_mlm5f")
 clip = "attack"
 flipped = true
 metadata/_custom_type_script = "uid://b5d5dfn03djx6"
->>>>>>> eb5a03f (sheriff art)
 
 [node name="Sheriff" instance=ExtResource("1_wqu7g")]
 script = ExtResource("2_h2jae")
