@@ -10,7 +10,10 @@ func _ready() -> void:
 		timeline = load("res://world/npc/test/placeholder_timeline.tres")
 
 func interact() -> void:
-	%Exclaim.hide()
+	hide_exclamation()
+	for npc in duo:
+		npc.hide_exclamation()
+	
 	if Dialog.play(timeline):
 		if $PaperPickupSound:
 			$PaperPickupSound.play()
@@ -18,3 +21,6 @@ func interact() -> void:
 
 func show_exclamation() -> void:
 	%Exclaim.show()
+
+func hide_exclamation() -> void:
+	%Exclaim.hide()
