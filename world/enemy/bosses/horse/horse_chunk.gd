@@ -12,6 +12,10 @@ func _process(delta: float) -> void:
 	global_position += velocity * delta
 	if global_position.distance_to(stopPoint) < 0.1:
 		reached_point.emit()
+		var splat_sfx := $MassSplatSound
+		if splat_sfx:
+			splat_sfx.reparent(get_tree().current_scene)
+			splat_sfx.play()
 		queue_free()
 
 func set_target(target: Vector3) -> void:
