@@ -1,11 +1,11 @@
-[gd_scene load_steps=24 format=3 uid="uid://cxahvvaidpg32"]
+[gd_scene load_steps=26 format=3 uid="uid://cxahvvaidpg32"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_tcp4o"]
 [ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="2_d6o6r"]
 [ext_resource type="Texture2D" uid="uid://cjuuefpldxnv" path="res://world/backgrounds/desert_bg.png" id="2_q3pnm"]
 [ext_resource type="Resource" uid="uid://q24ustx30otu" path="res://world/floor/sand/sand.tres" id="3_q3pnm"]
 [ext_resource type="Texture2D" uid="uid://b1chcsvryv8et" path="res://world/backgrounds/stalagmite2.png" id="4_3hdfd"]
-[ext_resource type="Script" uid="uid://5430ylajkno2" path="res://world/transitions/entry_point.gd" id="4_mvjcd"]
+[ext_resource type="Script" path="res://world/transitions/entry_point.gd" id="4_mvjcd"]
 [ext_resource type="Texture2D" uid="uid://42ip2l07gewq" path="res://world/levels/town/building2.png" id="5_3hdfd"]
 [ext_resource type="Texture2D" uid="uid://d4iomax3x56yw" path="res://world/decoration/buildings/general_store.png" id="5_5qvel"]
 [ext_resource type="Texture2D" uid="uid://dogpjy022cabi" path="res://world/decoration/buildings/sheriff_office.png" id="5_ad2bl"]
@@ -21,6 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://world/interactables/cover/cover_boulder.tscn" id="17_7upv5"]
 [ext_resource type="PackedScene" uid="uid://d1e8myf75tnlv" path="res://world/interactables/cover/cover_cactus_large.tscn" id="18_d6o6r"]
 [ext_resource type="PackedScene" uid="uid://c2bxn6p802s68" path="res://world/interactables/cover/cover_cactus_small.tscn" id="19_q3pnm"]
+[ext_resource type="PackedScene" uid="uid://c8v4mh5n2p7rk" path="res://audio/streams/wind_ambience_sound.tscn" id="20_wind"]
+[ext_resource type="PackedScene" uid="uid://drm3k8w1vxq5p" path="res://audio/streams/wind_harsh_sound.tscn" id="21_harsh"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_jsebj"]
 vertices = PackedVector3Array(13.02737, 0.48999786, -48.083603, 9.27737, 0.48999786, -48.333603, 8.77737, 0.48999786, -48.083603, 8.52737, 0.48999786, -39.583603, 13.02737, 0.48999786, -41.333603, 13.52737, 0.48999786, -39.083603, 0.77737045, 0.48999786, -39.333603, 23.02737, 0.48999786, -38.833603, 0.52737045, 0.48999786, -9.083603, 23.27737, 0.48999786, -9.333603, 23.27737, 0.48999786, 7.166397, 24.27737, 0.48999786, 6.666397, 24.27737, 0.48999786, -6.833603, -1.4726295, 0.48999786, -6.833603, -1.7226295, 0.48999786, 7.416397, 0.52737045, 0.48999786, 7.666397, 0.52737045, 0.48999786, -7.083603, 0.77737045, 0.48999786, 9.916397, 23.02737, 0.48999786, 10.166397, 23.27737, 0.48999786, -7.583603, 65.527374, 0.48999786, 1.4163971, 65.777374, 0.48999786, -1.3336029, 63.77737, 0.48999786, -1.3336029, 63.77737, 0.48999786, 1.4163971, 63.02737, 0.48999786, 2.166397, 63.27737, 0.48999786, -1.8336029, 63.02737, 0.48999786, -7.083603, 63.02737, 0.48999786, 6.666397, -40.22263, 0.48999786, -2.083603, -40.22263, 0.48999786, 2.916397, -39.22263, 0.48999786, 3.416397, -39.22263, 0.48999786, -3.083603, -39.47263, 0.48999786, -6.833603, -39.22263, 0.48999786, 7.416397, -51.47263, 0.48999786, -2.333603, -51.47263, 0.48999786, 3.166397, 76.277374, 0.48999786, 1.1663971, 76.277374, 0.48999786, -1.0836029, 8.52737, 0.48999786, 41.916397, 14.27737, 0.48999786, 42.166397, 14.27737, 0.48999786, 40.416397, 8.52737, 0.48999786, 40.166397, 7.7773705, 0.48999786, 39.666397, 14.77737, 0.48999786, 39.916397, 22.77737, 0.48999786, 39.916397, 0.77737045, 0.48999786, 39.666397, 8.52737, 0.48999786, 53.166397, 14.27737, 0.48999786, 53.166397)
@@ -757,3 +759,8 @@ size = 2.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.311707, -0.9878699, 18.883303)
 text = "the buildings down here will be a gun store, a abandoned stable with fences, (shown with the two houses on the side). and another house."
 size = 2.0
+
+[node name="WindAmbienceSound" parent="." index="15" instance=ExtResource("20_wind")]
+
+[node name="WindHarshSound" parent="." index="16" instance=ExtResource("21_harsh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.952908, 5.6907578, -4.7251472)

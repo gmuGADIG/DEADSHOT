@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://c4nw61qu6fyyk"]
+[gd_scene load_steps=65 format=3 uid="uid://c4nw61qu6fyyk"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_nthvq"]
 [ext_resource type="Texture2D" uid="uid://48dfxh6s6pk2" path="res://world/backgrounds/cavern_bg.png" id="2_rskgg"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b4n4rflu3my0v" path="res://world/enemy/longhorn/longhorn.tscn" id="5_ci4pn"]
 [ext_resource type="PackedScene" uid="uid://dwdhuncnyfmcw" path="res://world/enemy/wilder/wilder.tscn" id="6_fb8xb"]
 [ext_resource type="Script" uid="uid://5430ylajkno2" path="res://world/transitions/entry_point.gd" id="7_mqp80"]
+[ext_resource type="Resource" uid="uid://cifkmhsi3x77d" path="res://audio/music/song_files/mines_level/Elizabeth_mines_combat_song.tres" id="9_d5wqa"]
 [ext_resource type="PackedScene" uid="uid://dhb2pgqbfvxoa" path="res://world/enemy/encounter/encounter.tscn" id="11_rkdtq"]
 [ext_resource type="PackedScene" uid="uid://3o8nbg2v248a" path="res://world/interactables/puddle/puddle.tscn" id="12_akuqq"]
 [ext_resource type="PackedScene" uid="uid://bp6l0lw650m8o" path="res://world/blocker/blocker.tscn" id="12_eyi7e"]
@@ -34,6 +35,7 @@
 [ext_resource type="PackedScene" uid="uid://crroyl2puavcb" path="res://world/decoration/floor_lantern/floor_lantern.tscn" id="29_g51pv"]
 [ext_resource type="PackedScene" uid="uid://by1e10t6ksd64" path="res://world/enemy/bird_swarm/bird_swarm.tscn" id="31_rewlr"]
 [ext_resource type="PackedScene" uid="uid://bcya35sf6hpfw" path="res://world/npc/npc_ancient_lady.tscn" id="32_smnpg"]
+[ext_resource type="PackedScene" uid="uid://bjv27hq6c2mkk" path="res://audio/streams/cave_ambience_sound.tscn" id="33_cave"]
 [ext_resource type="PackedScene" uid="uid://ch1ppuhcynm84" path="res://world/decoration/minecart_tracks/minecart_track_1.tscn" id="34_mqp80"]
 [ext_resource type="PackedScene" uid="uid://c4puy3fufepj3" path="res://world/decoration/minecart_tracks/minecart_track_2.tscn" id="35_ogxpd"]
 [ext_resource type="PackedScene" uid="uid://d06cvvqo7h70a" path="res://world/decoration/minecart_tracks/minecart_track_4.tscn" id="36_3t12w"]
@@ -99,6 +101,45 @@ size = Vector3(14.224121, 3, 38.981613)
 [sub_resource type="BoxShape3D" id="BoxShape3D_h00ua"]
 size = Vector3(33.1698, 3, 16.49741)
 
+[sub_resource type="Animation" id="Animation_xnxv1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../MainCam:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(180.80898, 3.2216287, 15.461851)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../MainCam:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.9599311, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Player:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(153.20876, -9.536743e-07, 15.415352)]
+}
+
 [sub_resource type="Animation" id="Animation_j35y6"]
 resource_name = "start"
 length = 2.6
@@ -139,45 +180,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 2,
 "values": [Vector3(-0.34256065, 0.10708261, 0.003900388)]
-}
-
-[sub_resource type="Animation" id="Animation_xnxv1"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../MainCam:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(180.80898, 3.2216287, 15.461851)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../MainCam:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.9599311, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../Player:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(153.20876, -9.536743e-07, 15.415352)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_d5wqa"]
@@ -243,6 +245,7 @@ transform = Transform3D(0.9999999, 0, 0, 0, 0.5735764, 0.81915206, 0, -0.8191519
 [node name="Encounter" parent="." index="10" instance=ExtResource("11_rkdtq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.07269, 1.5018328e-06, 4.7655144)
 appear_delay = 0.05
+encounter_song = ExtResource("9_d5wqa")
 
 [node name="EncounterShape" type="CollisionShape3D" parent="Encounter" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3190918, 0, -0.59942627)
@@ -355,6 +358,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.382488, 0, -8.153044)
 [node name="Encounter2" parent="." index="11" instance=ExtResource("11_rkdtq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.662, 0, 14.504)
 appear_delay = 0.035
+encounter_song = ExtResource("9_d5wqa")
 
 [node name="EncounterShape" type="CollisionShape3D" parent="Encounter2" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.68078613, 0, -0.7536011)
@@ -525,6 +529,7 @@ transform = Transform3D(1.2495681, 0, 0, 0, 1, 0, 0, 0, 1, 0.8191681, 0, 6.18389
 [node name="Encounter4" parent="." index="12" instance=ExtResource("11_rkdtq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120.119, 0, 15.43)
 camera_zoom = 1.35
+encounter_song = ExtResource("9_d5wqa")
 
 [node name="EncounterShape" type="CollisionShape3D" parent="Encounter4" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.25016, 0, 7.1191425)
@@ -618,6 +623,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.8133163, 0, 4.8024025)
 
 [node name="Encounter5" parent="." index="13" instance=ExtResource("11_rkdtq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112.90734, 7.6293945e-06, 36.54578)
+encounter_song = ExtResource("9_d5wqa")
 
 [node name="EncounterShape" type="CollisionShape3D" parent="Encounter5" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.29012448, -1.2489014, 0, -2.307644)
@@ -1019,5 +1025,7 @@ timeline = ExtResource("45_xnxv1")
 [node name="DemeMan2" parent="." index="26" instance=ExtResource("46_d5wqa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0151763, 0, 6.3652306)
 timeline = ExtResource("47_gfthc")
+
+[node name="CaveAmbienceSound" parent="." index="27" instance=ExtResource("33_cave")]
 
 [editable path="World/Floor"]

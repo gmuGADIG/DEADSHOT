@@ -3,8 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://c8ycoujcnafdn" path="res://world/npc/npc_base.tscn" id="1_jq1bl"]
 [ext_resource type="Texture2D" uid="uid://b4chv76syicuf" path="res://world/npc/paper/paper.png" id="2_fju3b"]
 [ext_resource type="PackedScene" uid="uid://8v6ojhjimtxe" path="res://audio/streams/paper_pickup_sound.tscn" id="3_llnne"]
-[ext_resource type="AudioStream" uid="uid://br6juvrj8oeyf" path="res://audio/world_objects/se_playerInteract_paper_1alessandro.mp3" id="4_ge4pa"]
-[ext_resource type="AudioStream" uid="uid://cw2xt54hle0au" path="res://audio/world_objects/se_playerInteract_paper_2alessandro.mp3" id="5_55fmh"]
 
 [sub_resource type="Animation" id="Animation_sc3kb"]
 length = 0.001
@@ -68,11 +66,6 @@ _data = {
 &"idle": SubResource("Animation_llnne")
 }
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_sc3kb"]
-streams_count = 2
-stream_0/stream = ExtResource("4_ge4pa")
-stream_1/stream = ExtResource("5_55fmh")
-
 [node name="Paper" instance=ExtResource("1_jq1bl")]
 
 [node name="Sprite3D" parent="." index="0"]
@@ -87,4 +80,3 @@ libraries = {
 autoplay = "idle"
 
 [node name="PaperPickupSound" parent="." index="3" instance=ExtResource("3_llnne")]
-stream = SubResource("AudioStreamRandomizer_sc3kb")
