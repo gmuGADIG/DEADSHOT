@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://ohg0len20ido"]
+[gd_scene load_steps=15 format=3 uid="uid://ohg0len20ido"]
 
 [ext_resource type="PackedScene" uid="uid://cxahvvaidpg32" path="res://world/levels/town/level_town_base.tscn" id="1_83ufp"]
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="2_4ry00"]
 [ext_resource type="PackedScene" uid="uid://b0ttk38sufgur" path="res://world/pickups/corrupt_heart/corrupt_heart.tscn" id="2_28xow"]
 [ext_resource type="Texture2D" uid="uid://c5upseoo85lqg" path="res://world/backgrounds/desert_bg_blur.png" id="2_jglpt"]
 [ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="3_8wq7s"]
+[ext_resource type="Resource" path="res://audio/music/song_files/town_level_corrupted/RA_Sheriff_Theme.tres" id="4_q1x3c"]
 [ext_resource type="PackedScene" uid="uid://c7c1lwr411btx" path="res://audio/music/music_player/play_song_for_scene.tscn" id="5_8uqty"]
 [ext_resource type="PackedScene" uid="uid://dhb2pgqbfvxoa" path="res://world/enemy/encounter/encounter.tscn" id="6_5x431"]
 [ext_resource type="Resource" uid="uid://tli21qkgcwye" path="res://audio/music/song_files/town_level_corrupted/Becs_corrupt_town_song.tres" id="6_w4wah"]
@@ -29,6 +30,7 @@ texture = ExtResource("2_jglpt")
 [node name="Encounter" parent="." index="4" instance=ExtResource("6_5x431")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.0338202)
 is_boss_encounter = true
+encounter_song = ExtResource("4_q1x3c")
 
 [node name="Sheriff" parent="Encounter" index="0" instance=ExtResource("7_w4wah")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.328011, 0.4819467, -6.921501)
