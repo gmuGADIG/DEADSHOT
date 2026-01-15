@@ -86,10 +86,38 @@ func update_state() -> void:
 			shake()
 			return
 	
+	# I should be able to do it here
+	# idea here should be if one of the dependencies are bought, lock the other dependency by making it an evil_dependency
+	# only problem is how to figure it out
+	# try running through the dependency and maybe have a counter
+	# If a dependency is bought, increment the counter
+	# check through the dependency to unlock it
+	if dependencies.size() == 0:
+		if Global.meat_currency >= itemDesc.skill_meat_cost:
+			state = State.AFFORDABLE
+		else:
+			state = State.UNAFFORDABLE
+		return
+	
+	var bought : Skill_Button
+	var unbought : Skill_Button
 	for dependency : Skill_Button in dependencies:
-		if dependency.state != State.PURCHASED:
-			state = State.LOCKED
-			return
+		if dependency.state == State.PURCHASED:
+			bought = dependency
+		else:
+			unbought = dependency
+	
+	if dependencies.has(unbought) and bought != null:
+		unbought.state = State.LOCKED
+		print("unbought: " + str(unbought))
+		dependencies.erase(unbought)
+		evil_dependencies.append(unbought)
+	
+	#for dependency : Skill_Button in dependencies:
+	#if dependency.state != State.PURCHASED:
+	if !dependencies.has(bought):
+		state = State.LOCKED
+		return
 	
 	if Global.meat_currency >= itemDesc.skill_meat_cost:
 		state = State.AFFORDABLE
