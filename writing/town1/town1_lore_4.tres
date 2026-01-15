@@ -4,8 +4,9 @@
 
 [resource]
 script = ExtResource("1_aocho")
-dialog = "[]It’s an incredibly worn note from a journal...
-’We've been in this big empty ole desert for ‘bout a week now and I've gotta say I'm gettin' real tired o' the sand. We're supposed to be the start of some big ole town, Slimwater.’
-‘At least that's what our family's friend Mr. Nobles keeps sayin'. He dragged his family and ours out here, and all we've done is camp out in tents and burn through water. Oh well, it ain't all bad, the Nobles's girl seems to be takin' quite a likin' to me so at least there's that.’
-"
+dialog = "[ ]It’s a barely-preserved page that blew out of a journal...
+‘Mr. Noble and I have been chipping through these caves for about a week now. I gotta say, I was getting real tired of all this sand and rock. Brown, lighter brown...ain’t any green around here.’
+‘We’re supposed to be founding a big ole town out here. Up ‘til now, all we’ve done is sleep in tents and burn through water, but we might actually do it. This cave’s got riches in it, and even better, it’s got some of the purest water I’ve ever tasted!’
+‘Mr. Noble says he’s gonna put out advertising and bring in ranchers, miners, and pioneers! He sure knows how to capitalize on a business opportunity. I’m just a little worried his daughter’s gonna stop talking to me once more gentlemen show up...’
+[ ]This dates back a few decades."
 metadata/_custom_type_script = "uid://rvaetvwo5p3h"

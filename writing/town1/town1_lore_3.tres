@@ -4,8 +4,10 @@
 
 [resource]
 script = ExtResource("1_luvng")
-dialog = "[]It’s an incredibly worn note from a journal...
-’I’m beginning to think father has lost his mind, because this patch of desert is supposed to be our new home? There is no water here to the point we are naming this place “Slimwater” but father says it’s gonna be ok.’
-‘He’s always been so delusionally optimistic. I don’t know what he is even thinking! Taking his daughter of 15 years of age to a place like this, I can only conclude that he is insane. I am glad that Barnes' kid Moses came along, that's a bright spot.’
-"
+dialog = "[ ]It’s a barely-preserved page that blew out of a journal...
+‘I’m beginning to think Father has lost his mind. This patch of desert is supposed to be our new home? Sure, there’s water, but it’s only a matter of time before it dries up and leaves us dying of thirst.’ 
+‘I swear, he’s so...delusionally optimistic! Hooting and hollering about blowing holes into the cave nearby, saying there’s water and resources deeper within, and sniffing around every drop of water like he’s solving a mystery!’
+‘According to him, he can see remnants of human activity in those caves...sends shivers down my spine, but I guess it’s exciting to him. On the bright side, Father convinced the Barnes family to tag along with us. I’ve always liked that Moses boy. ‘
+‘Oh. Maybe father’s smarter than he seems.’
+[ ]This dates back a few decades."
 metadata/_custom_type_script = "uid://rvaetvwo5p3h"
