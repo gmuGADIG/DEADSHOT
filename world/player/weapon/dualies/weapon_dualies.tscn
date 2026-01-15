@@ -16,6 +16,7 @@ ammo_per_pickup = 40
 
 [node name="ShootSound" parent="Sounds" instance=ExtResource("1_yunt5")]
 unique_name_in_owner = true
+max_polyphony = 4
 
 [node name="SalvageProc" parent="Sounds" instance=ExtResource("3_2qjaj")]
 unique_name_in_owner = true
