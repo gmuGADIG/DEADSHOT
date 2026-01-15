@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bdr5tjdlqfdq4"]
 
 [ext_resource type="Script" uid="uid://bxbowl7sjix2l" path="res://world/bullets/bullet.gd" id="1_g2jgx"]
-[ext_resource type="Texture2D" uid="uid://d3sodqao5sedc" path="res://temp_art/gartic/rock.png" id="2_6qux5"]
+[ext_resource type="Texture2D" uid="uid://b4e12jge6o047" path="res://world/enemy/bosses/horse/rock_projectile.png" id="2_g2jgx"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_akls5"]
 height = 0.8574219
@@ -19,9 +19,10 @@ transform = Transform3D(-4.371139e-08, -1, 0, -4.371139e-08, 1.9106855e-15, -1, 
 shape = SubResource("CylinderShape3D_akls5")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.21669051, 0, 0, 0, 0.21850534, 0, 0, 0, 1, 0, 0.35524642, 0)
+transform = Transform3D(0.118, 0, 0, 0, 0.119, 0, 0, 0, 0.544, 0, 0.050327837, 0)
 pixel_size = 0.015
-texture = ExtResource("2_6qux5")
+billboard = 1
+texture = ExtResource("2_g2jgx")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
