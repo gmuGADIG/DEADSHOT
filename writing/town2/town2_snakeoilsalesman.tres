@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_caxym")
-dialog = "[Snake Oil Salesman] “Whoa, there, gunslinger, you look like you've seen better days! This infection spreading around seems to be getting the best of everyone in this dusty old town.”
+dialog = "[Shady Salesman] “Whoa, there, gunslinger, you look like you've seen better days! This infection spreading around seems to be getting the best of everyone in this dusty old town.”
 “Lucky for you, I got just the thing. Elixir, the one-size-fits-all cure to this nasty infection. One bottle and you're, well, cured!”
 “What’s with those hesitant hands, partner? Don’t tell me you’re waiting for the sheriff’s “cure”! She’s been saying that she’d make one forever now, but I'm still the only one out here sellin’ any!”
 “Whaddya say, friend? How many bottles can I put you down for? It’s only ten dollars!”

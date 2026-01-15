@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_1rlw3")
-dialog = "[Barmaid] “Oh. It’s you again. Why are you always finding me during such sad times?”
+dialog = "[Callie] “Oh. It’s you again. Why are you always finding me during such sad times?”
 [ ] She wipes her eyes. Another death? Probably that piano player. Not your concern.
 [Barmaid] “Haha...not so long ago I was worried about my looks...”
 “Do you believe in God?”
