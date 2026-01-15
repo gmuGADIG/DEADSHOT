@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5upseoo85lqg"
-path.s3tc="res://.godot/imported/desert_bg_blur.png-b578efc8cfecb72e856a15c8845ec326.s3tc.ctex"
+uid="uid://cjuuefpldxnv"
+path.s3tc="res://.godot/imported/desert_bg.png-804cae28ea08ee88048cb01adbdf2f4f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://world/backgrounds/desert_bg_blur.png"
-dest_files=["res://.godot/imported/desert_bg_blur.png-b578efc8cfecb72e856a15c8845ec326.s3tc.ctex"]
+source_file="res://world/backgrounds/desert_bg.png"
+dest_files=["res://.godot/imported/desert_bg.png-804cae28ea08ee88048cb01adbdf2f4f.s3tc.ctex"]
 
 [params]
 
