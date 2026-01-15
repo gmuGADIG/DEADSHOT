@@ -36,7 +36,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="NPCBase" instance=ExtResource("1_ruq3k")]
+[node name="DemoMan2" instance=ExtResource("1_ruq3k")]
 
 [node name="Sprite3D" parent="." index="0"]
 visible = false
