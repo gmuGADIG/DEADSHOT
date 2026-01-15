@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://d06cvvqo7h70a"]
+
+[ext_resource type="Script" uid="uid://bpfbqraltsta0" path="res://world/interactables/puddle/puddle.gd" id="1_ggmt2"]
+[ext_resource type="Texture2D" uid="uid://c6hwlo8w4fhkb" path="res://world/decoration/minecart_tracks/minecart_track_4.png" id="2_ggmt2"]
+
+[node name="MinecartTracks4" type="Area3D"]
+collision_mask = 2
+script = ExtResource("1_ggmt2")
+atk_damage = 1
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(-0.35, -3.059797e-08, 1.3374798e-15, 0, -1.5298985e-08, -0.35, 3.059797e-08, -0.35, 1.5298985e-08, -0.14507449, 0.032779217, -0.07892525)
+texture = ExtResource("2_ggmt2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
