@@ -1,3 +1,4 @@
+class_name Horse
 extends BossEnemy
 
 const rock_obj := preload("res://world/enemy/bosses/horse/horse_rock.tscn")

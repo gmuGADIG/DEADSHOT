@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://crgv6bkolrlyy"]
+[gd_scene load_steps=41 format=3 uid="uid://crgv6bkolrlyy"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_b00wy"]
 [ext_resource type="Resource" uid="uid://q24ustx30otu" path="res://world/floor/sand/sand.tres" id="2_5t0jw"]
@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cjuuefpldxnv" path="res://world/backgrounds/desert_bg.png" id="2_trnsn"]
 [ext_resource type="PackedScene" uid="uid://d1e8myf75tnlv" path="res://world/interactables/cover/cover_cactus_large.tscn" id="4_xa3ak"]
 [ext_resource type="PackedScene" uid="uid://bp6l0lw650m8o" path="res://world/blocker/blocker.tscn" id="6_4q5tc"]
-[ext_resource type="Script" path="res://world/transitions/entry_point.gd" id="6_trnsn"]
+[ext_resource type="Script" uid="uid://5430ylajkno2" path="res://world/transitions/entry_point.gd" id="6_trnsn"]
 [ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://world/interactables/cover/cover_boulder.tscn" id="7_afdcq"]
 [ext_resource type="PackedScene" uid="uid://8er7o8byf7v1" path="res://world/decoration/well/well.tscn" id="7_gq3fs"]
 [ext_resource type="PackedScene" uid="uid://bb3qdjspo0kcq" path="res://world/interactables/barrel/barrel.tscn" id="8_afdcq"]
@@ -24,7 +24,10 @@
 [ext_resource type="Resource" uid="uid://dgfsfa6177rri" path="res://audio/music/song_files/desert_level/Matthew_desert_combat_song.tres" id="14_u25nn"]
 [ext_resource type="PackedScene" uid="uid://by1e10t6ksd64" path="res://world/enemy/bird_swarm/bird_swarm.tscn" id="16_bgh4w"]
 [ext_resource type="Resource" uid="uid://dfovwf7isgyks" path="res://audio/music/song_files/desert_level/Nathan_horse_boss_song.tres" id="19_wy6jc"]
-[ext_resource type="PackedScene" path="res://audio/music/music_player/play_song_for_scene.tscn" id="23_wy6jc"]
+[ext_resource type="Script" uid="uid://cvp3wk4dqwu5l" path="res://world/enemy/encounter/horse_encounter.gd" id="21_vun7f"]
+[ext_resource type="Resource" uid="uid://dfye3mbaka8i3" path="res://writing/largedesert/largedesert_pre_boss.tres" id="22_q41oy"]
+[ext_resource type="Resource" uid="uid://cb8t7vwx4xu3p" path="res://writing/largedesert/largedesert_post_boss.tres" id="23_ptnw0"]
+[ext_resource type="PackedScene" uid="uid://c7c1lwr411btx" path="res://audio/music/music_player/play_song_for_scene.tscn" id="23_wy6jc"]
 [ext_resource type="Resource" uid="uid://cckle8iujnl64" path="res://audio/music/song_files/desert_level/Nila_desert_song.tres" id="24_trnsn"]
 [ext_resource type="Texture2D" uid="uid://bawb4ny3wnsng" path="res://world/interactables/cover/cactus_new.png" id="27_stsvq"]
 [ext_resource type="Texture2D" uid="uid://bo8fih3lgc5oj" path="res://world/backgrounds/stalagmite3.png" id="28_tid2h"]
@@ -1202,8 +1205,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2310295, 0, -4.666794)
 transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 1, 2.0845413, 0, -3.6891232)
 shape = SubResource("BoxShape3D_trnsn")
 
-[node name="Encounter 3" parent="." index="18" instance=ExtResource("9_fpcaa")]
+[node name="Encounter 3" parent="." index="18" node_paths=PackedStringArray("horse") instance=ExtResource("9_fpcaa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.844, 0, 20.507)
+script = ExtResource("21_vun7f")
+horse = NodePath("Horse")
+pre_timeline = ExtResource("22_q41oy")
+post_timeline = ExtResource("23_ptnw0")
 is_boss_encounter = true
 camera_zoom = 1.3
 appear_delay = 0.2
@@ -1220,6 +1227,7 @@ transform = Transform3D(-6.6360435e-08, 0, 10.326464, 0, 0.99999994, 0, -1.51814
 transform = Transform3D(-6.636043e-08, 0, 8.773376, 0, 0.99999994, 0, -1.5181497, 0, -3.8349643e-07, 0, 0, -14.22101)
 
 [node name="Horse" parent="Encounter 3" index="4" node_paths=PackedStringArray("roam_points") instance=ExtResource("14_b84ov")]
+process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06713486, 0, -1.9251671)
 roam_points = [NodePath("RoamPoints/Point"), NodePath("RoamPoints/Point2"), NodePath("RoamPoints/Point3"), NodePath("RoamPoints/Point4"), NodePath("RoamPoints/Point5"), NodePath("RoamPoints/Point6"), NodePath("RoamPoints/Point7"), NodePath("RoamPoints/Point8")]
 

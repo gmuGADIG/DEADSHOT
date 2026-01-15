@@ -87,6 +87,8 @@ func start_encounter() -> void:
 		obj.prepare()
 	
 	for obj in objects:
+		if obj.start_active: continue # already active
+		
 		obj.start()
 		await get_tree().create_timer(appear_delay, false).timeout
 

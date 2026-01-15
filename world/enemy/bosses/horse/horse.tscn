@@ -399,7 +399,7 @@ animation = &"idle_left"
 autoplay = "idle_right"
 
 [node name="Health" parent="." index="3"]
-max_health = 110.0
+max_health = 1.0
 
 [node name="CollisionShape3D" parent="Hurtbox" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2055829, 0)
@@ -415,6 +415,10 @@ unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_dc5ks")
 }
+
+[node name="EncounterObject" parent="." index="9"]
+start_active = true
+start_instant = true
 
 [node name="HurterBox" type="Area3D" parent="." index="10"]
 collision_layer = 0
