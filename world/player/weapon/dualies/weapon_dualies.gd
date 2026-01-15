@@ -22,7 +22,7 @@ func fire(consumes_ammo: bool, damage_mul: float) -> void:
 		%ShootSound.play()
 
 func add_bullet(gun: Node3D, consumes_ammo: bool, damage_mul: float) -> void:
-	var bullet : Bullet = get_bullet_scene().instantiate()
+	var bullet : Bullet = get_bullet()
 	get_tree().current_scene.add_child(bullet)
 	bullet.atk_damage = get_damage() * damage_mul
 	bullet.fire(gun, player.aim_dir())

@@ -1,38 +1,266 @@
-[gd_scene load_steps=15 format=3 uid="uid://ohg0len20ido"]
+[gd_scene load_steps=19 format=3 uid="uid://ohg0len20ido"]
 
 [ext_resource type="PackedScene" uid="uid://cxahvvaidpg32" path="res://world/levels/town/level_town_base.tscn" id="1_83ufp"]
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="2_4ry00"]
 [ext_resource type="PackedScene" uid="uid://b0ttk38sufgur" path="res://world/pickups/corrupt_heart/corrupt_heart.tscn" id="2_28xow"]
-[ext_resource type="Texture2D" uid="uid://c5upseoo85lqg" path="res://world/backgrounds/desert_bg_blur.png" id="2_jglpt"]
-[ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="3_8wq7s"]
-[ext_resource type="PackedScene" uid="uid://c7c1lwr411btx" path="res://audio/music/music_player/play_song_for_scene.tscn" id="5_8uqty"]
+[ext_resource type="Script" uid="uid://dgstp78b1s2ry" path="res://world/levels/town/town_v4.gd" id="2_q1x3c"]
+[ext_resource type="Resource" uid="uid://bem7o0b7nb3tn" path="res://writing/sheriff/sheriff_pre.tres" id="3_dwx1n"]
+[ext_resource type="Resource" uid="uid://dik8lqpuw1pt2" path="res://writing/sheriff/sheriff_post.tres" id="4_44t27"]
+[ext_resource type="Resource" uid="uid://becxyi6a0wlmk" path="res://audio/music/song_files/town_level_corrupted/RA_Sheriff_Theme.tres" id="4_q1x3c"]
 [ext_resource type="PackedScene" uid="uid://dhb2pgqbfvxoa" path="res://world/enemy/encounter/encounter.tscn" id="6_5x431"]
-[ext_resource type="Resource" uid="uid://tli21qkgcwye" path="res://audio/music/song_files/town_level_corrupted/Becs_corrupt_town_song.tres" id="6_w4wah"]
-[ext_resource type="Resource" uid="uid://dfovwf7isgyks" path="res://audio/music/song_files/desert_level/Nathan_horse_boss_song.tres" id="7_ob8eb"]
 [ext_resource type="PackedScene" uid="uid://cqcjv8i3rxkbu" path="res://world/enemy/sheriff/sheriff.tscn" id="7_w4wah"]
 [ext_resource type="PackedScene" uid="uid://bp6l0lw650m8o" path="res://world/blocker/blocker.tscn" id="8_5x431"]
-[ext_resource type="PackedScene" uid="uid://crroyl2puavcb" path="res://world/decoration/floor_lantern/floor_lantern.tscn" id="9_ob8eb"]
+[ext_resource type="PackedScene" uid="uid://vm5nvorhandp" path="res://world/items/tonic/tonic.tscn" id="11_jglpt"]
+[ext_resource type="PackedScene" uid="uid://6ahxaf8mfjcr" path="res://world/pickups/ammo_pickup/ammo_pickup.tscn" id="12_q1x3c"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jglpt"]
-size = Vector3(32.375977, 3, 7.5934324)
+size = Vector3(60.117188, 3, 17.013636)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j4103"]
 size = Vector3(24.894531, 3.5175781, 4.6188965)
 
-[node name="LevelTown4" instance=ExtResource("1_83ufp")]
+[sub_resource type="Animation" id="Animation_jglpt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(43.8995, 0, -5.457872)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainCam:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(43.904827, 3.5055885, -4.2544575)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MainCam:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.9599311, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Encounter/Sheriff:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(28.153046, 0.4819467, -3.9800243)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Encounter/Sheriff:process_mode")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Player:process_mode")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MainCam:process_mode")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_q1x3c"]
+resource_name = "fight"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Encounter/Sheriff:process_mode")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player:process_mode")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MainCam:process_mode")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_q05pj"]
+resource_name = "start"
+length = 7.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.73333335, 1.5),
+"transitions": PackedFloat32Array(0.70710677, 1),
+"update": 0,
+"values": [Vector3(44.066807, 0, -7.71004), Vector3(43.97272, 0, -3.8569374)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainCam:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.6000001, 5.0333333, 7),
+"transitions": PackedFloat32Array(-2, -2, -2, 1),
+"update": 0,
+"values": [Vector3(43.904827, 3.5055885, -4.2544575), Vector3(43.904827, 7.386441, -0.4554944), Vector3(39.838272, 7.386441, 0.64952993), Vector3(38.215706, 5.765753, -0.12602389)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MainCam:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.6000001),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Vector3(-0.5235988, 0, 0), Vector3(-0.9599311, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Encounter/Sheriff:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(3.7, 4, 4.5, 4.8, 5.3, 5.6),
+"transitions": PackedFloat32Array(0.73204285, 1, 0.73204285, 1, 0.73204285, 1),
+"update": 0,
+"values": [Vector3(28.153046, 0.4819467, -3.9800243), Vector3(29.828396, 0.4819467, -3.9800243), Vector3(29.828396, 0.4819467, -3.9800243), Vector3(31.910671, 0.4819467, -3.9800243), Vector3(31.910671, 0.4819467, -3.9800243), Vector3(33.901, 0.482, -3.98)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Encounter/Sheriff:process_mode")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Player:process_mode")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MainCam:process_mode")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q1x3c"]
+_data = {
+&"RESET": SubResource("Animation_jglpt"),
+&"fight": SubResource("Animation_q1x3c"),
+&"start": SubResource("Animation_q05pj")
+}
+
+[node name="LevelTown4" node_paths=PackedStringArray("encounter", "anim", "sheriff") instance=ExtResource("1_83ufp")]
+script = ExtResource("2_q1x3c")
+encounter = NodePath("Encounter")
+anim = NodePath("Anim")
+sheriff = NodePath("Encounter/Sheriff")
+pre_timeline = ExtResource("3_dwx1n")
+post_timeline = ExtResource("4_44t27")
 
 [node name="FullscreenBG" parent="Background" index="0"]
-transform = Transform3D(0.17, 0, 0, 0, 0.097508, 0.093383335, 0, -0.13925585, 0.06538772, 2.5613499, -14.898792, -12.023702)
-modulate = Color(0.627451, 0.627451, 0.627451, 1)
-transparent = true
-texture = ExtResource("2_jglpt")
+transform = Transform3D(0.114, 0, 0, 0, 0.06538772, 0.09338334, 0, -0.09338334, 0.06538772, 2.5613499, -14.898792, -12.023702)
 
 [node name="Encounter" parent="." index="4" instance=ExtResource("6_5x431")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.0338202)
 is_boss_encounter = true
+encounter_song = ExtResource("4_q1x3c")
 
 [node name="Sheriff" parent="Encounter" index="0" instance=ExtResource("7_w4wah")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.328011, 0.4819467, -6.921501)
+process_mode = 4
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.153046, 0.4819467, -3.9800243)
 run_away_time_min = 1.0
 run_away_time_max = 2.0
 spawn_on_killed = ExtResource("2_28xow")
@@ -44,127 +272,162 @@ transform = Transform3D(0.26523644, 0, -24.977686, 0, 1, 0, 6.273395, 0, 1.05604
 weight = 0.0
 
 [node name="EncounterShape" type="CollisionShape3D" parent="Encounter" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.693695, 0, -3.4606323)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.5643, 0, 1.2494688)
 shape = SubResource("BoxShape3D_jglpt")
 
 [node name="Transition" parent="TransitionAreas" index="0" instance=ExtResource("2_4ry00")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.844759, 0, -12.468933)
+transform = Transform3D(0.4595006, 0, 0, 0, 1, 0, 0, 0, 2.765402, 79.38719, 0, -0.78788567)
 target_scene = "uid://c4nw61qu6fyyk"
 target_entry_point = "Left"
 
 [node name="CollisionShape3D" parent="TransitionAreas/Transition" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5639458, 0, -25.812904)
 shape = SubResource("BoxShape3D_j4103")
 
 [node name="Player" parent="." index="6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.718742, 0, -4.0061493)
+process_mode = 4
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.8995, 0, -5.457872)
 
 [node name="CursedPlant" parent="Decoration/Plants" index="0"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 12.97214, 9.536743e-07, 0.8534193)
+transform = Transform3D(-1, 0, 0, 0, 1, -1.509958e-07, 0, 1.509958e-07, 1, 12.97214, 9.536743e-07, 0.8534193)
 
 [node name="CursedPlant2" parent="Decoration/Plants" index="1"]
-type = 0
+transform = Transform3D(-1, 0, 0, 0, 1, -1.509958e-07, 0, 1.509958e-07, 1, 9.641161, 9.536743e-07, -1.8205147)
 
 [node name="CursedPlant4" parent="Decoration/Plants" index="2"]
-type = 0
+transform = Transform3D(1, 0, 0, 0, 1, -1.509958e-07, 0, 1.509958e-07, 1, 18.474659, 9.536743e-07, 6.7301674)
 
 [node name="CursedPlant5" parent="Decoration/Plants" index="3"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 19.504585, 9.536743e-07, 5.9388213)
+transform = Transform3D(1, 0, 0, 0, 1, -1.509958e-07, 0, 1.509958e-07, 1, 19.504585, 9.536743e-07, 5.9388213)
+
+[node name="CursedPlant8" parent="Decoration/Plants" index="4"]
+transform = Transform3D(-1, 0, 0, 0, 1, -1.509958e-07, 0, 1.509958e-07, 1, 18.810091, 9.536743e-07, -4.9426026)
 
 [node name="CursedPlant10" parent="Decoration/Plants" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.509958e-07, 0, 1.509958e-07, 1, 2.9783115, 1.4305115e-06, -9.392471)
+type = 1
+
+[node name="CursedPlant11" parent="Decoration/Plants" index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.509958e-07, 0, 1.509958e-07, 1, 1.9024432, 1.4305115e-06, -9.983454)
 type = 1
 
 [node name="CursedPlant12" parent="Decoration/Plants" index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.509958e-07, 0, 1.509958e-07, 1, 4.5448785, 1.4305115e-06, -10.557184)
 type = 0
 
 [node name="CursedPlant13" parent="Decoration/Plants" index="8"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -17.492502, 1.4305115e-06, -6.4950757)
+transform = Transform3D(-1, 0, 0, 0, 1, -1.509958e-07, 0, 1.509958e-07, 1, -17.492502, 1.4305115e-06, -6.4950757)
 type = 0
 
 [node name="CursedPlant14" parent="Decoration/Plants" index="9"]
-type = 1
+transform = Transform3D(1, 0, 0, 0, 1, -1.509958e-07, 0, 1.509958e-07, 1, -29.900177, 1.4305115e-06, -6.175735)
 
 [node name="CursedPlant15" parent="Decoration/Plants" index="10"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -27.248802, 1.4305115e-06, -6.3394017)
+transform = Transform3D(-1, 0, 0, 0, 1, -1.509958e-07, 0, 1.509958e-07, 1, -27.248802, 1.4305115e-06, -6.3394017)
+
+[node name="CursedPlant16" parent="Decoration/Plants" index="11"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.509958e-07, 0, 1.509958e-07, 1, -34.033325, 2.3841858e-06, 8.154507)
+type = 0
 
 [node name="CursedPlant17" parent="Decoration/Plants" index="12"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -32.909473, 2.3841858e-06, 7.652792)
+transform = Transform3D(-1, 0, 0, 0, 1, -1.509958e-07, 0, 1.509958e-07, 1, -32.909473, 2.3841858e-06, 7.652792)
+type = 0
 
 [node name="CursedPlant18" parent="Decoration/Plants" index="13"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -35.183346, 2.3841858e-06, 7.3057356)
+transform = Transform3D(1, 0, 0, 0, 1, -1.509958e-07, 0, 1.509958e-07, 1, -35.183346, 2.3841858e-06, 7.3057356)
 
 [node name="CursedPlant21" parent="Decoration/Plants" index="14"]
-type = 1
+transform = Transform3D(1, 0, 0, 0, 1, -1.509958e-07, 0, 1.509958e-07, 1, 6.546721, 2.861023e-06, 17.324287)
 
 [node name="CursedPlant22" parent="Decoration/Plants" index="15"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 7.475906, 2.861023e-06, 18.356218)
+transform = Transform3D(1, 0, 0, 0, 1, -1.509958e-07, 0, 1.509958e-07, 1, 7.475906, 2.861023e-06, 18.356218)
+
+[node name="CursedPlant23" parent="Decoration/Plants" index="16"]
+transform = Transform3D(-1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, 17.446877, 2.861023e-06, 26.883415)
+type = 1
+
+[node name="CursedPlant24" parent="Decoration/Plants" index="17"]
+transform = Transform3D(-1, 0, 0, 0, 1, -1.509958e-07, 0, 1.509958e-07, 1, 18.273832, 2.861023e-06, 26.007109)
 
 [node name="CursedPlant25" parent="Decoration/Plants" index="18"]
-type = 0
+transform = Transform3D(-1, 0, 0, 0, 1, -1.509958e-07, 0, 1.509958e-07, 1, 16.776598, 2.861023e-06, 25.373657)
 
 [node name="CursedPlant26" parent="Decoration/Plants" index="19"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 4.370305, 3.8146973e-06, 35.17614)
+transform = Transform3D(-1, 0, 0, 0, 1, -1.509958e-07, 0, 1.509958e-07, 1, 4.370305, 3.8146973e-06, 35.17614)
 type = 0
 
+[node name="CursedPlant27" parent="Decoration/Plants" index="20"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.509958e-07, 0, 1.509958e-07, 1, 5.191036, 4.7683716e-06, 36.09765)
+
 [node name="CursedPlant34" parent="Decoration/Plants" index="21"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 22.798418, 8.583069e-06, -26.086636)
+transform = Transform3D(1, 0, 0, 0, 1, -1.509958e-07, 0, 1.509958e-07, 1, 22.798418, 8.583069e-06, -26.086636)
 type = 1
 
 [node name="CursedPlant36" parent="Decoration/Plants" index="22"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8712401, 9.059906e-06, -23.059118)
-
-[node name="CursedPlant38" parent="Decoration/Plants" index="24"]
+transform = Transform3D(-1, 0, 0, 0, 1, -1.509958e-07, 0, 1.509958e-07, 1, 3.8712401, 9.059906e-06, -23.059118)
 type = 1
 
+[node name="CursedPlant37" parent="Decoration/Plants" index="23"]
+transform = Transform3D(-1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, 2.2396097, 9.536743e-06, -20.82966)
+type = 0
+
+[node name="CursedPlant38" parent="Decoration/Plants" index="24"]
+transform = Transform3D(-1, 0, 0, 0, 1, -1.509958e-07, 0, 1.509958e-07, 1, 36.191753, 9.536743e-06, -7.5530405)
+
 [node name="CursedPlant39" parent="Decoration/Plants" index="25"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 35.34773, 9.536743e-06, -7.8378057)
+transform = Transform3D(-1, 0, 0, 0, 1, -1.509958e-07, 0, 1.509958e-07, 1, 35.34773, 9.536743e-06, -7.8378057)
 type = 0
 
 [node name="CursedPlant40" parent="Decoration/Plants" index="26"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 37.62572, 9.536743e-06, -8.360826)
-
-[node name="CursedPlant41" parent="Decoration/Plants" index="27"]
+transform = Transform3D(1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, 37.62572, 9.536743e-06, -8.360826)
 type = 1
 
+[node name="CursedPlant41" parent="Decoration/Plants" index="27"]
+transform = Transform3D(-1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, 52.512173, 9.536743e-06, -7.0858536)
+
 [node name="CursedPlant43" parent="Decoration/Plants" index="28"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 45.33694, 1.04904175e-05, 6.1059785)
-type = 0
+transform = Transform3D(1, 0, 0, 0, 1, -1.509958e-07, 0, 1.509958e-07, 1, 45.33694, 1.04904175e-05, 6.1059785)
+
+[node name="CursedPlant44" parent="Decoration/Plants" index="29"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.509958e-07, 0, 1.509958e-07, 1, 46.146416, 1.04904175e-05, 5.404521)
 
 [node name="CursedPlant45" parent="Decoration/Plants" index="30"]
-type = 0
+transform = Transform3D(1, 0, 0, 0, 1, -1.509958e-07, 0, 1.509958e-07, 1, 44.18519, 1.04904175e-05, 4.8734455)
 
 [node name="CursedPlant48" parent="Decoration/Plants" index="31"]
+transform = Transform3D(-1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, 75.17896, 1.04904175e-05, 1.109611)
 type = 1
 
 [node name="CursedPlant49" parent="Decoration/Plants" index="32"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 68.60121, 1.04904175e-05, -1.7681952)
+transform = Transform3D(1, 0, 0, 0, 1, -1.509958e-07, 0, 1.509958e-07, 1, 68.60121, 1.04904175e-05, -1.7681952)
+type = 0
+
+[node name="CursedPlant50" parent="Decoration/Plants" index="33"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.509958e-07, 0, 1.509958e-07, 1, 69.45258, 1.001358e-05, -2.4362075)
 
 [node name="CursedPlant51" parent="Decoration/Plants" index="34"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 75.89809, 1.001358e-05, 1.5761139)
+transform = Transform3D(1, 0, 0, 0, 1, -1.509958e-07, 0, 1.509958e-07, 1, 75.89809, 1.001358e-05, 1.5761139)
+type = 1
 
-[node name="Comment" parent="." index="13" instance=ExtResource("3_8wq7s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.416405, 0, -2.3331199)
-text = "Sheriff is still wip :("
-size = 1.5
+[node name="MainCam" parent="." index="13"]
+process_mode = 4
+transform = Transform3D(1, 0, 0, 0, 0.57357645, 0.81915206, 0, -0.81915206, 0.57357645, 43.904827, 3.5055885, -4.2544575)
 
-[node name="PlaySongForScene" parent="." index="14" instance=ExtResource("5_8uqty")]
-song = ExtResource("6_w4wah")
+[node name="Anim" type="AnimationPlayer" parent="." index="16"]
+libraries = {
+&"": SubResource("AnimationLibrary_q1x3c")
+}
 
-[node name="Encounter 3" parent="." index="15" instance=ExtResource("6_5x431")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.825329, 0, 2.9171925)
-camera_zoom = 1.3
-appear_delay = 0.2
-encounter_song = ExtResource("7_ob8eb")
+[node name="Tonic" parent="." index="19" instance=ExtResource("11_jglpt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.1699, 0, 1.1986284)
 
-[node name="EncounterShape" type="CollisionShape3D" parent="Encounter 3" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.64549637, 0, -5.034931)
-shape = SubResource("BoxShape3D_jglpt")
+[node name="Tonic2" parent="." index="20" instance=ExtResource("11_jglpt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.07911, 0, -0.17586803)
 
-[node name="FloorLantern" parent="." index="16" instance=ExtResource("9_ob8eb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47596312, 0.073197365, -36.256653)
+[node name="AmmoPickup" parent="." index="21" instance=ExtResource("12_q1x3c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.050648, 0, 33.376915)
 
-[node name="FloorLantern2" parent="." index="17" instance=ExtResource("9_ob8eb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.922262, 0.16328049, -36.76721)
+[node name="AmmoPickup2" parent="." index="22" instance=ExtResource("12_q1x3c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.33308, -1.9073486e-06, -28.494629)
 
 [editable path="Encounter"]
 [editable path="TransitionAreas/Transition"]

@@ -90,8 +90,15 @@ var can_shoot := true
 
 #region Builtin Functions
 func _ready() -> void:
-	if is_boss:
-		Global.entered_boss_encounter.connect(_on_entered_boss_encounter)
+	if not is_boss:
+		(%Hurtbox as Hurtbox).was_hit.connect(func(dmg: DamageInfo) -> void:
+			var v := velocity
+
+			velocity = (dmg.get_knockback() / get_process_delta_time()) * 0.35
+			move_and_slide()
+
+			velocity = v
+		)
 
 	# if Save.save_data.object_save_data.is_dead(self):
 	# 	queue_free()
@@ -258,7 +265,4 @@ func stop_shooting() -> void:
 ## Sets this enemy on fire, and increases the static count of total enemies on fire.
 func set_on_fire() -> void:
 	%FireDamage.set_on_fire()
-
-func _on_entered_boss_encounter() -> void:
-	Global.boss_spawned.emit(self)
 #endregion

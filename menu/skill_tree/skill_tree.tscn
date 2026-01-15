@@ -68,7 +68,7 @@ skill_image = ExtResource("5_x1cyl")
 skill_image_upgraded = ExtResource("6_lwvla")
 skill_description = "Increases the base damage
 of attacks"
-skill_meat_cost = 15
+skill_meat_cost = 5
 skill_uid = 1
 metadata/_custom_type_script = "uid://ce2k6qyx3sk68"
 
@@ -495,10 +495,10 @@ offset_right = 498.0
 offset_bottom = 66.0
 texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../R1")]
-evil_dependencies = [NodePath("../D1"), NodePath("../B1")]
+evil_dependencies = [NodePath("../D1"), NodePath("../B1"), NodePath("../R2_2")]
 itemDesc = SubResource("Resource_8qlyr")
 
-[node name="R2_2" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+[node name="R2_2" parent="SkillButtons" node_paths=PackedStringArray("dependencies", "evil_dependencies") instance=ExtResource("2_3f6vw")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -509,6 +509,7 @@ offset_right = 494.0
 offset_bottom = 184.0
 texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../R1")]
+evil_dependencies = [NodePath("../R2_1")]
 itemDesc = SubResource("Resource_ph0jt")
 
 [node name="R3" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
@@ -524,7 +525,7 @@ texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../R2_1"), NodePath("../R2_2")]
 itemDesc = SubResource("Resource_6jgdw")
 
-[node name="R4_1" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+[node name="R4_1" parent="SkillButtons" node_paths=PackedStringArray("dependencies", "evil_dependencies") instance=ExtResource("2_3f6vw")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -535,9 +536,10 @@ offset_right = 723.0
 offset_bottom = 95.0
 texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../R3")]
+evil_dependencies = [NodePath("../R4_2")]
 itemDesc = SubResource("Resource_yrbjn")
 
-[node name="R4_2" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+[node name="R4_2" parent="SkillButtons" node_paths=PackedStringArray("dependencies", "evil_dependencies") instance=ExtResource("2_3f6vw")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -548,6 +550,7 @@ offset_right = 725.0
 offset_bottom = 216.0
 texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../R3")]
+evil_dependencies = [NodePath("../R4_1")]
 itemDesc = SubResource("Resource_oh6w3")
 
 [node name="R5" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
@@ -577,7 +580,7 @@ dependencies = [NodePath("../Base")]
 evil_dependencies = [NodePath("../R1"), NodePath("../B1")]
 itemDesc = SubResource("Resource_fin66")
 
-[node name="D2_1" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+[node name="D2_1" parent="SkillButtons" node_paths=PackedStringArray("dependencies", "evil_dependencies") instance=ExtResource("2_3f6vw")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -588,9 +591,10 @@ offset_right = 308.0
 offset_bottom = 322.0
 texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../D1")]
+evil_dependencies = [NodePath("../D2_2")]
 itemDesc = SubResource("Resource_x1cyl")
 
-[node name="D2_2" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+[node name="D2_2" parent="SkillButtons" node_paths=PackedStringArray("dependencies", "evil_dependencies") instance=ExtResource("2_3f6vw")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -601,6 +605,7 @@ offset_right = 384.0
 offset_bottom = 247.0
 texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../D1")]
+evil_dependencies = [NodePath("../D2_1")]
 itemDesc = SubResource("Resource_lwvla")
 
 [node name="D3" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
@@ -616,7 +621,7 @@ texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../D2_1"), NodePath("../D2_2")]
 itemDesc = SubResource("Resource_8rbpw")
 
-[node name="D4_1" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+[node name="D4_1" parent="SkillButtons" node_paths=PackedStringArray("dependencies", "evil_dependencies") instance=ExtResource("2_3f6vw")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -627,9 +632,10 @@ offset_right = 557.0
 offset_bottom = 392.0
 texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../D3")]
+evil_dependencies = [NodePath("../D4_2")]
 itemDesc = SubResource("Resource_mygyd")
 
-[node name="D4_2" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+[node name="D4_2" parent="SkillButtons" node_paths=PackedStringArray("dependencies", "evil_dependencies") instance=ExtResource("2_3f6vw")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -640,6 +646,7 @@ offset_right = 474.0
 offset_bottom = 485.0
 texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../D3")]
+evil_dependencies = [NodePath("../D4_1")]
 itemDesc = SubResource("Resource_4fwot")
 
 [node name="D5" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
@@ -669,7 +676,7 @@ dependencies = [NodePath("../Base")]
 evil_dependencies = [NodePath("../R1"), NodePath("../D1")]
 itemDesc = SubResource("Resource_jggre")
 
-[node name="B2_1" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+[node name="B2_1" parent="SkillButtons" node_paths=PackedStringArray("dependencies", "evil_dependencies") instance=ExtResource("2_3f6vw")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -680,9 +687,10 @@ offset_right = 59.0
 offset_bottom = 365.0
 texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../B1")]
+evil_dependencies = [NodePath("../B2_2")]
 itemDesc = SubResource("Resource_luurr")
 
-[node name="B2_2" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+[node name="B2_2" parent="SkillButtons" node_paths=PackedStringArray("dependencies", "evil_dependencies") instance=ExtResource("2_3f6vw")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -693,6 +701,7 @@ offset_right = 192.0
 offset_bottom = 365.0
 texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../B1")]
+evil_dependencies = [NodePath("../B2_1")]
 itemDesc = SubResource("Resource_2h7kc")
 
 [node name="B3" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
@@ -708,7 +717,7 @@ texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../B2_1"), NodePath("../B2_2")]
 itemDesc = SubResource("Resource_dcxbm")
 
-[node name="B4_1" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+[node name="B4_1" parent="SkillButtons" node_paths=PackedStringArray("dependencies", "evil_dependencies") instance=ExtResource("2_3f6vw")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -719,9 +728,10 @@ offset_right = 59.0
 offset_bottom = 545.0
 texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../B3")]
+evil_dependencies = [NodePath("../B4_2")]
 itemDesc = SubResource("Resource_qu2j3")
 
-[node name="B4_2" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
+[node name="B4_2" parent="SkillButtons" node_paths=PackedStringArray("dependencies", "evil_dependencies") instance=ExtResource("2_3f6vw")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -732,6 +742,7 @@ offset_right = 204.0
 offset_bottom = 540.0
 texture_normal = ExtResource("3_fin66")
 dependencies = [NodePath("../B3")]
+evil_dependencies = [NodePath("../B4_1")]
 itemDesc = SubResource("Resource_obulw")
 
 [node name="B5" parent="SkillButtons" node_paths=PackedStringArray("dependencies") instance=ExtResource("2_3f6vw")]
@@ -782,6 +793,7 @@ layout_mode = 0
 offset_right = 605.0
 offset_bottom = 648.0
 split_offset = 500
+dragging_enabled = false
 
 [node name="Info" type="VBoxContainer" parent="Overlay/SkillPanel/VSplitContainer"]
 layout_mode = 2

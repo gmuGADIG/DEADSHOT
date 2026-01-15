@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_h4cra")
-dialog = "[] Some enhancement can’t hurt..."
+dialog = "[ ] Some enhancement can’t hurt..."
 metadata/_custom_type_script = "uid://rvaetvwo5p3h"

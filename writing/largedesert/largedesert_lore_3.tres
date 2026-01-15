@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://b3fphxdqqcr1d"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_j8gu6"]
+
+[resource]
+script = ExtResource("1_j8gu6")
+dialog = "[ ]It’s a crumpled page from a journal...
+‘I’ve been studying this mare for a while now. Poor thing’s been turned so badly by this curse. Every once in a while, she flinches, like there’s something screaming in her ear. I can’t imagine what that curse feels like.’
+[ ]There’s more on the back of the page...
+‘The mare seems a peaceful girl while sleeping. Wish I could say the same! Can’t catch a wink with these hordes of freak things everywhere. Damn, do I miss having the gunslinger around. I wish they’d appear out of the darkness and get me out of this pickle.'"
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"

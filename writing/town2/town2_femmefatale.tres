@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://dglj8h0batkne"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_un7nk"]
+
+[resource]
+script = ExtResource("1_un7nk")
+dialog = "[Florence]  “Howdy, gunslinger! Killer shooting back there! Been afraid exile’d made ya soft, but you haven’t changed a bit! Good to have you back, anyway.”
+“Lil’ ol’ me? I haven’t changed much, either. My trigger finger’s more than itchin’ ta start blastin’ those whatever-those-things-are’s brains outta their skulls! But have ya heard? Zoa over there says shootin’s off limits. Apparently she’s tryin’ to ‘preserve the townsfolk’ ‘till she finds a cure.”
+“Too bad that includes Tweedledope n’ Tweedledick...I’ve been meanin’ to teach those two a lesson by means of a bullet through their cabooses.”
+“That’s how I know Zoa was full’a shit about you, too. Lately feels like she’s makin’ stuff up for the fun of it. Felt that way when her wife died, too...”
+“Anyhow, she’s bound to chew ya out for that killin’ earlier. I’ll be sure to chew her out in return, just like when she exiled ya! Always worth the jail time to see that smug face of hers fumble over some silly words.”"
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"

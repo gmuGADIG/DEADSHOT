@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_24vwr")
-dialog = "[] More strength behind a shot can’t hurt"
+dialog = "[ ] More strength behind a shot can’t hurt."
 metadata/_custom_type_script = "uid://rvaetvwo5p3h"

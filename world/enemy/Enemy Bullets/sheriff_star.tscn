@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dbxsvyvdibova"]
 
 [ext_resource type="PackedScene" uid="uid://53setitiasq8" path="res://world/enemy/Enemy Bullets/enemy_bullet.tscn" id="1_7n0g2"]
-[ext_resource type="Script" path="res://world/enemy/Enemy Bullets/sheriff_star.gd" id="2_5ic6n"]
+[ext_resource type="Script" uid="uid://dfpastllqllfj" path="res://world/enemy/Enemy Bullets/sheriff_star.gd" id="2_5ic6n"]
 [ext_resource type="Texture2D" uid="uid://dr4ivc7tmyyha" path="res://world/player/HUD/heart_full.png" id="3_l5k5e"]
 
 [sub_resource type="Curve" id="Curve_5ic6n"]
@@ -18,7 +18,6 @@ sprite_spin_speed = 360.0
 movement_curve = SubResource("Curve_5ic6n")
 skip_slowdown_time = 0.5
 apex_time = 1.0
-atk_damage = 2.0
 speed = 20.0
 
 [node name="Sprite3D" parent="." index="0"]

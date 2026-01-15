@@ -1,11 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwlho1k2eetb1"]
+[gd_scene load_steps=6 format=3 uid="uid://dwlho1k2eetb1"]
 
 [ext_resource type="Script" uid="uid://bdild08nlivpj" path="res://world/npc/npc.gd" id="1_gbcy0"]
 [ext_resource type="Texture2D" uid="uid://btqpnemuctfld" path="res://world/npc/stone_tablet/stone_tablet.png" id="2_kvlqy"]
+[ext_resource type="FontFile" uid="uid://ypol1ssrkffh" path="res://menu/UnityNeoFree.ttf" id="3_kvlqy"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_rtelh"]
 height = 5.067383
 radius = 1.4501953
+
+[sub_resource type="FontVariation" id="FontVariation_rtelh"]
+base_font = ExtResource("3_kvlqy")
 
 [node name="Tablet" type="Area3D"]
 collision_layer = 4
@@ -19,3 +23,12 @@ texture = ExtResource("2_kvlqy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CylinderShape3D_rtelh")
+
+[node name="Exclaim" type="Label3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0284996, 2.3917084, 0)
+visible = false
+pixel_size = 0.025
+billboard = 1
+text = "!"
+font = SubResource("FontVariation_rtelh")

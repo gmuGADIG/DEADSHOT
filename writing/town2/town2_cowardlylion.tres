@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://ba5v4aj5bc5ko"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_g4i5o"]
+
+[resource]
+script = ExtResource("1_g4i5o")
+dialog = "[Charlie Lion]“Gah! Please don’t hurt me!”
+“Oh, God. I don’t think I can do this anymore! Everything’s gone belly up ‘cause of these damn...things!”
+“The sounds of their screams make my skin crawl, and they’re ugly! I got one good look at their mangled faces and now I can’t stop imaginin’ them in the darkness of this barrel...”
+“I don’t know who’s out there, but you need to run far from this town or else you’ll become one of them!”
+“I hope those gunshots were from who I think it was...but I’m not risking my safety to find out!”"
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"

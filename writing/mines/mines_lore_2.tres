@@ -5,5 +5,6 @@
 [resource]
 script = ExtResource("1_14c3c")
 dialog = "[ ]There's a message carved into the rock...
-'Their creation was born, and thus life that was gifted the capability to seed life anew began its crusade.'"
+‘This child was quite the explorative creature, surveying the land, taking in much of the natural beauty that this earth had to offer.’ ‘This child had learned much in its exploration, inspired by the structures of the world, and soon offering its own form of life onto the land.’ 
+‘This form of life swiftly grew into something greater, being recognized by the other specimens that occupied the land.’"
 metadata/_custom_type_script = "uid://rvaetvwo5p3h"

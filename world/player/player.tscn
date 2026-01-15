@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cj5uuu7xjsprv" path="res://world/player/weapon/basic_gun/basic_gun.tscn" id="4_q1k4r"]
 [ext_resource type="SpriteFrames" uid="uid://dmswlafp654ob" path="res://world/player/player_sprite_frames.tres" id="5_scey4"]
 [ext_resource type="Script" uid="uid://do5vs8m1law7o" path="res://systems/attacking/health/health.gd" id="6_thypd"]
+[ext_resource type="PackedScene" uid="uid://dyikhdsyflso3" path="res://world/player/weapon/rifle/rifle.tscn" id="6_wxa5a"]
 [ext_resource type="Script" uid="uid://lxg83i28nlul" path="res://systems/attacking/hurtbox/hurtbox.gd" id="7_d3e1v"]
 [ext_resource type="Texture2D" uid="uid://veqmqpjiki0d" path="res://world/player/reticle/reticle.png" id="10_scey4"]
 [ext_resource type="Script" uid="uid://c1g7056xgtqys" path="res://systems/camera/camera_tracked.gd" id="11_2x47q"]
@@ -98,33 +99,12 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.237, 0)
 
 [node name="Shotgun" parent="Weapons" instance=ExtResource("11_3n4qb")]
-number_of_shots_fired = 5
-spread = 0.1
-damage = 1.0
-reload_time = 0.65
-ammo_per_pickup = 20
-fire_cooldown = 0.2
 
 [node name="Dualies" parent="Weapons" instance=ExtResource("3_jrep8")]
-damage = 0.75
-ammo_per_pickup = 40
 
 [node name="BasicGun" parent="Weapons" instance=ExtResource("4_q1k4r")]
-ammo_per_pickup = 20
 
-[node name="Rifle" parent="Weapons" instance=ExtResource("4_q1k4r")]
-damage = 4.0
-max_chamber = 4
-max_reserve = 36
-ammo_per_pickup = 10
-fire_cooldown = 1.0
-
-[node name="ShootSound" parent="Weapons/Rifle/Sounds" index="0"]
-volume_db = -6.0
-
-[node name="GunSprite" parent="Weapons/Rifle" index="1"]
-transform = Transform3D(-2.8867579e-08, -0.27999994, -4.371139e-08, 0, -1.2239187e-08, 1, -0.6604132, 1.2239187e-08, 1.9106855e-15, 0, 0, -1.5684328)
-modulate = Color(0.3, 0.3, 0.3, 1)
+[node name="Rifle" parent="Weapons" instance=ExtResource("6_wxa5a")]
 
 [node name="Sprite" type="AnimatedSprite3D" parent="." node_paths=PackedStringArray("player")]
 transform = Transform3D(0.39, 0, 0, 0, 0.33774987, 0.19500007, 0, -0.19500007, 0.33774987, 0.00084251165, 1.6017487, 0)
@@ -260,5 +240,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0.88683414)
 [connection signal="frame_changed" from="Sprite" to="Sprite" method="_on_frame_changed"]
 [connection signal="was_hit" from="HurtboxComponent" to="." method="_on_hurtbox_component_was_hit"]
 [connection signal="damaged" from="HurtboxComponent/HealthComponent" to="." method="_on_hurt"]
-
-[editable path="Weapons/Rifle"]

@@ -143,6 +143,7 @@ func shoot_spike_spin() -> void:
 func shoot_chunk() -> void: 
 	var new_chunk : Bullet = chunk.instantiate()
 	add_sibling(new_chunk)
+	$FleshStreamSound.play()
 	new_chunk.global_position = $BulletSpawnPoint.global_position
 	var target : Vector3 = Player.instance.global_position
 	target += 0.05*Player.instance.velocity*global_position.distance_to(Player.instance.global_position)

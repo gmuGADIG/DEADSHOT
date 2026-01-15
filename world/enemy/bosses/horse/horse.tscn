@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://dp00f0nisoyxa"]
+[gd_scene load_steps=56 format=3 uid="uid://dp00f0nisoyxa"]
 
 [ext_resource type="PackedScene" uid="uid://c5mugf35c8n0f" path="res://world/enemy/bosses/boss_enemy.tscn" id="1_bulbf"]
 [ext_resource type="Script" uid="uid://caif4brdw52j8" path="res://world/enemy/bosses/horse/horse_boss.gd" id="2_23ymh"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://cyupoqq628ujj" path="res://world/enemy/bosses/horse/art/horse_run_left.png" id="6_s7005"]
 [ext_resource type="Texture2D" uid="uid://qq7lou0rqlxh" path="res://world/enemy/bosses/horse/art/horse_run_right.png" id="7_nq2we"]
 [ext_resource type="PackedScene" uid="uid://bl78b6gav1q1b" path="res://world/enemy/base/qte_target.tscn" id="10_nq2we"]
+[ext_resource type="PackedScene" uid="uid://cib43ohphwab7" path="res://audio/streams/boss_death_sound.tscn" id="11_fcerl"]
+[ext_resource type="PackedScene" uid="uid://r5xak07aei12" path="res://audio/streams/mass_splat_sound.tscn" id="12_s721h"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_o0ar2"]
 height = 2.3742957
@@ -397,7 +399,7 @@ animation = &"idle_left"
 autoplay = "idle_right"
 
 [node name="Health" parent="." index="3"]
-max_health = 110.0
+max_health = 85.0
 
 [node name="CollisionShape3D" parent="Hurtbox" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2055829, 0)
@@ -413,6 +415,10 @@ unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_dc5ks")
 }
+
+[node name="EncounterObject" parent="." index="9"]
+start_active = true
+start_instant = true
 
 [node name="HurterBox" type="Area3D" parent="." index="10"]
 collision_layer = 0
@@ -439,5 +445,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2735666, 0.8590765, 0)
 
 [node name="QTETarget6" parent="QTEHandler" index="5" instance=ExtResource("10_nq2we")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1493335, 2.0781267, 0)
+
+[node name="BossDeathSound" parent="." index="14" instance=ExtResource("11_fcerl")]
+
+[node name="MassSplatSound" parent="." index="15" instance=ExtResource("12_s721h")]
 
 [connection signal="area_entered" from="HurterBox" to="." method="_on_hurter_box_area_entered"]

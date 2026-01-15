@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://d0sdri7hlk5i3"]
+[gd_scene load_steps=44 format=3 uid="uid://d0sdri7hlk5i3"]
 
 [ext_resource type="PackedScene" uid="uid://c5mugf35c8n0f" path="res://world/enemy/bosses/boss_enemy.tscn" id="1_0ojq6"]
 [ext_resource type="Script" uid="uid://bvjxmtoqmx4bg" path="res://world/enemy/bosses/mass/the_mass.gd" id="2_0ojq6"]
@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://doavrdpyjcdgp" path="res://world/enemy/judge/enemy_judge.tscn" id="12_7woel"]
 [ext_resource type="PackedScene" uid="uid://bl78b6gav1q1b" path="res://world/enemy/base/qte_target.tscn" id="12_c6uyn"]
 [ext_resource type="PackedScene" uid="uid://by1e10t6ksd64" path="res://world/enemy/bird_swarm/bird_swarm.tscn" id="13_6dfcl"]
+[ext_resource type="PackedScene" uid="uid://cib43ohphwab7" path="res://audio/streams/boss_death_sound.tscn" id="16_1cjuw"]
+[ext_resource type="PackedScene" uid="uid://c6b1q5c6o37e5" path="res://audio/streams/flesh_stream.tscn" id="17_o1act"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b8f6a"]
 size = Vector3(11.355682, 5.3653564, 3.9311523)
@@ -838,6 +840,7 @@ spawn_on_killed = ExtResource("6_s2jdb")
 shape = SubResource("BoxShape3D_b8f6a")
 
 [node name="Sprite" parent="." index="1"]
+process_mode = 1
 transform = Transform3D(0.305, 0, 0, 0, 0.26413772, 0.15250008, 0, -0.15250008, 0.26413772, 0, 0, 0)
 offset = Vector2(0, 1000)
 sprite_frames = SubResource("SpriteFrames_o1act")
@@ -845,7 +848,7 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="Health" parent="." index="3"]
-max_health = 450.0
+max_health = 400.0
 
 [node name="CollisionShape3D" parent="Hurtbox" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16773987, 2.4394531, -0.27624512)
@@ -866,6 +869,10 @@ process_mode = 4
 libraries = {
 &"": SubResource("AnimationLibrary_k1noq")
 }
+
+[node name="EncounterObject" parent="." index="11"]
+start_active = true
+start_instant = true
 
 [node name="FakeChunk" type="Sprite3D" parent="." index="12"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08410025, 1.9897518, 0)
@@ -907,3 +914,7 @@ amount = 1000
 lifetime = 1.0
 emission_shape = 3
 emission_box_extents = Vector3(1, 0.105, 5.695)
+
+[node name="BossDeathSound" parent="." index="16" instance=ExtResource("16_1cjuw")]
+
+[node name="FleshStreamSound" parent="." index="17" instance=ExtResource("17_o1act")]

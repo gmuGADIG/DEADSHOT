@@ -4,8 +4,9 @@
 
 [resource]
 script = ExtResource("1_8kjjs")
-dialog = "[]It’s a slightly worn note from a journal...
-‘It's been a while since I was able to get a good night's sleep in this forsaken town. Though it has brought new light to my long growing suspicions, as a few nights ago I saw the sheriff sneaking off in the dead of night towards the mines.’
-‘It's just as though I can’t trust a single soul in this town, especially since I lost my son. I bet they're all there all in on it, with them saying I need to go to the doctor to finally get some sleep, just so they can jump me at night.’
-"
+dialog = "[ ] It’s a fresh sheet of paper.
+‘I’ve grown restless these last few days. It certainly doesn’t help that I keep hearing all sorts of noises throughout the town at night. I can usually rationalize my fears away, but last night I heard footsteps.’
+‘I tried to convince myself that it was just a rogue horse or tumbleweed passing through the town, but I couldn’t rid myself of the thought that it could be him, finally coming back home. It seems stupid, I know, thinking that he would just find his way back here all of a sudden.’
+‘The disappearance of my son makes me scared. Not just for him, but for whoever, or whatever, caused him to just vanish like that. I heard footsteps the night he disappeared, too. I fully believe that whoever was walking through town then knew what happened to him.’ 
+‘It’s a foolish thought, but I’ve never been wrong about a gut feeling before. I’m not gonna stop believing now. I just pray the wind doesn’t blow my journal about the desert like last time...’"
 metadata/_custom_type_script = "uid://rvaetvwo5p3h"

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://cpufebvpxqwqf"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_caxym"]
+
+[resource]
+script = ExtResource("1_caxym")
+dialog = "[Shady Salesman] “Whoa, there, gunslinger, you look like you've seen better days! This infection spreading around seems to be getting the best of everyone in this dusty old town.”
+“Lucky for you, I got just the thing. Elixir, the one-size-fits-all cure to this nasty infection. One bottle and you're, well, cured!”
+“What’s with those hesitant hands, partner? Don’t tell me you’re waiting for the sheriff’s “cure”! She’s been saying that she’d make one forever now, but I'm still the only one out here sellin’ any!”
+“Whaddya say, friend? How many bottles can I put you down for? It’s only ten dollars!”
+[ ]You doubt the effects of this cure. The only way through this mob is good shooting.
+[Snake Oil Salesman]“Bah, just you wait. You'll be wishing you had an elixir when that infection gets to you!”"
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"

@@ -1,6 +1,6 @@
 extends Node3D
 
-const DMG_PER_HIT := 1
+const DMG_PER_HIT := 0.25
 
 @onready var hurtbox: Hurtbox = get_parent()
 @onready var dot_timer: Timer = %DOTTimer

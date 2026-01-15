@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://cd33htarb7nvt"]
+
+[ext_resource type="AudioStream" uid="uid://c1alwawkqg1d3" path="res://audio/bosses/se_spikePierce_1.mp3" id="1_1hidf"]
+[ext_resource type="AudioStream" uid="uid://ciefdac8qu26e" path="res://audio/bosses/se_spikePierce_2.mp3" id="2_wd3dn"]
+[ext_resource type="Script" uid="uid://bf14d2iyiqx56" path="res://audio/streams/sound_stream.gd" id="7_ymag0"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_35sv0"]
+streams_count = 2
+stream_0/stream = ExtResource("1_1hidf")
+stream_1/stream = ExtResource("2_wd3dn")
+
+[node name="SpikePierceSound" type="AudioStreamPlayer3D"]
+stream = SubResource("AudioStreamRandomizer_35sv0")
+unit_size = 20.0
+panning_strength = 0.5
+bus = &"SFX"
+attenuation_filter_cutoff_hz = 20500.0
+script = ExtResource("7_ymag0")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

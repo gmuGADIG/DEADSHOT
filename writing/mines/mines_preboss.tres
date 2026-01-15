@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://ba8j8uvaixbjy"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_04rjg"]
+
+[resource]
+script = ExtResource("1_04rjg")
+dialog = "[ ]You happen upon a...helpless mass. 
+It does not concern you. You decide to leave it alone.
+...
+You decide to leave it alone.
+...
+Gunslinger, why do you stand there, with your finger on the trigger?
+It’s just a child. An...insignificant child! You may think it looks infected, but it isn’t. It’s pure!
+...
+Don’t. Don’t kill me, gunslinger. We’ve worked together thus far. As you spill the blood of my creations, new life—superior life—begins its gestation. I can grant you something better than heroism and fame—immortality! I’ll never betray you! All you need to do, right now, is vow not to betray me!
+Leave these caves!
+...
+No..."
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"

@@ -1,8 +1,7 @@
-[gd_scene load_steps=38 format=3 uid="uid://c1dar8odnyq6n"]
+[gd_scene load_steps=37 format=3 uid="uid://c1dar8odnyq6n"]
 
 [ext_resource type="Script" uid="uid://0ti8jktscn8w" path="res://systems/dialog/dialog.gd" id="1_luyus"]
 [ext_resource type="AudioStream" uid="uid://bdsxandq2bhjy" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkA.wav" id="2_clngm"]
-[ext_resource type="AudioStream" uid="uid://dc6lbunkflvv4" path="res://audio/placeholders/funny_bone_man.wav" id="2_qqm2g"]
 [ext_resource type="AudioStream" uid="uid://b5lhglep41wwx" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkB.wav" id="3_3edpr"]
 [ext_resource type="AudioStream" uid="uid://db7o75hm7770g" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkC.wav" id="4_d8ird"]
 [ext_resource type="AudioStream" uid="uid://ccdtwcvjao0e3" path="res://audio/dialog_sounds/se_npc_textbox_talk/se_npc_textbox_talkD.wav" id="5_b5a57"]
@@ -43,7 +42,7 @@ noise = SubResource("FastNoiseLite_c3yfu")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d8ird"]
 shader = ExtResource("26_d8ird")
-shader_parameter/progress = -0.65999998385
+shader_parameter/progress = 2.0
 shader_parameter/width = 0.7
 shader_parameter/noise = SubResource("NoiseTexture2D_rx78u")
 shader_parameter/speed = 0.5
@@ -60,7 +59,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Box/SubViewport/Panel:material:shader_parameter/progress")
+tracks/0/path = NodePath("Box:material:shader_parameter/progress")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -118,7 +117,7 @@ sfx = SubResource("Resource_yftcr")
 wait_time = 0.05
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_qqm2g")
+stream = ExtResource("2_clngm")
 volume_db = -10.0
 max_polyphony = 2
 bus = &"SFX"
@@ -187,6 +186,7 @@ offset_top = 39.0
 offset_right = -65.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 22
 bbcode_enabled = true
 text = "Dialog"
 fit_content = true

@@ -58,6 +58,7 @@ health = NodePath("../../Health")
 unique_name_in_owner = true
 
 [node name="Hurtbox" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_1tv51")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23818576, 0)
 collision_layer = 8
 health_component = NodePath("../Health")

@@ -48,4 +48,5 @@ transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 3.871
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -2.3426242, -1.3525145)
 alpha_cut = 1
 sprite_frames = SubResource("SpriteFrames_pyw5j")
+autoplay = "default"
 frame_progress = 0.31766692

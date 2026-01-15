@@ -44,17 +44,9 @@ func on_pickup(body: Node3D) -> void:
 		sfx.reparent(get_tree().current_scene)
 		sfx.play()
 		
-		var label_instance := Label3D.new()
-		label_instance.text = "Tonic +2"
-		label_instance.font_size = 100
-		label_instance.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	
-		body.add_child(label_instance)
-		if tween and tween.is_valid():
-			tween.kill()
-	
-		tween = label_instance.create_tween()
-		tween.tween_property(label_instance, "position", Vector3(0, 3, 0), 0.75).set_ease(Tween.EASE_OUT)
-		tween.finished.connect(label_instance.queue_free)
+		var flavor_text: PickupText = preload("res://world/pickups/ammo_pickup/pickup_text/pickup_text.tscn").instantiate()
+		flavor_text.set_hp()
+		flavor_text.position = self.position
+		add_sibling(flavor_text)
 		
 		queue_free();

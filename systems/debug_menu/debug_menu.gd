@@ -18,10 +18,9 @@ func _on_mines_button_pressed() -> void:
 	visible = false
 	get_tree().change_scene_to_file("res://world/levels/mines/level_mines.tscn")
 
-
 func _on_skill_tree_button_pressed() -> void:
-	visible = false
-	get_tree().change_scene_to_file("res://menu/skill_tree/skill_tree.tscn")
+	var skill_tree: Control = load("res://menu/skill_tree/skill_tree.tscn").instantiate()
+	add_child(skill_tree)
 
 func _on_prop_demo_button_pressed() -> void:
 	visible = false

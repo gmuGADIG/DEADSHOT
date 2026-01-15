@@ -132,10 +132,18 @@ func _ready() -> void:
 	Global.skill_tree_changed.connect(func(skill: SkillSet.SkillUID) -> void:
 		if skill in hp_skills:
 			health_component.modify_max_health(2)
+		if skill == SkillSet.SkillUID.PISTOL_ROLL_COOLDOWN:
+			health_component.modify_max_health(-2)
+		if skill == SkillSet.SkillUID.RIFLE_DAMAGE_2:
+			health_component.modify_max_health(-2)
 	)
 	Global.skill_removed.connect(func(skill: SkillSet.SkillUID) -> void:
 		if skill in hp_skills:
 			health_component.modify_max_health(-2)
+		if skill == SkillSet.SkillUID.PISTOL_ROLL_COOLDOWN:
+			health_component.modify_max_health(2)
+		if skill == SkillSet.SkillUID.RIFLE_DAMAGE_2:
+			health_component.modify_max_health(2)
 	)
 	
 	player_ready.emit()
@@ -144,6 +152,8 @@ func _init() -> void:
 	instance = self
 
 func _physics_process(delta: float) -> void:		
+	walk_sfx_timer.paused = current_state != PlayerState.WALKING
+	
 	if current_state == PlayerState.WALKING:		
 		var input_dir : Vector3 = input_direction()
 
@@ -282,7 +292,8 @@ func roll(delta : float) -> void:
 	
 	##Apply velocity
 	velocity = roll_dir * roll_speed
-	roll_time += delta
+	var mul := 1. if not SkillSet.has_skill(SkillSet.SkillUID.PISTOL_DAMAGE) else 2.
+	roll_time += delta * mul
 	
 	if roll_time >= roll_curve.max_domain:
 		health_component.vulnerable = true
@@ -291,7 +302,8 @@ func roll(delta : float) -> void:
 ## Called every frame if the player is in combat.
 func update_stamina(delta: float) -> void:
 	if Encounter.is_encounter_active():
-		stamina += STAMINA_RECHARGE_RATE * delta
+		var roll_bonus := 1.5 if SkillSet.has_skill(SkillSet.SkillUID.PISTOL_ROLL_COOLDOWN) else 1.0
+		stamina += STAMINA_RECHARGE_RATE * roll_bonus * delta
 		stamina = clampf(stamina, 0.0, 3.0)
 	else:
 		stamina = 3.0
@@ -360,8 +372,10 @@ func play_walking_sfx() -> void:
 
 func skill_speed_mul() -> float:
 	var ret := 1.
-	if SkillSet.has_skill(SkillSet.SkillUID.SHOTGUN_MOVEMENT_SPEED): ret *= 1.6
-	if SkillSet.has_skill(SkillSet.SkillUID.PISTOL_MOVEMENT_SPEED): ret *= 1.6
+	if SkillSet.has_skill(SkillSet.SkillUID.SHOTGUN_MOVEMENT_SPEED): ret *= 1.3
+	if SkillSet.has_skill(SkillSet.SkillUID.PISTOL_MOVEMENT_SPEED): ret *= 1.3
+
+	if SkillSet.has_skill(SkillSet.SkillUID.RIFLE_MAG): ret *= .8
 
 	return ret
 

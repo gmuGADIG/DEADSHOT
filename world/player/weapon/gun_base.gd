@@ -43,8 +43,14 @@ func _ready() -> void:
 	reserve_ammo = max_reserve
 
 	Global.skill_tree_changed.connect(func(skill: SkillSet.SkillUID) -> void:
-		if skill == SkillSet.SkillUID.RIFLE_MAG or skill == SkillSet.SkillUID.RESPEC:
+		if skill in [
+			SkillSet.SkillUID.RIFLE_MAG,
+			SkillSet.SkillUID.RESPEC,
+			SkillSet.SkillUID.PISTOL_FIRE_RATE,
+			SkillSet.SkillUID.SHOTGUN_HP_2,
+		]:
 			chamber_ammo = get_max_chamber()
+		# if skill == SkillSet.SkillUID.RIFLE_MAG or skill == SkillSet.SkillUID.RESPEC:
 	)
 
 func update_hud() -> void:
@@ -128,28 +134,40 @@ func set_gun_rotation() -> void:
 	else:
 		scale.x = abs(scale.x)
 
-func get_bullet_scene() -> PackedScene:
+func get_bullet() -> Bullet:
+	var scene: PackedScene
 	if SkillSet.has_skill(SkillSet.SkillUID.SHOTGUN_FIRE):
-		return preload("res://world/player/weapon/bullet/fire_bullet.tscn")
+		scene =preload("res://world/player/weapon/bullet/fire_bullet.tscn")
 	else:
-		return preload("res://world/player/weapon/bullet/player_bullet.tscn")
+		scene = preload("res://world/player/weapon/bullet/player_bullet.tscn")
+	
+	var ret := scene.instantiate() as Bullet
+	ret.atk_knockback = DamageInfo.KnockbackStrength.STRONG if SkillSet.has_skill(SkillSet.SkillUID.SHOTGUN_KNOCKBACK) else DamageInfo.KnockbackStrength.NORMAL
+	return ret
 
 func get_damage() -> float:
-	var modifier := 1.
+	var modifier := 1.0
 	
-	if SkillSet.has_skill(SkillSet.SkillUID.BASE_DAMAGE): modifier += 1.
-	if SkillSet.has_skill(SkillSet.SkillUID.RIFLE_DAMAGE_1): modifier += 1.
-	if SkillSet.has_skill(SkillSet.SkillUID.RIFLE_DAMAGE_2): modifier += 1.
-	if SkillSet.has_skill(SkillSet.SkillUID.PISTOL_DAMAGE): modifier += 1.
+	if SkillSet.has_skill(SkillSet.SkillUID.BASE_DAMAGE): modifier += 0.3
+	if SkillSet.has_skill(SkillSet.SkillUID.RIFLE_DAMAGE_1): modifier += 0.3
+	if SkillSet.has_skill(SkillSet.SkillUID.RIFLE_DAMAGE_2): modifier += 0.3
+	if SkillSet.has_skill(SkillSet.SkillUID.PISTOL_DAMAGE): modifier += 0.15
+
+	if SkillSet.has_skill(SkillSet.SkillUID.RIFLE_FIRE_RATE): modifier -= .3
 	
 	return damage * modifier
 
 func get_fire_cooldown() -> float:
 	var modifier := 1.
 	
-	if SkillSet.has_skill(SkillSet.SkillUID.SHOTGUN_FIRE_RATE): modifier *= .5
-	if SkillSet.has_skill(SkillSet.SkillUID.PISTOL_FIRE_RATE): modifier *= .75
+	if SkillSet.has_skill(SkillSet.SkillUID.SHOTGUN_FIRE_RATE): modifier *= .75
+	if SkillSet.has_skill(SkillSet.SkillUID.PISTOL_FIRE_RATE): modifier *= .90
 	if SkillSet.has_skill(SkillSet.SkillUID.RIFLE_FIRE_RATE): modifier *= .75
+
+	if SkillSet.has_skill(SkillSet.SkillUID.SHOTGUN_HP_1): modifier *= 1.4
+	if SkillSet.has_skill(SkillSet.SkillUID.RIFLE_DAMAGE_1): modifier *= 1.4
+	if SkillSet.has_skill(SkillSet.SkillUID.SHOTGUN_FIRE_RATE): modifier *= 1.3
+	if SkillSet.has_skill(SkillSet.SkillUID.PISTOL_MOVEMENT_SPEED): modifier *= 1.3
 	
 	return fire_cooldown * modifier
 
@@ -157,5 +175,7 @@ func get_max_chamber() -> int:
 	var ret := max_chamber
 
 	if SkillSet.has_skill(SkillSet.SkillUID.RIFLE_MAG): ret += 2
+	if SkillSet.has_skill(SkillSet.SkillUID.PISTOL_FIRE_RATE): ret -= 4
+	if SkillSet.has_skill(SkillSet.SkillUID.SHOTGUN_HP_2): ret -= 1
 
 	return ret

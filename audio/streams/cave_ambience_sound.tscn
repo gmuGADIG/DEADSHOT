@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjv27hq6c2mkk"]
+
+[ext_resource type="AudioStream" uid="uid://dxjd21v0mp5qu" path="res://audio/environment/se_amb_cave.mp3" id="2_cave"]
+
+[node name="CaveAmbienceSound" type="AudioStreamPlayer"]
+stream = ExtResource("2_cave")
+volume_db = -7.2
+autoplay = true
+bus = &"SFX"

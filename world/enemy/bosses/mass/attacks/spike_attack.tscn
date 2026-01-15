@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://0087idnveyoi"]
+[gd_scene load_steps=7 format=3 uid="uid://0087idnveyoi"]
 
 [ext_resource type="Script" uid="uid://dmk1nbg50kxbk" path="res://world/enemy/bosses/mass/attacks/spike_attack.gd" id="1_d6t4n"]
-[ext_resource type="Texture2D" uid="uid://dr0k5wtlmynj6" path="res://temp_art/reticle.png" id="1_n57c1"]
-[ext_resource type="Texture2D" uid="uid://buf15wb2e1tep" path="res://temp_art/spike.png" id="4_cuwb1"]
+[ext_resource type="Texture2D" uid="uid://veqmqpjiki0d" path="res://world/player/reticle/reticle.png" id="2_8us06"]
+[ext_resource type="Texture2D" uid="uid://cmthyr8i1vdei" path="res://world/backgrounds/stalagmite1.png" id="3_8us06"]
+[ext_resource type="PackedScene" uid="uid://cd33htarb7nvt" path="res://audio/streams/spike_pierce_sound.tscn" id="4_8us06"]
 
 [sub_resource type="Curve" id="Curve_cuwb1"]
 _limits = [-8.0, 0.0, 0.0, 0.8]
@@ -19,23 +20,25 @@ delay = 0.8
 spike_curve = SubResource("Curve_cuwb1")
 
 [node name="WarningTarget" type="Sprite3D" parent="."]
-transform = Transform3D(25, 0, 0, 0, -1.0927847e-06, 25, 0, -25, -1.0927847e-06, 0, 0.02, 0)
+transform = Transform3D(0.689, 0, 0, 0, -3.0117146e-08, 0.689, 0, -0.689, -3.0117146e-08, 0, 0.02, 0)
 texture_filter = 0
-texture = ExtResource("1_n57c1")
+texture = ExtResource("2_8us06")
 
 [node name="Spike" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8, 0)
 
 [node name="SpikeSprite3D" type="Sprite3D" parent="Spike"]
-transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 0, 0, 0)
-offset = Vector2(0, 15)
+transform = Transform3D(0.805, 0, 0, 0, 0.805, 0, 0, 0, 0.805, 0, 0, 0)
+offset = Vector2(0, 435.52)
 texture_filter = 0
-texture = ExtResource("4_cuwb1")
+texture = ExtResource("3_8us06")
 
 [node name="DamageArea" type="Area3D" parent="Spike"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Spike/DamageArea"]
 shape = SubResource("CylinderShape3D_cuwb1")
+
+[node name="SpikePierceSound" parent="." instance=ExtResource("4_8us06")]
 
 [connection signal="area_entered" from="Spike/DamageArea" to="." method="_on_damage_area_area_entered"]

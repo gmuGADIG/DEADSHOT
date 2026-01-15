@@ -36,7 +36,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="NPCBase" instance=ExtResource("1_ruq3k")]
+[node name="DemoMan2" instance=ExtResource("1_ruq3k")]
 
 [node name="Sprite3D" parent="." index="0"]
 visible = false
@@ -46,4 +46,5 @@ texture = ExtResource("2_bsmi7")
 transform = Transform3D(0.27, 0, 0, 0, 0.23382686, 0.135, 0, -0.135, 0.23382686, 0, 1.223766, 0)
 alpha_cut = 1
 sprite_frames = SubResource("SpriteFrames_vqsoq")
-frame_progress = 0.9476155
+autoplay = "default"
+frame_progress = 0.63293064

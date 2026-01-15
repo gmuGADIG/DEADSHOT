@@ -17,8 +17,8 @@ static func load_options() -> void:
 	else:
 		options_save_data = OptionsSave.new()
 	
-	Options.sfx_value = options_save_data.music_value
-	Options.music_value = options_save_data.sfx_value
+	Options.sfx_value = options_save_data.sfx_value
+	Options.music_value = options_save_data.music_value
 	
 static func save_options() -> void:
 	print()

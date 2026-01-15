@@ -1,201 +1,519 @@
-[gd_scene load_steps=25 format=3 uid="uid://cgpuvir86nykf"]
+[gd_scene load_steps=34 format=3 uid="uid://cgpuvir86nykf"]
 
 [ext_resource type="PackedScene" uid="uid://cxahvvaidpg32" path="res://world/levels/town/level_town_base.tscn" id="1_64v5s"]
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="2_jjhs5"]
-[ext_resource type="PackedScene" uid="uid://d3stqami0urg7" path="res://world/npc/test/npc_test.tscn" id="2_mtstk"]
-[ext_resource type="Texture2D" uid="uid://c5upseoo85lqg" path="res://world/backgrounds/desert_bg_blur.png" id="2_wmhxx"]
 [ext_resource type="PackedScene" uid="uid://c414hqj4nmy45" path="res://world/npc/npc_demoman1.tscn" id="3_6x3r5"]
+[ext_resource type="Script" uid="uid://up5jay8bfern" path="res://world/levels/town/exclaiminator.gd" id="3_fdohc"]
 [ext_resource type="PackedScene" uid="uid://0ndhmibsve8k" path="res://world/comment/comment.tscn" id="4_6mxwy"]
 [ext_resource type="PackedScene" uid="uid://bg0cg3jolk6u" path="res://world/npc/npc_demoman2.tscn" id="4_g27ds"]
-[ext_resource type="Resource" uid="uid://bml8kr5i4w3l0" path="res://writing/town2/town1_demoduo.tres" id="5_a026l"]
+[ext_resource type="Resource" uid="uid://bml8kr5i4w3l0" path="res://writing/town2/town2_demoduo.tres" id="5_a026l"]
 [ext_resource type="PackedScene" uid="uid://dqt2qu5jrxsoa" path="res://world/npc/npc_femme_fatale.tscn" id="5_dla4e"]
 [ext_resource type="PackedScene" uid="uid://ivld0ndseynw" path="res://world/npc/npc_providing_mother.tscn" id="6_g1l2l"]
-[ext_resource type="Resource" uid="uid://dglj8h0batkne" path="res://writing/town2/town1_femmefatale.tres" id="7_4mapl"]
+[ext_resource type="Resource" uid="uid://dglj8h0batkne" path="res://writing/town2/town2_femmefatale.tres" id="7_4mapl"]
 [ext_resource type="PackedScene" uid="uid://b81n6pdoa3kip" path="res://world/npc/npc_blacksmith.tscn" id="7_kuom1"]
 [ext_resource type="PackedScene" uid="uid://dcu4x4q865hlm" path="res://world/npc/npc_cowardly_lion.tscn" id="8_hnf84"]
 [ext_resource type="PackedScene" uid="uid://c13bgcrak26ua" path="res://world/npc/npc_sheriff.tscn" id="9_lwccn"]
-[ext_resource type="Resource" uid="uid://bo2vbpueawkeo" path="res://writing/town2/town1_providingmother.tres" id="9_qb2qu"]
+[ext_resource type="Resource" uid="uid://bo2vbpueawkeo" path="res://writing/town2/town2_providingmother.tres" id="9_qb2qu"]
 [ext_resource type="PackedScene" uid="uid://b6fcln7500jxl" path="res://world/npc/npc_piano_man.tscn" id="11_455ow"]
-[ext_resource type="Resource" uid="uid://b3ut0g1tlpn2r" path="res://writing/town2/town1_blacksmith.tres" id="11_a026l"]
+[ext_resource type="Resource" uid="uid://b3ut0g1tlpn2r" path="res://writing/town2/town2_blacksmith.tres" id="11_a026l"]
 [ext_resource type="PackedScene" uid="uid://ck3lifhncrfx2" path="res://world/npc/npc_barmaid.tscn" id="11_o8nib"]
-[ext_resource type="Resource" uid="uid://ba5v4aj5bc5ko" path="res://writing/town2/town1_cowardlylion.tres" id="13_5q22j"]
+[ext_resource type="Resource" uid="uid://ba5v4aj5bc5ko" path="res://writing/town2/town2_cowardlylion.tres" id="13_5q22j"]
 [ext_resource type="PackedScene" uid="uid://dwsraqi3f8a1l" path="res://world/interactables/campfire/campfire.tscn" id="13_jjhs5"]
 [ext_resource type="PackedScene" uid="uid://c7c1lwr411btx" path="res://audio/music/music_player/play_song_for_scene.tscn" id="15_2dx52"]
-[ext_resource type="Resource" uid="uid://qcgif5dvbsmu" path="res://writing/town2/town1_sheriff.tres" id="15_5xvh0"]
+[ext_resource type="Resource" uid="uid://qcgif5dvbsmu" path="res://writing/town2/town2_sheriff.tres" id="15_5xvh0"]
 [ext_resource type="Resource" uid="uid://qavftaunckrf" path="res://audio/music/song_files/town_level_base/Theo_town_base_peaceful_song.tres" id="16_yq85o"]
-[ext_resource type="Resource" uid="uid://4m486rpoft0h" path="res://writing/town2/town1_barmaid.tres" id="19_qb2qu"]
+[ext_resource type="Resource" uid="uid://5typpvnt2fdo" path="res://writing/town2/town2_pianoman.tres" id="17_mnux4"]
+[ext_resource type="Resource" uid="uid://4m486rpoft0h" path="res://writing/town2/town2_barmaid.tres" id="19_qb2qu"]
 [ext_resource type="PackedScene" uid="uid://buycij5b3uf5i" path="res://world/npc/paper/paper.tscn" id="24_coc24"]
-[ext_resource type="Resource" uid="uid://bk4a6f0ud5yod" path="res://writing/town1/town1_lore_3.tres" id="25_08fa1"]
-[ext_resource type="Resource" uid="uid://cq5x1tgw2d0w4" path="res://writing/town1/town1_lore_2.tres" id="25_15b3b"]
+[ext_resource type="Resource" uid="uid://clo6e78g8wb15" path="res://writing/town2/town2_lore_1.tres" id="24_fdohc"]
+[ext_resource type="Resource" uid="uid://rvh7fcpaqwd8" path="res://writing/town1/town1_lore_4.tres" id="24_mnux4"]
 [ext_resource type="PackedScene" uid="uid://bp6l0lw650m8o" path="res://world/blocker/blocker.tscn" id="26_15b3b"]
 [ext_resource type="PackedScene" uid="uid://b4a6qry8kyr87" path="res://world/npc/npc_snake_oil_salesman.tscn" id="27_a8ktv"]
-[ext_resource type="Resource" uid="uid://cpufebvpxqwqf" path="res://writing/town2/town1_snakeoilsalesman.tres" id="28_mnux4"]
+[ext_resource type="Resource" uid="uid://cpufebvpxqwqf" path="res://writing/town2/town2_snakeoilsalesman.tres" id="28_mnux4"]
+
+[sub_resource type="Animation" id="Animation_fdohc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainCam:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-22.225584, 11.099116, 6.937084)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NPCs/PianoMan:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-20.235628, 0.066610776, -2.2234116)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("NPCs/BarMaid:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-9.141584, 0.06661221, -4.1248364)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationFade:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("NPCs/Demoman2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(8.011575, 1.9073486e-06, -30.782246)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("NPCs/Demoman1:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(9.514514, 1.9073486e-06, -31.543022)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("NPCs/FemmeFatale:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(18.913641, 0.06661221, -14.031868)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("NPCs/ProvidingMother:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(20.116909, 9.536743e-07, 23.684938)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("NPCs/Blacksmith:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(5.0170355, 9.536743e-07, 25.454494)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("NPCs/Sheriff:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(44.47905, 0.03630483, -5.1446643)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("MainCam:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.9599311, 0, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("NPCs/SnakeOil:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(18.99724, 0.16346967, -0.14492133)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Player:process_mode")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_mnux4"]
+resource_name = "start"
+length = 17.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainCam:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4.1, 4.2, 10.9, 11, 17),
+"transitions": PackedFloat32Array(1, 0, -4.5947905, 0, 0.4829682, 1),
+"update": 0,
+"values": [Vector3(-17.2283, 10.093725, 3.2105536), Vector3(-17.2283, 11.073126, 4.1986246), Vector3(10.709183, 9.350565, -20.125385), Vector3(10.709185, 9.350565, 37.59711), Vector3(43.78531, 6.663044, 3.2295022), Vector3(43.78531, 4.987852, -1.4437585)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NPCs/PianoMan:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.7, 1.4),
+"transitions": PackedFloat32Array(0.59460354, 1),
+"update": 0,
+"values": [Vector3(-22.324232, 0.066610776, -6.246665), Vector3(-20.235628, 0.066610776, -2.2234116)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("NPCs/BarMaid:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1, 1.8000001),
+"transitions": PackedFloat32Array(0.59460354, 1),
+"update": 0,
+"values": [Vector3(-9.295267, 0.06661221, -7.0680094), Vector3(-9.141584, 0.06661221, -4.1248364)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationFade:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3.7, 4.2, 4.8, 10.5, 11, 11.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("NPCs/Demoman2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(3.7, 5.5),
+"transitions": PackedFloat32Array(0.53588676, 1),
+"update": 0,
+"values": [Vector3(9.2057495, 1.9073486e-06, -38.51233), Vector3(8.011575, 1.9073486e-06, -30.782246)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("NPCs/Demoman1:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(3.7, 5.3),
+"transitions": PackedFloat32Array(0.53588676, 1),
+"update": 0,
+"values": [Vector3(10.550927, 1.9073486e-06, -37.639366), Vector3(9.514514, 1.9073486e-06, -31.543022)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("NPCs/FemmeFatale:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(6.1, 7.2999997),
+"transitions": PackedFloat32Array(0.6597539, 1),
+"update": 0,
+"values": [Vector3(24.494171, 0.06661173, -16.099998), Vector3(18.913641, 0.06661221, -14.031868)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("NPCs/ProvidingMother:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(8.7, 9.858215),
+"transitions": PackedFloat32Array(0.6372803, 1),
+"update": 0,
+"values": [Vector3(24.923117, 9.536743e-07, 22.018835), Vector3(20.116909, 9.536743e-07, 23.684938)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("NPCs/Blacksmith:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(9.4, 10.4),
+"transitions": PackedFloat32Array(0.5358866, 1),
+"update": 0,
+"values": [Vector3(1.1961818, 9.536743e-07, 21.606743), Vector3(5.0170355, 9.536743e-07, 25.454494)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("NPCs/Sheriff:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(12, 13.5),
+"transitions": PackedFloat32Array(0.48296818, 1),
+"update": 0,
+"values": [Vector3(44.47905, 0.03630483, -7.4900403), Vector3(44.47905, 0.03630483, -5.1446643)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("MainCam:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 11, 17),
+"transitions": PackedFloat32Array(0, 1, -2),
+"update": 0,
+"values": [Vector3(-0.9599311, 0, 0), Vector3(-0.43633232, 0, 0), Vector3(-0.43633232, 0, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("NPCs/SnakeOil:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(6.6, 7.8),
+"transitions": PackedFloat32Array(0.46651652, 1),
+"update": 0,
+"values": [Vector3(21.02423, 0.1634692, -1.4562578), Vector3(18.99724, 0.16346967, -0.14492133)]
+}
+tracks/12/type = "method"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("NPCs")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(16.95),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"exclaiminate"
+}]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Player:process_mode")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 17),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oeaqx"]
+_data = {
+&"RESET": SubResource("Animation_fdohc"),
+&"start": SubResource("Animation_mnux4")
+}
 
 [node name="LevelTown2" instance=ExtResource("1_64v5s")]
 
 [node name="FullscreenBG" parent="Background" index="0"]
-transform = Transform3D(0.17, 0, 0, 0, 0.097508, 0.093383335, 0, -0.13925585, 0.06538772, 2.5613499, -14.898792, -12.023702)
-offset = Vector2(0, -150)
-modulate = Color(0.627451, 0.627451, 0.627451, 1)
-transparent = true
-texture = ExtResource("2_wmhxx")
+transform = Transform3D(0.114, 0, 0, 0, 0.06538772, 0.09338334, 0, -0.09338334, 0.06538772, 2.5613499, -14.898792, -12.023702)
 
 [node name="Right" parent="TransitionAreas" index="0" instance=ExtResource("2_jjhs5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.78856, 0, -0.065726995)
+transform = Transform3D(4.603244, 0, 0, 0, 1, 0, 0, 0, 1, 11.162678, 4.7683716e-07, -46.524185)
 target_scene = "uid://crgv6bkolrlyy"
 target_entry_point = "Left"
 
 [node name="Player" parent="." index="5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.87167, 9.536743e-07, 0.112309456)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.404802, 9.536743e-07, 2.8115215)
 
 [node name="CursedPlant" parent="Decoration/Plants" index="0"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 12.97214, 9.536743e-07, 0.8534193)
+transform = Transform3D(1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, 12.97214, 9.536743e-07, 0.8534193)
 type = 0
 
 [node name="CursedPlant2" parent="Decoration/Plants" index="1"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 9.641161, 9.536743e-07, -1.8205147)
-
-[node name="CursedPlant3" parent="Decoration/Plants" index="2"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7105002, 9.536743e-07, 7.4522743)
 type = 1
 
-[node name="CursedPlant4" parent="Decoration/Plants" index="3"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 18.474659, 9.536743e-07, 6.7301674)
-
-[node name="CursedPlant5" parent="Decoration/Plants" index="4"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 19.504585, 9.536743e-07, 5.9388213)
-type = 0
-
-[node name="CursedPlant7" parent="Decoration/Plants" index="6"]
-type = 0
-
-[node name="CursedPlant9" parent="Decoration/Plants" index="8"]
+[node name="CursedPlant4" parent="Decoration/Plants" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, 18.474659, 9.536743e-07, 6.7301674)
 type = 1
 
-[node name="CursedPlant10" parent="Decoration/Plants" index="9"]
-type = 1
-
-[node name="CursedPlant11" parent="Decoration/Plants" index="10"]
+[node name="CursedPlant5" parent="Decoration/Plants" index="3"]
 type = 0
 
-[node name="CursedPlant12" parent="Decoration/Plants" index="11"]
+[node name="CursedPlant8" parent="Decoration/Plants" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, 18.810091, 9.536743e-07, -4.9426026)
+
+[node name="CursedPlant10" parent="Decoration/Plants" index="5"]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9783115, 1.4305115e-06, -9.392471)
+type = 1
+
+[node name="CursedPlant11" parent="Decoration/Plants" index="6"]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9024432, 1.4305115e-06, -9.983454)
+
+[node name="CursedPlant12" parent="Decoration/Plants" index="7"]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5448785, 1.4305115e-06, -10.557184)
 type = 0
 
-[node name="CursedPlant13" parent="Decoration/Plants" index="12"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -17.492502, 1.4305115e-06, -6.4950757)
+[node name="CursedPlant13" parent="Decoration/Plants" index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, -17.492502, 1.4305115e-06, -6.4950757)
 type = 0
 
-[node name="CursedPlant14" parent="Decoration/Plants" index="13"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -29.900177, 1.4305115e-06, -6.175735)
+[node name="CursedPlant14" parent="Decoration/Plants" index="9"]
+transform = Transform3D(1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, -29.900177, 1.4305115e-06, -6.175735)
+
+[node name="CursedPlant15" parent="Decoration/Plants" index="10"]
 type = 1
 
-[node name="CursedPlant15" parent="Decoration/Plants" index="14"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -27.248802, 1.4305115e-06, -6.3394017)
+[node name="CursedPlant16" parent="Decoration/Plants" index="11"]
+transform = Transform3D(1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, -34.033325, 2.3841858e-06, 8.154507)
+
+[node name="CursedPlant17" parent="Decoration/Plants" index="12"]
+transform = Transform3D(1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, -32.909473, 2.3841858e-06, 7.652792)
+
+[node name="CursedPlant23" parent="Decoration/Plants" index="16"]
+transform = Transform3D(1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, 17.446877, 2.861023e-06, 26.883415)
+
+[node name="CursedPlant24" parent="Decoration/Plants" index="17"]
+transform = Transform3D(-1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, 18.273832, 2.861023e-06, 26.007109)
 type = 1
 
-[node name="CursedPlant16" parent="Decoration/Plants" index="15"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -34.033325, 2.3841858e-06, 8.154507)
+[node name="CursedPlant25" parent="Decoration/Plants" index="18"]
+transform = Transform3D(1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, 16.776598, 2.861023e-06, 25.373657)
 type = 1
 
-[node name="CursedPlant17" parent="Decoration/Plants" index="16"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -32.909473, 2.3841858e-06, 7.652792)
-type = 1
+[node name="CursedPlant26" parent="Decoration/Plants" index="19"]
+transform = Transform3D(1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, 4.370305, 3.8146973e-06, 35.17614)
 
-[node name="CursedPlant20" parent="Decoration/Plants" index="19"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -21.652164, 2.861023e-06, 7.577684)
-type = 0
-
-[node name="CursedPlant21" parent="Decoration/Plants" index="20"]
-type = 1
-
-[node name="CursedPlant23" parent="Decoration/Plants" index="22"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 17.446877, 2.861023e-06, 26.883415)
-type = 0
-
-[node name="CursedPlant24" parent="Decoration/Plants" index="23"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 18.273832, 2.861023e-06, 26.007109)
-type = 1
-
-[node name="CursedPlant26" parent="Decoration/Plants" index="25"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 4.370305, 3.8146973e-06, 35.17614)
-
-[node name="CursedPlant27" parent="Decoration/Plants" index="26"]
+[node name="CursedPlant27" parent="Decoration/Plants" index="20"]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 5.191036, 4.7683716e-06, 36.09765)
 type = 1
 
-[node name="CursedPlant32" parent="Decoration/Plants" index="28"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 19.655712, 8.583069e-06, -21.635033)
+[node name="CursedPlant34" parent="Decoration/Plants" index="21"]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 22.798418, 8.583069e-06, -26.086636)
 type = 1
 
-[node name="CursedPlant33" parent="Decoration/Plants" index="29"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 20.596802, 8.583069e-06, -23.480822)
-type = 0
-
-[node name="CursedPlant34" parent="Decoration/Plants" index="30"]
+[node name="CursedPlant36" parent="Decoration/Plants" index="22"]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8712401, 9.059906e-06, -23.059118)
 type = 1
 
-[node name="CursedPlant37" parent="Decoration/Plants" index="33"]
+[node name="CursedPlant37" parent="Decoration/Plants" index="23"]
+transform = Transform3D(1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, 2.2396097, 9.536743e-06, -20.82966)
+
+[node name="CursedPlant38" parent="Decoration/Plants" index="24"]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 36.191753, 9.536743e-06, -7.5530405)
+type = 0
+
+[node name="CursedPlant39" parent="Decoration/Plants" index="25"]
+transform = Transform3D(1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, 35.34773, 9.536743e-06, -7.8378057)
+
+[node name="CursedPlant40" parent="Decoration/Plants" index="26"]
+transform = Transform3D(-1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, 37.62572, 9.536743e-06, -8.360826)
+
+[node name="CursedPlant41" parent="Decoration/Plants" index="27"]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 52.512173, 9.536743e-06, -7.0858536)
+type = 0
+
+[node name="CursedPlant43" parent="Decoration/Plants" index="28"]
+transform = Transform3D(1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, 45.33694, 1.04904175e-05, 6.1059785)
 type = 1
 
-[node name="CursedPlant39" parent="Decoration/Plants" index="35"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 35.34773, 9.536743e-06, -7.8378057)
-
-[node name="CursedPlant40" parent="Decoration/Plants" index="36"]
+[node name="CursedPlant44" parent="Decoration/Plants" index="29"]
+transform = Transform3D(1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, 46.146416, 1.04904175e-05, 5.404521)
 type = 0
 
-[node name="CursedPlant42" parent="Decoration/Plants" index="38"]
-type = 0
-
-[node name="CursedPlant44" parent="Decoration/Plants" index="40"]
-type = 0
-
-[node name="CursedPlant45" parent="Decoration/Plants" index="41"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 44.18519, 1.04904175e-05, 4.8734455)
-
-[node name="CursedPlant46" parent="Decoration/Plants" index="42"]
+[node name="CursedPlant45" parent="Decoration/Plants" index="30"]
 type = 1
 
-[node name="CursedPlant47" parent="Decoration/Plants" index="43"]
-type = 0
-
-[node name="CursedPlant48" parent="Decoration/Plants" index="44"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 75.17896, 1.04904175e-05, 1.109611)
+[node name="CursedPlant48" parent="Decoration/Plants" index="31"]
 type = 1
 
-[node name="CursedPlant49" parent="Decoration/Plants" index="45"]
-type = 1
+[node name="CursedPlant50" parent="Decoration/Plants" index="33"]
+transform = Transform3D(1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, 69.45258, 1.001358e-05, -2.4362075)
 
-[node name="CursedPlant51" parent="Decoration/Plants" index="47"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 75.89809, 1.001358e-05, 1.5761139)
-type = 0
+[node name="CursedPlant51" parent="Decoration/Plants" index="34"]
+transform = Transform3D(-1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, 75.89809, 1.001358e-05, 1.5761139)
 
-[node name="CursedPlant28" parent="Decoration/Plants" index="48"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 20.155418, 4.7683716e-06, 39.205296)
+[node name="MainCam" parent="." index="12"]
+transform = Transform3D(1, 0, 0, 0, 0.57357645, 0.81915206, 0, -0.81915206, 0.57357645, -22.225584, 11.099116, 6.937084)
 
-[node name="CursedPlant29" parent="Decoration/Plants" index="49"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 20.978733, 4.7683716e-06, 38.94784)
-type = 0
+[node name="NPCs" type="Node3D" parent="." index="13" node_paths=PackedStringArray("npcs")]
+script = ExtResource("3_fdohc")
+npcs = [NodePath("Demoman2"), NodePath("FemmeFatale"), NodePath("ProvidingMother"), NodePath("Blacksmith"), NodePath("CowardlyLion"), NodePath("Sheriff"), NodePath("PianoMan"), NodePath("BarMaid"), NodePath("SnakeOil")]
 
-[node name="CursedPlant30" parent="Decoration/Plants" index="50"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 19.34705, 4.7683716e-06, 38.403492)
-type = 0
-
-[node name="NPCs" type="Node3D" parent="." index="13"]
-
-[node name="Demoman1" parent="NPCs" index="0" instance=ExtResource("3_6x3r5")]
+[node name="Demoman1" parent="NPCs" index="0" node_paths=PackedStringArray("duo") instance=ExtResource("3_6x3r5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.514514, 1.9073486e-06, -31.543022)
 timeline = ExtResource("5_a026l")
+duo = [NodePath("../Demoman2")]
 
-[node name="Demoman2" parent="NPCs" index="1" instance=ExtResource("4_g27ds")]
+[node name="Demoman2" parent="NPCs" index="1" node_paths=PackedStringArray("duo") instance=ExtResource("4_g27ds")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.011575, 1.9073486e-06, -30.782246)
+timeline = ExtResource("5_a026l")
+duo = [NodePath("../Demoman1")]
 
 [node name="FemmeFatale" parent="NPCs" index="2" instance=ExtResource("5_dla4e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.913641, 0.06661221, -14.031868)
 timeline = ExtResource("7_4mapl")
 
 [node name="ProvidingMother" parent="NPCs" index="3" instance=ExtResource("6_g1l2l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8101578, 9.536743e-07, 14.590099)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.116909, 9.536743e-07, 23.684938)
 timeline = ExtResource("9_qb2qu")
 
 [node name="Blacksmith" parent="NPCs" index="4" instance=ExtResource("7_kuom1")]
@@ -212,11 +530,16 @@ timeline = ExtResource("15_5xvh0")
 
 [node name="PianoMan" parent="NPCs" index="7" instance=ExtResource("11_455ow")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.235628, 0.066610776, -2.2234116)
+timeline = ExtResource("17_mnux4")
 
 [node name="BarMaid" parent="NPCs" index="8" instance=ExtResource("11_o8nib")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.141584, 0.06661221, -4.1248364)
 priority = 1
 timeline = ExtResource("19_qb2qu")
+
+[node name="SnakeOil" parent="NPCs" index="9" instance=ExtResource("27_a8ktv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.99724, 0.16346967, -0.14492133)
+timeline = ExtResource("28_mnux4")
 
 [node name="Campfire" parent="." index="14" instance=ExtResource("13_jjhs5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.091451, 0, -37.270107)
@@ -224,13 +547,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.091451, 0, -37.270107)
 [node name="PlaySongForScene" parent="." index="15" instance=ExtResource("15_2dx52")]
 song = ExtResource("16_yq85o")
 
-[node name="Paper" parent="." index="16" instance=ExtResource("24_coc24")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0330362, 0, 29.95389)
-timeline = ExtResource("25_08fa1")
+[node name="Paper3" parent="." index="16" instance=ExtResource("24_coc24")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.467825, 0, -4.9570293)
+timeline = ExtResource("24_fdohc")
 
-[node name="Paper2" parent="." index="17" instance=ExtResource("24_coc24")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.15159, 0, -24.575459)
-timeline = ExtResource("25_15b3b")
+[node name="Paper" parent="." index="17" instance=ExtResource("24_coc24")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.7099285, 0, 26.630793)
+timeline = ExtResource("24_mnux4")
 
 [node name="Blocker" parent="." index="18" instance=ExtResource("26_15b3b")]
 transform = Transform3D(7.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 11.437695, 0, 41.34909)
@@ -238,11 +561,22 @@ transform = Transform3D(7.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 11.437695, 0, 41.34909)
 [node name="Blocker2" parent="." index="19" instance=ExtResource("26_15b3b")]
 transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 4.5, 64.6749, 0, 0.126737)
 
-[node name="NPCBase" parent="." index="20" instance=ExtResource("27_a8ktv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.99724, 0.16346967, -0.14492133)
-timeline = ExtResource("28_mnux4")
-
 [node name="Comment" parent="Comments" index="4" instance=ExtResource("4_6mxwy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.752525, -0.019320965, 0)
 text = "now that the enemies are gone,
 you can talk with NPCs :)"
+
+[node name="Anim" type="AnimationPlayer" parent="." index="22"]
+libraries = {
+&"": SubResource("AnimationLibrary_oeaqx")
+}
+autoplay = "start"
+
+[node name="AnimationFade" type="ColorRect" parent="." index="23"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)

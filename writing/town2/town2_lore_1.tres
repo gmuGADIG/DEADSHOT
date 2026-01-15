@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://clo6e78g8wb15"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_qirug"]
+
+[resource]
+script = ExtResource("1_qirug")
+dialog = "[ ]It’s a lightly worn page of sheet music...
+‘My love is a rider, wild bronchos she breaks’
+‘Though she’s promised to quit it, just for my sake’
+‘He ties up one foot, the saddle puts on’
+‘With a swing and a jump she is mounted and gone’
+There's some writing on the back of the page...
+‘These days, nobody’s dancing. I keep playing in hopes the townsfolk might hear it, holed up in their homes, and smile a little.’ 
+‘Sometimes I start doubting if I can keep this up. But I remind myself I’m not just performing for this town—I’m performing for Callie. I just want to see that infectious joy on her face again...we all do.’"
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://cblwj8wvgf20m"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_wtriw"]
+
+[resource]
+script = ExtResource("1_wtriw")
+dialog = "[ ]It’s a fresh note.
+‘Callie.’
+‘Those damned things came back and forced us all into a corner. I’ve made peace with myself that this place may very well be my tomb.’
+‘I don’t feel empty. I could’ve left long ago when the soul of Slimwater dried up, but I stayed for this Saloon. I’m choosing to die in a place full of cherished memories. Past love, past happiness.’ 
+‘If you are reading this, I hope you’ve managed to get away safely, and that a grim fate no longer lies in your way.’
+‘I never held a note for you when I played, Callie. It’d ruin the rhythm of your beautiful dancing. So don’t hold your breath for me, Callie. Don’t linger here. You’ve made this life worth living to me, Callie. I love you.’
+‘Sincerely, Felipe’"
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"

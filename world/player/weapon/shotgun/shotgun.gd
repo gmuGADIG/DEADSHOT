@@ -8,7 +8,7 @@ func fire(consumes_ammo: bool, damage_mul: float) -> void:
 	var start := -TAU * spread / 2
 	for i in range(number_of_shots_fired):
 		var rads := start + delta_rads * i
-		var bullet : Bullet = get_bullet_scene().instantiate()
+		var bullet : Bullet = get_bullet()
 		get_tree().current_scene.add_child(bullet)
 		bullet.atk_damage = get_damage() * damage_mul
 		bullet.fire(
