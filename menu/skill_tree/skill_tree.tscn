@@ -793,6 +793,7 @@ layout_mode = 0
 offset_right = 605.0
 offset_bottom = 648.0
 split_offset = 500
+dragging_enabled = false
 
 [node name="Info" type="VBoxContainer" parent="Overlay/SkillPanel/VSplitContainer"]
 layout_mode = 2
