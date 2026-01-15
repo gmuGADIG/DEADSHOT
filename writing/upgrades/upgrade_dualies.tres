@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_eh47u")
-dialog = "[] Two is more than one"
+dialog = "[ ] Two is better than one."
 metadata/_custom_type_script = "uid://rvaetvwo5p3h"

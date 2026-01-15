@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_d7o0d")
-dialog = "[] You need this…"
+dialog = "[ ] You need this…"
 metadata/_custom_type_script = "uid://rvaetvwo5p3h"

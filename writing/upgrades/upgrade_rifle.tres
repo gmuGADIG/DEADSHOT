@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_dvmm6")
-dialog = "[] The Rifle feels nice and heavy, it’ll be a powerful tool."
+dialog = "[ ] The rifle feels nice and heavy. It’ll be a powerful tool."
 metadata/_custom_type_script = "uid://rvaetvwo5p3h"

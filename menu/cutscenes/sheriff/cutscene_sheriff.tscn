@@ -3,17 +3,12 @@
 [ext_resource type="Script" uid="uid://c1bnxnohhlms" path="res://menu/cutscenes/cutscene.gd" id="1_iprbc"]
 [ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="2_xaxsn"]
 [ext_resource type="PackedScene" uid="uid://ohg0len20ido" path="res://world/levels/town/level_town_v4_boss.tscn" id="3_30vfp"]
+[ext_resource type="Resource" uid="uid://1tebau0ig817" path="res://writing/cutscene2/cutscene2_timeline.tres" id="3_k6hsi"]
 [ext_resource type="Texture2D" uid="uid://cera4qeb4jduo" path="res://menu/cutscenes/sheriff/cs_sheriff_3.png" id="4_k6hsi"]
 [ext_resource type="Texture2D" uid="uid://cf6kmw6jnpx03" path="res://menu/cutscenes/sheriff/cs_sheriff_2.png" id="5_jcc6t"]
 [ext_resource type="Texture2D" uid="uid://bkbstfe0rka4w" path="res://menu/cutscenes/sheriff/cs_sheriff_1.png" id="6_h7471"]
 [ext_resource type="PackedScene" uid="uid://c7c1lwr411btx" path="res://audio/music/music_player/play_song_for_scene.tscn" id="7_30vfp"]
 [ext_resource type="Resource" uid="uid://bgmpfc7r0btov" path="res://audio/music/song_files/cutscenes/Todd_sheriff_cutscene.tres" id="8_k6hsi"]
-
-[sub_resource type="Resource" id="Resource_yfnmi"]
-script = ExtResource("2_xaxsn")
-dialog = "the note reads...
-\"sheriff is evil\""
-metadata/_custom_type_script = "uid://rvaetvwo5p3h"
 
 [sub_resource type="Animation" id="Animation_vehyx"]
 length = 0.001
@@ -174,7 +169,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_iprbc")
-timelines = Array[ExtResource("2_xaxsn")]([SubResource("Resource_yfnmi")])
+timelines = Array[ExtResource("2_xaxsn")]([ExtResource("3_k6hsi")])
 next_scene = ExtResource("3_30vfp")
 
 [node name="BG" type="ColorRect" parent="."]

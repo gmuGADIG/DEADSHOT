@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://1tebau0ig817"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_g34xy"]
+
+[resource]
+script = ExtResource("1_g34xy")
+dialog = "[ ]You sift through an assortment of papers from a drawer.
+‘...I am a fool for trusting that devil. Its power has brought the town good crop, but nobody dares to eat it, and my people have been deformed into beasts by its own hand...’
+Another paper...
+‘...That deity—that devil—promised to bring my wife back. But the flesh it wrapped back around her bones wasn’t her own. She looked like that devil, only her hand looked the same way it always did...’
+Another paper...
+‘...I had to put Eleanor back to rest with a bullet to the head. When I turned ‘round to leave the mines with her, those two outlaws from a few days ago were staring bug-eyed at me.’
+‘When I woke up, the town was buzzing about three gunshots last night. I had to pin it on somebody. My work in this town can’t end yet...’
+It was Zoa. She flipped your life on its head to save face.
+You can’t forgive this. You mustn’t."
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"
