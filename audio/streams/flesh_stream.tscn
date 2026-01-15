@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6b1q5c6o37e5"]
+
+[ext_resource type="AudioStream" uid="uid://iqxg30kbyk0c" path="res://audio/bosses/meat-slap-1.mp3" id="1_njbi0"]
+[ext_resource type="Script" uid="uid://bf14d2iyiqx56" path="res://audio/streams/sound_stream.gd" id="2_ndxqg"]
+
+[node name="FleshStreamSound" type="AudioStreamPlayer3D"]
+stream = ExtResource("1_njbi0")
+volume_db = 7.0
+unit_size = 20.0
+panning_strength = 0.5
+bus = &"SFX"
+attenuation_filter_cutoff_hz = 20500.0
+script = ExtResource("2_ndxqg")
+
+[connection signal="finished" from="." to="." method="_on_finished"]
