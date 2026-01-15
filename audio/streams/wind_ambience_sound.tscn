@@ -4,6 +4,6 @@
 
 [node name="WindAmbienceSound" type="AudioStreamPlayer"]
 stream = ExtResource("2_wind")
-volume_db = -30.0
+volume_db = -20.0
 autoplay = true
 bus = &"SFX"

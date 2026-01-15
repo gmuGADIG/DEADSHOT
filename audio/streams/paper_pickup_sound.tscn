@@ -1,7 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://8v6ojhjimtxe"]
+[gd_scene load_steps=4 format=3 uid="uid://8v6ojhjimtxe"]
 
-[ext_resource type="AudioStream" uid="uid://dbu6sm5lfp51i" path="res://audio/placeholders/tonic_pickup_ph.wav" id="1_ior4e"]
+[ext_resource type="AudioStream" uid="uid://br6juvrj8oeyf" path="res://audio/world_objects/se_playerInteract_paper_1alessandro.mp3" id="1_paper1"]
+[ext_resource type="AudioStream" uid="uid://cw2xt54hle0au" path="res://audio/world_objects/se_playerInteract_paper_2alessandro.mp3" id="2_paper2"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_paper"]
+streams_count = 2
+stream_0/stream = ExtResource("1_paper1")
+stream_1/stream = ExtResource("2_paper2")
 
 [node name="PaperPickupSound" type="AudioStreamPlayer3D"]
-stream = ExtResource("1_ior4e")
+stream = SubResource("AudioStreamRandomizer_paper")
 bus = &"SFX"

@@ -5,7 +5,7 @@
 
 [node name="WindHarshSound" type="AudioStreamPlayer3D"]
 stream = ExtResource("2_harsh")
-volume_db = -15.0
+volume_db = -20.0
 unit_size = 80.0
 autoplay = true
 bus = &"SFX"

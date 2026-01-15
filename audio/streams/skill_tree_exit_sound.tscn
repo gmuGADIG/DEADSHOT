@@ -4,5 +4,5 @@
 
 [node name="SkillTreeExitSound" type="AudioStreamPlayer"]
 stream = ExtResource("1_gevye")
-volume_db = -12.977
+volume_db = -8.0
 bus = &"SFX"

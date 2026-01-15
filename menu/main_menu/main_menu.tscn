@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cg6umb86w26xh" path="res://menu/main_menu/main_menu.gd" id="1_winya"]
 [ext_resource type="Theme" uid="uid://cbhjnihlejbf6" path="res://menu/ui_theme.tres" id="3_7r8i1"]
-[ext_resource type="AudioStream" uid="uid://btq4usey4ba53" path="res://audio/placeholders/explosion.wav" id="3_winya"]
-[ext_resource type="AudioStream" uid="uid://dc6lbunkflvv4" path="res://audio/placeholders/funny_bone_man.wav" id="4_prid6"]
+[ext_resource type="AudioStream" uid="uid://bjxi5iu03fkl8" path="res://audio/enemies/judge/se_judge_shot_1.mp3" id="3_mij2p"]
+[ext_resource type="AudioStream" uid="uid://gsbwx1mc5opx" path="res://audio/enemies/judge/se_gun_rem_pump_1.mp3" id="4_qv4bq"]
 [ext_resource type="Texture2D" uid="uid://couuwyoltb6ql" path="res://menu/main_menu/main_menu_bg.png" id="5_rp3yq"]
 [ext_resource type="Texture2D" uid="uid://pfati0vufsd7" path="res://menu/main_menu/main_menu_player.png" id="6_c0jbr"]
 [ext_resource type="Script" uid="uid://co66s5c2pttrb" path="res://menu/main_menu/reticle_spin.gd" id="7_dn5jd"]
@@ -338,8 +338,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_7r8i1")
 script = ExtResource("1_winya")
-gunshot = ExtResource("3_winya")
-gun_spinning = ExtResource("4_prid6")
+gunshot = ExtResource("3_mij2p")
+gun_spinning = ExtResource("4_qv4bq")
 
 [node name="Black" type="ColorRect" parent="."]
 layout_mode = 1
