@@ -145,6 +145,8 @@ func _init() -> void:
 	instance = self
 
 func _physics_process(delta: float) -> void:		
+	walk_sfx_timer.paused = current_state != PlayerState.WALKING
+	
 	if current_state == PlayerState.WALKING:		
 		var input_dir : Vector3 = input_direction()
 
