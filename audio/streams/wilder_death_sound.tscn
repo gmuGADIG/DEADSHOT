@@ -5,6 +5,8 @@
 
 [node name="WilderDeathSound" type="AudioStreamPlayer3D"]
 stream = ExtResource("1_xe3ye")
-volume_db = 1.553
+attenuation_model = 2
+volume_db = -20.0
+unit_size = 60.0
 bus = &"SFX"
 script = ExtResource("1_yukyd")

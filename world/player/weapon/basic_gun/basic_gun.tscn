@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cj5uuu7xjsprv"]
 
 [ext_resource type="Script" uid="uid://c3imq3vfbop5k" path="res://world/player/weapon/basic_gun/basic_gun.gd" id="1_gjor4"]
-[ext_resource type="PackedScene" uid="uid://c34cmvuqfmuww" path="res://audio/streams/shoot_sound.tscn" id="2_jjk67"]
+[ext_resource type="PackedScene" uid="uid://c34cmvuqfmuww" path="res://audio/streams/player_shoot_sound.tscn" id="2_jjk67"]
 [ext_resource type="PackedScene" uid="uid://bf8bqkjukwxfj" path="res://audio/streams/salvage_proc.tscn" id="3_20vud"]
 [ext_resource type="Texture2D" uid="uid://c06hxwf7a4ef2" path="res://world/player/weapon/basic_gun/revolver.png" id="3_68xih"]
 
@@ -13,7 +13,7 @@ ammo_per_pickup = 20
 
 [node name="ShootSound" parent="Sounds" instance=ExtResource("2_jjk67")]
 unique_name_in_owner = true
-volume_db = -18.641
+volume_db = -8.0
 
 [node name="SalvageProc" parent="Sounds" instance=ExtResource("3_20vud")]
 unique_name_in_owner = true

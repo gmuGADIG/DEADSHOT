@@ -5,7 +5,8 @@
 
 [node name="CampfireAmbienceSound" type="AudioStreamPlayer3D"]
 stream = ExtResource("2_tqqu1")
-unit_size = 4.0
+volume_db = -20.0
+unit_size = 8.0
 bus = &"SFX"
 attenuation_filter_cutoff_hz = 10000.0
 script = ExtResource("2_2w77x")

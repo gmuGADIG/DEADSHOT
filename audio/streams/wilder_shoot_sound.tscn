@@ -15,6 +15,6 @@ stream_3/stream = ExtResource("4_bdlhd")
 
 [node name="WilderShootSound" type="AudioStreamPlayer3D"]
 stream = SubResource("AudioStreamRandomizer_etmxu")
-volume_db = -5.124
+volume_db = -4.0
 bus = &"SFX"
 script = ExtResource("2_weup4")
