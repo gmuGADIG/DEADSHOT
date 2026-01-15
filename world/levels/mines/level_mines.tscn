@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://c4nw61qu6fyyk"]
+[gd_scene load_steps=66 format=3 uid="uid://c4nw61qu6fyyk"]
 
 [ext_resource type="PackedScene" uid="uid://bk60c4813t663" path="res://world/levels/level_base.tscn" id="1_nthvq"]
 [ext_resource type="Texture2D" uid="uid://48dfxh6s6pk2" path="res://world/backgrounds/cavern_bg.png" id="2_rskgg"]
@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dre3fuqp6wu6g" path="res://world/floor/rock/rock_edge.png" id="4_fb8xb"]
 [ext_resource type="PackedScene" uid="uid://b4n4rflu3my0v" path="res://world/enemy/longhorn/longhorn.tscn" id="5_ci4pn"]
 [ext_resource type="PackedScene" uid="uid://dwdhuncnyfmcw" path="res://world/enemy/wilder/wilder.tscn" id="6_fb8xb"]
-[ext_resource type="Script" uid="uid://5430ylajkno2" path="res://world/transitions/entry_point.gd" id="7_mqp80"]
+[ext_resource type="Script" path="res://world/transitions/entry_point.gd" id="7_mqp80"]
 [ext_resource type="Resource" uid="uid://cifkmhsi3x77d" path="res://audio/music/song_files/mines_level/Elizabeth_mines_combat_song.tres" id="9_d5wqa"]
 [ext_resource type="PackedScene" uid="uid://dhb2pgqbfvxoa" path="res://world/enemy/encounter/encounter.tscn" id="11_rkdtq"]
 [ext_resource type="PackedScene" uid="uid://3o8nbg2v248a" path="res://world/interactables/puddle/puddle.tscn" id="12_akuqq"]
@@ -45,9 +45,10 @@
 [ext_resource type="Resource" uid="uid://b0ph8y4swfnoa" path="res://writing/mines/mines_lore_2.tres" id="38_ytjbb"]
 [ext_resource type="Resource" uid="uid://g6fyl8rqnp2d" path="res://writing/mines/mines_lore_3.tres" id="39_j35y6"]
 [ext_resource type="Resource" uid="uid://clhgf74gvg10g" path="res://writing/mines/mines_lore_4.tres" id="40_xnxv1"]
-[ext_resource type="PackedScene" uid="uid://l48hxjrmvkp" path="res://world/npc/npc_cryptic_nomad.tscn" id="42_d5wqa"]
+[ext_resource type="PackedScene" uid="uid://drnl31ofxrsri" path="res://world/npc/npc_cryptic_nomad.tscn" id="42_d5wqa"]
 [ext_resource type="Resource" uid="uid://ducs014twb0md" path="res://writing/mines/mines_crypticnomad.tres" id="43_j35y6"]
 [ext_resource type="PackedScene" uid="uid://ck3lifhncrfx2" path="res://world/npc/npc_barmaid.tscn" id="44_h61a4"]
+[ext_resource type="Resource" uid="uid://bbii4bjpuumyw" path="res://writing/mines/mines_ancientlady.tres" id="45_sk1oa"]
 [ext_resource type="Resource" uid="uid://cg4sigqxy3ok5" path="res://writing/mines/mines_barmaid.tres" id="45_xnxv1"]
 [ext_resource type="PackedScene" uid="uid://bg0cg3jolk6u" path="res://world/npc/npc_demoman2.tscn" id="46_d5wqa"]
 [ext_resource type="Resource" uid="uid://bq8wyqyt08kp2" path="res://writing/mines/mines_demo2.tres" id="47_gfthc"]
@@ -1013,6 +1014,7 @@ timeline = ExtResource("40_xnxv1")
 
 [node name="NPCAncientLady" parent="." index="23" instance=ExtResource("32_smnpg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.44586, -2.3841858e-07, -22.947968)
+timeline = ExtResource("45_sk1oa")
 
 [node name="NPCCrypticNomad" parent="." index="24" instance=ExtResource("42_d5wqa")]
 transform = Transform3D(1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, 2.4571111, 0.108693, -0.33722568)
