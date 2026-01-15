@@ -233,10 +233,11 @@ func set_ambience(ambience_type : Level.AmbienceType) -> void:
 		Level.AmbienceType.DESERT:
 			desert_particles.emitting = true
 			cave_particles.emitting = false
+			%RollDesertParticles.show()
 		Level.AmbienceType.CAVE:
 			desert_particles.emitting = false
 			cave_particles.emitting = true
-	pass
+			%RollDesertParticles.hide()
 
 ## Returns the inputted walking direction on the XZ plane (Y = 0)
 func input_direction() -> Vector3:
@@ -271,7 +272,10 @@ func begin_roll() -> void:
 	if stamina < 1.0: return
 	stamina -= 1.0
 	
+	var mul := 1. if not SkillSet.has_skill(SkillSet.SkillUID.PISTOL_DAMAGE) else .5
 	%RollSound.play()
+	%RollDesertParticles.lifetime = roll_curve.max_domain * mul
+	%RollDesertParticles.emitting = true
 	current_state = PlayerState.ROLLING
 	health_component.vulnerable = false
 	roll_time = 0

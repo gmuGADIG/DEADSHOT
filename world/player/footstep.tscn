@@ -19,7 +19,7 @@ alpha_curve = SubResource("Curve_cdosp")
 [node name="CPUParticles3D" type="CPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
 emitting = false
-amount = 5
+amount = 1
 lifetime = 1.5
 one_shot = true
 explosiveness = 1.0

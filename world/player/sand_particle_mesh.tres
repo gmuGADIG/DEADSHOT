@@ -5,6 +5,7 @@ load_path = "res://.godot/imported/coin_white.png-907999ad18ee862ff647710cf1d01d
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wxa5a"]
 transparency = 1
+vertex_color_use_as_albedo = true
 albedo_color = Color(0.6509804, 0.49019608, 0.34901962, 1)
 albedo_texture = SubResource("CompressedTexture2D_fn377")
 billboard_mode = 1
