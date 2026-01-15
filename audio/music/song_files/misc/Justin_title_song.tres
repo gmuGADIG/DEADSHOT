@@ -24,3 +24,4 @@ fade_out_curve = SubResource("Curve_waopa")
 script = ExtResource("1_ichxc")
 song_file = ExtResource("3_c2oug")
 sections = Array[ExtResource("2_64lxq")]([SubResource("Resource_g3e8l")])
+amplify_db = -1.5
