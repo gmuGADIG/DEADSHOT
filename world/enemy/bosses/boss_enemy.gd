@@ -27,6 +27,24 @@ func hostile() -> void:
 
 func attack() -> void:
 	pass
+	
+func death() -> void:
+	# save that this enemy died
+	
+	# drop stuff
+	drop_tonic()
+	if spawn_on_killed != null:
+		var spawn := spawn_on_killed.instantiate()
+		add_sibling(spawn)
+		spawn.global_position = global_position
+		
+	var die_sound := $BossDeathSound
+	if die_sound:
+		die_sound.reparent(get_tree().current_scene)
+		die_sound.play()
+	
+	# free
+	queue_free()
 
 func _on_visible_on_screen_notifier_3d_screen_entered() -> void:
 	pass #Override base enemy behavior
