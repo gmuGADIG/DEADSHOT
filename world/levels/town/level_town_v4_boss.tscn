@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ohg0len20ido"]
+[gd_scene load_steps=19 format=3 uid="uid://ohg0len20ido"]
 
 [ext_resource type="PackedScene" uid="uid://cxahvvaidpg32" path="res://world/levels/town/level_town_base.tscn" id="1_83ufp"]
 [ext_resource type="PackedScene" uid="uid://rberd5xw8srm" path="res://world/transitions/transition.tscn" id="2_4ry00"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://dhb2pgqbfvxoa" path="res://world/enemy/encounter/encounter.tscn" id="6_5x431"]
 [ext_resource type="PackedScene" uid="uid://cqcjv8i3rxkbu" path="res://world/enemy/sheriff/sheriff.tscn" id="7_w4wah"]
 [ext_resource type="PackedScene" uid="uid://bp6l0lw650m8o" path="res://world/blocker/blocker.tscn" id="8_5x431"]
+[ext_resource type="PackedScene" uid="uid://vm5nvorhandp" path="res://world/items/tonic/tonic.tscn" id="11_jglpt"]
+[ext_resource type="PackedScene" uid="uid://6ahxaf8mfjcr" path="res://world/pickups/ammo_pickup/ammo_pickup.tscn" id="12_q1x3c"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jglpt"]
 size = Vector3(60.117188, 3, 17.013636)
@@ -104,6 +106,46 @@ tracks/6/keys = {
 "values": [4]
 }
 
+[sub_resource type="Animation" id="Animation_q1x3c"]
+resource_name = "fight"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Encounter/Sheriff:process_mode")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player:process_mode")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MainCam:process_mode")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_q05pj"]
 resource_name = "start"
 length = 7.0
@@ -191,46 +233,6 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [4]
-}
-
-[sub_resource type="Animation" id="Animation_q1x3c"]
-resource_name = "fight"
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Encounter/Sheriff:process_mode")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Player:process_mode")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("MainCam:process_mode")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_q1x3c"]
@@ -414,6 +416,18 @@ transform = Transform3D(1, 0, 0, 0, 0.57357645, 0.81915206, 0, -0.81915206, 0.57
 libraries = {
 &"": SubResource("AnimationLibrary_q1x3c")
 }
+
+[node name="Tonic" parent="." index="19" instance=ExtResource("11_jglpt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.1699, 0, 1.1986284)
+
+[node name="Tonic2" parent="." index="20" instance=ExtResource("11_jglpt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.07911, 0, -0.17586803)
+
+[node name="AmmoPickup" parent="." index="21" instance=ExtResource("12_q1x3c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.050648, 0, 33.376915)
+
+[node name="AmmoPickup2" parent="." index="22" instance=ExtResource("12_q1x3c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.33308, -1.9073486e-06, -28.494629)
 
 [editable path="Encounter"]
 [editable path="TransitionAreas/Transition"]

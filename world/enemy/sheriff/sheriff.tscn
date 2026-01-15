@@ -77,7 +77,7 @@ attack_left = SubResource("Resource_lodko")
 attack_right = SubResource("Resource_i12ud")
 
 [node name="Health" parent="." index="4"]
-max_health = 80.0
+max_health = 75.0
 
 [node name="EncounterObject" parent="." index="7"]
 start_active = true

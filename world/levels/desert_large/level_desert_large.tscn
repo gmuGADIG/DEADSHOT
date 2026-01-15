@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cjuuefpldxnv" path="res://world/backgrounds/desert_bg.png" id="2_trnsn"]
 [ext_resource type="PackedScene" uid="uid://d1e8myf75tnlv" path="res://world/interactables/cover/cover_cactus_large.tscn" id="4_xa3ak"]
 [ext_resource type="PackedScene" uid="uid://bp6l0lw650m8o" path="res://world/blocker/blocker.tscn" id="6_4q5tc"]
-[ext_resource type="Script" path="res://world/transitions/entry_point.gd" id="6_trnsn"]
+[ext_resource type="Script" uid="uid://5430ylajkno2" path="res://world/transitions/entry_point.gd" id="6_trnsn"]
 [ext_resource type="PackedScene" uid="uid://c8a3ul47e6b2y" path="res://world/interactables/cover/cover_boulder.tscn" id="7_afdcq"]
 [ext_resource type="PackedScene" uid="uid://8er7o8byf7v1" path="res://world/decoration/well/well.tscn" id="7_gq3fs"]
 [ext_resource type="PackedScene" uid="uid://bb3qdjspo0kcq" path="res://world/interactables/barrel/barrel.tscn" id="8_afdcq"]
@@ -33,7 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://bo8fih3lgc5oj" path="res://world/backgrounds/stalagmite3.png" id="28_tid2h"]
 [ext_resource type="Texture2D" uid="uid://b1chcsvryv8et" path="res://world/backgrounds/stalagmite2.png" id="29_mf1js"]
 [ext_resource type="PackedScene" uid="uid://crroyl2puavcb" path="res://world/decoration/floor_lantern/floor_lantern.tscn" id="30_ehym8"]
-[ext_resource type="PackedScene" uid="uid://drnl31ofxrsri" path="res://world/npc/npc_cryptic_nomad.tscn" id="34_e2bp0"]
+[ext_resource type="PackedScene" uid="uid://l48hxjrmvkp" path="res://world/npc/npc_cryptic_nomad.tscn" id="34_e2bp0"]
 [ext_resource type="Resource" uid="uid://bweukovpkolvr" path="res://writing/largedesert/largedesert_crypticnomad.tres" id="35_52dvu"]
 [ext_resource type="PackedScene" uid="uid://b4a6qry8kyr87" path="res://world/npc/npc_snake_oil_salesman.tscn" id="36_jssub"]
 [ext_resource type="Resource" uid="uid://bc8recjumkbv1" path="res://writing/largedesert/largedesert_snakeoilsalesman.tres" id="37_rx7v0"]
@@ -138,7 +138,7 @@ target_scene = "uid://c4lcfae1j0kdx"
 target_entry_point = "Bottom"
 
 [node name="Player" parent="." index="5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.449486, 0, -45.45904)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.03888, 0, 30.769474)
 floor_type = 1
 
 [node name="Decor" type="Node" parent="." index="9"]
