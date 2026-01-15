@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://bml8kr5i4w3l0"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_kw4bx"]
+
+[resource]
+script = ExtResource("1_kw4bx")
+dialog = "[Demo #1] “HAH, HAH! I can’t stop thinkin’ about how those weirdos got turned into MUSH!” 
+[Demo #2] “See, I told you we’d find some more of those critters out there!”
+[Demo #1] “Hah, yeah... Huh? Oh, great, it’s Slimwater’s show pony coming to kill the party again.”
+“Hey, didn’t you get kicked outta town or somethin’? I knew we were gettin’ away with more than usual recently.”
+[Demo #2] “Got a fix of killin’ up north. These guys’re real gooey, ain’t they? Makes the explosions seem a whole lot fatter when they splatter.”
+[Demo #1] “Mmmmhm! Wish we coulda stayed, but after hearin’ the music of bullets comin’ from town, we hightailed it over! Hopin’ there’ll be an encore!”
+[ ] The larger one takes notice of the powerful energy emitting from your body.
+[Demo #2] “Hey...those were your puppies singin’, weren't they? Why, our little killjoy’s learnin’ to live a little! You’re gettin’ your hands dirty with those goo ghouls, too!
+[Demo #1] “Well, I'll be! While they’re keepin’ you busy, Wallop and I are gonna punch through the rest of our bucket list!”
+”But if you’re feelin’ as likeminded as you’re actin’, whaddya say you meet us over by the caves after we’re done here? We’ll be there with or without you, killjoy!”"
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"

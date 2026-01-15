@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://qcgif5dvbsmu"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_p1rtr"]
+
+[resource]
+script = ExtResource("1_p1rtr")
+dialog = "[Sheriff Zoa] “Tsk, look at you. Just my luck that you’re back... I've already got an unshakeable headache just tryna keep those blast junkies and little miss quickdraw under control.”
+“You may think you’re doing charity, but killing’s only gonna make this curse more troublesome.”
+“You’ve got plenty of fame from killing those innocent infected folk, so how about you just plant your boots here in town? And stay outta those damn mines, too! If you recall, last time I had to fish folks outta there, they were dead by your hands.”
+[ ] You don’t listen to her. The town is helpless in Zoa’s hands. You’re resolved to take care of things before someone you care about gets hurt."
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"

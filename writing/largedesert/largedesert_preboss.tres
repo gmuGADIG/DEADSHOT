@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DialogTimeline" load_steps=2 format=3 uid="uid://cb8t7vwx4xu3p"]
+
+[ext_resource type="Script" uid="uid://rvaetvwo5p3h" path="res://systems/dialog/dialog_timeline.gd" id="1_solds"]
+
+[resource]
+script = ExtResource("1_solds")
+dialog = "[ ] You’ve done it! The pitiful stallion rests at your feet as the result of a victorious battle! 
+You’ve put yourself one step closer to saving this town from the infection!
+...
+You see something hidden in the mane of the horse.
+It’s a sheriff's badge. She’s paid another terrible loss for her inaction.
+This will only worsen if you do not kill as necessary...you can’t let the sheriff continue getting away with this.
+You should go have a word with her."
+metadata/_custom_type_script = "uid://rvaetvwo5p3h"

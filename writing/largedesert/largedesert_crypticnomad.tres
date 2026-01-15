@@ -4,5 +4,7 @@
 
 [resource]
 script = ExtResource("1_s76ee")
-dialog = "[Cryptic Nomad] Not all sacrifices are noble, and not all men become heroes. People come and go every day, blowing along like grains of sand in the desert."
+dialog = "[Cryptic Nomad] \"People come and go every day, blowing along like grains of sand in the desert.\"
+\"But vultures...vultures circle. Those who bring forth death are their allies.\"
+"
 metadata/_custom_type_script = "uid://rvaetvwo5p3h"
