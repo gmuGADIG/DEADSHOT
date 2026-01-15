@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cjuuefpldxnv" path="res://world/backgrounds/desert_bg.png" id="2_q3pnm"]
 [ext_resource type="Resource" uid="uid://q24ustx30otu" path="res://world/floor/sand/sand.tres" id="3_q3pnm"]
 [ext_resource type="Texture2D" uid="uid://b1chcsvryv8et" path="res://world/backgrounds/stalagmite2.png" id="4_3hdfd"]
-[ext_resource type="Script" path="res://world/transitions/entry_point.gd" id="4_mvjcd"]
+[ext_resource type="Script" uid="uid://5430ylajkno2" path="res://world/transitions/entry_point.gd" id="4_mvjcd"]
 [ext_resource type="Texture2D" uid="uid://42ip2l07gewq" path="res://world/levels/town/building2.png" id="5_3hdfd"]
 [ext_resource type="Texture2D" uid="uid://d4iomax3x56yw" path="res://world/decoration/buildings/general_store.png" id="5_5qvel"]
 [ext_resource type="Texture2D" uid="uid://dogpjy022cabi" path="res://world/decoration/buildings/sheriff_office.png" id="5_ad2bl"]
@@ -159,7 +159,7 @@ alpha_cut = 1
 texture = ExtResource("5_3hdfd")
 
 [node name="House11" type="Sprite3D" parent="Houses/Up" index="3"]
-transform = Transform3D(0.8811288, -0.1775614, 0.3075454, -5.2217963e-10, 0.8227241, 0.47499996, -0.3551228, -0.44056433, 0.7630798, 5.452318, 3.579618, -16.11459)
+transform = Transform3D(0.8797055, -0.13053176, 0.3340357, -0.050061144, 0.83148336, 0.45675963, -0.35512286, -0.44056442, 0.76307994, 5.452318, 3.579618, -16.11459)
 pixel_size = 0.0033
 alpha_cut = 1
 texture = ExtResource("5_5qvel")
