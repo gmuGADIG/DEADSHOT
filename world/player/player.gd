@@ -349,7 +349,8 @@ func play_walking_sfx() -> void:
 		else:
 			new_footstep.global_position += velocity.normalized().rotated(Vector3.UP,PI/2)*0.2
 			footstep_state = FootstepState.RIGHT
-		
+		if desert_particles.emitting:
+			new_footstep.sand_kick()
 	
 	print("STEP")
 	if(speed_multiplier == 0.5): #Check if player is in puddle

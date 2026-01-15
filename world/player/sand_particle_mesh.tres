@@ -1,0 +1,14 @@
+[gd_resource type="QuadMesh" load_steps=3 format=3 uid="uid://cdwprxyr25kqj"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fn377"]
+load_path = "res://.godot/imported/coin_white.png-907999ad18ee862ff647710cf1d01d7d.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wxa5a"]
+transparency = 1
+albedo_color = Color(0.6509804, 0.49019608, 0.34901962, 1)
+albedo_texture = SubResource("CompressedTexture2D_fn377")
+billboard_mode = 1
+
+[resource]
+material = SubResource("StandardMaterial3D_wxa5a")
+size = Vector2(0.1, 0.1)

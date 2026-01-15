@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://5drje4gqbllh"]
+[gd_scene load_steps=5 format=3 uid="uid://5drje4gqbllh"]
 
 [ext_resource type="Texture2D" uid="uid://sxaysn4gqoxo" path="res://temp_art/gartic/coin.png" id="1_21svn"]
 [ext_resource type="Script" uid="uid://53nwngo3cu4x" path="res://world/player/footstep.gd" id="1_cdosp"]
+[ext_resource type="QuadMesh" uid="uid://cdwprxyr25kqj" path="res://world/player/sand_particle_mesh.tres" id="3_e3ewm"]
 
 [sub_resource type="Curve" id="Curve_cdosp"]
 _limits = [0.0, 1.0, 0.0, 5.0]
@@ -14,3 +15,19 @@ modulate = Color(0, 0, 0, 0.32156864)
 texture = ExtResource("1_21svn")
 script = ExtResource("1_cdosp")
 alpha_curve = SubResource("Curve_cdosp")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+emitting = false
+amount = 5
+lifetime = 1.5
+one_shot = true
+explosiveness = 1.0
+mesh = ExtResource("3_e3ewm")
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, -1, 0)
+spread = 20.0
+gravity = Vector3(1, -1.5, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 5.0
