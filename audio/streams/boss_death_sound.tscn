@@ -8,3 +8,4 @@ stream = ExtResource("1_ua5l3")
 volume_db = 1.553
 bus = &"SFX"
 script = ExtResource("2_fq3yd")
+delete_on_finish = true
