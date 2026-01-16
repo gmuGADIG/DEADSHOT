@@ -119,8 +119,8 @@ func update_state() -> void:
 	if dependencies.has(unbought) and bought != null:
 		unbought.state = State.LOCKED
 		print("unbought: " + str(unbought))
-		dependencies.erase(unbought)
-		evil_dependencies.append(unbought)
+		#dependencies.erase(unbought)
+		#evil_dependencies.append(unbought)
 	
 	#for dependency : Skill_Button in dependencies:
 	#if dependency.state != State.PURCHASED:
@@ -168,9 +168,12 @@ func purchase() -> void:
 	$TextureRect.texture = itemDesc.skill_image_upgraded
 	%PurchaseParticles.emitting = true
 	
-	for child in evil_dependencies:
-		if child.state == State.LOCKED:
-				child.remove(Line2D)
+	#for child in dependencies:
+	#	if child.state != State.PURCHASED:
+	#		var line := self.get_node("Line2D")
+	#		print("line" + str(line))
+	#		if line != null:
+	#			line.queue_free()
 	
 	# Dialogue
 	play_dialogue()
