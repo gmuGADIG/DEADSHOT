@@ -63,13 +63,21 @@ func _ready() -> void:
 	
 	# Fix this, make sure line goes in correct place
 	for child in dependencies:
-		if child.state != State.LOCKED:
+		if child.state != State.LOCKED or child.state == State.PURCHASED:
 			var line := Line2D.new()
 			line.texture = preload("res://menu/skill_tree/skill_tree_icons/board_connector.png")
 			line.texture_mode = Line2D.LINE_TEXTURE_STRETCH
 			line.add_point(Vector2.ZERO)
 			line.add_point(child.global_position - self.global_position)
 			%SkillBranches.add_child(line)
+			if child.state == State.PURCHASED:
+				# Draws meat on every other button
+				$TextureRect.texture = itemDesc.skill_image_upgraded
+	
+	# Draws on base button
+	if dependencies.size() == 0 and state == State.PURCHASED:
+		$TextureRect.texture = itemDesc.skill_image_upgraded
+		
 
 func update_purchase_state() -> void:
 	if SkillSet.has_skill(itemDesc.skill_uid):
@@ -111,8 +119,8 @@ func update_state() -> void:
 	if dependencies.has(unbought) and bought != null:
 		unbought.state = State.LOCKED
 		print("unbought: " + str(unbought))
-		dependencies.erase(unbought)
-		evil_dependencies.append(unbought)
+		#dependencies.erase(unbought)
+		#evil_dependencies.append(unbought)
 	
 	#for dependency : Skill_Button in dependencies:
 	#if dependency.state != State.PURCHASED:
@@ -156,8 +164,16 @@ func purchase() -> void:
 	purchase_made.emit(itemDesc.skill_uid)
 	
 	# Visuals
+	# Here is the meat texture
 	$TextureRect.texture = itemDesc.skill_image_upgraded
 	%PurchaseParticles.emitting = true
+	
+	#for child in dependencies:
+	#	if child.state != State.PURCHASED:
+	#		var line := self.get_node("Line2D")
+	#		print("line" + str(line))
+	#		if line != null:
+	#			line.queue_free()
 	
 	# Dialogue
 	play_dialogue()
