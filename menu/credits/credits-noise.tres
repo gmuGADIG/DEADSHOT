@@ -2,7 +2,7 @@
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_tkrk8"]
 frequency = 0.0837
-offset = Vector3(0, 0, 250022.55)
+offset = Vector3(0, 0, 295603.94)
 fractal_octaves = 2
 
 [resource]

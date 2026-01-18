@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_3qjfp")
-dialog = "[ ] Heroes need to be strong…"
+dialog = "[ ] Heroes need to be strong..."
 metadata/_custom_type_script = "uid://rvaetvwo5p3h"

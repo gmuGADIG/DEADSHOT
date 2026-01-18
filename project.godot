@@ -13,7 +13,7 @@ config_version=5
 config/name="DEADSHOT"
 run/main_scene="uid://by8y1gjlttw6g"
 config/features=PackedStringArray("4.5")
-config/icon="res://temp_art/icon.svg"
+config/icon="uid://r0aaf6wrj44l"
 
 [autoload]
 
@@ -33,6 +33,10 @@ gdscript/warnings/untyped_declaration=2
 [display]
 
 window/stretch/mode="canvas_items"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/minimize_html_build/plugin.cfg")
 
 [file_customization]
 
