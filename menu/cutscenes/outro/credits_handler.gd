@@ -1,7 +1,7 @@
 extends Node
 
 # i measured this when the scroller speed was at 30 px/s
-const CREDITS_DURATION := 210.
+const CREDITS_DURATION := 218.
 var started := false
 
 @export var songs: Array[Song]
