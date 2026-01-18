@@ -18,7 +18,7 @@
 [ext_resource type="Script" uid="uid://740avbeu1wf0" path="res://menu/credits/canvas_group.gd" id="7_o0fyp"]
 [ext_resource type="Resource" uid="uid://cckle8iujnl64" path="res://audio/music/song_files/desert_level/Nila_desert_song.tres" id="7_wpph0"]
 [ext_resource type="Script" uid="uid://decf5fuftpwyu" path="res://menu/credits/scroller.gd" id="8_4jf67"]
-[ext_resource type="Resource" uid="uid://dfovwf7isgyks" path="res://audio/music/song_files/desert_level/Nathan_horse_boss_song.tres" id="8_a24g4"]
+[ext_resource type="Resource" uid="uid://b8tbns1l0a0fv" path="res://audio/music/song_files/desert_level/Nathan_horse_boss_song.tres" id="8_a24g4"]
 [ext_resource type="FontFile" uid="uid://bhmvsjs1rouun" path="res://menu/credits/CourierPrime-Regular.ttf" id="9_fet1n"]
 [ext_resource type="Resource" uid="uid://tli21qkgcwye" path="res://audio/music/song_files/town_level_corrupted/Becs_corrupt_town_song.tres" id="9_rkkkf"]
 [ext_resource type="Resource" uid="uid://bin2l0wyprpnw" path="res://audio/music/song_files/town_level_corrupted/Xander_corrupt_town_combat_song.tres" id="10_ma4xs"]
@@ -30,9 +30,9 @@ shader = ExtResource("5_snh3m")
 shader_parameter/noise = ExtResource("6_3ysqs")
 shader_parameter/alpha_map = ExtResource("4_3ysqs")
 shader_parameter/alpha_threshold = 0.06000000215148
-shader_parameter/flame_threshold = 0.035000000963979996
+shader_parameter/flame_threshold = 0.03500000096397999
 shader_parameter/burn_end = 0.08500000333898
-shader_parameter/burn_start = 0.032000000821479996
+shader_parameter/burn_start = 0.03200000082147999
 shader_parameter/LINE = 0.03000000072648
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_1yjov"]
@@ -448,6 +448,8 @@ text = "[font=uid://ypol1ssrkffh][shake rate=7.0 level=5 connected=1][font_size=
 [/shake]
 [shake rate=2. level=3 connected=1]Christopher Taylor                           Music
 [/shake]
+[shake rate=2. level=3 connected=1]Cooper Rummel          Music, SFX, Cutscene Scores
+[/shake]
 [shake rate=2. level=3 connected=1]Dale N                                         SFX
 [/shake]
 [shake rate=2. level=3 connected=1]E                                            Music
@@ -519,6 +521,8 @@ text = "[font=uid://ypol1ssrkffh][shake rate=7.0 level=5 connected=1][font_size=
 [/shake]
 [shake rate=2. level=3 connected=1]Ari Pashya                   Narrative, Characters
 [/shake]
+[shake rate=2. level=3 connected=1]Beau                                    Characters
+[/shake]
 [shake rate=2. level=3 connected=1]Ben Roberts                    UI, Enemies/Bosses,
                                          QA Tester
 [/shake]
@@ -529,6 +533,9 @@ text = "[font=uid://ypol1ssrkffh][shake rate=7.0 level=5 connected=1][font_size=
 [shake rate=2. level=3 connected=1]Clancy Mahoney                           QA Tester
 [/shake]
 [shake rate=2. level=3 connected=1]Connor Reynolds                          Narrative
+[/shake]
+[shake rate=2. level=3 connected=1]Damien Williams           Enemies/Bosses, Weapons,
+                                  Level, QA Tester
 [/shake]
 [shake rate=2. level=3 connected=1]Edward Crawley               Narrative, Characters
 [/shake]
@@ -610,9 +617,13 @@ text = "[font=uid://ypol1ssrkffh][shake rate=7.0 level=5 connected=1][font_size=
 [/shake]
 [shake rate=2. level=3 connected=1]Arthur wiggins                                  UI
 [/shake]
+[shake rate=2. level=3 connected=1]Beau                                     Character
+[/shake]
 [shake rate=2. level=3 connected=1]Breeana Rivera              Character, Environment
 [/shake]
 [shake rate=2. level=3 connected=1]Celenia Plemmons                        Enemy/Boss
+[/shake]
+[shake rate=2. level=3 connected=1]Damien Williams                         Enemy/Boss
 [/shake]
 [shake rate=2. level=3 connected=1]Emma Cypcar                             Enemy/Boss
 [/shake]
@@ -644,7 +655,7 @@ text = "[font=uid://ypol1ssrkffh][shake rate=7.0 level=5 connected=1][font_size=
 [/shake]
 [shake rate=2. level=3 connected=1]Maggie                                 Environment
 [/shake]
-[shake rate=2. level=3 connected=1]Maya Banks                             Environment
+[shake rate=2. level=3 connected=1]Maya Banks                         UI, Environment
 [/shake]
 [shake rate=2. level=3 connected=1]Mu Ying Yong                            Enemy/Boss
 [/shake]
