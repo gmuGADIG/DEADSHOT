@@ -104,7 +104,7 @@ officers = [
     Person("Joan Palacios", ["Production Manager"]),
     Person("Alex Xayavong", ["Assistant Production Manager"]),
     Person("Kaiden Zamora-Soon", ["Webmaster"]),
-    Person("Jordan Tatum", ["Webmaster"]),
+    Person("Jordan Tatum", ["Social Media Manager"]),
     Person("Jonathan Seek", ["Secretary"]),
     Person("Zachary Kim", ["Treasurer"]),
 
