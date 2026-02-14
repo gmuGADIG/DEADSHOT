@@ -45,8 +45,9 @@ func on_skill_pressed(skill_button : Skill_Button) -> void:
 	tween.tween_property(self,"scale",Vector2(zoom_strength,zoom_strength),zoom_time)
 	tween.tween_property(self,"position",-zoom_strength*(skill_button.global_position+zoom_offset),zoom_time)
 	
-	#for skill_button : Skill_Button in skill_buttons:
-		#skill_button.update_state()
+	# I uncommented this, I think it's fine for now
+	for button : Skill_Button in skill_buttons:
+		button.update_state()
 
 
 func _on_purchase_pressed() -> void:
